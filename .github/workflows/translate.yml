@@ -1,0 +1,87 @@
+name: translate
+
+env:
+  SOURCE_FILES: 'data/[a-z]*/*.json'
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'Source files'
+        required: True
+        default: ${SOURCE_FILES}
+  schedule:
+    - cron: "10 3 * * *"
+
+jobs:
+  merge-upstream:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        ref: 'master'
+        submodules: true
+    - name: Update upstream submodule
+      continue-on-error: true
+      run: |
+           git config user.name "Automatic translator"
+           git config user.email "<>"
+           (cd data/ && git pull)
+           git add data
+           git commit -m "update to upstream"
+           git push
+  translate:
+    needs: merge-upstream
+    strategy:
+      max-parallel: 1
+      matrix:
+        language: [ 'es', 'de', 'it', 'ru', 'zh', 'pl', 'sv', 'fr', 'nl' ]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        ref: 'master'
+        submodules: true
+    - uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+        architecture: 'x64'
+    - name: Set up dependencies
+      run: |
+           sudo apt-get install -y firefox
+           pip3 install selenium webdriver_manager
+    - name: Generate translations
+      continue-on-error: true
+      run: |
+           cd $GITHUB_WORKSPACE
+           mkdir data.${{ matrix.language }}
+           ./translation/translate.py --language ${{ matrix.language }} --maxrun 18000 --translate --deepl $SOURCE_FILES
+           ./translation/translate.py --language ${{ matrix.language }} --translate data/*.json data/*/*.json
+           (cd data && npm install)
+           cd data.${{ matrix.language }}
+           mkdir _generated
+           [ -d _node ] || ln -s ../data/_node
+           [ -f package.json ] || ln -s ../data/package.json
+           npm run build
+    - name: Save results
+      continue-on-error: true
+      run: |
+           git config user.name "Automatic translator"
+           git config user.email "<>"
+           git add data.${{ matrix.language }}/ translation/cache/${{ matrix.language }}/
+           git commit -m 'automatic translation'
+           git status
+           git checkout HEAD .
+           git pull --rebase --autostash
+           git push origin translations || true
+           # Try again with a short delay in case it fails (conflicting pushes)
+           sleep $((1 + $RANDOM % 10 * 10))
+           git pull --rebase --autostash
+           git push origin translations || true
+           #sleep $((1 + $RANDOM % 10 * 10))
+           #git pull --rebase --autostash
+           #git push origin translations || true
+           #sleep $((1 + $RANDOM % 10 * 10))
+           #git pull --rebase --autostash
+           #git push origin translations || true
