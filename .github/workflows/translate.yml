@@ -56,7 +56,7 @@ jobs:
       run: |
            cd $GITHUB_WORKSPACE
            mkdir data.${{ matrix.language }} || true
-           ./translation/translate.py --language ${{ matrix.language }} --maxrun 600 --translate --deepl $SOURCE_FILES
+           ./translation/translate.py --language ${{ matrix.language }} --maxrun 18000 --translate --deepl $SOURCE_FILES
            ./translation/translate.py --language ${{ matrix.language }} --translate data/*.json data/*/*.json
            (cd data && npm install)
            cd data.${{ matrix.language }}
@@ -74,4 +74,4 @@ jobs:
            git status
            git checkout HEAD .
            git pull --rebase --autostash
-           git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash && git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash && git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash git push origin
+           git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash && git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash && git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash && git push origin
