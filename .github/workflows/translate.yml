@@ -34,7 +34,7 @@ jobs:
   translate:
     needs: merge-upstream
     strategy:
-      max-parallel: 1
+      max-parallel: 9
       matrix:
         language: [ 'es', 'de', 'it', 'ru', 'zh', 'pl', 'sv', 'fr', 'nl' ]
     runs-on: ubuntu-latest
@@ -74,14 +74,4 @@ jobs:
            git status
            git checkout HEAD .
            git pull --rebase --autostash
-           git push origin || true
-           # Try again with a short delay in case it fails (conflicting pushes)
-           sleep $((1 + $RANDOM % 10 * 10))
-           git pull --rebase --autostash
-           git push origin || true
-           #sleep $((1 + $RANDOM % 10 * 10))
-           #git pull --rebase --autostash
-           #git push origin translations || true
-           #sleep $((1 + $RANDOM % 10 * 10))
-           #git pull --rebase --autostash
-           #git push origin || true
+           git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash && git push origin || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash && git push origin translations || sleep $((1 + $RANDOM % 100)) && git pull --rebase --autostash git push origin
