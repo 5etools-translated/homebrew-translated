@@ -56,7 +56,7 @@ jobs:
       run: |
            cd $GITHUB_WORKSPACE
            mkdir data.${{ matrix.language }}
-           ./translation/translate.py --language ${{ matrix.language }} --maxrun 18000 --translate --deepl $SOURCE_FILES
+           ./translation/translate.py --language ${{ matrix.language }} --maxrun 600 --translate --deepl $SOURCE_FILES
            ./translation/translate.py --language ${{ matrix.language }} --translate data/*.json data/*/*.json
            (cd data && npm install)
            cd data.${{ matrix.language }}
