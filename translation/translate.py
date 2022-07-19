@@ -125,11 +125,11 @@ class Translator:
 		# Select from / to languages
 		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-source-lang-btn"]'))).click()
 		# div[@dl-test=translator-source-lang-list]
-		WebDriverWait(self._webdriver, 1).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-lang-option-en"]'))).click()
+		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-lang-option-en"]'))).click()
 
-		WebDriverWait(self._webdriver, 1).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-target-lang-btn"]'))).click()
+		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-target-lang-btn"]'))).click()
 		# div[@dl-test=translator-target-lang-list]
-		WebDriverWait(self._webdriver, 1).until(EC.presence_of_element_located((By.XPATH, f"//button[@dl-test=\"translator-lang-option-{supported_languages[self._language]}\"]"))).click()
+		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, f"//button[@dl-test=\"translator-lang-option-{supported_languages[self._language]}\"]"))).click()
 
 		self._inputField = self._webdriver.find_element(By.XPATH, '//textarea[@dl-test="translator-source-input"]')
 		self._outputField = self._webdriver.find_element(By.XPATH, '//*[@id="target-dummydiv"]')
