@@ -125,11 +125,11 @@ class Translator:
 		# Select from / to languages
 		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-source-lang-btn"]'))).click()
 		# div[@dl-test=translator-source-lang-list]
-		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-lang-option-en"]'))).click()
+		WebDriverWait(self._webdriver, 1).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-lang-option-en"]'))).click()
 
-		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-target-lang-btn"]'))).click()
+		WebDriverWait(self._webdriver, 1).until(EC.presence_of_element_located((By.XPATH, '//button[@dl-test="translator-target-lang-btn"]'))).click()
 		# div[@dl-test=translator-target-lang-list]
-		WebDriverWait(self._webdriver, 5).until(EC.presence_of_element_located((By.XPATH, f"//button[@dl-test=\"translator-lang-option-{self._language}\"]"))).click()
+		WebDriverWait(self._webdriver, 1).until(EC.presence_of_element_located((By.XPATH, f"//button[@dl-test=\"translator-lang-option-{self._language}\"]"))).click()
 
 		self._inputField = self._webdriver.find_element(By.XPATH, '//textarea[@dl-test="translator-source-input"]')
 		self._outputField = self._webdriver.find_element(By.XPATH, '//*[@id="target-dummydiv"]')
@@ -159,9 +159,14 @@ class Translator:
 
 		for word, translation in contains.items():
 			print(f"adding {word}:{translation} to glossary")
-			self._webdriver.find_element(By.XPATH, '//input[@dl-test="glossary-newentry-source-input"]').send_keys(word)
-			self._webdriver.find_element(By.XPATH, '//input[@dl-test="glossary-newentry-target-input"]').send_keys(translation)
-			self._webdriver.find_element(By.XPATH, '//button[@dl-test="glossary-newentry-accept-button"]').click()
+			try:
+				self._webdriver.find_element(By.XPATH, '//input[@dl-test="glossary-newentry-source-input"]').send_keys(word)
+				self._webdriver.find_element(By.XPATH, '//input[@dl-test="glossary-newentry-target-input"]').send_keys(translation)
+				self._webdriver.find_element(By.XPATH, '//button[@dl-test="glossary-newentry-accept-button"]').click()
+			except:
+				self._webdriver.find_element(By.XPATH, '//input[@aria-label="Source glossary entry"]').send_keys(word)
+				self._webdriver.find_element(By.XPATH, '//input[@aria-label="Target glossary entry"]').send_keys(translation)
+				self._webdriver.find_element(By.XPATH, '//button[@aria-label="Save entry"]').click()
 			time.sleep(0.5)
 			self._deeplGlossary.append(word)
 
