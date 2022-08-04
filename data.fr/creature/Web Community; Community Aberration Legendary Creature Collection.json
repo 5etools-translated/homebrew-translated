@@ -1,0 +1,421 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "COMAberrationLegendary",
+				"abbreviation": "COMAberrationLegendary",
+				"full": "Community Aberration Legendary Collection",
+				"authors": [
+					"A collection derived from the web community (Reddit,Pinterest,DmsGuild,ecc.). For credits, authors are provided with a web link in the entity description"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "2022.07.16",
+				"url": "",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1632778501,
+		"dateLastModified": 1659567299,
+		"_dateLastModifiedHash": "0a48d398b1"
+	},
+	"legendaryGroup": [
+		{
+			"name": "COMAberrationLegendaryLairActionsGeyadroneDihada",
+			"source": "COMAberrationLegendary",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), Geyadrone can take a lair action to cause one of the following effects:",
+				{
+					"type": "list",
+					"items": [
+						"Le repaire est un miasme tourbillonnant d'illusions et d'ombres, qui pousse les créatures à douter de leurs instincts. Chaque créature se trouvant à moins de 60 pieds de Geyadrone doit réussir un jet de sauvegarde de Sagesse DC 15 ou subir les effets du sort confusion.",
+						"Geyadrone invoque une vision du royaume lointain qui fait jaillir l'esprit d'un point qu'elle peut voir dans un rayon de 120 pieds autour d'elle. Chaque créature dans un rayon de 6 mètres de ce point doit réussir un test de sauvegarde de Sagesse DC 15 ou obtenir un compteur de démence."
+					]
+				}
+			]
+		}
+	],
+	"monster": [
+		{
+			"name": "Geyadrone Dihada",
+			"size": [
+				"M"
+			],
+			"type": "aberration",
+			"source": "COMAberrationLegendary",
+			"alignment": [
+				"L",
+				"E"
+			],
+			"ac": [
+				14
+			],
+			"hp": {
+				"formula": "20d8 + 100",
+				"average": 190
+			},
+			"speed": {
+				"walk": 30,
+				"fly": {
+					"number": 60,
+					"condition": "(hover)"
+				},
+				"canHover": true
+			},
+			"str": 14,
+			"dex": 18,
+			"con": 20,
+			"int": 23,
+			"wis": 24,
+			"cha": 25,
+			"passive": 23,
+			"cr": "19",
+			"shortName": "Geyadrone Dihada",
+			"senses": [
+				"darkvision 60 ft.",
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"D",
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Deep Speech",
+				"Elvish",
+				"Primordial",
+				"Sylvan",
+				"telepathy 120 ft."
+			],
+			"languageTags": [
+				"C",
+				"DS",
+				"E",
+				"P",
+				"S",
+				"TP"
+			],
+			"save": {
+				"int": "+12",
+				"wis": "+13",
+				"cha": "+13"
+			},
+			"skill": {
+				"deception": "+13",
+				"insight": "+13",
+				"perception": "+13",
+				"persuasion": "+13"
+			},
+			"resist": [
+				"cold",
+				"necrotic",
+				"poison",
+				"psychic"
+			],
+			"conditionImmune": [
+				"charmed",
+				"frightened"
+			],
+			"trait": [
+				{
+					"name": "Aura of Dementia",
+					"entries": [
+						"Toute créature qui commence son tour à moins de 30 pieds du Geyadrone doit réussir un jet de sauvegarde de Sagesse {@dc 21} ou gagner 1 compteur de démence (voir encadré)."
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/day)",
+					"entries": [
+						"Si le Geyadrone échoue à un jet de sauvegarde, il peut choisir de le réussir à la place."
+					]
+				},
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"Le Geyadrone a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+					]
+				},
+				{
+					"name": "Metamagic (1/turn)",
+					"entries": [
+						"Lorsque le sorcier lance un sort de 1er niveau ou plus, il peut appliquer l'une des options métamagiques suivantes à ce sort.",
+						{
+							"type": "list",
+							"items": [
+								"{@b Empowered Spell.} Lorsque Geyadrone effectue un jet de dégâts pour un sort, elle peut relancer jusqu'à 7 dés de dégâts de son choix. Elle doit utiliser les nouveaux jets.",
+								"{@b Heightened Spell.} Une créature affectée par le sort (au choix de Geyadrone) a un désavantage au premier jet de sauvegarde qu'elle doit effectuer contre les effets du sort.",
+								"{@b Seeking Spell.} Si Geyadrone fait un jet d'attaque pour un sort et le rate, elle peut relancer le {@dice d20}, et doit utiliser le nouveau jet.",
+								"{@b Twinned Spell.} Si le sort ne cible qu'une créature et n'a pas une portée de soi, Geyadrone peut cibler une deuxième créature à portée avec le même sort."
+							]
+						}
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances",
+				"Magic Resistance"
+			],
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Geyadrone est un lanceur de sorts de 20ème niveau. Sa capacité à lancer des sorts est le Charisme (sauvegarde contre les sorts {@dc 21}, +13 pour toucher avec les attaques de sorts). Geyadrone a préparé les sorts de sorcier suivants :"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell frostbite|XGE}",
+								"{@spell mind sliver|TCE}",
+								"{@spell prestidigitation}",
+								"{@spell ray of frost}",
+								"{@spell shocking grasp}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell chaos bolt|XGE}",
+								"{@spell dissonant whispers}",
+								"{@spell magic missile}",
+								"{@spell Tasha's caustic brew|TCE}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell calm emotions}",
+								"{@spell crown of madness}",
+								"{@spell detect thoughts}",
+								"{@spell Tasha's mind whip|TCE}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell counterspell}",
+								"{@spell hunger of Hadar}",
+								"{@spell thunder step|XGE}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell blight}",
+								"{@spell confusion}",
+								"{@spell Evard's black tentacles}"
+							],
+							"slots": 3
+						},
+						"5": {
+							"spells": [
+								"{@spell cloudkill}",
+								"{@spell dominate person}"
+							],
+							"slots": 3
+						},
+						"6": {
+							"spells": [
+								"{@spell chain lightning}",
+								"{@spell mental prison|XGE}"
+							],
+							"slots": 2
+						},
+						"7": {
+							"spells": [
+								"{@spell prismatic spray}",
+								"{@spell reverse gravity}"
+							],
+							"slots": 2
+						},
+						"8": {
+							"spells": [
+								"{@spell sunburst}"
+							],
+							"slots": 1
+						},
+						"9": {
+							"spells": [
+								"{@spell psychic scream|XGE}"
+							],
+							"slots": 1
+						}
+					},
+					"ability": "cha",
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"CS"
+			],
+			"damageTagsSpell": [
+				"A",
+				"B",
+				"C",
+				"F",
+				"I",
+				"L",
+				"N",
+				"O",
+				"R",
+				"T",
+				"Y"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Geyadrone effectue quatre attaques de souffle arcanique ou deux attaques de fouet tentaculaire."
+					]
+				},
+				{
+					"name": "Arcane Blast",
+					"entries": [
+						"{@atk rs} {@hit 13} pour toucher, portée de 120 ft., une cible. {@h}18 ({@damage 2d10 + 7}) dégâts de force."
+					]
+				},
+				{
+					"name": "Tentacle Lash",
+					"entries": [
+						"{@atk mw} {@hit 10} pour toucher, portée de 15 ft., une cible. {@h}15 ({@damage 2d10 + 4}) dégâts de matraquage, plus 13 ({@damage 3d8}) dégâts psychiques."
+					]
+				},
+				{
+					"name": "Corrupt Consciousness {@recharge}",
+					"entries": [
+						"Geyadrone cible une créature située à moins de 30 pieds d'elle et possédant au moins un compteur de démence qu'elle peut voir. La créature doit réussir un jet de sauvegarde de Sagesse ({@dc 21}) ou devenir {@condition charmed} par Geyadrone. Pendant que {@condition charmed}, Geyadrone peut utiliser son action bonus pour prendre le commandement de la créature pour son prochain tour.",
+						"A son tour, Geyadrone utilise son pouvoir psionique pour submerger le système de la créature, la poussant au-delà de sa limite physique normale ; représenté comme si la créature était sous l'effet du sort de hâte.",
+						"Une créature peut tenter de reprendre le contrôle de son esprit en réussissant un jet de sauvegarde de Sagesse ({@dc 21}) à la fin de son tour."
+					]
+				},
+				{
+					"name": "Warping Implosion {@recharge 5}",
+					"entries": [
+						"Geyadrone peut libérer son pouvoir aberrant en tant qu'anomalie spatio-temporelle. En tant qu'action, elle peut se téléporter dans un espace inoccupé qu'elle peut voir dans un rayon de 120 pieds autour d'elle. Immédiatement après sa disparition, chaque créature située dans un rayon de 30 pieds de l'espace qu'elle a quitté doit effectuer un jet de sauvegarde de Force. En cas d'échec, la créature subit {@damage 3d10} de dégâts de force et est attirée directement vers l'espace qu'elle a quitté, pour finir dans un espace inoccupé aussi proche que possible de son ancien espace. En cas de sauvegarde réussie, la créature subit la moitié des dégâts et n'est pas tirée."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"O",
+				"Y"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"conditionInflict": [
+				"charmed",
+				"stunned"
+			],
+			"bonus": [
+				{
+					"name": "Dihada's Guile",
+					"entries": [
+						"En tant qu'action bonus, Geyadrone peut dépenser un...",
+						"emplacement de sort pour regagner 4 ({@dice 1d8}) points de vie par niveau d'emplacement de sort",
+						"étendu."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "COMAberrationLegendaryLairActionsGeyadroneDihada",
+				"source": "COMAberrationLegendary"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"Geyadrone can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Geyadrone regains spent legendary actions at the start of her turn."
+			],
+			"legendary": [
+				{
+					"name": "Arcane Blast",
+					"entries": [
+						"Geyadrone fait une attaque de type Arcane Blast."
+					]
+				},
+				{
+					"name": "Teleportation Surprise (Costs 2 Actions)",
+					"entries": [
+						"Geyadrone se téléporte dans un espace inoccupé qu'elle peut voir dans un rayon de 30 pieds autour d'elle et peut effectuer une attaque de fouet à tentacules."
+					]
+				},
+				{
+					"name": "Psychic Lash (Costs 3 Actions)",
+					"entries": [
+						"Geyadrone cible une créature qu'elle peut voir dans un rayon de 30 pieds autour d'elle et donne un coup de fouet psychique à l'esprit de cette créature. La cible doit réussir un jet de sauvegarde de Sagesse {@dc 21} ou subir 36 ({@damage 8d8}) dégâts psychiques et être {@condition stunned} jusqu'au début de son prochain tour."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/Y2ErPuK.png",
+			"fluff": {
+				"entries": [
+					"{@link Geyadrone Dihada|https://www.reddit.com/r/dndmonsters/comments/q92i02/geyadrone_dihada_a_truly_horrifying_sorcerer/} and {@link Geyadrone PDF|https://drive.google.com/file/d/1YkV9nQq-8D6FIAKMespfPCvY8YHOtCE4/view}",
+					"{@i Your argument as to why I should spare you lacked substance. Now, so do you.}",
+					"{@i - Geyadrone Dihada}",
+					"Geyadrone Dihada est une ancienne entité d'un autre monde, dotée d'une soif de pouvoir insatiable et inextinguible. Elle se délecte à soumettre les puissants pour ses propres plans infâmes, ainsi qu'à corrompre ceux qui contiennent un potentiel qu'elle peut modeler et corrompre pour qu'ils servent ses plans.",
+					"Ses plans sont alambiqués et il est souvent impossible pour quiconque, à part elle, de réaliser toute la profondeur de sa dépravation. Dans le cas de Dakkon, le maître forgeron, elle l'a chargé de forger la Lame Noire, une épée légendaire qui boit l'âme, en lui promettant qu'un pouvoir divin lui serait conféré. Dakkon travailla chaque jour pendant 10 ans, mais il fut trahi et son âme fut emprisonnée dans la lame par Geyadrone une fois l'épée terminée. Pendant des années, Dakkon erra dans les plans, se demandant pourquoi elle l'avait trahi sans autre but que de l'amener à la haïr.",
+					"Après de nombreuses années, elle utilisa un autre mortel pour manier la Lame Noire et invoquer Dakkon. Lorsque Dakkon attaqua, Geyadrone invoqua deux dragons aînés pour combattre à sa place. Lorsque Dakkon sortit victorieux, Geyadrone absorba la force vitale et l'âme du dragon aîné pour se renforcer.",
+					"{@b Using Geyadrone in your Campaign}",
+					"Geyadrone peut facilement accepter le rôle de maître manipulateur dans votre monde. Elle peut approcher vos aventuriers à la manière de Dakkon, promettant un pouvoir illimité en échange de l'accomplissement d'une quête, avant d'être trahie par elle une fois la tâche accomplie.",
+					"Imaginez une Geyadrone affaiblie qui demande au groupe de récupérer un artefact qui peut être utilisé pour déverrouiller un portail vers un autre plan, afin que les habitants de ce plan puissent attaquer votre monde. Vos aventuriers peuvent se battre pour tenir les intrus à distance, pour découvrir plus tard que le massacre provoqué par cette guerre ne fait que donner du pouvoir à Geyadrone pour qu'elle revienne sous sa véritable forme et attaque le groupe.",
+					"{@b Roleplaying Geyadrone}",
+					"Geyadrone croit qu'elle est destinée au pouvoir et à la domination sur ceux qu'elle croit être inférieurs à elle (c'est-à-dire tout le monde). Elle utilisera n'importe qui si cela lui donne ne serait-ce qu'un minimum d'avantage sur une situation. Elle préfère mettre deux nations en guerre plutôt que d'aider à renforcer les relations entre deux autres nations si cela signifie qu'elle peut exploiter le paysage politique pour obtenir ce qu'elle désire.",
+					"{@i Personality Traits.} Je tiens toujours ma parole, sauf quand la rompre me donne un plus grand avantage.",
+					"{@i Ideals.} Lors de la pose d'un piège, le succès ne dépend pas de la qualité du piège, mais de la qualité de l'appât.",
+					"(Vous ne pouvez même pas imaginer les profondeurs de votre propre insignifiance.",
+					"{@i Flaws.} Seul quelqu'un qui peut rivaliser avec mon niveau de génie peut comprendre mes véritables intentions. Heureusement, personne ne s'en approche.",
+					"{@b Geyadrone's Lair}",
+					"La Citadelle impie est la forteresse d'os de Geyadrone qui traverse le pays sur des pattes arachnéennes. Le repaire de Geyadrone est aussi exaspérant qu'elle.",
+					{
+						"name": "Dementia Counters",
+						"type": "inset",
+						"entries": [
+							"Etre proche de Geyadrone Dihada est une expérience dangereuse.",
+							"Sa capacité à plier et à briser la volonté de ses adversaires imprègne l'air qui l'entoure. Se trouver dans le voisinage de Geyadrone, c'est être bombardé par un assaut psychique constant et infatigable. Seules les volontés les plus fortes peuvent se défendre contre le chant funèbre du bruit psychique, et même elles s'affaiblissent avec le temps.",
+							"Les créatures qui sont la proie de son Aura de démence obtiennent un compteur de démence. Chaque compteur de démence embrouille l'esprit de la créature, affaiblit sa volonté, ce qui permet à Geyadrone de lui transmettre la sienne plus facilement, et la pousse à une frénésie incontrôlable. Chaque compteur de corruption sur une créature confère les effets suivants :",
+							{
+								"type": "list",
+								"items": [
+									"{@b Frenzied Mind.} Chaque attaque de mêlée de la créature bénéficie d'un bonus de +2 aux jets d'attaque et de dégâts par pion.",
+									"{@b Reckless Attacks.} Les attaques effectuées par la créature sont effectuées avec un avantage, mais les jets d'attaque contre la créature ont également un avantage.",
+									"{@b Befuddled Mind.} La créature subit une pénalité cumulative de -2 à tous les jets de sauvegarde de Sagesse, d'Intelligence ou de Charisme par compteur de démence.",
+									"{@b Psychic Feedback.} Les créatures subissent 5 (1d10) dégâts psychiques supplémentaires aux sorts ou jets d'attaque effectués par le Geyadrone qui les touchent.",
+									"{@b Psionic Protection.} Geyadrone utilise l'esprit des créatures pour atténuer les dégâts qu'elle leur inflige. Elle gagne une résistance à tous les dégâts subis par les créatures qui ont un compteur de corruption sur elles."
+								]
+							},
+							"Une créature possédant un compteur de démence peut tenter de le retirer en réussissant un jet de sauvegarde de Sagesse (DC21). Un pion de démence peut également être retiré par la restauration moindre, la suppression de la malédiction, la dissipation du mal et du bien, ou toute autre magie similaire (Discrétion du MJ)."
+						]
+					},
+					{
+						"name": "Credits",
+						"entries": [
+							"{@b Art Credits}",
+							"Art de la couverture : Ekaterina Burmak (artstation.com/katemaxpaint)",
+							"Mise en page et design créés par DeathIVIonkey Homebrew à l'aide des images de stock suivantes et de manipulations photoshop :",
+							"Logo de DeathIVIonkey :",
+							"- Dark Monkey par Beatus Vir (deviantart.com/beatus-vir/art/dark-monkey-151824394)",
+							"Page de fond :",
+							"- Écriture manuscrite de Sœur Maria Crocifissa della",
+							"Concezione, 11 août 1676.",
+							"- Texture du film par lostandtaken.com",
+							"- Bordure de la page : Conçu par rawpixel.com / Freepik"
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/6F2ShtF.jpg"
+						}
+					}
+				]
+			}
+		}
+	]
+}
