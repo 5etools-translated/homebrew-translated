@@ -1,0 +1,2681 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "U_AOW",
+				"abbreviation": "U_AOW",
+				"full": "Armies of War",
+				"authors": [
+					"u/filmatra"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "3.1.1",
+				"url": "https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1657961727,
+		"dateLastModified": 1657961727,
+		"_dateLastModifiedHash": "b9c4041b59"
+	},
+	"legendaryGroup": [
+		{
+			"name": "ArmiesOfWarLairActionsCommanderOfWar",
+			"source": "U_AOW",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the keep's commander takes a lair action to cause one of the following effects; the commander can't use the same effect two rounds in a row:",
+				{
+					"type": "list",
+					"items": [
+						"Las rocas se lanzan a un punto de 15 pies de radio dentro de 30 pies de las paredes del torreón. Cada criatura en el área debe hacer una tirada de salvación de Destreza DC {@dc 15}, recibiendo 7 ({@damage 2d6}) de daño por apaleamiento en caso de fallar la tirada, o la mitad de daño en caso de tener éxito.",
+						"El aceite hirviente se derrama desde el torreón sobre todas las criaturas en un punto de radio de 10 pies a lo largo de las paredes del torreón. Cada criatura en el área debe hacer una tirada de salvación de Destreza DC 15. Si falla la tirada de salvación, la criatura recibe 10 ({@damage 4d4}) de daño por fuego y 5({@damage 2d4}) de daño por fuego adicional al comienzo de cada uno de sus turnos hasta que utilice su acción para limpiarse del aceite. Si la salvación tiene éxito, la criatura no recibe ningún daño.",
+						"Los defensores del torreón utilizan sus pasillos, su arquitectura y su sencilla maquinaria en su beneficio. Hasta el final del asalto, los ataques cuerpo a cuerpo contra las criaturas que elija el comandante se realizan con desventaja.",
+						"Un {@spell glyph of warding}, lanzado a 3er nivel, aparece en un lugar desocupado a elección del comandante en algún lugar del torreón. Uno de los comandantes puede gastar una ranura de hechizo para almacenar un hechizo que haya preparado dentro del glifo. De lo contrario, el glifo es una runa explosiva."
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing the keep may be altered by the keep's presence, which creates one or more of the following effects:",
+				{
+					"type": "list",
+					"items": [
+						"Fosos, trincheras y chevaux de frise marcan el paisaje, haciendo que el viaje sea agotador. La zona en un radio de 1 milla de la torre del homenaje es un terreno difícil",
+						"Los guardias del torreón han iluminado las tierras con ires ardientes, y patrullan minuciosamente las tierras a todas horas.Los chequeos de Destreza (Sigilo) realizados a menos de 1 milla del torreón se hacen con desventaja.",
+						"Los subordinados del comandante han sido convencidos de respetar o temer enormemente a su líder. Los chequeos de Carisma (Engaño, Intimidación y Persuasión) contra la gente del torreón se hacen con desventaja.",
+						"El señorío quemó sus tierras al mismo tiempo que retiraba a su población a las murallas del torreón. No se pueden buscar raciones ni cazar en un día de viaje desde el torreón."
+					]
+				},
+				"If the keep is taken, these effects fade over the course of {@dice 1d10} days."
+			]
+		}
+	],
+	"monster": [
+		{
+			"name": "Commanders of War",
+			"source": "U_AOW",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid"
+			},
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"{@item plate armor|phb|plate}"
+					]
+				}
+			],
+			"hp": {
+				"average": 229,
+				"formula": "27d8 + 108"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 20,
+			"dex": 16,
+			"con": 18,
+			"int": 12,
+			"wis": 12,
+			"cha": 18,
+			"save": {
+				"str": "+9",
+				"dex": "+7",
+				"con": "+8"
+			},
+			"skill": {
+				"athletics": "+9",
+				"intimidation": "+8",
+				"perception": "+5",
+				"persuasion": "+8"
+			},
+			"passive": 15,
+			"languages": [
+				"any two languages"
+			],
+			"cr": "12",
+			"trait": [
+				{
+					"name": "Indomitable (3/Day)",
+					"entries": [
+						"El Comandante de la Guerra puede volver a tirar una tirada de salvación que falle. Debe utilizar la nueva tirada."
+					]
+				},
+				{
+					"name": "Survivor",
+					"entries": [
+						"El comandante de guerra recupera 10 puntos de golpe al comienzo de su turno si tiene menos de la mitad de sus puntos de golpe pero al menos 1 punto de golpe."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"El comandante de guerra realiza dos ataques con Espada Grande o Arco Corto."
+					]
+				},
+				{
+					"name": "Greatsword",
+					"entries": [
+						"{@atk mw} {@hit 9} para golpear, alcance 5 pies, un objetivo. {@h}12 ({@damage 2d6 + 5}) de daño cortante."
+					]
+				},
+				{
+					"name": "Shortbow",
+					"entries": [
+						"{@atk rw} {@hit 7} para golpear, alcance 80/320 pies, un objetivo. {@h}6 ({@damage 1d6 + 3}) de daño penetrante."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "ArmiesOfWarLairActionsCommanderOfWar",
+				"source": "U_AOW"
+			},
+			"environment": [
+				"urban"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"X"
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RW",
+				"RNG"
+			],
+			"tokenUrl": "https://i.imgur.com/0xO1MYW.png",
+			"fluff": {
+				"entries": [
+					"{@link Commander of War|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}",
+					"El bloque de estadísticas de este npc se basa en el {@creature Warlord|MPMM} un personalizado para este homebrew",
+					{
+						"name": "Armies of War",
+						"entries": [
+							"El caos divide el reino central. Los niños nacen en la guerra, viven hasta la mayoría de edad y mueren en ella. Las facciones en guerra sacan a las ciudades prósperas, asediando sus castillos durante meses. Masivos batallones se enfrentan en el campo, cosiendo los campos con más cuerpos que semillas. Los colegios arcanos han orientado sus investigaciones hacia las artes de la muerte. Incluso los himnos del sagrado coro real se han convertido en elegías.",
+							"En esta época de guerra, los señores de la tierra confían en ejércitos y poderosos comandantes para representar sus intereses en el campo de batalla.",
+							"En este suplemento se encuentran todas las sencillas pero poderosas reglas que necesitarás para comandar tus propios ejércitos en expansión, defender las fortalezas de la invasión o reducirlas a la ruina, y decidir el destino del reino central."
+						]
+					},
+					{
+						"name": "Commanders of War",
+						"entries": [
+							"Todo ejército funciona mejor con un comandante, un individuo experimentado capaz de conducirlo a la gloria.",
+							"Normalmente, un ejército jura lealtad a un comandante que paga por su servicio, sirve a su señor o se ha ganado su respeto de alguna otra manera mediante la realización de alguna otra tarea. Un ejército sólo puede tener un comandante a la vez, pero puede cambiar de un comandante a otro en el transcurso de un descanso corto o largo.",
+							"Para obtener los beneficios de ser comandante, la puntuación de Carisma de un comandante debe ser mayor que el Valor de Desafío total de todos los ejércitos que comanda."
+						]
+					},
+					{
+						"name": "Siege Defense",
+						"entries": [
+							"Los robustos torreones de piedra, desde las imponentes torres de los puentes de peaje hasta los gloriosos castillos en el corazón de las ciudades prósperas, son iconos de seguridad en una época insegura.",
+							"Cuando una fortaleza es asediada, sus defensores tienen acceso a una variedad de herramientas de protección.",
+							"Las fortalezas varían drásticamente en tamaño y ubicación, pero todas sirven para el mismo propósito: rechazar a los invasores y proteger a sus habitantes de cualquier daño."
+						]
+					},
+					{
+						"name": "Gaining Commander Actions",
+						"entries": [
+							"Algunos comandantes poderosos pueden realizar más de 1 acción legendaria cada ronda. Como regla general, un comandante no jugador puede realizar 1 acción legendaria por cada 5 niveles de su Índice de Desafío. Por ejemplo, un Señor de la Guerra (CR 12) puede realizar 2 acciones legendarias cada ronda.",
+							"\"Si estás usando las reglas opcionales para las hazañas (PHB pg 165), un jugador puede ganar 1 acción legendaria en lugar de tomar una hazaña cuando gana un nivel\"."
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/0Sb5sdh.jpg"
+						}
+					}
+				]
+			},
+			"legendaryHeader": [
+				"The commander can take 1 legendary action, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The commander regains spent legendary actions at the start of its turn."
+			],
+			"damageTagsLegendary": [
+				"A",
+				"B",
+				"C",
+				"F",
+				"L",
+				"T"
+			],
+			"legendaryActions": 1,
+			"legendary": [
+				{
+					"name": "Advance/Retreat",
+					"entries": [
+						"Cada ejército de tu elección se mueve hasta la mitad de su velocidad."
+					]
+				},
+				{
+					"name": "Commanded Strike (Costs 2 Actions)",
+					"entries": [
+						"Un ejército de tu elección realiza un único ataque dirigido a otra criatura de tu elección que puedas ver."
+					]
+				},
+				{
+					"name": "Defensive Command (Costs 2 Actions)",
+					"entries": [
+						"Un ejército de tu elección gana los beneficios de la acción de esquivar hasta el final de su siguiente turno."
+					]
+				},
+				{
+					"name": "Detect",
+					"entries": [
+						"Haces un chequeo de Sabiduría (Percepción)."
+					]
+				},
+				{
+					"name": "Inspiring Command",
+					"entries": [
+						"Un ejército de tu elección que controles puede añadir un {@dice d10} a su próxima tirada de ataque, chequeo de habilidad o tirada de salvación."
+					]
+				}
+			]
+		},
+		{
+			"name": "Longbowman",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"any race"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"{@item padded armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "2d8",
+				"average": 9
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 14,
+			"dex": 13,
+			"con": 10,
+			"int": 10,
+			"wis": 11,
+			"cha": 10,
+			"passive": 10,
+			"cr": "1/4",
+			"shortName": "Longbowman",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"action": [
+				{
+					"name": "Shorsword",
+					"entries": [
+						"{@atk mw} {@hit 4} para golpear, alcance 5 pies, un objetivo. {@h}5 ({@damage 1d6 + 2}) de daño perforante."
+					]
+				},
+				{
+					"name": "Longbow",
+					"entries": [
+						"{@atk rw} {@hit 3} para golpear, alcance 150/600 pies, un objetivo. {@h}5 ({@damage 1d8 + 1}) de daño penetrante."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RW",
+				"RNG"
+			],
+			"tokenUrl": "https://i.imgur.com/oTvMW2G.png",
+			"fluff": {
+				"entries": [
+					"{@link Longbowman|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/0Z9Zv1S.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Archer Line",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"10-20 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"{@item padded armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "8d8 + 24",
+				"average": 60
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 22,
+			"dex": 13,
+			"con": 16,
+			"int": 10,
+			"wis": 11,
+			"cha": 10,
+			"passive": 10,
+			"cr": "3",
+			"shortName": "Archer Line",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+8"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de {@dc 13}Sabiduría o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Blacken Sky (must be above half hit points)",
+					"entries": [
+						"La unidad elige un punto en un radio de 600 pies. Todas las criaturas en un radio de 30 pies de ese punto deben realizar una tirada de salvación de Destreza {@dc 15}, recibiendo 21 ({@damage 6d6}) de daño perforante si fallan la tirada de salvación o la mitad si tienen éxito. Las criaturas que lleven una armadura pesada y un escudo realizan esta salvación con ventaja y no reciben ningún daño en lugar de la mitad si la salvación es satisfactoria."
+					]
+				},
+				{
+					"name": "Shortsword Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Shortsword Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Targeted Fire (swarm has more than half HP)",
+					"entries": [
+						"{@atk rw} {@hit 4} para golpear, alcance 150/600 pies, un objetivo. {@h}18 ({@damage 4d8}) de daño penetrante."
+					]
+				},
+				{
+					"name": "Targeted Fire (swarm has half HP or less)",
+					"entries": [
+						"{@atk rw} {@hit 4} para golpear, alcance 150/600 pies, un objetivo. {@h}9 ({@damage 2d8}) de daño penetrante."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RW"
+			],
+			"tokenUrl": "https://i.imgur.com/4JmSurx.png",
+			"fluff": {
+				"entries": [
+					"{@link Archer Line|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IHGCYYh.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Camp Followers",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"20-40 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				10
+			],
+			"hp": {
+				"formula": "8d8 + 8",
+				"average": 44
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 16,
+			"dex": 10,
+			"con": 13,
+			"int": 13,
+			"wis": 14,
+			"cha": 13,
+			"passive": 12,
+			"cr": "1",
+			"shortName": "Camp Followers",
+			"languages": [
+				"any four languages"
+			],
+			"languageTags": [
+				"X"
+			],
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Comforts of Home",
+					"entries": [
+						"Mientras esta unidad esté a menos de 300 pies de un ejército durante la duración de un descanso, ese ejército recupera la cantidad máxima de puntos de golpe en cualquier dado de golpe que gaste durante cada descanso corto y pierde un nivel adicional de agotamiento al final de cada descanso largo."
+					]
+				},
+				{
+					"name": "Diverse",
+					"entries": [
+						"La unidad se compone de comerciantes, médicos, artesanos, cortesanos y familias de soldados de todos los ámbitos. Siempre que la unidad haga un chequeo de habilidad, tira {@dice 1d4}. Con un 4, añade el doble de su bonificación de competencia (+4) al chequeo."
+					]
+				},
+				{
+					"name": "Weak Morale",
+					"entries": [
+						"Si la unidad queda {@condition frightened} o se reduce a la mitad de puntos de vida, recibe inmediatamente {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Makeshift Attack (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 6} para golpear, alcance 5 pies, un objetivo. {@h}10 ({@damage 4d4}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Makeshift Attack (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 6} para golpear, alcance 5 pies, un objetivo. {@h}5 ({@damage 2d4}) de daño por apaleamiento."
+					]
+				}
+			],
+			"damageTags": [
+				"B"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/wjO79cv.png",
+			"fluff": {
+				"entries": [
+					"{@link Camp Followers|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/3oFwjan.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Conscripted Footman",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"any race"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 11,
+					"from": [
+						"{@item padded armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "2d8 + 2",
+				"average": 11
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 12,
+			"dex": 11,
+			"con": 12,
+			"int": 10,
+			"wis": 9,
+			"cha": 10,
+			"passive": 9,
+			"cr": "1/8",
+			"shortName": "Conscripted Footman",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"trait": [
+				{
+					"name": "Undisciplined",
+					"entries": [
+						"El lacayo tiene desventaja en las tiradas de salvación contra el ser {@condition frightened}."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Spear",
+					"entries": [
+						"{@atk mw} {@hit 3} para golpear, alcance de 5 pies, un objetivo. {@h}4 ({@damage 1d6 + 1}) de daño penetrante, o 5 ({@damage 1d8 + 1}) de daño penetrante si se usa con ambas manos."
+					]
+				},
+				{
+					"name": "Sling",
+					"entries": [
+						"{@atk rw} {@hit 2} para golpear, alcance 30/120 pies, un objetivo. {@h}3 ({@damage 1d4 +1}) de daño por apaleamiento."
+					]
+				}
+			],
+			"damageTags": [
+				"B",
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RW",
+				"RNG"
+			],
+			"tokenUrl": "https://i.imgur.com/YTPicP5.png",
+			"fluff": {
+				"entries": [
+					"{@link Conscripted Footman|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/ywoYQAA.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Conscript Infantry",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"20-40 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 11,
+					"from": [
+						"{@item padded armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "8d8 + 24",
+				"average": 60
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 18,
+			"dex": 11,
+			"con": 16,
+			"int": 10,
+			"wis": 9,
+			"cha": 10,
+			"passive": 9,
+			"cr": "1",
+			"shortName": "Conscript Infantry",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+6"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Horde",
+					"entries": [
+						"Una criatura que comience su turno dentro del espacio del ejército recibe 14 ({@damage 4d6}) de daño penetrante, o 7({@dice 2d6}) si la unidad está por debajo de la mitad de sus puntos de vida."
+					]
+				},
+				{
+					"name": "Scavengers",
+					"entries": [
+						"Si la unidad pasa 10 o más minutos escarbando entre los restos de un ejército derrotado, su Clase de Armadura aumenta permanentemente en 1 (hasta un máximo de 16, sólo una vez por restos)."
+					]
+				},
+				{
+					"name": "Weak Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o se reduce a la mitad de puntos de golpe, recibe inmediatamente 2d8 de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Horde (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 6} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Horde (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 6} para golpear, alcance 5 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Spear Formation (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 7} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Spear Formation (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 7} para golpear, alcance 5 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Rain of Javelins (swarm has more than half HP)",
+					"entries": [
+						"{@atk rw} {@hit 2} para golpear, alcance 30/120 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño penetrante."
+					]
+				},
+				{
+					"name": "Rain of Javelins (swarm has half HP or less)",
+					"entries": [
+						"{@atk rw} {@hit 2} para golpear, alcance 30/120 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño penetrante."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RW"
+			],
+			"tokenUrl": "https://i.imgur.com/TEC9lCs.png",
+			"fluff": {
+				"entries": [
+					"{@link Conscript Infantry|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/9UaNXpv.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Heavy Cavalry",
+			"size": [
+				"G"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"10-20 members",
+					"warhorse"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 17,
+					"from": [
+						"{@item splint armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "18d8 + 108",
+				"average": 189
+			},
+			"speed": {
+				"walk": {
+					"number": 30,
+					"condition": "(60 ft. while mounted)"
+				}
+			},
+			"str": 22,
+			"dex": 13,
+			"con": 22,
+			"int": 11,
+			"wis": 11,
+			"cha": 10,
+			"passive": 14,
+			"cr": "12",
+			"shortName": "Heavy Cavalry",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+10",
+				"perception": "+4"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para una bestia grande mientras está montada o un humanoide mediano mientras no está montado. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Trampling Charge",
+					"entries": [
+						"Si la unidad se mueve al menos 20 pies en línea recta hacia una criatura y luego la golpea con un ataque de pezuñas en el mismo turno, ese objetivo debe tener éxito en una tirada de salvación de Fuerza{@dc 14} o ser derribado {@condition prone}. Si el objetivo es {@condition prone}, la unidad puede realizar otro ataque con sus pezuñas contra él como acción adicional."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de {@dc 13}Sabiduría o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Si la unidad ha movido al menos 20 pies en línea recta este turno, realiza una carga de lanza y un ataque de pezuñas. De lo contrario, realiza un ataque de ráfaga de armas laterales."
+					]
+				},
+				{
+					"name": "Spear Charge (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Spear Charge (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Hooves (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Hooves (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Sidearm Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño cortante."
+					]
+				},
+				{
+					"name": "Sidearm Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño cortante."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/QFVLrDO.png",
+			"fluff": {
+				"entries": [
+					"{@link Heavy Cavalry|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/CvMhUpN.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Heavy Crossbowman",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"any race"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"{@item chain shirt|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "2d8 + 2",
+				"average": 11
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 14,
+			"dex": 13,
+			"con": 13,
+			"int": 10,
+			"wis": 11,
+			"cha": 10,
+			"passive": 10,
+			"cr": "1/2",
+			"shortName": "Heavy Crossbowman",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"action": [
+				{
+					"name": "Crossbow",
+					"entries": [
+						"{@atk rw} {@hit 3} para golpear, alcance 100/400 pies, un objetivo. {@h}6 ({@damage 1d10 + 1}) de daño penetrante."
+					]
+				},
+				{
+					"name": "Shortsword",
+					"entries": [
+						"{@atk mw} {@hit 4} para golpear, alcance 5 pies, un objetivo. {@h}4 ({@damage 1d4 + 2}) de daño perforante."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"RW",
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/WLrkqNx.png",
+			"fluff": {
+				"entries": [
+					"{@link Heavy Crossbowman|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/szAGSCT.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Heavy Crossbow Line",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"10-20 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"{@item chain shirt|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "8d8 + 32",
+				"average": 68
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 22,
+			"dex": 11,
+			"con": 19,
+			"int": 10,
+			"wis": 11,
+			"cha": 10,
+			"passive": 10,
+			"cr": "3",
+			"shortName": "Heavy Crossbow Line",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+8"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Rotating Fire",
+					"entries": [
+						"La unidad alterna entre líneas de ballesteros que disparan y recargan. Mientras tenga más de la mitad de sus puntos de vida, ignora la propiedad de carga de la ballesta pesada."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de {@dc 13}Sabiduría o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"La unidad realiza dos ataques de fuego dirigidos."
+					]
+				},
+				{
+					"name": "Suffocating Volley (must be above half hit points)",
+					"entries": [
+						"Todas las criaturas en una línea de 15 pies de ancho y 100 pies de largo deben hacer una tirada de salvación de Destreza{@dc 15}, recibiendo 22 ({@dice 4d10})de daño perforante si fallan la tirada o la mitad si tienen éxito. Las criaturas que estén a más de 50 pies de la unidad hacen esta salvación con ventaja."
+					]
+				},
+				{
+					"name": "Shortsword Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Shortsword Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Plant Pavise",
+					"entries": [
+						"La unidad despliega una línea de torres de escudos delante de su primera línea. Hasta la próxima vez que se mueva o realice un ataque cuerpo a cuerpo, la unidad tiene cobertura de tres cuartos (bonificación de +5 a la CA y a las tiradas de salvación de Destreza)."
+					]
+				},
+				{
+					"name": "Targeted Fire (swarm has more than half HP)",
+					"entries": [
+						"{@atk rw} {@hit 2} para golpear, alcance 100/400 pies, un objetivo. {@h}22 ({@damage 4d10}) de daño perforante."
+					]
+				},
+				{
+					"name": "Targeted Fire (swarm has half HP or less)",
+					"entries": [
+						"{@atk rw} {@hit 2} para golpear, alcance 100/400 pies, un objetivo. {@h}11 ({@damage 2d10}) de daño penetrante."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RW"
+			],
+			"tokenUrl": "https://i.imgur.com/LqEkbRn.png",
+			"fluff": {
+				"entries": [
+					"{@link Heavy Crossbow Line|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/XMrxYPI.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Holy Chorus",
+			"size": [
+				"L"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"5-10 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 13,
+					"from": [
+						"{@item chain shirt|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "8d8 + 24",
+				"average": 60
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 16,
+			"dex": 10,
+			"con": 16,
+			"int": 13,
+			"wis": 16,
+			"cha": 13,
+			"passive": 13,
+			"cr": "7",
+			"shortName": "Holy Chorus",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"medicine": "+9",
+				"persuasion": "+4",
+				"religion": "+4"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de Sabiduría DC13 o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				},
+				{
+					"name": "War Healer",
+					"entries": [
+						"Los hechizos lanzados por esta unidad pueden hacer que los ejércitos recuperen puntos de vida incluso durante el combate."
+					]
+				}
+			],
+			"spellcasting": [
+				{
+					"name": "Spellcasting: Convoke",
+					"headerEntries": [
+						"La unidad es un hechicero de 9º nivel. Su habilidad de lanzamiento de hechizos es Sabiduría (salvación de hechizos {@dc 14}, +6 para golpear con ataques de hechizos). Si se reduce a menos de la mitad de sus puntos de golpe, la unidad se convierte en un hechicero de 5º nivel (pierde sus ranuras de hechizo de 4º y 5º nivel y una de sus ranuras de 3º nivel). La unidad tiene preparados los siguientes hechizos de Clérigo:"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell light}",
+								"{@spell mending}",
+								"{@spell spare the dying}",
+								"{@spell thaumaturgy}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell divine favor}",
+								"{@spell guiding bolt}",
+								"{@spell healing word}",
+								"{@spell sanctuary}",
+								"{@spell shield of faith}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell lesser restoration}",
+								"{@spell magic weapon}",
+								"{@spell prayer of healing}",
+								"{@spell silence}",
+								"{@spell spiritual weapon}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell beacon of hope}",
+								"{@spell crusader's mantle}",
+								"{@spell dispel magic}",
+								"{@spell revivify}",
+								"{@spell spirit guardians}",
+								"{@spell wall of water|XGE}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell banishment}",
+								"{@spell freedom of movement}",
+								"{@spell guardian of faith}",
+								"{@spell stoneskin}"
+							],
+							"slots": 3
+						},
+						"5": {
+							"spells": [
+								"{@spell flame strike}",
+								"{@spell hold monster}",
+								"{@spell mass cure wounds}"
+							],
+							"slots": 1
+						}
+					},
+					"ability": "wis",
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"CC"
+			],
+			"damageTagsSpell": [
+				"F",
+				"N",
+				"O",
+				"R"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"La unidad lanza un hechizo y utiliza su ataque de ráfaga de mazas."
+					]
+				},
+				{
+					"name": "Mace Flurry",
+					"entries": [
+						"{@atk mw} {@hit 2} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño por apaleamiento."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/pcziKy2.png",
+			"fluff": {
+				"entries": [
+					"{@link Holy Chorus|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/XrrWfh3.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Knightly Order",
+			"size": [
+				"G"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"10-20 members",
+					"warhorse"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"{@item plate armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "18d8 + 108",
+				"average": 189
+			},
+			"speed": {
+				"walk": {
+					"number": 30,
+					"condition": "(60 ft. while mounted)"
+				}
+			},
+			"str": 22,
+			"dex": 13,
+			"con": 22,
+			"int": 11,
+			"wis": 11,
+			"cha": 15,
+			"passive": 15,
+			"cr": "15",
+			"shortName": "Knightly Order",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+11",
+				"perception": "+5"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para una bestia grande mientras está montada o un humanoide mediano mientras no está montado. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Trampling Charge",
+					"entries": [
+						"Si la unidad se mueve al menos 20 pies en línea recta hacia una criatura y luego la golpea con un ataque de pezuñas en el mismo turno, ese objetivo debe tener éxito en una tirada de salvación de Fuerza{@dc 14} o ser derribado {@condition prone}. Si el objetivo es {@condition prone}, la unidad puede realizar otro ataque con sus pezuñas contra él como acción adicional."
+					]
+				},
+				{
+					"name": "Unwavering Morale",
+					"entries": [
+						"La unidad tiene ventaja en las tiradas de salvación contra el ser {@condition frightened}."
+					]
+				}
+			],
+			"conditionInflict": [
+				"prone"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Si la unidad ha movido al menos 20 pies en línea recta este turno, realiza una carga de lanza y un ataque de pezuñas. De lo contrario, realiza un ataque de ráfaga de armas laterales."
+					]
+				},
+				{
+					"name": "Lance Charge (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 11} para golpear, alcance 5 pies, un objetivo. {@h}52 ({@damage 8d12}) de daño perforante."
+					]
+				},
+				{
+					"name": "Lance Charge (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 11} para golpear, alcance 5 pies, un objetivo. {@h}26 ({@damage 4d12}) de daño perforante."
+					]
+				},
+				{
+					"name": "Hooves (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 11} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Hooves (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 11} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Sidearm Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 11} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño cortante."
+					]
+				},
+				{
+					"name": "Sidearm Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 11} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño cortante."
+					]
+				},
+				{
+					"name": "Thunder of Crossbow Bolts (swarm has more than half HP)",
+					"entries": [
+						"{@atk rw} {@hit 6} para golpear, alcance 100/400 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño penetrante."
+					]
+				},
+				{
+					"name": "Thunder of Crossbow Bolts (swarm has half HP or less)",
+					"entries": [
+						"{@atk rw} {@hit 6} para golpear, alcance 100/400 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño penetrante."
+					]
+				},
+				{
+					"name": "Beacon of Guidance (Recharges after a Short or LongRest)",
+					"entries": [
+						"Durante 1 minuto, todas las criaturas a elección de la unidad en un radio de 30 pies que pueda ver añaden un {@dice d4} a cada tirada de ataque y de salvación, siempre que puedan oír y entender a la unidad. Este efecto termina si la unidad queda incapacitada."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RW"
+			],
+			"reaction": [
+				{
+					"name": "Warding Maneuvers",
+					"entries": [
+						"La unidad vuelve a sumar 2 a su CA al ataque cuerpo a cuerpo que la golpearía. Para ello, la unidad debe ver al atacante y estar empuñando un arma cuerpo a cuerpo."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/4QalogH.png",
+			"fluff": {
+				"entries": [
+					"{@link Knightly Order|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/SG4bMEB.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Light Cavalry",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"5-10 members",
+					"warhorse"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 14,
+					"from": [
+						"{@item padded armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "12d8 + 36",
+				"average": 90
+			},
+			"speed": {
+				"walk": {
+					"number": 30,
+					"condition": "(60 ft. while mounted)"
+				}
+			},
+			"str": 20,
+			"dex": 16,
+			"con": 16,
+			"int": 18,
+			"wis": 11,
+			"cha": 14,
+			"passive": 13,
+			"cr": "7",
+			"shortName": "Light Cavalry",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+8",
+				"perception": "+3"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para una bestia grande mientras está montada o un humanoide mediano mientras no está montado.La unidad no puede recuperar puntos de golpe o ganar puntos de golpe temporales durante el combate."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de {@dc 13}Sabiduría o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"La unidad realiza dos ataques con cimitarra o con arco montado."
+					]
+				},
+				{
+					"name": "Scimitar Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño cortante."
+					]
+				},
+				{
+					"name": "Scimitar Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño cortante."
+					]
+				},
+				{
+					"name": "Hooves (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Hooves (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Mounted Archery (swarm has more than half HP)",
+					"entries": [
+						"{@atk rw} {@hit 6} para golpear, alcance 150/600 pies, un objetivo. {@h}36 ({@damage 8d8}) de daño penetrante."
+					]
+				},
+				{
+					"name": "Mounted Archery (swarm has half HP or less)",
+					"entries": [
+						"{@atk rw} {@hit 6} para golpear, alcance 150/600 pies, un objetivo. {@h}18 ({@damage 4d8}) de daño penetrante."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RW"
+			],
+			"reaction": [
+				{
+					"name": "Warding Maneuvers",
+					"entries": [
+						"La unidad suma 2 a su CA contra un ataque cuerpo a cuerpo que la golpearía. Para ello, la unidad debe ver al atacante y estar empuñando un arma de cuerpo a cuerpo."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/w5gsPhp.png",
+			"fluff": {
+				"entries": [
+					"{@link Light Cavalry|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/GNfgBRb.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Army Drummer",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"any race"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"{@item padded armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "2d8 + 2",
+				"average": 11
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 11,
+			"dex": 12,
+			"con": 12,
+			"int": 10,
+			"wis": 11,
+			"cha": 12,
+			"passive": 10,
+			"cr": "1/8",
+			"shortName": "Army Drummer",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"performance": "+3",
+				"persuasion": "+3",
+				"intimidation": "+3"
+			},
+			"action": [
+				{
+					"name": "Inspire",
+					"entries": [
+						"Una criatura a elección del tamborilero añade1d4 a la siguiente tirada de ataque, chequeo de habilidad o tirada de salvación que realice hasta el final de su siguiente turno."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/iS42lIB.png",
+			"fluff": {
+				"entries": [
+					"{@link Army Drummer|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/1mOjy6U.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Martial Band",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"20-40 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"{@item padded armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "10d8 + 40",
+				"average": 85
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 18,
+			"dex": 12,
+			"con": 18,
+			"int": 10,
+			"wis": 11,
+			"cha": 15,
+			"passive": 10,
+			"cr": "3",
+			"shortName": "Martial Band",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+7",
+				"performance": "+5",
+				"persuasion": "+5",
+				"intimidation": "+5"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para una bestia grande mientras está montada o un humanoide mediano mientras no está montado.La unidad no puede recuperar puntos de golpe o ganar puntos de golpe temporales durante el combate."
+					]
+				},
+				{
+					"name": "Marches of War",
+					"entries": [
+						"Como acción en su turno, la unidad comienza a tocar uno de los siguientes ritmos. Sólo puede tocar un ritmo a la vez, debe usar su acción para continuar los efectos del ritmo cada turno, y debe mantener la concentración en el ritmo como si se concentrara en un hechizo:",
+						{
+							"type": "list",
+							"items": [
+								"{@b Rhythm of Guidance.} La canción coordina el movimiento de los ejércitos. Cada aliado en un radio de 150 pies que tenga al menos una acción legendaria dispone de una acción legendaria más y recupera esta acción al inicio de su turno siempre que pueda escuchar el ritmo.",
+								"{@b Rhythm of Terror.} La canción está llena de amenaza. Las criaturas hostiles en un radio de 150 pies que puedan oír el ritmo tienen desventaja en las tiradas de salvación que hagan para resistirse a convertirse en {@condition frightened}, y reciben 9({@dice 2d8}) de daño adicional por perder la moral.",
+								"{@b Rhythm of Valor.} La canción es ampulosa y épica. Cada aliado en un radio de 150 pies añade {@dice 1d4} a cada una de sus tiradas de ataque, chequeos de habilidad y tiradas de salvación mientras pueda escuchar el ritmo."
+							]
+						}
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de Sabiduría DC13 o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Shortsword Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Shortsword Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño perforante."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/5O3RFbZ.png",
+			"fluff": {
+				"entries": [
+					"{@link Martial Band|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/5C3b6nR.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Scouting Troop",
+			"size": [
+				"L"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"5-10 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"NX",
+				"NY",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 13,
+					"from": [
+						"{@item leather armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "8d8 + 24",
+				"average": 60
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 18,
+			"dex": 14,
+			"con": 16,
+			"int": 11,
+			"wis": 13,
+			"cha": 11,
+			"passive": 15,
+			"cr": "1",
+			"shortName": "Scouting Troop",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"nature": "+4",
+				"perception": "+5",
+				"stealth": "+6",
+				"survival": "+5"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Keen Hearing and Sight",
+					"entries": [
+						"La unidad tiene ventaja en los chequeos de Sabiduría (Percepción) que dependen del oído o la vista."
+					]
+				},
+				{
+					"name": "Landstrider",
+					"entries": [
+						"Los ejércitos que acompañan a la unidad no ven ralentizado su desplazamiento por el terreno difícil. Mientras viaja sola, la unidad puede moverse sigilosamente a un ritmo normal."
+					]
+				},
+				{
+					"name": "Watchkeeper",
+					"entries": [
+						"Mientras está en reposo, la unidad protege un área de hasta 300 pies como si se tratara de la alarma del hechizo con una guardia audible."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de {@dc 13}Sabiduría o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"traitTags": [
+				"Keen Senses"
+			],
+			"action": [
+				{
+					"name": "Shortsword Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 6} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Shortsword Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 6} para golpear, alcance 5 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Rain of Needles (swarm has more than half HP)",
+					"entries": [
+						"{@atk rw} {@hit 4} para golpear, alcance 80/320 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño penetrante."
+					]
+				},
+				{
+					"name": "Rain of Needles (swarm has half HP or less)",
+					"entries": [
+						"{@atk rw} {@hit 4} para golpear, alcance 80/320 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño penetrante."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RW"
+			],
+			"tokenUrl": "https://i.imgur.com/IPUbnyL.png",
+			"fluff": {
+				"entries": [
+					"{@link Scouting Troop|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/3lEVSum.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Skirmishers",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"20-40 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 15,
+					"from": [
+						"{@item scale mail|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "10d8 + 60",
+				"average": 105
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 22,
+			"dex": 12,
+			"con": 22,
+			"int": 10,
+			"wis": 11,
+			"cha": 9,
+			"passive": 10,
+			"cr": "5",
+			"shortName": "Skirmishers",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+9",
+				"intimidation": "+2"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para una bestia grande mientras está montada o un humanoide mediano mientras no está montado. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Aggressive",
+					"entries": [
+						"Como acción adicional, la unidad puede moverse hasta su velocidad hacia una criatura hostil que pueda ver."
+					]
+				},
+				{
+					"name": "Horde",
+					"entries": [
+						"Una criatura que comience su turno dentro del espacio de la unidad recibe 21 ({@damage 6d6}) de daño penetrante, u 11 ({@dice 3d6}) si la unidad está por debajo de la mitad de sus puntos de vida."
+					]
+				},
+				{
+					"name": "Reckless",
+					"entries": [
+						"Al comienzo de su turno, la unidad puede obtener ventaja en todas las tiradas de ataque con armas cuerpo a cuerpo durante ese turno, pero las tiradas de ataque contra ella tienen ventaja hasta el comienzo de su siguiente turno."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de {@dc 13}Sabiduría o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"traitTags": [
+				"Aggressive",
+				"Reckless"
+			],
+			"bonus": [
+				{
+					"name": "Aggressive",
+					"entries": [
+						"La unidad puede moverse hasta su velocidad hacia una criatura hostil que pueda ver."
+					]
+				}
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"La unidad realiza dos ataques de ráfaga de hachas."
+					]
+				},
+				{
+					"name": "Horde (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 9} para golpear, alcance 5 pies, un objetivo. {@h}21 ({@damage 6d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Horde (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 9} para golpear, alcance 5 pies, un objetivo. {@h}10 ({@damage 3d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Flurry of Axes (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 9} para golpear, alcance 5 pies, un objetivo. {@h}21 ({@damage 6d6}) de daño cortante."
+					]
+				},
+				{
+					"name": "Flurry of Axes (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 9} para golpear, alcance 5 pies, un objetivo. {@h}10 ({@damage 3d6 }) de daño cortante."
+					]
+				},
+				{
+					"name": "Spear Rush (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 9} para golpear, alcance 5 pies, un objetivo. {@h}21 ({@damage 6d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Spear Rush (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 9} para golpear, alcance 5 pies, un objetivo. {@h}10 ({@damage 3d6}) de daño perforante."
+					]
+				}
+			],
+			"miscTags": [
+				"MW"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"tokenUrl": "https://i.imgur.com/1SQSqJj.png",
+			"fluff": {
+				"entries": [
+					"{@link Skirmishers|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/rYvBVyj.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Soldiers-At-Arms",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"20-40 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"{@item half plate armor|phb}",
+						"{@item shield|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "14d8 + 84",
+				"average": 147
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 22,
+			"dex": 13,
+			"con": 22,
+			"int": 11,
+			"wis": 11,
+			"cha": 10,
+			"passive": 14,
+			"cr": "10",
+			"shortName": "Soldiers-At-Arms",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+10",
+				"perception": "+4"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano mientras está montado o un humanoide mediano mientras no está montado.La unidad no puede recuperar puntos de golpe o ganar puntos de golpe temporales durante el combate."
+					]
+				},
+				{
+					"name": "Horde",
+					"entries": [
+						"Una criatura que comience su turno dentro del espacio de la unidad recibe 28 ({@damage 8d6}) de daño penetrante, o 14({@dice 4d6}) si la unidad está por debajo de la mitad de sus puntos de vida."
+					]
+				},
+				{
+					"name": "Unwavering Morale",
+					"entries": [
+						"La unidad tiene ventaja en las tiradas de salvación contra el ser {@condition frightened}."
+					]
+				}
+			],
+			"damageTags": [
+				"B",
+				"P"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"La unidad realiza tres ataques cuerpo a cuerpo o dos ataques a distancia."
+					]
+				},
+				{
+					"name": "Horde (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Horde (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño perforante."
+					]
+				},
+				{
+					"name": "Open Melee (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}28 ({@damage 8d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Open Melee (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Shield Push (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}20 ({@damage 8d4}) de daño contundente. Si el objetivo es una criatura mediana o más pequeña, debe tener éxito en una tirada de salvación de {@dc 15} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Shield Push (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}10 ({@damage 4d4}) de daño contundente. Si el objetivo es una criatura mediana o más pequeña, debe tener éxito en una tirada de salvación de Fuerza {@dc 15} o ser derribado {@condition prone}."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"reaction": [
+				{
+					"name": "Warding Maneuvers",
+					"entries": [
+						"La unidad suma 2 a su CA contra un ataque cuerpo a cuerpo que la golpearía. Para ello, la unidad debe ver al atacante y estar empuñando un arma de cuerpo a cuerpo."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/bsSYOCK.png",
+			"fluff": {
+				"entries": [
+					"{@link Soldiers-At-Arms|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/tWkEOv2.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Wall of Shields",
+			"size": [
+				"H"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"20-40 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 16,
+					"from": [
+						"{@item chain shirt|phb}",
+						"{@item shield|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "18d8 + 108",
+				"average": 189
+			},
+			"speed": {
+				"walk": 5
+			},
+			"str": 22,
+			"dex": 13,
+			"con": 22,
+			"int": 11,
+			"wis": 11,
+			"cha": 10,
+			"passive": 14,
+			"cr": "10",
+			"shortName": "Wall of Shields",
+			"languages": [
+				"any one language (usually Common)"
+			],
+			"languageTags": [
+				"C",
+				"X"
+			],
+			"skill": {
+				"athletics": "+10",
+				"perception": "+4"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Pike and Shield Formation",
+					"entries": [
+						"La unidad tiene ventaja en todos los ataques cuerpo a cuerpo contra unidades montadas, y los ataques a distancia no mágicos realizados contra ella tienen desventaja."
+					]
+				},
+				{
+					"name": "Polearm Master",
+					"entries": [
+						"Otras criaturas provocan un ataque de oportunidad de la unidad cuando entran en su alcance (10 pies)."
+					]
+				},
+				{
+					"name": "Sentinel",
+					"entries": [
+						"Cuando la unidad golpea a una criatura con un ataque de oportunidad, la velocidad de esa criatura pasa a ser 0 durante el resto del turno. Además, las criaturas provocan los ataques de oportunidad de la unidad incluso si realizan la acciónDisolver antes de salir del alcance de la unidad."
+					]
+				},
+				{
+					"name": "Vulnerable Flank",
+					"entries": [
+						"Al final de su turno, la unidad declara a qué dirección cardinal está orientada. Hasta el final de su siguiente turno, los ataques realizados contra ella desde la dirección cardinal opuesta se realizan con ventaja, y la unidad tiene 3/4 de cobertura desde todas las demás direcciones."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de {@dc 13}Sabiduría o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"La unidad hace un ataque de ráfaga de picas."
+					]
+				},
+				{
+					"name": "Pike Flurry (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}44 ({@damage 8d10}) de daño perforante."
+					]
+				},
+				{
+					"name": "Pike Flurry (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}22 ({@damage 4d10}) de daño perforante."
+					]
+				},
+				{
+					"name": "Shield Push (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}20 ({@damage 8d4}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Shield Push (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 10} para golpear, alcance 5 pies, un objetivo. {@h}10 ({@damage 4d4}) de daño por apaleamiento."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/YMhgxZJ.png",
+			"fluff": {
+				"entries": [
+					"{@link Wall of Shields|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/EYQiG7w.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "War Academy Mages",
+			"size": [
+				"L"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M",
+				"tags": [
+					"any race",
+					"5-10 members"
+				]
+			},
+			"source": "U_AOW",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 13,
+					"from": [
+						"{@item chain shirt|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "8d8 + 24",
+				"average": 60
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 12,
+			"dex": 14,
+			"con": 16,
+			"int": 17,
+			"wis": 12,
+			"cha": 10,
+			"passive": 11,
+			"cr": "9",
+			"shortName": "War Academy Mages",
+			"languages": [
+				"any four languages"
+			],
+			"languageTags": [
+				"X"
+			],
+			"skill": {
+				"arcana": "+7",
+				"history": "+7"
+			},
+			"trait": [
+				{
+					"name": "Army",
+					"entries": [
+						"La unidad puede ocupar el espacio de otra criatura y viceversa, y la unidad puede moverse a través de cualquier abertura lo suficientemente grande para un humanoide mediano. La unidad no puede recuperar puntos de vida ni ganar puntos de vida temporales durante el combate."
+					]
+				},
+				{
+					"name": "Arcane Ward",
+					"entries": [
+						"Las criaturas a elección de la unidad en un radio de 30 pies (incluida ella misma) tienen ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+					]
+				},
+				{
+					"name": "Morale",
+					"entries": [
+						"Si la unidad se convierte en {@condition frightened} o cuando se reduce a la mitad de puntos de golpe, debe tener éxito en una tirada de salvación de Sabiduría DC13 o recibir {@damage 2d8} de daño mientras algunos de sus miembros se separan y huyen."
+					]
+				}
+			],
+			"spellcasting": [
+				{
+					"name": "Spellcasting: Convoke",
+					"headerEntries": [
+						"La unidad es un hechicero de nivel 12. Su capacidad de lanzamiento de hechizos es Inteligencia (salvación de hechizos {@dc 15}, +7 para golpear con ataques de hechizos). Si se reduce a menos de la mitad de sus puntos de golpe, la unidad se convierte en un hechicero de 8º nivel (pierde sus ranuras de hechizo de 5º y 6º nivel y una de sus ranuras de 4º nivel). La unidad tiene preparados los siguientes hechizos de Mago:"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell fire bolt}",
+								"{@spell light}",
+								"{@spell prestidigitation}",
+								"{@spell ray of frost}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell detect magic}",
+								"{@spell mage armor}",
+								"{@spell magic missile}",
+								"{@spell shield}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell mirror image}",
+								"{@spell misty step}",
+								"{@spell shatter}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell counterspell}",
+								"{@spell fireball}",
+								"{@spell lightning bolt}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell ice storm}",
+								"{@spell stoneskin}"
+							],
+							"slots": 3
+						},
+						"5": {
+							"spells": [
+								"{@spell Bigby's hand}",
+								"{@spell cone of cold}"
+							],
+							"slots": 2
+						},
+						"6": {
+							"spells": [
+								"{@spell chain lightning}",
+								"{@spell wall of ice}"
+							],
+							"slots": 1
+						}
+					},
+					"ability": "int",
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"CW"
+			],
+			"damageTagsSpell": [
+				"B",
+				"C",
+				"F",
+				"L",
+				"O",
+				"T"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"La unidad lanza un hechizo de 1er nivel o superior y un cantrip o lanza dos cantrips."
+					]
+				},
+				{
+					"name": "Desperate Quarterstaves",
+					"entries": [
+						"{@atk mw} {@hit 2} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 4d6}) de daño por apaleamiento."
+					]
+				},
+				{
+					"name": "Desperate Quarterstaves",
+					"entries": [
+						"{@atk mw} {@hit 2} para golpear, alcance 5 pies, un objetivo. {@h}7 ({@damage 2d6}) de daño por apaleamiento."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/iTXTRd5.png",
+			"fluff": {
+				"entries": [
+					"{@link War Academy Mages|https://homebrewery.naturalcrit.com/share/o4qRnnxr0a2G} basado en el puesto de {@link u/filmatra|https://www.reddit.com/r/UnearthedArcana/comments/pnewbv/comment/hcopcks/}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/LiPv8pg.jpg"
+						}
+					}
+				]
+			}
+		}
+	]
+}
