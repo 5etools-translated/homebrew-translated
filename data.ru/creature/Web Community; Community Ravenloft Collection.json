@@ -1,0 +1,906 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "COMRavenloft",
+				"abbreviation": "COMRavenloft",
+				"full": "Community Stradh Mix Collection",
+				"authors": [
+					"A collection derived from the web community (Reddit,Pinterest,DmsGuild,ecc.). For credits, authors are provided with a web link in the entity description"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "2022.01.07",
+				"url": "",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1641557769,
+		"dateLastModified": 1660385188,
+		"_dateLastModifiedHash": "598e0aa00b"
+	},
+	"monster": [
+		{
+			"name": "Ekaterina Dilisnya",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"elf",
+					"shapechanger"
+				]
+			},
+			"source": "COMRavenloft",
+			"alignment": [
+				"L",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 15,
+					"from": [
+						"{@item chain shirt|phb}"
+					]
+				},
+				{
+					"ac": 17,
+					"condition": "(arachne form)"
+				}
+			],
+			"hp": {
+				"formula": "11d8 + 22",
+				"average": 71
+			},
+			"speed": {
+				"walk": 30,
+				"climb": {
+					"number": 30,
+					"condition": "(arachne form)"
+				}
+			},
+			"str": 13,
+			"dex": 14,
+			"con": 14,
+			"int": 11,
+			"wis": 13,
+			"cha": 16,
+			"passive": 13,
+			"cr": "4",
+			"shortName": "Ekaterina Dilisnya",
+			"senses": [
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Deep Speech"
+			],
+			"languageTags": [
+				"C",
+				"DS"
+			],
+			"save": {
+				"dex": "+4",
+				"con": "+4",
+				"wis": "+3"
+			},
+			"skill": {
+				"perception": "+3",
+				"stealth": "+6"
+			},
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Врожденная способность Екатерины к заклинаниям - Харизма (спасбросок от заклинаний {@dc 13}, +5 к попаданию при атаках заклинаниями). Она может произносить следующие заклинания, не требующие материальных компонентов:"
+					],
+					"will": [
+						"{@spell poison spray}"
+					],
+					"daily": {
+						"1e": [
+							"{@spell mirror image}",
+							"{@spell web}"
+						]
+					},
+					"ability": "cha",
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"damageTagsSpell": [
+				"F",
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Shapechanger",
+					"entries": [
+						"Екатерина может использовать свое действие, чтобы полиморфировать в форму арахны или обратно в гуманоидную форму. Ее статистика, за исключением размера, одинакова в каждой форме. Любое снаряжение, которое она носит или несет, не трансформируется. Она возвращается в свою гуманоидную форму, если умирает."
+					]
+				},
+				{
+					"name": "Spider Climb",
+					"entries": [
+						"В форме арахны Екатерина может карабкаться по сложным поверхностям, в том числе вверх ногами по потолку, без необходимости делать проверку способностей."
+					]
+				},
+				{
+					"name": "Web Walker",
+					"entries": [
+						"В своей форме арахны Екатерина игнорирует ограничения движения, вызванные паутиной."
+					]
+				}
+			],
+			"traitTags": [
+				"Shapechanger",
+				"Spider Climb",
+				"Web Walker"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"В гуманоидной форме Екатерина может сделать две атаки рапирой. В форме арахны она делает три атаки, либо рапирой, либо когтями. Любую из них она может заменить атакой жалом."
+					]
+				},
+				{
+					"name": "Rapier",
+					"entries": [
+						"{@atk mw} {@hit 4} попадание, радиус действия 5 футов, одна цель. {@h}6 ({@damage 1d8 + 2}) колющего урона."
+					]
+				},
+				{
+					"name": "Claw (Arachne Form Only)",
+					"entries": [
+						"{@atk mw} {@hit 3} попадание, радиус действия 10 футов, одна цель. {@h}5 ({@damage 1d8 + 1}) колющих повреждений, плюс 2 ({@damage 2d1}) колющих повреждений. В начале каждого хода раненого персонажа он получает 2 урона. Любое сверхъестественное исцеление, например, исцеление ран или регенерация, или проверка способности \"Интеллект (Медицина)\" {@dc 15} снимут это."
+					]
+				},
+				{
+					"name": "Sting (Arachne Form Only, Recharge 5-6)",
+					"entries": [
+						"{@atk mw} {@hit 4} попадание, дальность 10 футов, одна цель. {@h}7 ({@damage 1d10 + 2}) колющего урона, и цель должна сделать {@dc 12} бросок на спасение от конституции, получив 22 ({@damage 4d10}) урона ядом при неудачном спасении, или вдвое меньше при успешном спасении. Кроме того, любое существо, пораженное жалом Екатерины, после боя должно пройти бросок на спасбросок {@dc 15} конституции или заразиться болезнью - яйцом арахны. Подробнее см. в разделе \"Культ умиротворен\"."
+					]
+				},
+				{
+					"name": "Web (Arachne Form Only, Recharge 5-6)",
+					"entries": [
+						"{@atk rw} {@hit 4} попадание, дальность 30/60 футов, одна цель. {@h}3 ({@damage 1d1 + 2}) урон от удара. При попадании цель покрывается {@condition restrained} паутиной. В качестве действия {@condition restrained} цель может сделать {@dc 12} проверку силы и при успехе вырваться из паутины. Эффект заканчивается, если паутина разрушена. Паутина имеет AC 10, 5 хит-поинтов, уязвимость к огненному урону и иммунитет к колющему, ядовитому и психическому урону."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack",
+				"Parry"
+			],
+			"damageTags": [
+				"B",
+				"I",
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW"
+			],
+			"conditionInflict": [
+				"restrained"
+			],
+			"reaction": [
+				{
+					"name": "Parry",
+					"entries": [
+						"Екатерина добавляет 3 к своему AC против одной атаки ближнего боя, которая поразила бы ее в гуманоидной форме. В форме арахны она прибавляет 5 к своему AC. Для этого она должна видеть атакующего и быть либо с оружием, либо с одним или несколькими когтями арахны. Если она находится на {@condition grappled} или {@condition restrained}, она не может выполнить эту реакцию."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/8eO47jh.png",
+			"fluff": {
+				"entries": [
+					"{@link Ekaterina Dilisnya|https://losvaquerospress.files.wordpress.com/2020/08/ekaterina-dilisnya-v4.pdf} на основе {@link post|https://discord.com/channels/425043850084483082/425043850705502220/844450018995470386}",
+					"В своей гуманоидной форме она похожа на привлекательную девицу из сумеречных эльфов, с кожей цвета какао и русо-рыжими волосами. Она предпочитает несколько более рискованный покрой традиционной деревенской одежды, демонстрируя чуть больше кожи, чем другие женщины в деревне Баровия. Именно к ней возвращаются бездушные люди, зараженные ее снами, ночь за ночью, пока не поддадутся ее мольбам и не войдут в Дом Смерти. В форме арахны туловище ее гуманоидной формы располагается на веретенообразных конечностях массивного паука-черной вдовы, дополненного светящимися малиновыми песочными часами."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/RfZ1OcV.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Anastrasya Karelova",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "undead",
+				"tags": [
+					"vampire"
+				]
+			},
+			"source": "COMRavenloft",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 16,
+					"from": [
+						"{@item plate armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "12d8 + 48",
+				"average": 102
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30
+			},
+			"str": 20,
+			"dex": 16,
+			"con": 18,
+			"int": 10,
+			"wis": 14,
+			"cha": 18,
+			"passive": 15,
+			"cr": "6",
+			"shortName": "Anastrasya Karelova",
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"D"
+			],
+			"languages": [
+				"Common",
+				"Elvish"
+			],
+			"languageTags": [
+				"C",
+				"E"
+			],
+			"save": {
+				"dex": "+6",
+				"wis": "+5"
+			},
+			"skill": {
+				"perception": "+5",
+				"stealth": "+6",
+				"deception": "+8"
+			},
+			"vulnerable": [
+				"radiant"
+			],
+			"resist": [
+				{
+					"resist": [
+						"necrotic"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical, non-silvered weapons"
+				}
+			],
+			"trait": [
+				{
+					"name": "Regeneration",
+					"entries": [
+						"Анастасья восстанавливает 10 хит-пойнтов в начале своего хода, если у нее есть хотя бы 1 хит-пойнт и она не получала лучевого урона с момента своего последнего хода."
+					]
+				},
+				{
+					"name": "Spider Climb",
+					"entries": [
+						"Анастасья может лазать даже по сложным поверхностям и вверх ногами по потолку."
+					]
+				},
+				{
+					"name": "Vampire Weaknesses",
+					"entries": [
+						"Анастрасья имеет следующие недостатки:",
+						"{@i Forbiddance.} Людмила не может войти в жилище без приглашения одного из жильцов.",
+						"{@i Harmed by Running Water.} Людмила получает 20 ед. урона кислотой, когда заканчивает свой ход в проточной воде.",
+						"{@i Stake to the Heart.} Людмила уничтожается, если в ее сердце вбить колющее оружие из дерева, пока она находится {@condition incapacitated} в своем покое, она находится {@condition paralyzed}, пока кол не будет извлечен.",
+						"{@i Sunlight Hypersensitivity.} Людмила получает 20 единиц лучевого урона, когда начинает свой ход под солнечным светом. Находясь под солнечным светом, она имеет преимущество при бросках атаки и проверке способностей."
+					]
+				}
+			],
+			"traitTags": [
+				"Regeneration",
+				"Spider Climb",
+				"Sunlight Sensitivity"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Анастасья делает две атаки, только одна из которых может быть атакой укуса."
+					]
+				},
+				{
+					"name": "Grab",
+					"entries": [
+						"{@atk mw} {@hit 8} попадание, радиус действия 5 футов, одна цель. {@h}9 ({@damage 1d8 + 5}) урон от удара. Цель {@condition grappled} (побег {@dc 16})."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 8} попадание, досягаемость 5 футов, одна цель, которая является {@condition grappled}, {@condition incapacitated}, {@condition restrained} или желающей. {@h}10 ({@damage 1d10 + 5}) колющих повреждений, плюс 14 ({@damage 4d6}) некротических повреждений. Максимальное количество хит-поинтов цели уменьшается на величину, равную нанесенному некротическому урону, и Анастрасия восстанавливает это количество хит-поинтов. Снижение длится до тех пор, пока цель не закончит длительный отдых. Если цель уменьшается до 0 хит-пойнтов в результате этой атаки, она умирает."
+					]
+				},
+				{
+					"name": "Reaping Greatsword",
+					"entries": [
+						"{@atk mw} {@hit 8} попадание, радиус действия 10 футов, до 3 целей. {@h}13 ({@damage 2d6 + 6}) косых повреждений, плюс 4 ({@damage 1d8}) некротических повреждений. Если цель - существо, оно делает спасбросок на {@dc 17} силу, при неудаче падает {@condition prone}."
+					]
+				},
+				{
+					"name": "Charm (Gaze)",
+					"entries": [
+						"Anastrasya магически нацеливается на существо в радиусе 30 футов, заставляя его сделать бросок на спасбросок {@dc 15} мудрости. Если цель имеет хотя бы один уровень раздора, она делает этот бросок на спасение с недостатком. В случае неудачи цель попадает под действие {@condition charmed} Анастасии на 24 часа. Пока {@condition charmed} он считает ее надежным другом и охотно принимает ее укус. Цель повторяет бросок на спасение каждый раз, когда получает урон, при успехе эффект прекращается. Если бросок спасброска цели успешен или эффект заканчивается для нее, она становится невосприимчивой к ее чарам на 24 часа.  Одновременно у нее может быть только одна цель {@condition charmed}."
+					]
+				},
+				{
+					"name": "Shapechange",
+					"entries": [
+						"Анастрасия трансформируется в форму среднего или меньшего зверя (обычно волка, летучей мыши или туманного облака) или обратно в свою истинную форму. Во время трансформации она имеет размеры и способы передвижения зверя. Она не может использовать реакции и не может говорить. В остальном она использует свою собственную статистику. Все, что она несет, трансформируется вместе с ней."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"N",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"HPR",
+				"RCH"
+			],
+			"conditionInflict": [
+				"charmed",
+				"grappled",
+				"prone"
+			],
+			"reaction": [
+				{
+					"name": "Hissing Scuttle (1/Day)",
+					"entries": [
+						"Когда Анастрасия получает лучевой урон, она перемещается на свою Скорость, не провоцируя атаки по возможности."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/ZLbRbfU.png",
+			"fluff": {
+				"entries": [
+					"{@b {@link Anastrasya Karelova|https://drive.google.com/drive/folders/1yafwyRZXEgJNM-jYw3L_5wIHfeg12roH} на основе {@link post|https://www.reddit.com/r/CurseofStrahd/comments/vobq5a/curse_of_strahd_major_npcs/}}",
+					"Дипломат и воин одновременно, Анастрасия хорошо подготовлена, чтобы держать себя в руках на поле боя и в бальном зале. Когда Страду требуется дипломатический эмиссар к ПК, Анастрасия - его первый выбор, особенно если речь идет о предательстве.",
+					"Когда она не нужна Страду или покоится в своем гробу в гробнице Страда, Анастрасию чаще всего можно найти в области K37 (Study).",
+					"{@b TREASURE}",
+					"Анастрасия носит черный и малиновый шелковый головной платок, украшенный драгоценными камнями (стоимостью 750 gp), и платиновое ожерелье с подвеской из черного опала (стоимостью 1 500 gp).  В ее гробнице лежит красное свадебное платье (стоимостью 500 gp)."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/2iH8xZD.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Arrigal",
+			"size": [
+				"M"
+			],
+			"type": "humanoid",
+			"source": "COMRavenloft",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 16,
+					"from": [
+						"{@item studded leather armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "15d8 + 30",
+				"average": 97
+			},
+			"speed": {
+				"walk": 35
+			},
+			"str": 10,
+			"dex": 16,
+			"con": 14,
+			"int": 12,
+			"wis": 12,
+			"cha": 12,
+			"passive": 14,
+			"cr": "7",
+			"shortName": "Arrigal",
+			"senses": [
+				"blindsight 10 ft.",
+				"darkvision 30 ft."
+			],
+			"senseTags": [
+				"B",
+				"D"
+			],
+			"languages": [
+				"Common",
+				"Elvish"
+			],
+			"languageTags": [
+				"C",
+				"E"
+			],
+			"save": {
+				"dex": "+6",
+				"int": "+4",
+				"wis": "+4"
+			},
+			"skill": {
+				"acrobatics": "+6",
+				"deception": "+4",
+				"perception": "+4",
+				"stealth": "+6"
+			},
+			"trait": [
+				{
+					"name": "Assassinate",
+					"entries": [
+						"Во время первого хода боя Арригал имеет преимущество при бросках атаки против любого существа, которое еще не действует.  При успешном попадании каждое существо по выбору Арригала, которое может видеть его атаку, оказывается в грохоте до конца его следующего хода."
+					]
+				},
+				{
+					"name": "Dangerous Poison",
+					"entries": [
+						"Во время атаки Арригал может нанести на свое оружие опасный яд (см. ниже).  Он носит с собой 3 дозы этого яда.  Одна доза может покрыть одно оружие ближнего боя или до 5 единиц боеприпасов."
+					]
+				},
+				{
+					"name": "Evasion",
+					"entries": [
+						"Когда Арригал делает бросок на ловкость против эффекта, который наносит половину урона при успехе, он не получает урона при успехе и получает половину урона при неудаче."
+					]
+				},
+				{
+					"name": "Sneak Attack",
+					"entries": [
+						"Арригал наносит дополнительный 21 ({@damage 6d6}) урон при атаке оружием, когда у него есть преимущество при атаке, или когда цель убийцы находится в пределах 5 футов от союзника убийцы, когда у убийцы нет недостатка при атаке."
+					]
+				}
+			],
+			"traitTags": [
+				"Sneak Attack"
+			],
+			"action": [
+				{
+					"name": "Shortsword",
+					"entries": [
+						"{@atk mw} {@hit 6} попадание, радиус действия 5 футов, одна цель. {@h}6 ({@damage 1d6 + 3}) колющего урона, плюс 10 ({@damage 3d6}) урона ядом."
+					]
+				},
+				{
+					"name": "Hand Crossbow",
+					"entries": [
+						"{@atk rw} {@hit 6} попадание, дальность 30/120 футов, одна цель. {@h}6 ({@damage 1d6 + 3}) колющего урона, плюс 10 ({@damage 3d6}) урона ядом."
+					]
+				}
+			],
+			"damageTags": [
+				"I",
+				"P"
+			],
+			"miscTags": [
+				"MW",
+				"RW",
+				"RNG"
+			],
+			"bonus": [
+				{
+					"name": "Cunning Action",
+					"entries": [
+						"Арригал выполняет действие \"Бросок\", \"Уйти\", \"Спрятаться\" или \"Использовать предмет\"."
+					]
+				},
+				{
+					"name": "Rapid Attack",
+					"entries": [
+						"Арригал атакует своим короткоствольным мечом."
+					]
+				}
+			],
+			"tokenUrl": "https://i.imgur.com/Vwr5K50.png",
+			"fluff": {
+				"entries": [
+					"{@b {@link Arrigal|https://drive.google.com/drive/folders/1yafwyRZXEgJNM-jYw3L_5wIHfeg12roH} на основе {@link post|https://www.reddit.com/r/CurseofStrahd/comments/vobq5a/curse_of_strahd_major_npcs/}}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/FE9LXPf.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Baba Lysaga (Human Form)",
+			"size": [
+				"M"
+			],
+			"type": {
+				"type": "humanoid",
+				"tags": [
+					"human",
+					"shapeshifter"
+				]
+			},
+			"source": "COMRavenloft",
+			"alignment": [
+				"C",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 15,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "16d8 + 48",
+				"average": 120
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 18,
+			"dex": 10,
+			"con": 16,
+			"int": 20,
+			"wis": 17,
+			"cha": 13,
+			"passive": 13,
+			"cr": "11",
+			"shortName": "Baba Lysaga (Human Form)",
+			"languages": [
+				"Abyssal",
+				"Common",
+				"Draconic",
+				"Dwarvish",
+				"Giant"
+			],
+			"languageTags": [
+				"AB",
+				"C",
+				"DR",
+				"D",
+				"GI"
+			],
+			"save": {
+				"wis": "+7"
+			},
+			"skill": {
+				"arcana": "+13",
+				"religion": "+13"
+			},
+			"trait": [
+				{
+					"name": "Shapechanger",
+					"entries": [
+						"Баба Лысага может использовать действие, чтобы превратиться в рой насекомых (мух) или обратно в свою истинную форму.  В роевой форме скорость передвижения составляет 5 футов, а скорость полета - 30 футов.  Все, что на ней надето, превращается вместе с ней, но ничего из того, что она несет, не превращается."
+					]
+				},
+				{
+					"name": "Blessing of Mother Night",
+					"entries": [
+						"Баба Лысага защищена от магии прорицания, как будто защищена заклинанием {@spell nondetection|PHB}."
+					]
+				}
+			],
+			"traitTags": [
+				"Shapechanger"
+			],
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Баба Лысага - заклинатель 16-го уровня.",
+						"Ее способность к заклинаниям - Интеллект (спасение от заклинаний {@dc 17}, +9 к попаданию при атаках заклинаниями). У нее подготовлены следующие заклинания волшебника:"
+					],
+					"spells": {
+						"0": {
+							"spells": [
+								"{@spell acid splash}",
+								"{@spell fire bolt}",
+								"{@spell light}",
+								"{@spell mage hand}",
+								"{@spell prestidigitation}"
+							]
+						},
+						"1": {
+							"spells": [
+								"{@spell detect magic}",
+								"{@spell magic missile}",
+								"{@spell shield}",
+								"{@spell witch bolt}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell crown of madness}",
+								"{@spell enlarge/reduce}",
+								"{@spell misty step}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell dispel magic}",
+								"{@spell fireball}",
+								"{@spell lightning bolt}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell blight}",
+								"{@spell Evard's black tentacles}",
+								"{@spell polymorph}"
+							],
+							"slots": 3
+						},
+						"5": {
+							"spells": [
+								"{@spell cloudkill}",
+								"{@spell geas}",
+								"{@spell scrying}"
+							],
+							"slots": 2
+						},
+						"6": {
+							"spells": [
+								"{@spell programmed illusion}",
+								"{@spell true seeing}"
+							],
+							"slots": 1
+						},
+						"7": {
+							"spells": [
+								"{@spell finger of death}",
+								"{@spell mirage arcane}"
+							],
+							"slots": 1
+						},
+						"8": {
+							"spells": [
+								"{@spell power word stun}"
+							],
+							"slots": 1
+						}
+					},
+					"ability": "int",
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"CW"
+			],
+			"damageTagsSpell": [
+				"A",
+				"B",
+				"F",
+				"I",
+				"L",
+				"N",
+				"O",
+				"Y"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Баба Лысага делает три атаки своим квотерстафом."
+					]
+				},
+				{
+					"name": "Quarterstaff",
+					"entries": [
+						"{@atk mw} {@hit 8} попадание, радиус действия 5 футов, одна цель. {@h}7 ({@damage 1d6 + 4}) повреждений от удара, или 8 ({@damage 1d8 + 4}) повреждений от удара, если использовать обе руки."
+					]
+				},
+				{
+					"name": "Summon Swarm of Insects (Recharges after a short or long rest)",
+					"entries": [
+						"Баба Лысага вызывает {@dice 1d4} стаи насекомых.  Вызванный рой появляется в незанятом пространстве в радиусе 60 футов от нее и действует как ее союзник.  Он остается до тех пор, пока не умрет или пока она не отбросит его действием."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/8sZCrKg.png",
+			"fluff": {
+				"entries": [
+					"{@b {@link Baba Lysaga (Human Form)|https://www.reddit.com/r/CurseofStrahd/comments/qrwfp3/vampatrina_velikovna_statblock/}}",
+					"{@b TREASURE}",
+					"Внутри избушки Бабы Лысаги находится деревянный сундук, защищенный защитным глифом, для обнаружения которого требуется успешная проверка интеллекта (расследование) DC17.  В сундуке лежат различные предметы, которые она забрала у погибших искателей приключений за многие годы:",
+					{
+						"type": "list",
+						"items": [
+							"1,300 gp",
+							"Пять драгоценных камней стоимостью 500 gp",
+							"Флакон с маслом остроты",
+							"Два свитка заклинаний (массовое исцеление ран и оживление)",
+							"Колчан с десятью стрелами +1",
+							"Набор труб с наведением",
+							"Камень удачи"
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/sTF4w9Y.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Band of Cultists",
+			"size": [
+				"L"
+			],
+			"type": {
+				"type": "humanoid",
+				"swarmSize": "M"
+			},
+			"source": "COMRavenloft",
+			"alignment": [
+				"C",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"{@item leather armor|phb}"
+					]
+				}
+			],
+			"hp": {
+				"formula": "10d8",
+				"average": 45
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 10,
+			"dex": 14,
+			"con": 10,
+			"int": 10,
+			"wis": 10,
+			"cha": 10,
+			"passive": 10,
+			"cr": "2",
+			"shortName": "Band of Cultists",
+			"languages": [
+				"Common"
+			],
+			"languageTags": [
+				"C"
+			],
+			"skill": {
+				"deception": "+2",
+				"religion": "+2"
+			},
+			"trait": [
+				{
+					"name": "Fanatic",
+					"entries": [
+						"Культисты имеют преимущество при бросках спасбросков против того, чтобы быть {@condition charmed} или {@condition frightened} атакованными существами, не принадлежащими к их культу."
+					]
+				},
+				{
+					"name": "Area Vulnerability",
+					"entries": [
+						"Группа культистов получает двойной урон от любого эффекта, направленного на область."
+					]
+				},
+				{
+					"name": "Squad Dispersal",
+					"entries": [
+						"Когда группа уменьшается до 0 хит-поинтов, она превращается в 2 культистов, каждый из которых окровавлен (4 хит-поинта)."
+					]
+				},
+				{
+					"name": "Squad",
+					"entries": [
+						"Группа состоит из 5 или более существ.  Если она подвергается заклинанию, атаке или другому эффекту, который воздействует только на одну цель, она получает любой урон, но игнорирует другие эффекты.  Она может делить свое пространство со средними или меньшими существами или объектами.  Группа может пройти через любое отверстие, достаточно большое для одного культиста, не протискиваясь."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Dagger (swarm has more than half HP)",
+					"entries": [
+						"{@atk mw} {@hit 4} попадание, радиус действия 5 футов, одна цель. {@h}20 ({@damage 5d4 + 10}) колющего урона."
+					]
+				},
+				{
+					"name": "Dagger (swarm has half HP or less)",
+					"entries": [
+						"{@atk mw} {@hit 4} попадание, радиус действия 5 футов, одна цель. {@h}20 ({@damage 2d4 + 10}) колющего урона."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"tokenUrl": "https://i.imgur.com/N93xUQ0.png",
+			"fluff": {
+				"entries": [
+					"{@b {@link Band of Cultists|https://www.reddit.com/r/CurseofStrahd/comments/qrwfp3/vampatrina_velikovna_statblock/}}"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/0PaexFn.jpg"
+						}
+					}
+				]
+			}
+		}
+	]
+}
