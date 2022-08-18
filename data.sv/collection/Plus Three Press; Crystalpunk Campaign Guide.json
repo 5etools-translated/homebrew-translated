@@ -19,9 +19,14 @@
 				"targetSchema": "1.0.0"
 			}
 		],
+		"optionalFeatureTypes": {
+			"WM": "Weapon Modification",
+			"EA": "Evolutionist Augmentation",
+			"EU": "Evolutionist Upgrade"
+		},
 		"dateAdded": 1659960938,
-		"dateLastModified": 1660403549,
-		"_dateLastModifiedHash": "c018a31cee"
+		"dateLastModified": 1660775288,
+		"_dateLastModifiedHash": "af70336f57"
 	},
 	"race": [
 		{
@@ -1917,7 +1922,7 @@
 					"name": "Tinkerer",
 					"type": "entries",
 					"entries": [
-						"Du får färdighet i {@item tinker's tools|phb} och {@filter one other tool of your choice|items|source=phb|miscellaneous=mundane|type=tools;artisan's tools=sor}."
+						"Du får färdighet i {@item tinker's tools|phb} och {@filter one other tool of your choice|items|type=artisan's tools;tools}."
 					]
 				},
 				{
@@ -2218,6 +2223,340 @@
 			]
 		}
 	],
+	"class": [
+		{
+			"name": "Evolutionist",
+			"source": "ccg",
+			"page": 63,
+			"hd": {
+				"number": 1,
+				"faces": 10
+			},
+			"proficiency": [
+				"con",
+				"cha"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Augmentation",
+					"featureType": [
+						"OTH"
+					],
+					"progression": {
+						"1": 2,
+						"6": 3
+					}
+				},
+				{
+					"name": "Upgrades Developed",
+					"featureType": [
+						"OTH"
+					],
+					"progression": [
+						0,
+						2,
+						4,
+						4,
+						4,
+						6,
+						6,
+						6,
+						6,
+						8,
+						8,
+						8,
+						8,
+						10,
+						10,
+						10,
+						10,
+						12,
+						12,
+						12
+					]
+				}
+			],
+			"startingProficiencies": {
+				"armor": [
+					"light",
+					"medium",
+					"{@item shield|phb|shields}"
+				],
+				"weapons": [
+					"simple"
+				],
+				"skills": [
+					{
+						"choose": {
+							"from": [
+								"acrobatics",
+								"athletics",
+								"intimidation",
+								"investigation",
+								"medicine",
+								"stealth",
+								"navigation|ccg"
+							],
+							"count": 2
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"(a) a {@item spear|phb} or (b) {@filter any martial weapon|items|source=phb|category=basic|type=martial weapon} (if proficient)",
+					"(a) {@item scale mail|phb} or (b) {@filter any simple weapon|items|source=phb|category=basic|type=simple weapon}",
+					"an {@item explorer's pack|phb} and a {@item dagger|phb}"
+				],
+				"goldAlternative": "{@dice 3d4 × 10|3d4 × 10|Starting Gold}",
+				"defaultData": [
+					{
+						"a": [
+							"spear|phb"
+						],
+						"b": [
+							{
+								"equipmentType": "weaponMartial"
+							}
+						]
+					},
+					{
+						"a": [
+							"scale mail|phb"
+						],
+						"b": [
+							{
+								"equipmentType": "weaponSimple"
+							}
+						]
+					},
+					{
+						"_": [
+							"explorer's pack|phb",
+							"dagger|phb"
+						]
+					}
+				]
+			},
+			"multiclassing": {
+				"requirements": {
+					"or": [
+						{
+							"str": 13,
+							"con": 13
+						}
+					]
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light"
+					],
+					"weapons": [
+						"simple"
+					]
+				}
+			},
+			"classTableGroups": [
+				{
+					"colLabels": [
+						"{@filter Upgrades Developed|optionalfeatures|Feature Type=EU}",
+						"Active Upgrades"
+					],
+					"rows": [
+						[
+							0,
+							0
+						],
+						[
+							2,
+							1
+						],
+						[
+							4,
+							2
+						],
+						[
+							4,
+							2
+						],
+						[
+							4,
+							2
+						],
+						[
+							6,
+							3
+						],
+						[
+							6,
+							3
+						],
+						[
+							6,
+							3
+						],
+						[
+							6,
+							3
+						],
+						[
+							8,
+							4
+						],
+						[
+							8,
+							4
+						],
+						[
+							8,
+							4
+						],
+						[
+							8,
+							4
+						],
+						[
+							10,
+							5
+						],
+						[
+							10,
+							5
+						],
+						[
+							10,
+							5
+						],
+						[
+							10,
+							5
+						],
+						[
+							12,
+							6
+						],
+						[
+							12,
+							6
+						],
+						[
+							12,
+							6
+						]
+					]
+				}
+			],
+			"classFeatures": [
+				{
+					"classFeature": "Evolutionary Method|Evolutionist|ccg|1",
+					"gainSubclassFeature": true
+				},
+				"Augmentations|Evolutionist|ccg|1",
+				"Upgrades|Evolutionist|ccg|2",
+				"Reconstruction|Evolutionist|ccg|2",
+				"Metabolic Ignition|Evolutionist|ccg|3",
+				"Undying|Evolutionist|ccg|3",
+				"Ability Score Improvement|Evolutionist|ccg|4",
+				"Extra Attack|Evolutionist|ccg|5",
+				"Relentless Ignition|Evolutionist|ccg|6",
+				"Augmentation|Evolutionist|ccg|6",
+				{
+					"classFeature": "Evolutionary Method feature|Evolutionist|ccg|7",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Evolutionist|ccg|8",
+				"Hardened Mind|Evolutionist|ccg|9",
+				"Unyielding Strikes|Evolutionist|ccg|11",
+				"Ability Score Improvement|Evolutionist|ccg|12",
+				{
+					"classFeature": "Evolutionary Method feature|Evolutionist|ccg|13",
+					"gainSubclassFeature": true
+				},
+				"Immortality|Evolutionist|ccg|14",
+				"Wounded Ambition|Evolutionist|ccg|15",
+				"Ability Score Improvement|Evolutionist|ccg|16",
+				{
+					"classFeature": "Evolutionary Method feature|Evolutionist|ccg|17",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Evolutionist|ccg|19",
+				"Final Form|Evolutionist|ccg|20",
+				"Immortality Improvement|Evolutionist|ccg|20"
+			],
+			"subclassTitle": "Evolutionary Method",
+			"fluff": [
+				{
+					"name": "Evolutionist",
+					"type": "section",
+					"entries": [
+						{
+							"type": "quote",
+							"entries": [
+								"Varje levande varelse som kommer till världen är ett frö, sprängfyllt med potential, men på något sätt är det bara de verkligt ambitiösa som är villiga att förstöra sig själva för att växa upp till ett träd."
+							],
+							"by": "Prime, a hired gun"
+						},
+						"En dvärg stirrar in i en spegel och för försiktigt in ett glödande kristallint föremål i håligheten där hans öga en gång var. Ett plötsligt klick ekar i hela hans verkstad när apparaten börjar fungera. Han blinkar och stirrar runt i rummet och testar sin nya optiska utrustning. Efter en kort stund placerar han sina verktyg tillbaka på skrivbordet framför sig, bredvid sin kniv och sin nyligen avhuggna ögonglob.",
+						"En halvälvisk kvinna som är klädd från topp till tå i svarta kläder konfronteras av en grupp skurkar i en gränd. När de ställer sina krav stirrar hon på marken och vägrar att ta ögonkontakt med dem. En av skurkarna drar en kniv, men innan han hinner ta ett enda steg lyfts han plötsligt högt upp i luften. De andra ser förskräckt på när monstruösa tentakler slår ut från kvinnan och griper honom vid halsen.",
+						"Svetten droppar från en halvtrolls hage när han knäböjer i en cirkel av blod, med mardrömsliknande monster som närmar sig på alla sidor. Han andas snabbare när han ostadigt lyfter ett knivblad till sin axel. Med en snabb rörelse sluter han ögonen och sliter sig igenom överarmen och skär den rakt från kroppen. Halvlingens skrik ekar i hela den kalla stenkammaren när ben och kött snabbt bryter ut från hans axel och bildar en fruktansvärd ny lem. På ett ögonblick ger smärtan i hans ansikte vika för ett galet flin när han reser sig upp och släpper loss sin nya modifikation.",
+						{
+							"type": "entries",
+							"name": "What Is an Evolutionist?",
+							"entries": [
+								"Evolutionister är ambitiösa krigare som i stället för att bygga upp sin styrka genom övning och träning förbättrar sina naturliga talanger genom att förbättra och uppgradera sin kropp. De förkastar idén om att de ska spela den hand de fått och försöker istället ändra spelet. Där de flesta accepterar den kropp de fått, strävar evolutionisterna efter att kontrollera den och driva den över sina gränser. Varje evolutionist har olika metoder och motiv för att uppgradera sin kropp, men de är alla förbundna av ett gemensamt mål: evolution."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Continual Improvement",
+							"entries": [
+								"Evolutionister definieras av sin längtan efter att förbättra sina kroppar genom metoder som går längre än bara träning. De uppnår detta på olika sätt, från uppfinningsrik teknik och alkemi till gammal magi eller till och med pakter med utomvärldsliga varelser. Oavsett metod börjar en evolutionist att förändra och förändra sin form genom att förstärka sin kropp eller odla helt nya bihang. Dessa uppgraderingar gör det möjligt för evolutionister att övermanna sina fiender, antingen genom rå förbättrad förmåga eller genom unika taktiker som möjliggörs av deras icke-standardiserade biologi. Evolutionister lever ett liv i ständig utveckling och använder de förmågor de får för att söka efter metoder för att förbättra sina kroppar ytterligare."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Paradoxical Identities",
+							"entries": [
+								"Evolutionisternas kropp är grunden för deras identitet, deras yttersta fokus för deras ansträngningar. För dem är kroppen det mest grundläggande, inneboende uttrycket för identitet och syfte - från en älgs horn till en fladdermus' öron - varje biologisk anpassning har ett uttryckligt skäl att existera. Evolutionister jagar ofta efter sin personliga uppfattning om en fulländad kropp, ofta drivet av uppfattningar om fysisk svaghet, mental oduglighet eller visuell oattraktivitet. Strävan efter perfektion är dock inte utan risker. Paradoxalt nog har samma individer som ser kroppen som en form av uttryck en tendens att distansera sig från den när de staplar upp modifieringar. Vissa kommer att uppfatta kroppen som något mer än ett verktyg eller fordon som drivs av hjärnan eller själen. Även om denna mentalitet kan underlätta ännu större uppgraderingar, väcker den en obehaglig fråga: var slutar personen och var börjar förbättringarna?"
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Ambitious Sacrifices",
+							"entries": [
+								"Offer är centralt i evolutionisternas arbete. De måste ge upp delar av sig själva - en dag tar de bort ett ben för att ersätta det med en uppgraderad protes, nästa dag ändrar de sitt utseende för att passa en ny förbättring. Även om dessa fysiskt inriktade modifieringar ger dem förmågan att slåss tå mot tå med de bästa av krigare, har evolutionisterna större ambitioner. De driver sina förbättringar längre än vad deras kroppar klarar av och sliter på sin egen livskraft. Uthållighet är den viktigaste egenskapen för en evolutionist; förmågan att lida genom sina ambitioner är avgörande för deras framgång. De gör inget för att uppnå sina mål, även om de riskerar att skada sig själva. Ibland gör de sina största uppoffringar utan att ens inse det."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Freakish Forms",
+							"entries": [
+								"Som ett resultat av sitt arbete ser evolutionister nästan alltid konstiga ut. Modifieringar av deras kropp går sällan obemärkt förbi, vilket ofta gör att folk blir misstänksamma mot dem. Åsikterna om enskilda evolutionister varierar drastiskt, från avsky och rädsla till respekt och beundran. De behandlas ofta annorlunda, inte bara på grund av deras utseende, utan även på grund av de konsekvenser det har för deras mentala tillstånd - ingen som skulle göra så mot sig själv är säkert rätt i sitt huvud. Evolutionister som dagligen möter sådana reaktioner tenderar att relativt lätt kunna övervinna andras åsikter om dem. Vissa evolutionister är blyga och självmedvetna, försöker smälta in och kryper undan vid fientlighet. Andra njuter av ryktbarhet och tar gärna rampljuset i anspråk - även negativ uppmärksamhet är uppmärksamhet. De farligaste tolererar inga antydningar av omdöme och kan flyga in i ett mordiskt raseri vid minsta sidoblick."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Creating an Evolutionist",
+							"entries": [
+								"När du skapar din evolutionistkaraktär bör du fundera på exakt hur din karaktär uppgraderar sin kropp. Som startkaraktär väljer du en metod som definierar den allmänna karaktären på dina förbättringar, men den exakta formen på dina uppgraderingar är upp till dig. Förbättrar du din nuvarande kropp? Eller tar du bort och ersätter delar av din kropp? Är din karaktär metodisk och försiktig när du uppgraderar din kropp, eller gör du förändringarna så grovt och snabbt som möjligt? Ditt val av hur din karaktär ändrar sin kropp är avgörande för deras utseende och hur andra behandlar dem. Varje uppgradering som din karaktär uppnår kommer att förändra vem han/hon är, och det är denna utveckling av förändringar som definierar dig som en evolutionist.",
+								"För det andra bör du fundera på varför din karaktär bestämde sig för att följa denna kontroversiella och farliga väg. Var det helt enkelt maktbegäret eller har de ett större mål? Varje evolutionist har en anledning till varför de ständigt förbättrar sig själva, på grund av de uppoffringar som följer med det. Strävar din karaktär efter att övervinna något hinder? Eller finns det något som din karaktär vill ändra på hos sig själv? Vidare bör du fundera på hur din karaktär leddes till att förbättra sin kropp. Blev de introducerade till utövandet av någon annan, eller började det med en större kaotisk händelse? Valde din karaktär den här vägen, eller blev den påtvingad honom eller henne? Att ha en klar uppfattning om din karaktärs mål och ursprung kommer att hjälpa dig att informera dina beslut längre fram.",
+								{
+									"type": "entries",
+									"name": "Quick Build",
+									"entries": [
+										"Du kan snabbt bli en evolutionist genom att följa de här förslagen. För det första bör du göra konstitutionen till din högsta poäng, följt av styrka eller smidighet, beroende på hur du vill slåss. För det andra väljer du bakgrunden Mercenary (legosoldat)."
+									]
+								}
+							]
+						}
+					],
+					"source": "ccg",
+					"page": 63
+				}
+			]
+		}
+	],
 	"classFeature": [
 		{
 			"name": "Shotgun Slayer",
@@ -2269,6 +2608,363 @@
 			"entries": [
 				"{@i Optional 1st-level ranger feature}",
 				"När du väljer en favoritterräng för din {@classFeature Natural Explorer|Ranger||1} funktion läggs höghus, gator och slum till bland de tillgängliga alternativen. Dessa nya alternativ representerar de olika höjderna i staden Prismatic Fall - med High-Rises högst upp och Slums längst ner."
+			]
+		},
+		{
+			"name": "Evolutionary Method",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 1,
+			"entries": [
+				"En evolutionists metod är grundläggande för hans eller hennes väsen - det är den viktiga porten som gör det möjligt för honom eller henne att modifiera sin kropp och den väg som skiljer honom eller henne från andra av hans eller hennes sort. En evolutionists metod är en definierande faktor i deras utseende, källan till deras kraft och en grundlig representation av deras identitet. Utan en evolutionistisk metod skulle man inte vara en evolutionist.",
+				"Välj en evolutionär metod, som bestämmer hur du ska förhålla dig till att uppgradera din egen kropp. Ditt val ger dig egenskaper på 1:a nivån, och igen på 7:e, 13:e och 17:e nivån."
+			]
+		},
+		{
+			"name": "Augmentations",
+			"source": "ccg",
+			"page": 66,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Varje evolutionist börjar med förstärkningar, som är grunden för ytterligare förstärkningar. Välj två av följande alternativ att modifiera din kropp med. Du kan välja ytterligare ett på 6:e nivån.",
+				{
+					"type": "options",
+					"count": 2,
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Arm Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Core Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Exterior Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Growth Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Head Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Leg Augmentation|ccg"
+						}
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Your Augmentations",
+					"entries": [
+						"{@b Arm Augmentation.} Du kan implementera Arm Augmentation i en eller båda dina armar, eventuellt genom att mixtra med muskelfibrerna i dem eller genom att omsluta dem för att öka deras styrka. Du kan också lemlästa dem istället och ersätta dem helt och hållet för att få den kraft du söker.",
+						"{@b Core Augmentation.} Core Augmentation är en modifiering av kroppens bål, oftast genom att öka området i och runt hjärtat för att öka överlevnaden. Du kan till och med ersätta ditt hjärta eller andra organ helt och hållet för att göra detta.",
+						"{@b Exterior Augmentation.} Ditt försvar stärks när du får en yttre förstärkning, som du kan få genom att införa ett skyddande lager under din hud, täcka hela din kropp med en slitstark överrock eller genom att få ett helt exoskelett.",
+						"{@b Growth Augmentation.} Det finns många sätt att genomföra tillväxtförstärkning, men det handlar alltid om att få nya delar som avviker från kroppens ursprungliga form. Dessa nya kroppsdelar kan ta vilken form som helst, till exempel hovar, en svans, extra armar, klor, huggtänder, taggar, taggar, horn eller tentakler.",
+						"{@b Head Augmentation.} Att förbättra dina sinnen är ditt huvudmål när du genomför huvudförstoring. Du kan göra det genom att ersätta delar av ditt huvud, genom att morfa hela dess struktur eller genom att förbättra enskilda ansiktsdrag.",
+						"{@b Leg Augmentation.} Snabbhet är nyckeln till benförstoring, som påverkar ett eller båda benen. Du kan täcka dina ben med en stark ram eller ändra deras struktur helt och hållet. Du kan också stympas och ersätta dem med starkare ben eller någon helt ny typ av bihang."
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Evolutionary Weapons",
+					"entries": [
+						"Vissa förstärkningar och uppgraderingar från den här klassen ger dig tillgång till evolutionära vapen, vilket är förstärkningar som fästs på din kropp och som kan användas som vapen. De har följande egenskaper:",
+						{
+							"type": "list",
+							"items": [
+								"Du är duktig på dem.",
+								"De ger 1d10 slagskador, genomträngande skador eller huggskador, beroende på vad som är lämpligt, plus din förmågemodifierare.",
+								"De har finessegenskaperna.",
+								"De kräver ingen fri hand för att användas (förutom den som ges av armförstärkningen).",
+								"Om du har minst ett evolutionärt vapen får du +1 bonus på AC så länge du inte har använt ett vapen eller en sköld sedan början av din senaste tur.",
+								"De kan inte användas när du har en sköld och du kan inte delta i tvåvapenstrider med dem."
+							]
+						},
+						"Från och med 6:e nivån betraktas dina evolutionära vapen som magiska när det gäller att övervinna motstånd och immunitet."
+					]
+				}
+			]
+		},
+		{
+			"name": "Upgrades",
+			"source": "ccg",
+			"page": 66,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 2,
+			"entries": [
+				"På nivå 2 börjar du förbättra din kropp med en mängd unika modifieringar. När du först får den här egenskapen väljer du två uppgraderingar att utveckla. En lista över de tillgängliga alternativen finns på sidan {@filter Optional Features|optionalfeatures|Feature Type=EU}. Du kan utveckla ytterligare uppgraderingar av ditt val när du når vissa nivåer i den här klassen, vilket visas i kolumnen Upgrades Developed (utvecklade uppgraderingar) i tabellen Evolutionist.",
+				"När du får en nivå i den här klassen kan du ersätta en av dina utvecklade uppgraderingar med en ny. När du avslutar en kort eller lång vila väljer du ett antal av dina utvecklade uppgraderingar att aktivera, vilket visas i kolumnen Aktiva uppgraderingar på Evolutionisttabellen. Dessa förblir aktiverade tills du använder den här funktionen igen. Medan en uppgradering är aktiverad får du dess fördelar.",
+				"Vissa uppgraderingar kräver att din måltavla gör ett räddningskast för att motstå funktionens effekter. Sparkastets DC beräknas på följande sätt:",
+				{
+					"type": "abilityDc",
+					"name": "Upgrade",
+					"attributes": [
+						"con"
+					]
+				}
+			]
+		},
+		{
+			"name": "Reconstruction",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 2,
+			"entries": [
+				"Från och med nivå 2 kan din kropp reparera skador. Du får följande fördelar:",
+				{
+					"type": "list",
+					"items": [
+						"När du använder träfftärningar för att återfå träffpoäng i slutet av en kort vila använder du det högsta möjliga talet för varje tärning, istället för att kasta.",
+						"När du avslutar en lång vila kan du ersätta förlorade kroppsdelar, t.ex. ben, armar eller ögon, med ersättningsdelar. Om delen hade förstärkningar, såsom förstärkningar eller uppgraderingar, återfår du även dem."
+					]
+				}
+			]
+		},
+		{
+			"name": "Metabolic Ignition",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 3,
+			"entries": [
+				"På tredje nivån tillåter dina modifieringar dig att överskrida dina begränsningar genom att använda din egen kropp som bränsle. På din tur kan du gå in i ett tillstånd av metabolisk tändning som en bonusåtgärd. När du gör det väljer du en av dina förstärkningar att antända och får fördelar baserade på ditt val medan du förblir antänd, enligt nedan. Du kan bara ha en förstärkning tänd vid en given tidpunkt.",
+				"När du antänds första gången minskas dina nuvarande träffpunkter med ett belopp som är lika med 2 + din kompetensbonus. I början av var och en av dina turer därefter kan du välja att avsluta din metaboliska antändning, eller minska dina nuvarande träffpoäng med samma belopp igen för att fortsätta den (ingen handling krävs från dig i båda fallen). Denna träffpunktsminskning räknas inte som skada och påverkar inte din koncentration.",
+				{
+					"name": "Ignition Benefits",
+					"type": "entries",
+					"entries": [
+						"Det här är fördelarna du får när du tänder varje förstärkning.",
+						"{@b Arm.} Första gången du vid varje tur som du träffar en attack med ett kampvapen eller ditt arm evolutionära vapen, fördubblar du vapnets basskadetärning och fördubblar din förmågemodifierare när du bestämmer hur mycket skada det ger.",
+						"{@b Core.} Du ignorerar alla effekter av en trollformel eller ett tillstånd som du väljer och som för närvarande påverkar dig. Om du inte kan vidta åtgärder på din tur och har minst 1 träffpunkt kan du tända den här förstärkningen när du börjar din tur, utan att behöva använda din bonusåtgärd (ingen åtgärd krävs).",
+						"{@b Exterior.} När du inte bär någon rustning är du motståndskraftig mot all skada utom psykisk skada.",
+						"{@b Growth.} När du gör åtgärden {@action Attack} på din tur kan du göra ytterligare en attack med ett evolutionärt vapen som en del av samma åtgärd.",
+						"{@b Head.} Du har fördel på attackkast, om inte nackdelen normalt skulle gälla för kastet.",
+						"{@b Leg.} När du först tänder den här förstärkningen och i början av var och en av dina turer därefter får du fördelarna av en av följande valfria åtgärder: {@action Dash}, {@action Disengage} eller {@action Dodge}."
+					]
+				}
+			]
+		},
+		{
+			"name": "Undying",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 3,
+			"entries": [
+				"Från och med nivå 3 kan din ambition segra över döden. Om du sjunker till 0 träffpunkter och inte dör direkt kan du göra ett {@dc 10} räddningskast med konstitutionen. Om du antänds har du fördel på detta kast. Om du lyckas sjunker du istället till 1 träffpunkt. Varje gång du använder denna egenskap efter den första ökar DC:n med 5. När du avslutar en kort eller lång vila återställs DC:n till 10.",
+				{
+					"type": "inset",
+					"name": "Undying and Multiclassing",
+					"entries": [
+						"Om du har både Undying-funktionen och {@classFeature Relentless Rage|barbarian||11}-funktionen och DC ändras för en av dem, ändras det också till samma värde för den andra funktionen."
+					]
+				}
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 4,
+			"entries": [
+				"När du når 4:e nivån kan du öka en valfri förmågepoäng med 2 eller två valfria förmågepoäng med 1. Som vanligt kan du inte öka en förmågepoäng över 20 med den här funktionen.",
+				"Om din DM tillåter användning av feats kan du istället ta en {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Extra Attack",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 5,
+			"entries": [
+				"På 5:e nivån kan du attackera två gånger, istället för en gång, när du gör {@action Attack}-åtgärden på din tur."
+			]
+		},
+		{
+			"name": "Relentless Ignition",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 6,
+			"entries": [
+				"Från och med 6:e nivån kan du välja att tända två förstärkningar istället för en när du går in i din {@classFeature metabolic ignition|evolutionist|ccg|3}. Om du gör det förlorar du dubbelt så många träffpoäng när du först tänder och under hela tändningen när du väljer att fortsätta den."
+			]
+		},
+		{
+			"name": "Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 6,
+			"entries": [
+				"På 6:e nivån får du ytterligare en förstärkning."
+			]
+		},
+		{
+			"name": "Evolutionary Method feature",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 7,
+			"entries": [
+				"På 7:e nivån får du en egenskap som du får genom din evolutionära metod."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 8,
+			"entries": [
+				"När du når 8:e nivån kan du öka en valfri förmågepoäng med 2 eller två valfria förmågepoäng med 1. Som vanligt kan du inte öka en förmågepoäng över 20 med den här funktionen.",
+				"Om din DM tillåter användning av feats kan du istället ta en {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Hardened Mind",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 9,
+			"entries": [
+				"På 9:e nivån har mängden förbättringar i din kropp tagit ut sin rätt på ditt sinne, vilket gör andra försök att manipulera det meningslösa. Du får färdighet i Wisdom saving throws, eller om du redan är skicklig, ett annat räddningskast av ditt val."
+			]
+		},
+		{
+			"name": "Unyielding Strikes",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 11,
+			"entries": [
+				"På 11:e nivån kan du göra ytterligare en attack som en del av samma handling när du gör attacken medan du är {@classFeature metabolic ignition|evolutionist|ccg|3||ignited} eller när du är under hälften av din maximala träffpunkt, när du är under hälften av din maximala träffpunkt."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 12,
+			"entries": [
+				"När du når 12:e nivån kan du öka en valfri förmågepoäng med 2 eller två valfria förmågepoäng med 1. Som vanligt kan du inte öka en förmågepoäng över 20 med den här funktionen.",
+				"Om din DM tillåter användning av feats kan du istället ta en {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Evolutionary Method feature",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 13,
+			"entries": [
+				"På 13:e nivån får du en egenskap som du får genom din evolutionära metod."
+			]
+		},
+		{
+			"name": "Immortality",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 14,
+			"entries": [
+				"På 14:e nivån åldras din kropp endast ett år för varje 10 år som går och du är immun mot magiskt åldrande. Dessutom behöver du inte längre sova, äta mat eller dricka vatten för att överleva."
+			]
+		},
+		{
+			"name": "Wounded Ambition",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 15,
+			"entries": [
+				"Från och med 15:e nivån kan du inte vara {@condition frightened} och dina vapenattacker får en kritisk träff om du kastar 19 eller 20 när du är antänd eller är under hälften av din maximala träffpoäng."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 16,
+			"entries": [
+				"När du når 16:e nivån kan du öka en valfri förmågepoäng med 2 eller två valfria förmågepoäng med 1. Som vanligt kan du inte öka en förmågepoäng över 20 med den här funktionen.",
+				"Om din DM tillåter användning av feats kan du istället ta en {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Evolutionary Method feature",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 17,
+			"entries": [
+				"På 17:e nivån får du en egenskap som du får genom din evolutionära metod."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 19,
+			"entries": [
+				"När du når 19:e nivån kan du öka en valfri förmågaspoäng med 2 eller två valfria förmågor med 1. Som vanligt kan du inte öka en förmågaspoäng över 20 med den här funktionen.",
+				"Om din DM tillåter användning av feats kan du istället ta en {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Final Form",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 20,
+			"entries": [
+				"På 20:e nivån når du din slutliga form. Välj en av dina förstärkningar. Du får permanent dess tändningsfördelar."
+			]
+		},
+		{
+			"name": "Immortality Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 20,
+			"entries": [
+				"På 20:e nivån är du odödlig. Du åldras inte längre."
 			]
 		}
 	],
@@ -2607,6 +3303,337 @@
 				"Arcane Translocation|Wizard||Infiltration|ccg|10",
 				"Tactical Camouflage|Wizard||Infiltration|ccg|14"
 			]
+		},
+		{
+			"name": "Method of Innovation",
+			"subclassFeatures": [
+				"Method of Innovation|Evolutionist|ccg|Innovation|ccg|1",
+				"Ingenious Enhancements|Evolutionist|ccg|Innovation|ccg|7",
+				"Stabilized Ignition|Evolutionist|ccg|Innovation|ccg|13",
+				"Omega Cannon|Evolutionist|ccg|Innovation|ccg|17"
+			],
+			"source": "ccg",
+			"page": 69,
+			"shortName": "Innovation",
+			"className": "Evolutionist",
+			"classSource": "ccg"
+		},
+		{
+			"name": "Method of Mutation",
+			"subclassFeatures": [
+				"Method of Mutation|Evolutionist|ccg|Mutation|ccg|1",
+				"Berserk Mutation|Evolutionist|ccg|Mutation|ccg|7",
+				"Chaotic Mutation|Evolutionist|ccg|Mutation|ccg|13",
+				"Wrathful Surge|Evolutionist|ccg|Mutation|ccg|17"
+			],
+			"source": "ccg",
+			"page": 69,
+			"shortName": "Mutation",
+			"className": "Evolutionist",
+			"classSource": "ccg"
+		},
+		{
+			"name": "Method of Infusion",
+			"spellcastingAbility": "cha",
+			"casterProgression": "1/3",
+			"cantripProgression": [
+				1,
+				1,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3
+			],
+			"spellsKnownProgression": [
+				2,
+				2,
+				3,
+				4,
+				4,
+				4,
+				5,
+				6,
+				6,
+				7,
+				8,
+				8,
+				9,
+				10,
+				10,
+				11,
+				11,
+				11,
+				12,
+				13
+			],
+			"subclassTableGroups": [
+				{
+					"subclasses": [
+						{
+							"name": "Infusion",
+							"source": "ccg"
+						}
+					],
+					"colLabels": [
+						"{@filter Cantrips Known|spells|level=0|class=Sorcerer}",
+						"{@filter Spells Known|spells|class=Sorcerer}"
+					],
+					"rows": [
+						[
+							1,
+							2
+						],
+						[
+							1,
+							2
+						],
+						[
+							2,
+							3
+						],
+						[
+							2,
+							4
+						],
+						[
+							2,
+							4
+						],
+						[
+							2,
+							4
+						],
+						[
+							2,
+							5
+						],
+						[
+							2,
+							6
+						],
+						[
+							2,
+							6
+						],
+						[
+							3,
+							7
+						],
+						[
+							3,
+							8
+						],
+						[
+							3,
+							8
+						],
+						[
+							3,
+							9
+						],
+						[
+							3,
+							10
+						],
+						[
+							3,
+							10
+						],
+						[
+							3,
+							11
+						],
+						[
+							3,
+							11
+						],
+						[
+							3,
+							11
+						],
+						[
+							3,
+							12
+						],
+						[
+							3,
+							13
+						]
+					]
+				},
+				{
+					"title": "Spell Slots per Spell Level",
+					"subclasses": [
+						{
+							"name": "Infusion",
+							"source": "ccg"
+						}
+					],
+					"colLabels": [
+						"{@filter 1st|spells|level=1|class=Sorcerer}",
+						"{@filter 2nd|spells|level=2|class=Sorcerer}",
+						"{@filter 3rd|spells|level=3|class=Sorcerer}",
+						"{@filter 4th|spells|level=4|class=Sorcerer}"
+					],
+					"rowsSpellProgression": [
+						[
+							1,
+							0,
+							0,
+							0
+						],
+						[
+							1,
+							0,
+							0,
+							0
+						],
+						[
+							2,
+							0,
+							0,
+							0
+						],
+						[
+							3,
+							0,
+							0,
+							0
+						],
+						[
+							3,
+							0,
+							0,
+							0
+						],
+						[
+							3,
+							0,
+							0,
+							0
+						],
+						[
+							4,
+							2,
+							0,
+							0
+						],
+						[
+							4,
+							2,
+							0,
+							0
+						],
+						[
+							4,
+							2,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							2,
+							0
+						],
+						[
+							4,
+							3,
+							2,
+							0
+						],
+						[
+							4,
+							3,
+							2,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							1
+						],
+						[
+							4,
+							3,
+							3,
+							1
+						]
+					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"detect magic",
+							"identify"
+						]
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Method of Infusion|Evolutionist|ccg|Infusion|ccg|1",
+				"Spell Form|Evolutionist|ccg|Infusion|ccg|7",
+				"Arcane Body|Evolutionist|ccg|Infusion|ccg|13",
+				"Spell Strike|Evolutionist|ccg|Infusion|ccg|17"
+			],
+			"source": "ccg",
+			"page": 70,
+			"shortName": "Infusion",
+			"className": "Evolutionist",
+			"classSource": "ccg"
 		}
 	],
 	"subclassFeature": [
@@ -2808,7 +3835,7 @@
 					"type": "inset",
 					"name": "Mechanical Momentum",
 					"entries": [
-						"Som bard i College of Momentum kan din ökade hastighet vara ett resultat av många olika saker - din karaktär kan åka på en magnifik mekanisk hoverboard, bära magiskt förbättrade rullskridskor eller helt enkelt bli stärkt av kraften i sina egna beats. Om du väljer att smaksätta den här funktionen som en speciell utrustning bör endast din karaktär kunna använda den."
+						"Som bard i College of Momentum kan din ökade hastighet vara ett resultat av många olika saker - din karaktär kan åka på en magnifik mekanisk hoverboard, bära magiskt förbättrade rullskridskor eller helt enkelt bli stärkt av kraften i sina egna beats. Om du väljer att smaksätta den här egenskapen som en speciell utrustning bör endast din karaktär kunna använda den."
 					]
 				}
 			]
@@ -2973,9 +4000,9 @@
 			"entries": [
 				"Från och med nivå 2 kan du använda din Channel Divinity för att förändra känslorna hos dem runt omkring dig.",
 				"Som en handling visar du din heliga symbol, åberopar namnet på din gudom och säger några ord om dem, genom att välja ett av alternativen nedan. Välj ett antal varelser inom 30 fot från dig som kan höra dig, upp till ett antal som är lika med din visdomsmodifierare (minst en) som påverkas av dina valda ord i 1 minut. En ovillig varelse måste göra ett Visdomsbesparingskast för att motstå denna effekt. Om en sådan varelse misslyckas kan den upprepa räddningskastet i slutet av var och en av sina vändor, och avsluta effekten på sig själv vid en framgång.",
-				"{@b They are mighty.} Berörda varelser blir skrämda av dig så länge det varar.",
+				"{@b They are mighty.} De drabbade varelserna är {@condition frightened} av dig under hela perioden.",
 				"{@b They are merciful.} Berörda varelser är {@condition charmed} av dig under hela varaktigheten.",
-				"{@b They are fearless.} De drabbade varelserna kan inte bli {@condition frightened} eller förtrollade under hela varaktigheten."
+				"{@b They are fearless.} De drabbade varelserna kan inte bli skrämda eller förtrollade under hela perioden."
 			]
 		},
 		{
@@ -4497,6 +5524,317 @@
 			"entries": [
 				"Från och med 14:e nivån kan du lära dig att använda den latenta magin i dina trollformler för att kamouflera dig. Efter att du kastat en trollformel på 1:a nivån eller högre kan du välja att bli {@condition invisible} till slutet av vändan."
 			]
+		},
+		{
+			"name": "Method of Innovation",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Du tillverkar själv den form du vill ha, som består av konstruerade förbättringar och tillverkade kroppsdelar. Medan de flesta evolutionister med den här metoden förbättrar sig själva med invecklad, magisk teknik, föredrar vissa att istället använda jordiska, elementära förstärkningar eller sydda bitar av monster. Oavsett detta är evolutionister med den här metoden motståndskraftiga och innovativa. De pysslar, reparerar och finjusterar ständigt sig själva, och bygger hela tiden mot något större.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Tinkerer|Evolutionist|ccg|Innovation|ccg|1"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Self Repair|Evolutionist|ccg|Innovation|ccg|1"
+				}
+			]
+		},
+		{
+			"name": "Tinkerer",
+			"entries": [
+				"När du väljer den här metoden på 1:a nivån får du kunskaper i {@item tinker's tools|phb} och {@item thieves' tools|phb} om du inte redan har dem."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Self Repair",
+			"entries": [
+				"Från och med 1:a nivån kan du snabbt återuppbygga din form. Som en bonusåtgärd kan du reparera dina trasiga delar och återfå träffpunkter motsvarande 1d6 + din evolutionistnivå. Du kan använda denna egenskap ett antal gånger lika med din konstitutionsmodifierare (minst en gång). Du återfår alla förbrukade användningar när du avslutar en lång vila."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Ingenious Enhancements",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"På 7:e nivån kan du skapa nya förbättringar. Välj två ytterligare {@filter upgrades|optionalfeatures|Feature Type=EU} att utveckla. Dessa uppgraderingar behöver inte uppfylla några förutsättningar för förstärkning, räknas inte mot det maximala antalet uppgraderingar du kan utveckla och de aktiveras alltid för dig. Om du väljer uppgraderingar som ger dig ett val när de aktiveras kan du göra det valet när du avslutar en kort eller lång vila."
+			]
+		},
+		{
+			"name": "Stabilized Ignition",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 13,
+			"header": 2,
+			"entries": [
+				"Från och med 13:e nivån kan du ändra dina förbättringar så att de inte belastar din kropp så mycket. Den grundläggande minskningen av träffpunkter för din {@classFeature Metabolic Ignition|evolutionist|ccg|3} är nu lika med din kompetensbonus."
+			]
+		},
+		{
+			"name": "Omega Cannon",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"Från och med 17:e nivån kan du använda din handling för att släppa loss en sista destruktiv explosion som bildar en 30 meter lång och 15 meter bred linje framför dig. Varje varelse i linjen måste göra ett Dexterity saving throw. En varelse tar {@damage 12d6} ljus-, strålnings- eller brandskada (ditt val) vid ett misslyckat räddningsförsök, eller hälften så mycket vid ett lyckat. Explosionen antänder brännbara föremål i området som inte bärs eller bärs, och gör fyrdubbel skada på alla föremål och strukturer.",
+				"När du använder den här funktionen skjuts du 30 fot bakåt från den riktning du sköt, din metaboliska tändning och alla dess fördelar upphör omedelbart, och du kan inte använda den här funktionen igen förrän du avslutar en lång vila."
+			]
+		},
+		{
+			"name": "Method of Mutation",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Din kropp är kraftigt muterad: köttet är förvandlat, ändrat storlek och omformat. Delar växer, och kan ha ändrat färg. Dessa mutationer kan inkluderas genom en avskyvärd alkemi, en kraftfull förbannelse eller ett symbiotiskt förhållande med en parasitär varelse. Oavsett metod lever dessa evolutionister på gränsen - de pressar ständigt sin kropp till sin gräns. När de modifierar sig själva genomgår deras kroppar kaotiska, potenta omvandlingar som tänjer på gränserna för deras psyke.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Alchemist|Evolutionist|ccg|Mutation|ccg|1"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Mutant Reflexes|Evolutionist|ccg|Mutation|ccg|1"
+				}
+			]
+		},
+		{
+			"name": "Alchemist",
+			"entries": [
+				"När du väljer den här metoden på 1:a nivån får du färdighet i {@item alchemist's supplies|phb} och {@item poisoner's kit|phb} om du inte redan har dem."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Mutant Reflexes",
+			"entries": [
+				"Från och med 1:a nivån ökar din muterade form dina reflexer. Du kan ge dig själv en bonus på dina initiativrullningar som är lika stor som din konstitutionsmodifierare.",
+				"När du gör åtgärden {@action Attack} på din tur och missar en attack kan du dessutom göra en vapenattack som en bonusåtgärd på samma tur. Du kan göra detta ett antal gånger som är lika med din konstitutionsmodifierare (minst en gång). Du återfår alla förbrukade användningar när du avslutar en lång vila."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Berserk Mutation",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"Från och med 7:e nivån när du tänder en enskild förstärkning kan du välja att gå in i ett berserk-tillstånd under den tid som tändningen pågår. Om du gör det tänder du istället en slumpmässig förstärkning och byter till en ny slumpmässig förstärkning i början av varje varv medan du förblir tänd, vilket bestäms genom att kasta {@dice 1d3}.",
+				"Din storlek ökar med en kategori under hela tiden - från Medium till Large, till exempel, vilket gör att dina vapenattacker ger {@damage 1d4} extra skada vid en träff. Dessutom, när en varelse orsakar skada mot dig eller avslutar sin tur inom din räckvidd medan du är i detta berserktillstånd kan du göra en vapenattack mot dem som en reaktion.",
+				"När du har gått in i detta berserk-tillstånd måste du vila länge innan du kan göra det igen."
+			]
+		},
+		{
+			"name": "Chaotic Mutation",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 13,
+			"header": 2,
+			"entries": [
+				"På 13:e nivån kan du framkalla en kaotisk mutation inom dig själv. Som en bonusåtgärd kan du få en slumpmässig förstärkning av de du saknar, vilket bestäms genom att kasta {@dice 1d3}. Därefter får du en slumpmässig uppgradering från den förstärkningens kategori, som bestäms genom att kasta {@dice 1d6}.",
+				"Du får fördelarna av förstärkningen och uppgraderingen under nästa timme, eller tills du använder den här funktionen igen. Om någon av dem erbjuder dig ett val, gör du det valet när du får förstärkningen eller uppgraderingen genom den här funktionen.",
+				"Du kan tända denna nya förstärkning och du kan inleda din metabola tändning som en del av samma bonusåtgärd som du använde för att få den, förutsatt att du tänder den nya förstärkningen som en del av den eller använder din {@subclassFeature Berserk Mutation|Evolutionist|ccg|Mutation|ccg|7} egenskap när du tänder den. Om du använder din egenskap Berserk Mutation med den här extra förstärkningen, kastar du {@dice 1d4} varje tur för att bestämma den slumpmässiga förstärkning som antänds.",
+				"Du kan använda den här funktionen tre gånger. Du återfår alla förbrukade användningar av den när du avslutar en lång vila."
+			]
+		},
+		{
+			"name": "Wrathful Surge",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"Från och med 17:e nivån kan du pressa din kropp till extrema gränser. Om du börjar din tur antänd och väljer att förbli antänd kan du ta ytterligare en tur i strid direkt efter denna. Under den här vändningen måste du röra dig direkt mot den närmaste varelsen tills du är inom räckhåll för att attackera. Därefter måste du använda {@action Attack} åtgärden mot dem och använda alla dina möjliga attacker, och flytta dig för att attackera nästa varelse om du fällde ditt nuvarande mål.",
+				"När du har använt den här funktionen måste du vila länge innan du kan använda den igen."
+			]
+		},
+		{
+			"name": "Method of Infusion",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Din form är intensivt magisk - i dig finns kraften av ren arkana. Du väver denna kraft för att forma magiska, iriserande förstärkningar - genomskinliga lemmar, glänsande, glödande ögon eller till och med tatueringliknande förstärkningar som sveper runt din kropp. Du kan ha fått den här kraften vid födseln, eller så kan den ha blivit inpräntad i dig någon gång under ditt liv. Kanske har en högre varelse gett dig denna kraft. Oavsett dess ursprung är det din process som möjliggör dina förstärkningar - eftersom du väver din kropp på samma sätt som en magiker väver sina trollformler.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Spellcasting|Evolutionist|ccg|Infusion|ccg|1"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Arcane Sense|Evolutionist|ccg|Infusion|ccg|1"
+				}
+			]
+		},
+		{
+			"name": "Spellcasting",
+			"entries": [
+				"På 1:a nivån ger din arkanska form dig förmågan att kasta trollformler.",
+				"{@b Cantrips.} Du lär dig {@filter one cantrip of your choice from the sorcerer spell list|spells|level=0|class=sorcerer}. Du lär dig ytterligare en cantrip av ditt val på 3:e nivån och ytterligare en på 10:e nivån.",
+				"{@b Spell Slots.} Tabellen Infusion Spellcasting visar hur många spell slots du har för att kasta dina trollformler på 1:a nivån eller högre. För att kasta en av dessa trollformler måste du använda en slot av trollformelns nivå eller högre. Du återfår alla förbrukade spell slots när du avslutar en lång vila.",
+				"{@b Spells Known of 1st-Level and Higher.} När du väljer denna metod känner du till två {@filter 1st-level sorcerer spells|spells|level=1|class=sorcerer} av dina val.",
+				"Kolumnen Kända trollformler i tabellen Infusion Spellcasting visar när du lär dig fler trollformler på 1:a nivån eller högre. Var och en av dessa trollformler måste vara på en nivå som du har trollformelplatser för. Till exempel, när du når 7:e nivån i den här klassen kan du lära dig en ny trollformel på 1:a eller 2:a nivån.",
+				"När du får en nivå i den här klassen kan du dessutom välja en av de trollformler som du kan och ersätta den med en annan trollformel från listan över trollformler, som också måste vara på en nivå som du har trollformelplatser för.",
+				"{@b Spellcasting Ability.} Charisma är din förmåga att kasta trollformler för dina trollformler, eftersom din arkaiska kraft kommer inifrån dig. Du använder Charisma närhelst en trollformel hänvisar till din trollformelförmåga. Dessutom använder du din Charisma-modifierare när du fastställer räddningskast-DC:n för en trollkarlsbesvärjelse som du kastar och när du gör en attackrulle med en sådan.",
+				{
+					"type": "abilityDc",
+					"name": "Spell",
+					"attributes": [
+						"cha"
+					]
+				},
+				{
+					"type": "abilityAttackMod",
+					"name": "Spell",
+					"attributes": [
+						"cha"
+					]
+				},
+				"{@b Augmented Focus.} Du kan använda vilken modifierad del av din kropp som helst som fokus för dina trollformler."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Arcane Sense",
+			"entries": [
+				"Från och med 1:a nivån har du en medfödd koppling till magin runt omkring dig. Du lär dig {@spell identify} och {@spell detect magic spells} och de räknas inte mot antalet trollformler du kan. Du kan kasta någon av dem utan att förbruka en trollformelplats ett antal gånger som är lika med din konstitutionsmodifierare (minst en gång). Du återfår alla förbrukade användningar när du avslutar en lång vila."
+			],
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Spell Form",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"Från och med 7:e nivån, när du först antänder, kan du välja att omvandla din kropp till ren magi under hela din {@classFeature metabolic ignition|evolutionist|ccg|3||ignition}. När du är i den här formen får du följande fördelar:",
+				{
+					"type": "list",
+					"items": [
+						"När du har kastat en besvärjelse kan du teleportera dig till ett obebott utrymme inom en halv meter från ett av besvärjelsens mål eller en punkt inom dess effektområde, så länge du kan se målets plats.",
+						"Alla trollformler som du kastar under tändningen kastas på en nivå högre än den spellplats du använde för att kasta dem."
+					]
+				},
+				"När du har använt den här funktionen måste du vila en kort eller lång stund innan du kan använda den igen."
+			]
+		},
+		{
+			"name": "Arcane Body",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 13,
+			"header": 2,
+			"entries": [
+				"På 13:e nivån tar du ingen skada och påverkas inte av andra skadliga effekter från trollformler som du kastar. Om du skulle ta skada av en trollformel på 1:a nivån eller högre som du kastar, får du istället tillbaka {@dice 2d6} träffpunkter. En besvärjelse kan bara få dig att återfå träffpunkter på detta sätt en gång."
+			]
+		},
+		{
+			"name": "Spell Strike",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"På 17:e nivån när du gör {@action Attack} kan du ersätta en av attackerna med en besvärjelse som har en kasttid på 1 handling och som du kastar som en del av samma handling.",
+				"När du har använt den här funktionen måste du vila en kort eller lång stund innan du kan använda den igen."
+			]
 		}
 	],
 	"language": [
@@ -5414,7 +6752,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5428,7 +6766,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5442,7 +6780,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5456,7 +6794,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5470,7 +6808,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5484,7 +6822,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5498,7 +6836,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5512,7 +6850,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5526,7 +6864,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5540,7 +6878,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5554,7 +6892,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5568,7 +6906,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5582,7 +6920,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5596,7 +6934,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5610,7 +6948,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5624,7 +6962,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5638,13 +6976,947 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
 			},
 			"entries": [
 				"Vapnet låser sig på ditt mål och svänger för att söka efter det och avfyrar bultar som ger kraftskador. Om du har sett ditt mål under den senaste minuten kan du attackera dem även om du inte kan se dem, och du lider inte nackdel på attackkastet om målet är osynligt. Din attack färdas fritt runt hörn eller genom öppningar för att nå ditt mål. Du ignorerar också halvt skydd och trekvartsskydd för den här attacken."
+			]
+		},
+		{
+			"name": "Arm Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Du får färdighet i alla {@filter martial weapons|items|source=phb|category=basic|type=martial weapon}. Du kan också använda båda dina fria händer som evolutionära vapen."
+			]
+		},
+		{
+			"name": "Core Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Ditt maximum av träffpunkter ökar med lika mycket som din nivå som evolutionist och det ökar med 1 igen varje gång du får en nivå i den här klassen."
+			]
+		},
+		{
+			"name": "Exterior Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"När du inte bär någon rustning är din rustningsklass lika med 13 + din konstitutionsmodifierare. Du kan använda en sköld och ändå få den här fördelen."
+			]
+		},
+		{
+			"name": "Growth Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Du får upp till fyra nya kroppsliga egenskaper som kan användas som evolutionära vapen. Dessa nya funktioner kan inte använda föremål eller använda vapen eller sköldar."
+			]
+		},
+		{
+			"name": "Head Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Du får färdighet i {@skill Perception} och en annan valfri färdighet."
+			]
+		},
+		{
+			"name": "Leg Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Din gånghastighet ökar med 10 fot."
+			]
+		},
+		{
+			"name": "Amorphous",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Din form böjer och vrider sig. Du kan gå in i en fientlig varelses utrymme och stanna där, och du kan röra dig genom ett utrymme som är så smalt som en tum brett utan att klämma dig."
+			]
+		},
+		{
+			"name": "Aquatic",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Du kan andas vatten och luft. Du får också en simhastighet på 30 fot."
+			]
+		},
+		{
+			"name": "Bigger and Better",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Du förbättrar ett av dina evolutionära vapen, eller så gör du hela din kropp till ett nytt evolutionärt vapen. Om du använder Styrka för detta evolutionära vapens attack- och skaderullar, ökar dess skadetärning till {@damage 2d6}."
+			]
+		},
+		{
+			"name": "Breaking Strike",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"När du en gång i varje tur träffar en varelse med en vapenattack med en styrka på {@classFeature metabolic ignition|evolutionist|ccg|3||ignited} kan du lamslå deras försvar. Nästa attackkast som görs av en annan varelse än du mot målet har fördel, förutsatt att det görs före början av din nästa tur."
+			]
+		},
+		{
+			"name": "Crafted Critter",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen skapar du ett litet djur som hjälper dig och som håller tills det dör eller tills du aktiverar den här uppgraderingen igen. Välj en {@filter CR 0 beast|bestiary|Challenge Rating=[&0]|type=beast} som du har sett förut. Kreaturen tar dess form och statistik, även om den är en konstruktion (Innovation), monstrositet (Mutation) eller aberration (Infusion) istället för ett djur. Den lyder dina kommandon efter bästa förmåga (ingen åtgärd krävs av dig). I strid delar kreaturen din initiativräkning, men den tar sin tur omedelbart efter din."
+			]
+		},
+		{
+			"name": "Crippling Blows",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"När du träffar en varelse med en vapenattack kan du halvera målets hastighet fram till slutet av din nästa tur. Fram till dess kan målets hastighet inte minskas på detta sätt igen."
+			]
+		},
+		{
+			"name": "Elemental Cannon",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen väljer du ett av dina evolutionära vapen och väljer en skadetyp mellan kyla, eld och blixtnedslag. Du kan använda det evolutionära vapnet för att göra distansvapenattacker som gör skada av den valda skadetypen. Det har en normal räckvidd på 30 fot och en lång räckvidd på 120 fot."
+			]
+		},
+		{
+			"name": "Energy Burst",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Som en handling kan du drabbas av din {@classFeature Metabolic Ignition|evolutionist|ccg|3} minskning av träffpunkterna för att sända ut en energistöt i en 30-fotskägla. Varje varelse i det området måste göra ett Dexterity räddningskast. Ett mål tar kall-, eld- eller blixtskada (ditt val) lika med {@damage 2d10} + din evolutionistnivå vid ett misslyckat räddningsförsök, eller hälften så mycket skada vid ett lyckat räddningsförsök. Efter att du har utfört den här åtgärden kan du inte göra det igen förrän du avslutar en kort eller lång vila."
+			]
+		},
+		{
+			"name": "Fiery Aura",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"När du först {@classFeature metabolic ignition|evolutionist|ccg|3||ignited} och i början av var och en av dina vändor därefter, medan du fortfarande är antänd, kan du välja att avge en flammbåge som orsakar brandskador på alla andra varelser inom tre meter från dig. Denna skada är lika med din konstitutionsmodifierare (minst 1)."
+			]
+		},
+		{
+			"name": "Flight",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Du får en flyghastighet på 30 fot."
+			]
+		},
+		{
+			"name": "Freezing Aura",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Medan du är {@classFeature metabolic ignition|evolutionist|ccg|3||ignited} kan du välja att sända ut en aura av frost i en radie på tre meter runt dig. Detta område räknas som svår terräng, och andra varelser där kan inte utföra {@action Disengage} eller {@action Dash} handlingarna."
+			]
+		},
+		{
+			"name": "Frightening Revival",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"När en varelse orsakar skada som reducerar dig till 0 träffpunkter och du använder din {@classFeature Undying|evolutionist|ccg|3} egenskap för att istället förbli vid 1 träffpunkt, kan du använda din reaktion för att få dem att göra ett räddningskast med visdom. Vid ett misslyckande är de {@condition Frightened} av dig till slutet av deras nästa vändning."
+			]
+		},
+		{
+			"name": "Micromagic Engine",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen lär du dig {@filter two cantrips of your choice from the wizard spell list|spells|level=0|class=Wizard}. Konstitution är din trollkonstförmåga för dessa cantrips."
+			]
+		},
+		{
+			"name": "Noxious Aura",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Medan du är {@classFeature metabolic ignition|evolutionist|ccg|3||ignited} kan du välja att avge ett giftigt moln i en radie på tre meter runt dig. Varje varelse, förutom du, som börjar sin tur i området måste göra ett räddningskast i konstitutionen. Vid ett misslyckande är de {@condition poisoned} tills början av nästa tur. Vid ett lyckat räddningskast är en varelse immun mot din stank i 1 timme."
+			]
+		},
+		{
+			"name": "Overwhelming Impact",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"När du träffar en varelse med en närstridsattack kan du skjuta målet upp till 1,5 meter i vilken riktning som helst, utom uppåt."
+			]
+		},
+		{
+			"name": "Pathfinder",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Du får en klättringshastighet på 30 fot. Dessutom ger dina vapenattacker dubbel skada på föremål och strukturer."
+			]
+		},
+		{
+			"name": "Skill Versatility",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen kan du välja en färdighet som du inte behärskar. Du får kompetens i den tills du väljer en ny genom den här uppgraderingen."
+			]
+		},
+		{
+			"name": "Tether Strike",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Du får ett nytt evolutionärt vapen i form av en kedja eller en kraftig tråd. Du gör distansattacker snarare än närstridsattacker med vapnet, det har en räckvidd på 6 meter och dess skadetärning är en d6 snarare än en d10. När du träffar en varelse eller ett föremål med vapnet kan du välja att förflytta dig själv i en rak linje tills du befinner dig inom 5 fot från målet. Alternativt, om målet inte är mer än en storlek större än du, kan du få målet att göra ett räddningskast i styrka. Vid ett misslyckande dras de i en rak linje tills de befinner sig inom 5 fot från dig."
+			]
+		},
+		{
+			"name": "Brawler",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Förstärkning av armen",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du förstärker dina knytnävar. Efter att du gjort två närstridsattacker mot samma varelse med dina arm evolutionära vapen i en omgång kan du tvinga målet att göra ett räddningskast i styrka. Vid ett misslyckande blir målet {@condition grappled} av dig. Om målet är för stort för att du ska kunna gripa tag i det eller redan har gripits av dig, slås det istället {@condition prone}."
+			]
+		},
+		{
+			"name": "Double Jointed",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av armen",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du har en fördel på Dexterity ({@skill Sleight of Hand})-kontroller och alla förmågekontroller som du gör med {@item thieves' tools|phb}."
+			]
+		},
+		{
+			"name": "Integrated Crusher",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av armen",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen kan du {@variantrule Integrated Items|ccg|integrate} en {@filter melee weapon with the two-handed property|items|type=melee weapon|property=two-handed} i en av dina armar. Om du får en kritisk träff med vapnet medan det är integrerat på detta sätt blir målet {@condition dazed|ccg}."
+			]
+		},
+		{
+			"name": "Integrated Defender",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av armen",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen kan du {@variantrule Integrated Items|ccg|integrate} en {@filter shield|items|type=shield} i en av dina armar. Om du träffas av en attack eller utsätts för skada från en effekt som krävde att du skulle göra ett räddningskast i Dexterity eller Strength medan du har den förlängd, kan du använda din reaktion för att minska skadan med ett belopp som är lika stort som din evolutionistnivå."
+			]
+		},
+		{
+			"name": "Integrated Duelist",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av armen",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen kan du {@variantrule Integrated Items|ccg|integrate} en {@filter melee weapon that lacks the two-handed or special properties|items|type=melee weapon|property=!special;!two-handed} i en av dina armar. När du gör det väljer du en av följande egenskaper: lätt, räckvidd eller kastad (20/60). Vapnet får egenskapen om det inte redan har den. Om du väljer egenskapen kastad kan du återlämna vapnet till dig omedelbart efter att du gjort en kastad attack med det, förutsatt att det befinner sig inom 60 fot från dig (ingen handling krävs)."
+			]
+		},
+		{
+			"name": "Integrated Marksman",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av armen",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen kan du {@variantrule Integrated Items|ccg|integrate} en {@filter ranged weapon|items|type=range} i en av dina armar. Medan ett vapen är integrerat på det här sättet ignorerar du dess laddningsegenskap om det har det, och du ignorerar också alla krav på förmågebaserade poäng som det har. När du träffar en varelse med det kan du dessutom skjuta varelsen upp till 10 fot bort från dig i en rak linje när du träffar en varelse med det."
+			]
+		},
+		{
+			"name": "Adrenal Control",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Förstärkning av kärnan",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När du {@classFeature metabolic ignition|evolutionist|ccg|3||ignite} kan du välja att också öka ditt adrenalinflöde i 1 minut. En gång på varje tur under den tiden kan du lägga till {@damage 1d8} till en attackrulle du gör. Du måste välja att göra det innan du gör kastet. När du ökar ditt adrenalinflöde på det här sättet kan du inte göra det igen förrän du avslutar en kort eller lång vila."
+			]
+		},
+		{
+			"name": "Auto-Injector",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av kärnan",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du uppgraderar dig själv med en automatisk injektor. Som en åtgärd kan du placera en dryck eller narkotika i injektorn. Medan ett föremål är monterat inuti kan du konsumera det som en bonushandling istället för som en handling. Dessutom kan du, när du aktiverar den här uppgraderingen eller efter att du avslutat en lång vila, skapa en {@item potion of greater healing||Greater Potion of Healing} eller en slumpmässig, ovanlig {@item arcane narcotic (uncommon)|ccg|Arcane Narcotic}, som du kan välja att redan vara monterad i din injektor. Det skapade föremålet varar tills du skapar ett annat med den här uppgraderingen, du kan inte skapa ett annat förrän du avslutar en lång vila, och det är bara du som kan använda det."
+			]
+		},
+		{
+			"name": "Mimicry",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av kärnan",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du kan efterlikna ljud som du har hört, inklusive röster. En varelse som hör ljuden du gör kan se att de är imitationer med en lyckad Visdomskontroll ({@skill Insight}) som motsätts av ditt Upgrade save DC."
+			]
+		},
+		{
+			"name": "Super Strength",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av kärnan",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du har en fördel på alla styrkekontroller. Dessutom kan du nu försöka att {@action grapple} och {@action shove} försöka att ta varelser som är upp till två storlekar större än du själv, istället för en."
+			]
+		},
+		{
+			"name": "Transfer Vitality",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av kärnan",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Som en handling kan du röra vid en varelse och välja ett antal träffpunkter upp till din evolutionistnivå. Dina nuvarande träffpoäng minskas med det valda beloppet, sedan får den valda varelsen tillbaka samma antal träffpoäng, plus ett belopp som motsvarar din konstitutionsmodifierare (minst 1). Efter att du har utfört denna handling kan du inte göra det igen förrän du avslutar en kort eller lång vila."
+			]
+		},
+		{
+			"name": "True Survivor",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av kärnan",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du är immun mot sjukdomar och {@condition poisoned} tillstånd. Du behöver inte längre andas och du är immun mot effekterna av extrem kyla och värme. Dessutom räknas du som en storlek större när du bestämmer din bärförmåga och den vikt du kan skjuta, dra eller lyfta."
+			]
+		},
+		{
+			"name": "Barbed Skin",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Utvändig förstärkning",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När en varelse inom 1,5 meter från dig träffar dig med en attack eller börjar sin tur medan den är {@condition grappled} vid dig eller griper tag i dig, kan du använda din reaktion för att tillfoga dem genomträngande skada lika med din konstitutionsmodifierare (minst 1)."
+			]
+		},
+		{
+			"name": "Chameleonic",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Utvändig förstärkning",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du kan ändra färgen på din kropp när du vill, vilket ger dig en fördel på Dexterity ({@skill Stealth})-kontroller för att gömma dig."
+			]
+		},
+		{
+			"name": "Pheremones",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Utvändig förstärkning",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du har fördel på Charisma ({@skill Persuasion})-kontroller mot varelser inom tre meter från dig, förutsatt att de har ett luktsinne."
+			]
+		},
+		{
+			"name": "Provoking Façade",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Utvändig förstärkning",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Varelser inom en radie av 1,5 meter som kan se dig har nackdel på alla attacker som inte är riktade mot dig."
+			]
+		},
+		{
+			"name": "Shifting Form",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Utvändig förstärkning",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du kan använda dina åtgärder för att ändra ditt utseende. Du bestämmer hur du ser ut, inklusive längd, vikt, ansiktsdrag, röstljud, hårlängd, färg och eventuella utmärkande egenskaper. Din storlek och grundform måste förbli densamma, och ingen av dina statistiska uppgifter ändras."
+			]
+		},
+		{
+			"name": "Terrifying Form",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Utvändig förstärkning",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du har fördel på Charisma ({@skill Intimidation})-kontroller mot varelser som kan se dig."
+			]
+		},
+		{
+			"name": "Extra Appendages",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Ökning av tillväxten",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du förvandlar en valfri mängd av dina evolutionära vapen till extra bihang som har förmågan att hålla och använda föremål och vapen, förutsatt att de {@filter don't have the two-handed property or are a shield|items|type=!shield|property=!two-handed}. Var och en av dessa låter dig interagera med ytterligare ett föremål eller en funktion i miljön gratis under din tur, och du kan nu också initiera {@action grapple||grapples} med dem. Medan något av dessa bihang håller ett vapen kan du inte få fördel av en sköld."
+			]
+		},
+		{
+			"name": "Fused Weapon",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Ökning av tillväxten",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När du aktiverar den här uppgraderingen kan du välja en {@filter magical melee weapon|items|type=melee weapon|miscellaneous=magic}, och använda den i ett av dina evolutionära vapen. Tills du aktiverar den här uppgraderingen igen får det evolutionära vapnet det magiska vapnets egenskaper, inklusive intoning, även om det evolutionära vapnets skadetärning förblir densamma."
+			]
+		},
+		{
+			"name": "Long Reach Weapon",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Ökning av tillväxten",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Dina evolutionära vapen får en räckvidd på 3 meter."
+			]
+		},
+		{
+			"name": "Maneuvering Appendages",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Ökning av tillväxten",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Dina nya kroppsliga egenskaper har en form som hjälper dig att röra dig, till exempel extra ben eller en svans. Din gånghastighet ökar med 10 fot, och när du {@action Dash} eller {@action Disengage} får du också fördelarna av den andra åtgärden."
+			]
+		},
+		{
+			"name": "Retaliating Weapons",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Ökning av tillväxten",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"När en varelse träffar dig med en attack kan du använda din reaktion för att göra en attack med ett av dina evolutionära vapen mot den varelsen, förutsatt att de är inom räckhåll. Vid en träff gör denna attack ingen skada och istället slås varelsen omkull {@condition prone}."
+			]
+		},
+		{
+			"name": "Whirling Weapons",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Ökning av tillväxten",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du kan använda din handling för att göra en närstridsattack med ett av dina evolutionära vapen mot valfritt antal varelser inom räckhåll, med en separat attackrulle för varje mål."
+			]
+		},
+		{
+			"name": "Dead-eye",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av huvudet",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Dina distansattacker ignorerar halv- och trekvartsskydd och har ingen nackdel mot varelser som är {@condition prone}. Dessutom fördubblas räckvidden för dina distansattacker."
+			]
+		},
+		{
+			"name": "Enhanced Mind",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av huvudet",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du förbättrar ditt sinne och dina reflexer. Du får motstånd mot psykisk skada. Dessutom, när du gör ett räddningskast med någon annan förmåga än Styrka eller Konstitution eller när du gör en anfallsrulle som en del av en tillfällig attack, kan du använda den här uppgraderingen för att få en bonus på rullen som är lika med din Konstitutionsmodifierare (minst 1). Du kan få den här bonusen två gånger och återfår förbrukade användningar när du avslutar en kort eller lång vila."
+			]
+		},
+		{
+			"name": "Enhanced Vision",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av huvudet",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du har fördel på visdomskontroller ({@skill Perception}) som bygger på synen och får {@sense darkvision} på en räckvidd på 60 fot om du inte redan har det."
+			]
+		},
+		{
+			"name": "Otherworldly Vision",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Förstärkning av huvudet",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du har {@sense blindsight} ut till 10 fot och du kan se in i det eteriska planet till 60 fot. Eteriska varelser och föremål verkar spöklika och genomskinliga."
+			]
+		},
+		{
+			"name": "Thermal Sight",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av huvudet",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du kan se varelser och rörliga föremål genom väggar, så länge de inte ligger bakom mer än en meter material eller {@condition invisible}. För dig framstår dessa varelser som en färgad silhuett."
+			]
+		},
+		{
+			"name": "Tracker",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Förstärkning av huvudet",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Du förbättrar din lukt och hörsel. Du har en fördel på Visdom ({@skill Perception})-kontroller som bygger på hörsel eller lukt och Visdom ({@skill Survival} eller {@skill Navigation|ccg})-kontroller som görs för att spåra varelser."
 			]
 		}
 	],
@@ -6282,6 +8554,143 @@
 				"{@note The below is taken from {@variantrule Vehicles in Crystalpunk|ccg} för snabb referens.}",
 				"Fordonsvapen kan användas av passagerarna i fordonet, så länge de har färdigheter i kampvapen. De tillhandahållna fordonsvapnen beskriver en specifik vapenattack, och denna attack kan utföras som en handling, vilket kräver att användaren använder båda händerna. Fordonsvapen använder den opererande karaktärens styrka eller smidighetspoäng (baserat på vapnet) samt sin kompetensbonus (PB) i sina anfalls- och skaderullar. Om en karaktär kan göra flera attacker som en del av angreppshandlingen i sin tur kan den göra lika många attacker när den använder sin handling för att attackera med ett fordonvapen."
 			]
+		},
+		{
+			"name": "Integrated Items",
+			"source": "ccg",
+			"page": 73,
+			"entries": [
+				"Vissa {@filter Upgrades|optionalfeatures|Feature Type=EU} av de {@filter Arm Augmentation|optionalfeatures|Feature Type=EA|hash=arm augmentation_ccg} gör det möjligt att integrera föremål i armarna. När föremålet är integrerat kan du dra in och ut föremålet när du vill (ingen handling krävs), såvida inte föremålet är en sköld, i vilket fall det krävs en handling. Du har fortfarande en hand, men den anses inte vara fri medan dessa föremål är utdragna. Om föremålet är ett vapen med tvåhands-egenskapen måste du fortfarande använda din andra hand för att göra en attack med det. Slutligen kan du bara ha ett integrerat föremål i varje arm."
+			]
+		}
+	],
+	"itemType": [
+		{
+			"abbreviation": "VWU",
+			"source": "ccg",
+			"page": 210,
+			"name": "vehicle weapon upgrade",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Vehicle Weapon",
+					"entries": [
+						"Fordonsvapen kan användas av passagerarna i fordonet, så länge de har färdigheter i kampvapen. De tillhandahållna fordonsvapnen beskriver en specifik vapenattack, och denna attack kan utföras som en handling, vilket kräver att användaren använder båda händerna. Fordonsvapen använder den opererande karaktärens styrka eller smidighetspoäng (baserat på vapnet) samt sin kompetensbonus i sina anfalls- och skaderullar. Om en karaktär kan göra flera attacker som en del av attackhandlingen vid sin tur, kan den göra lika många attacker när den använder sin handling för att attackera med ett fordonsvapen."
+					]
+				}
+			]
+		}
+	],
+	"itemProperty": [
+		{
+			"abbreviation": "SPR",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Spread",
+					"entries": [
+						"När du utför en attackhandling med ett spridningsvapen kan du göra en specialattack som träffar flera varelser. Om du kan göra flera attacker med attackhandlingen ersätter den här attacken en av dem. När du gör den här specialattacken kan du tvinga alla varelser inom ett visst område att göra ett Dexterity saving throw:",
+						{
+							"type": "abilityGeneric",
+							"name": "Spread weapon save",
+							"text": "8 + your normal attack roll modifier for the weapon"
+						},
+						"Om räddningen misslyckas tar varelsen den skada som anges inom parentesen bredvid egenskapen, plus din förmågemodifierare. Du lägger också till eventuella andra statiska skadebonusar som gäller för ditt vapens skaderullning, till exempel från raseri, en stridsstil eller ett +1-vapen (men inte några extra tärningar).",
+						"När en varelse misslyckas med sitt räddningskast mot en av dina spridda attacker räknas det som en lyckad träff för egenskaper och föremål (men inte trollformler) som utlöses vid en träffad vapenattack. När du använder sådana effekter tillämpar du dem på alla mål som misslyckades med sitt räddningskast och som skulle ha varit berättigade om du hade träffat en normal attack med vapnet mot dem. Om funktionen eller föremålet lägger till extra skada i form av tärningar - till exempel {@classFeature Sneak Attack|Rogue||1}, {@classFeature Divine Smite|Paladin||2} eller {@class fighter||Weaponforger's|Weaponforger|ccg} {@filter Weapon Mods|optionalfeatures|Feature Type=WM} - kastar du en skadetärning mindre än vanligt när du utlöser dessa funktioner på detta sätt (minst en extra tärning)."
+					]
+				}
+			]
+		},
+		{
+			"abbreviation": "BST",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Burst",
+					"entries": [
+						"Det spridda vapenområdet för ett burst-vapen är en kub på tre meter som utgår från en målplats inom vapnets normala räckvidd."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "PRC",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Pierce",
+					"entries": [
+						"Det spridda vapenområdet för ett genomborrande vapen är en 1 fot bred linje mot en målplats inom vapnets normala räckvidd."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "ERU",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Erput",
+					"entries": [
+						"Spridningsområdet för ett utbrottsvapen är en 15-fotskon som utgår från vapnet i en valfri riktning."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "CLE",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Cleave",
+					"entries": [
+						"Det spridda vapenområdet för ett klyvningsvapen är en cirkel med en radie på 10 fot centrerad på dig."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "SGE",
+			"source": "ccg",
+			"page": 210,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Siege",
+					"entries": [
+						"Det här vapnet ger dubbel skada på föremål och strukturer."
+					]
+				}
+			]
+		},
+		{
+			"abbreviation": "ARC",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Arcanic",
+					"entries": [
+						"Arkaniska vapen avfyrar bultar av arkanisk energi utan att använda ammunition, utan att dra lite mana från användaren och avge den som en kraftfull arkanisk explosion. Du kan använda ett vapen som har arkanisk egenskap för att göra en distansattack, genom att använda räckvidden inom parentes efter egenskapen. Trots sin magiska natur kringgår arkaniska vapen inte motstånd eller immunitet mot icke-magisk skada, såvida de inte är ett magiskt vapen."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.range}} ft.)"
 		}
 	],
 	"item": [
@@ -6301,74 +8710,46 @@
 			"name": "Runetech Railgun",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC"
 			],
 			"range": "120/480",
 			"dmg1": "1d12",
 			"dmgType": "P",
 			"weapon": true,
 			"value": 100000,
-			"rarity": "none",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Detta är en {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} och kan inte användas som ett fristående vapen."
-					]
-				}
-			]
+			"rarity": "none"
 		},
 		{
 			"name": "Flame Mortar",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC",
+				"BST",
+				"SPR",
+				"SGE"
 			],
 			"range": "30/120",
 			"dmg1": "1d8",
 			"dmgType": "F",
+			"dmg2": "1d6",
 			"weapon": true,
 			"value": 200000,
-			"rarity": "none",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Burst (1d6)",
-					"entries": [
-						"Varelser i en kub på tre meter som kommer från en målplats inom vapnets normala räckvidd måste göra ett räddningskast i Dexterity (DC = 8 + din normala modifiering av attackkastningen för vapnet) eller ta {@damage 1d6} brandskada. Den här åtgärden ersätter den normala attacken för det här vapnet."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Siege",
-					"entries": [
-						"Det här vapnet ger dubbel skada på föremål och strukturer."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Detta är en {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} och kan inte användas som ett fristående vapen."
-					]
-				}
-			]
+			"rarity": "none"
 		},
 		{
 			"name": "Arcatech Chaingun",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC"
 			],
 			"range": "30/120",
 			"dmg1": "1d4",
@@ -6383,13 +8764,6 @@
 					"entries": [
 						"En gång per tur, när du skulle göra en enda attack med det här vapnet, gör du istället två attacker."
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Detta är en {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} och kan inte användas som ett fristående vapen."
-					]
 				}
 			]
 		},
@@ -6397,32 +8771,58 @@
 			"name": "Devastator",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC",
+				"SPR",
+				"PRC"
 			],
 			"range": "80/320",
 			"dmg1": "2d6",
 			"dmgType": "O",
+			"dmg2": "1d12",
 			"weapon": true,
 			"value": 500000,
-			"rarity": "none",
+			"rarity": "none"
+		},
+		{
+			"name": "Arcane Narcotic (uncommon)",
+			"source": "ccg",
+			"page": 103,
+			"tier": "minor",
+			"rarity": "uncommon",
+			"wondrous": true,
 			"entries": [
-				{
-					"type": "entries",
-					"name": "Pierce (1d12)",
-					"entries": [
-						"Varelser i en 1 fot bred linje mot en målplats inom vapnets normala räckvidd måste göra ett räddningskast i Dexterity (DC = 8 + din normala modifiering av attackkastningen för vapnet) eller ta {@damage 1d12} kraftskada. Den här åtgärden ersätter den normala attacken för det här vapnet."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Detta är en {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} och kan inte användas som ett fristående vapen."
-					]
-				}
+				"Även om det finns många vardagliga droger i Aysta, har arkaiska droger en enorm magisk kraft. Denna magiskt skapade narkotika finns i en mängd olika typer. Var och en har ett antal egenskaper och bieffekter, som kan bestämmas genom att välja från tabellerna till höger eller genom att kasta på dessa tabeller för att bestämma resultaten slumpmässigt. Narkotikan har samma antal egenskaper och bieffekter, och mängden av var och en av dem bestäms av dess sällsynthet (Ovanlig: 1, Sällsynt: 2, Mycket sällsynt: 3). Egenskaper och bieffekter kan bara väljas mer än en gång om man säger det i sin beskrivning.",
+				"En karaktär kan använda sin handling för att ta in narkotikan, få fördelarna av dess egenskaper och drabbas av dess biverkningar. Den mindre återställningsbesvärjelsen kan användas för att bota effekterna av alla icke-instantana biverkningar som narkotikan framkallar.",
+				"Om en karaktär ofta använder samma arkana narkotika kan spelföraren bestämma att han/hon utvecklar ett beroende. En karaktär med ett sådant beroende har två permanenta nivåer av utmattning. Intag av narkotikan tar bort dessa utmattningsnivåer tills den beroende karaktären avslutar sin nästa långa vila."
+			]
+		},
+		{
+			"name": "Arcane Narcotic (rare)",
+			"source": "ccg",
+			"page": 103,
+			"tier": "minor",
+			"rarity": "rare",
+			"wondrous": true,
+			"entries": [
+				"Även om det finns många vardagliga droger i Aysta, har arkaiska droger en enorm magisk kraft. Denna magiskt skapade narkotika finns i en mängd olika typer. Var och en har ett antal egenskaper och bieffekter, som kan bestämmas genom att välja från tabellerna till höger eller genom att kasta på dessa tabeller för att bestämma resultaten slumpmässigt. Narkotikan har samma antal egenskaper och bieffekter, och mängden av var och en av dem bestäms av dess sällsynthet (Ovanlig: 1, Sällsynt: 2, Mycket sällsynt: 3). Egenskaper och bieffekter kan bara väljas mer än en gång om man säger det i sin beskrivning.",
+				"En karaktär kan använda sin handling för att ta in narkotikan, få fördelarna av dess egenskaper och drabbas av dess biverkningar. Den mindre återställningsbesvärjelsen kan användas för att bota effekterna av alla icke-instantana biverkningar som narkotikan framkallar.",
+				"Om en karaktär ofta använder samma arkana narkotika kan spelföraren bestämma att han/hon utvecklar ett beroende. En karaktär med ett sådant beroende har två permanenta nivåer av utmattning. Intag av narkotikan tar bort dessa utmattningsnivåer tills den beroende karaktären avslutar sin nästa långa vila."
+			]
+		},
+		{
+			"name": "Arcane Narcotic (very rare)",
+			"source": "ccg",
+			"page": 103,
+			"tier": "minor",
+			"rarity": "very rare",
+			"wondrous": true,
+			"entries": [
+				"Även om det finns många vardagliga droger i Aysta, har arkaiska droger en enorm magisk kraft. Denna magiskt skapade narkotika finns i en mängd olika typer. Var och en har ett antal egenskaper och bieffekter, som kan bestämmas genom att välja från tabellerna till höger eller genom att kasta på dessa tabeller för att bestämma resultaten slumpmässigt. Narkotikan har samma antal egenskaper och bieffekter, och mängden av var och en av dem bestäms av dess sällsynthet (Ovanlig: 1, Sällsynt: 2, Mycket sällsynt: 3). Egenskaper och bieffekter kan bara väljas mer än en gång om man säger det i sin beskrivning.",
+				"En karaktär kan använda sin handling för att ta in narkotikan, få fördelarna av dess egenskaper och drabbas av dess biverkningar. Den mindre återställningsbesvärjelsen kan användas för att bota effekterna av alla icke-instantana biverkningar som narkotikan framkallar.",
+				"Om en karaktär ofta använder samma arkana narkotika kan spelföraren bestämma att han/hon utvecklar ett beroende. En karaktär med ett sådant beroende har två permanenta nivåer av utmattning. Intag av narkotikan tar bort dessa utmattningsnivåer tills den beroende karaktären avslutar sin nästa långa vila."
 			]
 		}
 	],
@@ -6777,6 +9177,19 @@
 					"items": [
 						"En stumd varelse kan inte tala eller frivilligt ge ifrån sig ljud.",
 						"En stum varelse kan inte kasta trollformler med verbala komponenter (om det inte är tillåtet att ignorera verbala komponenter, t.ex. genom en trollformel eller funktion)."
+					]
+				}
+			]
+		},
+		{
+			"name": "Dazed",
+			"source": "ccg",
+			"page": 111,
+			"entries": [
+				{
+					"type": "list",
+					"items": [
+						"En förvirrad varelse har nackdel på attackkast och räddningskast fram till slutet av nästa tur för den varelse som orsakade tillståndet."
 					]
 				}
 			]
