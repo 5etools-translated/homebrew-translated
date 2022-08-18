@@ -1,0 +1,2573 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "KGFD",
+				"abbreviation": "KGFD",
+				"full": "Fang Dragons",
+				"authors": [
+					"KajaGrae"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "2022.08.12",
+				"color": "4d2611",
+				"url": "https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1657961727,
+		"dateLastModified": 1660775288,
+		"_dateLastModifiedHash": "1df0edecae"
+	},
+	"legendaryGroup": [
+		{
+			"name": "FangDragonsLairActionsFangDragon",
+			"source": "KGFD",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the dragon takes a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:",
+				{
+					"type": "list",
+					"items": [
+						"{@b Stone Spikes.} Vlijmscherpe stenen pieken komen uit de grond in een straal van 20 voet gecentreerd op een punt dat de draak kan zien binnen een straal van 120 voet van hem. Dat gebied wordt moeilijk begaanbaar, en elk wezen in het gebied moet slagen op een DC {@dc 15} Dexterity saving throw of 10 ({@damage 3d6}) doordringende schade oplopen. Als een wezen zich in of binnen het gebied beweegt, krijgt het {@damage 2d6} doordringende schade voor elke 5 voet die het aflegt. De spikes blijven staan totdat de draak deze lair actie opnieuw gebruikt of totdat de draak sterft.",
+						"{@b Fog Bank.} Een dichte mist vormt zich in een straal van 40 voet gecentreerd op een punt dat de draak kan zien binnen 120 voet van hem. De mist verspreidt zich om hoeken, en het gebied is zwaar verduisterd. Een wind van minstens 20 mijl per uur verspreidt de mist. De mist duurt anders tot de draak deze hol-actie opnieuw gebruikt, of de draak sterft.",
+						"{@b Deadzone.} Een onzichtbare 20 voet radius van antimagie vormt zich gecentreerd op een punt dat de draak kan zien binnen 120 voet van hem. Deze zone heeft hetzelfde functionele effect als wanneer een antimagic veld zou zijn gegoten, behalve dat het stationair is, en blijft totdat de draak deze hol-actie opnieuw gebruikt of de draak sterft."
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing a legendary fang dragon's lair is warped by the dragon's magic, which creates one or more of the following effects: Jagged Spires.",
+				{
+					"type": "list",
+					"items": [
+						"{@b Jagged Spires.} Binnen 6 mijl van het hol van een fang draak, krijgt het terrein scherpere kenmerken. Grillige, rotsachtige uitsteeksels komen aan de oppervlakte, planten groeien doornen, en het wordt moeilijker om door het gebied te bewegen. Over land bewegen duurt twee keer zo lang in dit gebied vanwege de gevaarlijke omstandigheden.",
+						"{@b Predator Avoidance.} Dieren (andere dan insecten) zullen niet verblijven of vrijwillig naderen binnen 6 mijl van het hol van een fangdraak.",
+						"{@b Untraceable.} Binnen 6 mijl van zijn hol, laat de draak geen fysiek bewijs achter van zijn doortocht, tenzij hij dat wenst.Het is onmogelijk hem daar te volgen, behalve met magische middelen. Bovendien negeert hij bewegingsbeperkingen en schade door planten- en rotsformaties in dit gebied, inclusief de hierboven beschreven stenen spikes."
+					]
+				},
+				"If the dragon dies, animals will slowly return to the area, and other effects fade over {@dice ld10} days."
+			]
+		}
+	],
+	"monster": [
+		{
+			"name": "Dragon Fang Ancient",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Als de draak niet slaagt voor een saving throw, kan hij kiezen om te slagen."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"De draak kan alle geluiden nadoen die hij heeft gehoord, ook stemmen. Een wezen dat de geluiden hoort, kan met een geslaagde {@dc 19} Wijsheid(Inzicht) check zeggen dat het imitaties zijn."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak gaan razen. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +4 op de rol van de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious} of als hij ervoor kiest om zijn woede te beëindigen op zijn beurt als een bonus actie."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Wanneer de draak in zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn vliegsnelheid te vliegen en een bijt aanval te doen (hij moet deze beweging op de grond beginnen en eindigen)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"De aanvallen met het wapen van de draak leveren een kritieke treffer op bij een worp van 19 of 20. Bovendien gooit hij een extra dobbelsteen voor de wapenschade bij het bepalen van de extra schade voor een kritieke treffer bij een aanval met een wapen."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"De draak kan zijn Schrikwekkende Aanwezigheid gebruiken. Daarna voert hij drie aanvallen uit: één met zijn beet en twee met zijn klauwen."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, reikwijdte 15 ft., één doelwit. {@h}22 ({@damage 2d12 + 9}) doordringende schade en het doelwit moet slagen op een {@dc 24} grondwettelijke saving throw of zijn grondwettelijke score wordt verlaagd met {@dice 1d4}. Het doelwit sterft als zijn grondwet tot 0 is gereduceerd. Anders duurt de reductie totdat het doelwit een korte of lange rustpauze heeft voltooid."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, reikwijdte 10 ft., één doel. {@h}18 ({@damage 2d8 + 9}) snijschade."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, reikwijdte 20 ft., één doel. {@h}20 ({@damage 2d10 + 9}) vernietigingsschade. Als het doelwit een wezen is, moet het slagen op een {@dc 24} Sterkte-spaarworp of het wordt {@condition prone} neergeslagen."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, bereik 20 ft., één doel. {@h} 20 ({@damage 2d10 + 9}) slagen schade. Als het doelwit een wezen is, moet het slagen op een {@dc 24} Sterkte-spaarworp of het wordt geslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, bereik 20 ft., één doel. {@h} 20 ({@damage 2d10 + 9}) doordringende schade. Als het doelwit een wezen is, moet het slagen op een {@dc 24} Sterkte-spaarworp of het wordt neergeslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Elk wezen naar keuze van de draak dat zich binnen een straal van 120 meter van de draak bevindt en zich bewust is van de draak, moet slagen op een {@dc 19} Wijsheid-reddingsworp of gedurende 1 minuut bang worden. Een wezen kan deze worp herhalen aan het einde van elke beurt, en het effect op zichzelf beëindigen als het slaagt. Als de worp slaagt of het effect eindigt voor een wezen, dan is het wezen immuun voor de angstige aanwezigheid van de draak voor de volgende 24 uur."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak gaan razen. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +4 op de rol van de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious} of als hij ervoor kiest om zijn woede te beëindigen op zijn beurt als een bonus actie."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"De draak doet een Wisdom (Perception) check."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"De draak doet een staart aanval."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"De draak draait en slaat met zijn staart. Elk wezen binnen 20 meter van de draak moet slagen op een {@dc 24} Dexterity saving throw of 20 ({@dice 2d10 + 9}) bludgeoning of slashing schade en worden geslagen {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/TNVlx8c.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Fangdraken zijn gulzige, roofzuchtige en sluwe wezens. Ze leven voor de jacht, en zijn er uitzonderlijk goed op aangepast. Zelfs voor draconische begrippen zijn het woeste strijders. Fangdraken genieten van de kans om het vlees van andere wezens te verorberen en gaan graag de strijd aan voor de kans om van hun favoriete maaltijd te genieten.",
+									"De meest angstaanjagende onder de draken, zijn de fang draken gepantserd met beenderplaten die uitlopen in uitstekende sporen aan de gewrichten van de ledematen en eindigen in lange, gevorkte staarten met aan het uiteinde een paar zeisachtige beendermessen. Hun lichaamsplaten zijn gevlekt grijs en bruin, en een vage geur van bloed omringt de fang dragon. Hun vleugels zijn klein maar gespierd, en hoewel ze slecht vliegen, kunnen ze zich met een enkele klap van hun vleugels oprichten om naar voren te springen. De kop van een fangdraak is versierd met vele kleine hoorns of stekels, en hun ogen zijn meestal glinsterend rood of oranje.",
+									"(Getordeerd door de magische energieën die hen creëerden, zijn fang draken geneigd tot willekeurig geweld en woede-uitbarstingen. Ze genieten van het geweld, en wanneer ze het gevoel hebben dat ze in het voordeel zijn, storten ze zich met verve in de strijd. Na verloop van tijd leren ze hun woede te beheersen en in hun voordeel te gebruiken. Brutaal en wreed, wezens die op zoek zijn naar fang draken moeten dit doen met uiterste voorzichtigheid, omdat ze niet zullen aarzelen om verwoesting aan te richten op elk wezen dat ze zelf zwakker achten en dat ze zien als een bedreiging of een ergernis.",
+									"{@b Consummate Hunters.} Fangdraken eten alle soorten vers vlees, en genieten vooral van het vlees van intelligente wezens. Ze zoeken hun voedsel het liefst ver van hun hol, en gebruiken hun vermogen om geluiden na te bootsen die ze gehoord hebben om prooien te lokken. Fangdraken hebben de verontrustende neiging om met hun voedsel te spelen op een buitengewoon wrede manier. Fangdraken zijn meesters in het fysieke gevecht, en elk deel van hun lichaam is dodelijk. Ze hebben geen ademwapen, maar hun beet is zo verwoestend, dat hij grondwettelijke schade kan veroorzaken door bloedverlies uit de diepe rijtwonden.",
+									"(Toen Tiamat hoorde van het bestaan van deze draken buiten haar controle, probeerde ze de soort te onderwerpen. Ze stuurde haar volgelingen erop uit om hen te vinden en de eieren van hun jongen te \"verbeteren\" met een ritueel dat hen zou veranderen in wat bekend zou worden als de grijze draken. Diezelfde grijze draken werden belast met het zuiveren van de overgebleven fang draken. Opgejaagd, met hun slinkende aantallen, verafschuwen de Fang draken Tiamat en al haar volgelingen, en zullen ze aanvallen zodra ze hen zien. Fang draken spreken fragmenten van vele talen en zullen onderhandelen om moeilijke of dodelijke gevechten te vermijden."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Fang draken verschenen oorspronkelijk in de Realms in de ruïnes van Myth Drannor, waardoor sommige wijzen speculeren dat ze op een of andere manier verbonden zijn met de demonen die de oude elfenstad hebben geteisterd sinds haar val. Ze worden vaak gevonden in de Starwoods regio's van Cormanthor, en af en toe in het Border Forest, het Spiderhaunt Woods, en andere bossen in de regio van de Dalelands, Sembia, en de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"De schat van een hoektanddraak is vergelijkbaar met de schat van andere draken in die zin dat het verschillende rijkdommen zal bevatten, als gevolg van hun inherente hebzuchtige aard. Echter, in tegenstelling tot andere draken, zal de schat van een Fang draak ook verschillende trofeeën van zijn vorige jachten bevatten. Van schedels tot hoorns, tanden, botten, schubben, huiden en andere stukken die hij op magische wijze heeft bewaard, zijn schat zal bezaaid zijn met deze trofeeën. Sommige kunnen zeer waardevol zijn voor de juiste koper..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"De sterkste van de fang draken, die al vele andere legendarische wezens hebben opgejaagd en verorberd, kunnen een transformatie ondergaan die hen tot een van de machtigste jagers maakt die ooit heeft geleefd. De agenten van Tiamat maken de kans dat een fangdraak dit niveau van macht bereikt uiterst zeldzaam, omdat elke poging tot de Grote Jacht de volledige aandacht krijgt van Tiamats meest vertrouwde luitenants.",
+							"Om dit te bereiken, moet de draak hun echo's leren kennen, en de Grote Jacht beginnen. Om te slagen in de Grote Jacht, moet een Dragon Fang Ancient jagen op het vlees van zijn echo's en het opeten. De draak moet dit alleen doen, want er is geen grotere jacht dan op zichzelf te jagen. Door sluwheid en vaardigheid, geeft de Grote Jacht macht en de grootste trofeeën die een Fangdraak ooit aan zijn schat zal toevoegen.",
+							"Fang greatwyrms zijn een ware verschrikking om te aanschouwen. Enorme wezens van ruwe kracht, met scheermesranden, spiesen die ze kunnen slingeren en die bijna onmiddellijk regenereren, en messen van beenderen die zo hard zijn als staal. Als ze eenmaal de status van greatwyrm hebben bereikt, zullen fangdraken actief en met verve op agenten van Tiamat jagen."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+							"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen.",
+							"Spreuken zoals {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, komen vaker voor; er zijn echter ook spreuken bekend die hen helpen effectiever te jagen, of, wat zeldzamer is, rauwe verwoesting aan te richten."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Fang draken leven in dicht beboste en bergachtige gebieden. Het hol van een Fangdraak is een ruwe grot gevuld met gekartelde rotsen en vegetatie bedekt met doornen. Trofeeën van de jacht van de draak liggen vermengd met zijn voorraad. Ze zullen hun hol meestal dichtmetselen met grote rotsblokken of andere materialen om indringers buiten te houden tijdens hun afwezigheid. Fang draken hebben de neiging om grotten te kiezen waarachter ze zich kunnen verbergen, of van waaruit ze nietsvermoedende indringers kunnen aanvallen.",
+									"De uitdagingswaarde van een legendarische Fangdraak neemt met 1 toe als hij in zijn hol wordt aangetroffen."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/2nQ2wv6.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Ancient (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient (Variant Caster)",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"damageTagsLegendary": [
+				"P"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+						"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Als de draak niet slaagt voor een saving throw, kan hij kiezen om te slagen."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"De draak kan alle geluiden nadoen die hij heeft gehoord, ook stemmen. Een wezen dat de geluiden hoort, kan met een geslaagde {@dc 19} Wijsheid(Inzicht) check zeggen dat het imitaties zijn."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak gaan razen. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +4 op de rol van de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious} of als hij ervoor kiest om zijn woede te beëindigen op zijn beurt als een bonus actie."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Wanneer de draak in zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn vliegsnelheid te vliegen en een bijt aanval te doen (hij moet deze beweging op de grond beginnen en eindigen)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"De aanvallen met het wapen van de draak leveren een kritieke treffer op bij een worp van 19 of 20. Bovendien gooit hij een extra dobbelsteen voor de wapenschade bij het bepalen van de extra schade voor een kritieke treffer bij een aanval met een wapen."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"De draak kan zijn Schrikwekkende Aanwezigheid gebruiken. Daarna voert hij drie aanvallen uit: één met zijn beet en twee met zijn klauwen."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, reikwijdte 15 ft., één doelwit. {@h}22 ({@damage 2d12 + 9}) doordringende schade en het doelwit moet slagen op een {@dc 24} grondwettelijke saving throw of zijn grondwettelijke score wordt verlaagd met {@dice 1d4}. Het doelwit sterft als zijn grondwet tot 0 is gereduceerd. Anders duurt de reductie totdat het doelwit een korte of lange rustpauze heeft voltooid."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, reikwijdte 10 ft., één doel. {@h}18 ({@damage 2d8 + 9}) snijschade."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, reikwijdte 20 ft., één doel. {@h}20 ({@damage 2d10 + 9}) vernietigingsschade. Als het doelwit een wezen is, moet het slagen op een {@dc 24} Sterkte-spaarworp of het wordt {@condition prone} neergeslagen."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, bereik 20 ft., één doel. {@h} 20 ({@damage 2d10 + 9}) slagen schade. Als het doelwit een wezen is, moet het slagen op een {@dc 24} Sterkte-spaarworp of het wordt geslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} om te raken, bereik 20 ft., één doel. {@h} 20 ({@damage 2d10 + 9}) doordringende schade. Als het doelwit een wezen is, moet het slagen op een {@dc 24} Sterkte-spaarworp of het wordt neergeslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Elk wezen naar keuze van de draak dat zich binnen een straal van 120 meter van de draak bevindt en zich bewust is van de draak, moet slagen op een {@dc 19} Wijsheid-reddingsworp of {@condition frightened} worden gedurende 1 minuut. Een wezen kan de worp herhalen aan het einde van elke beurt, en het effect op zichzelf beëindigen als het slaagt. Als de worp slaagt of het effect eindigt, is het wezen de volgende 24 uur immuun voor de Schrikaanjagende aanwezigheid van de draak."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak gaan razen. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +4 op de rol van de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious} of als hij ervoor kiest om zijn woede te beëindigen op zijn beurt als een bonus actie."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"De draak doet een Wisdom (Perception) check."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"De draak doet een staart aanval."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"De draak draait en slaat met zijn staart. Elk wezen binnen 20 meter van de draak moet slagen op een {@dc 24} Dexterity saving throw of 20 ({@dice 2d10 + 9}) bludgeoning of slashing schade en worden geslagen {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/sRNzRbd.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Fangdraken zijn gulzige, roofzuchtige en sluwe wezens. Ze leven voor de jacht, en zijn er uitzonderlijk goed op aangepast. Zelfs voor draconische begrippen zijn het woeste strijders. Fangdraken genieten van de kans om het vlees van andere wezens te verorberen en gaan graag de strijd aan voor de kans om van hun favoriete maaltijd te genieten.",
+									"De meest angstaanjagende onder de draken, zijn de fang draken gepantserd met beenderplaten die uitlopen in uitstekende sporen aan de gewrichten van de ledematen en eindigen in lange, gevorkte staarten met aan het uiteinde een paar zeisachtige beendermessen. Hun lichaamsplaten zijn gevlekt grijs en bruin, en een vage geur van bloed omringt de fang dragon. Hun vleugels zijn klein maar gespierd, en hoewel ze slecht vliegen, kunnen ze zich met een enkele klap van hun vleugels oprichten om naar voren te springen. De kop van een fangdraak is versierd met vele kleine hoorns of stekels, en hun ogen zijn meestal glinsterend rood of oranje.",
+									"(Getordeerd door de magische energieën die hen creëerden, zijn fang draken geneigd tot willekeurig geweld en woede-uitbarstingen. Ze genieten van het geweld, en wanneer ze het gevoel hebben dat ze in het voordeel zijn, storten ze zich met verve in de strijd. Na verloop van tijd leren ze hun woede te beheersen en in hun voordeel te gebruiken. Brutaal en wreed, wezens die op zoek zijn naar fang draken moeten dit doen met uiterste voorzichtigheid, omdat ze niet zullen aarzelen om verwoesting aan te richten op elk wezen dat ze zelf zwakker achten en dat ze zien als een bedreiging of een ergernis.",
+									"{@b Consummate Hunters.} Fangdraken eten alle soorten vers vlees, en genieten vooral van het vlees van intelligente wezens. Ze zoeken hun voedsel het liefst ver van hun hol, en gebruiken hun vermogen om geluiden na te bootsen die ze gehoord hebben om prooien te lokken. Fangdraken hebben de verontrustende neiging om met hun voedsel te spelen op een buitengewoon wrede manier. Fangdraken zijn meesters in het fysieke gevecht, en elk deel van hun lichaam is dodelijk. Ze hebben geen ademwapen, maar hun beet is zo verwoestend, dat hij grondwettelijke schade kan veroorzaken door bloedverlies uit de diepe rijtwonden.",
+									"(Toen Tiamat hoorde van het bestaan van deze draken buiten haar controle, probeerde ze de soort te onderwerpen. Ze stuurde haar volgelingen erop uit om hen te vinden en de eieren van hun jongen te \"verbeteren\" met een ritueel dat hen zou veranderen in wat bekend zou worden als de grijze draken. Diezelfde grijze draken werden belast met het zuiveren van de overgebleven fang draken. Opgejaagd, met hun slinkende aantallen, verafschuwen de Fang draken Tiamat en al haar volgelingen, en zullen ze aanvallen zodra ze hen zien. Fang draken spreken fragmenten van vele talen en zullen onderhandelen om moeilijke of dodelijke gevechten te vermijden."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Fang draken verschenen oorspronkelijk in de Realms in de ruïnes van Myth Drannor, waardoor sommige wijzen speculeren dat ze op een of andere manier verbonden zijn met de demonen die de oude elfenstad hebben geteisterd sinds haar val. Ze worden vaak gevonden in de Starwoods regio's van Cormanthor, en af en toe in het Border Forest, het Spiderhaunt Woods, en andere bossen in de regio van de Dalelands, Sembia, en de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"De schat van een hoektanddraak is vergelijkbaar met de schat van andere draken in die zin dat het verschillende rijkdommen zal bevatten, als gevolg van hun inherente hebzuchtige aard. Echter, in tegenstelling tot andere draken, zal de schat van een Fang draak ook verschillende trofeeën van zijn vorige jachten bevatten. Van schedels tot hoorns, tanden, botten, schubben, huiden en andere stukken die hij op magische wijze heeft bewaard, zijn schat zal bezaaid zijn met deze trofeeën. Sommige kunnen zeer waardevol zijn voor de juiste koper..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"De sterkste van de fang draken, die al vele andere legendarische wezens hebben opgejaagd en verorberd, kunnen een transformatie ondergaan die hen tot een van de machtigste jagers maakt die ooit heeft geleefd. De agenten van Tiamat maken de kans dat een fangdraak dit niveau van macht bereikt uiterst zeldzaam, omdat elke poging tot de Grote Jacht de volledige aandacht krijgt van Tiamats meest vertrouwde luitenants.",
+							"Om dit te bereiken, moet de draak hun echo's leren kennen, en de Grote Jacht beginnen. Om te slagen in de Grote Jacht, moet een Dragon Fang Ancient jagen op het vlees van zijn echo's en het opeten. De draak moet dit alleen doen, want er is geen grotere jacht dan op zichzelf te jagen. Door sluwheid en vaardigheid, geeft de Grote Jacht macht en de grootste trofeeën die een Fangdraak ooit aan zijn schat zal toevoegen.",
+							"Fang greatwyrms zijn een ware verschrikking om te aanschouwen. Enorme wezens van ruwe kracht, met scheermesranden, spiesen die ze kunnen slingeren en die bijna onmiddellijk regenereren, en messen van beenderen die zo hard zijn als staal. Als ze eenmaal de status van greatwyrm hebben bereikt, zullen fangdraken actief en met verve op agenten van Tiamat jagen."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+							"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen.",
+							"Spreuken zoals {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, komen vaker voor; er zijn echter ook spreuken bekend die hen helpen effectiever te jagen, of, wat zeldzamer is, rauwe verwoesting aan te richten."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Fang draken leven in dicht beboste en bergachtige gebieden. Het hol van een Fangdraak is een ruwe grot gevuld met gekartelde rotsen en vegetatie bedekt met doornen. Trofeeën van de jacht van de draak liggen vermengd met zijn voorraad. Ze zullen hun hol meestal dichtmetselen met grote rotsblokken of andere materialen om indringers buiten te houden tijdens hun afwezigheid. Fang draken hebben de neiging om grotten te kiezen waarachter ze zich kunnen verbergen, of van waaruit ze nietsvermoedende indringers kunnen aanvallen.",
+									"De uitdagingswaarde van een legendarische Fangdraak neemt met 1 toe als hij in zijn hol wordt aangetroffen."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/KendR57.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Adult",
+			"size": [
+				"H"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "16d12 + 96",
+				"average": 200
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 24,
+			"dex": 10,
+			"con": 23,
+			"int": 14,
+			"wis": 15,
+			"cha": 17,
+			"passive": 24,
+			"cr": "19",
+			"shortName": "Dragon Fang Adult",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"skill": {
+				"perception": "+14",
+				"stealth": "+6",
+				"survival": "+8"
+			},
+			"save": {
+				"dex": "+6",
+				"con": "+12",
+				"wis": "+8",
+				"cha": "+9"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Als de draak niet slaagt voor een saving throw, kan hij kiezen om te slagen."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"De draak kan alle geluiden nadoen die hij heeft gehoord, ook stemmen. Een wezen dat de geluiden hoort, kan met een geslaagde {@dc 17} Wijsheid(Inzicht) check zeggen dat het imitaties zijn."
+					]
+				},
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak gaan razen. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een +3 bonus op de schade rol.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious} of als hij ervoor kiest om zijn woede te beëindigen op zijn beurt als een bonus actie."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Wanneer de draak in zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn vliegsnelheid te vliegen en een bijt aanval te doen (hij moet deze beweging op de grond beginnen en eindigen)."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"De draak kan zijn Schrikwekkende Aanwezigheid gebruiken. Daarna voert hij drie aanvallen uit: één met zijn beet en twee met zijn klauwen."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13} om te raken, reikwijdte 10 ft., één doelwit. {@h}20 ({@damage 2d12 + 7}) doordringende schade en het doelwit moet slagen op een {@dc 21} grondwettelijke saving throw of zijn grondwettelijke score wordt verlaagd met {@dice 1d3}. Het doelwit sterft als zijn grondwet tot 0 is gereduceerd. Anders duurt de reductie totdat het doelwit een korte of lange rustpauze heeft voltooid."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 13} om te raken, reikwijdte 5 ft., één doel. {@h}16 ({@damage 2d8 + 7}) snijschade."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 13} om te raken, reikwijdte 15 ft., één doel. {@h} 18 ({@damage 2d10 + 7}) vernietigingsschade. Als het doelwit een wezen is, moet het slagen op een {@dc 21} Sterkte-sparingsworp of het wordt neergeslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 13} om te raken, reikwijdte 15 ft., één doel. {@h} 18 ({@damage 2d10 + 7}) snijschade. Als het doelwit een wezen is, moet het slagen op een {@dc 21} Sterkte-spaarworp of het wordt geslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 13} om te raken, bereik 15 ft., één doel. {@h} 18 ({@damage 2d10 + 7}) doordringende schade. Als het doelwit een wezen is, moet het slagen op een {@dc 21} Sterkte-spaarworp of het wordt neergeslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Elk wezen naar keuze van de draak dat zich binnen een straal van 120 meter van de draak bevindt en zich bewust is van de draak, moet slagen op een {@dc 17} Wijsheid-reddingsworp of gedurende 1 minuut bang worden. Een wezen kan deze worp herhalen aan het einde van elke beurt, en het effect op zichzelf beëindigen als het slaagt. Als de worp slaagt of het effect eindigt voor een wezen, dan is het wezen immuun voor de angstige aanwezigheid van de draak voor de volgende 24 uur."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"bonus": [
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak gaan razen. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een +3 bonus op de schade rol.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious} of als hij ervoor kiest om zijn woede te beëindigen op zijn beurt als een bonus actie."
+					]
+				}
+			],
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"De draak doet een Wisdom (Perception) check."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"De draak doet een staart aanval."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"De draak draait en slaat met zijn staart. Elk wezen binnen 15 meter van de draak moet slagen op een {@dc 21} Dexterity saving throw of 18 ({@damage 2d10 + 7}) schade oplopen en {@condition prone} geslagen worden."
+					]
+				}
+			],
+			"dragonAge": "adult",
+			"tokenUrl": "https://i.imgur.com/scZ0qHF.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Adult|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Fangdraken zijn gulzige, roofzuchtige en sluwe wezens. Ze leven voor de jacht, en zijn er uitzonderlijk goed op aangepast. Zelfs voor draconische begrippen zijn het woeste strijders. Fangdraken genieten van de kans om het vlees van andere wezens te verorberen en gaan graag de strijd aan voor de kans om van hun favoriete maaltijd te genieten.",
+									"De meest angstaanjagende onder de draken, zijn de fang draken gepantserd met beenderplaten die uitlopen in uitstekende sporen aan de gewrichten van de ledematen en eindigen in lange, gevorkte staarten met aan het uiteinde een paar zeisachtige beendermessen. Hun lichaamsplaten zijn gevlekt grijs en bruin, en een vage geur van bloed omringt de fang dragon. Hun vleugels zijn klein maar gespierd, en hoewel ze slecht vliegen, kunnen ze zich met een enkele klap van hun vleugels oprichten om naar voren te springen. De kop van een fangdraak is versierd met vele kleine hoorns of stekels, en hun ogen zijn meestal glinsterend rood of oranje.",
+									"(Getordeerd door de magische energieën die hen creëerden, zijn fang draken geneigd tot willekeurig geweld en woede-uitbarstingen. Ze genieten van het geweld, en wanneer ze het gevoel hebben dat ze in het voordeel zijn, storten ze zich met verve in de strijd. Na verloop van tijd leren ze hun woede te beheersen en in hun voordeel te gebruiken. Brutaal en wreed, wezens die op zoek zijn naar fang draken moeten dit doen met uiterste voorzichtigheid, omdat ze niet zullen aarzelen om verwoesting aan te richten op elk wezen dat ze zelf zwakker achten en dat ze zien als een bedreiging of een ergernis.",
+									"{@b Consummate Hunters.} Fangdraken eten alle soorten vers vlees, en genieten vooral van het vlees van intelligente wezens. Ze zoeken hun voedsel het liefst ver van hun hol, en gebruiken hun vermogen om geluiden na te bootsen die ze gehoord hebben om prooien te lokken. Fangdraken hebben de verontrustende neiging om met hun voedsel te spelen op een buitengewoon wrede manier. Fangdraken zijn meesters in het fysieke gevecht, en elk deel van hun lichaam is dodelijk. Ze hebben geen ademwapen, maar hun beet is zo verwoestend, dat hij grondwettelijke schade kan veroorzaken door bloedverlies uit de diepe rijtwonden.",
+									"(Toen Tiamat hoorde van het bestaan van deze draken buiten haar controle, probeerde ze de soort te onderwerpen. Ze stuurde haar volgelingen erop uit om hen te vinden en de eieren van hun jongen te \"verbeteren\" met een ritueel dat hen zou veranderen in wat bekend zou worden als de grijze draken. Diezelfde grijze draken werden belast met het zuiveren van de overgebleven fang draken. Opgejaagd, met hun slinkende aantallen, verafschuwen de Fang draken Tiamat en al haar volgelingen, en zullen ze aanvallen zodra ze hen zien. Fang draken spreken fragmenten van vele talen en zullen onderhandelen om moeilijke of dodelijke gevechten te vermijden."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Fang draken verschenen oorspronkelijk in de Realms in de ruïnes van Myth Drannor, waardoor sommige wijzen speculeren dat ze op een of andere manier verbonden zijn met de demonen die de oude elfenstad hebben geteisterd sinds haar val. Ze worden vaak gevonden in de Starwoods regio's van Cormanthor, en af en toe in het Border Forest, het Spiderhaunt Woods, en andere bossen in de regio van de Dalelands, Sembia, en de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"De schat van een hoektanddraak is vergelijkbaar met de schat van andere draken in die zin dat het verschillende rijkdommen zal bevatten, als gevolg van hun inherente hebzuchtige aard. Echter, in tegenstelling tot andere draken, zal de schat van een Fang draak ook verschillende trofeeën van zijn vorige jachten bevatten. Van schedels tot hoorns, tanden, botten, schubben, huiden en andere stukken die hij op magische wijze heeft bewaard, zijn schat zal bezaaid zijn met deze trofeeën. Sommige kunnen zeer waardevol zijn voor de juiste koper..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"De sterkste van de fang draken, die al vele andere legendarische wezens hebben opgejaagd en verorberd, kunnen een transformatie ondergaan die hen tot een van de machtigste jagers maakt die ooit heeft geleefd. De agenten van Tiamat maken de kans dat een fangdraak dit niveau van macht bereikt uiterst zeldzaam, omdat elke poging tot de Grote Jacht de volledige aandacht krijgt van Tiamats meest vertrouwde luitenants.",
+							"Om dit te bereiken, moet de draak hun echo's leren kennen, en de Grote Jacht beginnen. Om te slagen in de Grote Jacht, moet een Dragon Fang Ancient jagen op het vlees van zijn echo's en het opeten. De draak moet dit alleen doen, want er is geen grotere jacht dan op zichzelf te jagen. Door sluwheid en vaardigheid, geeft de Grote Jacht macht en de grootste trofeeën die een Fangdraak ooit aan zijn schat zal toevoegen.",
+							"Fang greatwyrms zijn een ware verschrikking om te aanschouwen. Enorme wezens van ruwe kracht, met scheermesranden, spiesen die ze kunnen slingeren en die bijna onmiddellijk regenereren, en messen van beenderen die zo hard zijn als staal. Als ze eenmaal de status van greatwyrm hebben bereikt, zullen fangdraken actief en met verve op agenten van Tiamat jagen."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+							"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen.",
+							"Spreuken zoals {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, komen vaker voor; er zijn echter ook spreuken bekend die hen helpen effectiever te jagen, of, wat zeldzamer is, rauwe verwoesting aan te richten."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Fang draken leven in dicht beboste en bergachtige gebieden. Het hol van een Fangdraak is een ruwe grot gevuld met gekartelde rotsen en vegetatie bedekt met doornen. Trofeeën van de jacht van de draak liggen vermengd met zijn voorraad. Ze zullen hun hol meestal dichtmetselen met grote rotsblokken of andere materialen om indringers buiten te houden tijdens hun afwezigheid. Fang draken hebben de neiging om grotten te kiezen waarachter ze zich kunnen verbergen, of van waaruit ze nietsvermoedende indringers kunnen aanvallen.",
+									"De uitdagingswaarde van een legendarische Fangdraak neemt met 1 toe als hij in zijn hol wordt aangetroffen."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/tfxZZuV.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Young",
+			"size": [
+				"L"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "14d10 + 56",
+				"average": 133
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 20,
+			"dex": 10,
+			"con": 19,
+			"int": 12,
+			"wis": 13,
+			"cha": 15,
+			"passive": 17,
+			"cr": "8",
+			"shortName": "Dragon Fang Young",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+3",
+				"con": "+7",
+				"wis": "+4",
+				"cha": "+5"
+			},
+			"skill": {
+				"perception": "+7",
+				"stealth": "+3",
+				"survival": "+4"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"De draak kan alle geluiden nadoen die hij heeft gehoord, ook stemmen. Een wezen dat de geluiden hoort, kan met een geslaagde {@dc 13} Wisdom (Inzicht) check zien dat het imitaties zijn."
+					]
+				},
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak in woede uitbarsten. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een +2 bonus op de schade rol.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt vroegtijdig als de draak wordt geslagen {@condition unconscious} of als zijn beurt eindigt en hij sinds zijn laatste beurt geen vijandig wezen heeft aangevallen of schade heeft opgelopen. Hij kan zijn woede ook tijdens zijn beurt beëindigen als bonusactie."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Wanneer de draak in zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn vliegsnelheid te vliegen en een bijt aanval te doen (hij moet deze beweging op de grond beginnen en eindigen)."
+					]
+				}
+			],
+			"conditionInflict": [
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"De draak voert drie aanvallen uit: één met zijn beet en twee met zijn klauwen."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 8} om te raken, reikwijdte 10 ft., één doelwit. {@h}18 ({@damage 2d12 + 5}) doordringende schade en het moet slagen op een {@dc 18} Grondwettelijk reddende worp of de grondwettelijk score van het doelwit wordt verminderd met {@dice 1d2}. Het doelwit sterft als dit zijn grondwettelijk tot 0 vermindert.Anders duurt de vermindering tot het doelwit een korte of lange rust beëindigt."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 8} om te raken, reikwijdte 5 ft., één doel. {@h}14 ({@damage 2d8 + 5}) snijschade."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"bonus": [
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak in woede uitbarsten. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een +2 bonus op de schade rol.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt vroegtijdig als de draak wordt geslagen {@condition unconscious} of als zijn beurt eindigt en hij sinds zijn laatste beurt geen vijandig wezen heeft aangevallen of schade heeft opgelopen. Hij kan zijn woede ook tijdens zijn beurt beëindigen als bonusactie."
+					]
+				}
+			],
+			"dragonAge": "young",
+			"tokenUrl": "https://i.imgur.com/l7IgyLP.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Young|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Fangdraken zijn gulzige, roofzuchtige en sluwe wezens. Ze leven voor de jacht, en zijn er uitzonderlijk goed op aangepast. Zelfs voor draconische begrippen zijn het woeste strijders. Fangdraken genieten van de kans om het vlees van andere wezens te verorberen en gaan graag de strijd aan voor de kans om van hun favoriete maaltijd te genieten.",
+									"De meest angstaanjagende onder de draken, zijn de fang draken gepantserd met beenderplaten die uitlopen in uitstekende sporen aan de gewrichten van de ledematen en eindigen in lange, gevorkte staarten met aan het uiteinde een paar zeisachtige beendermessen. Hun lichaamsplaten zijn gevlekt grijs en bruin, en een vage geur van bloed omringt de fang dragon. Hun vleugels zijn klein maar gespierd, en hoewel ze slecht vliegen, kunnen ze zich met een enkele klap van hun vleugels oprichten om naar voren te springen. De kop van een fangdraak is versierd met vele kleine hoorns of stekels, en hun ogen zijn meestal glinsterend rood of oranje.",
+									"(Getordeerd door de magische energieën die hen creëerden, zijn fang draken geneigd tot willekeurig geweld en woede-uitbarstingen. Ze genieten van het geweld, en wanneer ze het gevoel hebben dat ze in het voordeel zijn, storten ze zich met verve in de strijd. Na verloop van tijd leren ze hun woede te beheersen en in hun voordeel te gebruiken. Brutaal en wreed, wezens die op zoek zijn naar fang draken moeten dit doen met uiterste voorzichtigheid, omdat ze niet zullen aarzelen om verwoesting aan te richten op elk wezen dat ze zelf zwakker achten en dat ze zien als een bedreiging of een ergernis.",
+									"{@b Consummate Hunters.} Fangdraken eten alle soorten vers vlees, en genieten vooral van het vlees van intelligente wezens. Ze zoeken hun voedsel het liefst ver van hun hol, en gebruiken hun vermogen om geluiden na te bootsen die ze gehoord hebben om prooien te lokken. Fangdraken hebben de verontrustende neiging om met hun voedsel te spelen op een buitengewoon wrede manier. Fangdraken zijn meesters in het fysieke gevecht, en elk deel van hun lichaam is dodelijk. Ze hebben geen ademwapen, maar hun beet is zo verwoestend, dat hij grondwettelijke schade kan veroorzaken door bloedverlies uit de diepe rijtwonden.",
+									"(Toen Tiamat hoorde van het bestaan van deze draken buiten haar controle, probeerde ze de soort te onderwerpen. Ze stuurde haar volgelingen erop uit om hen te vinden en de eieren van hun jongen te \"verbeteren\" met een ritueel dat hen zou veranderen in wat bekend zou worden als de grijze draken. Diezelfde grijze draken werden belast met het zuiveren van de overgebleven fang draken. Opgejaagd, met hun slinkende aantallen, verafschuwen de Fang draken Tiamat en al haar volgelingen, en zullen ze aanvallen zodra ze hen zien. Fang draken spreken fragmenten van vele talen en zullen onderhandelen om moeilijke of dodelijke gevechten te vermijden."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Fang draken verschenen oorspronkelijk in de Realms in de ruïnes van Myth Drannor, waardoor sommige wijzen speculeren dat ze op een of andere manier verbonden zijn met de demonen die de oude elfenstad hebben geteisterd sinds haar val. Ze worden vaak gevonden in de Starwoods regio's van Cormanthor, en af en toe in het Border Forest, het Spiderhaunt Woods, en andere bossen in de regio van de Dalelands, Sembia, en de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"De schat van een hoektanddraak is vergelijkbaar met de schat van andere draken in die zin dat het verschillende rijkdommen zal bevatten, als gevolg van hun inherente hebzuchtige aard. Echter, in tegenstelling tot andere draken, zal de schat van een Fang draak ook verschillende trofeeën van zijn vorige jachten bevatten. Van schedels tot hoorns, tanden, botten, schubben, huiden en andere stukken die hij op magische wijze heeft bewaard, zijn schat zal bezaaid zijn met deze trofeeën. Sommige kunnen zeer waardevol zijn voor de juiste koper..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"De sterkste van de fang draken, die al vele andere legendarische wezens hebben opgejaagd en verorberd, kunnen een transformatie ondergaan die hen tot een van de machtigste jagers maakt die ooit heeft geleefd. De agenten van Tiamat maken de kans dat een fangdraak dit niveau van macht bereikt uiterst zeldzaam, omdat elke poging tot de Grote Jacht de volledige aandacht krijgt van Tiamats meest vertrouwde luitenants.",
+							"Om dit te bereiken, moet de draak hun echo's leren kennen, en de Grote Jacht beginnen. Om te slagen in de Grote Jacht, moet een Dragon Fang Ancient jagen op het vlees van zijn echo's en het opeten. De draak moet dit alleen doen, want er is geen grotere jacht dan op zichzelf te jagen. Door sluwheid en vaardigheid, geeft de Grote Jacht macht en de grootste trofeeën die een Fangdraak ooit aan zijn schat zal toevoegen.",
+							"Fang greatwyrms zijn een ware verschrikking om te aanschouwen. Enorme wezens van ruwe kracht, met scheermesranden, spiesen die ze kunnen slingeren en die bijna onmiddellijk regenereren, en messen van beenderen die zo hard zijn als staal. Als ze eenmaal de status van greatwyrm hebben bereikt, zullen fangdraken actief en met verve op agenten van Tiamat jagen."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+							"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen.",
+							"Spreuken zoals {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, komen vaker voor; er zijn echter ook spreuken bekend die hen helpen effectiever te jagen, of, wat zeldzamer is, rauwe verwoesting aan te richten."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Fang draken leven in dicht beboste en bergachtige gebieden. Het hol van een Fangdraak is een ruwe grot gevuld met gekartelde rotsen en vegetatie bedekt met doornen. Trofeeën van de jacht van de draak liggen vermengd met zijn voorraad. Ze zullen hun hol meestal dichtmetselen met grote rotsblokken of andere materialen om indringers buiten te houden tijdens hun afwezigheid. Fang draken hebben de neiging om grotten te kiezen waarachter ze zich kunnen verbergen, of van waaruit ze nietsvermoedende indringers kunnen aanvallen.",
+									"De uitdagingswaarde van een legendarische Fangdraak neemt met 1 toe als hij in zijn hol wordt aangetroffen."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/gciGzdi.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Wyrmling",
+			"size": [
+				"M"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 17,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "5d8 + 10",
+				"average": 32
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30,
+				"fly": 40,
+				"canHover": false
+			},
+			"str": 16,
+			"dex": 10,
+			"con": 15,
+			"int": 10,
+			"wis": 11,
+			"cha": 13,
+			"passive": 14,
+			"cr": "2",
+			"shortName": "Dragon Fang Wyrmling",
+			"senses": [
+				"blindsight 10 ft.",
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"B",
+				"D"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+2",
+				"con": "+4",
+				"wis": "+2",
+				"cha": "+3"
+			},
+			"skill": {
+				"perception": "+4",
+				"stealth": "+2",
+				"survival": "+2"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"De draak kan alle geluiden nadoen die hij heeft gehoord, ook stemmen. Een wezen dat de geluiden hoort, kan met een succesvolle{@dc 11} Wisdom (Inzicht) check zien dat het imitaties zijn."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Wanneer de draak in zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn vliegsnelheid te vliegen en een bijt aanval te doen (hij moet deze beweging op de grond beginnen en eindigen)."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 5} om te raken, reikwijdte 5 ft., één doelwit. {@h}9 ({@damage 1d12 + 3}) doordringende schade en het moet slagen op een {@dc 13} Grondwettelijk reddende worp of de grondwettelijk score van het doelwit wordt verminderd met 1. Het doelwit sterft als dit zijn grondwet tot 0 vermindert.Anders, de vermindering duurt tot het doelwit een korte of lange rust beëindigt."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"dragonAge": "wyrmling",
+			"tokenUrl": "https://i.imgur.com/aAjrZ68.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Wyrmling|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Fangdraken zijn gulzige, roofzuchtige en sluwe wezens. Ze leven voor de jacht, en zijn er uitzonderlijk goed op aangepast. Zelfs voor draconische begrippen zijn het woeste strijders. Fangdraken genieten van de kans om het vlees van andere wezens te verorberen en gaan graag de strijd aan voor de kans om van hun favoriete maaltijd te genieten.",
+									"De meest angstaanjagende onder de draken, zijn de fang draken gepantserd met beenderplaten die uitlopen in uitstekende sporen aan de gewrichten van de ledematen en eindigen in lange, gevorkte staarten met aan het uiteinde een paar zeisachtige beendermessen. Hun lichaamsplaten zijn gevlekt grijs en bruin, en een vage geur van bloed omringt de fang dragon. Hun vleugels zijn klein maar gespierd, en hoewel ze slecht vliegen, kunnen ze zich met een enkele klap van hun vleugels oprichten om naar voren te springen. De kop van een fangdraak is versierd met vele kleine hoorns of stekels, en hun ogen zijn meestal glinsterend rood of oranje.",
+									"(Getordeerd door de magische energieën die hen creëerden, zijn fang draken geneigd tot willekeurig geweld en woede-uitbarstingen. Ze genieten van het geweld, en wanneer ze het gevoel hebben dat ze in het voordeel zijn, storten ze zich met verve in de strijd. Na verloop van tijd leren ze hun woede te beheersen en in hun voordeel te gebruiken. Brutaal en wreed, wezens die op zoek zijn naar fang draken moeten dit doen met uiterste voorzichtigheid, omdat ze niet zullen aarzelen om verwoesting aan te richten op elk wezen dat ze zelf zwakker achten en dat ze zien als een bedreiging of een ergernis.",
+									"{@b Consummate Hunters.} Fangdraken eten alle soorten vers vlees, en genieten vooral van het vlees van intelligente wezens. Ze zoeken hun voedsel het liefst ver van hun hol, en gebruiken hun vermogen om geluiden na te bootsen die ze gehoord hebben om prooien te lokken. Fangdraken hebben de verontrustende neiging om met hun voedsel te spelen op een buitengewoon wrede manier. Fangdraken zijn meesters in het fysieke gevecht, en elk deel van hun lichaam is dodelijk. Ze hebben geen ademwapen, maar hun beet is zo verwoestend, dat hij grondwettelijke schade kan veroorzaken door bloedverlies uit de diepe rijtwonden.",
+									"(Toen Tiamat hoorde van het bestaan van deze draken buiten haar controle, probeerde ze de soort te onderwerpen. Ze stuurde haar volgelingen erop uit om hen te vinden en de eieren van hun jongen te \"verbeteren\" met een ritueel dat hen zou veranderen in wat bekend zou worden als de grijze draken. Diezelfde grijze draken werden belast met het zuiveren van de overgebleven fang draken. Opgejaagd, met hun slinkende aantallen, verafschuwen de Fang draken Tiamat en al haar volgelingen, en zullen ze aanvallen zodra ze hen zien. Fang draken spreken fragmenten van vele talen en zullen onderhandelen om moeilijke of dodelijke gevechten te vermijden."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Fang draken verschenen oorspronkelijk in de Realms in de ruïnes van Myth Drannor, waardoor sommige wijzen speculeren dat ze op een of andere manier verbonden zijn met de demonen die de oude elfenstad hebben geteisterd sinds haar val. Ze worden vaak gevonden in de Starwoods regio's van Cormanthor, en af en toe in het Border Forest, het Spiderhaunt Woods, en andere bossen in de regio van de Dalelands, Sembia, en de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"De schat van een hoektanddraak is vergelijkbaar met de schat van andere draken in die zin dat het verschillende rijkdommen zal bevatten, als gevolg van hun inherente hebzuchtige aard. Echter, in tegenstelling tot andere draken, zal de schat van een Fang draak ook verschillende trofeeën van zijn vorige jachten bevatten. Van schedels tot hoorns, tanden, botten, schubben, huiden en andere stukken die hij op magische wijze heeft bewaard, zijn schat zal bezaaid zijn met deze trofeeën. Sommige kunnen zeer waardevol zijn voor de juiste koper..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"De sterkste van de fang draken, die al vele andere legendarische wezens hebben opgejaagd en verorberd, kunnen een transformatie ondergaan die hen tot een van de machtigste jagers maakt die ooit heeft geleefd. De agenten van Tiamat maken de kans dat een fangdraak dit niveau van macht bereikt uiterst zeldzaam, omdat elke poging tot de Grote Jacht de volledige aandacht krijgt van Tiamats meest vertrouwde luitenants.",
+							"Om dit te bereiken, moet de draak hun echo's leren kennen, en de Grote Jacht beginnen. Om te slagen in de Grote Jacht, moet een Dragon Fang Ancient jagen op het vlees van zijn echo's en het opeten. De draak moet dit alleen doen, want er is geen grotere jacht dan op zichzelf te jagen. Door sluwheid en vaardigheid, geeft de Grote Jacht macht en de grootste trofeeën die een Fangdraak ooit aan zijn schat zal toevoegen.",
+							"Fang greatwyrms zijn een ware verschrikking om te aanschouwen. Enorme wezens van ruwe kracht, met scheermesranden, spiesen die ze kunnen slingeren en die bijna onmiddellijk regenereren, en messen van beenderen die zo hard zijn als staal. Als ze eenmaal de status van greatwyrm hebben bereikt, zullen fangdraken actief en met verve op agenten van Tiamat jagen."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+							"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen.",
+							"Spreuken zoals {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, komen vaker voor; er zijn echter ook spreuken bekend die hen helpen effectiever te jagen, of, wat zeldzamer is, rauwe verwoesting aan te richten."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Fang draken leven in dicht beboste en bergachtige gebieden. Het hol van een Fangdraak is een ruwe grot gevuld met gekartelde rotsen en vegetatie bedekt met doornen. Trofeeën van de jacht van de draak liggen vermengd met zijn voorraad. Ze zullen hun hol meestal dichtmetselen met grote rotsblokken of andere materialen om indringers buiten te houden tijdens hun afwezigheid. Fang draken hebben de neiging om grotten te kiezen waarachter ze zich kunnen verbergen, of van waaruit ze nietsvermoedende indringers kunnen aanvallen.",
+									"De uitdagingswaarde van een legendarische Fangdraak neemt met 1 toe als hij in zijn hol wordt aangetroffen."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/JW62gx5.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Als de draak niet slaagt voor een saving throw, kan hij kiezen om te slagen."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Als de greatwyrm zou worden gereduceerd tot 0 hit points, dan wordt zijn huidige aantal hit points teruggezet naar 375 hit points, en krijgt hij alle verbruikte LegendaryResistance weer terug. Bovendien kan de grote weermee nu gedurende 1 uur gebruik maken van de opties in de \"Mythische Acties\" sectie.Geef een groep een extra 105.000 XP (210.000 XP totaal) voor het verslaan van de grote weermee nadat zijn 'Unyeilding Rage' is geactiveerd."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"De draak kan alle geluiden nadoen die hij heeft gehoord, ook stemmen. Een wezen dat de geluiden hoort, kan met een geslaagde {@dc 22} Wijsheid(Inzicht) check zeggen dat het imitaties zijn."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak in woede uitbarsten. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +5 op de rol voor de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious}, of het beëindigt zijn woede op zijn beurt als een bonus actie."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Wanneer de draak in zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn vliegsnelheid te vliegen en een bijt aanval te doen (hij moet deze beweging op de grond beginnen en eindigen)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"De aanvallen met het wapen van de draak leveren een kritieke treffer op bij een worp van 18, 19 of 20. Bovendien gooit hij één extra dobbelsteen voor wapenschade bij het bepalen van de extra schade voor een kritieke treffer bij een aanval met een wapen."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"De draak kan zijn Schrikwekkende Aanwezigheid gebruiken. Daarna voert hij drie aanvallen uit: één met zijn beet en twee met zijn klauwen."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, reikwijdte 15 ft., één doelwit. {@h}23 ({@damage 2d12 + 10}) doordringende schade en het doelwit moet slagen op een {@dc 26} grondwettelijke saving throw of zijn grondwettelijke score wordt verlaagd met {@dice 1d6}. Het doelwit sterft als zijn grondwet tot 0 is gereduceerd. Anders duurt de reductie totdat het doelwit een korte of lange rustpauze heeft voltooid."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, reikwijdte 10 ft., één doel. {@h}21 ({@damage 2d10 + 10}) snijschade."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, reikwijdte 20 ft., één doel. {@h}23 ({@damage 2d12 + 10}) knuppelschade. Als het doelwit een wezen is, moet het slagen op een {@dc 26} Sterkte-spaarworp of het wordt {@condition prone} neergeslagen."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, bereik 20 ft., één doel. {@h}23 ({@damage 2d12 + 10}) doordringende schade. Als het doelwit een wezen is, moet het slagen op een {@dc 26} Sterkte-spaarworp of het wordt neergeslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, bereik 20 ft., één doel. {@h}23 ({@damage 2d12 + 10}) snijschade. Als het doelwit een wezen is, moet het slagen op een {@dc 26} Sterkte-spaarworp of het wordt {@condition prone} neergeslagen."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Elk wezen naar keuze van de draak dat zich binnen een straal van 120 meter van de draak bevindt en zich bewust is van de draak, moet slagen op een {@dc 22} Wijsheid-reddingsworp of gedurende 1 minuut bang worden. Een wezen kan deze worp herhalen aan het einde van elke beurt, en het effect op zichzelf beëindigen als het slaagt. Als de worp slaagt of het effect eindigt voor een wezen, dan is het wezen immuun voor de angstige aanwezigheid van de draak voor de volgende 24 uur."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak in woede uitbarsten. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +5 op de rol voor de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious}, of het beëindigt zijn woede op zijn beurt als een bonus actie."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"De draak doet een staart aanval."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"De draak draait en slaat met zijn staart. Elk wezen binnen 20 meter van de draak moet slagen op een {@dc 26} Dexterity saving throw of 21 ({@dice 2d10 + 10}) bludgeoning of slashing schade en worden geslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} om te raken, afstand 200/400 ft., één doel. {@h}16 ({@damage 1d12 + 10}) doorborende schade. De grote wyrm lanceert 2 spikes naar een doelwit binnen bereik."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"De grotewyrm doet één beet aanval."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"De greatwyrm heeft veel stekels, en lanceert ze in alle richtingen. Elk wezen in een straal van 60 voet rond de grote boog moet slagen op een {@dc 26} Dexterity saving throw en krijgt 42 ({@damage 5d12 + 10}) piercing schade als hij niet slaagt, en de helft als hij slaagt."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/2NoEwjM.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Fangdraken zijn gulzige, roofzuchtige en sluwe wezens. Ze leven voor de jacht, en zijn er uitzonderlijk goed op aangepast. Zelfs voor draconische begrippen zijn het woeste strijders. Fangdraken genieten van de kans om het vlees van andere wezens te verorberen en gaan graag de strijd aan voor de kans om van hun favoriete maaltijd te genieten.",
+									"De meest angstaanjagende onder de draken, zijn de fang draken gepantserd met beenderplaten die uitlopen in uitstekende sporen aan de gewrichten van de ledematen en eindigen in lange, gevorkte staarten met aan het uiteinde een paar zeisachtige beendermessen. Hun lichaamsplaten zijn gevlekt grijs en bruin, en een vage geur van bloed omringt de fang dragon. Hun vleugels zijn klein maar gespierd, en hoewel ze slecht vliegen, kunnen ze zich met een enkele klap van hun vleugels oprichten om naar voren te springen. De kop van een fangdraak is versierd met vele kleine hoorns of stekels, en hun ogen zijn meestal glinsterend rood of oranje.",
+									"(Getordeerd door de magische energieën die hen creëerden, zijn fang draken geneigd tot willekeurig geweld en woede-uitbarstingen. Ze genieten van het geweld, en wanneer ze het gevoel hebben dat ze in het voordeel zijn, storten ze zich met verve in de strijd. Na verloop van tijd leren ze hun woede te beheersen en in hun voordeel te gebruiken. Brutaal en wreed, wezens die op zoek zijn naar fang draken moeten dit doen met uiterste voorzichtigheid, omdat ze niet zullen aarzelen om verwoesting aan te richten op elk wezen dat ze zelf zwakker achten en dat ze zien als een bedreiging of een ergernis.",
+									"{@b Consummate Hunters.} Fangdraken eten alle soorten vers vlees, en genieten vooral van het vlees van intelligente wezens. Ze zoeken hun voedsel het liefst ver van hun hol, en gebruiken hun vermogen om geluiden na te bootsen die ze gehoord hebben om prooien te lokken. Fangdraken hebben de verontrustende neiging om met hun voedsel te spelen op een buitengewoon wrede manier. Fangdraken zijn meesters in het fysieke gevecht, en elk deel van hun lichaam is dodelijk. Ze hebben geen ademwapen, maar hun beet is zo verwoestend, dat hij grondwettelijke schade kan veroorzaken door bloedverlies uit de diepe rijtwonden.",
+									"(Toen Tiamat hoorde van het bestaan van deze draken buiten haar controle, probeerde ze de soort te onderwerpen. Ze stuurde haar volgelingen erop uit om hen te vinden en de eieren van hun jongen te \"verbeteren\" met een ritueel dat hen zou veranderen in wat bekend zou worden als de grijze draken. Diezelfde grijze draken werden belast met het zuiveren van de overgebleven fang draken. Opgejaagd, met hun slinkende aantallen, verafschuwen de Fang draken Tiamat en al haar volgelingen, en zullen ze aanvallen zodra ze hen zien. Fang draken spreken fragmenten van vele talen en zullen onderhandelen om moeilijke of dodelijke gevechten te vermijden."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Fang draken verschenen oorspronkelijk in de Realms in de ruïnes van Myth Drannor, waardoor sommige wijzen speculeren dat ze op een of andere manier verbonden zijn met de demonen die de oude elfenstad hebben geteisterd sinds haar val. Ze worden vaak gevonden in de Starwoods regio's van Cormanthor, en af en toe in het Border Forest, het Spiderhaunt Woods, en andere bossen in de regio van de Dalelands, Sembia, en de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"De schat van een hoektanddraak is vergelijkbaar met de schat van andere draken in die zin dat het verschillende rijkdommen zal bevatten, als gevolg van hun inherente hebzuchtige aard. Echter, in tegenstelling tot andere draken, zal de schat van een Fang draak ook verschillende trofeeën van zijn vorige jachten bevatten. Van schedels tot hoorns, tanden, botten, schubben, huiden en andere stukken die hij op magische wijze heeft bewaard, zijn schat zal bezaaid zijn met deze trofeeën. Sommige kunnen zeer waardevol zijn voor de juiste koper..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"De sterkste van de fang draken, die al vele andere legendarische wezens hebben opgejaagd en verorberd, kunnen een transformatie ondergaan die hen tot een van de machtigste jagers maakt die ooit heeft geleefd. De agenten van Tiamat maken de kans dat een fangdraak dit niveau van macht bereikt uiterst zeldzaam, omdat elke poging tot de Grote Jacht de volledige aandacht krijgt van Tiamats meest vertrouwde luitenants.",
+							"Om dit te bereiken, moet de draak hun echo's leren kennen, en de Grote Jacht beginnen. Om te slagen in de Grote Jacht, moet een Dragon Fang Ancient jagen op het vlees van zijn echo's en het opeten. De draak moet dit alleen doen, want er is geen grotere jacht dan op zichzelf te jagen. Door sluwheid en vaardigheid, geeft de Grote Jacht macht en de grootste trofeeën die een Fangdraak ooit aan zijn schat zal toevoegen.",
+							"Fang greatwyrms zijn een ware verschrikking om te aanschouwen. Enorme wezens van ruwe kracht, met scheermesranden, spiesen die ze kunnen slingeren en die bijna onmiddellijk regenereren, en messen van beenderen die zo hard zijn als staal. Als ze eenmaal de status van greatwyrm hebben bereikt, zullen fangdraken actief en met verve op agenten van Tiamat jagen."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+							"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen.",
+							"Spreuken zoals {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, komen vaker voor; er zijn echter ook spreuken bekend die hen helpen effectiever te jagen, of, wat zeldzamer is, rauwe verwoesting aan te richten."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Fang draken leven in dicht beboste en bergachtige gebieden. Het hol van een Fangdraak is een ruwe grot gevuld met gekartelde rotsen en vegetatie bedekt met doornen. Trofeeën van de jacht van de draak liggen vermengd met zijn voorraad. Ze zullen hun hol meestal dichtmetselen met grote rotsblokken of andere materialen om indringers buiten te houden tijdens hun afwezigheid. Fang draken hebben de neiging om grotten te kiezen waarachter ze zich kunnen verbergen, of van waaruit ze nietsvermoedende indringers kunnen aanvallen.",
+									"De uitdagingswaarde van een legendarische Fangdraak neemt met 1 toe als hij in zijn hol wordt aangetroffen."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IcVPE1D.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm (Variant Caster)",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+						"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Als de draak niet slaagt voor een saving throw, kan hij kiezen om te slagen."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Als de greatwyrm zou worden gereduceerd tot 0 hit points, dan wordt zijn huidige aantal hit points teruggezet naar 375 hit points, en krijgt hij alle verbruikte LegendaryResistance weer terug. Bovendien kan de grote weermee nu gedurende 1 uur gebruik maken van de opties in de \"Mythische Acties\" sectie.Geef een groep een extra 105.000 XP (210.000 XP totaal) voor het verslaan van de grote weermee nadat zijn 'Unyeilding Rage' is geactiveerd."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"De draak kan alle geluiden nadoen die hij heeft gehoord, ook stemmen. Een wezen dat de geluiden hoort, kan met een geslaagde {@dc 22} Wijsheid(Inzicht) check zeggen dat het imitaties zijn."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak in woede uitbarsten. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +5 op de rol voor de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious}, of het beëindigt zijn woede op zijn beurt als een bonus actie."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Wanneer de draak in zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn vliegsnelheid te vliegen en een bijt aanval te doen (hij moet deze beweging op de grond beginnen en eindigen)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"De aanvallen met het wapen van de draak leveren een kritieke treffer op bij een worp van 18, 19 of 20. Bovendien gooit hij één extra dobbelsteen voor wapenschade bij het bepalen van de extra schade voor een kritieke treffer bij een aanval met een wapen."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"De draak kan zijn Schrikwekkende Aanwezigheid gebruiken. Daarna voert hij drie aanvallen uit: één met zijn beet en twee met zijn klauwen."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, reikwijdte 15 ft., één doelwit. {@h}23 ({@damage 2d12 + 10}) doordringende schade en het doelwit moet slagen op een {@dc 26} grondwettelijke saving throw of zijn grondwettelijke score wordt verlaagd met {@dice 1d6}. Het doelwit sterft als zijn grondwet tot 0 is gereduceerd. Anders duurt de reductie totdat het doelwit een korte of lange rustpauze heeft voltooid."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, reikwijdte 10 ft., één doel. {@h}21 ({@damage 2d10 + 10}) snijschade."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, reikwijdte 20 ft., één doel. {@h}23 ({@damage 2d12 + 10}) knuppelschade. Als het doelwit een wezen is, moet het slagen op een {@dc 26} Sterkte-spaarworp of het wordt {@condition prone} neergeslagen."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, bereik 20 ft., één doel. {@h}23 ({@damage 2d12 + 10}) doordringende schade. Als het doelwit een wezen is, moet het slagen op een {@dc 26} Sterkte-spaarworp of het wordt neergeslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} om te raken, bereik 20 ft., één doel. {@h}23 ({@damage 2d12 + 10}) snijschade. Als het doelwit een wezen is, moet het slagen op een {@dc 26} Sterkte-spaarworp of het wordt {@condition prone} neergeslagen."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Elk wezen naar keuze van de draak dat zich binnen een straal van 120 meter van de draak bevindt en zich bewust is van de draak, moet slagen op een {@dc 22} Wijsheid-reddingsworp of gedurende 1 minuut bang worden. Een wezen kan deze worp herhalen aan het einde van elke beurt, en het effect op zichzelf beëindigen als het slaagt. Als de worp slaagt of het effect eindigt voor een wezen, dan is het wezen immuun voor de angstige aanwezigheid van de draak voor de volgende 24 uur."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Als een bonus actie, kan de draak in woede uitbarsten. Terwijl hij raast, krijgt hij de volgende voordelen:",
+						{
+							"type": "list",
+							"items": [
+								"De draak heeft voordeel op Strength checks en Strength saving throws.",
+								"Wanneer de draak een aanval uitvoert met een vlak wapen, krijgt hij een bonus van +5 op de rol voor de schade.",
+								"De draak heeft voordeel bij het redden van worpen tegen spreuken en andere magische effecten."
+							]
+						},
+						"Zijn woede duurt 1 minuut. Het eindigt alleen vroegtijdig als de draak wordt geslagen {@condition unconscious}, of het beëindigt zijn woede op zijn beurt als een bonus actie."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"De draak doet een staart aanval."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"De draak draait en slaat met zijn staart. Elk wezen binnen 20 meter van de draak moet slagen op een {@dc 26} Dexterity saving throw of 21 ({@dice 2d10 + 10}) bludgeoning of slashing schade en worden geslagen {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} om te raken, afstand 200/400 ft., één doel. {@h}16 ({@damage 1d12 + 10}) doorborende schade. De grote wyrm lanceert 2 spikes naar een doelwit binnen bereik."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"De grotewyrm doet één beet aanval."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"De greatwyrm heeft veel stekels, en lanceert ze in alle richtingen. Elk wezen in een straal van 60 voet rond de grote boog moet slagen op een {@dc 26} Dexterity saving throw en krijgt 42 ({@damage 5d12 + 10}) piercing schade als hij niet slaagt, en de helft als hij slaagt."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/kMbk4Iw.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Fangdraken zijn gulzige, roofzuchtige en sluwe wezens. Ze leven voor de jacht, en zijn er uitzonderlijk goed op aangepast. Zelfs voor draconische begrippen zijn het woeste strijders. Fangdraken genieten van de kans om het vlees van andere wezens te verorberen en gaan graag de strijd aan voor de kans om van hun favoriete maaltijd te genieten.",
+									"De meest angstaanjagende onder de draken, zijn de fang draken gepantserd met beenderplaten die uitlopen in uitstekende sporen aan de gewrichten van de ledematen en eindigen in lange, gevorkte staarten met aan het uiteinde een paar zeisachtige beendermessen. Hun lichaamsplaten zijn gevlekt grijs en bruin, en een vage geur van bloed omringt de fang dragon. Hun vleugels zijn klein maar gespierd, en hoewel ze slecht vliegen, kunnen ze zich met een enkele klap van hun vleugels oprichten om naar voren te springen. De kop van een fangdraak is versierd met vele kleine hoorns of stekels, en hun ogen zijn meestal glinsterend rood of oranje.",
+									"(Getordeerd door de magische energieën die hen creëerden, zijn fang draken geneigd tot willekeurig geweld en woede-uitbarstingen. Ze genieten van het geweld, en wanneer ze het gevoel hebben dat ze in het voordeel zijn, storten ze zich met verve in de strijd. Na verloop van tijd leren ze hun woede te beheersen en in hun voordeel te gebruiken. Brutaal en wreed, wezens die op zoek zijn naar fang draken moeten dit doen met uiterste voorzichtigheid, omdat ze niet zullen aarzelen om verwoesting aan te richten op elk wezen dat ze zelf zwakker achten en dat ze zien als een bedreiging of een ergernis.",
+									"{@b Consummate Hunters.} Fangdraken eten alle soorten vers vlees, en genieten vooral van het vlees van intelligente wezens. Ze zoeken hun voedsel het liefst ver van hun hol, en gebruiken hun vermogen om geluiden na te bootsen die ze gehoord hebben om prooien te lokken. Fangdraken hebben de verontrustende neiging om met hun voedsel te spelen op een buitengewoon wrede manier. Fangdraken zijn meesters in het fysieke gevecht, en elk deel van hun lichaam is dodelijk. Ze hebben geen ademwapen, maar hun beet is zo verwoestend, dat hij grondwettelijke schade kan veroorzaken door bloedverlies uit de diepe rijtwonden.",
+									"(Toen Tiamat hoorde van het bestaan van deze draken buiten haar controle, probeerde ze de soort te onderwerpen. Ze stuurde haar volgelingen erop uit om hen te vinden en de eieren van hun jongen te \"verbeteren\" met een ritueel dat hen zou veranderen in wat bekend zou worden als de grijze draken. Diezelfde grijze draken werden belast met het zuiveren van de overgebleven fang draken. Opgejaagd, met hun slinkende aantallen, verafschuwen de Fang draken Tiamat en al haar volgelingen, en zullen ze aanvallen zodra ze hen zien. Fang draken spreken fragmenten van vele talen en zullen onderhandelen om moeilijke of dodelijke gevechten te vermijden."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Fang draken verschenen oorspronkelijk in de Realms in de ruïnes van Myth Drannor, waardoor sommige wijzen speculeren dat ze op een of andere manier verbonden zijn met de demonen die de oude elfenstad hebben geteisterd sinds haar val. Ze worden vaak gevonden in de Starwoods regio's van Cormanthor, en af en toe in het Border Forest, het Spiderhaunt Woods, en andere bossen in de regio van de Dalelands, Sembia, en de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"De schat van een hoektanddraak is vergelijkbaar met de schat van andere draken in die zin dat het verschillende rijkdommen zal bevatten, als gevolg van hun inherente hebzuchtige aard. Echter, in tegenstelling tot andere draken, zal de schat van een Fang draak ook verschillende trofeeën van zijn vorige jachten bevatten. Van schedels tot hoorns, tanden, botten, schubben, huiden en andere stukken die hij op magische wijze heeft bewaard, zijn schat zal bezaaid zijn met deze trofeeën. Sommige kunnen zeer waardevol zijn voor de juiste koper..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"De sterkste van de fang draken, die al vele andere legendarische wezens hebben opgejaagd en verorberd, kunnen een transformatie ondergaan die hen tot een van de machtigste jagers maakt die ooit heeft geleefd. De agenten van Tiamat maken de kans dat een fangdraak dit niveau van macht bereikt uiterst zeldzaam, omdat elke poging tot de Grote Jacht de volledige aandacht krijgt van Tiamats meest vertrouwde luitenants.",
+							"Om dit te bereiken, moet de draak hun echo's leren kennen, en de Grote Jacht beginnen. Om te slagen in de Grote Jacht, moet een Dragon Fang Ancient jagen op het vlees van zijn echo's en het opeten. De draak moet dit alleen doen, want er is geen grotere jacht dan op zichzelf te jagen. Door sluwheid en vaardigheid, geeft de Grote Jacht macht en de grootste trofeeën die een Fangdraak ooit aan zijn schat zal toevoegen.",
+							"Fang greatwyrms zijn een ware verschrikking om te aanschouwen. Enorme wezens van ruwe kracht, met scheermesranden, spiesen die ze kunnen slingeren en die bijna onmiddellijk regenereren, en messen van beenderen die zo hard zijn als staal. Als ze eenmaal de status van greatwyrm hebben bereikt, zullen fangdraken actief en met verve op agenten van Tiamat jagen."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Fangdraken kunnen ook de variant van de aangeboren toverspreukregels voor draken gebruiken die in het handboek Pad van de woedende muil staan.",
+							"Zij neigen naar spreuken die andere magie teniet doen of vijandelijke bezweerders hinderen.",
+							"Spreuken zoals {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, komen vaker voor; er zijn echter ook spreuken bekend die hen helpen effectiever te jagen, of, wat zeldzamer is, rauwe verwoesting aan te richten."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Fang draken leven in dicht beboste en bergachtige gebieden. Het hol van een Fangdraak is een ruwe grot gevuld met gekartelde rotsen en vegetatie bedekt met doornen. Trofeeën van de jacht van de draak liggen vermengd met zijn voorraad. Ze zullen hun hol meestal dichtmetselen met grote rotsblokken of andere materialen om indringers buiten te houden tijdens hun afwezigheid. Fang draken hebben de neiging om grotten te kiezen waarachter ze zich kunnen verbergen, of van waaruit ze nietsvermoedende indringers kunnen aanvallen.",
+									"De uitdagingswaarde van een legendarische Fangdraak neemt met 1 toe als hij in zijn hol wordt aangetroffen."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/WhjJDXL.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"race": [
+		{
+			"name": "Dragonborn (Fang)",
+			"source": "KGFD",
+			"lineage": "VRGR",
+			"size": [
+				"M"
+			],
+			"speed": {
+				"walk": 30
+			},
+			"entries": [
+				"Je draconische erfenis uit zich in een verscheidenheid van eigenschappen die je deelt met andere dragonborn.",
+				{
+					"name": "Ability Score Increase",
+					"type": "entries",
+					"entries": [
+						"Wanneer je de vaardigheidsscores van je personage bepaalt, verhoog dan één van die scores met 2 en verhoog een andere score met 1, of verhoog drie verschillende scores met 1."
+					]
+				},
+				{
+					"name": "Age",
+					"type": "entries",
+					"entries": [
+						"Jonge dragonborn groeien snel. Ze lopen al uren nadat ze uit het ei zijn gekomen, hebben de grootte en ontwikkeling van een 10-jarig mensenkind als ze 3 jaar oud zijn, en zijn volwassen als ze 15 zijn. Ze worden zo'n 80 jaar."
+					]
+				},
+				{
+					"name": "Alignment",
+					"type": "entries",
+					"entries": [
+						"Fang dragonborn hebben de neiging om vrijheid boven alles te vereren. De meeste Fang dragonborn zijn chaotisch neutraal. Er zijn echter zeldzame uitbijters die zich bij Bahamut aansluiten in de oorlog tegen Tiamat, en daarbij lawful of good neigingen aannemen."
+					]
+				},
+				{
+					"name": "Size",
+					"type": "entries",
+					"entries": [
+						"Fang Dragonborn zijn groter en zwaarder dan mensen, ze zijn ruim 2 meter lang en wegen gemiddeld bijna 250 pond. Uw grootte is middelgroot. Snelheid. Je basis loopsnelheid is 30 voet."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"Je basis loopsnelheid is 30 voet."
+					]
+				},
+				{
+					"name": "Languages",
+					"entries": [
+						"Je personage kan gewone taal spreken, lezen en schrijven en één andere taal die jij en je DM geschikt vinden voor het personage."
+					],
+					"type": "entries"
+				},
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Ancestry Specific Traits",
+							"entries": [
+								"Uw voorouder was een fang draak, en dit geeft specifieke eigenschappen aan uw soort.",
+								{
+									"name": "Bite",
+									"entries": [
+										"Je giftandenbek is een natuurlijk wapen, dat je kunt gebruiken om ongewapend toe te slaan. Als je ermee slaat, richt je een doorboringsschade aan gelijk aan {@b 1d6 + your Strength modifier}, in plaats van de normale kneuzingsschade voor een ongewapende slag."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Merciless Rive",
+									"entries": [
+										"Onmiddellijk nadat je een wezen op 0 hit points hebt gebracht, of een critical hit hebt geland, als onderdeel van een aanvalsactie tijdens je beurt, kun je naar voren springen en je beet gebruiken om een verwoestende aanval uit te voeren. Je beweegt tot de helft van je bewegingssnelheid en doet één bijtaanval. Deze aanval is in het voordeel, en als hij slaagt, richt hij een extra1d6 doordringende schade aan. De extra schade loopt op tot3d6 op 5e niveau, 5d6 op 11e niveau, en 7d6 op 17e niveau.",
+										"Je kunt je Merciless Rive een aantal keer gebruiken, gelijk aan je proficiency bonus, en je krijgt alle verbruikte hoeveelheden terug als je een lange rustpauze beëindigt."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Draconic Resistance",
+									"entries": [
+										"Je deelt een deel van het vermogen van je voorouders om magische aanvallen af te slaan. Je hebt voordeel op alle Strength, Dexterity, en Constitution saving throws tegen magie."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Thrill of the Hunt",
+									"entries": [
+										"Je hebt vaardigheid in de overleving vaardigheid"
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"survival": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"common": true,
+					"other": true
+				}
+			],
+			"age": {
+				"mature": 15,
+				"max": 80
+			},
+			"fluff": {
+				"entries": [
+					"Geboren uit draken, zoals hun naam verkondigt, lopen de dragonborn trots door een wereld die hen met angstig onbegrip begroet. Gevormd door draconische goden of de draken zelf, zijn de dragonborn oorspronkelijk uitgebroed uit drakeneieren als een uniek ras, dat de beste eigenschappen van draken en mensachtigen combineert. Sommige dragonborn zijn trouwe dienaars van ware draken, anderen vormen de rangen van soldaten in grote oorlogen, en nog anderen vinden zichzelf op drift, zonder duidelijke roeping in het leven."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/EO3wlZY.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"variantrule": [
+		{
+			"name": "Half Dragon (Fang)",
+			"source": "KGFD",
+			"ruleType": "O",
+			"entries": [
+				"Wanneer een halfwangdraak in polymorfe vorm paart met een ander wezen, brengt de vereniging soms halfwangdraak nakomelingen voort. Een wezen kan ook veranderen in een half-hoekdraak als gevolg van een betovering van een gekke tovenaar of een ritueel bad in drakenbloed. In al deze gevallen is het resultaat een wezen dat de essentie van een draak combineert met de vorm van zijn oorspronkelijke ras. Ongeacht hun oorsprong, hebben alle half-fang draken dezelfde kenmerken en uiterlijk, en krijgen ze speciale zintuigen, een woeste woede, en een dodelijke beet.",
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Half Fang Dragon Template",
+							"entries": [
+								{
+									"name": "Draconic Nature",
+									"entries": [
+										"Half-fang draken zijn niet in staat om natuurlijk geboren nakomelingen te hebben. Zij die zich willen voortplanten moeten andere manieren vinden om dat te doen, bijna altijd met behulp van magie. Ter compensatie zijn half-fang draken gezegend met een lang leven. Onvoorziene tegenslagen daargelaten, is de levensverwachting van een typische half-fang draak tweemaal die van zijn niet draconische lijn, zodat een half-fang draak mens meer dan anderhalve eeuw kan leven. Half-fang draken erven persoonlijkheidskenmerken die gemeenschappelijk zijn met hun draconische erfenis. Deze eigenschappen worden getemperd door de andere afstamming van een half-fang draak, maar half-fang draken zijn sneller woedend en meer geneigd tot gewelddadige daden dan een standaard lid van hun niet-draconische afstamming.",
+										"Een beest, humanoïde, reus, of gedrocht kan een half-fang draak worden. Wanneer een wezen een half-fang draak wordt, behoudt het al zijn statistieken, behalve zoals hieronder vermeld."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Senses",
+									"entries": [
+										"De half-fang draak verkrijgt een blindzicht met een straal van 10 voet en een donkerzicht met een straal van 60 voet."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Rage (1/Day)",
+									"entries": [
+										"Als een bonus actie, kan de half-fang draak in woede uitbarsten. Voor een minuut, krijgt het de volgende voordelen:",
+										{
+											"type": "list",
+											"items": [
+												"De half-fang draak heeft voordeel bij Strength checks en Strength saving throws.",
+												"Wanneer de half-fang draak een aanval uitvoert met een wapen, krijgt hij een +2 bonus op de schade rol.",
+												"De half-fang draak heeft voordeel op saving throws tegen spreuken en andere magische effecten."
+											]
+										}
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Ravenous Onslaught",
+									"entries": [
+										"Als de half-fang draak op zijn beurt een wezen tot 0 hit points reduceert of een critical hit scoort met een melee aanval, kan hij een bonus actie doen om tot de helft van zijn snelheid te bewegen en een bijt aanval te doen."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Action: Bite",
+									"entries": [
+										"De half-fang draak heeft de beet van zijn drakenhelft. De grootte van de half-tanddraak bepaalt hoe deze actie functioneert.",
+										{
+											"type": "table",
+											"caption": "Half fang dragon bite",
+											"colLabels": [
+												"Size",
+												"Bite"
+											],
+											"colStyles": [
+												"col-6 text-center",
+												"col-6 text-center"
+											],
+											"rows": [
+												[
+													"Groot of kleiner",
+													"Als een wyrmling ({@damage 1d12 + 3} piercing schade)"
+												],
+												[
+													"Huge",
+													"Als een jonge draak ({@damage 2d12 + 5} piercing schade)"
+												],
+												[
+													"Gargantuan",
+													"Als een volwassen draak ({@damage 2d12 + 7} piercing schade)"
+												]
+											]
+										}
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"Art en item ontworpen door {@link Kajagrae|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}. Gelieve te vermelden indien u elders herplaatst."
+					]
+				}
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"shortName": "Path of the Furious Maw",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"page": 1,
+			"subclassFeatures": [
+				"Path of the Furious Maw|Barbarian|PHB|Path of the Furious Maw|KGFD|3",
+				"Dogged Awareness|Barbarian|PHB|Path of the Furious Maw|KGFD|6",
+				"No Escape|Barbarian|PHB|Path of the Furious Maw|KGFD|10",
+				"Vicious Strikes|Barbarian|PHB|Path of the Furious Maw|KGFD|14"
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"shortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"subclassFeatures": [
+				"Draconic Bloodline (Fang)|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1",
+				"Draconic Affinity|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|6",
+				"Sorcerous Frenzy|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|14",
+				"Draconic Presence|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|18"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"entries": [
+				"Op 3de niveau krijgt een barbaar de Primal Path eigenschap. De volgende optie is beschikbaar voor een barbaar, naast de opties die in het Player's Handbook en Xanthar's Guide to Everything worden aangeboden.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Path of the Furious Maw Features|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Merciless Onslaught|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Cunning Hunter|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Path of the Furious Maw Features",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Sommige wezens zijn zo woest, dat ze culturen inspireren om ze na te volgen in hun eigen manier van leven. Deze stammen leren dat vaardigheid in het jagen en totale wreedheid op zichzelf een middel zijn om een doel te bereiken. Als een barbaar die dit pad volgt, tekeer gaat, wordt hij een meedogenloze verschrikking in de strijd.",
+				"Barbaren die de primitieve wreedheid van dit pad gebruiken zijn angstaanjagend om te zien in de strijd. Meestal getooid met trofeeën van eerdere doden, storten ze zich in de strijd en richten verwoestingen aan bij hun tegenstanders. In de diepte van hun woede, zijn ze zelfs bekend om te spelen met de laatste van hun prooi voordat ze de genadeslag uitdelen.",
+				{
+					"type": "table",
+					"caption": "Path of the Furious Maw Features",
+					"colLabels": [
+						"Barbarian Level",
+						"Feature"
+					],
+					"colStyles": [
+						"col-3 text-center",
+						"col-9"
+					],
+					"rows": [
+						[
+							"3rd",
+							"Genadeloze aanval, sluwe jager"
+						],
+						[
+							"6th",
+							"Bewustwording"
+						],
+						[
+							"10th",
+							"No Escape"
+						],
+						[
+							"14th",
+							"Boosaardige stakingen"
+						]
+					]
+				}
+			]
+		},
+		{
+			"name": "Merciless Onslaught",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Vanaf het 3e niveau als je dit pad kiest, kanaliseer je de woestheid van de gebruiken van je stam in je woede. Als je tijdens je woedeaanval in je beurt een wezen tot 0 hit points reduceert of een kritieke hit scoort, kun je je als bonusactie tot de helft van je snelheid verplaatsen en één aanval uitvoeren."
+			]
+		},
+		{
+			"name": "Cunning Hunter",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Vanaf het 3e niveau als je dit pad kiest, kanaliseer je de woestheid van de gebruiken van je stam in je woede. Als je tijdens je woedeaanval in je beurt een wezen tot 0 hit points reduceert of een kritieke hit scoort, kun je je als bonusactie tot de helft van je snelheid verplaatsen en één aanval uitvoeren."
+			]
+		},
+		{
+			"name": "Dogged Awareness",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"Vanaf het 6e niveau heeft je kennis van de jacht je zintuigen zodanig op elkaar afgestemd dat je weet dat de jager de opgejaagde is geworden. Je hebt voordeel bij de Wisdom (Perception) checks om verborgen wezens te ontdekken. Bovendien kun je niet langer verrast worden."
+			]
+		},
+		{
+			"name": "No Escape",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"Vanaf het 10e niveau zijn je ijver voor de jacht en het gevecht zo met elkaar verweven geraakt, dat je ze nu soms allebei probeert te verlengen.",
+				"Eenmaal per woedeaanval kun je proberen één van je tegenstanders te laten struikelen. Als je een aanval uitvoert met een vlak wapen, moet je tegenstander een Sterkte-redding slagen gelijk aan 8 + je vaardigheidsbonus + je Sterkte-maatstaf, of hij wordt neergeslagen. Bovendien wordt zijn bewegingssnelheid gehalveerd totdat hij magische genezing ontvangt of een lange rustperiode heeft voltooid."
+			]
+		},
+		{
+			"name": "Vicious Strikes",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"Op het 14e niveau heeft de wreedheid van je woede zijn hoogtepunt bereikt. Terwijl je woedt, scoren je wapenaanvallen een kritieke treffer op een worp van 19 of 20. Als je aanvallen al een kritieke treffer scoren op een worp van 19 of 20 van een andere bron, scoor je in plaats daarvan een kritieke treffer op een worp van 18-20."
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"entries": [
+				"Op het 1e niveau krijgt een tovenaar de eigenschap Sorcerous Origin. De volgende optie is beschikbaar voor een tovenaar, naast de opties die worden aangeboden in het Player's Handbook, en Xanthar's Guide to Everything.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Bloodline|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Resilience|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Draconic Bloodline",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"Je aangeboren magie komt van draconische magie die vermengd was met je bloed of dat van je voorouders. Meestal voeren tovenaars met deze oorsprong hun afstamming terug op een machtige tovenaar uit vroegere tijden die een koopje met een draak heeft gesloten of die misschien zelfs een drakenouder heeft opgeëist. Sommige van deze bloedlijnen zijn goed ingeburgerd in de wereld, maar de meeste zijn obscuur. Een willekeurige tovenaar kan de eerste van een nieuwe bloedlijn zijn, als gevolg van een pact of een andere uitzonderlijke omstandigheid."
+			]
+		},
+		{
+			"name": "Draconic Resilience",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"Als magie door je lichaam stroomt, komen de fysieke eigenschappen van je drakenvoorouders naar boven. Op het 1e niveau neemt je maximale aantal hitpoints met 1 toe en dit aantal neemt telkens weer met 1 toe als je een niveau hoger komt in deze klasse. Bovendien worden delen van je huid bedekt door een dunne laag draakachtige schubben. Als je geen pantser draagt, is je AC gelijk aan 13 + je Dexterity modifier."
+			]
+		},
+		{
+			"name": "Draconic Affinity",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"Als je vanaf het 6e niveau een spreuk uitspreekt die vernietigende, doordringende of snijdende schade toebrengt, tel dan je Charisma bij die schade op. Je krijgt ook de mogelijkheid om 2 toverij punten te spenderen om weerstand tegen magie te krijgen voor 1 minuut."
+			]
+		},
+		{
+			"name": "Sorcerous Frenzy",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"De woede van de fang dragon stroomt in je bloed. Op je 14e niveau kun je die woede oproepen en in je magie kanaliseren. Als je aan de beurt bent, kun je een magische razernij uitvoeren als een bonus actie. Als je in razernij bent, krijg je de volgende voordelen: Je krijgt een +2 bonus op je spell save DC.",
+				{
+					"type": "list",
+					"items": [
+						"Het kritieke bereik van je spreukaanval neemt met 1 toe.",
+						"De spreukpuntkosten voor metamagische opties worden met de helft verminderd, tot een minimum van 1.",
+						"De kosten voor het aanmaken van spreukpunten worden met 1 verminderd."
+					]
+				},
+				"Je razernij duurt 1 minuut. Ze eindigt vroegtijdig als je bewusteloos wordt geslagen of als je beurt eindigt en je sinds je laatste beurt geen vijandig wezen hebt beschadigd of schade hebt opgelopen. Je kunt je razernij ook tijdens je beurt beëindigen als bonusactie.",
+				"Als u deze functie eenmaal hebt gebruikt, kunt u dat niet meer doen totdat u een lange rustperiode hebt voltooid."
+			]
+		},
+		{
+			"name": "Draconic Presence",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"Vanaf het 18e niveau kun je de vreselijke aanwezigheid van je drakenvoorvader kanaliseren, waardoor de mensen om je heen ontzag of angst krijgen. Als actie kun je 5 toverij punten uitgeven om deze kracht te gebruiken en een aura van ontzag of angst (jouw keuze) uit te stralen tot een afstand van 60 voet. Gedurende 1 minuut of totdat je je concentratie verliest (alsof je een concentratiespreuk uitspreekt), moet elk vijandig wezen dat aan het begin van zijn beurt in deze aura staat, slagen voor een Wisdom saving throw of gecharmeerd (als je ontzag hebt gekozen) of bang (als je angst hebt gekozen) worden totdat de aura eindigt. Een schepsel dat slaagt voor deze saving throw is gedurende 24 uur immuun voor je aura."
+			]
+		}
+	]
+}
