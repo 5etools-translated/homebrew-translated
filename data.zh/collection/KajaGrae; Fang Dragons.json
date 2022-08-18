@@ -1,0 +1,2573 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "KGFD",
+				"abbreviation": "KGFD",
+				"full": "Fang Dragons",
+				"authors": [
+					"KajaGrae"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "2022.08.12",
+				"color": "4d2611",
+				"url": "https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1657961727,
+		"dateLastModified": 1660775288,
+		"_dateLastModifiedHash": "1df0edecae"
+	},
+	"legendaryGroup": [
+		{
+			"name": "FangDragonsLairActionsFangDragon",
+			"source": "KGFD",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the dragon takes a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:",
+				{
+					"type": "list",
+					"items": [
+						"{@b Stone Spikes.} 锋利的石刺从地面迸发出来，半径20英尺，以龙能看到的120英尺范围为中心。该区域成为困难地形，该区域内的每个生物必须在DC{@dc 15}的灵巧反射中成功，否则会受到10({@damage 3d6})的刺伤。当生物进入该区域或在该区域内移动时，每移动5英尺就会受到{@damage 2d6}的穿刺伤害。这些尖刺会一直存在，直到龙再次使用这个巢穴动作或龙死亡。",
+						"{@b Fog Bank.} 以龙能看到的120英尺范围内的一个点为中心，在40英尺半径内形成浓雾。雾在角落里蔓延，其区域被严重遮蔽。每小时至少20英里的风会驱散浓雾。否则雾会一直持续到龙再次使用这个巢穴动作，或者龙死亡。",
+						"{@b Deadzone.} 以龙能看到的120英尺范围内的一个点为中心，形成一个无形的20英尺半径的反魔法。这个区域的功能效果与施放反魔法场的效果相同，只是它是静止的，并且一直保持到龙再次使用这个巢穴动作或龙死亡。"
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing a legendary fang dragon's lair is warped by the dragon's magic, which creates one or more of the following effects: Jagged Spires.",
+				{
+					"type": "list",
+					"items": [
+						"{@b Jagged Spires.} 在獠牙龙巢穴的6英里范围内，地形会呈现出更鲜明的特征。锯齿状的岩石表面，植物长出了刺，在该地区移动变得更加困难。由于危险的条件，在该地区的陆上移动需要两倍的时间。",
+						"{@b Predator Avoidance.}动物（除昆虫外）不会在獠牙龙巢穴的6英里范围内居住或自愿接近。",
+						"{@b Untraceable.}在其巢穴的6英里范围内，除非它愿意，否则龙不会留下任何关于它经过的物质证据。此外，它无视这一地区的植物和岩石构造的移动障碍和伤害，包括上述的石钉。"
+					]
+				},
+				"If the dragon dies, animals will slowly return to the area, and other effects fade over {@dice ld10} days."
+			]
+		}
+	],
+	"monster": [
+		{
+			"name": "Dragon Fang Ancient",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"如果龙的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"龙可以模仿它所听到的任何声音，包括声音。听到这些声音的生物可以通过成功的智慧（洞察力）检查来判断它们是模仿的。"
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"作为一个额外的动作，龙可以进入 ar age。在暴怒时，它可以获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+4的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）或它选择在其回合中作为额外行动结束其愤怒时，它才会提前结束。"
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"当龙在它的回合中把一个生物减少到0命中率或用近战攻击取得关键命中时，它可以采取一个额外的行动，飞到其飞行速度的一半，并进行咬人攻击（它必须在地面上开始和结束这个动作）。"
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"龙的近战武器攻击在掷出19或20的时候可以获得关键命中。此外，在确定近战武器攻击的关键命中的额外伤害时，它还会滚动一些额外的武器伤害模子。"
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"龙可以使用它的 \"恐怖的存在\"。然后它进行三次攻击：一次是咬，两次是爪子。"
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达15英尺，一个目标。{@h}22 ({@damage 2d12 + 9})的穿刺伤害，目标必须成功进行{@dc 24}体质救赎，否则其体质分数会降低{@dice 1d4}。如果这使其体质降低到0，目标就会死亡。否则，这种降低会持续到目标完成短期或长期休息。"
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达10英尺，一个目标。{@h}18 ({@damage 2d8 + 9})砍击伤害。"
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达20英尺，一个目标。{@h}20 ({@damage 2d10 + 9})重击伤害。如果目标是一个生物，它必须在一个{@dc 24}力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达20英尺，一个目标。{@h}20 ({@damage 2d10 + 9})砍击伤害。如果目标是一个生物，它必须在一个{@dc 24}力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达20英尺，一个目标。{@h}20 ({@damage 2d10 + 9})穿刺伤害。如果目标是一个生物，它必须在一个{@dc 24}的力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"每一个在龙的120英尺范围内的龙所选择的生物，如果意识到了它，就必须在一个{@dc 19}智慧救赎上成功，否则就会被吓倒，持续1分钟。生物可以在它的每个回合结束时重复蓄力，如果成功则结束对它的影响。如果一个生物的自救成功或效果结束，该生物在接下来的24小时内对龙的惊恐存在免疫。"
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"作为一个额外的动作，龙可以进入 ar age。在暴怒时，它可以获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+4的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）或它选择在其回合中作为额外行动结束其愤怒时，它才会提前结束。"
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"龙做一个智慧（感知）检查。"
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"龙做了一个尾巴攻击。"
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"巨龙旋转，用它的尾巴甩出去。在龙的20英尺范围内的每个生物都必须在一个{@dc 24}灵巧的投掷中成功，或者受到20({@dice 2d10 + 9})重击或砍击伤害并被击倒{@condition prone}。"
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/TNVlx8c.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"獠牙龙是一种贪婪、贪婪和狡猾的生物。它们以狩猎为生，而且特别适合狩猎。即使以龙族的标准来看，獠牙龙也是野蛮的战斗者，它们喜欢吃其他生物的肉，为了有机会享受它们最喜欢的食物，它们很乐意涉入战场。",
+									"獠牙龙是龙类中身体最可怕的一种，它身披骨板，在四肢关节处隆起成突出的骨刺，尾部长而分叉，顶端有一对镰刀状的骨刃。它们的身体板块是斑驳的灰色和棕色，淡淡的血腥味环绕着獠牙龙。它们的翅膀很小，但肌肉发达，虽然飞行能力很差，但只要拍打一下翅膀，就能站起来向前扑去。獠牙龙的头上有许多小角或尖刺，它们的眼睛往往是闪亮的红色或橙色。",
+									"{@b Angry and Twisted.}被创造它们的魔法能量所扭曲，獠牙龙很容易发生随机暴力和愤怒的爆发。他们陶醉于暴力，当他们觉得自己有优势的时候，就会狂热地投入战斗。随着时间的推移，他们学会了驾驭愤怒，并将其用于自己的优势。残忍而恶毒，寻找獠牙龙的生物应该非常谨慎，因为它们会毫不犹豫地对任何它们认为自己较弱、被视为威胁或讨厌的生物造成破坏。",
+									"{@b Consummate Hunters.} 方龙吃各种新鲜的肉，尤其喜欢吃智慧生物的肉。它们喜欢在远离巢穴的地方寻找食物，并会利用它们模仿听到的声音的能力来引诱猎物。方龙有一个令人不安的倾向，就是以极其残忍的方式玩弄它们的食物。方龙是肉搏战的高手，它们身体的每一个部分都是致命的。它们没有呼吸武器，但它们的咬伤是如此具有破坏性，由于深层裂缝的失血，可以造成宪法的损害。",
+									"{@b Hunted and Dwindling.}一旦提亚马特得知这些龙在她控制之外的存在，她就试图征服这个物种。她派她的追随者去寻找它们，并用一种仪式来 \"改善 \"它们孵化出来的蛋，使它们变成后来被称为灰龙的东西，这些灰龙负责净化剩余的獠牙龙。随着数量的减少，獠牙龙憎恨提亚马特和她所有的追随者，一见到他们就会攻击。獠牙龙会说很多语言的片段，并会通过讨价还价来避免困难或致命的战斗。"
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"方龙最初出现在王国的神话德兰诺的废墟中，导致一些贤者猜测它们与自古精灵之城陷落后出没的恶魔有某种联系。它们通常出现在科曼托的星辰森林地区，偶尔也会出现在边境森林、蜘蛛猎手森林，以及达利兰、森比亚和月海地区的其他森林。"
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"獠牙龙的囤积物与其他龙的囤积物相似，由于其固有的贪婪本性，它将包含各种财富。然而，与其他龙不同的是，獠牙龙的囤积物也会包含它以前狩猎的各种战利品。从杀戮的头骨，到角、牙齿、骨头、鳞片、皮和其他它用魔法保存的碎片，它的囤积物中会散落着这些战利品。对于合适的买家来说，其中一些可能非常有价值......"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"最强壮的獠牙龙曾猎杀和吞噬过许多其他的传奇生物，他们可以经历一次转变，使他们成为有史以来最强大的猎手之一。提亚马特的代理人使獠牙龙达到这种力量水平的可能性极为罕见，因为任何试图进行大狩猎的人都会得到提亚马特最信任的副手的全力关注。",
+							"为了实现这一目标，龙必须了解自己的回声，并让大狩猎开始。为了在大狩猎中取得成功，古龙必须猎杀并吞食其回音的肉体。龙必须独自完成这个任务，因为没有什么比猎杀自己更重要的了。通过狡猾和技巧，大狩猎提供了力量和一些最伟大的战利品，而这些战利品将被添加到方龙的储备中。",
+							"Fang greatwyrms是一种真正的恐怖，可以看到。他们是原始力量的巨大存在，浑身长满了剃刀的边缘，他们可以投掷几乎瞬间再生的尖刺，以及像钢铁一样坚硬的骨刃。一旦达到了大巫师的地位，獠牙龙就会积极地追捕提亚马特的代理人。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+							"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。",
+							"诸如{@spell blindness/deafness}、{@spell counterspell}、{@spell dispel magic}、{@spell globe of invulnerability}、{@spell hold person}、{@spell protection from evil and good}、{@spell silence}这样的法术比较常见；然而也有一些法术被称为帮助他们更有效地狩猎，或者更少地造成原始破坏。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"獠牙龙居住在森林茂密的山区。方龙的巢穴是一个崎岖不平的洞穴，里面布满了锯齿状的岩石和布满荆棘的植被。方龙的狩猎战利品混杂在它的囤积物中。獠牙龙倾向于选择那些有特色的洞穴，它可以躲在后面，或从那里得到毫无戒心的入侵者。",
+									"在传说中的獠牙龙的巢穴中遇到它时，其挑战等级增加1。"
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/2nQ2wv6.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Ancient (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient (Variant Caster)",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"damageTagsLegendary": [
+				"P"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+						"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。"
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"如果龙的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"龙可以模仿它所听到的任何声音，包括声音。听到这些声音的生物可以通过成功的智慧（洞察力）检查来判断它们是模仿的。"
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"作为一个额外的动作，龙可以进入 ar age。在暴怒时，它可以获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+4的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）或它选择在其回合中作为额外行动结束其愤怒时，它才会提前结束。"
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"当龙在它的回合中把一个生物减少到0命中率或用近战攻击取得关键命中时，它可以采取一个额外的行动，飞到其飞行速度的一半，并进行咬人攻击（它必须在地面上开始和结束这个动作）。"
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"龙的近战武器攻击在掷出19或20的时候可以获得关键命中。此外，在确定近战武器攻击的关键命中的额外伤害时，它还会滚动一些额外的武器伤害模子。"
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"龙可以使用它的 \"恐怖的存在\"。然后它进行三次攻击：一次是咬，两次是爪子。"
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达15英尺，一个目标。{@h}22 ({@damage 2d12 + 9})的穿刺伤害，目标必须成功进行{@dc 24}体质救赎，否则其体质分数会降低{@dice 1d4}。如果这使其体质降低到0，目标就会死亡。否则，这种降低会持续到目标完成短期或长期休息。"
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达10英尺，一个目标。{@h}18 ({@damage 2d8 + 9})砍击伤害。"
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达20英尺，一个目标。{@h}20 ({@damage 2d10 + 9})重击伤害。如果目标是一个生物，它必须在一个{@dc 24}力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达20英尺，一个目标。{@h}20 ({@damage 2d10 + 9})砍击伤害。如果目标是一个生物，它必须在一个{@dc 24}力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16}击中，到达20英尺，一个目标。{@h}20 ({@damage 2d10 + 9})穿刺伤害。如果目标是一个生物，它必须在一个{@dc 24}的力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"每一个在龙的120英尺范围内并知道它的生物，必须在一个{@dc 19}的智慧救赎上成功，否则会变成{@condition frightened}，持续1分钟。生物可以在它的每个回合结束时重复蓄力，如果成功则结束对它的影响。如果一个生物的蓄力动作成功或效果结束，该生物在接下来的24小时内对龙的恐怖存在免疫。"
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"作为一个额外的动作，龙可以进入 ar age。在暴怒时，它可以获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+4的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）或它选择在其回合中作为额外行动结束其愤怒时，它才会提前结束。"
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"龙做一个智慧（感知）检查。"
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"龙做了一个尾巴攻击。"
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"巨龙旋转，用它的尾巴甩出去。在龙的20英尺范围内的每个生物都必须在一个{@dc 24}灵巧的投掷中成功，或者受到20({@dice 2d10 + 9})重击或砍击伤害并被击倒{@condition prone}。"
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/sRNzRbd.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"獠牙龙是一种贪婪、贪婪和狡猾的生物。它们以狩猎为生，而且特别适合狩猎。即使以龙族的标准来看，獠牙龙也是野蛮的战斗者，它们喜欢吃其他生物的肉，为了有机会享受它们最喜欢的食物，它们很乐意涉入战场。",
+									"獠牙龙是龙类中身体最可怕的一种，它身披骨板，在四肢关节处隆起成突出的骨刺，尾部长而分叉，顶端有一对镰刀状的骨刃。它们的身体板块是斑驳的灰色和棕色，淡淡的血腥味环绕着獠牙龙。它们的翅膀很小，但肌肉发达，虽然飞行能力很差，但只要拍打一下翅膀，就能站起来向前扑去。獠牙龙的头上有许多小角或尖刺，它们的眼睛往往是闪亮的红色或橙色。",
+									"{@b Angry and Twisted.}被创造它们的魔法能量所扭曲，獠牙龙很容易发生随机暴力和愤怒的爆发。他们陶醉于暴力，当他们觉得自己有优势的时候，就会狂热地投入战斗。随着时间的推移，他们学会了驾驭愤怒，并将其用于自己的优势。残忍而恶毒，寻找獠牙龙的生物应该非常谨慎，因为它们会毫不犹豫地对任何它们认为自己较弱、被视为威胁或讨厌的生物造成破坏。",
+									"{@b Consummate Hunters.} 方龙吃各种新鲜的肉，尤其喜欢吃智慧生物的肉。它们喜欢在远离巢穴的地方寻找食物，并会利用它们模仿听到的声音的能力来引诱猎物。方龙有一个令人不安的倾向，就是以极其残忍的方式玩弄它们的食物。方龙是肉搏战的高手，它们身体的每一个部分都是致命的。它们没有呼吸武器，但它们的咬伤是如此具有破坏性，由于深层裂缝的失血，可以造成宪法的损害。",
+									"{@b Hunted and Dwindling.}一旦提亚马特得知这些龙在她控制之外的存在，她就试图征服这个物种。她派她的追随者去寻找它们，并用一种仪式来 \"改善 \"它们孵化出来的蛋，使它们变成后来被称为灰龙的东西，这些灰龙负责净化剩余的獠牙龙。随着数量的减少，獠牙龙憎恨提亚马特和她所有的追随者，一见到他们就会攻击。獠牙龙会说很多语言的片段，并会通过讨价还价来避免困难或致命的战斗。"
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"方龙最初出现在王国的神话德兰诺的废墟中，导致一些贤者猜测它们与自古精灵之城陷落后出没的恶魔有某种联系。它们通常出现在科曼托的星辰森林地区，偶尔也会出现在边境森林、蜘蛛猎手森林，以及达利兰、森比亚和月海地区的其他森林。"
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"獠牙龙的囤积物与其他龙的囤积物相似，由于其固有的贪婪本性，它将包含各种财富。然而，与其他龙不同的是，獠牙龙的囤积物也会包含它以前狩猎的各种战利品。从杀戮的头骨，到角、牙齿、骨头、鳞片、皮和其他它用魔法保存的碎片，它的囤积物中会散落着这些战利品。对于合适的买家来说，其中一些可能非常有价值......"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"最强壮的獠牙龙曾猎杀和吞噬过许多其他的传奇生物，他们可以经历一次转变，使他们成为有史以来最强大的猎手之一。提亚马特的代理人使獠牙龙达到这种力量水平的可能性极为罕见，因为任何试图进行大狩猎的人都会得到提亚马特最信任的副手的全力关注。",
+							"为了实现这一目标，龙必须了解自己的回声，并让大狩猎开始。为了在大狩猎中取得成功，古龙必须猎杀并吞食其回音的肉体。龙必须独自完成这个任务，因为没有什么比猎杀自己更重要的了。通过狡猾和技巧，大狩猎提供了力量和一些最伟大的战利品，而这些战利品将被添加到方龙的储备中。",
+							"Fang greatwyrms是一种真正的恐怖，可以看到。他们是原始力量的巨大存在，浑身长满了剃刀的边缘，他们可以投掷几乎瞬间再生的尖刺，以及像钢铁一样坚硬的骨刃。一旦达到了大巫师的地位，獠牙龙就会积极地追捕提亚马特的代理人。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+							"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。",
+							"诸如{@spell blindness/deafness}、{@spell counterspell}、{@spell dispel magic}、{@spell globe of invulnerability}、{@spell hold person}、{@spell protection from evil and good}、{@spell silence}这样的法术比较常见；然而也有一些法术被称为帮助他们更有效地狩猎，或者更少地造成原始破坏。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"獠牙龙居住在森林茂密的山区。方龙的巢穴是一个崎岖不平的洞穴，里面布满了锯齿状的岩石和布满荆棘的植被。方龙的狩猎战利品混杂在它的囤积物中。獠牙龙倾向于选择那些有特色的洞穴，它可以躲在后面，或从那里得到毫无戒心的入侵者。",
+									"在传说中的獠牙龙的巢穴中遇到它时，其挑战等级增加1。"
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/KendR57.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Adult",
+			"size": [
+				"H"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "16d12 + 96",
+				"average": 200
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 24,
+			"dex": 10,
+			"con": 23,
+			"int": 14,
+			"wis": 15,
+			"cha": 17,
+			"passive": 24,
+			"cr": "19",
+			"shortName": "Dragon Fang Adult",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"skill": {
+				"perception": "+14",
+				"stealth": "+6",
+				"survival": "+8"
+			},
+			"save": {
+				"dex": "+6",
+				"con": "+12",
+				"wis": "+8",
+				"cha": "+9"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"如果龙的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"龙可以模仿它所听到的任何声音，包括声音。听到这些声音的生物可以通过成功的智慧（洞察力）检查来判断它们是模仿的。"
+					]
+				},
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"作为一个额外的动作，龙可以进入 ar age。在暴怒时，它可以获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+3的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）或它选择在其回合中作为额外行动结束其愤怒时，它才会提前结束。"
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"当龙在它的回合中把一个生物减少到0命中率或用近战攻击取得关键命中时，它可以采取一个额外的行动，飞到其飞行速度的一半，并进行咬人攻击（它必须在地面上开始和结束这个动作）。"
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"龙可以使用它的 \"恐怖的存在\"。然后它进行三次攻击：一次是咬，两次是爪子。"
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13}击中，到达10英尺，一个目标。{@h}20 ({@damage 2d12 + 7})的穿刺伤害，目标必须成功进行{@dc 21}体质救赎，否则其体质分数会降低{@dice 1d3}。如果这使其体质降低到0，目标就会死亡。否则，这种降低会持续到目标完成短期或长期休息。"
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 13}击中，到达5英尺，一个目标。{@h}16 ({@damage 2d8 + 7})砍击伤害。"
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 13}击中，到达15英尺，一个目标。{@h}18 ({@damage 2d10 + 7})重击伤害。如果目标是一个生物，它必须在一个{@dc 21}的力量反射中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 13}击中，到达15英尺，一个目标。{@h}18 ({@damage 2d10 + 7})砍击伤害。如果目标是一个生物，它必须在一个{@dc 21}的力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 13}击中，到达15英尺，一个目标。{@h}18 ({@damage 2d10 + 7})穿刺伤害。如果目标是一个生物，它必须在一个{@dc 21}的力量反射中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"每一个在龙的120英尺范围内的龙所选择的生物，如果意识到了它，就必须在一个{@dc 17}智慧救赎上成功，否则就会被吓倒，持续1分钟。生物可以在它的每个回合结束时重复蓄力，如果成功则结束对它的影响。如果一个生物的自救成功或效果结束，该生物在接下来的24小时内对龙的惊恐存在免疫。"
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"bonus": [
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"作为一个额外的动作，龙可以进入 ar age。在暴怒时，它可以获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+3的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）或它选择在其回合中作为额外行动结束其愤怒时，它才会提前结束。"
+					]
+				}
+			],
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"龙做一个智慧（感知）检查。"
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"龙做了一个尾巴攻击。"
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"巨龙旋转，用它的尾巴甩出去。在龙的15英尺范围内的每个生物都必须在一个{@dc 21}灵巧的蓄力动作上成功，或者受到18({@damage 2d10 + 7})的打击或砍击伤害并被击倒{@condition prone}。"
+					]
+				}
+			],
+			"dragonAge": "adult",
+			"tokenUrl": "https://i.imgur.com/scZ0qHF.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Adult|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"獠牙龙是一种贪婪、贪婪和狡猾的生物。它们以狩猎为生，而且特别适合狩猎。即使以龙族的标准来看，獠牙龙也是野蛮的战斗者，它们喜欢吃其他生物的肉，为了有机会享受它们最喜欢的食物，它们很乐意涉入战场。",
+									"獠牙龙是龙类中身体最可怕的一种，它身披骨板，在四肢关节处隆起成突出的骨刺，尾部长而分叉，顶端有一对镰刀状的骨刃。它们的身体板块是斑驳的灰色和棕色，淡淡的血腥味环绕着獠牙龙。它们的翅膀很小，但肌肉发达，虽然飞行能力很差，但只要拍打一下翅膀，就能站起来向前扑去。獠牙龙的头上有许多小角或尖刺，它们的眼睛往往是闪亮的红色或橙色。",
+									"{@b Angry and Twisted.}被创造它们的魔法能量所扭曲，獠牙龙很容易发生随机暴力和愤怒的爆发。他们陶醉于暴力，当他们觉得自己有优势的时候，就会狂热地投入战斗。随着时间的推移，他们学会了驾驭愤怒，并将其用于自己的优势。残忍而恶毒，寻找獠牙龙的生物应该非常谨慎，因为它们会毫不犹豫地对任何它们认为自己较弱、被视为威胁或讨厌的生物造成破坏。",
+									"{@b Consummate Hunters.} 方龙吃各种新鲜的肉，尤其喜欢吃智慧生物的肉。它们喜欢在远离巢穴的地方寻找食物，并会利用它们模仿听到的声音的能力来引诱猎物。方龙有一个令人不安的倾向，就是以极其残忍的方式玩弄它们的食物。方龙是肉搏战的高手，它们身体的每一个部分都是致命的。它们没有呼吸武器，但它们的咬伤是如此具有破坏性，由于深层裂缝的失血，可以造成宪法的损害。",
+									"{@b Hunted and Dwindling.}一旦提亚马特得知这些龙在她控制之外的存在，她就试图征服这个物种。她派她的追随者去寻找它们，并用一种仪式来 \"改善 \"它们孵化出来的蛋，使它们变成后来被称为灰龙的东西，这些灰龙负责净化剩余的獠牙龙。随着数量的减少，獠牙龙憎恨提亚马特和她所有的追随者，一见到他们就会攻击。獠牙龙会说很多语言的片段，并会通过讨价还价来避免困难或致命的战斗。"
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"方龙最初出现在王国的神话德兰诺的废墟中，导致一些贤者猜测它们与自古精灵之城陷落后出没的恶魔有某种联系。它们通常出现在科曼托的星辰森林地区，偶尔也会出现在边境森林、蜘蛛猎手森林，以及达利兰、森比亚和月海地区的其他森林。"
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"獠牙龙的囤积物与其他龙的囤积物相似，由于其固有的贪婪本性，它将包含各种财富。然而，与其他龙不同的是，獠牙龙的囤积物也会包含它以前狩猎的各种战利品。从杀戮的头骨，到角、牙齿、骨头、鳞片、皮和其他它用魔法保存的碎片，它的囤积物中会散落着这些战利品。对于合适的买家来说，其中一些可能非常有价值......"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"最强壮的獠牙龙曾猎杀和吞噬过许多其他的传奇生物，他们可以经历一次转变，使他们成为有史以来最强大的猎手之一。提亚马特的代理人使獠牙龙达到这种力量水平的可能性极为罕见，因为任何试图进行大狩猎的人都会得到提亚马特最信任的副手的全力关注。",
+							"为了实现这一目标，龙必须了解自己的回声，并让大狩猎开始。为了在大狩猎中取得成功，古龙必须猎杀并吞食其回音的肉体。龙必须独自完成这个任务，因为没有什么比猎杀自己更重要的了。通过狡猾和技巧，大狩猎提供了力量和一些最伟大的战利品，而这些战利品将被添加到方龙的储备中。",
+							"Fang greatwyrms是一种真正的恐怖，可以看到。他们是原始力量的巨大存在，浑身长满了剃刀的边缘，他们可以投掷几乎瞬间再生的尖刺，以及像钢铁一样坚硬的骨刃。一旦达到了大巫师的地位，獠牙龙就会积极地追捕提亚马特的代理人。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+							"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。",
+							"诸如{@spell blindness/deafness}、{@spell counterspell}、{@spell dispel magic}、{@spell globe of invulnerability}、{@spell hold person}、{@spell protection from evil and good}、{@spell silence}这样的法术比较常见；然而也有一些法术被称为帮助他们更有效地狩猎，或者更少地造成原始破坏。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"獠牙龙居住在森林茂密的山区。方龙的巢穴是一个崎岖不平的洞穴，里面布满了锯齿状的岩石和布满荆棘的植被。方龙的狩猎战利品混杂在它的囤积物中。獠牙龙倾向于选择那些有特色的洞穴，它可以躲在后面，或从那里得到毫无戒心的入侵者。",
+									"在传说中的獠牙龙的巢穴中遇到它时，其挑战等级增加1。"
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/tfxZZuV.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Young",
+			"size": [
+				"L"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "14d10 + 56",
+				"average": 133
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 20,
+			"dex": 10,
+			"con": 19,
+			"int": 12,
+			"wis": 13,
+			"cha": 15,
+			"passive": 17,
+			"cr": "8",
+			"shortName": "Dragon Fang Young",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+3",
+				"con": "+7",
+				"wis": "+4",
+				"cha": "+5"
+			},
+			"skill": {
+				"perception": "+7",
+				"stealth": "+3",
+				"survival": "+4"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"龙可以模仿它所听到的任何声音，包括声音。听到这些声音的生物可以通过成功的智慧（洞察力）检查来判断它们是模仿的。"
+					]
+				},
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"作为一个额外动作，龙可以进入愤怒状态。愤怒时，它获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+2的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。如果龙被击倒（%0%），或者它的回合结束后没有攻击敌方生物或受到伤害，它就会提前结束。它也可以在自己的回合中作为一个额外动作结束其愤怒。"
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"当龙在它的回合中把一个生物减少到0命中率或用近战攻击取得关键命中时，它可以采取一个额外的行动，飞到其飞行速度的一半，并进行咬人攻击（它必须在地面上开始和结束这个动作）。"
+					]
+				}
+			],
+			"conditionInflict": [
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"龙会进行三次攻击：一次是咬人，两次是用爪子。"
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 8}击中，到达10英尺，一个目标。{@h}18 ({@damage 2d12 + 5})的穿刺伤害，并且必须在{@dc 18}体质测试中成功，否则目标的体质得分将减少{@dice 1d2}.如果这将其体质减少到0，则目标死亡。"
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 8}击中，到达5英尺，一个目标。{@h}14 ({@damage 2d8 + 5})砍击伤害。"
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"bonus": [
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"作为一个额外动作，龙可以进入愤怒状态。愤怒时，它获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+2的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。如果龙被击倒（%0%），或者它的回合结束后没有攻击敌方生物或受到伤害，它就会提前结束。它也可以在自己的回合中作为一个额外动作结束其愤怒。"
+					]
+				}
+			],
+			"dragonAge": "young",
+			"tokenUrl": "https://i.imgur.com/l7IgyLP.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Young|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"獠牙龙是一种贪婪、贪婪和狡猾的生物。它们以狩猎为生，而且特别适合狩猎。即使以龙族的标准来看，獠牙龙也是野蛮的战斗者，它们喜欢吃其他生物的肉，为了有机会享受它们最喜欢的食物，它们很乐意涉入战场。",
+									"獠牙龙是龙类中身体最可怕的一种，它身披骨板，在四肢关节处隆起成突出的骨刺，尾部长而分叉，顶端有一对镰刀状的骨刃。它们的身体板块是斑驳的灰色和棕色，淡淡的血腥味环绕着獠牙龙。它们的翅膀很小，但肌肉发达，虽然飞行能力很差，但只要拍打一下翅膀，就能站起来向前扑去。獠牙龙的头上有许多小角或尖刺，它们的眼睛往往是闪亮的红色或橙色。",
+									"{@b Angry and Twisted.}被创造它们的魔法能量所扭曲，獠牙龙很容易发生随机暴力和愤怒的爆发。他们陶醉于暴力，当他们觉得自己有优势的时候，就会狂热地投入战斗。随着时间的推移，他们学会了驾驭愤怒，并将其用于自己的优势。残忍而恶毒，寻找獠牙龙的生物应该非常谨慎，因为它们会毫不犹豫地对任何它们认为自己较弱、被视为威胁或讨厌的生物造成破坏。",
+									"{@b Consummate Hunters.} 方龙吃各种新鲜的肉，尤其喜欢吃智慧生物的肉。它们喜欢在远离巢穴的地方寻找食物，并会利用它们模仿听到的声音的能力来引诱猎物。方龙有一个令人不安的倾向，就是以极其残忍的方式玩弄它们的食物。方龙是肉搏战的高手，它们身体的每一个部分都是致命的。它们没有呼吸武器，但它们的咬伤是如此具有破坏性，由于深层裂缝的失血，可以造成宪法的损害。",
+									"{@b Hunted and Dwindling.}一旦提亚马特得知这些龙在她控制之外的存在，她就试图征服这个物种。她派她的追随者去寻找它们，并用一种仪式来 \"改善 \"它们孵化出来的蛋，使它们变成后来被称为灰龙的东西，这些灰龙负责净化剩余的獠牙龙。随着数量的减少，獠牙龙憎恨提亚马特和她所有的追随者，一见到他们就会攻击。獠牙龙会说很多语言的片段，并会通过讨价还价来避免困难或致命的战斗。"
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"方龙最初出现在王国的神话德兰诺的废墟中，导致一些贤者猜测它们与自古精灵之城陷落后出没的恶魔有某种联系。它们通常出现在科曼托的星辰森林地区，偶尔也会出现在边境森林、蜘蛛猎手森林，以及达利兰、森比亚和月海地区的其他森林。"
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"獠牙龙的囤积物与其他龙的囤积物相似，由于其固有的贪婪本性，它将包含各种财富。然而，与其他龙不同的是，獠牙龙的囤积物也会包含它以前狩猎的各种战利品。从杀戮的头骨，到角、牙齿、骨头、鳞片、皮和其他它用魔法保存的碎片，它的囤积物中会散落着这些战利品。对于合适的买家来说，其中一些可能非常有价值......"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"最强壮的獠牙龙曾猎杀和吞噬过许多其他的传奇生物，他们可以经历一次转变，使他们成为有史以来最强大的猎手之一。提亚马特的代理人使獠牙龙达到这种力量水平的可能性极为罕见，因为任何试图进行大狩猎的人都会得到提亚马特最信任的副手的全力关注。",
+							"为了实现这一目标，龙必须了解自己的回声，并让大狩猎开始。为了在大狩猎中取得成功，古龙必须猎杀并吞食其回音的肉体。龙必须独自完成这个任务，因为没有什么比猎杀自己更重要的了。通过狡猾和技巧，大狩猎提供了力量和一些最伟大的战利品，而这些战利品将被添加到方龙的储备中。",
+							"Fang greatwyrms是一种真正的恐怖，可以看到。他们是原始力量的巨大存在，浑身长满了剃刀的边缘，他们可以投掷几乎瞬间再生的尖刺，以及像钢铁一样坚硬的骨刃。一旦达到了大巫师的地位，獠牙龙就会积极地追捕提亚马特的代理人。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+							"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。",
+							"诸如{@spell blindness/deafness}、{@spell counterspell}、{@spell dispel magic}、{@spell globe of invulnerability}、{@spell hold person}、{@spell protection from evil and good}、{@spell silence}这样的法术比较常见；然而也有一些法术被称为帮助他们更有效地狩猎，或者更少地造成原始破坏。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"獠牙龙居住在森林茂密的山区。方龙的巢穴是一个崎岖不平的洞穴，里面布满了锯齿状的岩石和布满荆棘的植被。方龙的狩猎战利品混杂在它的囤积物中。獠牙龙倾向于选择那些有特色的洞穴，它可以躲在后面，或从那里得到毫无戒心的入侵者。",
+									"在传说中的獠牙龙的巢穴中遇到它时，其挑战等级增加1。"
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/gciGzdi.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Wyrmling",
+			"size": [
+				"M"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 17,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "5d8 + 10",
+				"average": 32
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30,
+				"fly": 40,
+				"canHover": false
+			},
+			"str": 16,
+			"dex": 10,
+			"con": 15,
+			"int": 10,
+			"wis": 11,
+			"cha": 13,
+			"passive": 14,
+			"cr": "2",
+			"shortName": "Dragon Fang Wyrmling",
+			"senses": [
+				"blindsight 10 ft.",
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"B",
+				"D"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+2",
+				"con": "+4",
+				"wis": "+2",
+				"cha": "+3"
+			},
+			"skill": {
+				"perception": "+4",
+				"stealth": "+2",
+				"survival": "+2"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"龙可以模仿它所听到的任何声音，包括声音。听到这些声音的生物，只要成功地进行智慧（洞察力）检查，就能知道它们是模仿的。"
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"当龙在它的回合中把一个生物减少到0命中率或用近战攻击取得关键命中时，它可以采取一个额外的行动，飞到其飞行速度的一半，并进行咬人攻击（它必须在地面上开始和结束这个动作）。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 5}击中，到达5英尺，一个目标。{@h}9 ({@damage 1d12 + 3})穿刺伤害，并且必须成功进行{@dc 13}体质测试，否则目标的体质得分会降低1。如果这将其体质降低到0，则目标会死亡。"
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"dragonAge": "wyrmling",
+			"tokenUrl": "https://i.imgur.com/aAjrZ68.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Wyrmling|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"獠牙龙是一种贪婪、贪婪和狡猾的生物。它们以狩猎为生，而且特别适合狩猎。即使以龙族的标准来看，獠牙龙也是野蛮的战斗者，它们喜欢吃其他生物的肉，为了有机会享受它们最喜欢的食物，它们很乐意涉入战场。",
+									"獠牙龙是龙类中身体最可怕的一种，它身披骨板，在四肢关节处隆起成突出的骨刺，尾部长而分叉，顶端有一对镰刀状的骨刃。它们的身体板块是斑驳的灰色和棕色，淡淡的血腥味环绕着獠牙龙。它们的翅膀很小，但肌肉发达，虽然飞行能力很差，但只要拍打一下翅膀，就能站起来向前扑去。獠牙龙的头上有许多小角或尖刺，它们的眼睛往往是闪亮的红色或橙色。",
+									"{@b Angry and Twisted.}被创造它们的魔法能量所扭曲，獠牙龙很容易发生随机暴力和愤怒的爆发。他们陶醉于暴力，当他们觉得自己有优势的时候，就会狂热地投入战斗。随着时间的推移，他们学会了驾驭愤怒，并将其用于自己的优势。残忍而恶毒，寻找獠牙龙的生物应该非常谨慎，因为它们会毫不犹豫地对任何它们认为自己较弱、被视为威胁或讨厌的生物造成破坏。",
+									"{@b Consummate Hunters.} 方龙吃各种新鲜的肉，尤其喜欢吃智慧生物的肉。它们喜欢在远离巢穴的地方寻找食物，并会利用它们模仿听到的声音的能力来引诱猎物。方龙有一个令人不安的倾向，就是以极其残忍的方式玩弄它们的食物。方龙是肉搏战的高手，它们身体的每一个部分都是致命的。它们没有呼吸武器，但它们的咬伤是如此具有破坏性，由于深层裂缝的失血，可以造成宪法的损害。",
+									"{@b Hunted and Dwindling.}一旦提亚马特得知这些龙在她控制之外的存在，她就试图征服这个物种。她派她的追随者去寻找它们，并用一种仪式来 \"改善 \"它们孵化出来的蛋，使它们变成后来被称为灰龙的东西，这些灰龙负责净化剩余的獠牙龙。随着数量的减少，獠牙龙憎恨提亚马特和她所有的追随者，一见到他们就会攻击。獠牙龙会说很多语言的片段，并会通过讨价还价来避免困难或致命的战斗。"
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"方龙最初出现在王国的神话德兰诺的废墟中，导致一些贤者猜测它们与自古精灵之城陷落后出没的恶魔有某种联系。它们通常出现在科曼托的星辰森林地区，偶尔也会出现在边境森林、蜘蛛猎手森林，以及达利兰、森比亚和月海地区的其他森林。"
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"獠牙龙的囤积物与其他龙的囤积物相似，由于其固有的贪婪本性，它将包含各种财富。然而，与其他龙不同的是，獠牙龙的囤积物也会包含它以前狩猎的各种战利品。从杀戮的头骨，到角、牙齿、骨头、鳞片、皮和其他它用魔法保存的碎片，它的囤积物中会散落着这些战利品。对于合适的买家来说，其中一些可能非常有价值......"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"最强壮的獠牙龙曾猎杀和吞噬过许多其他的传奇生物，他们可以经历一次转变，使他们成为有史以来最强大的猎手之一。提亚马特的代理人使獠牙龙达到这种力量水平的可能性极为罕见，因为任何试图进行大狩猎的人都会得到提亚马特最信任的副手的全力关注。",
+							"为了实现这一目标，龙必须了解自己的回声，并让大狩猎开始。为了在大狩猎中取得成功，古龙必须猎杀并吞食其回音的肉体。龙必须独自完成这个任务，因为没有什么比猎杀自己更重要的了。通过狡猾和技巧，大狩猎提供了力量和一些最伟大的战利品，而这些战利品将被添加到方龙的储备中。",
+							"Fang greatwyrms是一种真正的恐怖，可以看到。他们是原始力量的巨大存在，浑身长满了剃刀的边缘，他们可以投掷几乎瞬间再生的尖刺，以及像钢铁一样坚硬的骨刃。一旦达到了大巫师的地位，獠牙龙就会积极地追捕提亚马特的代理人。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+							"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。",
+							"诸如{@spell blindness/deafness}、{@spell counterspell}、{@spell dispel magic}、{@spell globe of invulnerability}、{@spell hold person}、{@spell protection from evil and good}、{@spell silence}这样的法术比较常见；然而也有一些法术被称为帮助他们更有效地狩猎，或者更少地造成原始破坏。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"獠牙龙居住在森林茂密的山区。方龙的巢穴是一个崎岖不平的洞穴，里面布满了锯齿状的岩石和布满荆棘的植被。方龙的狩猎战利品混杂在它的囤积物中。獠牙龙倾向于选择那些有特色的洞穴，它可以躲在后面，或从那里得到毫无戒心的入侵者。",
+									"在传说中的獠牙龙的巢穴中遇到它时，其挑战等级增加1。"
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/JW62gx5.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"如果龙的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"如果大食人魔的命中率会降至0，它目前的命中率总数会重置为375命中率，并且它可以重新获得任何已消耗的传奇抵抗力。此外，大巫师现在可以在1小时内使用 \"神话行动 \"部分的选项。在大巫师的 \"愤怒 \"激活后，击败大巫师的一方将获得额外的105,000XP（总计210,000XP）。"
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"龙可以模仿它所听到的任何声音，包括声音。听到这些声音的生物可以通过成功的智慧（洞察力）检查来判断它们是模仿的。"
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"作为一个额外动作，龙可以进入愤怒状态。愤怒时，它获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+5的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）时，它才会提前结束，或者它在自己的回合中作为一个额外的动作结束其愤怒。"
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"当龙在它的回合中把一个生物减少到0命中率或用近战攻击取得关键命中时，它可以采取一个额外的行动，飞到其飞行速度的一半，并进行咬人攻击（它必须在地面上开始和结束这个动作）。"
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"龙的近战武器攻击在掷出18、19或20的情况下可以获得关键打击。此外，在确定近战武器攻击的关键命中的额外伤害时，它将滚动一个额外的武器伤害模子。"
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"龙可以使用它的 \"恐怖的存在\"。然后它进行三次攻击：一次是咬，两次是爪子。"
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达15英尺，一个目标。{@h}23 ({@damage 2d12 + 10})穿刺伤害，目标必须成功进行{@dc 26}体质测试，否则其体质得分会降低{@dice 1d6}。如果这使其体质降低到0，目标就会死亡。否则，这种降低会持续到目标完成短期或长期休息。"
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达10英尺，一个目标。{@h}21 ({@damage 2d10 + 10})砍击伤害。"
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达20英尺，一个目标。{@h}23 ({@damage 2d12 + 10})重击伤害。如果目标是一个生物，它必须在一个{@dc 26}的力量反射中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达20英尺，一个目标。{@h}23 ({@damage 2d12 + 10})穿刺伤害。如果目标是一个生物，它必须在一个{@dc 26}的力量反射中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达20英尺，一个目标。{@h}23 ({@damage 2d12 + 10})砍击伤害。如果目标是一个生物，它必须在一个{@dc 26}的力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"每一个在龙的120英尺范围内的龙所选择的生物，如果意识到了它，就必须在一个{@dc 22}智慧救赎上成功，否则就会被吓倒，持续1分钟。生物可以在它的每个回合结束时重复蓄力，如果成功则结束对它的影响。如果一个生物的自救成功或效果结束，该生物在接下来的24小时内对龙的惊恐存在免疫。"
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"作为一个额外动作，龙可以进入愤怒状态。愤怒时，它获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+5的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）时，它才会提前结束，或者它在自己的回合中作为一个额外的动作结束其愤怒。"
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"龙进行一次尾部攻击。"
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"巨龙旋转，用它的尾巴甩出去。在龙的20英尺范围内的每个生物都必须在一个{@dc 26}灵巧的蓄力动作上成功，或者受到21({@dice 2d10 + 10})的打击或砍击伤害并被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18}击中，范围200/400英尺，一个目标。{@h}16 ({@damage 1d12 + 10})穿刺伤害。大魔王向范围内的一个目标发射2个尖刺。"
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"大巫师进行一次咬人攻击。"
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"大巫师身上长满了尖刺，并向四面八方发射。以大巫师为中心的60英尺半径范围内的每个生物都必须在一个{@dc 26}的灵巧救赎中成功，救赎失败时受到42({@damage 5d12 + 10})的穿刺伤害，成功时受到一半的伤害。"
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/2NoEwjM.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"獠牙龙是一种贪婪、贪婪和狡猾的生物。它们以狩猎为生，而且特别适合狩猎。即使以龙族的标准来看，獠牙龙也是野蛮的战斗者，它们喜欢吃其他生物的肉，为了有机会享受它们最喜欢的食物，它们很乐意涉入战场。",
+									"獠牙龙是龙类中身体最可怕的一种，它身披骨板，在四肢关节处隆起成突出的骨刺，尾部长而分叉，顶端有一对镰刀状的骨刃。它们的身体板块是斑驳的灰色和棕色，淡淡的血腥味环绕着獠牙龙。它们的翅膀很小，但肌肉发达，虽然飞行能力很差，但只要拍打一下翅膀，就能站起来向前扑去。獠牙龙的头上有许多小角或尖刺，它们的眼睛往往是闪亮的红色或橙色。",
+									"{@b Angry and Twisted.}被创造它们的魔法能量所扭曲，獠牙龙很容易发生随机暴力和愤怒的爆发。他们陶醉于暴力，当他们觉得自己有优势的时候，就会狂热地投入战斗。随着时间的推移，他们学会了驾驭愤怒，并将其用于自己的优势。残忍而恶毒，寻找獠牙龙的生物应该非常谨慎，因为它们会毫不犹豫地对任何它们认为自己较弱、被视为威胁或讨厌的生物造成破坏。",
+									"{@b Consummate Hunters.} 方龙吃各种新鲜的肉，尤其喜欢吃智慧生物的肉。它们喜欢在远离巢穴的地方寻找食物，并会利用它们模仿听到的声音的能力来引诱猎物。方龙有一个令人不安的倾向，就是以极其残忍的方式玩弄它们的食物。方龙是肉搏战的高手，它们身体的每一个部分都是致命的。它们没有呼吸武器，但它们的咬伤是如此具有破坏性，由于深层裂缝的失血，可以造成宪法的损害。",
+									"{@b Hunted and Dwindling.}一旦提亚马特得知这些龙在她控制之外的存在，她就试图征服这个物种。她派她的追随者去寻找它们，并用一种仪式来 \"改善 \"它们孵化出来的蛋，使它们变成后来被称为灰龙的东西，这些灰龙负责净化剩余的獠牙龙。随着数量的减少，獠牙龙憎恨提亚马特和她所有的追随者，一见到他们就会攻击。獠牙龙会说很多语言的片段，并会通过讨价还价来避免困难或致命的战斗。"
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"方龙最初出现在王国的神话德兰诺的废墟中，导致一些贤者猜测它们与自古精灵之城陷落后出没的恶魔有某种联系。它们通常出现在科曼托的星辰森林地区，偶尔也会出现在边境森林、蜘蛛猎手森林，以及达利兰、森比亚和月海地区的其他森林。"
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"獠牙龙的囤积物与其他龙的囤积物相似，由于其固有的贪婪本性，它将包含各种财富。然而，与其他龙不同的是，獠牙龙的囤积物也会包含它以前狩猎的各种战利品。从杀戮的头骨，到角、牙齿、骨头、鳞片、皮和其他它用魔法保存的碎片，它的囤积物中会散落着这些战利品。对于合适的买家来说，其中一些可能非常有价值......"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"最强壮的獠牙龙曾猎杀和吞噬过许多其他的传奇生物，他们可以经历一次转变，使他们成为有史以来最强大的猎手之一。提亚马特的代理人使獠牙龙达到这种力量水平的可能性极为罕见，因为任何试图进行大狩猎的人都会得到提亚马特最信任的副手的全力关注。",
+							"为了实现这一目标，龙必须了解自己的回声，并让大狩猎开始。为了在大狩猎中取得成功，古龙必须猎杀并吞食其回音的肉体。龙必须独自完成这个任务，因为没有什么比猎杀自己更重要的了。通过狡猾和技巧，大狩猎提供了力量和一些最伟大的战利品，而这些战利品将被添加到方龙的储备中。",
+							"Fang greatwyrms是一种真正的恐怖，可以看到。他们是原始力量的巨大存在，浑身长满了剃刀的边缘，他们可以投掷几乎瞬间再生的尖刺，以及像钢铁一样坚硬的骨刃。一旦达到了大巫师的地位，獠牙龙就会积极地追捕提亚马特的代理人。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+							"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。",
+							"诸如{@spell blindness/deafness}、{@spell counterspell}、{@spell dispel magic}、{@spell globe of invulnerability}、{@spell hold person}、{@spell protection from evil and good}、{@spell silence}这样的法术比较常见；然而也有一些法术被称为帮助他们更有效地狩猎，或者更少地造成原始破坏。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"獠牙龙居住在森林茂密的山区。方龙的巢穴是一个崎岖不平的洞穴，里面布满了锯齿状的岩石和布满荆棘的植被。方龙的狩猎战利品混杂在它的囤积物中。獠牙龙倾向于选择那些有特色的洞穴，它可以躲在后面，或从那里得到毫无戒心的入侵者。",
+									"在传说中的獠牙龙的巢穴中遇到它时，其挑战等级增加1。"
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IcVPE1D.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm (Variant Caster)",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+						"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。"
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"如果龙的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"如果大食人魔的命中率会降至0，它目前的命中率总数会重置为375命中率，并且它可以重新获得任何已消耗的传奇抵抗力。此外，大巫师现在可以在1小时内使用 \"神话行动 \"部分的选项。在大巫师的 \"愤怒 \"激活后，击败大巫师的一方将获得额外的105,000XP（总计210,000XP）。"
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"龙可以模仿它所听到的任何声音，包括声音。听到这些声音的生物可以通过成功的智慧（洞察力）检查来判断它们是模仿的。"
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"作为一个额外动作，龙可以进入愤怒状态。愤怒时，它获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+5的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）时，它才会提前结束，或者它在自己的回合中作为一个额外的动作结束其愤怒。"
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"当龙在它的回合中把一个生物减少到0命中率或用近战攻击取得关键命中时，它可以采取一个额外的行动，飞到其飞行速度的一半，并进行咬人攻击（它必须在地面上开始和结束这个动作）。"
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"龙的近战武器攻击在掷出18、19或20的情况下可以获得关键打击。此外，在确定近战武器攻击的关键命中的额外伤害时，它将滚动一个额外的武器伤害模子。"
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"龙可以使用它的 \"恐怖的存在\"。然后它进行三次攻击：一次是咬，两次是爪子。"
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达15英尺，一个目标。{@h}23 ({@damage 2d12 + 10})穿刺伤害，目标必须成功进行{@dc 26}体质测试，否则其体质得分会降低{@dice 1d6}。如果这使其体质降低到0，目标就会死亡。否则，这种降低会持续到目标完成短期或长期休息。"
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达10英尺，一个目标。{@h}21 ({@damage 2d10 + 10})砍击伤害。"
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达20英尺，一个目标。{@h}23 ({@damage 2d12 + 10})重击伤害。如果目标是一个生物，它必须在一个{@dc 26}的力量反射中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达20英尺，一个目标。{@h}23 ({@damage 2d12 + 10})穿刺伤害。如果目标是一个生物，它必须在一个{@dc 26}的力量反射中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达20英尺，一个目标。{@h}23 ({@damage 2d12 + 10})砍击伤害。如果目标是一个生物，它必须在一个{@dc 26}的力量救赎中成功，或者被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"每一个在龙的120英尺范围内的龙所选择的生物，如果意识到了它，就必须在一个{@dc 22}智慧救赎上成功，否则就会被吓倒，持续1分钟。生物可以在它的每个回合结束时重复蓄力，如果成功则结束对它的影响。如果一个生物的自救成功或效果结束，该生物在接下来的24小时内对龙的惊恐存在免疫。"
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"作为一个额外动作，龙可以进入愤怒状态。愤怒时，它获得以下好处。",
+						{
+							"type": "list",
+							"items": [
+								"龙在力量检查和力量投掷方面具有优势。",
+								"当龙进行近战武器攻击时，它的伤害卷获得+5的奖励。",
+								"龙在面对法术和其他魔法效果时，有优势。"
+							]
+						},
+						"它的愤怒会持续1分钟。只有当龙被击倒（%0%）时，它才会提前结束，或者它在自己的回合中作为一个额外的动作结束其愤怒。"
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"龙进行一次尾部攻击。"
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"巨龙旋转，用它的尾巴甩出去。在龙的20英尺范围内的每个生物都必须在一个{@dc 26}灵巧的蓄力动作上成功，或者受到21({@dice 2d10 + 10})的打击或砍击伤害并被击倒{@condition prone}。"
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18}击中，范围200/400英尺，一个目标。{@h}16 ({@damage 1d12 + 10})穿刺伤害。大魔王向范围内的一个目标发射2个尖刺。"
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"大巫师进行一次咬人攻击。"
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"大巫师身上长满了尖刺，并向四面八方发射。以大巫师为中心的60英尺半径范围内的每个生物都必须在一个{@dc 26}的灵巧救赎中成功，救赎失败时受到42({@damage 5d12 + 10})的穿刺伤害，成功时受到一半的伤害。"
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/kMbk4Iw.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"獠牙龙是一种贪婪、贪婪和狡猾的生物。它们以狩猎为生，而且特别适合狩猎。即使以龙族的标准来看，獠牙龙也是野蛮的战斗者，它们喜欢吃其他生物的肉，为了有机会享受它们最喜欢的食物，它们很乐意涉入战场。",
+									"獠牙龙是龙类中身体最可怕的一种，它身披骨板，在四肢关节处隆起成突出的骨刺，尾部长而分叉，顶端有一对镰刀状的骨刃。它们的身体板块是斑驳的灰色和棕色，淡淡的血腥味环绕着獠牙龙。它们的翅膀很小，但肌肉发达，虽然飞行能力很差，但只要拍打一下翅膀，就能站起来向前扑去。獠牙龙的头上有许多小角或尖刺，它们的眼睛往往是闪亮的红色或橙色。",
+									"{@b Angry and Twisted.}被创造它们的魔法能量所扭曲，獠牙龙很容易发生随机暴力和愤怒的爆发。他们陶醉于暴力，当他们觉得自己有优势的时候，就会狂热地投入战斗。随着时间的推移，他们学会了驾驭愤怒，并将其用于自己的优势。残忍而恶毒，寻找獠牙龙的生物应该非常谨慎，因为它们会毫不犹豫地对任何它们认为自己较弱、被视为威胁或讨厌的生物造成破坏。",
+									"{@b Consummate Hunters.} 方龙吃各种新鲜的肉，尤其喜欢吃智慧生物的肉。它们喜欢在远离巢穴的地方寻找食物，并会利用它们模仿听到的声音的能力来引诱猎物。方龙有一个令人不安的倾向，就是以极其残忍的方式玩弄它们的食物。方龙是肉搏战的高手，它们身体的每一个部分都是致命的。它们没有呼吸武器，但它们的咬伤是如此具有破坏性，由于深层裂缝的失血，可以造成宪法的损害。",
+									"{@b Hunted and Dwindling.}一旦提亚马特得知这些龙在她控制之外的存在，她就试图征服这个物种。她派她的追随者去寻找它们，并用一种仪式来 \"改善 \"它们孵化出来的蛋，使它们变成后来被称为灰龙的东西，这些灰龙负责净化剩余的獠牙龙。随着数量的减少，獠牙龙憎恨提亚马特和她所有的追随者，一见到他们就会攻击。獠牙龙会说很多语言的片段，并会通过讨价还价来避免困难或致命的战斗。"
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"方龙最初出现在王国的神话德兰诺的废墟中，导致一些贤者猜测它们与自古精灵之城陷落后出没的恶魔有某种联系。它们通常出现在科曼托的星辰森林地区，偶尔也会出现在边境森林、蜘蛛猎手森林，以及达利兰、森比亚和月海地区的其他森林。"
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"獠牙龙的囤积物与其他龙的囤积物相似，由于其固有的贪婪本性，它将包含各种财富。然而，与其他龙不同的是，獠牙龙的囤积物也会包含它以前狩猎的各种战利品。从杀戮的头骨，到角、牙齿、骨头、鳞片、皮和其他它用魔法保存的碎片，它的囤积物中会散落着这些战利品。对于合适的买家来说，其中一些可能非常有价值......"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"最强壮的獠牙龙曾猎杀和吞噬过许多其他的传奇生物，他们可以经历一次转变，使他们成为有史以来最强大的猎手之一。提亚马特的代理人使獠牙龙达到这种力量水平的可能性极为罕见，因为任何试图进行大狩猎的人都会得到提亚马特最信任的副手的全力关注。",
+							"为了实现这一目标，龙必须了解自己的回声，并让大狩猎开始。为了在大狩猎中取得成功，古龙必须猎杀并吞食其回音的肉体。龙必须独自完成这个任务，因为没有什么比猎杀自己更重要的了。通过狡猾和技巧，大狩猎提供了力量和一些最伟大的战利品，而这些战利品将被添加到方龙的储备中。",
+							"Fang greatwyrms是一种真正的恐怖，可以看到。他们是原始力量的巨大存在，浑身长满了剃刀的边缘，他们可以投掷几乎瞬间再生的尖刺，以及像钢铁一样坚硬的骨刃。一旦达到了大巫师的地位，獠牙龙就会积极地追捕提亚马特的代理人。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"獠牙龙也可以使用《怒涛之路》手册中介绍的龙的变体先天施法者规则。",
+							"他们有一种倾向，就是会否定其他魔法或阻碍敌人施法者的法术。",
+							"诸如{@spell blindness/deafness}、{@spell counterspell}、{@spell dispel magic}、{@spell globe of invulnerability}、{@spell hold person}、{@spell protection from evil and good}、{@spell silence}这样的法术比较常见；然而也有一些法术被称为帮助他们更有效地狩猎，或者更少地造成原始破坏。"
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"獠牙龙居住在森林茂密的山区。方龙的巢穴是一个崎岖不平的洞穴，里面布满了锯齿状的岩石和布满荆棘的植被。方龙的狩猎战利品混杂在它的囤积物中。獠牙龙倾向于选择那些有特色的洞穴，它可以躲在后面，或从那里得到毫无戒心的入侵者。",
+									"在传说中的獠牙龙的巢穴中遇到它时，其挑战等级增加1。"
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/WhjJDXL.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"race": [
+		{
+			"name": "Dragonborn (Fang)",
+			"source": "KGFD",
+			"lineage": "VRGR",
+			"size": [
+				"M"
+			],
+			"speed": {
+				"walk": 30
+			},
+			"entries": [
+				"你的龙族血统表现在你与其他龙族共享的各种特征上。",
+				{
+					"name": "Ability Score Increase",
+					"type": "entries",
+					"entries": [
+						"在确定你的角色的能力分数时，将其中一个分数增加2，另一个分数增加1，或将三个不同的分数增加1。"
+					]
+				},
+				{
+					"name": "Age",
+					"type": "entries",
+					"entries": [
+						"年轻的龙裔成长迅速。他们在孵化后几个小时就会走路，3岁时达到10岁人类儿童的大小和发育，15岁时达到成年。他们能活到80岁左右。"
+					]
+				},
+				{
+					"name": "Alignment",
+					"type": "entries",
+					"entries": [
+						"獠牙龙人倾向于崇尚自由，这一点高于一切。大多数獠牙龙裔都是混乱中立的。然而，也有极少数人在对抗提亚马特的战争中与巴哈姆特同流合污，采取合法或善良的倾向。"
+					]
+				},
+				{
+					"name": "Size",
+					"type": "entries",
+					"entries": [
+						"方龙族比人类更高更重，身高远远超过6英尺，平均体重近250磅。你的体型是中等。速度。你的基本行走速度是30英尺。"
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"你的基本行走速度是30英尺。"
+					]
+				},
+				{
+					"name": "Languages",
+					"entries": [
+						"你的角色可以说、读、写普通话和其他一种你和你的管理员同意的适合该角色的语言。"
+					],
+					"type": "entries"
+				},
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Ancestry Specific Traits",
+							"entries": [
+								"你的祖先是一只獠牙龙，这给你的同类带来了特殊的特征。",
+								{
+									"name": "Bite",
+									"entries": [
+										"你的獠牙之嘴是一种自然武器，你可以用它来进行徒手攻击。如果你用它攻击，你会造成相当于{@b 1d6 + your Strength modifier}的穿刺伤害，而不是普通徒手攻击的重击伤害。"
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Merciless Rive",
+									"entries": [
+										"在你将一个生物降低到0点命中率，或落下一个关键的命中后，作为你回合中攻击行动的一部分，你可以向前冲，用你的咬来进行一次破坏性的攻击。你的移动速度达到你移动速度的一半，并进行一次咬人攻击。这次攻击是有优势的，如果成功，会造成额外的1d6穿刺伤害。额外伤害在5级时增加到3d6，11级时增加到5d6，17级时增加到7d6。",
+										"你可以使用你的无情之剑的次数与你的熟练度加成相等，当你完成长时间的休息时，你会恢复所有消耗的使用。"
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Draconic Resistance",
+									"entries": [
+										"你与你的祖先一样有一些摆脱魔法攻击的能力。你在所有对抗魔法的力量、灵巧和体质方面都有优势。"
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Thrill of the Hunt",
+									"entries": [
+										"你有熟练的生存技能"
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"survival": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"common": true,
+					"other": true
+				}
+			],
+			"age": {
+				"mature": 15,
+				"max": 80
+			},
+			"fluff": {
+				"entries": [
+					"正如他们的名字所宣称的那样，龙裔骄傲地走过一个以恐惧的不理解迎接他们的世界。在龙神或龙本身的塑造下，龙裔最初从龙蛋中孵化出来，成为一个独特的种族，结合了龙和人类的最佳属性。一些龙裔是真龙的忠实仆人，另一些则在伟大的战争中组成士兵队伍，还有一些则发现自己在漂泊，没有明确的人生使命。"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/EO3wlZY.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"variantrule": [
+		{
+			"name": "Half Dragon (Fang)",
+			"source": "KGFD",
+			"ruleType": "O",
+			"entries": [
+				"当一只多角化的獠牙龙与另一种生物交配时，这种结合有时会产生半獠牙龙的后代。一个生物也可能因为疯狂巫师的咒语或在龙血中沐浴的仪式而转变为半獠牙龙。在所有这些情况下，其结果是一种结合了龙的精髓和原始种族的形态的生物。不管他们的起源如何，所有的半身龙都有类似的特征和外观，获得了特殊的感官、凶猛的愤怒和致命的咬合力。",
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Half Fang Dragon Template",
+							"entries": [
+								{
+									"name": "Draconic Nature",
+									"entries": [
+										"半边龙没有能力拥有天生的后代。那些希望繁殖的人必须找到其他方法，几乎总是涉及魔法。作为补偿，半边龙被赋予了长寿的祝福。如果没有不可预见的不幸，典型的半边龙的预期寿命是其非龙系的两倍，所以半边龙的人类可能会活超过一个半世纪。半边龙继承了其龙族血统中常见的个性特征。这些特征被半边龙的其他血统所克制，但半边龙的愤怒更快，比非龙族血统的标准成员更容易采取暴力行为。",
+										"野兽、人形生物、巨人或畸形生物都可以成为半身龙。当一个生物成为半锋龙时，它保留了所有的统计数据，除了下面提到的。"
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Senses",
+									"entries": [
+										"半锋龙获得半径为10英尺的盲视和半径为60英尺的暗视。"
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Rage (1/Day)",
+									"entries": [
+										"作为奖励动作，半锋龙可以进入愤怒状态。一分钟内，它将获得以下好处。",
+										{
+											"type": "list",
+											"items": [
+												"半边龙在力量检查和力量投掷方面具有优势。",
+												"当半边龙进行近战武器攻击时，它的伤害卷获得+2的奖励。",
+												"半边龙对法术和其他魔法效果的救赎有优势。"
+											]
+										}
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Ravenous Onslaught",
+									"entries": [
+										"当半边龙在它的回合内将一个生物的命中率降至0或用近战攻击取得关键命中时，它可以采取额外行动，以一半的速度移动并进行咬人攻击。"
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Action: Bite",
+									"entries": [
+										"半边龙拥有其半边龙的咬合力。半边龙的大小决定了这个动作的作用。",
+										{
+											"type": "table",
+											"caption": "Half fang dragon bite",
+											"colLabels": [
+												"Size",
+												"Bite"
+											],
+											"colStyles": [
+												"col-6 text-center",
+												"col-6 text-center"
+											],
+											"rows": [
+												[
+													"大或小",
+													"作为一个巫师（{@damage 1d12 + 3}穿刺伤害）。"
+												],
+												[
+													"Huge",
+													"作为一个年轻的龙({@damage 2d12 + 5}穿刺伤害)"
+												],
+												[
+													"巨大的",
+													"作为一个成年的龙（{@damage 2d12 + 7}穿刺伤害）。"
+												]
+											]
+										}
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"艺术和物品由{@link Kajagrae|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}设计。如果你在其他地方转贴，请注明。"
+					]
+				}
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"shortName": "Path of the Furious Maw",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"page": 1,
+			"subclassFeatures": [
+				"Path of the Furious Maw|Barbarian|PHB|Path of the Furious Maw|KGFD|3",
+				"Dogged Awareness|Barbarian|PHB|Path of the Furious Maw|KGFD|6",
+				"No Escape|Barbarian|PHB|Path of the Furious Maw|KGFD|10",
+				"Vicious Strikes|Barbarian|PHB|Path of the Furious Maw|KGFD|14"
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"shortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"subclassFeatures": [
+				"Draconic Bloodline (Fang)|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1",
+				"Draconic Affinity|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|6",
+				"Sorcerous Frenzy|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|14",
+				"Draconic Presence|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|18"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"entries": [
+				"在3级时，野蛮人获得了 \"原始之路 \"特性。除了《玩家手册》和《Xanthar万物指南》中提供的选项外，野蛮人还可以使用以下选项。",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Path of the Furious Maw Features|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Merciless Onslaught|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Cunning Hunter|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Path of the Furious Maw Features",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"有些生物是如此凶猛，以至于它们激发了文化人在自己的生活方式中对它们进行模仿。这些部落教导人们，狩猎的技巧和卑鄙的凶残本身就是达到目的的手段。当遵循这条道路的野蛮人暴怒时，他们会成为战斗中无情的恐怖。",
+				"汲取原始野性的野蛮人在战斗中是非常可怕的。他们通常带着以前杀戮的战利品，涉足战场，对他们的对手进行肆虐。当他们处于愤怒的深处时，他们甚至会在给予最后一击之前玩弄他们的猎物。",
+				{
+					"type": "table",
+					"caption": "Path of the Furious Maw Features",
+					"colLabels": [
+						"Barbarian Level",
+						"Feature"
+					],
+					"colStyles": [
+						"col-3 text-center",
+						"col-9"
+					],
+					"rows": [
+						[
+							"3rd",
+							"无情的冲击，狡猾的猎人"
+						],
+						[
+							"6th",
+							"认识"
+						],
+						[
+							"10th",
+							"没有逃亡"
+						],
+						[
+							"14th",
+							"恶性打击"
+						]
+					]
+				}
+			]
+		},
+		{
+			"name": "Merciless Onslaught",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"从3级开始，当你选择这条道路时，你将你的部落的凶猛方式引导到你的愤怒中。在愤怒的时候，当你把一个生物的命中率降到0，或者在你的回合中用近战攻击取得关键性的命中时，作为一个额外的动作，你可以移动到你速度的一半，并进行一次近战攻击。"
+			]
+		},
+		{
+			"name": "Cunning Hunter",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"从3级开始，当你选择这条道路时，你将你的部落的凶猛方式引导到你的愤怒中。在愤怒的时候，当你把一个生物的命中率降到0，或者在你的回合中用近战攻击取得关键性的命中时，作为一个额外的动作，你可以移动到你速度的一半，并进行一次近战攻击。"
+			]
+		},
+		{
+			"name": "Dogged Awareness",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"从6级开始，你对狩猎的了解已经调整了你自己的感官，让你知道猎人已经变成了猎物。你在智慧（感知）检查中具有优势，可以发现隐藏的生物。此外，你不再会被吓到。"
+			]
+		},
+		{
+			"name": "No Escape",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"从10级开始，你对狩猎和战斗的热忱已经交织在一起，以至于你现在有时会寻求延长这两者的时间。",
+				"每次狂怒时，你可以尝试让你的一个对手步履蹒跚。当你用近战武器攻击时，你的目标必须成功进行相当于8+你的熟练度加成+你的力量修饰的力量投掷，否则将被击倒在地。此外，它的移动速度减半，直到它得到魔法治疗，或完成长时间休息。"
+			]
+		},
+		{
+			"name": "Vicious Strikes",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"在14级时，你的愤怒的恶性程度已经达到了巅峰。在愤怒的时候，你的武器攻击在掷出19或20的时候会得到一个关键命中。如果你的攻击已经在19或20的卷轴上获得了关键命中，你会在18-20的卷轴上获得一个关键命中。"
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"entries": [
+				"在1级时，巫师获得了巫术起源特性。除了《玩家手册》和《Xanthar万物指南》中提供的选项外，巫师还可以使用以下选项。",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Bloodline|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Resilience|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Draconic Bloodline",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"你的先天魔法来自与你或你祖先的血液混合的龙族魔法。大多数情况下，拥有这种血统的巫师会追溯到古代某个与龙达成交易的强大巫师，或者甚至可能声称自己有龙的父母。这些血统中有些在这个世界上很有地位，但大多数是不明显的。任何一个巫师都可能是一个新血统的第一人，这是一个契约或其他一些特殊情况的结果。"
+			]
+		},
+		{
+			"name": "Draconic Resilience",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"当魔法流经你的身体时，它会使你的龙祖先的身体特征显现出来。在1级时，你的最大命中率增加1，并且每当你在这个等级中获得一个等级时，又增加1。此外，你的部分皮肤会被一层薄薄的龙形鳞片所覆盖。当你没有穿戴盔甲时，你的攻击力等于13+你的灵巧修正值。"
+			]
+		},
+		{
+			"name": "Draconic Affinity",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"从6级开始，当你施展一个造成重击、穿刺或砍击伤害的法术时，在该伤害上加上你的魅力修正值。你也获得了花费2点巫术点数来获得1分钟的魔法抵抗力的能力。"
+			]
+		},
+		{
+			"name": "Sorcerous Frenzy",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"獠牙龙的愤怒在你的血液中流动。在14级时，你可以呼唤这种愤怒，并将其转化为你的魔法。在你的回合中，你可以作为一个额外的动作进入一个巫术的狂热状态。在狂乱的时候，你会获得以下好处。你获得一个+2的法术救赎DC的奖励。",
+				{
+					"type": "list",
+					"items": [
+						"你的法术攻击关键范围增加1。",
+						"元魔法选项的法术点成本减少一半，最低为1。",
+						"创造法术槽的法术点成本减少1。"
+					]
+				},
+				"你的狂热会持续1分钟。如果你被击倒失去意识，或者你的回合结束，而你在上一回合后没有伤害一个敌对的生物，或者在那之后没有受到伤害，那么它将提前结束。你也可以在你的回合中作为一个额外的动作结束你的狂热。",
+				"一旦你使用了这个功能，你就不能再这样做了，直到你完成一个长时间的休息。"
+			]
+		},
+		{
+			"name": "Draconic Presence",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"从18级开始，你可以引导你的龙祖的可怕存在，使你周围的人变得惊奇或恐惧。作为一项行动，你可以花费5个巫术点数来吸取这种力量，并在60英尺的范围内散发出敬畏或恐惧的光环（由你选择）。在1分钟内或直到你失去注意力（就像你在施展集中法术一样），每个在此光环中开始的敌对生物必须在智慧救赎中成功，否则会被迷惑（如果你选择敬畏）或惊吓（如果你选择恐惧），直到光环结束。成功的生物会在24小时内对你的光环免疫。"
+			]
+		}
+	]
+}
