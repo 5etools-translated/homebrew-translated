@@ -1,0 +1,2573 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "KGFD",
+				"abbreviation": "KGFD",
+				"full": "Fang Dragons",
+				"authors": [
+					"KajaGrae"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "2022.08.12",
+				"color": "4d2611",
+				"url": "https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1657961727,
+		"dateLastModified": 1660775288,
+		"_dateLastModifiedHash": "1df0edecae"
+	},
+	"legendaryGroup": [
+		{
+			"name": "FangDragonsLairActionsFangDragon",
+			"source": "KGFD",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the dragon takes a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:",
+				{
+					"type": "list",
+					"items": [
+						"{@b Stone Spikes.} Púas de piedra afiladas brotan del suelo en un radio de 20 pies centrado en un punto que el dragón pueda ver en un radio de 120 pies. Esa área se convierte en terreno difícil, y cada criatura en el área debe tener éxito en una tirada de salvación de Destreza DC {@dc 15} o recibir 10 ({@damage 3d6}) de daño punzante. Cuando una criatura se mueve hacia o dentro del área, recibe {@damage 2d6} de daño punzante por cada 5 pies que recorre. Los pinchos permanecen hasta que el dragón vuelva a utilizar esta acción de guarida o hasta que el dragón muera.",
+						"{@b Fog Bank.} Se forma una densa niebla en un radio de 40 pies centrado en un punto que el dragón puede ver en un radio de 120 pies. La niebla se extiende por las esquinas y su área queda muy oscurecida. Un viento de al menos 20 millas por hora dispersa la niebla. Por lo demás, la niebla dura hasta que el dragón vuelve a utilizar esta acción de guarida o muere.",
+						"{@b Deadzone.} Se forma un radio invisible de 20 pies de antimagia centrado en un punto que el dragón pueda ver en un radio de 120 pies. Esta zona tiene el mismo efecto funcional que si se hubiera lanzado un campo antimágico, excepto que es inmóvil, y permanece hasta que el dragón vuelve a usar esta acción de guarida o el dragón muere."
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing a legendary fang dragon's lair is warped by the dragon's magic, which creates one or more of the following effects: Jagged Spires.",
+				{
+					"type": "list",
+					"items": [
+						"{@b Jagged Spires.} En un radio de 6 millas de la guarida de un dragón colmilludo, el terreno adquiere rasgos más agudos. Aparecen rocas irregulares, las plantas crecen con espinas y es más difícil moverse por la zona. El movimiento por tierra tarda el doble en la zona debido a las condiciones peligrosas.",
+						"{@b Predator Avoidance.} Los animales (que no sean insectos) no residirán ni se acercarán voluntariamente a menos de 6 millas de la guarida de un dragón colmilludo.",
+						"{@b Untraceable.} En un radio de 6 millas de su guarida, el dragón no deja evidencia física de su paso a menos que lo desee. Además, ignora los impedimentos de movimiento y el daño de las formaciones vegetales y rocosas de esta zona, incluidos los pinchos de piedra descritos anteriormente."
+					]
+				},
+				"If the dragon dies, animals will slowly return to the area, and other effects fade over {@dice ld10} days."
+			]
+		}
+	],
+	"monster": [
+		{
+			"name": "Dragon Fang Ancient",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Si el dragón falla una tirada de salvación, puede elegir tener éxito en su lugar."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"El dragón puede imitar cualquier sonido que haya oído, incluidas las voces. Una criatura que escuche los sonidos puede saber que son imitaciones con un chequeo de Sabiduría (Percepción) exitoso {@dc 19}."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Como acción de bonificación, el dragón puede entrar en edad de ar. Mientras está enfurecido, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +4 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious} o si elige terminar su furia en su turno como acción adicional."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Cuando el dragón reduce una criatura a 0 puntos de vida o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para volar hasta la mitad de su velocidad de vuelo y realizar un ataque de mordisco (debe empezar y terminar este movimiento en el suelo)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Los ataques con armas cuerpo a cuerpo del dragón consiguen un golpe crítico con una tirada de 19 o 20. Además, tira algún dado de daño de arma adicional al determinar el daño extra de un golpe crítico con un ataque de arma cuerpo a cuerpo."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"El dragón puede utilizar su Presencia Espantosa. A continuación, realiza tres ataques: uno con su mordisco y dos con sus garras."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 15 pies, un objetivo. {@h}22 ({@damage 2d12 + 9}) de daño perforante y el objetivo debe tener éxito en una tirada de salvación de {@dc 24} Constitución o su puntuación de Constitución se reduce en {@dice 1d4}. El objetivo muere si esto reduce su Constitución a 0. De lo contrario, la reducción dura hasta que el objetivo termine un descanso corto o largo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 10 pies, un objetivo. {@h}18 ({@damage 2d8 + 9}) de daño cortante."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 20 pies, un objetivo. {@h}20 ({@damage 2d10 + 9}) de daño contundente. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 24} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 20 pies, un objetivo. {@h}20 ({@damage 2d10 + 9}) de daño cortante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 24} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 20 pies, un objetivo. {@h}20 ({@damage 2d10 + 9}) de daño perforante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 24} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Cada criatura que elija el dragón y que esté a menos de 120 pies del dragón y sea consciente de él debe tener éxito en una tirada de salvación de Sabiduría {@dc 19} o se asustará durante 1 minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, terminando el efecto sobre sí misma si tiene éxito. Si la tirada de salvación de una criatura tiene éxito o el efecto termina para ella, la criatura es inmune a la Presencia Asustada del dragón durante las siguientes 24 horas."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Como acción de bonificación, el dragón puede entrar en edad de ar. Mientras está enfurecido, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +4 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious} o si elige terminar su furia en su turno como acción adicional."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"El dragón hace un chequeo de Sabiduría (Percepción)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"El dragón hace un ataque con la cola."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"El dragón gira y golpea con su cola. Cada criatura en un radio de 6 metros del dragón debe tener éxito en una tirada de salvación de Destreza {@dc 24} o recibir 20 ({@dice 2d10 + 9}) de daño contundente o cortante y ser derribada {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/TNVlx8c.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Los dragones de colmillos son criaturas codiciosas, rapaces y astutas, que viven para la caza y están excepcionalmente bien adaptados a ella. Combatientes salvajes, incluso para los estándares dracónicos, los dragones de colmillos disfrutan de la oportunidad de consumir la carne de otras criaturas, y se lanzan con gusto a la lucha por la oportunidad de disfrutar de su comida favorita.",
+									"Los dragones con colmillos, los más aterradores físicamente, están acorazados con placas óseas que se elevan en espolones que sobresalen en las articulaciones de las extremidades y terminan en colas largas y bifurcadas con un par de cuchillas óseas en forma de guadaña. Las placas de su cuerpo son de color gris y marrón moteado, y un ligero olor a sangre rodea al dragón de colmillos. Sus alas son pequeñas pero musculosas, y aunque vuelan poco, pueden elevarse con un solo golpe de sus alas para embestir hacia adelante. La cabeza de un dragón de colmillos está adornada con muchos cuernos pequeños o pinchos, y sus ojos suelen ser de color rojo o naranja brillante.",
+									"{@b Angry and Twisted.} Retorcidos por las energías mágicas que los crearon, los dragones de colmillos son propensos a la violencia aleatoria y a los arrebatos de ira. Se deleitan con la violencia y, cuando sienten que tienen ventaja, se lanzan a la refriega con fervor. Con el tiempo, aprenden a dominar la ira y a utilizarla en su beneficio. Brutales y despiadados, las criaturas que busquen a los dragones de colmillos deben hacerlo con extrema precaución, ya que no dudarán en causar estragos en cualquier criatura que consideren más débil que ellos y sea percibida como una amenaza o una molestia.",
+									"{@b Consummate Hunters.} Los dragones de colmillo comen todo tipo de carne fresca, disfrutando especialmente de la carne de criaturas inteligentes. Prefieren buscar comida lejos de sus guaridas y utilizan su capacidad de imitar sonidos que han oído para atraer a sus presas. Los dragones de colmillos tienen una inquietante tendencia a jugar con su comida de forma extremadamente cruel. Los dragones de colmillos son maestros del combate físico, y cada parte de su cuerpo es letal. No tienen un arma de aliento, pero su mordedura es tan devastadora que puede causar daños en la Constitución debido a la pérdida de sangre por las profundas laceraciones.",
+									"{@b Hunted and Dwindling.} Una vez que Tiamat se enteró de la existencia de estos dragones fuera de su control, intentó subyugar a la especie. Envió a sus seguidores a buscarlos y a \"mejorar\" los huevos de sus crías con un ritual que los convertiría en lo que se conocería como los dragones grises, esos mismos dragones grises fueron los encargados de purificar a los dragones de colmillos restantes. Los dragones colmilludos, que cada vez son menos, detestan a Tiamat y a todos sus seguidores, y los atacan en cuanto los ven. Los dragones colmillo hablan fragmentos de muchos idiomas y negocian para evitar batallas difíciles o mortales."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Los dragones de colmillo aparecieron originalmente en los Reinos en las ruinas de Myth Drannor, lo que hace que algunos sabios especulen que están conectados de alguna manera con los demonios que han infestado la antigua ciudad élfica desde su caída. Es habitual encontrarlos en las regiones de los Bosques Estelares de Cormanthor, y ocasionalmente en el Bosque de la Frontera, los Bosques de la Caza de Arañas y otros bosques de la región de las Tierras de los Dales, Sembia y el Mar de la Luna."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"El tesoro de un dragón colmilludo es similar al de otros dragones, ya que contiene varias riquezas, debido a su naturaleza intrínsecamente codiciosa. Sin embargo, a diferencia de otros dragones, el tesoro de un dragón colmilludo también contendrá varios trofeos de sus cacerías anteriores. Desde los cráneos de las presas hasta los cuernos, dientes, huesos, escamas, pieles y otras piezas que ha conservado mágicamente, su tesoro estará repleto de estos trofeos. Algunos de ellos pueden ser muy valiosos para el comprador adecuado..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"El más fuerte de los dragones de colmillos, que ha cazado y consumido a muchas otras criaturas legendarias, puede sufrir una transformación que lo convertirá en uno de los cazadores más poderosos que jamás haya existido. Los agentes de Tiamat hacen que la probabilidad de que un dragón de colmillos alcance este nivel de poder sea extremadamente rara, ya que cualquiera que intente la Gran Cacería recibe toda la atención de los lugartenientes de mayor confianza de Tiamat.",
+							"Para conseguirlo, el dragón debe conocer sus ecos, y que comience la Gran Caza. Para tener éxito en la Gran Caza, un Antiguo Colmillo de Dragón debe cazar y consumir la carne de sus ecos. El dragón debe hacerlo solo, ya que no hay mayor caza que la de uno mismo. A través de la astucia y la habilidad, la Gran Cacería proporciona poder y algunos de los mayores trofeos que un dragón colmilludo añadirá a su tesoro.",
+							"Los greatwyrms colmilludos son un verdadero terror para la vista. Enormes seres de fuerza bruta, están erizados de bordes afilados, púas que pueden lanzar y que se regeneran casi al instante, y hojas de hueso tan duras como el acero. Una vez que han alcanzado el estatus de greatwyrm, los dragones de colmillos cazarán activamente a los agentes de Tiamat con fervor."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+							"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos.",
+							"Hechizos como {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, son los más comunes; sin embargo, también se sabe que tienen hechizos para ayudarles a cazar más eficazmente, o, más raramente, a causar destrucción en bruto."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Los dragones de colmillo habitan en zonas muy boscosas y montañosas. La guarida de un dragón colmilludo es una cueva áspera y desordenada, llena de rocas con bordes dentados y vegetación cubierta de espinas. Los trofeos de las cacerías del dragón se mezclan con su tesoro. Normalmente tapian sus guaridas con enormes rocas u otros materiales para mantener alejados a los intrusos en su ausencia. Los dragones de colmillo tienden a elegir cuevas en las que puedan esconderse o en las que puedan atacar a intrusos desprevenidos.",
+									"El índice de desafío de un dragón de colmillos legendario aumenta en 1 cuando se encuentra en su guarida."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/2nQ2wv6.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Ancient (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient (Variant Caster)",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"damageTagsLegendary": [
+				"P"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+						"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Si el dragón falla una tirada de salvación, puede elegir tener éxito en su lugar."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"El dragón puede imitar cualquier sonido que haya oído, incluidas las voces. Una criatura que escuche los sonidos puede saber que son imitaciones con un chequeo de Sabiduría (Percepción) exitoso {@dc 19}."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Como acción de bonificación, el dragón puede entrar en edad de ar. Mientras está enfurecido, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +4 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious} o si elige terminar su furia en su turno como acción adicional."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Cuando el dragón reduce una criatura a 0 puntos de vida o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para volar hasta la mitad de su velocidad de vuelo y realizar un ataque de mordisco (debe empezar y terminar este movimiento en el suelo)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Los ataques con armas cuerpo a cuerpo del dragón consiguen un golpe crítico con una tirada de 19 o 20. Además, tira algún dado de daño de arma adicional al determinar el daño extra de un golpe crítico con un ataque de arma cuerpo a cuerpo."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"El dragón puede utilizar su Presencia Espantosa. A continuación, realiza tres ataques: uno con su mordisco y dos con sus garras."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 15 pies, un objetivo. {@h}22 ({@damage 2d12 + 9}) de daño perforante y el objetivo debe tener éxito en una tirada de salvación de {@dc 24} Constitución o su puntuación de Constitución se reduce en {@dice 1d4}. El objetivo muere si esto reduce su Constitución a 0. De lo contrario, la reducción dura hasta que el objetivo termine un descanso corto o largo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 10 pies, un objetivo. {@h}18 ({@damage 2d8 + 9}) de daño cortante."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 20 pies, un objetivo. {@h}20 ({@damage 2d10 + 9}) de daño contundente. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 24} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 20 pies, un objetivo. {@h}20 ({@damage 2d10 + 9}) de daño cortante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 24} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} para golpear, alcance de 20 pies, un objetivo. {@h}20 ({@damage 2d10 + 9}) de daño perforante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 24} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Cada criatura que elija el dragón y que se encuentre a menos de 120 pies del dragón y sea consciente de él debe tener éxito en una tirada de salvación de Sabiduría {@dc 19} o convertirse en {@condition frightened} durante 1 minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, terminando el efecto sobre sí misma si tiene éxito. Si la tirada de salvación de una criatura tiene éxito o el efecto termina para ella, la criatura es inmune a la Presencia Espantosa del dragón durante las siguientes 24 horas."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Como acción de bonificación, el dragón puede entrar en edad de ar. Mientras está enfurecido, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +4 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious} o si elige terminar su furia en su turno como acción adicional."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"El dragón hace un chequeo de Sabiduría (Percepción)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"El dragón hace un ataque con la cola."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"El dragón gira y golpea con su cola. Cada criatura en un radio de 6 metros del dragón debe tener éxito en una tirada de salvación de Destreza {@dc 24} o recibir 20 ({@dice 2d10 + 9}) de daño contundente o cortante y ser derribada {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/sRNzRbd.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Los dragones de colmillos son criaturas codiciosas, rapaces y astutas, que viven para la caza y están excepcionalmente bien adaptados a ella. Combatientes salvajes, incluso para los estándares dracónicos, los dragones de colmillos disfrutan de la oportunidad de consumir la carne de otras criaturas, y se lanzan con gusto a la lucha por la oportunidad de disfrutar de su comida favorita.",
+									"Los dragones con colmillos, los más aterradores físicamente, están acorazados con placas óseas que se elevan en espolones que sobresalen en las articulaciones de las extremidades y terminan en colas largas y bifurcadas con un par de cuchillas óseas en forma de guadaña. Las placas de su cuerpo son de color gris y marrón moteado, y un ligero olor a sangre rodea al dragón de colmillos. Sus alas son pequeñas pero musculosas, y aunque vuelan poco, pueden elevarse con un solo golpe de sus alas para embestir hacia adelante. La cabeza de un dragón de colmillos está adornada con muchos cuernos pequeños o pinchos, y sus ojos suelen ser de color rojo o naranja brillante.",
+									"{@b Angry and Twisted.} Retorcidos por las energías mágicas que los crearon, los dragones de colmillos son propensos a la violencia aleatoria y a los arrebatos de ira. Se deleitan con la violencia y, cuando sienten que tienen ventaja, se lanzan a la refriega con fervor. Con el tiempo, aprenden a dominar la ira y a utilizarla en su beneficio. Brutales y despiadados, las criaturas que busquen a los dragones de colmillos deben hacerlo con extrema precaución, ya que no dudarán en causar estragos en cualquier criatura que consideren más débil que ellos y sea percibida como una amenaza o una molestia.",
+									"{@b Consummate Hunters.} Los dragones de colmillo comen todo tipo de carne fresca, disfrutando especialmente de la carne de criaturas inteligentes. Prefieren buscar comida lejos de sus guaridas y utilizan su capacidad de imitar sonidos que han oído para atraer a sus presas. Los dragones de colmillos tienen una inquietante tendencia a jugar con su comida de forma extremadamente cruel. Los dragones de colmillos son maestros del combate físico, y cada parte de su cuerpo es letal. No tienen un arma de aliento, pero su mordedura es tan devastadora que puede causar daños en la Constitución debido a la pérdida de sangre por las profundas laceraciones.",
+									"{@b Hunted and Dwindling.} Una vez que Tiamat se enteró de la existencia de estos dragones fuera de su control, intentó subyugar a la especie. Envió a sus seguidores a buscarlos y a \"mejorar\" los huevos de sus crías con un ritual que los convertiría en lo que se conocería como los dragones grises, esos mismos dragones grises fueron los encargados de purificar a los dragones de colmillos restantes. Los dragones colmilludos, que cada vez son menos, detestan a Tiamat y a todos sus seguidores, y los atacan en cuanto los ven. Los dragones colmillo hablan fragmentos de muchos idiomas y negocian para evitar batallas difíciles o mortales."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Los dragones de colmillo aparecieron originalmente en los Reinos en las ruinas de Myth Drannor, lo que hace que algunos sabios especulen que están conectados de alguna manera con los demonios que han infestado la antigua ciudad élfica desde su caída. Es habitual encontrarlos en las regiones de los Bosques Estelares de Cormanthor, y ocasionalmente en el Bosque de la Frontera, los Bosques de la Caza de Arañas y otros bosques de la región de las Tierras de los Dales, Sembia y el Mar de la Luna."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"El tesoro de un dragón colmilludo es similar al de otros dragones, ya que contiene varias riquezas, debido a su naturaleza intrínsecamente codiciosa. Sin embargo, a diferencia de otros dragones, el tesoro de un dragón colmilludo también contendrá varios trofeos de sus cacerías anteriores. Desde los cráneos de las presas hasta los cuernos, dientes, huesos, escamas, pieles y otras piezas que ha conservado mágicamente, su tesoro estará repleto de estos trofeos. Algunos de ellos pueden ser muy valiosos para el comprador adecuado..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"El más fuerte de los dragones de colmillos, que ha cazado y consumido a muchas otras criaturas legendarias, puede sufrir una transformación que lo convertirá en uno de los cazadores más poderosos que jamás haya existido. Los agentes de Tiamat hacen que la probabilidad de que un dragón de colmillos alcance este nivel de poder sea extremadamente rara, ya que cualquiera que intente la Gran Cacería recibe toda la atención de los lugartenientes de mayor confianza de Tiamat.",
+							"Para conseguirlo, el dragón debe conocer sus ecos, y que comience la Gran Caza. Para tener éxito en la Gran Caza, un Antiguo Colmillo de Dragón debe cazar y consumir la carne de sus ecos. El dragón debe hacerlo solo, ya que no hay mayor caza que la de uno mismo. A través de la astucia y la habilidad, la Gran Cacería proporciona poder y algunos de los mayores trofeos que un dragón colmilludo añadirá a su tesoro.",
+							"Los greatwyrms colmilludos son un verdadero terror para la vista. Enormes seres de fuerza bruta, están erizados de bordes afilados, púas que pueden lanzar y que se regeneran casi al instante, y hojas de hueso tan duras como el acero. Una vez que han alcanzado el estatus de greatwyrm, los dragones de colmillos cazarán activamente a los agentes de Tiamat con fervor."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+							"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos.",
+							"Hechizos como {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, son los más comunes; sin embargo, también se sabe que tienen hechizos para ayudarles a cazar más eficazmente, o, más raramente, a causar destrucción en bruto."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Los dragones de colmillo habitan en zonas muy boscosas y montañosas. La guarida de un dragón colmilludo es una cueva áspera y desordenada, llena de rocas con bordes dentados y vegetación cubierta de espinas. Los trofeos de las cacerías del dragón se mezclan con su tesoro. Normalmente tapian sus guaridas con enormes rocas u otros materiales para mantener alejados a los intrusos en su ausencia. Los dragones de colmillo tienden a elegir cuevas en las que puedan esconderse o en las que puedan atacar a intrusos desprevenidos.",
+									"El índice de desafío de un dragón de colmillos legendario aumenta en 1 cuando se encuentra en su guarida."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/KendR57.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Adult",
+			"size": [
+				"H"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "16d12 + 96",
+				"average": 200
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 24,
+			"dex": 10,
+			"con": 23,
+			"int": 14,
+			"wis": 15,
+			"cha": 17,
+			"passive": 24,
+			"cr": "19",
+			"shortName": "Dragon Fang Adult",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"skill": {
+				"perception": "+14",
+				"stealth": "+6",
+				"survival": "+8"
+			},
+			"save": {
+				"dex": "+6",
+				"con": "+12",
+				"wis": "+8",
+				"cha": "+9"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Si el dragón falla una tirada de salvación, puede elegir tener éxito en su lugar."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"El dragón puede imitar cualquier sonido que haya oído, incluidas las voces. Una criatura que escuche los sonidos puede saber que son imitaciones con un chequeo de Sabiduría (Percepción) exitoso {@dc 17}."
+					]
+				},
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Como acción de bonificación, el dragón puede entrar en edad de ar. Mientras está enfurecido, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, gana un bono de +3 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious} o si elige terminar su furia en su turno como acción adicional."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Cuando el dragón reduce una criatura a 0 puntos de vida o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para volar hasta la mitad de su velocidad de vuelo y realizar un ataque de mordisco (debe empezar y terminar este movimiento en el suelo)."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"El dragón puede utilizar su Presencia Espantosa. A continuación, realiza tres ataques: uno con su mordisco y dos con sus garras."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13} para golpear, alcance de 10 pies, un objetivo. {@h}20 ({@damage 2d12 + 7}) de daño perforante y el objetivo debe tener éxito en una tirada de salvación de {@dc 21} Constitución o su puntuación de Constitución se reduce en {@dice 1d3}. El objetivo muere si esto reduce su Constitución a 0. De lo contrario, la reducción dura hasta que el objetivo termine un descanso corto o largo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 13} para golpear, alcance 5 pies, un objetivo. {@h}16 ({@damage 2d8 + 7}) de daño cortante."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 13} para golpear, alcance de 15 pies, un objetivo. {@h}18 ({@damage 2d10 + 7}) de daño contundente. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 21} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 13} para golpear, alcance de 15 pies, un objetivo. {@h}18 ({@damage 2d10 + 7}) de daño cortante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 21} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 13} para golpear, alcance de 15 pies, un objetivo. {@h}18 ({@damage 2d10 + 7}) de daño perforante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 21} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Cada criatura que elija el dragón y que esté a menos de 120 pies del dragón y sea consciente de él debe tener éxito en una tirada de salvación de Sabiduría {@dc 17} o se asustará durante 1 minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, terminando el efecto sobre sí misma si tiene éxito. Si la tirada de salvación de una criatura tiene éxito o el efecto termina para ella, la criatura es inmune a la Presencia Asustada del dragón durante las siguientes 24 horas."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"bonus": [
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Como acción de bonificación, el dragón puede entrar en edad de ar. Mientras está enfurecido, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, gana un bono de +3 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious} o si elige terminar su furia en su turno como acción adicional."
+					]
+				}
+			],
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"El dragón hace un chequeo de Sabiduría (Percepción)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"El dragón hace un ataque con la cola."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"El dragón gira y golpea con su cola. Cada criatura en un radio de 15 pies del dragón debe tener éxito en una tirada de salvación de Destreza {@dc 21} o recibir 18 ({@damage 2d10 + 7}) de daño contundente o cortante y ser derribada {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "adult",
+			"tokenUrl": "https://i.imgur.com/scZ0qHF.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Adult|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Los dragones de colmillos son criaturas codiciosas, rapaces y astutas, que viven para la caza y están excepcionalmente bien adaptados a ella. Combatientes salvajes, incluso para los estándares dracónicos, los dragones de colmillos disfrutan de la oportunidad de consumir la carne de otras criaturas, y se lanzan con gusto a la lucha por la oportunidad de disfrutar de su comida favorita.",
+									"Los dragones con colmillos, los más aterradores físicamente, están acorazados con placas óseas que se elevan en espolones que sobresalen en las articulaciones de las extremidades y terminan en colas largas y bifurcadas con un par de cuchillas óseas en forma de guadaña. Las placas de su cuerpo son de color gris y marrón moteado, y un ligero olor a sangre rodea al dragón de colmillos. Sus alas son pequeñas pero musculosas, y aunque vuelan poco, pueden elevarse con un solo golpe de sus alas para embestir hacia adelante. La cabeza de un dragón de colmillos está adornada con muchos cuernos pequeños o pinchos, y sus ojos suelen ser de color rojo o naranja brillante.",
+									"{@b Angry and Twisted.} Retorcidos por las energías mágicas que los crearon, los dragones de colmillos son propensos a la violencia aleatoria y a los arrebatos de ira. Se deleitan con la violencia y, cuando sienten que tienen ventaja, se lanzan a la refriega con fervor. Con el tiempo, aprenden a dominar la ira y a utilizarla en su beneficio. Brutales y despiadados, las criaturas que busquen a los dragones de colmillos deben hacerlo con extrema precaución, ya que no dudarán en causar estragos en cualquier criatura que consideren más débil que ellos y sea percibida como una amenaza o una molestia.",
+									"{@b Consummate Hunters.} Los dragones de colmillo comen todo tipo de carne fresca, disfrutando especialmente de la carne de criaturas inteligentes. Prefieren buscar comida lejos de sus guaridas y utilizan su capacidad de imitar sonidos que han oído para atraer a sus presas. Los dragones de colmillos tienen una inquietante tendencia a jugar con su comida de forma extremadamente cruel. Los dragones de colmillos son maestros del combate físico, y cada parte de su cuerpo es letal. No tienen un arma de aliento, pero su mordedura es tan devastadora que puede causar daños en la Constitución debido a la pérdida de sangre por las profundas laceraciones.",
+									"{@b Hunted and Dwindling.} Una vez que Tiamat se enteró de la existencia de estos dragones fuera de su control, intentó subyugar a la especie. Envió a sus seguidores a buscarlos y a \"mejorar\" los huevos de sus crías con un ritual que los convertiría en lo que se conocería como los dragones grises, esos mismos dragones grises fueron los encargados de purificar a los dragones de colmillos restantes. Los dragones colmilludos, que cada vez son menos, detestan a Tiamat y a todos sus seguidores, y los atacan en cuanto los ven. Los dragones colmillo hablan fragmentos de muchos idiomas y negocian para evitar batallas difíciles o mortales."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Los dragones de colmillo aparecieron originalmente en los Reinos en las ruinas de Myth Drannor, lo que hace que algunos sabios especulen que están conectados de alguna manera con los demonios que han infestado la antigua ciudad élfica desde su caída. Es habitual encontrarlos en las regiones de los Bosques Estelares de Cormanthor, y ocasionalmente en el Bosque de la Frontera, los Bosques de la Caza de Arañas y otros bosques de la región de las Tierras de los Dales, Sembia y el Mar de la Luna."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"El tesoro de un dragón colmilludo es similar al de otros dragones, ya que contiene varias riquezas, debido a su naturaleza intrínsecamente codiciosa. Sin embargo, a diferencia de otros dragones, el tesoro de un dragón colmilludo también contendrá varios trofeos de sus cacerías anteriores. Desde los cráneos de las presas hasta los cuernos, dientes, huesos, escamas, pieles y otras piezas que ha conservado mágicamente, su tesoro estará repleto de estos trofeos. Algunos de ellos pueden ser muy valiosos para el comprador adecuado..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"El más fuerte de los dragones de colmillos, que ha cazado y consumido a muchas otras criaturas legendarias, puede sufrir una transformación que lo convertirá en uno de los cazadores más poderosos que jamás haya existido. Los agentes de Tiamat hacen que la probabilidad de que un dragón de colmillos alcance este nivel de poder sea extremadamente rara, ya que cualquiera que intente la Gran Cacería recibe toda la atención de los lugartenientes de mayor confianza de Tiamat.",
+							"Para conseguirlo, el dragón debe conocer sus ecos, y que comience la Gran Caza. Para tener éxito en la Gran Caza, un Antiguo Colmillo de Dragón debe cazar y consumir la carne de sus ecos. El dragón debe hacerlo solo, ya que no hay mayor caza que la de uno mismo. A través de la astucia y la habilidad, la Gran Cacería proporciona poder y algunos de los mayores trofeos que un dragón colmilludo añadirá a su tesoro.",
+							"Los greatwyrms colmilludos son un verdadero terror para la vista. Enormes seres de fuerza bruta, están erizados de bordes afilados, púas que pueden lanzar y que se regeneran casi al instante, y hojas de hueso tan duras como el acero. Una vez que han alcanzado el estatus de greatwyrm, los dragones de colmillos cazarán activamente a los agentes de Tiamat con fervor."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+							"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos.",
+							"Hechizos como {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, son los más comunes; sin embargo, también se sabe que tienen hechizos para ayudarles a cazar más eficazmente, o, más raramente, a causar destrucción en bruto."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Los dragones de colmillo habitan en zonas muy boscosas y montañosas. La guarida de un dragón colmilludo es una cueva áspera y desordenada, llena de rocas con bordes dentados y vegetación cubierta de espinas. Los trofeos de las cacerías del dragón se mezclan con su tesoro. Normalmente tapian sus guaridas con enormes rocas u otros materiales para mantener alejados a los intrusos en su ausencia. Los dragones de colmillo tienden a elegir cuevas en las que puedan esconderse o en las que puedan atacar a intrusos desprevenidos.",
+									"El índice de desafío de un dragón de colmillos legendario aumenta en 1 cuando se encuentra en su guarida."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/tfxZZuV.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Young",
+			"size": [
+				"L"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "14d10 + 56",
+				"average": 133
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 20,
+			"dex": 10,
+			"con": 19,
+			"int": 12,
+			"wis": 13,
+			"cha": 15,
+			"passive": 17,
+			"cr": "8",
+			"shortName": "Dragon Fang Young",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+3",
+				"con": "+7",
+				"wis": "+4",
+				"cha": "+5"
+			},
+			"skill": {
+				"perception": "+7",
+				"stealth": "+3",
+				"survival": "+4"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"El dragón puede imitar cualquier sonido que haya oído, incluidas las voces. Una criatura que escuche los sonidos puede saber que son imitaciones con un chequeo de Sabiduría (Percepción) exitoso {@dc 13}."
+					]
+				},
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Como acción adicional, el dragón puede entrar en cólera. Mientras está enfadado, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +2 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Termina antes de tiempo si el dragón es derribado {@condition unconscious} o si su turno termina y no ha atacado a una criatura hostil desde su último turno ni ha recibido daño desde entonces. También puede terminar su furia en su turno como acción adicional."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Cuando el dragón reduce una criatura a 0 puntos de vida o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para volar hasta la mitad de su velocidad de vuelo y realizar un ataque de mordisco (debe empezar y terminar este movimiento en el suelo)."
+					]
+				}
+			],
+			"conditionInflict": [
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"El dragón realiza tres ataques: uno con su mordida y dos con sus garras."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance de 10 pies, un objetivo. {@h}18 ({@damage 2d12 + 5}) de daño punzante y el objetivo debe tener éxito en una tirada de salvación de {@dc 18} Constitución o su puntuación de Constitución se reduce en {@dice 1d2}.El objetivo muere si esto reduce su Constitución a 0.De lo contrario, la reducción dura hasta que el objetivo termina un descanso corto o largo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 8} para golpear, alcance 5 pies, un objetivo. {@h}14 ({@damage 2d8 + 5}) de daño cortante."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"bonus": [
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Como acción adicional, el dragón puede entrar en cólera. Mientras está enfadado, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +2 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su furia dura 1 minuto. Termina antes de tiempo si el dragón es derribado {@condition unconscious} o si su turno termina y no ha atacado a una criatura hostil desde su último turno ni ha recibido daño desde entonces. También puede terminar su furia en su turno como acción adicional."
+					]
+				}
+			],
+			"dragonAge": "young",
+			"tokenUrl": "https://i.imgur.com/l7IgyLP.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Young|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Los dragones de colmillos son criaturas codiciosas, rapaces y astutas, que viven para la caza y están excepcionalmente bien adaptados a ella. Combatientes salvajes, incluso para los estándares dracónicos, los dragones de colmillos disfrutan de la oportunidad de consumir la carne de otras criaturas, y se lanzan con gusto a la lucha por la oportunidad de disfrutar de su comida favorita.",
+									"Los dragones con colmillos, los más aterradores físicamente, están acorazados con placas óseas que se elevan en espolones que sobresalen en las articulaciones de las extremidades y terminan en colas largas y bifurcadas con un par de cuchillas óseas en forma de guadaña. Las placas de su cuerpo son de color gris y marrón moteado, y un ligero olor a sangre rodea al dragón de colmillos. Sus alas son pequeñas pero musculosas, y aunque vuelan poco, pueden elevarse con un solo golpe de sus alas para embestir hacia adelante. La cabeza de un dragón de colmillos está adornada con muchos cuernos pequeños o pinchos, y sus ojos suelen ser de color rojo o naranja brillante.",
+									"{@b Angry and Twisted.} Retorcidos por las energías mágicas que los crearon, los dragones de colmillos son propensos a la violencia aleatoria y a los arrebatos de ira. Se deleitan con la violencia y, cuando sienten que tienen ventaja, se lanzan a la refriega con fervor. Con el tiempo, aprenden a dominar la ira y a utilizarla en su beneficio. Brutales y despiadados, las criaturas que busquen a los dragones de colmillos deben hacerlo con extrema precaución, ya que no dudarán en causar estragos en cualquier criatura que consideren más débil que ellos y sea percibida como una amenaza o una molestia.",
+									"{@b Consummate Hunters.} Los dragones de colmillo comen todo tipo de carne fresca, disfrutando especialmente de la carne de criaturas inteligentes. Prefieren buscar comida lejos de sus guaridas y utilizan su capacidad de imitar sonidos que han oído para atraer a sus presas. Los dragones de colmillos tienen una inquietante tendencia a jugar con su comida de forma extremadamente cruel. Los dragones de colmillos son maestros del combate físico, y cada parte de su cuerpo es letal. No tienen un arma de aliento, pero su mordedura es tan devastadora que puede causar daños en la Constitución debido a la pérdida de sangre por las profundas laceraciones.",
+									"{@b Hunted and Dwindling.} Una vez que Tiamat se enteró de la existencia de estos dragones fuera de su control, intentó subyugar a la especie. Envió a sus seguidores a buscarlos y a \"mejorar\" los huevos de sus crías con un ritual que los convertiría en lo que se conocería como los dragones grises, esos mismos dragones grises fueron los encargados de purificar a los dragones de colmillos restantes. Los dragones colmilludos, que cada vez son menos, detestan a Tiamat y a todos sus seguidores, y los atacan en cuanto los ven. Los dragones colmillo hablan fragmentos de muchos idiomas y negocian para evitar batallas difíciles o mortales."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Los dragones de colmillo aparecieron originalmente en los Reinos en las ruinas de Myth Drannor, lo que hace que algunos sabios especulen que están conectados de alguna manera con los demonios que han infestado la antigua ciudad élfica desde su caída. Es habitual encontrarlos en las regiones de los Bosques Estelares de Cormanthor, y ocasionalmente en el Bosque de la Frontera, los Bosques de la Caza de Arañas y otros bosques de la región de las Tierras de los Dales, Sembia y el Mar de la Luna."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"El tesoro de un dragón colmilludo es similar al de otros dragones, ya que contiene varias riquezas, debido a su naturaleza intrínsecamente codiciosa. Sin embargo, a diferencia de otros dragones, el tesoro de un dragón colmilludo también contendrá varios trofeos de sus cacerías anteriores. Desde los cráneos de las presas hasta los cuernos, dientes, huesos, escamas, pieles y otras piezas que ha conservado mágicamente, su tesoro estará repleto de estos trofeos. Algunos de ellos pueden ser muy valiosos para el comprador adecuado..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"El más fuerte de los dragones de colmillos, que ha cazado y consumido a muchas otras criaturas legendarias, puede sufrir una transformación que lo convertirá en uno de los cazadores más poderosos que jamás haya existido. Los agentes de Tiamat hacen que la probabilidad de que un dragón de colmillos alcance este nivel de poder sea extremadamente rara, ya que cualquiera que intente la Gran Cacería recibe toda la atención de los lugartenientes de mayor confianza de Tiamat.",
+							"Para conseguirlo, el dragón debe conocer sus ecos, y que comience la Gran Caza. Para tener éxito en la Gran Caza, un Antiguo Colmillo de Dragón debe cazar y consumir la carne de sus ecos. El dragón debe hacerlo solo, ya que no hay mayor caza que la de uno mismo. A través de la astucia y la habilidad, la Gran Cacería proporciona poder y algunos de los mayores trofeos que un dragón colmilludo añadirá a su tesoro.",
+							"Los greatwyrms colmilludos son un verdadero terror para la vista. Enormes seres de fuerza bruta, están erizados de bordes afilados, púas que pueden lanzar y que se regeneran casi al instante, y hojas de hueso tan duras como el acero. Una vez que han alcanzado el estatus de greatwyrm, los dragones de colmillos cazarán activamente a los agentes de Tiamat con fervor."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+							"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos.",
+							"Hechizos como {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, son los más comunes; sin embargo, también se sabe que tienen hechizos para ayudarles a cazar más eficazmente, o, más raramente, a causar destrucción en bruto."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Los dragones de colmillo habitan en zonas muy boscosas y montañosas. La guarida de un dragón colmilludo es una cueva áspera y desordenada, llena de rocas con bordes dentados y vegetación cubierta de espinas. Los trofeos de las cacerías del dragón se mezclan con su tesoro. Normalmente tapian sus guaridas con enormes rocas u otros materiales para mantener alejados a los intrusos en su ausencia. Los dragones de colmillo tienden a elegir cuevas en las que puedan esconderse o en las que puedan atacar a intrusos desprevenidos.",
+									"El índice de desafío de un dragón de colmillos legendario aumenta en 1 cuando se encuentra en su guarida."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/gciGzdi.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Wyrmling",
+			"size": [
+				"M"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 17,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "5d8 + 10",
+				"average": 32
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30,
+				"fly": 40,
+				"canHover": false
+			},
+			"str": 16,
+			"dex": 10,
+			"con": 15,
+			"int": 10,
+			"wis": 11,
+			"cha": 13,
+			"passive": 14,
+			"cr": "2",
+			"shortName": "Dragon Fang Wyrmling",
+			"senses": [
+				"blindsight 10 ft.",
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"B",
+				"D"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+2",
+				"con": "+4",
+				"wis": "+2",
+				"cha": "+3"
+			},
+			"skill": {
+				"perception": "+4",
+				"stealth": "+2",
+				"survival": "+2"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"El dragón puede imitar cualquier sonido que haya oído, incluidas las voces. Una criatura que escuche los sonidos puede saber que son imitaciones con un chequeo de Sabiduría (Perspicacia) exitoso{@dc 11}."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Cuando el dragón reduce una criatura a 0 puntos de vida o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para volar hasta la mitad de su velocidad de vuelo y realizar un ataque de mordisco (debe empezar y terminar este movimiento en el suelo)."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 5} para golpear, alcance de 5 pies, un objetivo. {@h}9 ({@damage 1d12 + 3}) de daño perforante y el objetivo debe tener éxito en una tirada de salvación de {@dc 13} Constitución o su puntuación de Constitución se reduce en 1. El objetivo muere si esto reduce su Constitución a 0. De lo contrario, la reducción dura hasta que el objetivo termine un descanso corto o largo."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"dragonAge": "wyrmling",
+			"tokenUrl": "https://i.imgur.com/aAjrZ68.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Wyrmling|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Los dragones de colmillos son criaturas codiciosas, rapaces y astutas, que viven para la caza y están excepcionalmente bien adaptados a ella. Combatientes salvajes, incluso para los estándares dracónicos, los dragones de colmillos disfrutan de la oportunidad de consumir la carne de otras criaturas, y se lanzan con gusto a la lucha por la oportunidad de disfrutar de su comida favorita.",
+									"Los dragones con colmillos, los más aterradores físicamente, están acorazados con placas óseas que se elevan en espolones que sobresalen en las articulaciones de las extremidades y terminan en colas largas y bifurcadas con un par de cuchillas óseas en forma de guadaña. Las placas de su cuerpo son de color gris y marrón moteado, y un ligero olor a sangre rodea al dragón de colmillos. Sus alas son pequeñas pero musculosas, y aunque vuelan poco, pueden elevarse con un solo golpe de sus alas para embestir hacia adelante. La cabeza de un dragón de colmillos está adornada con muchos cuernos pequeños o pinchos, y sus ojos suelen ser de color rojo o naranja brillante.",
+									"{@b Angry and Twisted.} Retorcidos por las energías mágicas que los crearon, los dragones de colmillos son propensos a la violencia aleatoria y a los arrebatos de ira. Se deleitan con la violencia y, cuando sienten que tienen ventaja, se lanzan a la refriega con fervor. Con el tiempo, aprenden a dominar la ira y a utilizarla en su beneficio. Brutales y despiadados, las criaturas que busquen a los dragones de colmillos deben hacerlo con extrema precaución, ya que no dudarán en causar estragos en cualquier criatura que consideren más débil que ellos y sea percibida como una amenaza o una molestia.",
+									"{@b Consummate Hunters.} Los dragones de colmillo comen todo tipo de carne fresca, disfrutando especialmente de la carne de criaturas inteligentes. Prefieren buscar comida lejos de sus guaridas y utilizan su capacidad de imitar sonidos que han oído para atraer a sus presas. Los dragones de colmillos tienen una inquietante tendencia a jugar con su comida de forma extremadamente cruel. Los dragones de colmillos son maestros del combate físico, y cada parte de su cuerpo es letal. No tienen un arma de aliento, pero su mordedura es tan devastadora que puede causar daños en la Constitución debido a la pérdida de sangre por las profundas laceraciones.",
+									"{@b Hunted and Dwindling.} Una vez que Tiamat se enteró de la existencia de estos dragones fuera de su control, intentó subyugar a la especie. Envió a sus seguidores a buscarlos y a \"mejorar\" los huevos de sus crías con un ritual que los convertiría en lo que se conocería como los dragones grises, esos mismos dragones grises fueron los encargados de purificar a los dragones de colmillos restantes. Los dragones colmilludos, que cada vez son menos, detestan a Tiamat y a todos sus seguidores, y los atacan en cuanto los ven. Los dragones colmillo hablan fragmentos de muchos idiomas y negocian para evitar batallas difíciles o mortales."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Los dragones de colmillo aparecieron originalmente en los Reinos en las ruinas de Myth Drannor, lo que hace que algunos sabios especulen que están conectados de alguna manera con los demonios que han infestado la antigua ciudad élfica desde su caída. Es habitual encontrarlos en las regiones de los Bosques Estelares de Cormanthor, y ocasionalmente en el Bosque de la Frontera, los Bosques de la Caza de Arañas y otros bosques de la región de las Tierras de los Dales, Sembia y el Mar de la Luna."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"El tesoro de un dragón colmilludo es similar al de otros dragones, ya que contiene varias riquezas, debido a su naturaleza intrínsecamente codiciosa. Sin embargo, a diferencia de otros dragones, el tesoro de un dragón colmilludo también contendrá varios trofeos de sus cacerías anteriores. Desde los cráneos de las presas hasta los cuernos, dientes, huesos, escamas, pieles y otras piezas que ha conservado mágicamente, su tesoro estará repleto de estos trofeos. Algunos de ellos pueden ser muy valiosos para el comprador adecuado..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"El más fuerte de los dragones de colmillos, que ha cazado y consumido a muchas otras criaturas legendarias, puede sufrir una transformación que lo convertirá en uno de los cazadores más poderosos que jamás haya existido. Los agentes de Tiamat hacen que la probabilidad de que un dragón de colmillos alcance este nivel de poder sea extremadamente rara, ya que cualquiera que intente la Gran Cacería recibe toda la atención de los lugartenientes de mayor confianza de Tiamat.",
+							"Para conseguirlo, el dragón debe conocer sus ecos, y que comience la Gran Caza. Para tener éxito en la Gran Caza, un Antiguo Colmillo de Dragón debe cazar y consumir la carne de sus ecos. El dragón debe hacerlo solo, ya que no hay mayor caza que la de uno mismo. A través de la astucia y la habilidad, la Gran Cacería proporciona poder y algunos de los mayores trofeos que un dragón colmilludo añadirá a su tesoro.",
+							"Los greatwyrms colmilludos son un verdadero terror para la vista. Enormes seres de fuerza bruta, están erizados de bordes afilados, púas que pueden lanzar y que se regeneran casi al instante, y hojas de hueso tan duras como el acero. Una vez que han alcanzado el estatus de greatwyrm, los dragones de colmillos cazarán activamente a los agentes de Tiamat con fervor."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+							"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos.",
+							"Hechizos como {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, son los más comunes; sin embargo, también se sabe que tienen hechizos para ayudarles a cazar más eficazmente, o, más raramente, a causar destrucción en bruto."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Los dragones de colmillo habitan en zonas muy boscosas y montañosas. La guarida de un dragón colmilludo es una cueva áspera y desordenada, llena de rocas con bordes dentados y vegetación cubierta de espinas. Los trofeos de las cacerías del dragón se mezclan con su tesoro. Normalmente tapian sus guaridas con enormes rocas u otros materiales para mantener alejados a los intrusos en su ausencia. Los dragones de colmillo tienden a elegir cuevas en las que puedan esconderse o en las que puedan atacar a intrusos desprevenidos.",
+									"El índice de desafío de un dragón de colmillos legendario aumenta en 1 cuando se encuentra en su guarida."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/JW62gx5.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Si el dragón falla una tirada de salvación, puede elegir tener éxito en su lugar."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Si el Greatwyrm quedara reducido a 0 puntos de vida, su total de puntos de vida actual se restablece a 375 puntos de vida, y recupera los usos de Resistencia Legendaria gastados. Además, el Greatwyrm puede utilizar las opciones de la sección \"Acciones míticas\" durante 1 hora. Concede al grupo 105.000 XP adicionales (210.000 XP en total) por derrotar al Greatwyrm después de que se active su \"Furia destructora\"."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"El dragón puede imitar cualquier sonido que haya oído, incluidas las voces. Una criatura que escuche los sonidos puede saber que son imitaciones con un chequeo de Sabiduría (Percepción) exitoso {@dc 22}."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Como acción adicional, el dragón puede entrar en cólera. Mientras está enfadado, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +5 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su rabia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious}, o termina su furia en su turno como acción adicional."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Cuando el dragón reduce una criatura a 0 puntos de vida o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para volar hasta la mitad de su velocidad de vuelo y realizar un ataque de mordisco (debe empezar y terminar este movimiento en el suelo)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Los ataques con armas cuerpo a cuerpo del dragón consiguen un golpe crítico con una tirada de 18, 19 o 20. Además, tira un dado de daño de arma adicional al determinar el daño extra de un golpe crítico con un ataque de arma cuerpo a cuerpo."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"El dragón puede utilizar su Presencia Espantosa. A continuación, realiza tres ataques: uno con su mordisco y dos con sus garras."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance de 15 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño perforante y el objetivo debe tener éxito en una tirada de salvación de {@dc 26} Constitución o su puntuación de Constitución se reduce en {@dice 1d6}. El objetivo muere si esto reduce su Constitución a 0. De lo contrario, la reducción dura hasta que el objetivo termine un descanso corto o largo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance de 10 pies, un objetivo. {@h}21 ({@damage 2d10 + 10}) de daño cortante."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance 20 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño contundente. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 26} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance 20 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño perforante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 26} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance 20 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño cortante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 26} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Cada criatura que elija el dragón y que esté a menos de 120 pies del dragón y sea consciente de él debe tener éxito en una tirada de salvación de Sabiduría {@dc 22} o se asustará durante 1 minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, terminando el efecto sobre sí misma si tiene éxito. Si la tirada de salvación de una criatura tiene éxito o el efecto termina para ella, la criatura es inmune a la Presencia Asustada del dragón durante las siguientes 24 horas."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Como acción adicional, el dragón puede entrar en cólera. Mientras está enfadado, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +5 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su rabia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious}, o termina su furia en su turno como acción adicional."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"El dragón hace un ataque con la cola."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"El dragón gira y golpea con su cola. Cada criatura en un radio de 6 metros del dragón debe tener éxito en una tirada de salvación de Destreza {@dc 26} o recibir 21 ({@dice 2d10 + 10}) de daño contundente o cortante y ser derribada {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} para golpear, alcance 200/400 pies, un objetivo. {@h}16 ({@damage 1d12 + 10}) de daño perforante. El Greatwyrm lanza 2 púas a un objetivo dentro de su alcance."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"El Greatwyrm hace un ataque de mordida."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"El greatwyrm está erizado de púas y las lanza en todas direcciones. Cada criatura en una esfera de 60 pies de radio centrada en el greatwyrm debe tener éxito en una tirada de salvación de Destreza {@dc 26}, recibiendo 42 ({@damage 5d12 + 10}) de daño perforante si falla la tirada, y la mitad si tiene éxito."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/2NoEwjM.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Los dragones de colmillos son criaturas codiciosas, rapaces y astutas, que viven para la caza y están excepcionalmente bien adaptados a ella. Combatientes salvajes, incluso para los estándares dracónicos, los dragones de colmillos disfrutan de la oportunidad de consumir la carne de otras criaturas, y se lanzan con gusto a la lucha por la oportunidad de disfrutar de su comida favorita.",
+									"Los dragones con colmillos, los más aterradores físicamente, están acorazados con placas óseas que se elevan en espolones que sobresalen en las articulaciones de las extremidades y terminan en colas largas y bifurcadas con un par de cuchillas óseas en forma de guadaña. Las placas de su cuerpo son de color gris y marrón moteado, y un ligero olor a sangre rodea al dragón de colmillos. Sus alas son pequeñas pero musculosas, y aunque vuelan poco, pueden elevarse con un solo golpe de sus alas para embestir hacia adelante. La cabeza de un dragón de colmillos está adornada con muchos cuernos pequeños o pinchos, y sus ojos suelen ser de color rojo o naranja brillante.",
+									"{@b Angry and Twisted.} Retorcidos por las energías mágicas que los crearon, los dragones de colmillos son propensos a la violencia aleatoria y a los arrebatos de ira. Se deleitan con la violencia y, cuando sienten que tienen ventaja, se lanzan a la refriega con fervor. Con el tiempo, aprenden a dominar la ira y a utilizarla en su beneficio. Brutales y despiadados, las criaturas que busquen a los dragones de colmillos deben hacerlo con extrema precaución, ya que no dudarán en causar estragos en cualquier criatura que consideren más débil que ellos y sea percibida como una amenaza o una molestia.",
+									"{@b Consummate Hunters.} Los dragones de colmillo comen todo tipo de carne fresca, disfrutando especialmente de la carne de criaturas inteligentes. Prefieren buscar comida lejos de sus guaridas y utilizan su capacidad de imitar sonidos que han oído para atraer a sus presas. Los dragones de colmillos tienen una inquietante tendencia a jugar con su comida de forma extremadamente cruel. Los dragones de colmillos son maestros del combate físico, y cada parte de su cuerpo es letal. No tienen un arma de aliento, pero su mordedura es tan devastadora que puede causar daños en la Constitución debido a la pérdida de sangre por las profundas laceraciones.",
+									"{@b Hunted and Dwindling.} Una vez que Tiamat se enteró de la existencia de estos dragones fuera de su control, intentó subyugar a la especie. Envió a sus seguidores a buscarlos y a \"mejorar\" los huevos de sus crías con un ritual que los convertiría en lo que se conocería como los dragones grises, esos mismos dragones grises fueron los encargados de purificar a los dragones de colmillos restantes. Los dragones colmilludos, que cada vez son menos, detestan a Tiamat y a todos sus seguidores, y los atacan en cuanto los ven. Los dragones colmillo hablan fragmentos de muchos idiomas y negocian para evitar batallas difíciles o mortales."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Los dragones de colmillo aparecieron originalmente en los Reinos en las ruinas de Myth Drannor, lo que hace que algunos sabios especulen que están conectados de alguna manera con los demonios que han infestado la antigua ciudad élfica desde su caída. Es habitual encontrarlos en las regiones de los Bosques Estelares de Cormanthor, y ocasionalmente en el Bosque de la Frontera, los Bosques de la Caza de Arañas y otros bosques de la región de las Tierras de los Dales, Sembia y el Mar de la Luna."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"El tesoro de un dragón colmilludo es similar al de otros dragones, ya que contiene varias riquezas, debido a su naturaleza intrínsecamente codiciosa. Sin embargo, a diferencia de otros dragones, el tesoro de un dragón colmilludo también contendrá varios trofeos de sus cacerías anteriores. Desde los cráneos de las presas hasta los cuernos, dientes, huesos, escamas, pieles y otras piezas que ha conservado mágicamente, su tesoro estará repleto de estos trofeos. Algunos de ellos pueden ser muy valiosos para el comprador adecuado..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"El más fuerte de los dragones de colmillos, que ha cazado y consumido a muchas otras criaturas legendarias, puede sufrir una transformación que lo convertirá en uno de los cazadores más poderosos que jamás haya existido. Los agentes de Tiamat hacen que la probabilidad de que un dragón de colmillos alcance este nivel de poder sea extremadamente rara, ya que cualquiera que intente la Gran Cacería recibe toda la atención de los lugartenientes de mayor confianza de Tiamat.",
+							"Para conseguirlo, el dragón debe conocer sus ecos, y que comience la Gran Caza. Para tener éxito en la Gran Caza, un Antiguo Colmillo de Dragón debe cazar y consumir la carne de sus ecos. El dragón debe hacerlo solo, ya que no hay mayor caza que la de uno mismo. A través de la astucia y la habilidad, la Gran Cacería proporciona poder y algunos de los mayores trofeos que un dragón colmilludo añadirá a su tesoro.",
+							"Los greatwyrms colmilludos son un verdadero terror para la vista. Enormes seres de fuerza bruta, están erizados de bordes afilados, púas que pueden lanzar y que se regeneran casi al instante, y hojas de hueso tan duras como el acero. Una vez que han alcanzado el estatus de greatwyrm, los dragones de colmillos cazarán activamente a los agentes de Tiamat con fervor."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+							"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos.",
+							"Hechizos como {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, son los más comunes; sin embargo, también se sabe que tienen hechizos para ayudarles a cazar más eficazmente, o, más raramente, a causar destrucción en bruto."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Los dragones de colmillo habitan en zonas muy boscosas y montañosas. La guarida de un dragón colmilludo es una cueva áspera y desordenada, llena de rocas con bordes dentados y vegetación cubierta de espinas. Los trofeos de las cacerías del dragón se mezclan con su tesoro. Normalmente tapian sus guaridas con enormes rocas u otros materiales para mantener alejados a los intrusos en su ausencia. Los dragones de colmillo tienden a elegir cuevas en las que puedan esconderse o en las que puedan atacar a intrusos desprevenidos.",
+									"El índice de desafío de un dragón de colmillos legendario aumenta en 1 cuando se encuentra en su guarida."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IcVPE1D.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm (Variant Caster)",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+						"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Si el dragón falla una tirada de salvación, puede elegir tener éxito en su lugar."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Si el Greatwyrm quedara reducido a 0 puntos de vida, su total de puntos de vida actual se restablece a 375 puntos de vida, y recupera los usos de Resistencia Legendaria gastados. Además, el Greatwyrm puede utilizar las opciones de la sección \"Acciones míticas\" durante 1 hora. Concede al grupo 105.000 XP adicionales (210.000 XP en total) por derrotar al Greatwyrm después de que se active su \"Furia destructora\"."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"El dragón puede imitar cualquier sonido que haya oído, incluidas las voces. Una criatura que escuche los sonidos puede saber que son imitaciones con un chequeo de Sabiduría (Percepción) exitoso {@dc 22}."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Como acción adicional, el dragón puede entrar en cólera. Mientras está enfadado, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +5 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su rabia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious}, o termina su furia en su turno como acción adicional."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Cuando el dragón reduce una criatura a 0 puntos de vida o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para volar hasta la mitad de su velocidad de vuelo y realizar un ataque de mordisco (debe empezar y terminar este movimiento en el suelo)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Los ataques con armas cuerpo a cuerpo del dragón consiguen un golpe crítico con una tirada de 18, 19 o 20. Además, tira un dado de daño de arma adicional al determinar el daño extra de un golpe crítico con un ataque de arma cuerpo a cuerpo."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"El dragón puede utilizar su Presencia Espantosa. A continuación, realiza tres ataques: uno con su mordisco y dos con sus garras."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance de 15 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño perforante y el objetivo debe tener éxito en una tirada de salvación de {@dc 26} Constitución o su puntuación de Constitución se reduce en {@dice 1d6}. El objetivo muere si esto reduce su Constitución a 0. De lo contrario, la reducción dura hasta que el objetivo termine un descanso corto o largo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance de 10 pies, un objetivo. {@h}21 ({@damage 2d10 + 10}) de daño cortante."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance 20 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño contundente. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 26} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance 20 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño perforante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 26} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} para golpear, alcance 20 pies, un objetivo. {@h}23 ({@damage 2d12 + 10}) de daño cortante. Si el objetivo es una criatura, debe tener éxito en una tirada de salvación de {@dc 26} Fuerza o ser derribado {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Cada criatura que elija el dragón y que esté a menos de 120 pies del dragón y sea consciente de él debe tener éxito en una tirada de salvación de Sabiduría {@dc 22} o se asustará durante 1 minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, terminando el efecto sobre sí misma si tiene éxito. Si la tirada de salvación de una criatura tiene éxito o el efecto termina para ella, la criatura es inmune a la Presencia Asustada del dragón durante las siguientes 24 horas."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Como acción adicional, el dragón puede entrar en cólera. Mientras está enfadado, obtiene los siguientes beneficios:",
+						{
+							"type": "list",
+							"items": [
+								"El dragón tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+								"Cuando el dragón realiza un ataque con un arma cuerpo a cuerpo, obtiene un bono de +5 a la tirada de daño.",
+								"El dragón tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+							]
+						},
+						"Su rabia dura 1 minuto. Solo termina antes si el dragón es derribado {@condition unconscious}, o termina su furia en su turno como acción adicional."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"El dragón hace un ataque con la cola."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"El dragón gira y golpea con su cola. Cada criatura en un radio de 6 metros del dragón debe tener éxito en una tirada de salvación de Destreza {@dc 26} o recibir 21 ({@dice 2d10 + 10}) de daño contundente o cortante y ser derribada {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} para golpear, alcance 200/400 pies, un objetivo. {@h}16 ({@damage 1d12 + 10}) de daño perforante. El Greatwyrm lanza 2 púas a un objetivo dentro de su alcance."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"El Greatwyrm hace un ataque de mordida."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"El greatwyrm está erizado de púas y las lanza en todas direcciones. Cada criatura en una esfera de 60 pies de radio centrada en el greatwyrm debe tener éxito en una tirada de salvación de Destreza {@dc 26}, recibiendo 42 ({@damage 5d12 + 10}) de daño perforante si falla la tirada, y la mitad si tiene éxito."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/kMbk4Iw.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Los dragones de colmillos son criaturas codiciosas, rapaces y astutas, que viven para la caza y están excepcionalmente bien adaptados a ella. Combatientes salvajes, incluso para los estándares dracónicos, los dragones de colmillos disfrutan de la oportunidad de consumir la carne de otras criaturas, y se lanzan con gusto a la lucha por la oportunidad de disfrutar de su comida favorita.",
+									"Los dragones con colmillos, los más aterradores físicamente, están acorazados con placas óseas que se elevan en espolones que sobresalen en las articulaciones de las extremidades y terminan en colas largas y bifurcadas con un par de cuchillas óseas en forma de guadaña. Las placas de su cuerpo son de color gris y marrón moteado, y un ligero olor a sangre rodea al dragón de colmillos. Sus alas son pequeñas pero musculosas, y aunque vuelan poco, pueden elevarse con un solo golpe de sus alas para embestir hacia adelante. La cabeza de un dragón de colmillos está adornada con muchos cuernos pequeños o pinchos, y sus ojos suelen ser de color rojo o naranja brillante.",
+									"{@b Angry and Twisted.} Retorcidos por las energías mágicas que los crearon, los dragones de colmillos son propensos a la violencia aleatoria y a los arrebatos de ira. Se deleitan con la violencia y, cuando sienten que tienen ventaja, se lanzan a la refriega con fervor. Con el tiempo, aprenden a dominar la ira y a utilizarla en su beneficio. Brutales y despiadados, las criaturas que busquen a los dragones de colmillos deben hacerlo con extrema precaución, ya que no dudarán en causar estragos en cualquier criatura que consideren más débil que ellos y sea percibida como una amenaza o una molestia.",
+									"{@b Consummate Hunters.} Los dragones de colmillo comen todo tipo de carne fresca, disfrutando especialmente de la carne de criaturas inteligentes. Prefieren buscar comida lejos de sus guaridas y utilizan su capacidad de imitar sonidos que han oído para atraer a sus presas. Los dragones de colmillos tienen una inquietante tendencia a jugar con su comida de forma extremadamente cruel. Los dragones de colmillos son maestros del combate físico, y cada parte de su cuerpo es letal. No tienen un arma de aliento, pero su mordedura es tan devastadora que puede causar daños en la Constitución debido a la pérdida de sangre por las profundas laceraciones.",
+									"{@b Hunted and Dwindling.} Una vez que Tiamat se enteró de la existencia de estos dragones fuera de su control, intentó subyugar a la especie. Envió a sus seguidores a buscarlos y a \"mejorar\" los huevos de sus crías con un ritual que los convertiría en lo que se conocería como los dragones grises, esos mismos dragones grises fueron los encargados de purificar a los dragones de colmillos restantes. Los dragones colmilludos, que cada vez son menos, detestan a Tiamat y a todos sus seguidores, y los atacan en cuanto los ven. Los dragones colmillo hablan fragmentos de muchos idiomas y negocian para evitar batallas difíciles o mortales."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Los dragones de colmillo aparecieron originalmente en los Reinos en las ruinas de Myth Drannor, lo que hace que algunos sabios especulen que están conectados de alguna manera con los demonios que han infestado la antigua ciudad élfica desde su caída. Es habitual encontrarlos en las regiones de los Bosques Estelares de Cormanthor, y ocasionalmente en el Bosque de la Frontera, los Bosques de la Caza de Arañas y otros bosques de la región de las Tierras de los Dales, Sembia y el Mar de la Luna."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"El tesoro de un dragón colmilludo es similar al de otros dragones, ya que contiene varias riquezas, debido a su naturaleza intrínsecamente codiciosa. Sin embargo, a diferencia de otros dragones, el tesoro de un dragón colmilludo también contendrá varios trofeos de sus cacerías anteriores. Desde los cráneos de las presas hasta los cuernos, dientes, huesos, escamas, pieles y otras piezas que ha conservado mágicamente, su tesoro estará repleto de estos trofeos. Algunos de ellos pueden ser muy valiosos para el comprador adecuado..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"El más fuerte de los dragones de colmillos, que ha cazado y consumido a muchas otras criaturas legendarias, puede sufrir una transformación que lo convertirá en uno de los cazadores más poderosos que jamás haya existido. Los agentes de Tiamat hacen que la probabilidad de que un dragón de colmillos alcance este nivel de poder sea extremadamente rara, ya que cualquiera que intente la Gran Cacería recibe toda la atención de los lugartenientes de mayor confianza de Tiamat.",
+							"Para conseguirlo, el dragón debe conocer sus ecos, y que comience la Gran Caza. Para tener éxito en la Gran Caza, un Antiguo Colmillo de Dragón debe cazar y consumir la carne de sus ecos. El dragón debe hacerlo solo, ya que no hay mayor caza que la de uno mismo. A través de la astucia y la habilidad, la Gran Cacería proporciona poder y algunos de los mayores trofeos que un dragón colmilludo añadirá a su tesoro.",
+							"Los greatwyrms colmilludos son un verdadero terror para la vista. Enormes seres de fuerza bruta, están erizados de bordes afilados, púas que pueden lanzar y que se regeneran casi al instante, y hojas de hueso tan duras como el acero. Una vez que han alcanzado el estatus de greatwyrm, los dragones de colmillos cazarán activamente a los agentes de Tiamat con fervor."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Los dragones con colmillos también pueden utilizar las reglas variantes de hechicero innato para dragones presentadas en el Manual de la Senda de las Fauces Furiosas.",
+							"Tienen tendencia a los hechizos que anulan otras magias o impiden a los lanzadores enemigos.",
+							"Hechizos como {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, son los más comunes; sin embargo, también se sabe que tienen hechizos para ayudarles a cazar más eficazmente, o, más raramente, a causar destrucción en bruto."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Los dragones de colmillo habitan en zonas muy boscosas y montañosas. La guarida de un dragón colmilludo es una cueva áspera y desordenada, llena de rocas con bordes dentados y vegetación cubierta de espinas. Los trofeos de las cacerías del dragón se mezclan con su tesoro. Normalmente tapian sus guaridas con enormes rocas u otros materiales para mantener alejados a los intrusos en su ausencia. Los dragones de colmillo tienden a elegir cuevas en las que puedan esconderse o en las que puedan atacar a intrusos desprevenidos.",
+									"El índice de desafío de un dragón de colmillos legendario aumenta en 1 cuando se encuentra en su guarida."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/WhjJDXL.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"race": [
+		{
+			"name": "Dragonborn (Fang)",
+			"source": "KGFD",
+			"lineage": "VRGR",
+			"size": [
+				"M"
+			],
+			"speed": {
+				"walk": 30
+			},
+			"entries": [
+				"Tu herencia dracónica se manifiesta en una serie de rasgos que compartes con otros dragonborn.",
+				{
+					"name": "Ability Score Increase",
+					"type": "entries",
+					"entries": [
+						"Cuando determines las puntuaciones de habilidad de tu personaje, aumenta una de esas puntuaciones en 2 y aumenta otra en 1, o aumenta tres puntuaciones diferentes en 1."
+					]
+				},
+				{
+					"name": "Age",
+					"type": "entries",
+					"entries": [
+						"Los jóvenes dragonborn crecen rápidamente. Caminan horas después de nacer, alcanzan el tamaño y el desarrollo de un niño humano de 10 años a la edad de 3, y llegan a la edad adulta a los 15. Viven hasta los 80 años."
+					]
+				},
+				{
+					"name": "Alignment",
+					"type": "entries",
+					"entries": [
+						"Los dragonborns de colmillo tienden a venerar la libertad por encima de todo. La mayoría de los nacidos de colmillos son caóticamente neutrales. Sin embargo, hay algunos raros que se unen a Bahamut en la guerra contra Tiamat, adoptando tendencias lícitas o buenas."
+					]
+				},
+				{
+					"name": "Size",
+					"type": "entries",
+					"entries": [
+						"Los Dragonborn de Colmillo son más altos y pesados que los humanos, midiendo más de 1,80 metros y pesando una media de casi 250 libras. Su tamaño es Medio. Velocidad. Tu velocidad básica al caminar es de 30 pies."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"Tu velocidad base al caminar es de 30 pies."
+					]
+				},
+				{
+					"name": "Languages",
+					"entries": [
+						"Tu personaje puede hablar, leer y escribir en común y otro idioma que tú y tu DM acordéis que es apropiado para el personaje."
+					],
+					"type": "entries"
+				},
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Ancestry Specific Traits",
+							"entries": [
+								"Tu ancestro fue un dragón de colmillos, y esto imparte rasgos específicos a tu especie.",
+								{
+									"name": "Bite",
+									"entries": [
+										"Tus fauces colmilludas son un arma natural que puedes utilizar para realizar golpes desarmados. Si golpeas con ella, infliges un daño perforante igual a {@b 1d6 + your Strength modifier}, en lugar del daño contundente normal de un golpe desarmado."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Merciless Rive",
+									"entries": [
+										"Inmediatamente después de que reduzcas a una criatura a 0 puntos de vida, o de que consigas un golpe crítico, como parte de una acción de ataque en tu turno, puedes arremeter hacia delante y utilizar tu mordisco para realizar un ataque devastador. Te mueves hasta la mitad de tu velocidad de movimiento y realizas un ataque de mordisco. Este ataque se realiza con ventaja y, si tiene éxito, inflige 1d6 de daño perforante adicional. El daño adicional aumenta a3d6 a 5º nivel, 5d6 a 11º nivel y 7d6 a 17º nivel.",
+										"Puedes usar tu Rive despiadado un número de veces igual a tu bonificación de competencia, y recuperas todos los usos gastados cuando terminas un descanso largo."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Draconic Resistance",
+									"entries": [
+										"Compartes parte de la habilidad de tu ancestro para esquivar ataques mágicos. Tienes ventaja en todas las tiradas de salvación de Fuerza, Destreza y Constitución contra la magia."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Thrill of the Hunt",
+									"entries": [
+										"Tienes competencia en la habilidad de supervivencia"
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"survival": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"common": true,
+					"other": true
+				}
+			],
+			"age": {
+				"mature": 15,
+				"max": 80
+			},
+			"fluff": {
+				"entries": [
+					"Nacidos de dragones, como proclama su nombre, los dragonborn caminan orgullosos por un mundo que los recibe con temerosa incomprensión. Formados por dioses dracónicos o por los propios dragones, los dragonborn nacieron originalmente de huevos de dragón como una raza única, que combina los mejores atributos de los dragones y los humanoides. Algunos nacidos de dragón son fieles sirvientes de los verdaderos dragones, otros forman las filas de los soldados en las grandes guerras, y otros se encuentran a la deriva, sin una vocación clara en la vida."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/EO3wlZY.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"variantrule": [
+		{
+			"name": "Half Dragon (Fang)",
+			"source": "KGFD",
+			"ruleType": "O",
+			"entries": [
+				"Cuando un dragón de colmillos en forma polimorfa se aparea con otra criatura, la unión a veces produce una descendencia de medio colmillo. Una criatura también puede transformarse en un dragón de medio colmillo como resultado de un hechizo de un mago loco o de un baño ritual en sangre de dragón. En todos estos casos, el resultado es una criatura que combina la esencia de un dragón con la forma de su raza original. Independientemente de su origen, todos los dragones de medio colmillo tienen rasgos y apariencia similares, ganando sentidos especiales, una furia feroz y una mordida mortal.",
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Half Fang Dragon Template",
+							"entries": [
+								{
+									"name": "Draconic Nature",
+									"entries": [
+										"Los dragones de medio colmillo son incapaces de tener una descendencia natural. Los que desean reproducirse deben encontrar otras formas de hacerlo, casi siempre con magia. Como compensación, los dragones de medio colmillo son bendecidos con una larga vida. Salvo desgracias imprevistas, la esperanza de vida de un típico dragón de medio colmillo es el doble de la de su línea no dracónica, por lo que un humano de medio colmillo puede vivir más de un siglo y medio. Los dragones de medio colmillo heredan rasgos de personalidad comunes a su herencia dracónica. Estos rasgos se ven atenuados por el otro linaje del dragón de medio colmillo, pero los dragones de medio colmillo son más rápidos a la hora de enfadarse y más propensos a los actos de violencia que un miembro normal de su linaje no dracónico.",
+										"Una bestia, humanoide, gigante o monstruosidad puede convertirse en un dragón de medio colmillo. Cuando una criatura se convierte en un dragón de medio colmillo, conserva todas sus estadísticas excepto las que se indican a continuación."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Senses",
+									"entries": [
+										"El dragón de medio colmillo gana visión ciega con un radio de 10 pies y visión oscura con un radio de 60 pies."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Rage (1/Day)",
+									"entries": [
+										"Como acción adicional, el dragón de medio colmillo puede entrar en cólera. Durante un minuto, obtiene los siguientes beneficios:",
+										{
+											"type": "list",
+											"items": [
+												"El dragón de medio colmillo tiene ventaja en los chequeos de Fuerza y en las tiradas de salvación de Fuerza.",
+												"Cuando el dragón de medio colmillo realiza un ataque con un arma cuerpo a cuerpo, gana un bono de +2 a la tirada de daño.",
+												"El dragón de medio colmillo tiene ventaja en las tiradas de salvación contra hechizos y otros efectos mágicos."
+											]
+										}
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Ravenous Onslaught",
+									"entries": [
+										"Cuando el dragón de medio colmillo reduce a una criatura a 0 puntos de golpe o consigue un golpe crítico con un ataque cuerpo a cuerpo en su turno, puede realizar una acción de bonificación para moverse hasta la mitad de su velocidad y realizar un ataque de mordisco."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Action: Bite",
+									"entries": [
+										"El dragón de medio colmillo tiene la mordida de su mitad de dragón. El tamaño del medio dragón colmilludo determina cómo funciona esta acción.",
+										{
+											"type": "table",
+											"caption": "Half fang dragon bite",
+											"colLabels": [
+												"Size",
+												"Bite"
+											],
+											"colStyles": [
+												"col-6 text-center",
+												"col-6 text-center"
+											],
+											"rows": [
+												[
+													"Grande o pequeño",
+													"Como wyrmling ({@damage 1d12 + 3} de daño penetrante)"
+												],
+												[
+													"Huge",
+													"Como dragón joven ({@damage 2d12 + 5} de daño penetrante)"
+												],
+												[
+													"Gargantúa",
+													"Como dragón adulto ({@damage 2d12 + 7} de daño penetrante)"
+												]
+											]
+										}
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"Arte y artículo diseñados por {@link Kajagrae|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}. Por favor, acredita si lo vuelves a publicar en otro sitio."
+					]
+				}
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"shortName": "Path of the Furious Maw",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"page": 1,
+			"subclassFeatures": [
+				"Path of the Furious Maw|Barbarian|PHB|Path of the Furious Maw|KGFD|3",
+				"Dogged Awareness|Barbarian|PHB|Path of the Furious Maw|KGFD|6",
+				"No Escape|Barbarian|PHB|Path of the Furious Maw|KGFD|10",
+				"Vicious Strikes|Barbarian|PHB|Path of the Furious Maw|KGFD|14"
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"shortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"subclassFeatures": [
+				"Draconic Bloodline (Fang)|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1",
+				"Draconic Affinity|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|6",
+				"Sorcerous Frenzy|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|14",
+				"Draconic Presence|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|18"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"entries": [
+				"A 3er nivel, un bárbaro obtiene el rasgo Senda Primordial. El bárbaro dispone de la siguiente opción, además de las que se ofrecen en el Manual del Jugador y en la Guía de todo de Xanthar.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Path of the Furious Maw Features|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Merciless Onslaught|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Cunning Hunter|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Path of the Furious Maw Features",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Algunas criaturas son tan feroces que inspiran a las culturas a emularlas en su propia forma de vida. Estas tribus enseñan que la habilidad en la caza y la ferocidad abyecta son en sí mismas un medio para alcanzar un fin. Cuando un bárbaro que sigue este camino se enfurece, se convierte en un terror despiadado en el combate.",
+				"Los bárbaros que recurren al salvajismo primitivo de esta senda son aterradores en el combate. Normalmente, adornados con trofeos de matanzas anteriores, se adentran en la refriega y causan estragos en sus oponentes. En las profundidades de su furia, se sabe que incluso juegan con lo último de su presa antes de asestar el golpe final.",
+				{
+					"type": "table",
+					"caption": "Path of the Furious Maw Features",
+					"colLabels": [
+						"Barbarian Level",
+						"Feature"
+					],
+					"colStyles": [
+						"col-3 text-center",
+						"col-9"
+					],
+					"rows": [
+						[
+							"3rd",
+							"Ataque despiadado, Cazador astuto"
+						],
+						[
+							"6th",
+							"Concienciación"
+						],
+						[
+							"10th",
+							"No hay escapatoria"
+						],
+						[
+							"14th",
+							"Golpes viciosos"
+						]
+					]
+				}
+			]
+		},
+		{
+			"name": "Merciless Onslaught",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"A partir del 3º nivel, cuando eliges esta senda, canalizas la ferocidad de las costumbres de tu tribu en tu furia. Mientras estés enfurecido, cuando reduzcas a una criatura a 0 puntos de golpe o consigas un golpe crítico con un ataque cuerpo a cuerpo en tu turno, como acción de bonificación, puedes moverte hasta la mitad de tu velocidad y hacer un ataque cuerpo a cuerpo."
+			]
+		},
+		{
+			"name": "Cunning Hunter",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"A partir del 3º nivel, cuando eliges esta senda, canalizas la ferocidad de las costumbres de tu tribu en tu furia. Mientras estés enfurecido, cuando reduzcas a una criatura a 0 puntos de golpe o consigas un golpe crítico con un ataque cuerpo a cuerpo en tu turno, como acción de bonificación, puedes moverte hasta la mitad de tu velocidad y hacer un ataque cuerpo a cuerpo."
+			]
+		},
+		{
+			"name": "Dogged Awareness",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"A partir del 6º nivel, tu conocimiento de la caza ha sintonizado tus propios sentidos para hacerte saber que el cazador se ha convertido en cazado. Tienes ventaja en los chequeos de Sabiduría (Percepción) para detectar criaturas ocultas. Además, ya no puedes ser sorprendido."
+			]
+		},
+		{
+			"name": "No Escape",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"A partir del 10º nivel, tu celo por la caza y el combate se han entrelazado tanto, que ahora a veces buscas prolongar ambos.",
+				"Una vez por rabia, puedes intentar dejar cojo a uno de tus oponentes. Cuando realices un ataque con un arma cuerpo a cuerpo, tu objetivo debe tener éxito en una tirada de salvación de Fuerza igual a 8 + tu bonificación de competencia + tu modificador de Fuerza, o caerá rendido. Además, su velocidad de movimiento se reduce a la mitad hasta que reciba curación mágica o termine un descanso largo."
+			]
+		},
+		{
+			"name": "Vicious Strikes",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"A 14º nivel, la crueldad de tu furia ha alcanzado su punto álgido. Mientras estés enfadado, tus ataques con armas consiguen un golpe crítico con una tirada de 19 o 20. Si tus ataques ya obtienen un golpe crítico con una tirada de 19 o 20 de otra fuente, en su lugar obtienes un golpe crítico con una tirada de 18-20."
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"entries": [
+				"A 1er nivel, un hechicero gana la característica Origen Hechicero.La siguiente opción está disponible para un hechicero, además de las ofrecidas en el Manual del Jugador, y la Guía de Todo de Xanthar.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Bloodline|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Resilience|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Draconic Bloodline",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"Tu magia innata proviene de la magia dracónica que se mezcló con tu sangre o la de tus antepasados. En la mayoría de los casos, los hechiceros con este origen se remontan a un poderoso hechicero de la antigüedad que hizo un trato con un dragón o que incluso podría haber reclamado un padre dragón. Algunas de estas líneas de sangre están bien establecidas en el mundo, pero la mayoría son oscuras. Cualquier hechicero puede ser el primero de una nueva línea de sangre, como resultado de un pacto o alguna otra circunstancia excepcional."
+			]
+		},
+		{
+			"name": "Draconic Resilience",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"Cuando la magia fluye por tu cuerpo, hace que surjan rasgos físicos de tus ancestros dragón. A 1er nivel, tu máximo de puntos de golpe aumenta en 1 y vuelve a aumentar en 1 cada vez que ganes un nivel en esta clase. Además, partes de tu piel se cubren con un fino brillo de escamas similares a las de un dragón. Cuando no llevas armadura, tu CA es igual a 13 + tu modificador de Destreza."
+			]
+		},
+		{
+			"name": "Draconic Affinity",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"A partir del 6º nivel, cuando lances un conjuro que inflija daño contundente, penetrante o cortante, añade tu modificador de Carisma a ese daño. También obtienes la capacidad de gastar 2 puntos de hechicería para obtener resistencia a la magia durante 1 minuto."
+			]
+		},
+		{
+			"name": "Sorcerous Frenzy",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"La furia del dragón colmilludo fluye en tu sangre. A 14º nivel, puedes invocar esa ira y canalizarla en tu magia. En tu turno, puedes entrar en un frenesí hechicero como acción adicional. Mientras estás en frenesí, obtienes los siguientes beneficios: Obtienes un bono de +2 a tu DC de salvación de hechizos.",
+				{
+					"type": "list",
+					"items": [
+						"El alcance crítico de tu ataque de hechizo aumenta en 1.",
+						"El coste en puntos de conjuro de las opciones metamágicas se reduce a la mitad, hasta un mínimo de 1.",
+						"El coste de puntos de hechizo para crear ranuras de hechizo se reduce en 1."
+					]
+				},
+				"Tu frenesí dura 1 minuto. Termina antes si quedas inconsciente o si tu turno termina y no has dañado a una criatura hostil desde tu último turno ni has recibido daño desde entonces. También puedes terminar tu frenesí en tu turno como acción adicional.",
+				"Una vez que hayas utilizado esta función, no podrás volver a hacerlo hasta que termines un descanso largo."
+			]
+		},
+		{
+			"name": "Draconic Presence",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"A partir del 18º nivel, puedes canalizar la temible presencia de tu ancestro dragón, haciendo que los que te rodean se asombren o asusten. Como acción, puedes gastar 5 puntos de hechicería para utilizar este poder y exudar un aura de asombro o miedo (a tu elección) a una distancia de 60 pies. Durante 1 minuto o hasta que pierdas la concentración (como si estuvieras lanzando un conjuro de concentración), cada criatura hostil que comience su turno en esta aura debe tener éxito en una tirada de salvación de Sabiduría o quedar encantada (si elegiste asombro) o asustada (si elegiste miedo) hasta que el aura termine. Una criatura que tenga éxito en esta tirada de salvación es inmune a tu aura durante 24 horas."
+			]
+		}
+	]
+}
