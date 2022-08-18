@@ -1,0 +1,2573 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "KGFD",
+				"abbreviation": "KGFD",
+				"full": "Fang Dragons",
+				"authors": [
+					"KajaGrae"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "2022.08.12",
+				"color": "4d2611",
+				"url": "https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1657961727,
+		"dateLastModified": 1660775288,
+		"_dateLastModifiedHash": "1df0edecae"
+	},
+	"legendaryGroup": [
+		{
+			"name": "FangDragonsLairActionsFangDragon",
+			"source": "KGFD",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the dragon takes a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:",
+				{
+					"type": "list",
+					"items": [
+						"{@b Stone Spikes.} Des pointes de pierre acérées comme des rasoirs jaillissent du sol dans un rayon de 20 pieds centré sur un point que le dragon peut voir dans un rayon de 120 pieds autour de lui. Cette zone devient un terrain difficile, et chaque créature qui s'y trouve doit réussir un jet de sauvegarde de Dextérité DC {@dc 15} ou subir 10 ({@damage 3d6}) dégâts perforants. Lorsqu'une créature se déplace dans ou à l'intérieur de la zone, elle subit {@damage 2d6} de dégâts perforants par tranche de 5 pieds parcourus. Les piques restent jusqu'à ce que le dragon utilise à nouveau cette action de tanière ou qu'il meure.",
+						"{@b Fog Bank.} Un brouillard dense se forme dans un rayon de 40 pieds centré sur un point que le dragon peut voir dans un rayon de 120 pieds. Le brouillard se répand dans les coins, et sa zone est fortement obscurcie. Un vent d'au moins 30 km/h permet de disperser le brouillard. Le brouillard dure jusqu'à ce que le dragon utilise à nouveau cette action de repaire ou qu'il meure.",
+						"{@b Deadzone.} Un rayon invisible de 20 pieds d'antimagie se forme, centré sur un point que le dragon peut voir dans un rayon de 120 pieds. Cette zone a le même effet fonctionnel que si un champ antimagique avait été lancé, sauf qu'elle est stationnaire, et reste jusqu'à ce que le dragon utilise à nouveau cette action de tanière ou que le dragon meure."
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing a legendary fang dragon's lair is warped by the dragon's magic, which creates one or more of the following effects: Jagged Spires.",
+				{
+					"type": "list",
+					"items": [
+						"{@b Jagged Spires.} Dans un rayon de 6 miles autour du repaire d'un dragon fang, le terrain prend des caractéristiques plus pointues. Des rochers déchiquetés font surface, des épines poussent sur les plantes et il devient plus difficile de se déplacer dans la région. Les déplacements terrestres prennent deux fois plus de temps dans cette zone en raison des conditions dangereuses.",
+						"{@b Predator Avoidance.} Les animaux (autres que les insectes) ne résideront pas ou ne s'approcheront pas volontairement à moins de 6 miles du repaire d'un dragon fang.",
+						"{@b Untraceable.} Dans un rayon de 6 miles autour de sa tanière, le dragon ne laisse aucune trace physique de son passage, à moins qu'il ne le souhaite.Le suivre à la trace est impossible, sauf par des moyens magiques. De plus, il ignore les entraves au mouvement et les dégâts causés par les formations végétales et rocheuses de cette zone, y compris les pointes de pierre décrites ci-dessus."
+					]
+				},
+				"If the dragon dies, animals will slowly return to the area, and other effects fade over {@dice ld10} days."
+			]
+		}
+	],
+	"monster": [
+		{
+			"name": "Dragon Fang Ancient",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Si le dragon échoue à un jet de sauvegarde, il peut choisir de le réussir à la place."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Le dragon peut imiter tous les sons qu'il a entendus, y compris les voix. Une créature qui entend les sons peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse (perspicacité) de {@dc 19}."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en âge d'ar. Pendant qu'il est en rage, il gagne les avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +4 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious} ou s'il choisit de mettre fin à sa rage à son tour comme action bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Lorsque le dragon réduit une créature à 0 point de vie ou marque un coup critique avec une attaque de mêlée à son tour, il peut prendre une action bonus pour voler jusqu'à la moitié de sa vitesse de vol et faire une attaque de morsure (il doit commencer et terminer ce mouvement au sol)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Les attaques à l'arme de mêlée du dragon obtiennent un coup critique sur un résultat de 19 ou 20. De plus, il lance un dé de dégâts d'arme supplémentaire lorsqu'il détermine les dégâts supplémentaires pour un coup critique avec une attaque d'arme de mêlée."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Le dragon peut utiliser sa Présence effrayante. Il effectue ensuite trois attaques : une avec sa morsure et deux avec ses griffes."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 15 ft, une cible. {@h}22 ({@damage 2d12 + 9}) dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution {@dc 24} ou son score de Constitution est réduit de {@dice 1d4}. La cible meurt si cela réduit sa Constitution à 0. Sinon, la réduction dure jusqu'à ce que la cible termine un repos court ou long."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 10 ft, une cible. {@h}18 ({@damage 2d8 + 9}) dégâts tranchants."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 6 mètres, une cible. {@h}20 ({@damage 2d10 + 9}) dégâts de matraquage. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 24} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 6 mètres, une cible. {@h}20 ({@damage 2d10 + 9}) dégâts tranchants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 24} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 6 mètres, une cible. {@h}20 ({@damage 2d10 + 9}) dégâts perforants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 24} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Chaque créature choisie par le dragon qui se trouve à moins de 120 pieds de lui et qui est consciente de sa présence doit réussir un jet de sauvegarde de Sagesse {@dc 19} ou être effrayée pendant 1 minute. Une créature peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. Si le jet de sauvegarde d'une créature est réussi ou si l'effet prend fin pour elle, la créature est immunisée contre la Présence effrayante du dragon pendant les 24 heures suivantes."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en âge d'ar. Pendant qu'il est en rage, il gagne les avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +4 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious} ou s'il choisit de mettre fin à sa rage à son tour comme action bonus."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"Le dragon fait un test de Sagesse (Perception)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Le dragon fait une attaque de la queue."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Le dragon se met à tournoyer et s'élance avec sa queue. Chaque créature se trouvant à moins de 6 mètres du dragon doit réussir un jet de sauvegarde de Dextérité {@dc 24} ou subir 20 ({@dice 2d10 + 9}) dégâts de matraquage ou de taillade et être assommée {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/TNVlx8c.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Les dragons crochus sont des créatures avides, rapaces et rusées, qui vivent pour la chasse et y sont exceptionnellement bien adaptés. Combattants sauvages, même selon les normes draconiques, les dragons crocs savourent l'occasion de consommer la chair d'autres créatures et se jettent dans la mêlée pour avoir la chance de déguster leur repas préféré.",
+									"Le plus terrifiant des dragons sur le plan physique, le dragon croc est doté de plaques osseuses qui se transforment en éperons saillants aux articulations des membres et se terminent par de longues queues fourchues munies d'une paire de lames osseuses semblables à des faux. Leurs plaques corporelles sont d'un gris et d'un brun tachetés, et une légère odeur de sang entoure le dragon fang. Leurs ailes sont petites mais musclées, et bien qu'ils volent mal, ils peuvent se lever d'un seul claquement d'ailes pour s'élancer en avant. La tête du dragon fang est ornée de nombreuses petites cornes ou pointes, et ses yeux ont tendance à être rouge vif ou orange.",
+									"{@b Angry and Twisted.} Tordus par les énergies magiques qui les ont créés, les dragons crochus sont enclins à la violence aléatoire et aux accès de rage. Ils se délectent de la violence, et lorsqu'ils sentent qu'ils ont l'avantage, ils se jettent dans la mêlée avec ferveur. Avec le temps, ils apprennent à domestiquer leur colère et à l'utiliser à leur avantage. Brutaux et vicieux, les créatures qui recherchent les dragons crochus doivent le faire avec une extrême prudence, car ils n'hésiteront pas à faire des ravages sur toute créature qu'ils jugent plus faible qu'eux et qui est perçue comme une menace ou une gêne.",
+									"{@b Consummate Hunters.} Les dragons crochus mangent toutes sortes de viande fraîche, appréciant particulièrement la chair des créatures intelligentes. Ils préfèrent chercher leur nourriture loin de leur tanière et utilisent leur capacité à imiter les sons qu'ils ont entendus pour attirer leurs proies. Les dragons crochus ont une tendance inquiétante à jouer avec leur nourriture d'une manière extrêmement cruelle. Les dragons crochus sont des maîtres du combat physique, et chaque partie de leur corps est mortelle. Ils n'ont pas d'arme respiratoire, mais leur morsure est si dévastatrice qu'elle peut causer des dommages constitutionnels en raison de la perte de sang due aux profondes lacérations.",
+									"{@b Hunted and Dwindling.} Lorsque Tiamat apprit l'existence de ces dragons hors de son contrôle, elle tenta de soumettre l'espèce. Elle envoya ses disciples à leur recherche et \"améliora\" les œufs de leurs petits par un rituel qui les transforma en ce que l'on appelle les dragons gris. Ces mêmes dragons gris furent chargés de purifier les dragons crochus restants. Chassés, leur nombre diminuant, les dragons crochus détestent Tiamat et tous ses disciples, et les attaquent à vue. Les dragons fang parlent des bribes de plusieurs langues et négocient pour éviter les batailles difficiles ou mortelles."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Les dragons crochus sont apparus dans les royaumes dans les ruines de Myth Drannor, ce qui a amené certains sages à penser qu'ils étaient liés aux démons qui infestent l'ancienne cité elfique depuis sa chute. On les trouve couramment dans les régions des forêts stellaires de Cormanthor, et occasionnellement dans la forêt frontalière, les bois de Spiderhaunt et d'autres forêts de la région des Dalelands, de Sembia et de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Le trésor d'un dragon fang est similaire à celui des autres dragons, car il contient diverses richesses, en raison de leur nature cupide. Cependant, contrairement aux autres dragons, le trésor d'un dragon fang contient également divers trophées de ses chasses précédentes. Qu'il s'agisse de crânes, de cornes, de dents, d'os, d'écailles, de peaux ou d'autres pièces qu'il a magiquement préservées, son trésor est parsemé de ces trophées. Certains d'entre eux peuvent avoir une grande valeur pour le bon acheteur..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Le plus fort des dragons crochus, qui a chassé et consommé de nombreuses autres créatures légendaires, peut subir une transformation qui fera de lui l'un des plus puissants chasseurs ayant jamais vécu. Les agents de Tiamat font en sorte qu'il est extrêmement rare qu'un dragon fang atteigne ce niveau de puissance, car tous ceux qui tentent la Grande Chasse reçoivent toute l'attention des lieutenants les plus fiables de Tiamat.",
+							"Pour y parvenir, le dragon doit apprendre l'existence de leurs échos, et la Grande Chasse peut commencer. Pour réussir la Grande Chasse, un Dragon Fang Ancien doit traquer et consommer la chair de ses échos. Le dragon doit le faire seul, car il n'y a pas de plus grande chasse que la chasse à soi-même. Grâce à la ruse et à l'habileté, la Grande Chasse offre de la puissance et certains des plus beaux trophées qu'un dragon croc ajoutera jamais à son trésor.",
+							"Les greatwyrms Fang sont une véritable terreur à voir. Enormes êtres de force brute, ils sont hérissés de lames de rasoir, de piques qu'ils peuvent lancer et qui se régénèrent presque instantanément, et de lames d'os aussi dures que l'acier. Une fois qu'ils ont atteint le statut de greatwyrm, les dragons crochus traquent activement les agents de Tiamat avec ferveur."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+							"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis.",
+							"Les sorts tels que {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sont les plus courants. Cependant, ils sont également connus pour avoir des sorts qui les aident à chasser plus efficacement ou, plus rarement, à causer une destruction brute."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Les dragons fang vivent dans des zones fortement boisées et montagneuses. La tanière d'un dragon fang est une grotte rugueuse et tumultueuse, remplie de rochers aux bords déchiquetés et de végétation couverte d'épines. Les trophées des chasses du dragon sont mélangés à son trésor. Ils murent généralement leurs tanières avec d'énormes rochers ou d'autres matériaux pour empêcher les intrus de s'approcher en leur absence. Les dragons à crochets ont tendance à choisir des grottes qui présentent des caractéristiques derrière lesquelles ils peuvent se cacher ou d'où ils peuvent surprendre des intrus sans méfiance.",
+									"Le niveau de difficulté d'un dragon légendaire à crocs augmente de 1 lorsqu'il est rencontré dans sa tanière."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/2nQ2wv6.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Ancient (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient (Variant Caster)",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"damageTagsLegendary": [
+				"P"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+						"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Si le dragon échoue à un jet de sauvegarde, il peut choisir de le réussir à la place."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Le dragon peut imiter tous les sons qu'il a entendus, y compris les voix. Une créature qui entend les sons peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse (perspicacité) de {@dc 19}."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en âge d'ar. Pendant qu'il est en rage, il gagne les avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +4 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious} ou s'il choisit de mettre fin à sa rage à son tour comme action bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Lorsque le dragon réduit une créature à 0 point de vie ou marque un coup critique avec une attaque de mêlée à son tour, il peut prendre une action bonus pour voler jusqu'à la moitié de sa vitesse de vol et faire une attaque de morsure (il doit commencer et terminer ce mouvement au sol)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Les attaques à l'arme de mêlée du dragon obtiennent un coup critique sur un résultat de 19 ou 20. De plus, il lance un dé de dégâts d'arme supplémentaire lorsqu'il détermine les dégâts supplémentaires pour un coup critique avec une attaque d'arme de mêlée."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Le dragon peut utiliser sa Présence effrayante. Il effectue ensuite trois attaques : une avec sa morsure et deux avec ses griffes."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 15 ft, une cible. {@h}22 ({@damage 2d12 + 9}) dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution {@dc 24} ou son score de Constitution est réduit de {@dice 1d4}. La cible meurt si cela réduit sa Constitution à 0. Sinon, la réduction dure jusqu'à ce que la cible termine un repos court ou long."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 10 ft, une cible. {@h}18 ({@damage 2d8 + 9}) dégâts tranchants."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 6 mètres, une cible. {@h}20 ({@damage 2d10 + 9}) dégâts de matraquage. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 24} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 6 mètres, une cible. {@h}20 ({@damage 2d10 + 9}) dégâts tranchants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 24} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} pour toucher, portée de 6 mètres, une cible. {@h}20 ({@damage 2d10 + 9}) dégâts perforants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 24} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Chaque créature du choix du dragon qui se trouve dans un rayon de 120 pieds autour du dragon et qui est consciente de celui-ci doit réussir un jet de sauvegarde de Sagesse {@dc 19} ou devenir {@condition frightened} pendant 1 minute. Une créature peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. Si le jet de sauvegarde d'une créature est réussi ou si l'effet prend fin pour elle, la créature est immunisée contre la présence effrayante du dragon pendant les 24 heures suivantes."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en âge d'ar. Pendant qu'il est en rage, il gagne les avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +4 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious} ou s'il choisit de mettre fin à sa rage à son tour comme action bonus."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"Le dragon fait un test de Sagesse (Perception)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Le dragon fait une attaque de la queue."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Le dragon se met à tournoyer et s'élance avec sa queue. Chaque créature se trouvant à moins de 6 mètres du dragon doit réussir un jet de sauvegarde de Dextérité {@dc 24} ou subir 20 ({@dice 2d10 + 9}) dégâts de matraquage ou de taillade et être assommée {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/sRNzRbd.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Les dragons crochus sont des créatures avides, rapaces et rusées, qui vivent pour la chasse et y sont exceptionnellement bien adaptés. Combattants sauvages, même selon les normes draconiques, les dragons crocs savourent l'occasion de consommer la chair d'autres créatures et se jettent dans la mêlée pour avoir la chance de déguster leur repas préféré.",
+									"Le plus terrifiant des dragons sur le plan physique, le dragon croc est doté de plaques osseuses qui se transforment en éperons saillants aux articulations des membres et se terminent par de longues queues fourchues munies d'une paire de lames osseuses semblables à des faux. Leurs plaques corporelles sont d'un gris et d'un brun tachetés, et une légère odeur de sang entoure le dragon fang. Leurs ailes sont petites mais musclées, et bien qu'ils volent mal, ils peuvent se lever d'un seul claquement d'ailes pour s'élancer en avant. La tête du dragon fang est ornée de nombreuses petites cornes ou pointes, et ses yeux ont tendance à être rouge vif ou orange.",
+									"{@b Angry and Twisted.} Tordus par les énergies magiques qui les ont créés, les dragons crochus sont enclins à la violence aléatoire et aux accès de rage. Ils se délectent de la violence, et lorsqu'ils sentent qu'ils ont l'avantage, ils se jettent dans la mêlée avec ferveur. Avec le temps, ils apprennent à domestiquer leur colère et à l'utiliser à leur avantage. Brutaux et vicieux, les créatures qui recherchent les dragons crochus doivent le faire avec une extrême prudence, car ils n'hésiteront pas à faire des ravages sur toute créature qu'ils jugent plus faible qu'eux et qui est perçue comme une menace ou une gêne.",
+									"{@b Consummate Hunters.} Les dragons crochus mangent toutes sortes de viande fraîche, appréciant particulièrement la chair des créatures intelligentes. Ils préfèrent chercher leur nourriture loin de leur tanière et utilisent leur capacité à imiter les sons qu'ils ont entendus pour attirer leurs proies. Les dragons crochus ont une tendance inquiétante à jouer avec leur nourriture d'une manière extrêmement cruelle. Les dragons crochus sont des maîtres du combat physique, et chaque partie de leur corps est mortelle. Ils n'ont pas d'arme respiratoire, mais leur morsure est si dévastatrice qu'elle peut causer des dommages constitutionnels en raison de la perte de sang due aux profondes lacérations.",
+									"{@b Hunted and Dwindling.} Lorsque Tiamat apprit l'existence de ces dragons hors de son contrôle, elle tenta de soumettre l'espèce. Elle envoya ses disciples à leur recherche et \"améliora\" les œufs de leurs petits par un rituel qui les transforma en ce que l'on appelle les dragons gris. Ces mêmes dragons gris furent chargés de purifier les dragons crochus restants. Chassés, leur nombre diminuant, les dragons crochus détestent Tiamat et tous ses disciples, et les attaquent à vue. Les dragons fang parlent des bribes de plusieurs langues et négocient pour éviter les batailles difficiles ou mortelles."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Les dragons crochus sont apparus dans les royaumes dans les ruines de Myth Drannor, ce qui a amené certains sages à penser qu'ils étaient liés aux démons qui infestent l'ancienne cité elfique depuis sa chute. On les trouve couramment dans les régions des forêts stellaires de Cormanthor, et occasionnellement dans la forêt frontalière, les bois de Spiderhaunt et d'autres forêts de la région des Dalelands, de Sembia et de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Le trésor d'un dragon fang est similaire à celui des autres dragons, car il contient diverses richesses, en raison de leur nature cupide. Cependant, contrairement aux autres dragons, le trésor d'un dragon fang contient également divers trophées de ses chasses précédentes. Qu'il s'agisse de crânes, de cornes, de dents, d'os, d'écailles, de peaux ou d'autres pièces qu'il a magiquement préservées, son trésor est parsemé de ces trophées. Certains d'entre eux peuvent avoir une grande valeur pour le bon acheteur..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Le plus fort des dragons crochus, qui a chassé et consommé de nombreuses autres créatures légendaires, peut subir une transformation qui fera de lui l'un des plus puissants chasseurs ayant jamais vécu. Les agents de Tiamat font en sorte qu'il est extrêmement rare qu'un dragon fang atteigne ce niveau de puissance, car tous ceux qui tentent la Grande Chasse reçoivent toute l'attention des lieutenants les plus fiables de Tiamat.",
+							"Pour y parvenir, le dragon doit apprendre l'existence de leurs échos, et la Grande Chasse peut commencer. Pour réussir la Grande Chasse, un Dragon Fang Ancien doit traquer et consommer la chair de ses échos. Le dragon doit le faire seul, car il n'y a pas de plus grande chasse que la chasse à soi-même. Grâce à la ruse et à l'habileté, la Grande Chasse offre de la puissance et certains des plus beaux trophées qu'un dragon croc ajoutera jamais à son trésor.",
+							"Les greatwyrms Fang sont une véritable terreur à voir. Enormes êtres de force brute, ils sont hérissés de lames de rasoir, de piques qu'ils peuvent lancer et qui se régénèrent presque instantanément, et de lames d'os aussi dures que l'acier. Une fois qu'ils ont atteint le statut de greatwyrm, les dragons crochus traquent activement les agents de Tiamat avec ferveur."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+							"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis.",
+							"Les sorts tels que {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sont les plus courants. Cependant, ils sont également connus pour avoir des sorts qui les aident à chasser plus efficacement ou, plus rarement, à causer une destruction brute."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Les dragons fang vivent dans des zones fortement boisées et montagneuses. La tanière d'un dragon fang est une grotte rugueuse et tumultueuse, remplie de rochers aux bords déchiquetés et de végétation couverte d'épines. Les trophées des chasses du dragon sont mélangés à son trésor. Ils murent généralement leurs tanières avec d'énormes rochers ou d'autres matériaux pour empêcher les intrus de s'approcher en leur absence. Les dragons à crochets ont tendance à choisir des grottes qui présentent des caractéristiques derrière lesquelles ils peuvent se cacher ou d'où ils peuvent surprendre des intrus sans méfiance.",
+									"Le niveau de difficulté d'un dragon légendaire à crocs augmente de 1 lorsqu'il est rencontré dans sa tanière."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/KendR57.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Adult",
+			"size": [
+				"H"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "16d12 + 96",
+				"average": 200
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 24,
+			"dex": 10,
+			"con": 23,
+			"int": 14,
+			"wis": 15,
+			"cha": 17,
+			"passive": 24,
+			"cr": "19",
+			"shortName": "Dragon Fang Adult",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"skill": {
+				"perception": "+14",
+				"stealth": "+6",
+				"survival": "+8"
+			},
+			"save": {
+				"dex": "+6",
+				"con": "+12",
+				"wis": "+8",
+				"cha": "+9"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Si le dragon échoue à un jet de sauvegarde, il peut choisir de le réussir à la place."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Le dragon peut imiter tous les sons qu'il a entendus, y compris les voix. Une créature qui entend les sons peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse (perspicacité) de {@dc 17}."
+					]
+				},
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en âge d'ar. Pendant qu'il est en rage, il gagne les avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +3 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious} ou s'il choisit de mettre fin à sa rage à son tour comme action bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Lorsque le dragon réduit une créature à 0 point de vie ou marque un coup critique avec une attaque de mêlée à son tour, il peut prendre une action bonus pour voler jusqu'à la moitié de sa vitesse de vol et faire une attaque de morsure (il doit commencer et terminer ce mouvement au sol)."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Le dragon peut utiliser sa Présence effrayante. Il effectue ensuite trois attaques : une avec sa morsure et deux avec ses griffes."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13} pour toucher, portée de 10 ft, une cible. {@h}20 ({@damage 2d12 + 7}) dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution {@dc 21} ou son score de Constitution est réduit de {@dice 1d3}. La cible meurt si cela réduit sa Constitution à 0. Sinon, la réduction dure jusqu'à ce que la cible termine un repos court ou long."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 13} pour toucher, portée de 1,5 m, une cible. {@h}16 ({@damage 2d8 + 7}) dégâts tranchants."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 13} pour toucher, portée de 15 ft., une cible. {@h}18 ({@damage 2d10 + 7}) dégâts de matraquage. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 21} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 13} pour toucher, portée de 15 ft, une cible. {@h}18 ({@damage 2d10 + 7}) dégâts tranchants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 21} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 13} pour toucher, portée de 15 ft, une cible. {@h}18 ({@damage 2d10 + 7}) dégâts perforants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 21} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Chaque créature choisie par le dragon qui se trouve à moins de 120 pieds de lui et qui est consciente de sa présence doit réussir un jet de sauvegarde de Sagesse {@dc 17} ou être effrayée pendant 1 minute. Une créature peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. Si le jet de sauvegarde d'une créature est réussi ou si l'effet prend fin pour elle, la créature est immunisée contre la Présence effrayante du dragon pendant les 24 heures suivantes."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"bonus": [
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en âge d'ar. Pendant qu'il est en rage, il gagne les avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +3 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious} ou s'il choisit de mettre fin à sa rage à son tour comme action bonus."
+					]
+				}
+			],
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"Le dragon fait un test de Sagesse (Perception)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Le dragon fait une attaque de la queue."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Le dragon se met à tournoyer et s'élance avec sa queue. Chaque créature dans un rayon de 15 pieds autour du dragon doit réussir un jet de sauvegarde de Dextérité {@dc 21} ou subir 18 ({@damage 2d10 + 7}) dégâts de matraquage ou de taillade et être assommée {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "adult",
+			"tokenUrl": "https://i.imgur.com/scZ0qHF.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Adult|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Les dragons crochus sont des créatures avides, rapaces et rusées, qui vivent pour la chasse et y sont exceptionnellement bien adaptés. Combattants sauvages, même selon les normes draconiques, les dragons crocs savourent l'occasion de consommer la chair d'autres créatures et se jettent dans la mêlée pour avoir la chance de déguster leur repas préféré.",
+									"Le plus terrifiant des dragons sur le plan physique, le dragon croc est doté de plaques osseuses qui se transforment en éperons saillants aux articulations des membres et se terminent par de longues queues fourchues munies d'une paire de lames osseuses semblables à des faux. Leurs plaques corporelles sont d'un gris et d'un brun tachetés, et une légère odeur de sang entoure le dragon fang. Leurs ailes sont petites mais musclées, et bien qu'ils volent mal, ils peuvent se lever d'un seul claquement d'ailes pour s'élancer en avant. La tête du dragon fang est ornée de nombreuses petites cornes ou pointes, et ses yeux ont tendance à être rouge vif ou orange.",
+									"{@b Angry and Twisted.} Tordus par les énergies magiques qui les ont créés, les dragons crochus sont enclins à la violence aléatoire et aux accès de rage. Ils se délectent de la violence, et lorsqu'ils sentent qu'ils ont l'avantage, ils se jettent dans la mêlée avec ferveur. Avec le temps, ils apprennent à domestiquer leur colère et à l'utiliser à leur avantage. Brutaux et vicieux, les créatures qui recherchent les dragons crochus doivent le faire avec une extrême prudence, car ils n'hésiteront pas à faire des ravages sur toute créature qu'ils jugent plus faible qu'eux et qui est perçue comme une menace ou une gêne.",
+									"{@b Consummate Hunters.} Les dragons crochus mangent toutes sortes de viande fraîche, appréciant particulièrement la chair des créatures intelligentes. Ils préfèrent chercher leur nourriture loin de leur tanière et utilisent leur capacité à imiter les sons qu'ils ont entendus pour attirer leurs proies. Les dragons crochus ont une tendance inquiétante à jouer avec leur nourriture d'une manière extrêmement cruelle. Les dragons crochus sont des maîtres du combat physique, et chaque partie de leur corps est mortelle. Ils n'ont pas d'arme respiratoire, mais leur morsure est si dévastatrice qu'elle peut causer des dommages constitutionnels en raison de la perte de sang due aux profondes lacérations.",
+									"{@b Hunted and Dwindling.} Lorsque Tiamat apprit l'existence de ces dragons hors de son contrôle, elle tenta de soumettre l'espèce. Elle envoya ses disciples à leur recherche et \"améliora\" les œufs de leurs petits par un rituel qui les transforma en ce que l'on appelle les dragons gris. Ces mêmes dragons gris furent chargés de purifier les dragons crochus restants. Chassés, leur nombre diminuant, les dragons crochus détestent Tiamat et tous ses disciples, et les attaquent à vue. Les dragons fang parlent des bribes de plusieurs langues et négocient pour éviter les batailles difficiles ou mortelles."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Les dragons crochus sont apparus dans les royaumes dans les ruines de Myth Drannor, ce qui a amené certains sages à penser qu'ils étaient liés aux démons qui infestent l'ancienne cité elfique depuis sa chute. On les trouve couramment dans les régions des forêts stellaires de Cormanthor, et occasionnellement dans la forêt frontalière, les bois de Spiderhaunt et d'autres forêts de la région des Dalelands, de Sembia et de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Le trésor d'un dragon fang est similaire à celui des autres dragons, car il contient diverses richesses, en raison de leur nature cupide. Cependant, contrairement aux autres dragons, le trésor d'un dragon fang contient également divers trophées de ses chasses précédentes. Qu'il s'agisse de crânes, de cornes, de dents, d'os, d'écailles, de peaux ou d'autres pièces qu'il a magiquement préservées, son trésor est parsemé de ces trophées. Certains d'entre eux peuvent avoir une grande valeur pour le bon acheteur..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Le plus fort des dragons crochus, qui a chassé et consommé de nombreuses autres créatures légendaires, peut subir une transformation qui fera de lui l'un des plus puissants chasseurs ayant jamais vécu. Les agents de Tiamat font en sorte qu'il est extrêmement rare qu'un dragon fang atteigne ce niveau de puissance, car tous ceux qui tentent la Grande Chasse reçoivent toute l'attention des lieutenants les plus fiables de Tiamat.",
+							"Pour y parvenir, le dragon doit apprendre l'existence de leurs échos, et la Grande Chasse peut commencer. Pour réussir la Grande Chasse, un Dragon Fang Ancien doit traquer et consommer la chair de ses échos. Le dragon doit le faire seul, car il n'y a pas de plus grande chasse que la chasse à soi-même. Grâce à la ruse et à l'habileté, la Grande Chasse offre de la puissance et certains des plus beaux trophées qu'un dragon croc ajoutera jamais à son trésor.",
+							"Les greatwyrms Fang sont une véritable terreur à voir. Enormes êtres de force brute, ils sont hérissés de lames de rasoir, de piques qu'ils peuvent lancer et qui se régénèrent presque instantanément, et de lames d'os aussi dures que l'acier. Une fois qu'ils ont atteint le statut de greatwyrm, les dragons crochus traquent activement les agents de Tiamat avec ferveur."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+							"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis.",
+							"Les sorts tels que {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sont les plus courants. Cependant, ils sont également connus pour avoir des sorts qui les aident à chasser plus efficacement ou, plus rarement, à causer une destruction brute."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Les dragons fang vivent dans des zones fortement boisées et montagneuses. La tanière d'un dragon fang est une grotte rugueuse et tumultueuse, remplie de rochers aux bords déchiquetés et de végétation couverte d'épines. Les trophées des chasses du dragon sont mélangés à son trésor. Ils murent généralement leurs tanières avec d'énormes rochers ou d'autres matériaux pour empêcher les intrus de s'approcher en leur absence. Les dragons à crochets ont tendance à choisir des grottes qui présentent des caractéristiques derrière lesquelles ils peuvent se cacher ou d'où ils peuvent surprendre des intrus sans méfiance.",
+									"Le niveau de difficulté d'un dragon légendaire à crocs augmente de 1 lorsqu'il est rencontré dans sa tanière."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/tfxZZuV.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Young",
+			"size": [
+				"L"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "14d10 + 56",
+				"average": 133
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 20,
+			"dex": 10,
+			"con": 19,
+			"int": 12,
+			"wis": 13,
+			"cha": 15,
+			"passive": 17,
+			"cr": "8",
+			"shortName": "Dragon Fang Young",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+3",
+				"con": "+7",
+				"wis": "+4",
+				"cha": "+5"
+			},
+			"skill": {
+				"perception": "+7",
+				"stealth": "+3",
+				"survival": "+4"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Le dragon peut imiter tous les sons qu'il a entendus, y compris les voix. Une créature qui entend les sons peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse (perspicacité) de {@dc 13}."
+					]
+				},
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en rage. Lorsqu'il est en rage, il bénéficie des avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +2 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle se termine prématurément si le dragon est assommé {@condition unconscious} ou si son tour se termine et qu'il n'a pas attaqué une créature hostile depuis son dernier tour ou subi de dégâts depuis. Il peut également mettre fin à sa rage à son tour comme action bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Lorsque le dragon réduit une créature à 0 point de vie ou marque un coup critique avec une attaque de mêlée à son tour, il peut prendre une action bonus pour voler jusqu'à la moitié de sa vitesse de vol et faire une attaque de morsure (il doit commencer et terminer ce mouvement au sol)."
+					]
+				}
+			],
+			"conditionInflict": [
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Le dragon effectue trois attaques : une avec sa morsure et deux avec ses griffes."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 8} pour toucher, portée de 10 ft, une cible. {@h}18 ({@damage 2d12 + 5}) dégâts perforants et la doit réussir un jet de sauvegarde de Constitution {@dc 18} ou le score de Constitution de la cible est réduit de {@dice 1d2}.La cible meurt si cela réduit sa Constitution à 0.Sinon, la réduction dure jusqu'à ce que la cible termine un repos court ou long."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 8} pour toucher, portée de 1,5 m, une cible. {@h}14 ({@damage 2d8 + 5}) dégâts tranchants."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"bonus": [
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en rage. Lorsqu'il est en rage, il bénéficie des avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +2 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle se termine prématurément si le dragon est assommé {@condition unconscious} ou si son tour se termine et qu'il n'a pas attaqué une créature hostile depuis son dernier tour ou subi de dégâts depuis. Il peut également mettre fin à sa rage à son tour comme action bonus."
+					]
+				}
+			],
+			"dragonAge": "young",
+			"tokenUrl": "https://i.imgur.com/l7IgyLP.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Young|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Les dragons crochus sont des créatures avides, rapaces et rusées, qui vivent pour la chasse et y sont exceptionnellement bien adaptés. Combattants sauvages, même selon les normes draconiques, les dragons crocs savourent l'occasion de consommer la chair d'autres créatures et se jettent dans la mêlée pour avoir la chance de déguster leur repas préféré.",
+									"Le plus terrifiant des dragons sur le plan physique, le dragon croc est doté de plaques osseuses qui se transforment en éperons saillants aux articulations des membres et se terminent par de longues queues fourchues munies d'une paire de lames osseuses semblables à des faux. Leurs plaques corporelles sont d'un gris et d'un brun tachetés, et une légère odeur de sang entoure le dragon fang. Leurs ailes sont petites mais musclées, et bien qu'ils volent mal, ils peuvent se lever d'un seul claquement d'ailes pour s'élancer en avant. La tête du dragon fang est ornée de nombreuses petites cornes ou pointes, et ses yeux ont tendance à être rouge vif ou orange.",
+									"{@b Angry and Twisted.} Tordus par les énergies magiques qui les ont créés, les dragons crochus sont enclins à la violence aléatoire et aux accès de rage. Ils se délectent de la violence, et lorsqu'ils sentent qu'ils ont l'avantage, ils se jettent dans la mêlée avec ferveur. Avec le temps, ils apprennent à domestiquer leur colère et à l'utiliser à leur avantage. Brutaux et vicieux, les créatures qui recherchent les dragons crochus doivent le faire avec une extrême prudence, car ils n'hésiteront pas à faire des ravages sur toute créature qu'ils jugent plus faible qu'eux et qui est perçue comme une menace ou une gêne.",
+									"{@b Consummate Hunters.} Les dragons crochus mangent toutes sortes de viande fraîche, appréciant particulièrement la chair des créatures intelligentes. Ils préfèrent chercher leur nourriture loin de leur tanière et utilisent leur capacité à imiter les sons qu'ils ont entendus pour attirer leurs proies. Les dragons crochus ont une tendance inquiétante à jouer avec leur nourriture d'une manière extrêmement cruelle. Les dragons crochus sont des maîtres du combat physique, et chaque partie de leur corps est mortelle. Ils n'ont pas d'arme respiratoire, mais leur morsure est si dévastatrice qu'elle peut causer des dommages constitutionnels en raison de la perte de sang due aux profondes lacérations.",
+									"{@b Hunted and Dwindling.} Lorsque Tiamat apprit l'existence de ces dragons hors de son contrôle, elle tenta de soumettre l'espèce. Elle envoya ses disciples à leur recherche et \"améliora\" les œufs de leurs petits par un rituel qui les transforma en ce que l'on appelle les dragons gris. Ces mêmes dragons gris furent chargés de purifier les dragons crochus restants. Chassés, leur nombre diminuant, les dragons crochus détestent Tiamat et tous ses disciples, et les attaquent à vue. Les dragons fang parlent des bribes de plusieurs langues et négocient pour éviter les batailles difficiles ou mortelles."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Les dragons crochus sont apparus dans les royaumes dans les ruines de Myth Drannor, ce qui a amené certains sages à penser qu'ils étaient liés aux démons qui infestent l'ancienne cité elfique depuis sa chute. On les trouve couramment dans les régions des forêts stellaires de Cormanthor, et occasionnellement dans la forêt frontalière, les bois de Spiderhaunt et d'autres forêts de la région des Dalelands, de Sembia et de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Le trésor d'un dragon fang est similaire à celui des autres dragons, car il contient diverses richesses, en raison de leur nature cupide. Cependant, contrairement aux autres dragons, le trésor d'un dragon fang contient également divers trophées de ses chasses précédentes. Qu'il s'agisse de crânes, de cornes, de dents, d'os, d'écailles, de peaux ou d'autres pièces qu'il a magiquement préservées, son trésor est parsemé de ces trophées. Certains d'entre eux peuvent avoir une grande valeur pour le bon acheteur..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Le plus fort des dragons crochus, qui a chassé et consommé de nombreuses autres créatures légendaires, peut subir une transformation qui fera de lui l'un des plus puissants chasseurs ayant jamais vécu. Les agents de Tiamat font en sorte qu'il est extrêmement rare qu'un dragon fang atteigne ce niveau de puissance, car tous ceux qui tentent la Grande Chasse reçoivent toute l'attention des lieutenants les plus fiables de Tiamat.",
+							"Pour y parvenir, le dragon doit apprendre l'existence de leurs échos, et la Grande Chasse peut commencer. Pour réussir la Grande Chasse, un Dragon Fang Ancien doit traquer et consommer la chair de ses échos. Le dragon doit le faire seul, car il n'y a pas de plus grande chasse que la chasse à soi-même. Grâce à la ruse et à l'habileté, la Grande Chasse offre de la puissance et certains des plus beaux trophées qu'un dragon croc ajoutera jamais à son trésor.",
+							"Les greatwyrms Fang sont une véritable terreur à voir. Enormes êtres de force brute, ils sont hérissés de lames de rasoir, de piques qu'ils peuvent lancer et qui se régénèrent presque instantanément, et de lames d'os aussi dures que l'acier. Une fois qu'ils ont atteint le statut de greatwyrm, les dragons crochus traquent activement les agents de Tiamat avec ferveur."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+							"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis.",
+							"Les sorts tels que {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sont les plus courants. Cependant, ils sont également connus pour avoir des sorts qui les aident à chasser plus efficacement ou, plus rarement, à causer une destruction brute."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Les dragons fang vivent dans des zones fortement boisées et montagneuses. La tanière d'un dragon fang est une grotte rugueuse et tumultueuse, remplie de rochers aux bords déchiquetés et de végétation couverte d'épines. Les trophées des chasses du dragon sont mélangés à son trésor. Ils murent généralement leurs tanières avec d'énormes rochers ou d'autres matériaux pour empêcher les intrus de s'approcher en leur absence. Les dragons à crochets ont tendance à choisir des grottes qui présentent des caractéristiques derrière lesquelles ils peuvent se cacher ou d'où ils peuvent surprendre des intrus sans méfiance.",
+									"Le niveau de difficulté d'un dragon légendaire à crocs augmente de 1 lorsqu'il est rencontré dans sa tanière."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/gciGzdi.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Wyrmling",
+			"size": [
+				"M"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 17,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "5d8 + 10",
+				"average": 32
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30,
+				"fly": 40,
+				"canHover": false
+			},
+			"str": 16,
+			"dex": 10,
+			"con": 15,
+			"int": 10,
+			"wis": 11,
+			"cha": 13,
+			"passive": 14,
+			"cr": "2",
+			"shortName": "Dragon Fang Wyrmling",
+			"senses": [
+				"blindsight 10 ft.",
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"B",
+				"D"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+2",
+				"con": "+4",
+				"wis": "+2",
+				"cha": "+3"
+			},
+			"skill": {
+				"perception": "+4",
+				"stealth": "+2",
+				"survival": "+2"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Le dragon peut imiter tous les sons qu'il a entendus, y compris les voix. Une créature qui entend les sons peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse (perspicacité) de {@dc 11}."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Lorsque le dragon réduit une créature à 0 point de vie ou marque un coup critique avec une attaque de mêlée à son tour, il peut prendre une action bonus pour voler jusqu'à la moitié de sa vitesse de vol et faire une attaque de morsure (il doit commencer et terminer ce mouvement au sol)."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 5} pour toucher, portée de 1,5 m, une cible. {@h}9 ({@damage 1d12 + 3}) dégâts perforants et la doit réussir un jet de sauvegarde de Constitution {@dc 13} ou le score de Constitution de la cible est réduit de 1. La cible meurt si cela réduit sa Constitution à 0. Sinon, la réduction dure jusqu'à ce que la cible termine un repos court ou long."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"dragonAge": "wyrmling",
+			"tokenUrl": "https://i.imgur.com/aAjrZ68.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Wyrmling|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Les dragons crochus sont des créatures avides, rapaces et rusées, qui vivent pour la chasse et y sont exceptionnellement bien adaptés. Combattants sauvages, même selon les normes draconiques, les dragons crocs savourent l'occasion de consommer la chair d'autres créatures et se jettent dans la mêlée pour avoir la chance de déguster leur repas préféré.",
+									"Le plus terrifiant des dragons sur le plan physique, le dragon croc est doté de plaques osseuses qui se transforment en éperons saillants aux articulations des membres et se terminent par de longues queues fourchues munies d'une paire de lames osseuses semblables à des faux. Leurs plaques corporelles sont d'un gris et d'un brun tachetés, et une légère odeur de sang entoure le dragon fang. Leurs ailes sont petites mais musclées, et bien qu'ils volent mal, ils peuvent se lever d'un seul claquement d'ailes pour s'élancer en avant. La tête du dragon fang est ornée de nombreuses petites cornes ou pointes, et ses yeux ont tendance à être rouge vif ou orange.",
+									"{@b Angry and Twisted.} Tordus par les énergies magiques qui les ont créés, les dragons crochus sont enclins à la violence aléatoire et aux accès de rage. Ils se délectent de la violence, et lorsqu'ils sentent qu'ils ont l'avantage, ils se jettent dans la mêlée avec ferveur. Avec le temps, ils apprennent à domestiquer leur colère et à l'utiliser à leur avantage. Brutaux et vicieux, les créatures qui recherchent les dragons crochus doivent le faire avec une extrême prudence, car ils n'hésiteront pas à faire des ravages sur toute créature qu'ils jugent plus faible qu'eux et qui est perçue comme une menace ou une gêne.",
+									"{@b Consummate Hunters.} Les dragons crochus mangent toutes sortes de viande fraîche, appréciant particulièrement la chair des créatures intelligentes. Ils préfèrent chercher leur nourriture loin de leur tanière et utilisent leur capacité à imiter les sons qu'ils ont entendus pour attirer leurs proies. Les dragons crochus ont une tendance inquiétante à jouer avec leur nourriture d'une manière extrêmement cruelle. Les dragons crochus sont des maîtres du combat physique, et chaque partie de leur corps est mortelle. Ils n'ont pas d'arme respiratoire, mais leur morsure est si dévastatrice qu'elle peut causer des dommages constitutionnels en raison de la perte de sang due aux profondes lacérations.",
+									"{@b Hunted and Dwindling.} Lorsque Tiamat apprit l'existence de ces dragons hors de son contrôle, elle tenta de soumettre l'espèce. Elle envoya ses disciples à leur recherche et \"améliora\" les œufs de leurs petits par un rituel qui les transforma en ce que l'on appelle les dragons gris. Ces mêmes dragons gris furent chargés de purifier les dragons crochus restants. Chassés, leur nombre diminuant, les dragons crochus détestent Tiamat et tous ses disciples, et les attaquent à vue. Les dragons fang parlent des bribes de plusieurs langues et négocient pour éviter les batailles difficiles ou mortelles."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Les dragons crochus sont apparus dans les royaumes dans les ruines de Myth Drannor, ce qui a amené certains sages à penser qu'ils étaient liés aux démons qui infestent l'ancienne cité elfique depuis sa chute. On les trouve couramment dans les régions des forêts stellaires de Cormanthor, et occasionnellement dans la forêt frontalière, les bois de Spiderhaunt et d'autres forêts de la région des Dalelands, de Sembia et de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Le trésor d'un dragon fang est similaire à celui des autres dragons, car il contient diverses richesses, en raison de leur nature cupide. Cependant, contrairement aux autres dragons, le trésor d'un dragon fang contient également divers trophées de ses chasses précédentes. Qu'il s'agisse de crânes, de cornes, de dents, d'os, d'écailles, de peaux ou d'autres pièces qu'il a magiquement préservées, son trésor est parsemé de ces trophées. Certains d'entre eux peuvent avoir une grande valeur pour le bon acheteur..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Le plus fort des dragons crochus, qui a chassé et consommé de nombreuses autres créatures légendaires, peut subir une transformation qui fera de lui l'un des plus puissants chasseurs ayant jamais vécu. Les agents de Tiamat font en sorte qu'il est extrêmement rare qu'un dragon fang atteigne ce niveau de puissance, car tous ceux qui tentent la Grande Chasse reçoivent toute l'attention des lieutenants les plus fiables de Tiamat.",
+							"Pour y parvenir, le dragon doit apprendre l'existence de leurs échos, et la Grande Chasse peut commencer. Pour réussir la Grande Chasse, un Dragon Fang Ancien doit traquer et consommer la chair de ses échos. Le dragon doit le faire seul, car il n'y a pas de plus grande chasse que la chasse à soi-même. Grâce à la ruse et à l'habileté, la Grande Chasse offre de la puissance et certains des plus beaux trophées qu'un dragon croc ajoutera jamais à son trésor.",
+							"Les greatwyrms Fang sont une véritable terreur à voir. Enormes êtres de force brute, ils sont hérissés de lames de rasoir, de piques qu'ils peuvent lancer et qui se régénèrent presque instantanément, et de lames d'os aussi dures que l'acier. Une fois qu'ils ont atteint le statut de greatwyrm, les dragons crochus traquent activement les agents de Tiamat avec ferveur."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+							"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis.",
+							"Les sorts tels que {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sont les plus courants. Cependant, ils sont également connus pour avoir des sorts qui les aident à chasser plus efficacement ou, plus rarement, à causer une destruction brute."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Les dragons fang vivent dans des zones fortement boisées et montagneuses. La tanière d'un dragon fang est une grotte rugueuse et tumultueuse, remplie de rochers aux bords déchiquetés et de végétation couverte d'épines. Les trophées des chasses du dragon sont mélangés à son trésor. Ils murent généralement leurs tanières avec d'énormes rochers ou d'autres matériaux pour empêcher les intrus de s'approcher en leur absence. Les dragons à crochets ont tendance à choisir des grottes qui présentent des caractéristiques derrière lesquelles ils peuvent se cacher ou d'où ils peuvent surprendre des intrus sans méfiance.",
+									"Le niveau de difficulté d'un dragon légendaire à crocs augmente de 1 lorsqu'il est rencontré dans sa tanière."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/JW62gx5.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Si le dragon échoue à un jet de sauvegarde, il peut choisir de le réussir à la place."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Si le grandwyrm devait être réduit à 0 point de vie, son total de points de vie actuel est réinitialisé à 375 points de vie, et il récupère toutes les utilisations dépensées de Résistance légendaire. De plus, le greatwyrm peut désormais utiliser les options de la section \"Actions mythiques\" pendant 1 heure.Accordez à un groupe 105 000 XP supplémentaires (210 000 XP au total) pour vaincre le greatwyrm après l'activation de sa \"Rage d'unyeilding\"."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Le dragon peut imiter tous les sons qu'il a entendus, y compris les voix. Une créature qui entend les sons peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse (perspicacité) de {@dc 22}."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en rage. Lorsqu'il est en rage, il bénéficie des avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +5 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious}, ou s'il met fin à sa rage à son tour de jeu par une action bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Lorsque le dragon réduit une créature à 0 point de vie ou marque un coup critique avec une attaque de mêlée à son tour, il peut prendre une action bonus pour voler jusqu'à la moitié de sa vitesse de vol et faire une attaque de morsure (il doit commencer et terminer ce mouvement au sol)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Les attaques à l'arme de mêlée du dragon obtiennent un coup critique sur un résultat de 18, 19 ou 20. De plus, il lance un dé de dégâts d'arme supplémentaire lorsqu'il détermine les dégâts supplémentaires pour un coup critique avec une attaque d'arme de mêlée."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Le dragon peut utiliser sa Présence effrayante. Il effectue ensuite trois attaques : une avec sa morsure et deux avec ses griffes."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 15 ft, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution {@dc 26} ou son score de Constitution est réduit de {@dice 1d6}. La cible meurt si cela réduit sa Constitution à 0. Sinon, la réduction dure jusqu'à ce que la cible termine un repos court ou long."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 10 ft, une cible. {@h}21 ({@damage 2d10 + 10}) dégâts tranchants."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 6 mètres, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts de matraquage. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 26} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 6 mètres, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts perforants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 26} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 6 mètres, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts tranchants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 26} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Chaque créature choisie par le dragon qui se trouve à moins de 120 pieds de lui et qui est consciente de sa présence doit réussir un jet de sauvegarde de Sagesse {@dc 22} ou être effrayée pendant 1 minute. Une créature peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. Si le jet de sauvegarde d'une créature est réussi ou si l'effet prend fin pour elle, la créature est immunisée contre la Présence effrayante du dragon pendant les 24 heures suivantes."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en rage. Lorsqu'il est en rage, il bénéficie des avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +5 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious}, ou s'il met fin à sa rage à son tour de jeu par une action bonus."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Le dragon fait une attaque de queue."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Le dragon se met à tournoyer et s'élance avec sa queue. Chaque créature située dans un rayon de 6 mètres du dragon doit réussir un jet de sauvegarde de Dextérité {@dc 26} ou subir 21 ({@dice 2d10 + 10}) dégâts de matraquage ou de taillade et être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} pour toucher, portée de 200/400 ft., une cible. {@h}16 ({@damage 1d12 + 10}) dégâts perforants. Le greatwyrm lance 2 piques sur une cible à portée."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"Le greatwyrm fait une attaque de morsure."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"Le greatwyrm se hérisse de pointes, et les lance dans toutes les directions. Chaque créature dans une sphère de 60 pieds de rayon centrée sur le grandwyrm doit réussir un jet de sauvegarde de {@dc 26} dextérité, subissant 42 ({@damage 5d12 + 10}) dégâts perforants en cas d'échec, et la moitié en cas de réussite."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/2NoEwjM.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Les dragons crochus sont des créatures avides, rapaces et rusées, qui vivent pour la chasse et y sont exceptionnellement bien adaptés. Combattants sauvages, même selon les normes draconiques, les dragons crocs savourent l'occasion de consommer la chair d'autres créatures et se jettent dans la mêlée pour avoir la chance de déguster leur repas préféré.",
+									"Le plus terrifiant des dragons sur le plan physique, le dragon croc est doté de plaques osseuses qui se transforment en éperons saillants aux articulations des membres et se terminent par de longues queues fourchues munies d'une paire de lames osseuses semblables à des faux. Leurs plaques corporelles sont d'un gris et d'un brun tachetés, et une légère odeur de sang entoure le dragon fang. Leurs ailes sont petites mais musclées, et bien qu'ils volent mal, ils peuvent se lever d'un seul claquement d'ailes pour s'élancer en avant. La tête du dragon fang est ornée de nombreuses petites cornes ou pointes, et ses yeux ont tendance à être rouge vif ou orange.",
+									"{@b Angry and Twisted.} Tordus par les énergies magiques qui les ont créés, les dragons crochus sont enclins à la violence aléatoire et aux accès de rage. Ils se délectent de la violence, et lorsqu'ils sentent qu'ils ont l'avantage, ils se jettent dans la mêlée avec ferveur. Avec le temps, ils apprennent à domestiquer leur colère et à l'utiliser à leur avantage. Brutaux et vicieux, les créatures qui recherchent les dragons crochus doivent le faire avec une extrême prudence, car ils n'hésiteront pas à faire des ravages sur toute créature qu'ils jugent plus faible qu'eux et qui est perçue comme une menace ou une gêne.",
+									"{@b Consummate Hunters.} Les dragons crochus mangent toutes sortes de viande fraîche, appréciant particulièrement la chair des créatures intelligentes. Ils préfèrent chercher leur nourriture loin de leur tanière et utilisent leur capacité à imiter les sons qu'ils ont entendus pour attirer leurs proies. Les dragons crochus ont une tendance inquiétante à jouer avec leur nourriture d'une manière extrêmement cruelle. Les dragons crochus sont des maîtres du combat physique, et chaque partie de leur corps est mortelle. Ils n'ont pas d'arme respiratoire, mais leur morsure est si dévastatrice qu'elle peut causer des dommages constitutionnels en raison de la perte de sang due aux profondes lacérations.",
+									"{@b Hunted and Dwindling.} Lorsque Tiamat apprit l'existence de ces dragons hors de son contrôle, elle tenta de soumettre l'espèce. Elle envoya ses disciples à leur recherche et \"améliora\" les œufs de leurs petits par un rituel qui les transforma en ce que l'on appelle les dragons gris. Ces mêmes dragons gris furent chargés de purifier les dragons crochus restants. Chassés, leur nombre diminuant, les dragons crochus détestent Tiamat et tous ses disciples, et les attaquent à vue. Les dragons fang parlent des bribes de plusieurs langues et négocient pour éviter les batailles difficiles ou mortelles."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Les dragons crochus sont apparus dans les royaumes dans les ruines de Myth Drannor, ce qui a amené certains sages à penser qu'ils étaient liés aux démons qui infestent l'ancienne cité elfique depuis sa chute. On les trouve couramment dans les régions des forêts stellaires de Cormanthor, et occasionnellement dans la forêt frontalière, les bois de Spiderhaunt et d'autres forêts de la région des Dalelands, de Sembia et de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Le trésor d'un dragon fang est similaire à celui des autres dragons, car il contient diverses richesses, en raison de leur nature cupide. Cependant, contrairement aux autres dragons, le trésor d'un dragon fang contient également divers trophées de ses chasses précédentes. Qu'il s'agisse de crânes, de cornes, de dents, d'os, d'écailles, de peaux ou d'autres pièces qu'il a magiquement préservées, son trésor est parsemé de ces trophées. Certains d'entre eux peuvent avoir une grande valeur pour le bon acheteur..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Le plus fort des dragons crochus, qui a chassé et consommé de nombreuses autres créatures légendaires, peut subir une transformation qui fera de lui l'un des plus puissants chasseurs ayant jamais vécu. Les agents de Tiamat font en sorte qu'il est extrêmement rare qu'un dragon fang atteigne ce niveau de puissance, car tous ceux qui tentent la Grande Chasse reçoivent toute l'attention des lieutenants les plus fiables de Tiamat.",
+							"Pour y parvenir, le dragon doit apprendre l'existence de leurs échos, et la Grande Chasse peut commencer. Pour réussir la Grande Chasse, un Dragon Fang Ancien doit traquer et consommer la chair de ses échos. Le dragon doit le faire seul, car il n'y a pas de plus grande chasse que la chasse à soi-même. Grâce à la ruse et à l'habileté, la Grande Chasse offre de la puissance et certains des plus beaux trophées qu'un dragon croc ajoutera jamais à son trésor.",
+							"Les greatwyrms Fang sont une véritable terreur à voir. Enormes êtres de force brute, ils sont hérissés de lames de rasoir, de piques qu'ils peuvent lancer et qui se régénèrent presque instantanément, et de lames d'os aussi dures que l'acier. Une fois qu'ils ont atteint le statut de greatwyrm, les dragons crochus traquent activement les agents de Tiamat avec ferveur."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+							"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis.",
+							"Les sorts tels que {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sont les plus courants. Cependant, ils sont également connus pour avoir des sorts qui les aident à chasser plus efficacement ou, plus rarement, à causer une destruction brute."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Les dragons fang vivent dans des zones fortement boisées et montagneuses. La tanière d'un dragon fang est une grotte rugueuse et tumultueuse, remplie de rochers aux bords déchiquetés et de végétation couverte d'épines. Les trophées des chasses du dragon sont mélangés à son trésor. Ils murent généralement leurs tanières avec d'énormes rochers ou d'autres matériaux pour empêcher les intrus de s'approcher en leur absence. Les dragons à crochets ont tendance à choisir des grottes qui présentent des caractéristiques derrière lesquelles ils peuvent se cacher ou d'où ils peuvent surprendre des intrus sans méfiance.",
+									"Le niveau de difficulté d'un dragon légendaire à crocs augmente de 1 lorsqu'il est rencontré dans sa tanière."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IcVPE1D.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm (Variant Caster)",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+						"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Si le dragon échoue à un jet de sauvegarde, il peut choisir de le réussir à la place."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Si le grandwyrm devait être réduit à 0 point de vie, son total de points de vie actuel est réinitialisé à 375 points de vie, et il récupère toutes les utilisations dépensées de Résistance légendaire. De plus, le greatwyrm peut désormais utiliser les options de la section \"Actions mythiques\" pendant 1 heure.Accordez à un groupe 105 000 XP supplémentaires (210 000 XP au total) pour vaincre le greatwyrm après l'activation de sa \"Rage d'unyeilding\"."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Le dragon peut imiter tous les sons qu'il a entendus, y compris les voix. Une créature qui entend les sons peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse (perspicacité) de {@dc 22}."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en rage. Lorsqu'il est en rage, il bénéficie des avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +5 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious}, ou s'il met fin à sa rage à son tour de jeu par une action bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Lorsque le dragon réduit une créature à 0 point de vie ou marque un coup critique avec une attaque de mêlée à son tour, il peut prendre une action bonus pour voler jusqu'à la moitié de sa vitesse de vol et faire une attaque de morsure (il doit commencer et terminer ce mouvement au sol)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Les attaques à l'arme de mêlée du dragon obtiennent un coup critique sur un résultat de 18, 19 ou 20. De plus, il lance un dé de dégâts d'arme supplémentaire lorsqu'il détermine les dégâts supplémentaires pour un coup critique avec une attaque d'arme de mêlée."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Le dragon peut utiliser sa Présence effrayante. Il effectue ensuite trois attaques : une avec sa morsure et deux avec ses griffes."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 15 ft, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts perforants et la cible doit réussir un jet de sauvegarde de Constitution {@dc 26} ou son score de Constitution est réduit de {@dice 1d6}. La cible meurt si cela réduit sa Constitution à 0. Sinon, la réduction dure jusqu'à ce que la cible termine un repos court ou long."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 10 ft, une cible. {@h}21 ({@damage 2d10 + 10}) dégâts tranchants."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 6 mètres, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts de matraquage. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 26} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 6 mètres, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts perforants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 26} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} pour toucher, portée de 6 mètres, une cible. {@h}23 ({@damage 2d12 + 10}) dégâts tranchants. Si la cible est une créature, elle doit réussir un jet de sauvegarde de {@dc 26} Force ou être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Chaque créature choisie par le dragon qui se trouve à moins de 120 pieds de lui et qui est consciente de sa présence doit réussir un jet de sauvegarde de Sagesse {@dc 22} ou être effrayée pendant 1 minute. Une créature peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. Si le jet de sauvegarde d'une créature est réussi ou si l'effet prend fin pour elle, la créature est immunisée contre la Présence effrayante du dragon pendant les 24 heures suivantes."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Comme action bonus, le dragon peut entrer en rage. Lorsqu'il est en rage, il bénéficie des avantages suivants :",
+						{
+							"type": "list",
+							"items": [
+								"Le dragon a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+								"Lorsque le dragon effectue une attaque avec une arme de mêlée, il bénéficie d'un bonus de +5 au jet de dégâts.",
+								"Le dragon a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+							]
+						},
+						"Sa rage dure 1 minute. Elle ne se termine prématurément que si le dragon est assommé {@condition unconscious}, ou s'il met fin à sa rage à son tour de jeu par une action bonus."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Le dragon fait une attaque de queue."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Le dragon se met à tournoyer et s'élance avec sa queue. Chaque créature située dans un rayon de 6 mètres du dragon doit réussir un jet de sauvegarde de Dextérité {@dc 26} ou subir 21 ({@dice 2d10 + 10}) dégâts de matraquage ou de taillade et être assommée {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} pour toucher, portée de 200/400 ft., une cible. {@h}16 ({@damage 1d12 + 10}) dégâts perforants. Le greatwyrm lance 2 piques sur une cible à portée."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"Le greatwyrm fait une attaque de morsure."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"Le greatwyrm se hérisse de pointes, et les lance dans toutes les directions. Chaque créature dans une sphère de 60 pieds de rayon centrée sur le grandwyrm doit réussir un jet de sauvegarde de {@dc 26} dextérité, subissant 42 ({@damage 5d12 + 10}) dégâts perforants en cas d'échec, et la moitié en cas de réussite."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/kMbk4Iw.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"Les dragons crochus sont des créatures avides, rapaces et rusées, qui vivent pour la chasse et y sont exceptionnellement bien adaptés. Combattants sauvages, même selon les normes draconiques, les dragons crocs savourent l'occasion de consommer la chair d'autres créatures et se jettent dans la mêlée pour avoir la chance de déguster leur repas préféré.",
+									"Le plus terrifiant des dragons sur le plan physique, le dragon croc est doté de plaques osseuses qui se transforment en éperons saillants aux articulations des membres et se terminent par de longues queues fourchues munies d'une paire de lames osseuses semblables à des faux. Leurs plaques corporelles sont d'un gris et d'un brun tachetés, et une légère odeur de sang entoure le dragon fang. Leurs ailes sont petites mais musclées, et bien qu'ils volent mal, ils peuvent se lever d'un seul claquement d'ailes pour s'élancer en avant. La tête du dragon fang est ornée de nombreuses petites cornes ou pointes, et ses yeux ont tendance à être rouge vif ou orange.",
+									"{@b Angry and Twisted.} Tordus par les énergies magiques qui les ont créés, les dragons crochus sont enclins à la violence aléatoire et aux accès de rage. Ils se délectent de la violence, et lorsqu'ils sentent qu'ils ont l'avantage, ils se jettent dans la mêlée avec ferveur. Avec le temps, ils apprennent à domestiquer leur colère et à l'utiliser à leur avantage. Brutaux et vicieux, les créatures qui recherchent les dragons crochus doivent le faire avec une extrême prudence, car ils n'hésiteront pas à faire des ravages sur toute créature qu'ils jugent plus faible qu'eux et qui est perçue comme une menace ou une gêne.",
+									"{@b Consummate Hunters.} Les dragons crochus mangent toutes sortes de viande fraîche, appréciant particulièrement la chair des créatures intelligentes. Ils préfèrent chercher leur nourriture loin de leur tanière et utilisent leur capacité à imiter les sons qu'ils ont entendus pour attirer leurs proies. Les dragons crochus ont une tendance inquiétante à jouer avec leur nourriture d'une manière extrêmement cruelle. Les dragons crochus sont des maîtres du combat physique, et chaque partie de leur corps est mortelle. Ils n'ont pas d'arme respiratoire, mais leur morsure est si dévastatrice qu'elle peut causer des dommages constitutionnels en raison de la perte de sang due aux profondes lacérations.",
+									"{@b Hunted and Dwindling.} Lorsque Tiamat apprit l'existence de ces dragons hors de son contrôle, elle tenta de soumettre l'espèce. Elle envoya ses disciples à leur recherche et \"améliora\" les œufs de leurs petits par un rituel qui les transforma en ce que l'on appelle les dragons gris. Ces mêmes dragons gris furent chargés de purifier les dragons crochus restants. Chassés, leur nombre diminuant, les dragons crochus détestent Tiamat et tous ses disciples, et les attaquent à vue. Les dragons fang parlent des bribes de plusieurs langues et négocient pour éviter les batailles difficiles ou mortelles."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"Les dragons crochus sont apparus dans les royaumes dans les ruines de Myth Drannor, ce qui a amené certains sages à penser qu'ils étaient liés aux démons qui infestent l'ancienne cité elfique depuis sa chute. On les trouve couramment dans les régions des forêts stellaires de Cormanthor, et occasionnellement dans la forêt frontalière, les bois de Spiderhaunt et d'autres forêts de la région des Dalelands, de Sembia et de Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Le trésor d'un dragon fang est similaire à celui des autres dragons, car il contient diverses richesses, en raison de leur nature cupide. Cependant, contrairement aux autres dragons, le trésor d'un dragon fang contient également divers trophées de ses chasses précédentes. Qu'il s'agisse de crânes, de cornes, de dents, d'os, d'écailles, de peaux ou d'autres pièces qu'il a magiquement préservées, son trésor est parsemé de ces trophées. Certains d'entre eux peuvent avoir une grande valeur pour le bon acheteur..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Le plus fort des dragons crochus, qui a chassé et consommé de nombreuses autres créatures légendaires, peut subir une transformation qui fera de lui l'un des plus puissants chasseurs ayant jamais vécu. Les agents de Tiamat font en sorte qu'il est extrêmement rare qu'un dragon fang atteigne ce niveau de puissance, car tous ceux qui tentent la Grande Chasse reçoivent toute l'attention des lieutenants les plus fiables de Tiamat.",
+							"Pour y parvenir, le dragon doit apprendre l'existence de leurs échos, et la Grande Chasse peut commencer. Pour réussir la Grande Chasse, un Dragon Fang Ancien doit traquer et consommer la chair de ses échos. Le dragon doit le faire seul, car il n'y a pas de plus grande chasse que la chasse à soi-même. Grâce à la ruse et à l'habileté, la Grande Chasse offre de la puissance et certains des plus beaux trophées qu'un dragon croc ajoutera jamais à son trésor.",
+							"Les greatwyrms Fang sont une véritable terreur à voir. Enormes êtres de force brute, ils sont hérissés de lames de rasoir, de piques qu'ils peuvent lancer et qui se régénèrent presque instantanément, et de lames d'os aussi dures que l'acier. Une fois qu'ils ont atteint le statut de greatwyrm, les dragons crochus traquent activement les agents de Tiamat avec ferveur."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"Les dragons crocs peuvent également utiliser les règles variantes de lanceur de sorts inné pour les dragons présentées dans le manuel de la voie de la gueule furieuse.",
+							"Ils ont tendance à utiliser des sorts qui annulent d'autres magies ou empêchent les lanceurs de sorts ennemis.",
+							"Les sorts tels que {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sont les plus courants. Cependant, ils sont également connus pour avoir des sorts qui les aident à chasser plus efficacement ou, plus rarement, à causer une destruction brute."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"Les dragons fang vivent dans des zones fortement boisées et montagneuses. La tanière d'un dragon fang est une grotte rugueuse et tumultueuse, remplie de rochers aux bords déchiquetés et de végétation couverte d'épines. Les trophées des chasses du dragon sont mélangés à son trésor. Ils murent généralement leurs tanières avec d'énormes rochers ou d'autres matériaux pour empêcher les intrus de s'approcher en leur absence. Les dragons à crochets ont tendance à choisir des grottes qui présentent des caractéristiques derrière lesquelles ils peuvent se cacher ou d'où ils peuvent surprendre des intrus sans méfiance.",
+									"Le niveau de difficulté d'un dragon légendaire à crocs augmente de 1 lorsqu'il est rencontré dans sa tanière."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/WhjJDXL.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"race": [
+		{
+			"name": "Dragonborn (Fang)",
+			"source": "KGFD",
+			"lineage": "VRGR",
+			"size": [
+				"M"
+			],
+			"speed": {
+				"walk": 30
+			},
+			"entries": [
+				"Votre héritage draconique se manifeste par une variété de traits que vous partagez avec les autres dragonborn.",
+				{
+					"name": "Ability Score Increase",
+					"type": "entries",
+					"entries": [
+						"Lorsque vous déterminez les scores de capacité de votre personnage, augmentez l'un de ces scores de 2 et augmentez un autre score de 1, ou augmentez trois scores différents de 1."
+					]
+				},
+				{
+					"name": "Age",
+					"type": "entries",
+					"entries": [
+						"Les jeunes dragonborn grandissent rapidement. Ils marchent quelques heures après l'éclosion, atteignent la taille et le développement d'un enfant humain de 10 ans à l'âge de 3 ans, et atteignent l'âge adulte à 15 ans. Ils vivent jusqu'à environ 80 ans."
+					]
+				},
+				{
+					"name": "Alignment",
+					"type": "entries",
+					"entries": [
+						"Les fang dragonborn ont tendance à vénérer la liberté par-dessus tout. La plupart des dragonborn fang sont chaotiques neutres. Cependant, il existe de rares exceptions qui se joignent à Bahamut dans la guerre contre Tiamat, adoptant des tendances légales ou bonnes."
+					]
+				},
+				{
+					"name": "Size",
+					"type": "entries",
+					"entries": [
+						"Les Dragonniers Fang sont plus grands et plus lourds que les humains, mesurant plus de 1,80 m et pesant en moyenne près de 250 kg. Votre taille est moyenne. Vitesse. Votre vitesse de marche de base est de 30 pieds."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"Votre vitesse de marche de base est de 30 pieds."
+					]
+				},
+				{
+					"name": "Languages",
+					"entries": [
+						"Votre personnage peut parler, lire et écrire le commun et une autre langue que vous et votre DM jugez appropriée pour le personnage."
+					],
+					"type": "entries"
+				},
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Ancestry Specific Traits",
+							"entries": [
+								"Votre ancêtre était un dragon fang, et cela confère des traits spécifiques à votre espèce.",
+								{
+									"name": "Bite",
+									"entries": [
+										"Votre gueule crochue est une arme naturelle, que vous pouvez utiliser pour effectuer des frappes sans arme. Si vous touchez avec elle, vous infligez des dégâts perforants égaux à {@b 1d6 + your Strength modifier}, au lieu des dégâts de matraquage normaux pour une frappe sans arme."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Merciless Rive",
+									"entries": [
+										"Immédiatement après avoir réduit une créature à 0 point de vie, ou avoir obtenu un coup critique, dans le cadre d'une action d'attaque à votre tour, vous pouvez vous élancer en avant et utiliser votre morsure pour porter une attaque dévastatrice. Vous vous déplacez jusqu'à la moitié de votre vitesse de déplacement, et effectuez une attaque de morsure. Cette attaque est effectuée avec avantage, et si elle est réussie, elle inflige 1d6 points de dégâts perforants supplémentaires. Les dégâts supplémentaires passent à3d6 au 5e niveau, 5d6 au 11e niveau, et 7d6 au 17e niveau.",
+										"Vous pouvez utiliser votre rive impitoyable un nombre de fois égal à votre bonus de compétence, et vous récupérez toutes les utilisations dépensées lorsque vous terminez un long repos."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Draconic Resistance",
+									"entries": [
+										"Vous partagez une partie de la capacité de votre ancêtre à ignorer les attaques magiques. Vous avez un avantage sur tous les jets de sauvegarde de Force, de Dextérité et de Constitution contre la magie."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Thrill of the Hunt",
+									"entries": [
+										"Vous maîtrisez la compétence de survie"
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"survival": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"common": true,
+					"other": true
+				}
+			],
+			"age": {
+				"mature": 15,
+				"max": 80
+			},
+			"fluff": {
+				"entries": [
+					"Nés des dragons, comme leur nom le proclame, les dragonborn marchent fièrement dans un monde qui les accueille avec une incompréhension craintive. Façonnés par les dieux draconiques ou les dragons eux-mêmes, les natifs du dragon sont nés d'œufs de dragons et constituent une race unique, combinant les meilleurs attributs des dragons et des humanoïdes. Certains sont des serviteurs fidèles des vrais dragons, d'autres forment les rangs des soldats dans les grandes guerres, et d'autres encore se retrouvent à la dérive, sans vocation précise dans la vie."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/EO3wlZY.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"variantrule": [
+		{
+			"name": "Half Dragon (Fang)",
+			"source": "KGFD",
+			"ruleType": "O",
+			"entries": [
+				"Lorsqu'un dragon fang sous forme polymorphe s'accouple avec une autre créature, l'union donne parfois naissance à une progéniture dragon demi-fang. Une créature peut également se transformer en dragon demi-croc à la suite d'un sort lancé par un sorcier fou ou d'un bain rituel dans du sang de dragon. Dans tous ces cas, le résultat est une créature qui combine l'essence d'un dragon avec la forme de sa race d'origine. Quelles que soient leurs origines, tous les dragons à demi-crocs ont des caractéristiques et une apparence similaires, et sont dotés de sens spéciaux, d'une rage féroce et d'une morsure mortelle.",
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Half Fang Dragon Template",
+							"entries": [
+								{
+									"name": "Draconic Nature",
+									"entries": [
+										"Les dragons demi-crocs sont incapables d'avoir une progéniture naturelle. Ceux qui souhaitent se reproduire doivent trouver d'autres moyens de le faire, qui font presque toujours appel à la magie. En guise de compensation, les dragons demi-crocs sont dotés d'une longue vie. Sauf malchance imprévue, l'espérance de vie d'un dragon demi-croc typique est deux fois supérieure à celle de sa lignée non draconique, de sorte qu'un humain dragon demi-croc peut vivre plus d'un siècle et demi. Les dragons à demi-crocs héritent de traits de personnalité communs à leur héritage draconique. Ces traits sont tempérés par l'autre lignée du dragon demi-croc, mais les dragons demi-croc sont plus prompts à la colère et plus enclins aux actes de violence qu'un membre standard de leur lignée non draconique.",
+										"Une bête, un humanoïde, un géant ou une monstruosité peut devenir un dragon à demi-crocs. Lorsqu'une créature devient un dragon à demi-crocs, elle conserve toutes ses statistiques, sauf celles indiquées ci-dessous."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Senses",
+									"entries": [
+										"Le dragon demi-croc gagne la vision aveugle avec un rayon de 10 pieds et la vision noire avec un rayon de 60 pieds."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Rage (1/Day)",
+									"entries": [
+										"Comme action bonus, le dragon à demi-crocs peut entrer en rage. Pendant une minute, il gagne les avantages suivants :",
+										{
+											"type": "list",
+											"items": [
+												"Le dragon à demi-crocs a l'avantage sur les tests de Force et les jets de sauvegarde de Force.",
+												"Lorsque le dragon demi-croc fait une attaque avec une arme de mêlée, il bénéficie d'un bonus de +2 au jet de dégâts.",
+												"Le dragon à demi-crocs a un avantage sur les jets de sauvegarde contre les sorts et autres effets magiques."
+											]
+										}
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Ravenous Onslaught",
+									"entries": [
+										"Lorsque le dragon demi-croc réduit une créature à 0 point de vie ou obtient un coup critique avec une attaque de mêlée à son tour, il peut bénéficier d'une action bonus pour se déplacer jusqu'à la moitié de sa vitesse et effectuer une attaque de morsure."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Action: Bite",
+									"entries": [
+										"Le dragon demi-croc a la morsure de son demi-dragon. La taille du dragon à demi-crocs détermine le fonctionnement de cette action.",
+										{
+											"type": "table",
+											"caption": "Half fang dragon bite",
+											"colLabels": [
+												"Size",
+												"Bite"
+											],
+											"colStyles": [
+												"col-6 text-center",
+												"col-6 text-center"
+											],
+											"rows": [
+												[
+													"Grand ou petit",
+													"En tant que wyrmling ({@damage 1d12 + 3} de dégâts perforants)"
+												],
+												[
+													"Huge",
+													"Comme un jeune dragon ({@damage 2d12 + 5} de dégâts perforants)"
+												],
+												[
+													"Gargantua",
+													"En tant que dragon adulte ({@damage 2d12 + 7} de dégâts perforants)"
+												]
+											]
+										}
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"Art et article conçus par {@link Kajagrae|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}. Veuillez indiquer le nom de l'auteur si vous le postez ailleurs."
+					]
+				}
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"shortName": "Path of the Furious Maw",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"page": 1,
+			"subclassFeatures": [
+				"Path of the Furious Maw|Barbarian|PHB|Path of the Furious Maw|KGFD|3",
+				"Dogged Awareness|Barbarian|PHB|Path of the Furious Maw|KGFD|6",
+				"No Escape|Barbarian|PHB|Path of the Furious Maw|KGFD|10",
+				"Vicious Strikes|Barbarian|PHB|Path of the Furious Maw|KGFD|14"
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"shortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"subclassFeatures": [
+				"Draconic Bloodline (Fang)|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1",
+				"Draconic Affinity|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|6",
+				"Sorcerous Frenzy|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|14",
+				"Draconic Presence|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|18"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"entries": [
+				"Au 3e niveau, un barbare gagne la caractéristique Voie primitive. L'option suivante est disponible pour un barbare, en plus de celles proposées dans le Manuel du Joueur et le Guide de Xanthar pour tout.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Path of the Furious Maw Features|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Merciless Onslaught|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Cunning Hunter|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Path of the Furious Maw Features",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Certaines créatures sont si féroces qu'elles inspirent des cultures à les imiter dans leur propre mode de vie. Ces tribus enseignent que l'habileté dans la chasse et la férocité abjecte sont en elles-mêmes un moyen d'atteindre une fin. Lorsqu'un barbare qui suit cette voie se déchaîne, il devient une terreur impitoyable au combat.",
+				"Les barbares qui puisent dans la sauvagerie primitive de cette voie sont terrifiants à voir au combat. Généralement ornés de trophées de leurs précédents combats, ils se jettent dans la mêlée et sèment le chaos chez leurs adversaires. Dans les profondeurs de leur rage, ils sont même connus pour jouer avec le dernier de leurs adversaires avant de leur donner le coup de grâce.",
+				{
+					"type": "table",
+					"caption": "Path of the Furious Maw Features",
+					"colLabels": [
+						"Barbarian Level",
+						"Feature"
+					],
+					"colStyles": [
+						"col-3 text-center",
+						"col-9"
+					],
+					"rows": [
+						[
+							"3rd",
+							"Attaque sans merci, Chasseur rusé"
+						],
+						[
+							"6th",
+							"Sensibilisation"
+						],
+						[
+							"10th",
+							"Pas d'échappatoire"
+						],
+						[
+							"14th",
+							"Coups vicieux"
+						]
+					]
+				}
+			]
+		},
+		{
+			"name": "Merciless Onslaught",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"À partir du 3e niveau, lorsque vous choisissez cette voie, vous canalisez la férocité des coutumes de votre tribu dans votre rage. Pendant votre rage, lorsque vous réduisez une créature à 0 point de vie ou obtenez un coup critique avec une attaque de mêlée à votre tour, vous pouvez, comme action bonus, vous déplacer jusqu'à la moitié de votre vitesse et effectuer une attaque de mêlée."
+			]
+		},
+		{
+			"name": "Cunning Hunter",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"À partir du 3e niveau, lorsque vous choisissez cette voie, vous canalisez la férocité des coutumes de votre tribu dans votre rage. Pendant votre rage, lorsque vous réduisez une créature à 0 point de vie ou obtenez un coup critique avec une attaque de mêlée à votre tour, vous pouvez, comme action bonus, vous déplacer jusqu'à la moitié de votre vitesse et effectuer une attaque de mêlée."
+			]
+		},
+		{
+			"name": "Dogged Awareness",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"À partir du 6e niveau, votre connaissance de la chasse a accordé vos propres sens pour vous permettre de savoir que le chasseur est devenu la proie. Vous avez un avantage sur les tests de Sagesse (Perception) pour repérer les créatures cachées. De plus, vous ne pouvez plus être surpris."
+			]
+		},
+		{
+			"name": "No Escape",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"À partir du 10e niveau, votre zèle pour la chasse et le combat se sont tellement entremêlés que vous cherchez parfois à prolonger les deux.",
+				"Une fois par rage, vous pouvez tenter d'entraver l'un de vos adversaires. Lorsque vous portez une attaque de mêlée, votre cible doit réussir un jet de sauvegarde de Force égal à 8 + votre bonus de compétence + votre modificateur de Force, ou être mise à terre. De plus, sa vitesse de déplacement est réduite de moitié jusqu'à ce qu'elle reçoive des soins magiques ou qu'elle termine un long repos."
+			]
+		},
+		{
+			"name": "Vicious Strikes",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"Au 14ème niveau, le caractère vicieux de votre rage a atteint son apogée. Lorsque vous êtes en rage, vos attaques d'armes obtiennent un coup critique sur un jet de 19 ou 20. Si vos attaques obtiennent déjà un succès critique sur un jet de 19 ou 20 par une autre source, vous obtenez à la place un succès critique sur un jet de 18-20."
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"entries": [
+				"Au 1er niveau, un sorcier gagne la caractéristique Origine sorcière.L'option suivante est disponible pour un sorcier, en plus de celles proposées dans le Manuel du joueur, et le Guide de Xanthar pour tout.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Bloodline|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Resilience|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Draconic Bloodline",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"Votre magie innée provient de la magie draconique qui s'est mélangée à votre sang ou à celui de vos ancêtres. Le plus souvent, les sorciers ayant cette origine remontent à un puissant sorcier des temps anciens qui a fait un pacte avec un dragon ou qui a peut-être même revendiqué un parent dragon. Certaines de ces lignées sont bien établies dans le monde, mais la plupart sont obscures. N'importe quel sorcier peut être le premier d'une nouvelle lignée, à la suite d'un pacte ou d'une autre circonstance exceptionnelle."
+			]
+		},
+		{
+			"name": "Draconic Resilience",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"Lorsque la magie circule dans votre corps, elle fait apparaître les traits physiques de vos ancêtres dragons. Au 1er niveau, votre maximum de points de vie augmente de 1 et augmente à nouveau de 1 à chaque fois que vous gagnez un niveau dans cette classe. De plus, certaines parties de votre peau sont recouvertes d'une fine couche d'écailles semblables à celles d'un dragon. Lorsque vous ne portez pas d'armure, votre CA est égale à 13 + votre modificateur de Dextérité."
+			]
+		},
+		{
+			"name": "Draconic Affinity",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"À partir du 6e niveau, lorsque vous lancez un sort qui inflige des dégâts de matraquage, de perçage ou de coupure, ajoutez votre modificateur de Charisme à ces dégâts. Vous gagnez également la possibilité de dépenser 2 points de sorcellerie pour acquérir une résistance à la magie pendant 1 minute."
+			]
+		},
+		{
+			"name": "Sorcerous Frenzy",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"La rage du dragon fang coule dans ton sang. Au 14ème niveau, vous pouvez faire appel à cette colère, et la canaliser dans votre magie. À votre tour, vous pouvez entrer dans une frénésie sorcière comme une action bonus. Lorsque vous êtes en frénésie, vous gagnez les avantages suivants : Vous gagnez un bonus de +2 à votre DC de sauvegarde contre les sorts.",
+				{
+					"type": "list",
+					"items": [
+						"La portée critique de vos attaques de sorts augmente de 1.",
+						"Le coût en points de sort des options métamagiques est réduit de moitié, avec un minimum de 1.",
+						"Le coût en points de sorts pour créer des emplacements de sorts est réduit de 1."
+					]
+				},
+				"Votre frénésie dure 1 minute. Elle se termine prématurément si vous êtes assommé ou si votre tour se termine et que vous n'avez pas endommagé une créature hostile depuis votre dernier tour ou subi de dégâts depuis. Vous pouvez également mettre fin à votre frénésie à votre tour en tant qu'action bonus.",
+				"Une fois que vous avez utilisé cette fonction, vous ne pouvez plus le faire jusqu'à ce que vous ayez terminé un long repos."
+			]
+		},
+		{
+			"name": "Draconic Presence",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"À partir du 18e niveau, vous pouvez canaliser la présence redoutable de votre ancêtre dragon, ce qui a pour effet d'impressionner ou d'effrayer ceux qui vous entourent. En tant qu'action, vous pouvez dépenser 5 points de sorcellerie pour puiser dans ce pouvoir et dégager une aura de crainte ou de peur (au choix) sur une distance de 60 pieds. Pendant 1 minute ou jusqu'à ce que vous perdiez votre concentration (comme si vous jetiez un sort de concentration), chaque créature hostile qui commence son tour dans cette aura doit réussir un jet de sauvegarde de Sagesse ou être charmée (si vous avez choisi la crainte) ou effrayée (si vous avez choisi la peur) jusqu'à ce que l'aura prenne fin. Une créature qui réussit ce jet de sauvegarde est immunisée contre votre aura pendant 24 heures."
+			]
+		}
+	]
+}

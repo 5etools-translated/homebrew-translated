@@ -19,9 +19,14 @@
 				"targetSchema": "1.0.0"
 			}
 		],
+		"optionalFeatureTypes": {
+			"WM": "Weapon Modification",
+			"EA": "Evolutionist Augmentation",
+			"EU": "Evolutionist Upgrade"
+		},
 		"dateAdded": 1659960938,
-		"dateLastModified": 1660403549,
-		"_dateLastModifiedHash": "c018a31cee"
+		"dateLastModified": 1660775288,
+		"_dateLastModifiedHash": "af70336f57"
 	},
 	"race": [
 		{
@@ -1917,7 +1922,7 @@
 					"name": "Tinkerer",
 					"type": "entries",
 					"entries": [
-						"Vous gagnez la compétence en {@item tinker's tools|phb} et {@filter one other tool of your choice|items|source=phb|miscellaneous=mundane|type=tools;artisan's tools=sor}."
+						"Vous gagnez la compétence en {@item tinker's tools|phb} et {@filter one other tool of your choice|items|type=artisan's tools;tools}."
 					]
 				},
 				{
@@ -2218,6 +2223,340 @@
 			]
 		}
 	],
+	"class": [
+		{
+			"name": "Evolutionist",
+			"source": "ccg",
+			"page": 63,
+			"hd": {
+				"number": 1,
+				"faces": 10
+			},
+			"proficiency": [
+				"con",
+				"cha"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Augmentation",
+					"featureType": [
+						"OTH"
+					],
+					"progression": {
+						"1": 2,
+						"6": 3
+					}
+				},
+				{
+					"name": "Upgrades Developed",
+					"featureType": [
+						"OTH"
+					],
+					"progression": [
+						0,
+						2,
+						4,
+						4,
+						4,
+						6,
+						6,
+						6,
+						6,
+						8,
+						8,
+						8,
+						8,
+						10,
+						10,
+						10,
+						10,
+						12,
+						12,
+						12
+					]
+				}
+			],
+			"startingProficiencies": {
+				"armor": [
+					"light",
+					"medium",
+					"{@item shield|phb|shields}"
+				],
+				"weapons": [
+					"simple"
+				],
+				"skills": [
+					{
+						"choose": {
+							"from": [
+								"acrobatics",
+								"athletics",
+								"intimidation",
+								"investigation",
+								"medicine",
+								"stealth",
+								"navigation|ccg"
+							],
+							"count": 2
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"additionalFromBackground": true,
+				"default": [
+					"(a) a {@item spear|phb} or (b) {@filter any martial weapon|items|source=phb|category=basic|type=martial weapon} (if proficient)",
+					"(a) {@item scale mail|phb} or (b) {@filter any simple weapon|items|source=phb|category=basic|type=simple weapon}",
+					"an {@item explorer's pack|phb} and a {@item dagger|phb}"
+				],
+				"goldAlternative": "{@dice 3d4 × 10|3d4 × 10|Starting Gold}",
+				"defaultData": [
+					{
+						"a": [
+							"spear|phb"
+						],
+						"b": [
+							{
+								"equipmentType": "weaponMartial"
+							}
+						]
+					},
+					{
+						"a": [
+							"scale mail|phb"
+						],
+						"b": [
+							{
+								"equipmentType": "weaponSimple"
+							}
+						]
+					},
+					{
+						"_": [
+							"explorer's pack|phb",
+							"dagger|phb"
+						]
+					}
+				]
+			},
+			"multiclassing": {
+				"requirements": {
+					"or": [
+						{
+							"str": 13,
+							"con": 13
+						}
+					]
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light"
+					],
+					"weapons": [
+						"simple"
+					]
+				}
+			},
+			"classTableGroups": [
+				{
+					"colLabels": [
+						"{@filter Upgrades Developed|optionalfeatures|Feature Type=EU}",
+						"Active Upgrades"
+					],
+					"rows": [
+						[
+							0,
+							0
+						],
+						[
+							2,
+							1
+						],
+						[
+							4,
+							2
+						],
+						[
+							4,
+							2
+						],
+						[
+							4,
+							2
+						],
+						[
+							6,
+							3
+						],
+						[
+							6,
+							3
+						],
+						[
+							6,
+							3
+						],
+						[
+							6,
+							3
+						],
+						[
+							8,
+							4
+						],
+						[
+							8,
+							4
+						],
+						[
+							8,
+							4
+						],
+						[
+							8,
+							4
+						],
+						[
+							10,
+							5
+						],
+						[
+							10,
+							5
+						],
+						[
+							10,
+							5
+						],
+						[
+							10,
+							5
+						],
+						[
+							12,
+							6
+						],
+						[
+							12,
+							6
+						],
+						[
+							12,
+							6
+						]
+					]
+				}
+			],
+			"classFeatures": [
+				{
+					"classFeature": "Evolutionary Method|Evolutionist|ccg|1",
+					"gainSubclassFeature": true
+				},
+				"Augmentations|Evolutionist|ccg|1",
+				"Upgrades|Evolutionist|ccg|2",
+				"Reconstruction|Evolutionist|ccg|2",
+				"Metabolic Ignition|Evolutionist|ccg|3",
+				"Undying|Evolutionist|ccg|3",
+				"Ability Score Improvement|Evolutionist|ccg|4",
+				"Extra Attack|Evolutionist|ccg|5",
+				"Relentless Ignition|Evolutionist|ccg|6",
+				"Augmentation|Evolutionist|ccg|6",
+				{
+					"classFeature": "Evolutionary Method feature|Evolutionist|ccg|7",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Evolutionist|ccg|8",
+				"Hardened Mind|Evolutionist|ccg|9",
+				"Unyielding Strikes|Evolutionist|ccg|11",
+				"Ability Score Improvement|Evolutionist|ccg|12",
+				{
+					"classFeature": "Evolutionary Method feature|Evolutionist|ccg|13",
+					"gainSubclassFeature": true
+				},
+				"Immortality|Evolutionist|ccg|14",
+				"Wounded Ambition|Evolutionist|ccg|15",
+				"Ability Score Improvement|Evolutionist|ccg|16",
+				{
+					"classFeature": "Evolutionary Method feature|Evolutionist|ccg|17",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Evolutionist|ccg|19",
+				"Final Form|Evolutionist|ccg|20",
+				"Immortality Improvement|Evolutionist|ccg|20"
+			],
+			"subclassTitle": "Evolutionary Method",
+			"fluff": [
+				{
+					"name": "Evolutionist",
+					"type": "section",
+					"entries": [
+						{
+							"type": "quote",
+							"entries": [
+								"Chaque créature vivante mise au monde est une graine, débordante de potentiel, mais seuls les plus ambitieux sont prêts à se détruire pour devenir un arbre."
+							],
+							"by": "Prime, a hired gun"
+						},
+						"Un nain regarde fixement dans un miroir, glissant soigneusement un objet cristallin brillant dans la cavité où se trouvait son œil. Un clic soudain résonne dans tout l'atelier alors que l'appareil se met en marche. Il cligne des yeux et regarde dans la pièce, testant son nouvel équipement optique. Après un court instant, il replace ses outils sur le bureau en face de lui, à côté de son couteau et de son globe oculaire récemment coupé.",
+						"Une femme demi-elfe, couverte de la tête aux pieds de robes noires, est confrontée à un groupe de voyous dans une ruelle. Pendant qu'ils font leurs demandes, elle fixe le sol, refusant de les regarder dans les yeux. L'un des voyous sort un couteau, mais avant qu'il ne puisse faire un seul pas, il est brusquement soulevé en l'air. Les autres regardent, horrifiés, les tentacules monstrueux qui sortent de la femme et l'attrapent à la gorge.",
+						"De la sueur coule du menton d'un halfling alors qu'il est agenouillé dans un cercle de sang, des monstres cauchemardesques se rapprochant de tous les côtés. Son souffle s'accélère alors qu'il porte une lame à son épaule de manière instable. D'un geste rapide, il ferme les yeux et déchire son bras, le séparant directement de son corps. Les cris du halfling résonnent dans la chambre de pierre froide tandis que les os et la chair jaillissent rapidement de son épaule, formant un nouveau membre horrible. En un instant, la douleur sur son visage fait place à un sourire maniaque alors qu'il se lève, se laissant aller à sa nouvelle modification.",
+						{
+							"type": "entries",
+							"name": "What Is an Evolutionist?",
+							"entries": [
+								"Les évolutionnistes sont des guerriers ambitieux qui, au lieu de développer leur force par la pratique et l'entraînement, améliorent leurs talents naturels en améliorant et en perfectionnant leur corps. Ils rejettent l'idée qu'ils doivent jouer le jeu qu'on leur donne, et cherchent plutôt à changer le jeu. Alors que la plupart des gens acceptent le corps qui leur est donné, les évolutionnistes cherchent à le contrôler et à le pousser au-delà de ses limites. Chaque évolutionniste a des méthodes et des motivations différentes pour améliorer son corps, mais tous sont liés par un objectif commun : l'évolution."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Continual Improvement",
+							"entries": [
+								"Les évolutionnistes se définissent par leur désir ardent d'améliorer leur corps par des méthodes qui vont au-delà du simple entraînement. Ils y parviennent par divers moyens, allant de la technologie inventive et de l'alchimie aux magies anciennes, voire à des pactes avec des êtres d'un autre monde. Quelle que soit la méthode, un évolutionniste commence à changer et à modifier sa forme en augmentant son corps ou en faisant pousser des appendices complètement nouveaux. Ces améliorations permettent aux évolutionnistes de dominer leurs ennemis, que ce soit par leurs capacités brutes ou par des tactiques uniques rendues possibles par leur biologie atypique. Les évolutionnistes vivent une vie de croissance continue, utilisant les capacités qu'ils acquièrent pour chercher des méthodes permettant d'améliorer encore plus leur corps."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Paradoxical Identities",
+							"entries": [
+								"Le corps d'un évolutionniste est le fondement de son identité, le point de mire ultime de ses efforts. Pour eux, le corps est l'expression la plus fondamentale et intrinsèque de l'identité et de la raison d'être - des bois de l'élan aux oreilles de la chauve-souris, chaque adaptation biologique a une raison explicite d'exister. Les évolutionnistes poursuivent souvent leur concept personnel d'un corps parfait, souvent motivés par des perceptions de faiblesse physique, d'inaptitude mentale ou de manque d'attrait visuel. La poursuite de la perfection n'est cependant pas sans risque. Paradoxalement, ces mêmes personnes qui considèrent le corps comme une forme d'expression ont tendance à s'en dissocier à mesure qu'elles accumulent les modifications. Certains en viennent à percevoir le corps comme un peu plus qu'un outil ou un véhicule actionné par le cerveau ou l'âme. Si cette mentalité peut faciliter des améliorations encore plus importantes, elle soulève une question délicate : où s'arrête la personne et où commencent les améliorations ?"
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Ambitious Sacrifices",
+							"entries": [
+								"Le sacrifice est au cœur du travail de l'évolutionniste. Ils doivent renoncer à certaines parties d'eux-mêmes - un jour, ils enlèvent une jambe pour la remplacer par une prothèse améliorée ; le lendemain, ils modifient leur apparence pour l'adapter à une nouvelle amélioration. Si ces modifications physiques leur donnent la capacité de se battre contre les meilleurs combattants martiaux, les évolutionnistes ont de plus grandes ambitions. Ils poussent leurs améliorations plus loin que ce que leur corps peut supporter, en mettant à mal leur propre vitalité. L'endurance est la qualité la plus importante pour un évolutionniste ; la capacité de souffrir à travers son ambition est primordiale pour son succès. Rien ne les arrête dans la poursuite de leurs objectifs, même s'ils risquent de se faire du mal. Parfois, ils font leurs plus grands sacrifices sans même s'en rendre compte."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Freakish Forms",
+							"entries": [
+								"En raison de leur travail, les évolutionnistes ont presque toujours une apparence étrange. Les modifications apportées à leur corps passent rarement inaperçues, ce qui rend souvent les gens méfiants à leur égard. Les opinions concernant les évolutionnistes individuels varient considérablement, allant du dégoût et de la peur au respect et à l'admiration. Ils sont souvent traités différemment, non seulement pour leur apparence, mais aussi pour les implications que cela a sur leur état mental - il est certain qu'une personne qui s'infligerait cela n'est pas bien dans sa tête. Confrontés quotidiennement à de telles réactions, les évolutionnistes ont tendance à surmonter assez facilement l'opinion que les autres ont d'eux. Certains évolutionnistes sont timides et gênés, ils essaient de se fondre dans la masse et se recroquevillent devant l'hostilité. D'autres se délectent de la notoriété, revendiquant volontiers les feux de la rampe - même une attention négative est une attention. Les plus dangereux ne tolèrent aucune allusion au jugement, et peuvent devenir des meurtriers frénétiques au moindre regard de travers."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Creating an Evolutionist",
+							"entries": [
+								"Lorsque vous créez votre personnage évolutionniste, vous devez réfléchir à la manière exacte dont il améliore son corps. En tant que personnage de départ, vous choisirez une méthode qui définira la nature générale de vos améliorations, mais la forme exacte de vos améliorations vous appartient. Améliorez-vous votre corps actuel ? Ou retirez-vous et remplacez-vous des parties de votre corps ? Votre personnage est-il méthodique et prudent lorsqu'il améliore son corps, ou fait-il des changements aussi grossiers et rapides que possible ? Le choix de la façon dont votre personnage modifie son corps fait partie intégrante de son apparence et de la façon dont les autres le traitent. Chaque amélioration que votre personnage atteint changera qui il est, et c'est cette progression des changements qui vous définit en tant qu'évolutionniste.",
+								"Deuxièmement, vous devez vous demander pourquoi votre personnage a décidé de suivre cette voie controversée et dangereuse. S'agit-il simplement d'une soif de pouvoir ou d'un objectif plus large ? Chaque évolutionniste a une raison pour laquelle il s'améliore continuellement, en raison des sacrifices qui l'accompagnent. Votre personnage s'efforce-t-il de surmonter un obstacle ? Ou bien votre personnage souhaite-t-il changer quelque chose en lui ? En outre, vous devriez vous demander comment votre personnage a été amené à améliorer son corps. A-t-il été initié à cette pratique par quelqu'un d'autre, ou cela a-t-il commencé par un événement chaotique majeur ? Votre personnage a-t-il choisi cette voie ou lui a-t-elle été imposée ? Le fait d'avoir une idée claire des objectifs et des origines de votre personnage vous permettra d'éclairer vos décisions à l'avenir.",
+								{
+									"type": "entries",
+									"name": "Quick Build",
+									"entries": [
+										"Vous pouvez faire un évolutionniste rapidement en suivant ces suggestions. Premièrement, faites de la Constitution votre score le plus élevé, suivi de la Force ou de la Dextérité, en fonction de la façon dont vous voulez vous battre. Deuxièmement, choisissez le fond Mercenaire."
+									]
+								}
+							]
+						}
+					],
+					"source": "ccg",
+					"page": 63
+				}
+			]
+		}
+	],
 	"classFeature": [
 		{
 			"name": "Shotgun Slayer",
@@ -2269,6 +2608,363 @@
 			"entries": [
 				"{@i Optional 1st-level ranger feature}",
 				"Lorsque vous choisissez un terrain de prédilection pour votre caractéristique {@classFeature Natural Explorer|Ranger||1}, les gratte-ciel, les rues et les taudis sont ajoutés à vos options disponibles. Ces nouvelles options représentent les différentes altitudes de la ville de Prismatic Falls, avec les gratte-ciel en haut et les taudis en bas."
+			]
+		},
+		{
+			"name": "Evolutionary Method",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 1,
+			"entries": [
+				"La méthode d'un évolutionniste est fondamentale pour son être : c'est la passerelle vitale qui lui permet de modifier son corps et la voie qui le distingue des autres membres de son espèce. La méthode d'un évolutionniste est un facteur déterminant de son apparence, la source de son pouvoir et une représentation complète de son identité. Sans méthode d'évolution, on ne serait pas un évolutionniste.",
+				"Choisissez une méthode d'évolution, qui détermine la façon dont vous abordez l'amélioration de votre propre corps. Votre choix vous confère des caractéristiques au 1er niveau, puis aux 7e, 13e et 17e niveaux."
+			]
+		},
+		{
+			"name": "Augmentations",
+			"source": "ccg",
+			"page": 66,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Chaque évolutionniste commence par des augmentations, qui sont les bases utilisées pour d'autres améliorations. Choisissez deux des options suivantes pour modifier votre corps. Vous pouvez en choisir une autre au 6ème niveau.",
+				{
+					"type": "options",
+					"count": 2,
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Arm Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Core Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Exterior Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Growth Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Head Augmentation|ccg"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Leg Augmentation|ccg"
+						}
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Your Augmentations",
+					"entries": [
+						"{@b Arm Augmentation.} Vous pouvez implémenter l'Augmentation de bras dans l'un de vos bras ou dans les deux, éventuellement en modifiant les fibres musculaires qu'ils contiennent ou en les enveloppant pour améliorer leur puissance. Vous pouvez aussi les mutiler et les remplacer entièrement pour obtenir la puissance que vous recherchez.",
+						"{@b Core Augmentation.} L'augmentation du cœur est une modification du torse du corps, le plus souvent en augmentant la zone dans et autour du cœur pour augmenter la capacité de survie. Vous pouvez même remplacer entièrement votre cœur ou d'autres organes pour y parvenir.",
+						"{@b Exterior Augmentation.} Votre défense est renforcée lorsque vous obtenez l'Augmentation extérieure, qui peut être obtenue en mettant en place une couche protectrice sous votre peau, en couvrant tout votre corps d'un manteau résistant ou en obtenant un exosquelette complet.",
+						"{@b Growth Augmentation.} Il existe de nombreuses façons de mettre en œuvre l'augmentation de croissance, mais elle implique toujours l'acquisition de nouvelles parties qui éloignent votre corps de sa forme originale. Ces nouvelles caractéristiques corporelles peuvent prendre n'importe quelle forme, comme des sabots, une queue, des bras supplémentaires, des griffes, des crocs, des épines, des cornes ou des tentacules.",
+						"{@b Head Augmentation.} Améliorer vos sens est votre objectif principal lorsque vous mettez en œuvre l'Augmentation de tête. Vous pouvez le faire en remplaçant certaines parties de votre tête, en transformant toute sa structure ou en améliorant certains traits de votre visage.",
+						"{@b Leg Augmentation.} La vitesse est la clé de l'augmentation de jambe, qui affecte une ou deux de vos jambes. Vous pouvez recouvrir vos jambes d'une armature solide, ou changer entièrement leur structure. Vous pouvez également les mutiler, en les remplaçant par des jambes plus fortes, ou un tout nouveau type d'appendice."
+					]
+				},
+				{
+					"type": "inset",
+					"name": "Evolutionary Weapons",
+					"entries": [
+						"Certaines augmentations et améliorations de cette classe vous donnent accès à des armes évolutives, qui sont des améliorations attachées à votre corps et qui peuvent être utilisées comme des armes. Elles ont les propriétés suivantes :",
+						{
+							"type": "list",
+							"items": [
+								"Vous les maîtrisez.",
+								"Ils infligent 1d10 points de dégâts par matraquage, perçage ou entaille, selon le cas, plus votre modificateur d'aptitude.",
+								"Ils ont la propriété de la finesse.",
+								"Ils ne requièrent pas de main libre pour être maniés (à l'exception de celle accordée par l'augmentation de bras).",
+								"Si vous possédez au moins une arme évolutive, vous gagnez un bonus de +1 à la CA tant que vous n'avez pas brandi d'arme ou de bouclier depuis le début de votre dernier tour.",
+								"Ils ne peuvent pas être utilisés avec un bouclier, et vous ne pouvez pas vous engager dans un combat à deux armes avec eux."
+							]
+						},
+						"À partir du 6e niveau, vos armes évolutives sont considérées comme magiques dans le but de surmonter les résistances et les immunités."
+					]
+				}
+			]
+		},
+		{
+			"name": "Upgrades",
+			"source": "ccg",
+			"page": 66,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 2,
+			"entries": [
+				"Au 2ème niveau, vous commencez à améliorer votre corps avec un vaste ensemble de modifications uniques. Lorsque vous obtenez cette caractéristique pour la première fois, choisissez deux améliorations à développer. Une liste des options disponibles se trouve sur la page {@filter Optional Features|optionalfeatures|Feature Type=EU}. Vous pouvez développer des améliorations supplémentaires de votre choix lorsque vous atteignez certains niveaux dans cette classe, comme indiqué dans la colonne Améliorations développées de la table Évolutionniste.",
+				"Chaque fois que vous gagnez un niveau dans cette classe, vous pouvez remplacer une de vos améliorations développées par une nouvelle. Chaque fois que vous terminez un repos court ou long, vous choisissez un certain nombre de vos améliorations développées à activer, comme indiqué dans la colonne Améliorations actives de la table des évolutionnistes. Celles-ci restent activées jusqu'à ce que vous utilisiez à nouveau cette caractéristique. Pendant qu'une amélioration est activée, vous bénéficiez de ses avantages.",
+				"Certaines améliorations nécessitent que votre cible fasse un jet de sauvegarde pour résister aux effets de la caractéristique. Le jet de sauvegarde est calculé comme suit :",
+				{
+					"type": "abilityDc",
+					"name": "Upgrade",
+					"attributes": [
+						"con"
+					]
+				}
+			]
+		},
+		{
+			"name": "Reconstruction",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 2,
+			"entries": [
+				"À partir du 2e niveau, votre corps est apte à réparer les dégâts. Vous gagnez les avantages suivants :",
+				{
+					"type": "list",
+					"items": [
+						"Chaque fois que vous dépensez des dés de réussite pour regagner des points de vie à la fin d'un court repos, vous utilisez le plus grand nombre possible pour chaque dé, au lieu de faire un jet.",
+						"Lorsque vous terminez un long repos, vous pouvez remplacer toute partie du corps perdue, comme les jambes, les bras ou les yeux, par des parties de remplacement. Si la partie en question avait des améliorations, comme des augmentations ou des améliorations, vous les récupérez également."
+					]
+				}
+			]
+		},
+		{
+			"name": "Metabolic Ignition",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 3,
+			"entries": [
+				"Au 3e niveau, vos modifications vous permettent de dépasser vos limites en utilisant votre propre corps comme source de carburant. À votre tour, vous pouvez entrer dans un état d'inflammation métabolique comme une action bonus. Lorsque vous le faites, choisissez une de vos augmentations à enflammer, gagnant des avantages basés sur votre choix pendant que vous restez enflammé, comme détaillé ci-dessous. Vous ne pouvez avoir qu'une seule augmentation enflammée à un moment donné.",
+				"Lors de votre première inflammation, vos points de vie actuels sont réduits d'un montant égal à 2 + votre bonus de compétence. Au début de chacun de vos tours suivants, vous pouvez choisir de mettre fin à votre inflammation métabolique, ou de réduire à nouveau vos points de vie actuels du même montant pour la poursuivre (aucune action requise de votre part dans les deux cas). Cette réduction des points de vie ne compte pas comme des dégâts et n'affecte pas votre concentration.",
+				{
+					"name": "Ignition Benefits",
+					"type": "entries",
+					"entries": [
+						"Ce sont les avantages que vous obtenez lorsque vous allumez chaque augmentation.",
+						"{@b Arm.} La première fois, à chacun de vos tours, que vous réussissez une attaque avec une arme martiale ou votre arme d'évolution du bras, doublez les dés de dégâts de base de l'arme et doublez votre modificateur de capacité pour déterminer les dégâts qu'elle inflige.",
+						"{@b Core.} Vous ignorez tous les effets d'un sort ou d'une condition, de votre choix, qui vous affecte actuellement. Si vous êtes incapable d'entreprendre des actions à votre tour et que vous avez au moins 1 point de vie, vous pouvez enflammer cette augmentation lorsque vous commencez votre tour, sans avoir à utiliser votre action bonus (aucune action requise).",
+						"{@b Exterior.} Tant que vous ne portez pas d'armure, vous avez une résistance à tous les dégâts, à l'exception des dégâts psychiques.",
+						"{@b Growth.} Lorsque vous effectuez l'action {@action Attack} à votre tour, vous pouvez effectuer une attaque supplémentaire avec une arme évolutive dans le cadre de la même action.",
+						"{@b Head.} Vous avez l'avantage sur les jets d'attaque, sauf si un désavantage s'applique normalement au jet.",
+						"{@b Leg.} Lorsque vous allumez cette augmentation pour la première fois et au début de chacun de vos tours par la suite, vous gagnez les avantages d'une des actions suivantes de votre choix : {@action Dash}, {@action Disengage} ou {@action Dodge}."
+					]
+				}
+			]
+		},
+		{
+			"name": "Undying",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 3,
+			"entries": [
+				"À partir du 3e niveau également, votre ambition triomphe de la mort. Si vous tombez à 0 point de vie et ne mourez pas purement et simplement, vous pouvez effectuer un jet de sauvegarde de Constitution {@dc 10}. Si vous êtes enflammé, vous avez l'avantage sur ce jet. Si vous réussissez, vous tombez à 1 point de vie à la place. Chaque fois que vous utilisez cette caractéristique après la première, le jet de sauvegarde augmente de 5. Lorsque vous terminez un repos court ou long, le jet de sauvegarde est remis à 10.",
+				{
+					"type": "inset",
+					"name": "Undying and Multiclassing",
+					"entries": [
+						"Si vous possédez à la fois la caractéristique Immortelle et la caractéristique {@classFeature Relentless Rage|barbarian||11} et que le DC change pour l'une d'entre elles, il change également à la même valeur pour l'autre caractéristique."
+					]
+				}
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 4,
+			"entries": [
+				"Lorsque vous atteignez le 4ème niveau, vous pouvez augmenter un score de capacité de votre choix de 2, ou vous pouvez augmenter deux scores de capacité de votre choix de 1. Comme d'habitude, vous ne pouvez pas augmenter un score de capacité au-dessus de 20 en utilisant cette caractéristique.",
+				"Si votre DM autorise l'utilisation de feats, vous pouvez à la place prendre un {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Extra Attack",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 5,
+			"entries": [
+				"Au 5e niveau, vous pouvez attaquer deux fois, au lieu d'une, lorsque vous effectuez l'action {@action Attack} à votre tour."
+			]
+		},
+		{
+			"name": "Relentless Ignition",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 6,
+			"entries": [
+				"À partir du 6e niveau, lorsque vous entrez dans votre {@classFeature metabolic ignition|evolutionist|ccg|3}, vous pouvez choisir d'enflammer deux augmentations au lieu d'une. Si vous le faites, vous perdez deux fois le nombre de points de vie lors de la première inflammation et pour la durée de l'inflammation chaque fois que vous choisissez de la poursuivre."
+			]
+		},
+		{
+			"name": "Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 6,
+			"entries": [
+				"Au 6ème niveau, vous développez une autre augmentation."
+			]
+		},
+		{
+			"name": "Evolutionary Method feature",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 7,
+			"entries": [
+				"Au 7e niveau, vous gagnez une caractéristique accordée par votre méthode évolutive."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 8,
+			"entries": [
+				"Lorsque vous atteignez le 8e niveau, vous pouvez augmenter un score de capacité de votre choix de 2, ou vous pouvez augmenter deux scores de capacité de votre choix de 1. Comme d'habitude, vous ne pouvez pas augmenter un score de capacité au-dessus de 20 en utilisant cette caractéristique.",
+				"Si votre DM autorise l'utilisation de feats, vous pouvez à la place prendre un {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Hardened Mind",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 9,
+			"entries": [
+				"Au 9ème niveau, la quantité d'améliorations dans votre corps a eu un impact sur votre esprit, rendant toute autre tentative de manipulation futile. Vous gagnez une compétence aux jets de sauvegarde de Sagesse, ou si vous êtes déjà compétent, un autre jet de sauvegarde de votre choix."
+			]
+		},
+		{
+			"name": "Unyielding Strikes",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 11,
+			"entries": [
+				"Au 11e niveau, lorsque vous effectuez l'action Attaque alors que {@classFeature metabolic ignition|evolutionist|ccg|3||ignited} ou que vous êtes en dessous de la moitié de votre maximum de points de vie, vous pouvez effectuer une attaque supplémentaire dans le cadre de la même action."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 12,
+			"entries": [
+				"Lorsque vous atteignez le 12ème niveau, vous pouvez augmenter un score de capacité de votre choix de 2, ou vous pouvez augmenter deux scores de capacité de votre choix de 1. Comme d'habitude, vous ne pouvez pas augmenter un score de capacité au-dessus de 20 en utilisant cette caractéristique.",
+				"Si votre DM autorise l'utilisation de feats, vous pouvez à la place prendre un {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Evolutionary Method feature",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 13,
+			"entries": [
+				"Au 13ème niveau, vous gagnez une caractéristique accordée par votre méthode d'évolution."
+			]
+		},
+		{
+			"name": "Immortality",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 14,
+			"entries": [
+				"Au 14e niveau, pour chaque tranche de 10 ans qui passe, votre corps ne vieillit que d'un an et vous êtes immunisé contre le vieillissement magique. De plus, vous n'avez plus besoin de dormir, de manger ou de boire de l'eau pour survivre."
+			]
+		},
+		{
+			"name": "Wounded Ambition",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 15,
+			"entries": [
+				"À partir du 15e niveau, tant que vous êtes enflammé ou en dessous de la moitié de votre maximum de points de vie, vous ne pouvez pas être {@condition frightened} et vos attaques d'armes marquent un coup critique sur un jet de 19 ou 20."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 16,
+			"entries": [
+				"Lorsque vous atteignez le 16ème niveau, vous pouvez augmenter un score de capacité de votre choix de 2, ou vous pouvez augmenter deux scores de capacité de votre choix de 1. Comme d'habitude, vous ne pouvez pas augmenter un score de capacité au-dessus de 20 en utilisant cette caractéristique.",
+				"Si votre DM autorise l'utilisation de feats, vous pouvez à la place prendre un {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Evolutionary Method feature",
+			"source": "ccg",
+			"page": 65,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 17,
+			"entries": [
+				"Au 17e niveau, vous gagnez une caractéristique accordée par votre méthode évolutive."
+			]
+		},
+		{
+			"name": "Ability Score Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 19,
+			"entries": [
+				"Lorsque vous atteignez le 19e niveau, vous pouvez augmenter un score de capacité de votre choix de 2, ou vous pouvez augmenter deux scores de capacité de votre choix de 1. Comme d'habitude, vous ne pouvez pas augmenter un score de capacité au-dessus de 20 en utilisant cette caractéristique.",
+				"Si votre DM autorise l'utilisation de feats, vous pouvez à la place prendre un {@5etools feat|feats.html}."
+			]
+		},
+		{
+			"name": "Final Form",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 20,
+			"entries": [
+				"Au 20ème niveau, vous atteignez votre forme finale. Choisissez une de vos augmentations. Vous gagnez définitivement ses avantages d'allumage."
+			]
+		},
+		{
+			"name": "Immortality Improvement",
+			"source": "ccg",
+			"page": 67,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"level": 20,
+			"entries": [
+				"Au 20ème niveau, vous êtes immortel. Vous ne vieillissez plus."
 			]
 		}
 	],
@@ -2607,6 +3303,337 @@
 				"Arcane Translocation|Wizard||Infiltration|ccg|10",
 				"Tactical Camouflage|Wizard||Infiltration|ccg|14"
 			]
+		},
+		{
+			"name": "Method of Innovation",
+			"subclassFeatures": [
+				"Method of Innovation|Evolutionist|ccg|Innovation|ccg|1",
+				"Ingenious Enhancements|Evolutionist|ccg|Innovation|ccg|7",
+				"Stabilized Ignition|Evolutionist|ccg|Innovation|ccg|13",
+				"Omega Cannon|Evolutionist|ccg|Innovation|ccg|17"
+			],
+			"source": "ccg",
+			"page": 69,
+			"shortName": "Innovation",
+			"className": "Evolutionist",
+			"classSource": "ccg"
+		},
+		{
+			"name": "Method of Mutation",
+			"subclassFeatures": [
+				"Method of Mutation|Evolutionist|ccg|Mutation|ccg|1",
+				"Berserk Mutation|Evolutionist|ccg|Mutation|ccg|7",
+				"Chaotic Mutation|Evolutionist|ccg|Mutation|ccg|13",
+				"Wrathful Surge|Evolutionist|ccg|Mutation|ccg|17"
+			],
+			"source": "ccg",
+			"page": 69,
+			"shortName": "Mutation",
+			"className": "Evolutionist",
+			"classSource": "ccg"
+		},
+		{
+			"name": "Method of Infusion",
+			"spellcastingAbility": "cha",
+			"casterProgression": "1/3",
+			"cantripProgression": [
+				1,
+				1,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3,
+				3
+			],
+			"spellsKnownProgression": [
+				2,
+				2,
+				3,
+				4,
+				4,
+				4,
+				5,
+				6,
+				6,
+				7,
+				8,
+				8,
+				9,
+				10,
+				10,
+				11,
+				11,
+				11,
+				12,
+				13
+			],
+			"subclassTableGroups": [
+				{
+					"subclasses": [
+						{
+							"name": "Infusion",
+							"source": "ccg"
+						}
+					],
+					"colLabels": [
+						"{@filter Cantrips Known|spells|level=0|class=Sorcerer}",
+						"{@filter Spells Known|spells|class=Sorcerer}"
+					],
+					"rows": [
+						[
+							1,
+							2
+						],
+						[
+							1,
+							2
+						],
+						[
+							2,
+							3
+						],
+						[
+							2,
+							4
+						],
+						[
+							2,
+							4
+						],
+						[
+							2,
+							4
+						],
+						[
+							2,
+							5
+						],
+						[
+							2,
+							6
+						],
+						[
+							2,
+							6
+						],
+						[
+							3,
+							7
+						],
+						[
+							3,
+							8
+						],
+						[
+							3,
+							8
+						],
+						[
+							3,
+							9
+						],
+						[
+							3,
+							10
+						],
+						[
+							3,
+							10
+						],
+						[
+							3,
+							11
+						],
+						[
+							3,
+							11
+						],
+						[
+							3,
+							11
+						],
+						[
+							3,
+							12
+						],
+						[
+							3,
+							13
+						]
+					]
+				},
+				{
+					"title": "Spell Slots per Spell Level",
+					"subclasses": [
+						{
+							"name": "Infusion",
+							"source": "ccg"
+						}
+					],
+					"colLabels": [
+						"{@filter 1st|spells|level=1|class=Sorcerer}",
+						"{@filter 2nd|spells|level=2|class=Sorcerer}",
+						"{@filter 3rd|spells|level=3|class=Sorcerer}",
+						"{@filter 4th|spells|level=4|class=Sorcerer}"
+					],
+					"rowsSpellProgression": [
+						[
+							1,
+							0,
+							0,
+							0
+						],
+						[
+							1,
+							0,
+							0,
+							0
+						],
+						[
+							2,
+							0,
+							0,
+							0
+						],
+						[
+							3,
+							0,
+							0,
+							0
+						],
+						[
+							3,
+							0,
+							0,
+							0
+						],
+						[
+							3,
+							0,
+							0,
+							0
+						],
+						[
+							4,
+							2,
+							0,
+							0
+						],
+						[
+							4,
+							2,
+							0,
+							0
+						],
+						[
+							4,
+							2,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							0,
+							0
+						],
+						[
+							4,
+							3,
+							2,
+							0
+						],
+						[
+							4,
+							3,
+							2,
+							0
+						],
+						[
+							4,
+							3,
+							2,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							0
+						],
+						[
+							4,
+							3,
+							3,
+							1
+						],
+						[
+							4,
+							3,
+							3,
+							1
+						]
+					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"detect magic",
+							"identify"
+						]
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Method of Infusion|Evolutionist|ccg|Infusion|ccg|1",
+				"Spell Form|Evolutionist|ccg|Infusion|ccg|7",
+				"Arcane Body|Evolutionist|ccg|Infusion|ccg|13",
+				"Spell Strike|Evolutionist|ccg|Infusion|ccg|17"
+			],
+			"source": "ccg",
+			"page": 70,
+			"shortName": "Infusion",
+			"className": "Evolutionist",
+			"classSource": "ccg"
 		}
 	],
 	"subclassFeature": [
@@ -2808,7 +3835,7 @@
 					"type": "inset",
 					"name": "Mechanical Momentum",
 					"entries": [
-						"En tant que barde du Collège de l'élan, votre vitesse accrue peut être le résultat de nombreuses choses différentes : votre personnage peut se déplacer sur un magnifique hoverboard mécanique, porter des patins à roulettes améliorés par la magie, ou simplement être revigoré par la puissance de ses propres battements. Si vous choisissez d'aromatiser cette caractéristique comme une pièce d'équipement spéciale, seul votre personnage devrait pouvoir l'utiliser ."
+						"En tant que barde du Collège de l'élan, votre vitesse accrue peut être le résultat de nombreuses choses différentes : votre personnage peut se déplacer sur un magnifique hoverboard mécanique, porter des patins à roulettes améliorés par la magie, ou simplement être revigoré par la puissance de ses propres battements. Si vous choisissez d'aromatiser cette caractéristique comme une pièce d'équipement spéciale, seul votre personnage devrait pouvoir l'utiliser."
 					]
 				}
 			]
@@ -2973,9 +4000,9 @@
 			"entries": [
 				"À partir du 2e niveau, vous pouvez utiliser votre canal de divinité pour modifier les émotions de ceux qui vous entourent.",
 				"En tant qu'action, vous présentez votre symbole sacré, évoquez le nom de votre divinité et dites quelques mots à son sujet, en choisissant l'une des options ci-dessous. Choisissez un nombre de créatures dans un rayon de 30 pieds de vous qui peuvent vous entendre, jusqu'à un nombre égal à votre modificateur de Sagesse (un minimum de un) pour être affecté par les mots que vous avez choisis pendant 1 minute. Une créature non consentante doit effectuer un jet de sauvegarde de Sagesse pour résister à cet effet. Si une telle créature échoue, elle peut répéter le jet de sauvegarde à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite.",
-				"{@b They are mighty.} Les créatures affectées sont effrayées par vous pour la durée.",
+				"{@b They are mighty.} Les créatures affectées sont {@condition frightened} de vous pour la durée.",
 				"{@b They are merciful.} Les créatures affectées sont {@condition charmed} par vous pour la durée.",
-				"{@b They are fearless.} Les créatures affectées ne peuvent pas être {@condition frightened} ou charmées pendant la durée."
+				"{@b They are fearless.} Les créatures affectées ne peuvent pas être effrayées ou charmées pendant la durée."
 			]
 		},
 		{
@@ -4497,6 +5524,317 @@
 			"entries": [
 				"À partir du 14e niveau, vous apprenez à puiser dans la magie latente de vos sorts pour vous camoufler. Après avoir lancé un sort de 1er niveau ou plus, vous pouvez choisir de devenir {@condition invisible} jusqu'à la fin du tour."
 			]
+		},
+		{
+			"name": "Method of Innovation",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Vous fabriquez personnellement la forme que vous désirez, qui consiste en des améliorations construites et des parties du corps fabriquées. Si la plupart des évolutionnistes de cette méthode s'améliorent grâce à une technologie magique complexe, certains préfèrent utiliser des augmentations élémentaires en terre ou des morceaux de monstres cousus. Quoi qu'il en soit, les évolutionnistes de cette méthode sont résistants et innovants. Ils sont constamment en train de bricoler, de réparer et de se perfectionner, se construisant continuellement vers quelque chose de plus grand.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Tinkerer|Evolutionist|ccg|Innovation|ccg|1"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Self Repair|Evolutionist|ccg|Innovation|ccg|1"
+				}
+			]
+		},
+		{
+			"name": "Tinkerer",
+			"entries": [
+				"Lorsque vous choisissez cette méthode au 1er niveau, vous gagnez la compétence avec {@item tinker's tools|phb} et {@item thieves' tools|phb} si vous ne les avez pas déjà."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Self Repair",
+			"entries": [
+				"À partir du 1er niveau, votre forme permet une reconstruction rapide. Comme action bonus, vous pouvez réparer vos parties cassées, regagnant des points de vie égaux à 1d6 + votre niveau d'évolutionniste. Vous pouvez utiliser cette caractéristique un nombre de fois égal à votre modificateur de Constitution (au minimum une fois). Vous récupérez toutes les utilisations dépensées lorsque vous terminez un long repos."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Ingenious Enhancements",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"Au 7e niveau, vous innovez de nouvelles améliorations. Choisissez deux {@filter upgrades|optionalfeatures|Feature Type=EU} supplémentaires à développer. Ces améliorations n'ont pas besoin de répondre à des prérequis d'augmentation, ne comptent pas dans le nombre maximum d'améliorations que vous pouvez développer, et elles sont toujours activées pour vous. Si vous choisissez des améliorations qui vous offrent un choix lorsqu'elles sont activées, vous pouvez faire ce choix lorsque vous terminez un repos court ou long."
+			]
+		},
+		{
+			"name": "Stabilized Ignition",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 13,
+			"header": 2,
+			"entries": [
+				"À partir du 13e niveau, vous modifiez vos améliorations pour causer moins de contraintes sur votre corps. La réduction des points de vie de base de vos {@classFeature Metabolic Ignition|evolutionist|ccg|3} est désormais égale à votre bonus de compétence."
+			]
+		},
+		{
+			"name": "Omega Cannon",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Innovation",
+			"subclassSource": "ccg",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"À partir du 17e niveau, pendant que vous êtes enflammé, vous pouvez utiliser votre action pour déclencher une dernière explosion destructrice, formant une ligne de 100 pieds de long et 15 pieds de large devant vous. Chaque créature de la ligne doit effectuer un jet de sauvegarde de Dextérité. Une créature subit {@damage 12d6} de dégâts d'éclairage, de rayonnement ou de feu (au choix) en cas d'échec, ou la moitié en cas de réussite. L'explosion enflamme les objets inflammables de la zone qui ne sont pas portés ou transportés, et quadruple les dégâts infligés à tous les objets et structures.",
+				"Après avoir utilisé cette caractéristique, vous êtes poussé de 30 pieds en arrière dans la direction où vous avez tiré, votre allumage métabolique et tous ses avantages prennent immédiatement fin, et vous ne pouvez pas utiliser cette caractéristique à nouveau avant d'avoir terminé un long repos."
+			]
+		},
+		{
+			"name": "Method of Mutation",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Votre corps a subi d'importantes mutations : la chair s'est transformée, redimensionnée et reconfigurée. Des parties ont grandi, et ont éventuellement changé de couleur. Ces mutations peuvent être le fruit d'une vile pratique d'alchimie, d'une puissante malédiction ou d'une relation symbiotique avec une créature parasite. Quelle que soit la méthode utilisée, ces évolutionnistes vivent sur le fil du rasoir, poussant constamment leur corps à ses limites. Lorsqu'ils se modifient, leur corps subit des transformations chaotiques et puissantes qui repoussent les limites de leur psyché.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Alchemist|Evolutionist|ccg|Mutation|ccg|1"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Mutant Reflexes|Evolutionist|ccg|Mutation|ccg|1"
+				}
+			]
+		},
+		{
+			"name": "Alchemist",
+			"entries": [
+				"Lorsque vous choisissez cette méthode au 1er niveau, vous gagnez la compétence avec {@item alchemist's supplies|phb} et les {@item poisoner's kit|phb} si vous ne les avez pas déjà."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Mutant Reflexes",
+			"entries": [
+				"À partir du 1er niveau, votre forme mutante augmente vos réflexes. Vous pouvez vous accorder un bonus à vos jets d'initiative égal à votre modificateur de Constitution.",
+				"De plus, lorsque vous effectuez l'action {@action Attack} à votre tour et que vous ratez une attaque, vous pouvez effectuer une attaque d'arme comme action bonus à ce tour. Vous pouvez le faire un nombre de fois égal à votre modificateur de Constitution (au moins une fois). Vous regagnez toutes les utilisations dépensées lorsque vous terminez un long repos."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Berserk Mutation",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"À partir du 7e niveau, lorsque vous enflammez une seule augmentation, vous pouvez choisir d'entrer dans un état berserk pour la durée de votre allumage. Si vous le faites, vous enflammez une de vos augmentations au hasard et passez à une nouvelle augmentation aléatoire au début de chacun de vos tours tant que vous restez enflammé, déterminé par un jet de {@dice 1d3}.",
+				"Votre taille augmente d'une catégorie pour la durée de l'état, passant de moyenne à grande, par exemple, ce qui fait que vos attaques d'armes infligent {@damage 1d4} de dégâts supplémentaires en cas de succès. De plus, lorsqu'une créature vous inflige des dégâts ou termine son tour à votre portée alors que vous êtes dans cet état de berserk, vous pouvez effectuer une attaque d'arme contre elle en réaction.",
+				"Une fois que vous entrez dans cet état de berserk, vous devez terminer un long repos avant de pouvoir le faire à nouveau."
+			]
+		},
+		{
+			"name": "Chaotic Mutation",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 13,
+			"header": 2,
+			"entries": [
+				"Au 13ème niveau, vous pouvez invoquer une mutation chaotique en vous. Comme action bonus, vous pouvez obtenir une augmentation aléatoire parmi celles qui vous manquent, déterminée par un jet de dé {@dice 1d3}. Ensuite, vous gagnez une amélioration aléatoire de la catégorie de cette augmentation, déterminée par un jet de dé {@dice 1d6}.",
+				"Vous bénéficiez des avantages de l'augmentation et de l'amélioration pendant l'heure suivante, ou jusqu'à ce que vous utilisiez à nouveau cette caractéristique. Si l'un ou l'autre vous offre un choix, vous faites ce choix lorsque vous obtenez l'augmentation ou l'amélioration grâce à cette caractéristique.",
+				"Vous pouvez enflammer cette nouvelle augmentation, et vous pouvez entrer dans votre inflammation métabolique dans le cadre de la même action bonus utilisée pour l'obtenir, à condition d'enflammer la nouvelle augmentation dans le cadre de celle-ci ou d'utiliser votre caractéristique {@subclassFeature Berserk Mutation|Evolutionist|ccg|Mutation|ccg|7} lors de l'inflammation. Si vous utilisez votre caractéristique Mutation berserk avec cette augmentation supplémentaire, lancez un jet de {@dice 1d4} à chaque tour pour déterminer l'augmentation aléatoire qui est enflammée.",
+				"Vous pouvez utiliser cette caractéristique trois fois. Vous récupérez toutes les utilisations dépensées lorsque vous terminez un long repos."
+			]
+		},
+		{
+			"name": "Wrathful Surge",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Mutation",
+			"subclassSource": "ccg",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"À partir du 17e niveau, vous pouvez pousser votre corps à des limites extrêmes. Si vous commencez votre tour enflammé et choisissez de le rester, vous pouvez effectuer un tour supplémentaire en combat directement après celui-ci. Pendant ce tour, vous devez vous déplacer directement vers la créature la plus proche jusqu'à ce que vous soyez à portée pour attaquer. Ensuite, vous devez utiliser l'action {@action Attack} contre elle, en utilisant toutes vos attaques possibles, en vous déplaçant pour attaquer la créature suivante si vous avez abattu votre cible actuelle.",
+				"Une fois que vous avez utilisé cette fonction, vous devez terminer un long repos avant de pouvoir l'utiliser à nouveau."
+			]
+		},
+		{
+			"name": "Method of Infusion",
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 1,
+			"entries": [
+				"Votre forme est intensément magique - le pouvoir des arcanes purs est insufflé en vous. Vous tissez ce pouvoir pour façonner des améliorations magiques et iridescentes - des membres translucides, des yeux brillants et lumineux, ou même des augmentations semblables à des tatouages qui enveloppent votre corps. Vous avez pu recevoir ce pouvoir à la naissance, ou il a pu être imprégné en vous à un moment donné de votre vie. Peut-être qu'un être supérieur vous a accordé ce pouvoir. Quelle qu'en soit l'origine, c'est votre processus qui permet vos améliorations, car vous tissez votre corps de la même manière qu'un mage tisse ses sorts.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Spellcasting|Evolutionist|ccg|Infusion|ccg|1"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Arcane Sense|Evolutionist|ccg|Infusion|ccg|1"
+				}
+			]
+		},
+		{
+			"name": "Spellcasting",
+			"entries": [
+				"Au 1er niveau, votre forme arcane vous donne la possibilité de lancer des sorts.",
+				"{@b Cantrips.} Vous apprenez {@filter one cantrip of your choice from the sorcerer spell list|spells|level=0|class=sorcerer}. Vous apprenez un cantrip supplémentaire de votre choix au 3e niveau et un autre au 10e niveau.",
+				"{@b Spell Slots.} La table de lancements de sorts Infusion indique le nombre d'emplacements de sorts dont vous disposez pour lancer vos sorts de 1er niveau ou plus. Pour lancer l'un de ces sorts, vous devez dépenser un emplacement du niveau du sort ou d'un niveau supérieur. Vous récupérez tous les emplacements de sorts dépensés lorsque vous terminez un long repos.",
+				"{@b Spells Known of 1st-Level and Higher.} Lorsque vous choisissez cette méthode, vous connaissez deux {@filter 1st-level sorcerer spells|spells|level=1|class=sorcerer} de votre choix.",
+				"La colonne Sorts connus de la table Lancer de sorts de l'Infusion indique quand vous apprenez d'autres sorts de sorcier de 1er niveau ou plus. Chacun de ces sorts doit être d'un niveau pour lequel vous avez des emplacements de sorts. Par exemple, lorsque vous atteignez le 7e niveau dans cette classe, vous pouvez apprendre un nouveau sort de 1er ou 2e niveau.",
+				"De plus, lorsque vous gagnez un niveau dans cette classe, vous pouvez choisir un des sorts de sorcier que vous connaissez et le remplacer par un autre sort de la liste des sorts de sorcier, qui doit également être d'un niveau pour lequel vous avez des emplacements de sorts.",
+				"{@b Spellcasting Ability.} Le Charisme est votre capacité de lanceur de sorts pour vos sorts de sorcier, puisque votre puissance arcanique vient de votre intérieur. Vous utilisez le Charisme chaque fois qu'un sort fait référence à votre capacité de lanceur de sorts. De plus, vous utilisez votre modificateur de Charisme lorsque vous déterminez le DC du jet de sauvegarde pour un sort de sorcier que vous lancez et lorsque vous faites un jet d'attaque avec un tel sort.",
+				{
+					"type": "abilityDc",
+					"name": "Spell",
+					"attributes": [
+						"cha"
+					]
+				},
+				{
+					"type": "abilityAttackMod",
+					"name": "Spell",
+					"attributes": [
+						"cha"
+					]
+				},
+				"{@b Augmented Focus.} Vous pouvez utiliser n'importe quelle partie modifiée de votre corps comme foyer d'incantation pour vos sorts de sorcier."
+			],
+			"source": "ccg",
+			"page": 69,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Arcane Sense",
+			"entries": [
+				"À partir du 1er niveau, vous êtes connecté de manière innée à la magie qui vous entoure. Vous apprenez les {@spell identify} et {@spell detect magic spells} et ils ne comptent pas dans le nombre de sorts de sorcier que vous connaissez. Vous pouvez lancer l'un ou l'autre sans dépenser un emplacement de sort un nombre de fois égal à votre modificateur de Constitution (au minimum une fois). Vous regagnez toutes les utilisations dépensées lorsque vous terminez un long repos."
+			],
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Spell Form",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"À partir du 7e niveau, lorsque vous vous enflammez pour la première fois, vous pouvez choisir de transformer votre corps en magie pure pour la durée de votre {@classFeature metabolic ignition|evolutionist|ccg|3||ignition}. Lorsque vous êtes sous cette forme, vous gagnez les avantages suivants :",
+				{
+					"type": "list",
+					"items": [
+						"Après avoir lancé un sort, vous pouvez vous téléporter dans un espace inoccupé situé à 1,5 mètre de l'une des cibles du sort ou d'un point situé dans sa zone d'effet, tant que vous pouvez voir l'emplacement de la cible.",
+						"Tous les sorts que vous lancez pendant l'allumage sont lancés à un niveau supérieur à celui de l'emplacement de sort utilisé pour les lancer."
+					]
+				},
+				"Une fois que vous avez utilisé cette fonction, vous devez terminer un repos court ou long avant de pouvoir l'utiliser à nouveau."
+			]
+		},
+		{
+			"name": "Arcane Body",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 13,
+			"header": 2,
+			"entries": [
+				"Au 13e niveau, vous ne subissez aucun dégât et n'êtes pas affecté par les autres effets néfastes des sorts que vous lancez. Si vous subissez des dégâts suite à un sort de sorcier de 1er niveau ou plus que vous lancez, vous regagnez {@dice 2d6} de points de vie. Un sort ne peut vous faire regagner des points de vie de cette façon qu'une seule fois."
+			]
+		},
+		{
+			"name": "Spell Strike",
+			"source": "ccg",
+			"page": 70,
+			"className": "Evolutionist",
+			"classSource": "ccg",
+			"subclassShortName": "Infusion",
+			"subclassSource": "ccg",
+			"level": 17,
+			"header": 2,
+			"entries": [
+				"Au 17e niveau, lorsque vous effectuez l'action {@action Attack}, vous pouvez remplacer l'une des attaques par un sort dont le temps d'incantation est de 1 action, que vous lancez dans le cadre de la même action.",
+				"Une fois que vous avez utilisé cette fonction, vous devez terminer un repos court ou long avant de pouvoir l'utiliser à nouveau."
+			]
 		}
 	],
 	"language": [
@@ -5414,7 +6752,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5428,7 +6766,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5442,7 +6780,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5456,7 +6794,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5470,7 +6808,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5484,7 +6822,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5498,7 +6836,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5512,7 +6850,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5526,7 +6864,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5540,7 +6878,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5554,7 +6892,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5568,7 +6906,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5582,7 +6920,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5596,7 +6934,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5610,7 +6948,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5624,7 +6962,7 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
@@ -5638,13 +6976,947 @@
 			"source": "ccg",
 			"page": 51,
 			"featureType": [
-				"OTH"
+				"WM"
 			],
 			"consumes": {
 				"name": "Charges"
 			},
 			"entries": [
 				"L'arme se verrouille sur votre cible et se courbe pour la chercher, tirant des éclairs qui infligent des dégâts de force. Si vous avez vu votre cible au cours de la dernière minute, vous pouvez l'attaquer même si vous ne la voyez pas, et vous ne subissez pas de désavantage au jet d'attaque si la cible est invisible. Votre attaque se déplace librement autour des coins ou à travers les ouvertures pour atteindre votre cible. Vous ignorez également la demi-couverture et la couverture de trois quarts pour cette attaque."
+			]
+		},
+		{
+			"name": "Arm Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Vous gagnez la compétence dans toutes les {@filter martial weapons|items|source=phb|category=basic|type=martial weapon}. De plus, vous pouvez utiliser l'une ou l'autre de vos mains libres comme armes évolutives."
+			]
+		},
+		{
+			"name": "Core Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Votre maximum de points de vie augmente d'un montant égal à votre niveau d'évolutionniste et il augmente à nouveau de 1 à chaque fois que vous gagnez un niveau dans cette classe."
+			]
+		},
+		{
+			"name": "Exterior Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Lorsque vous ne portez pas d'armure, votre classe d'armure est égale à 13 + votre modificateur de Constitution. Vous pouvez utiliser un bouclier et bénéficier de cet avantage."
+			]
+		},
+		{
+			"name": "Growth Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Vous gagnez jusqu'à quatre nouvelles caractéristiques corporelles qui peuvent être utilisées comme des armes évolutives. Ces nouvelles caractéristiques ne peuvent pas utiliser d'objets ni brandir d'armes ou de boucliers."
+			]
+		},
+		{
+			"name": "Head Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Vous gagnez la maîtrise de la compétence {@skill Perception} et d'une autre compétence de votre choix."
+			]
+		},
+		{
+			"name": "Leg Augmentation",
+			"source": "ccg",
+			"page": 66,
+			"featureType": [
+				"EA"
+			],
+			"entries": [
+				"Votre vitesse de marche augmente de 10 pieds."
+			]
+		},
+		{
+			"name": "Amorphous",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Votre forme se plie et se déforme. Vous pouvez entrer dans l'espace d'une créature hostile et vous y arrêter, et vous pouvez vous déplacer dans un espace aussi étroit qu'un pouce de large sans vous serrer."
+			]
+		},
+		{
+			"name": "Aquatic",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Vous pouvez respirer dans l'eau et dans l'air. De plus, vous gagnez une vitesse de nage de 30 pieds."
+			]
+		},
+		{
+			"name": "Bigger and Better",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Vous améliorez l'une de vos armes évolutives, ou vous armez votre corps entier, le transformant en une nouvelle arme évolutive. Si vous utilisez la Force pour les jets d'attaque et de dégâts de cette arme évolutive, son dé de dégâts augmente de {@damage 2d6}."
+			]
+		},
+		{
+			"name": "Breaking Strike",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Une fois à chacun de vos tours, lorsque vous touchez une créature avec une attaque d'arme alors que {@classFeature metabolic ignition|evolutionist|ccg|3||ignited}, vous pouvez paralyser ses défenses. Le prochain jet d'attaque effectué par une créature autre que vous contre la cible bénéficie de l'avantage, à condition qu'il soit effectué avant le début de votre prochain tour."
+			]
+		},
+		{
+			"name": "Crafted Critter",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Lorsque vous activez cette amélioration, vous créez une petite créature pour vous aider, qui dure jusqu'à sa mort ou jusqu'à ce que vous activiez à nouveau cette amélioration. Choisissez une {@filter CR 0 beast|bestiary|Challenge Rating=[&0]|type=beast} que vous avez déjà vue. La créature prend sa forme et ses statistiques, mais il s'agit d'une construction (Innovation), d'une monstruosité (Mutation) ou d'une aberration (Infusion) au lieu d'une bête. Elle obéit à vos ordres au mieux de ses capacités (aucune action n'est requise de votre part). En combat, la créature partage votre compte d'initiative, mais elle prend son tour immédiatement après le vôtre."
+			]
+		},
+		{
+			"name": "Crippling Blows",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Lorsque vous touchez une créature avec une attaque d'arme, vous pouvez réduire de moitié la vitesse de la cible jusqu'à la fin de votre prochain tour. Jusque-là, la vitesse de la cible ne peut plus être réduite de cette façon."
+			]
+		},
+		{
+			"name": "Elemental Cannon",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Quand vous activez cette amélioration, choisissez une de vos armes évolutives, et choisissez un type de dégâts entre froid, feu ou foudre. Vous pouvez utiliser l'arme évolutive pour effectuer des attaques d'arme à distance qui infligent des dégâts du type de dégâts choisi. Elle a une portée normale de 30 pieds et une portée longue de 120 pieds."
+			]
+		},
+		{
+			"name": "Energy Burst",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"En tant qu'action, vous pouvez subir la réduction des points de vie de votre {@classFeature Metabolic Ignition|evolutionist|ccg|3} pour émettre une rafale d'énergie dans un cône de 30 pieds. Chaque créature dans cette zone doit effectuer un jet de sauvegarde de Dextérité. La cible subit des dégâts de froid, de feu ou de foudre (au choix) égaux à {@damage 2d10} + votre niveau d'évolutionniste en cas d'échec, ou la moitié des dégâts en cas de réussite. Après avoir effectué cette action, vous ne pouvez plus le faire jusqu'à ce que vous terminiez un repos court ou long."
+			]
+		},
+		{
+			"name": "Fiery Aura",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Au premier {@classFeature metabolic ignition|evolutionist|ccg|3||ignited} et au début de chacun de vos tours suivants tant que vous restez enflammé, vous pouvez choisir d'émettre une rafale de flammes, infligeant des dégâts de feu à toutes les autres créatures situées à 3 mètres de vous. Ces dégâts sont égaux à votre modificateur de Constitution (au minimum 1)."
+			]
+		},
+		{
+			"name": "Flight",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Vous gagnez une vitesse de vol de 30 pieds."
+			]
+		},
+		{
+			"name": "Freezing Aura",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Pendant {@classFeature metabolic ignition|evolutionist|ccg|3||ignited}, vous pouvez choisir d'émettre une aura de givre dans un rayon de 3 mètres autour de vous. Cette zone compte comme un terrain difficile, et les autres créatures qui s'y trouvent ne peuvent pas effectuer les actions {@action Disengage} ou {@action Dash}."
+			]
+		},
+		{
+			"name": "Frightening Revival",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 3,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Lorsqu'une créature vous inflige des dégâts qui vous réduisent à 0 point de vie et que vous utilisez votre caractéristique {@classFeature Undying|evolutionist|ccg|3} pour rester à 1 point de vie à la place, vous pouvez utiliser votre réaction pour lui faire faire un jet de sauvegarde de Sagesse. En cas d'échec, elle est à {@condition Frightened} de vous jusqu'à la fin de son prochain tour."
+			]
+		},
+		{
+			"name": "Micromagic Engine",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Lorsque vous activez cette amélioration, vous apprenez {@filter two cantrips of your choice from the wizard spell list|spells|level=0|class=Wizard}. La constitution est votre capacité de lanceur de sorts pour ces cantrips."
+			]
+		},
+		{
+			"name": "Noxious Aura",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					}
+				}
+			],
+			"entries": [
+				"Pendant {@classFeature metabolic ignition|evolutionist|ccg|3||ignited}, vous pouvez choisir d'émettre un nuage toxique dans un rayon de 3 mètres autour de vous. Chaque créature, autre que vous, qui commence son tour dans cette zone doit effectuer un jet de sauvegarde de Constitution. En cas d'échec, elle subit {@condition poisoned} jusqu'au début de son prochain tour. En cas de jet de sauvegarde réussi, une créature est immunisée contre votre puanteur pendant 1 heure."
+			]
+		},
+		{
+			"name": "Overwhelming Impact",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Lorsque vous touchez une créature avec une attaque d'arme de mêlée, vous pouvez pousser la cible jusqu'à 1,5 mètre dans n'importe quelle direction, sauf vers le haut."
+			]
+		},
+		{
+			"name": "Pathfinder",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Vous gagnez une vitesse d'escalade de 30 pieds. De plus, vos attaques d'armes infligent des dégâts doubles aux objets et aux structures."
+			]
+		},
+		{
+			"name": "Skill Versatility",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Lorsque vous activez cette amélioration, vous pouvez choisir une compétence que vous ne maîtrisez pas. Vous la maîtriserez jusqu'à ce que vous en choisissiez une nouvelle grâce à cette amélioration."
+			]
+		},
+		{
+			"name": "Tether Strike",
+			"source": "ccg",
+			"page": 72,
+			"featureType": [
+				"EU"
+			],
+			"entries": [
+				"Vous gagnez une nouvelle arme évolutive qui prend la forme d'une chaîne ou d'un fil puissant. Vous effectuez des attaques à distance plutôt que des attaques de mêlée avec cette arme, elle a une portée de 20 pieds et son dé de dégâts est un d6 plutôt qu'un d10. Lorsque vous touchez une créature ou un objet avec l'arme, vous pouvez choisir de vous déplacer en ligne droite jusqu'à ce que vous soyez à moins de 1,5 mètre de la cible. Sinon, si la cible ne fait pas plus d'une taille de plus que vous, vous pouvez lui demander de faire un jet de sauvegarde de Force. En cas d'échec, elle est tirée en ligne droite jusqu'à ce qu'elle se trouve à 1,5 m de vous."
+			]
+		},
+		{
+			"name": "Brawler",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Augmentation du bras",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous améliorez vos poings. Après avoir effectué deux attaques de mêlée contre la même créature avec vos armes évolutives de bras en un tour, vous pouvez obliger la cible à effectuer un jet de sauvegarde de Force. En cas d'échec, la cible est {@condition grappled} par vous. Si la cible est trop grande pour que vous puissiez l'agripper ou si elle est déjà agrippée par vous, elle est à la place frappée de {@condition prone}."
+			]
+		},
+		{
+			"name": "Double Jointed",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du bras",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous avez un avantage sur les contrôles de Dextérité ({@skill Sleight of Hand}) et sur tous les contrôles de capacité que vous effectuez avec {@item thieves' tools|phb}."
+			]
+		},
+		{
+			"name": "Integrated Crusher",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du bras",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Lorsque vous activez cette amélioration, vous pouvez {@variantrule Integrated Items|ccg|integrate} un {@filter melee weapon with the two-handed property|items|type=melee weapon|property=two-handed} dans l'un de vos bras. Si vous obtenez un coup critique avec l'arme alors qu'elle est intégrée de cette façon, la cible est {@condition dazed|ccg}."
+			]
+		},
+		{
+			"name": "Integrated Defender",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du bras",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Lorsque vous activez cette amélioration, vous pouvez {@variantrule Integrated Items|ccg|integrate} un {@filter shield|items|type=shield} dans l'un de vos bras. Si vous subissez une attaque ou les dégâts d'un effet qui vous obligeait à effectuer un jet de sauvegarde de Dextérité ou de Force alors que vous l'avez étendu, vous pouvez utiliser votre réaction pour réduire les dégâts infligés d'un montant égal à votre niveau d'évolutionniste."
+			]
+		},
+		{
+			"name": "Integrated Duelist",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du bras",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Lorsque vous activez cette amélioration, vous pouvez {@variantrule Integrated Items|ccg|integrate} un {@filter melee weapon that lacks the two-handed or special properties|items|type=melee weapon|property=!special;!two-handed} dans l'un de vos bras. Lorsque vous le faites, choisissez l'une des propriétés suivantes : légère, portée ou jetée (20/60). L'arme gagne la propriété si elle ne l'a pas déjà. Si vous choisissez la propriété jetée, vous pouvez rendre l'arme à vous immédiatement après avoir effectué une attaque jetée avec elle, à condition qu'elle se trouve à moins de 60 pieds de vous (aucune action requise)."
+			]
+		},
+		{
+			"name": "Integrated Marksman",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du bras",
+						"entrySummary": "Arm augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Lorsque vous activez cette amélioration, vous pouvez {@variantrule Integrated Items|ccg|integrate} un {@filter ranged weapon|items|type=range} dans l'une de vos armes. Pendant qu'une arme est intégrée de cette façon, vous ignorez sa propriété de chargement si elle en possède une, et vous ignorez également toute exigence de score de capacité qu'elle possède. De plus, lorsque vous touchez une créature avec cette arme, vous pouvez la repousser jusqu'à 10 pieds de vous en ligne droite."
+			]
+		},
+		{
+			"name": "Adrenal Control",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Augmentation du noyau",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Lorsque vous {@classFeature metabolic ignition|evolutionist|ccg|3||ignite}, vous pouvez choisir d'augmenter également votre flux d'adrénaline pendant 1 minute. Une fois à chacun de vos tours pendant cette période, vous pouvez ajouter {@damage 1d8} à un jet d'attaque que vous faites. Vous devez choisir de le faire avant de faire le jet. Une fois que vous avez augmenté votre flux d'adrénaline de cette façon, vous ne pouvez plus le faire jusqu'à ce que vous terminiez un repos court ou long."
+			]
+		},
+		{
+			"name": "Auto-Injector",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du noyau",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous vous améliorez avec un injecteur automatique. En tant qu'action, vous pouvez placer une potion ou un narcotique dans l'injecteur. Pendant qu'un objet est placé à l'intérieur, vous pouvez le consommer comme une action bonus plutôt que comme une action. De plus, lorsque vous activez cette amélioration ou après avoir terminé un long repos, vous pouvez créer un {@item potion of greater healing||Greater Potion of Healing} ou un aléatoire, peu commun {@item arcane narcotic (uncommon)|ccg|Arcane Narcotic}, que vous pouvez choisir d'être déjà installé dans votre injecteur. L'objet créé dure jusqu'à ce que vous en créiez un autre avec cette amélioration, vous ne pouvez pas en créer un autre avant d'avoir terminé un long repos, et vous seul pouvez l'utiliser."
+			]
+		},
+		{
+			"name": "Mimicry",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du noyau",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous pouvez imiter les sons que vous avez entendus, y compris les voix. Une créature qui entend les sons que vous faites peut dire qu'il s'agit d'imitations en réussissant un test de Sagesse ({@skill Insight}) auquel vous opposez votre DC de sauvegarde de mise à niveau."
+			]
+		},
+		{
+			"name": "Super Strength",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du noyau",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous avez l'avantage sur tous les tests de Force. De plus, vous pouvez désormais tenter de {@action grapple} et {@action shove} des créatures jusqu'à deux tailles de plus que vous, au lieu d'une."
+			]
+		},
+		{
+			"name": "Transfer Vitality",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du noyau",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"En tant qu'action, vous pouvez toucher une créature et choisir un nombre de points de vie égal à votre niveau d'évolutionniste. Vos points de vie actuels sont réduits du nombre choisi, puis la créature choisie regagne le même nombre de points de vie, plus un nombre égal à votre modificateur de Constitution (au minimum 1). Après avoir effectué cette action, vous ne pouvez pas la refaire avant d'avoir terminé un repos court ou long."
+			]
+		},
+		{
+			"name": "True Survivor",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation du noyau",
+						"entrySummary": "Core augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous êtes immunisé contre les maladies et la condition {@condition poisoned}. Vous n'avez plus besoin de respirer, et vous êtes immunisé contre les effets du froid et de la chaleur extrêmes. De plus, vous comptez pour une taille de plus lorsque vous déterminez votre capacité de charge et le poids que vous pouvez pousser, traîner ou soulever."
+			]
+		},
+		{
+			"name": "Barbed Skin",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation extérieure",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Lorsqu'une créature située à 1,5 m de vous vous touche avec une attaque ou commence son tour alors qu'elle est {@condition grappled} à côté de vous ou qu'elle vous agrippe, vous pouvez utiliser votre réaction pour lui infliger des dégâts perforants égaux à votre modificateur de Constitution (au minimum 1)."
+			]
+		},
+		{
+			"name": "Chameleonic",
+			"source": "ccg",
+			"page": 73,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation extérieure",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous pouvez changer la coloration de votre corps à volonté, ce qui vous confère un avantage sur les tests de Dextérité ({@skill Stealth}) effectués pour vous cacher."
+			]
+		},
+		{
+			"name": "Pheremones",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation extérieure",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous avez l'avantage sur les contrôles de Charisme ({@skill Persuasion}) contre les créatures situées à moins de 3 mètres de vous, à condition qu'elles aient un odorat."
+			]
+		},
+		{
+			"name": "Provoking Façade",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Augmentation extérieure",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Les créatures situées à 1,5 mètre de vous et qui peuvent vous voir ont un désavantage sur tout jet d'attaque qui n'est pas contre vous."
+			]
+		},
+		{
+			"name": "Shifting Form",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation extérieure",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous pouvez utiliser votre action pour changer votre apparence. Vous décidez de votre apparence, notamment de votre taille, de votre poids, des traits de votre visage, du son de votre voix, de la longueur de vos cheveux, de leur coloration et de vos caractéristiques distinctives, le cas échéant. Votre taille et votre forme de base doivent rester les mêmes, et aucune de vos statistiques ne change."
+			]
+		},
+		{
+			"name": "Terrifying Form",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation extérieure",
+						"entrySummary": "Exterior augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous avez un avantage sur les contrôles de Charisme ({@skill Intimidation}) contre les créatures qui peuvent vous voir."
+			]
+		},
+		{
+			"name": "Extra Appendages",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la croissance",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous transformez un nombre quelconque de vos armes évolutives en appendices supplémentaires qui ont la capacité de tenir et d'utiliser des objets et des armes, à condition qu'ils {@filter don't have the two-handed property or are a shield|items|type=!shield|property=!two-handed}. Chacun de ces appendices vous permet d'interagir gratuitement avec un objet ou une caractéristique supplémentaire de l'environnement pendant votre tour, et vous pouvez aussi maintenant initier {@action grapple||grapples} avec eux. Si l'un de ces appendices tient une arme, vous ne pouvez pas bénéficier d'un bouclier."
+			]
+		},
+		{
+			"name": "Fused Weapon",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la croissance",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Quand vous activez cette amélioration, vous pouvez choisir un {@filter magical melee weapon|items|type=melee weapon|miscellaneous=magic}, l'infuser dans l'une de vos armes évolutives. Jusqu'à ce que vous activiez à nouveau cette amélioration, l'arme évolutive gagne les propriétés de l'arme magique, y compris l'harmonisation, bien que le dé de dégâts de l'arme évolutive reste le même."
+			]
+		},
+		{
+			"name": "Long Reach Weapon",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la croissance",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vos armes évolutives gagnent une portée de 10 pieds."
+			]
+		},
+		{
+			"name": "Maneuvering Appendages",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la croissance",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vos nouvelles caractéristiques corporelles prennent une forme qui vous aide à vous déplacer, comme des jambes supplémentaires ou une queue. Votre vitesse de marche augmente de 10 pieds, et lorsque vous {@action Dash} ou {@action Disengage}, vous bénéficiez également des avantages de l'autre action."
+			]
+		},
+		{
+			"name": "Retaliating Weapons",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la croissance",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Lorsqu'une créature vous touche avec une attaque, vous pouvez utiliser votre réaction pour effectuer une attaque avec l'une de vos armes évolutives contre cette créature, à condition qu'elle soit à portée. En cas de succès, cette attaque ne fait aucun dégât et à la place, la créature est assommée {@condition prone}."
+			]
+		},
+		{
+			"name": "Whirling Weapons",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Augmentation de la croissance",
+						"entrySummary": "Growth augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous pouvez utiliser votre action pour effectuer une attaque de mêlée avec l'une de vos armes évolutives contre un nombre quelconque de créatures à portée, avec un jet d'attaque distinct pour chaque cible."
+			]
+		},
+		{
+			"name": "Dead-eye",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la tête",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vos attaques à distance ignorent les demi-couvertures et les trois-quarts de couverture et n'ont pas de désavantage contre les créatures qui sont {@condition prone}. De plus, la portée de vos attaques à distance est doublée."
+			]
+		},
+		{
+			"name": "Enhanced Mind",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la tête",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous améliorez votre esprit et vos réflexes. Vous gagnez une résistance aux dégâts psychiques. De plus, lorsque vous effectuez un jet de sauvegarde avec une capacité autre que la Force ou la Constitution ou lorsque vous effectuez un jet d'attaque dans le cadre d'une attaque d'opportunité, vous pouvez utiliser cette amélioration pour gagner un bonus au jet égal à votre modificateur de Constitution (au minimum 1). Vous pouvez gagner ce bonus deux fois, en regagnant les utilisations dépensées lorsque vous terminez un repos court ou long."
+			]
+		},
+		{
+			"name": "Enhanced Vision",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la tête",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous avez un avantage sur les tests de sagesse ({@skill Perception}) qui reposent sur la vue et gagnez {@sense darkvision} jusqu'à une portée de 60 pieds si vous ne l'avez pas déjà."
+			]
+		},
+		{
+			"name": "Otherworldly Vision",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 6,
+						"class": {
+							"name": "Evolutionist"
+						}
+					},
+					"otherSummary": {
+						"entry": "Augmentation de la tête",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous disposez de {@sense blindsight} jusqu'à 10 pieds et vous pouvez voir dans le plan éthéré jusqu'à 60 pieds. Les créatures et objets éthérés apparaissent fantomatiques et translucides."
+			]
+		},
+		{
+			"name": "Thermal Sight",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la tête",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous pouvez voir les créatures et les objets en mouvement à travers les murs, à condition qu'ils ne se trouvent pas derrière plus d'un pied de matériau ou {@condition invisible} au total. Ces créatures vous apparaissent sous la forme d'une silhouette colorée."
+			]
+		},
+		{
+			"name": "Tracker",
+			"source": "ccg",
+			"page": 74,
+			"featureType": [
+				"EU"
+			],
+			"prerequisite": [
+				{
+					"otherSummary": {
+						"entry": "Augmentation de la tête",
+						"entrySummary": "Head augmentation"
+					}
+				}
+			],
+			"entries": [
+				"Vous améliorez votre odorat et votre ouïe. Vous avez un avantage sur les contrôles de Sagesse ({@skill Perception}) qui reposent sur l'ouïe ou l'odorat et sur les contrôles de Sagesse ({@skill Survival} ou {@skill Navigation|ccg}) effectués pour suivre des créatures."
 			]
 		}
 	],
@@ -6282,6 +8554,143 @@
 				"{@note The below is taken from {@variantrule Vehicles in Crystalpunk|ccg} pour une référence rapide.}",
 				"Les armes de véhicule peuvent être utilisées par les passagers du véhicule, à condition qu'ils aient une compétence en armes martiales. Les armes de véhicule fournies détaillent une attaque d'arme spécifique, et cette attaque peut être effectuée comme une action, nécessitant que l'utilisateur utilise ses deux mains. Les armes de véhicule utilisent le score de Force ou de Dextérité du personnage opérateur (en fonction de l'arme) ainsi que son bonus de compétence (PB) dans ses jets d'attaque et de dégâts. Si un personnage peut effectuer plusieurs attaques dans le cadre de l'action d'attaque de son tour, il peut effectuer autant d'attaques lorsqu'il utilise son action pour attaquer avec une arme de véhicule."
 			]
+		},
+		{
+			"name": "Integrated Items",
+			"source": "ccg",
+			"page": 73,
+			"entries": [
+				"Certains {@filter Upgrades|optionalfeatures|Feature Type=EU} des {@filter Arm Augmentation|optionalfeatures|Feature Type=EA|hash=arm augmentation_ccg} vous permettent d'intégrer des objets à vos bras. Pendant l'intégration, vous pouvez rétracter et étendre l'objet à volonté (aucune action requise), sauf si l'objet est un bouclier, auquel cas il faut une action. Vous avez toujours une main, mais elle n'est pas considérée comme libre pendant que ces objets sont étendus. Si l'objet est une arme ayant la propriété d'être utilisée à deux mains, vous devez toujours utiliser votre autre main pour effectuer une attaque avec cet objet. Enfin, vous ne pouvez avoir qu'un seul objet intégré dans chaque bras."
+			]
+		}
+	],
+	"itemType": [
+		{
+			"abbreviation": "VWU",
+			"source": "ccg",
+			"page": 210,
+			"name": "vehicle weapon upgrade",
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Vehicle Weapon",
+					"entries": [
+						"Les armes de véhicule peuvent être utilisées par les passagers du véhicule, à condition qu'ils aient une compétence en armes martiales. Les armes de véhicule fournies détaillent une attaque d'arme spécifique, et cette attaque peut être effectuée comme une action, nécessitant que l'utilisateur utilise ses deux mains. Les armes de véhicule utilisent le score de Force ou de Dextérité du personnage opérant (selon l'arme) ainsi que son bonus de compétence dans ses jets d'attaque et de dégâts. Si un personnage peut effectuer plusieurs attaques dans le cadre de l'action d'attaque de son tour, il peut effectuer autant d'attaques lorsqu'il utilise son action pour attaquer avec une arme de véhicule."
+					]
+				}
+			]
+		}
+	],
+	"itemProperty": [
+		{
+			"abbreviation": "SPR",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Spread",
+					"entries": [
+						"Lorsque vous effectuez l'action d'attaque avec une arme déployée, vous pouvez effectuer une attaque spéciale qui touche plusieurs créatures. Si vous êtes capable de faire plusieurs attaques avec l'action d'attaque, cette attaque remplace l'une d'entre elles. Lorsque vous effectuez cette attaque spéciale, vous pouvez forcer toutes les créatures situées dans une zone spécifique à effectuer un jet de sauvegarde de Dextérité :",
+						{
+							"type": "abilityGeneric",
+							"name": "Spread weapon save",
+							"text": "8 + your normal attack roll modifier for the weapon"
+						},
+						"En cas de sauvegarde ratée, la créature subit les dégâts indiqués entre parenthèses à côté de la propriété, plus votre modificateur de capacité. Vous ajoutez également tout autre bonus de dégâts statiques qui s'applique au jet de dégâts de votre arme, comme la rage, un style de combat ou une arme +1 (mais pas de dés supplémentaires).",
+						"Lorsqu'une créature rate son jet de sauvegarde contre l'une de vos attaques étalées, cela compte comme un succès pour les caractéristiques et les objets (mais pas les sorts) qui se déclenchent sur une attaque d'arme réussie. Lorsque vous utilisez de tels effets, appliquez-les à toutes les cibles qui ont raté leur jet de sauvegarde et qui auraient été éligibles si vous aviez réussi une attaque normale avec l'arme contre elles. Si la caractéristique ou l'objet ajoute des dégâts supplémentaires sous forme de dés - comme {@classFeature Sneak Attack|Rogue||1}, {@classFeature Divine Smite|Paladin||2}, ou le {@class fighter||Weaponforger's|Weaponforger|ccg} {@filter Weapon Mods|optionalfeatures|Feature Type=WM}, lancez un dé de dégâts de moins que d'habitude lorsque vous déclenchez ces caractéristiques de cette façon (au minimum un dé supplémentaire)."
+					]
+				}
+			]
+		},
+		{
+			"abbreviation": "BST",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Burst",
+					"entries": [
+						"La zone d'armement étalée d'une arme à rafales est un cube de 3 mètres de côté partant d'un emplacement cible situé dans la portée normale de l'arme."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "PRC",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Pierce",
+					"entries": [
+						"La zone d'arme étendue pour une arme de transpercement est une ligne de 1 pied de large vers un emplacement cible dans la portée normale de l'arme."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "ERU",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Erput",
+					"entries": [
+						"La zone d'arme étendue pour une arme éruptive est un cône de 15 pieds partant de l'arme dans la direction de votre choix."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "CLE",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Cleave",
+					"entries": [
+						"La zone d'arme étendue pour une arme de clivage est un cercle de 10 pieds de rayon centré sur vous."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.dmg2}})"
+		},
+		{
+			"abbreviation": "SGE",
+			"source": "ccg",
+			"page": 210,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Siege",
+					"entries": [
+						"Cette arme inflige des dégâts doubles aux objets et aux structures."
+					]
+				}
+			]
+		},
+		{
+			"abbreviation": "ARC",
+			"source": "ccg",
+			"page": 96,
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Arcanic",
+					"entries": [
+						"Les armes arcaniques tirent des éclairs d'énergie arcanique sans dépenser de munitions, mais en puisant du mana chez l'utilisateur et en l'expulsant sous forme d'un puissant souffle arcanique. Vous pouvez utiliser une arme qui a la propriété arcanique pour effectuer une attaque à distance, en utilisant la portée entre parenthèses après la propriété. Malgré leur nature magique, les armes arcaniques ne contournent pas la résistance ou l'immunité aux dégâts non magiques, à moins qu'il ne s'agisse d'une arme magique."
+					]
+				}
+			],
+			"template": "{{prop_name}} ({{item.range}} ft.)"
 		}
 	],
 	"item": [
@@ -6301,74 +8710,46 @@
 			"name": "Runetech Railgun",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC"
 			],
 			"range": "120/480",
 			"dmg1": "1d12",
 			"dmgType": "P",
 			"weapon": true,
 			"value": 100000,
-			"rarity": "none",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Il s'agit d'un {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} et ne peut être utilisé comme une arme autonome."
-					]
-				}
-			]
+			"rarity": "none"
 		},
 		{
 			"name": "Flame Mortar",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC",
+				"BST",
+				"SPR",
+				"SGE"
 			],
 			"range": "30/120",
 			"dmg1": "1d8",
 			"dmgType": "F",
+			"dmg2": "1d6",
 			"weapon": true,
 			"value": 200000,
-			"rarity": "none",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Burst (1d6)",
-					"entries": [
-						"Les créatures situées dans un cube de 3 mètres et provenant d'un emplacement cible situé dans la portée normale de l'arme doivent effectuer un jet de sauvegarde de Dextérité (DC = 8 + votre modificateur de jet d'attaque normal pour l'arme) ou subir {@damage 1d6} de dégâts de feu. Cette action remplace l'attaque normale de cette arme."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Siege",
-					"entries": [
-						"Cette arme inflige des dégâts doubles aux objets et aux structures."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Il s'agit d'un {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} et ne peut être utilisé comme une arme autonome."
-					]
-				}
-			]
+			"rarity": "none"
 		},
 		{
 			"name": "Arcatech Chaingun",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC"
 			],
 			"range": "30/120",
 			"dmg1": "1d4",
@@ -6383,13 +8764,6 @@
 					"entries": [
 						"Une fois par tour, lorsque vous devriez faire une seule attaque avec cette arme, faites-en deux à la place."
 					]
-				},
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Il s'agit d'un {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} et ne peut être utilisé comme une arme autonome."
-					]
 				}
 			]
 		},
@@ -6397,32 +8771,58 @@
 			"name": "Devastator",
 			"source": "ccg",
 			"page": 210,
-			"type": "R",
+			"type": "VWU",
 			"property": [
 				"2H",
-				"S"
+				"ARC",
+				"SPR",
+				"PRC"
 			],
 			"range": "80/320",
 			"dmg1": "2d6",
 			"dmgType": "O",
+			"dmg2": "1d12",
 			"weapon": true,
 			"value": 500000,
-			"rarity": "none",
+			"rarity": "none"
+		},
+		{
+			"name": "Arcane Narcotic (uncommon)",
+			"source": "ccg",
+			"page": 103,
+			"tier": "minor",
+			"rarity": "uncommon",
+			"wondrous": true,
 			"entries": [
-				{
-					"type": "entries",
-					"name": "Pierce (1d12)",
-					"entries": [
-						"Les créatures situées dans une ligne de 1 pied de large en direction d'un emplacement cible dans la portée normale de l'arme doivent effectuer un jet de sauvegarde de Dextérité (DC = 8 + votre modificateur de jet d'attaque normal pour l'arme) ou subir {@damage 1d12} de dégâts de force. Cette action remplace l'attaque normale de cette arme."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Special",
-					"entries": [
-						"Il s'agit d'un {@variantrule Using Weapon Upgrades|ccg|vehicle weapon upgrade} et ne peut être utilisé comme une arme autonome."
-					]
-				}
+				"Alors que de nombreux narcotiques ordinaires existent à Aysta, les narcotiques arcaniques détiennent un immense pouvoir magique. Ce narcotique créé par la magie se décline en une variété de types différents. Chacun a un certain nombre de propriétés et d'effets secondaires, qui peuvent être déterminés en choisissant dans les tables à droite ou en faisant un jet sur ces tables pour déterminer les résultats au hasard. Le narcotique possède le même nombre de propriétés et d'effets secondaires, et la quantité de chacun est déterminée par sa rareté (peu commun : 1, rare : 2, très rare : 3). Les propriétés et les effets secondaires ne peuvent être sélectionnés plus d'une fois que si on le précise dans sa description.",
+				"Un personnage peut utiliser son action pour ingérer le narcotique, gagner les bénéfices de ses propriétés et subir ses effets secondaires. Le sort de restauration moindre peut être utilisé pour guérir les effets de tous les effets secondaires non instantanés que le narcotique induit.",
+				"Si un personnage utilise souvent le même narcotique arcanique, le MJ peut décider qu'il développe une dépendance. Un personnage avec une telle addiction a deux niveaux permanents d'épuisement. L'ingestion du narcotique supprime ces niveaux d'épuisement jusqu'à ce que le personnage dépendant termine son prochain repos long."
+			]
+		},
+		{
+			"name": "Arcane Narcotic (rare)",
+			"source": "ccg",
+			"page": 103,
+			"tier": "minor",
+			"rarity": "rare",
+			"wondrous": true,
+			"entries": [
+				"Alors que de nombreux narcotiques ordinaires existent à Aysta, les narcotiques arcaniques détiennent un immense pouvoir magique. Ce narcotique créé par la magie se décline en une variété de types différents. Chacun a un certain nombre de propriétés et d'effets secondaires, qui peuvent être déterminés en choisissant dans les tables à droite ou en faisant un jet sur ces tables pour déterminer les résultats au hasard. Le narcotique possède le même nombre de propriétés et d'effets secondaires, et la quantité de chacun est déterminée par sa rareté (peu commun : 1, rare : 2, très rare : 3). Les propriétés et les effets secondaires ne peuvent être sélectionnés plus d'une fois que si on le précise dans sa description.",
+				"Un personnage peut utiliser son action pour ingérer le narcotique, gagner les bénéfices de ses propriétés et subir ses effets secondaires. Le sort de restauration moindre peut être utilisé pour guérir les effets de tous les effets secondaires non instantanés que le narcotique induit.",
+				"Si un personnage utilise souvent le même narcotique arcanique, le MJ peut décider qu'il développe une dépendance. Un personnage avec une telle addiction a deux niveaux permanents d'épuisement. L'ingestion du narcotique supprime ces niveaux d'épuisement jusqu'à ce que le personnage dépendant termine son prochain repos long."
+			]
+		},
+		{
+			"name": "Arcane Narcotic (very rare)",
+			"source": "ccg",
+			"page": 103,
+			"tier": "minor",
+			"rarity": "very rare",
+			"wondrous": true,
+			"entries": [
+				"Alors que de nombreux narcotiques ordinaires existent à Aysta, les narcotiques arcaniques détiennent un immense pouvoir magique. Ce narcotique créé par la magie se décline en une variété de types différents. Chacun a un certain nombre de propriétés et d'effets secondaires, qui peuvent être déterminés en choisissant dans les tables à droite ou en faisant un jet sur ces tables pour déterminer les résultats au hasard. Le narcotique possède le même nombre de propriétés et d'effets secondaires, et la quantité de chacun est déterminée par sa rareté (peu commun : 1, rare : 2, très rare : 3). Les propriétés et les effets secondaires ne peuvent être sélectionnés plus d'une fois que si on le précise dans sa description.",
+				"Un personnage peut utiliser son action pour ingérer le narcotique, gagner les bénéfices de ses propriétés et subir ses effets secondaires. Le sort de restauration moindre peut être utilisé pour guérir les effets de tous les effets secondaires non instantanés que le narcotique induit.",
+				"Si un personnage utilise souvent le même narcotique arcanique, le MJ peut décider qu'il développe une dépendance. Un personnage avec une telle addiction a deux niveaux permanents d'épuisement. L'ingestion du narcotique supprime ces niveaux d'épuisement jusqu'à ce que le personnage dépendant termine son prochain repos long."
 			]
 		}
 	],
@@ -6777,6 +9177,19 @@
 					"items": [
 						"Une créature muette ne peut pas parler ou émettre volontairement des sons.",
 						"Une créature muette ne peut pas lancer de sorts à composantes verbales (sauf si elle est autorisée à ignorer les composantes verbales, par exemple grâce à un sort ou une caractéristique)."
+					]
+				}
+			]
+		},
+		{
+			"name": "Dazed",
+			"source": "ccg",
+			"page": 111,
+			"entries": [
+				{
+					"type": "list",
+					"items": [
+						"Une créature étourdie a un désavantage sur les jets d'attaque et les jets de sauvegarde jusqu'à la fin du prochain tour de la créature qui a imposé la condition."
 					]
 				}
 			]
