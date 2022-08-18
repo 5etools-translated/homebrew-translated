@@ -1,0 +1,2573 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "KGFD",
+				"abbreviation": "KGFD",
+				"full": "Fang Dragons",
+				"authors": [
+					"KajaGrae"
+				],
+				"convertedBy": [
+					"p4535992"
+				],
+				"version": "2022.08.12",
+				"color": "4d2611",
+				"url": "https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV",
+				"targetSchema": "1.7.0"
+			}
+		],
+		"dateAdded": 1657961727,
+		"dateLastModified": 1660775288,
+		"_dateLastModifiedHash": "1df0edecae"
+	},
+	"legendaryGroup": [
+		{
+			"name": "FangDragonsLairActionsFangDragon",
+			"source": "KGFD",
+			"lairActions": [
+				"On initiative count 20 (losing initiative ties), the dragon takes a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:",
+				{
+					"type": "list",
+					"items": [
+						"{@b Stone Spikes.} Spuntoni di pietra affilati come un rasoio si sprigionano dal terreno in un raggio di 6 metri, centrato su un punto che il drago può vedere entro 120 metri. Quell'area diventa un terreno difficile e ogni creatura che vi si trova deve superare un tiro salvezza di Destrezza con DC {@dc 15} o subire 10 ({@damage 3d6}) danni da perforazione. Quando una creatura si muove all'interno dell'area, subisce {@damage 2d6} danni da perforazione per ogni metro e mezzo percorso. Gli spuntoni rimangono finché il drago non utilizza nuovamente l'azione Tana o muore.",
+						"{@b Fog Bank.} Si forma una fitta nebbia in un raggio di 40 piedi, centrata su un punto che il drago può vedere entro 120 piedi. La nebbia si diffonde negli angoli e la sua area è fortemente oscurata. Un vento di almeno 20 miglia orarie disperde la nebbia. La nebbia dura fino a quando il drago non usa nuovamente l'azione Tana o muore.",
+						"{@b Deadzone.} Si forma un raggio invisibile di 6 metri di antimagia centrato su un punto che il drago può vedere entro 120 metri. Questa zona ha lo stesso effetto funzionale di un campo antimagico, ma è stazionaria e rimane fino a quando il drago non usa nuovamente l'azione Tana o muore."
+					]
+				}
+			],
+			"regionalEffects": [
+				"The region containing a legendary fang dragon's lair is warped by the dragon's magic, which creates one or more of the following effects: Jagged Spires.",
+				{
+					"type": "list",
+					"items": [
+						"{@b Jagged Spires.} Nel raggio di 6 miglia dalla tana di un drago zannuto, il terreno assume caratteristiche più nette. Affiorano fuoriuscite rocciose e frastagliate, alle piante crescono le spine e diventa più difficile muoversi nell'area. I movimenti via terra impiegano il doppio del tempo nell'area a causa delle condizioni pericolose.",
+						"{@b Predator Avoidance.} Gli animali (ad eccezione degli insetti) non risiedono e non si avvicinano volontariamente nel raggio di 6 miglia dalla tana di un drago zannuto.",
+						"{@b Untraceable.} Entro 6 miglia dalla sua tana, il drago non lascia alcuna traccia fisica del suo passaggio, a meno che non lo desideri. Rintracciarlo è impossibile, se non con mezzi magici. Inoltre, ignora gli impedimenti al movimento e i danni causati dalle formazioni vegetali e rocciose presenti in quest'area, compresi gli spuntoni di pietra descritti sopra."
+					]
+				},
+				"If the dragon dies, animals will slowly return to the area, and other effects fade over {@dice ld10} days."
+			]
+		}
+	],
+	"monster": [
+		{
+			"name": "Dragon Fang Ancient",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Se il drago fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Il drago può imitare qualsiasi suono che ha sentito, comprese le voci. Una creatura che sente i suoni può riconoscere che si tratta di imitazioni con una prova di Saggezza {@dc 19} riuscita."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare nell'arsura. Mentre è infuriato, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +4 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious} o se sceglie di terminare la sua furia nel suo turno come azione bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Quando il drago riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per volare fino a metà della sua velocità di volo ed effettuare un attacco con morso (deve iniziare e terminare questo movimento a terra)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Gli attacchi con armi da mischia del drago ottengono un colpo critico con un tiro di 19 o 20. Inoltre, tira un dado danno arma aggiuntivo quando determina il danno extra per un colpo critico con un attacco con armi da mischia."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il drago può usare la sua Presenza Spaventosa. Poi compie tre attacchi: uno con il morso e due con gli artigli."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 15 m, un bersaglio. {@h}22 ({@damage 2d12 + 9}) danni perforanti e il bersaglio deve riuscire in un tiro salvezza di {@dc 24} Costituzione o il suo punteggio di Costituzione viene ridotto del {@dice 1d4}. Il bersaglio muore se questo riduce la sua Costituzione a 0. Altrimenti, la riduzione dura finché il bersaglio non termina un riposo breve o lungo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 10 m, un bersaglio. {@h}18 ({@damage 2d8 + 9}) danni da taglio."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 20 m, un bersaglio. {@h}20 ({@damage 2d10 + 9}) danni da percosse. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 24} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata di 20 m, un bersaglio. {@h}20 ({@damage 2d10 + 9}) danni da taglio. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 24} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 20 m, un bersaglio. {@h}20 ({@damage 2d10 + 9}) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 24} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Ogni creatura a scelta del drago che si trovi entro 120 piedi dal drago e ne sia a conoscenza deve riuscire in un tiro salvezza di Saggezza {@dc 19} o diventare spaventata per 1 minuto. Una creatura può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stessa in caso di successo. Se il tiro salvezza di una creatura ha successo o se l'effetto termina per lei, la creatura è immune alla Presenza Spaventosa del drago per le 24 ore successive."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare nell'arsura. Mentre è infuriato, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +4 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious} o se sceglie di terminare la sua furia nel suo turno come azione bonus."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"Il drago effettua una prova di Saggezza (Percezione)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Il drago effettua un attacco di coda."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Il drago ruota e si dimena con la coda. Ogni creatura entro 6 metri dal drago deve riuscire in un tiro salvezza di Destrezza {@dc 24} o subire 20 ({@dice 2d10 + 9}) danni da percosse o da fendenti ed essere colpita {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/TNVlx8c.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"I draghi zanna sono creature avide, rapaci e astute. Vivono per la caccia e sono eccezionalmente ben adattati ad essa. Combattenti selvaggi, anche per gli standard draconici, i draghi zannuti amano la possibilità di consumare la carne di altre creature e si buttano volentieri nella mischia per avere la possibilità di gustare il loro pasto preferito.",
+									"I draghi zannuti, i più terrificanti dal punto di vista fisico, sono corazzati con placche ossee che si ergono in speroni sporgenti alle giunture degli arti e terminano con lunghe code biforcute, dotate di un paio di lame ossee simili a falci. Le placche del corpo sono di colore grigio e marrone screziato e un leggero odore di sangue circonda il drago zannuto. Le loro ali sono piccole ma muscolose e, pur volando male, possono alzarsi con un solo battito d'ali per lanciarsi in avanti. La testa di un drago zannuto è ornata da molte piccole corna o spuntoni, mentre gli occhi tendono a essere rossi o arancioni scintillanti.",
+									"{@b Angry and Twisted.} Stravolti dalle energie magiche che li hanno creati, i draghi zannuti sono inclini alla violenza casuale e agli scoppi d'ira. Si divertono con la violenza e, quando sentono di essere in vantaggio, si gettano nella mischia con fervore. Con il tempo, imparano a domare la rabbia e a usarla a proprio vantaggio. Brutali e feroci, le creature che cercano i draghi zannuti dovrebbero farlo con estrema cautela, poiché non esiteranno a scatenare il caos su qualsiasi creatura che ritengono più debole di loro e che viene percepita come una minaccia o un fastidio.",
+									"{@b Consummate Hunters.} I draghi zannuti si nutrono di ogni tipo di carne fresca, apprezzando soprattutto la carne di creature intelligenti. Preferiscono cercare il cibo lontano dalle loro tane e usano la loro capacità di imitare i suoni che hanno sentito per attirare le prede. I draghi zanna hanno l'inquietante tendenza a giocare con il cibo in modo estremamente crudele. I draghi zanna sono maestri del combattimento fisico e ogni parte del loro corpo è letale. Non hanno un'arma a fiato, ma il loro morso è così devastante che può causare danni alla costituzione a causa della perdita di sangue dovuta alle profonde lacerazioni.",
+									"{@b Hunted and Dwindling.} Quando Tiamat venne a conoscenza dell'esistenza di questi draghi al di fuori del suo controllo, tentò di soggiogare la specie. Inviando i suoi seguaci a cercarli e a \"migliorare\" le uova dei loro piccoli con un rituale che li avrebbe trasformati in quelli che sarebbero diventati noti come draghi grigi, quegli stessi draghi grigi furono incaricati di purificare i restanti draghi zannuti. Cacciati, con il loro numero in diminuzione, i draghi zanna detestano Tiamat e tutti i suoi seguaci e li attaccano a vista. I draghi zanna parlano frammenti di molte lingue e si accordano per evitare battaglie difficili o mortali."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"I draghi zanna sono apparsi originariamente nei Reami nelle rovine di Myth Drannor, facendo ipotizzare ad alcuni saggi che siano in qualche modo collegati ai demoni che hanno infestato l'antica città elfica dalla sua caduta. Si trovano comunemente nelle regioni di Starwoods di Cormanthor e occasionalmente nella Foresta di Confine, nei Boschi di Spiderhaunt e in altre foreste nella regione delle Dalelands, Sembia e Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Il tesoro di un drago zannuto è simile a quello di altri draghi, in quanto contiene varie ricchezze, a causa della loro natura intrinsecamente avida. Tuttavia, a differenza degli altri draghi, il tesoro di un drago zannuto contiene anche vari trofei delle sue precedenti cacce. Dai teschi delle uccisioni, alle corna, ai denti, alle ossa, alle squame, alle pelli e ad altri pezzi che ha magicamente conservato, il suo tesoro sarà disseminato di questi trofei. Alcuni di essi possono essere molto preziosi per l'acquirente giusto..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Il più forte dei draghi zannuti, che ha cacciato e consumato molte altre creature leggendarie, può subire una trasformazione che lo renderà uno dei più potenti cacciatori mai esistiti. Gli agenti di Tiamat fanno sì che la probabilità che un drago zannuto raggiunga questo livello di potere sia estremamente rara, poiché chiunque tenti la Grande Caccia riceve la piena attenzione dei luogotenenti più fidati di Tiamat.",
+							"Per riuscirci, il drago deve conoscere i suoi echi e dare inizio alla Grande Caccia. Per riuscire nella Grande Caccia, una Zanna del Drago Antica deve cacciare e consumare la carne dei suoi echi. Il drago deve farlo da solo, perché non c'è caccia più grande della caccia a se stessi. Grazie all'astuzia e all'abilità, la Grande Caccia offre il potere e alcuni dei più grandi trofei che un drago con le zanne potrà mai aggiungere al suo bottino.",
+							"I bisnonni zannuti sono un vero terrore da vedere. Enormi esseri dalla forza cruda, sono dotati di lame affilate, punte che si rigenerano quasi istantaneamente e lame d'osso dure come l'acciaio. Una volta raggiunto lo status di greatwyrm, i draghi zannuti danno attivamente la caccia agli agenti di Tiamat con fervore."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+							"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici.",
+							"Incantesimi come {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sono più comuni; tuttavia sono noti anche incantesimi che li aiutano a cacciare in modo più efficace o, più raramente, a provocare cruda distruzione."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"I draghi zannuti abitano in aree montuose e boscose. La tana di un drago zannuto è una caverna grezza e accidentata, piena di rocce frastagliate e vegetazione ricoperta di spine. I trofei delle cacce del drago si trovano mescolati al suo bottino. In genere murano le loro tane con enormi massi o altri materiali per tenere lontani gli intrusi in loro assenza. I draghi zannuti tendono a scegliere grotte con caratteristiche tali da potersi nascondere o da poter colpire ignari intrusi.",
+									"Il grado di sfida di un drago leggendario con le zanne aumenta di 1 quando lo si incontra nella sua tana."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/2nQ2wv6.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Ancient (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "21d20 + 168",
+				"average": 388
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 28,
+			"dex": 10,
+			"con": 27,
+			"int": 16,
+			"wis": 17,
+			"cha": 19,
+			"passive": 27,
+			"cr": "24",
+			"shortName": "Dragon Fang Ancient (Variant Caster)",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+7",
+				"con": "+15",
+				"wis": "+10",
+				"cha": "+11"
+			},
+			"skill": {
+				"perception": "+17",
+				"stealth": "+7",
+				"survival": "+10"
+			},
+			"damageTagsLegendary": [
+				"P"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+						"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Se il drago fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Il drago può imitare qualsiasi suono che ha sentito, comprese le voci. Una creatura che sente i suoni può riconoscere che si tratta di imitazioni con una prova di Saggezza {@dc 19} riuscita."
+					]
+				},
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare nell'arsura. Mentre è infuriato, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +4 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious} o se sceglie di terminare la sua furia nel suo turno come azione bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Quando il drago riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per volare fino a metà della sua velocità di volo ed effettuare un attacco con morso (deve iniziare e terminare questo movimento a terra)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Gli attacchi con armi da mischia del drago ottengono un colpo critico con un tiro di 19 o 20. Inoltre, tira un dado danno arma aggiuntivo quando determina il danno extra per un colpo critico con un attacco con armi da mischia."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"frightened",
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il drago può usare la sua Presenza Spaventosa. Poi compie tre attacchi: uno con il morso e due con gli artigli."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 15 m, un bersaglio. {@h}22 ({@damage 2d12 + 9}) danni perforanti e il bersaglio deve riuscire in un tiro salvezza di {@dc 24} Costituzione o il suo punteggio di Costituzione viene ridotto del {@dice 1d4}. Il bersaglio muore se questo riduce la sua Costituzione a 0. Altrimenti, la riduzione dura finché il bersaglio non termina un riposo breve o lungo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 10 m, un bersaglio. {@h}18 ({@damage 2d8 + 9}) danni da taglio."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 20 m, un bersaglio. {@h}20 ({@damage 2d10 + 9}) danni da percosse. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 24} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata di 20 m, un bersaglio. {@h}20 ({@damage 2d10 + 9}) danni da taglio. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 24} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 16} per colpire, portata 20 m, un bersaglio. {@h}20 ({@damage 2d10 + 9}) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 24} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Ogni creatura a scelta del drago che si trovi entro 120 piedi dal drago e ne sia a conoscenza deve superare un tiro salvezza di Saggezza {@dc 19} o diventare {@condition frightened} per 1 minuto. Una creatura può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stessa in caso di successo. Se il tiro salvezza di una creatura ha successo o se l'effetto termina per lei, la creatura è immune alla Presenza Spaventosa del drago per le 24 ore successive."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rage (3/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare nell'arsura. Mentre è infuriato, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +4 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious} o se sceglie di terminare la sua furia nel suo turno come azione bonus."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"Il drago effettua una prova di Saggezza (Percezione)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Il drago effettua un attacco di coda."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Il drago ruota e si dimena con la coda. Ogni creatura entro 6 metri dal drago deve riuscire in un tiro salvezza di Destrezza {@dc 24} o subire 20 ({@dice 2d10 + 9}) danni da percosse o da fendenti ed essere colpita {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "ancient",
+			"tokenUrl": "https://i.imgur.com/sRNzRbd.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Ancient (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"I draghi zanna sono creature avide, rapaci e astute. Vivono per la caccia e sono eccezionalmente ben adattati ad essa. Combattenti selvaggi, anche per gli standard draconici, i draghi zannuti amano la possibilità di consumare la carne di altre creature e si buttano volentieri nella mischia per avere la possibilità di gustare il loro pasto preferito.",
+									"I draghi zannuti, i più terrificanti dal punto di vista fisico, sono corazzati con placche ossee che si ergono in speroni sporgenti alle giunture degli arti e terminano con lunghe code biforcute, dotate di un paio di lame ossee simili a falci. Le placche del corpo sono di colore grigio e marrone screziato e un leggero odore di sangue circonda il drago zannuto. Le loro ali sono piccole ma muscolose e, pur volando male, possono alzarsi con un solo battito d'ali per lanciarsi in avanti. La testa di un drago zannuto è ornata da molte piccole corna o spuntoni, mentre gli occhi tendono a essere rossi o arancioni scintillanti.",
+									"{@b Angry and Twisted.} Stravolti dalle energie magiche che li hanno creati, i draghi zannuti sono inclini alla violenza casuale e agli scoppi d'ira. Si divertono con la violenza e, quando sentono di essere in vantaggio, si gettano nella mischia con fervore. Con il tempo, imparano a domare la rabbia e a usarla a proprio vantaggio. Brutali e feroci, le creature che cercano i draghi zannuti dovrebbero farlo con estrema cautela, poiché non esiteranno a scatenare il caos su qualsiasi creatura che ritengono più debole di loro e che viene percepita come una minaccia o un fastidio.",
+									"{@b Consummate Hunters.} I draghi zannuti si nutrono di ogni tipo di carne fresca, apprezzando soprattutto la carne di creature intelligenti. Preferiscono cercare il cibo lontano dalle loro tane e usano la loro capacità di imitare i suoni che hanno sentito per attirare le prede. I draghi zanna hanno l'inquietante tendenza a giocare con il cibo in modo estremamente crudele. I draghi zanna sono maestri del combattimento fisico e ogni parte del loro corpo è letale. Non hanno un'arma a fiato, ma il loro morso è così devastante che può causare danni alla costituzione a causa della perdita di sangue dovuta alle profonde lacerazioni.",
+									"{@b Hunted and Dwindling.} Quando Tiamat venne a conoscenza dell'esistenza di questi draghi al di fuori del suo controllo, tentò di soggiogare la specie. Inviando i suoi seguaci a cercarli e a \"migliorare\" le uova dei loro piccoli con un rituale che li avrebbe trasformati in quelli che sarebbero diventati noti come draghi grigi, quegli stessi draghi grigi furono incaricati di purificare i restanti draghi zannuti. Cacciati, con il loro numero in diminuzione, i draghi zanna detestano Tiamat e tutti i suoi seguaci e li attaccano a vista. I draghi zanna parlano frammenti di molte lingue e si accordano per evitare battaglie difficili o mortali."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"I draghi zanna sono apparsi originariamente nei Reami nelle rovine di Myth Drannor, facendo ipotizzare ad alcuni saggi che siano in qualche modo collegati ai demoni che hanno infestato l'antica città elfica dalla sua caduta. Si trovano comunemente nelle regioni di Starwoods di Cormanthor e occasionalmente nella Foresta di Confine, nei Boschi di Spiderhaunt e in altre foreste nella regione delle Dalelands, Sembia e Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Il tesoro di un drago zannuto è simile a quello di altri draghi, in quanto contiene varie ricchezze, a causa della loro natura intrinsecamente avida. Tuttavia, a differenza degli altri draghi, il tesoro di un drago zannuto contiene anche vari trofei delle sue precedenti cacce. Dai teschi delle uccisioni, alle corna, ai denti, alle ossa, alle squame, alle pelli e ad altri pezzi che ha magicamente conservato, il suo tesoro sarà disseminato di questi trofei. Alcuni di essi possono essere molto preziosi per l'acquirente giusto..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Il più forte dei draghi zannuti, che ha cacciato e consumato molte altre creature leggendarie, può subire una trasformazione che lo renderà uno dei più potenti cacciatori mai esistiti. Gli agenti di Tiamat fanno sì che la probabilità che un drago zannuto raggiunga questo livello di potere sia estremamente rara, poiché chiunque tenti la Grande Caccia riceve la piena attenzione dei luogotenenti più fidati di Tiamat.",
+							"Per riuscirci, il drago deve conoscere i suoi echi e dare inizio alla Grande Caccia. Per riuscire nella Grande Caccia, una Zanna del Drago Antica deve cacciare e consumare la carne dei suoi echi. Il drago deve farlo da solo, perché non c'è caccia più grande della caccia a se stessi. Grazie all'astuzia e all'abilità, la Grande Caccia offre il potere e alcuni dei più grandi trofei che un drago con le zanne potrà mai aggiungere al suo bottino.",
+							"I bisnonni zannuti sono un vero terrore da vedere. Enormi esseri dalla forza cruda, sono dotati di lame affilate, punte che si rigenerano quasi istantaneamente e lame d'osso dure come l'acciaio. Una volta raggiunto lo status di greatwyrm, i draghi zannuti danno attivamente la caccia agli agenti di Tiamat con fervore."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+							"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici.",
+							"Incantesimi come {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sono più comuni; tuttavia sono noti anche incantesimi che li aiutano a cacciare in modo più efficace o, più raramente, a provocare cruda distruzione."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"I draghi zannuti abitano in aree montuose e boscose. La tana di un drago zannuto è una caverna grezza e accidentata, piena di rocce frastagliate e vegetazione ricoperta di spine. I trofei delle cacce del drago si trovano mescolati al suo bottino. In genere murano le loro tane con enormi massi o altri materiali per tenere lontani gli intrusi in loro assenza. I draghi zannuti tendono a scegliere grotte con caratteristiche tali da potersi nascondere o da poter colpire ignari intrusi.",
+									"Il grado di sfida di un drago leggendario con le zanne aumenta di 1 quando lo si incontra nella sua tana."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/KendR57.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Adult",
+			"size": [
+				"H"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 19,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "16d12 + 96",
+				"average": 200
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 24,
+			"dex": 10,
+			"con": 23,
+			"int": 14,
+			"wis": 15,
+			"cha": 17,
+			"passive": 24,
+			"cr": "19",
+			"shortName": "Dragon Fang Adult",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"skill": {
+				"perception": "+14",
+				"stealth": "+6",
+				"survival": "+8"
+			},
+			"save": {
+				"dex": "+6",
+				"con": "+12",
+				"wis": "+8",
+				"cha": "+9"
+			},
+			"trait": [
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Se il drago fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Il drago può imitare qualsiasi suono che ha sentito, comprese le voci. Una creatura che sente i suoni può riconoscere che si tratta di imitazioni con una prova di Saggezza {@dc 17} riuscita."
+					]
+				},
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare nell'arsura. Mentre è infuriato, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +3 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious} o se sceglie di terminare la sua furia nel suo turno come azione bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Quando il drago riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per volare fino a metà della sua velocità di volo ed effettuare un attacco con morso (deve iniziare e terminare questo movimento a terra)."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il drago può usare la sua Presenza Spaventosa. Poi compie tre attacchi: uno con il morso e due con gli artigli."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13} per colpire, portata 10 ft., un bersaglio. {@h}20 ({@damage 2d12 + 7}) danni perforanti e il bersaglio deve riuscire in un tiro salvezza di {@dc 21} Costituzione o il suo punteggio di Costituzione viene ridotto del {@dice 1d3}. Il bersaglio muore se questo riduce la sua Costituzione a 0. Altrimenti, la riduzione dura finché il bersaglio non termina un riposo breve o lungo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 13} per colpire, portata 5 ft., un bersaglio. {@h}16 ({@damage 2d8 + 7}) danni da taglio."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 13} per colpire, portata 15 m, un bersaglio. {@h}18 ({@damage 2d10 + 7}) danni da percosse. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 21} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 13} per colpire, portata 15 m, un bersaglio. {@h}18 ({@damage 2d10 + 7}) danni da taglio. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 21} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 13} per colpire, portata 15 m, un bersaglio. {@h}18 ({@damage 2d10 + 7}) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 21} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Ogni creatura a scelta del drago che si trovi entro 120 piedi dal drago e ne sia a conoscenza deve riuscire in un tiro salvezza di Saggezza {@dc 17} o diventare spaventata per 1 minuto. Una creatura può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stessa in caso di successo. Se il tiro salvezza di una creatura ha successo o se l'effetto termina per lei, la creatura è immune alla Presenza Spaventosa del drago per le 24 ore successive."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE"
+			],
+			"bonus": [
+				{
+					"name": "Rage (2/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare nell'arsura. Mentre è infuriato, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +3 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious} o se sceglie di terminare la sua furia nel suo turno come azione bonus."
+					]
+				}
+			],
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Detect",
+					"entries": [
+						"Il drago effettua una prova di Saggezza (Percezione)."
+					]
+				},
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Il drago effettua un attacco di coda."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Il drago ruota e si dimena con la coda. Ogni creatura entro 15 piedi dal drago deve riuscire in un tiro salvezza di Destrezza {@dc 21} o subire 18 ({@damage 2d10 + 7}) danni da percosse o da fendenti ed essere colpita {@condition prone}."
+					]
+				}
+			],
+			"dragonAge": "adult",
+			"tokenUrl": "https://i.imgur.com/scZ0qHF.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Adult|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"I draghi zanna sono creature avide, rapaci e astute. Vivono per la caccia e sono eccezionalmente ben adattati ad essa. Combattenti selvaggi, anche per gli standard draconici, i draghi zannuti amano la possibilità di consumare la carne di altre creature e si buttano volentieri nella mischia per avere la possibilità di gustare il loro pasto preferito.",
+									"I draghi zannuti, i più terrificanti dal punto di vista fisico, sono corazzati con placche ossee che si ergono in speroni sporgenti alle giunture degli arti e terminano con lunghe code biforcute, dotate di un paio di lame ossee simili a falci. Le placche del corpo sono di colore grigio e marrone screziato e un leggero odore di sangue circonda il drago zannuto. Le loro ali sono piccole ma muscolose e, pur volando male, possono alzarsi con un solo battito d'ali per lanciarsi in avanti. La testa di un drago zannuto è ornata da molte piccole corna o spuntoni, mentre gli occhi tendono a essere rossi o arancioni scintillanti.",
+									"{@b Angry and Twisted.} Stravolti dalle energie magiche che li hanno creati, i draghi zannuti sono inclini alla violenza casuale e agli scoppi d'ira. Si divertono con la violenza e, quando sentono di essere in vantaggio, si gettano nella mischia con fervore. Con il tempo, imparano a domare la rabbia e a usarla a proprio vantaggio. Brutali e feroci, le creature che cercano i draghi zannuti dovrebbero farlo con estrema cautela, poiché non esiteranno a scatenare il caos su qualsiasi creatura che ritengono più debole di loro e che viene percepita come una minaccia o un fastidio.",
+									"{@b Consummate Hunters.} I draghi zannuti si nutrono di ogni tipo di carne fresca, apprezzando soprattutto la carne di creature intelligenti. Preferiscono cercare il cibo lontano dalle loro tane e usano la loro capacità di imitare i suoni che hanno sentito per attirare le prede. I draghi zanna hanno l'inquietante tendenza a giocare con il cibo in modo estremamente crudele. I draghi zanna sono maestri del combattimento fisico e ogni parte del loro corpo è letale. Non hanno un'arma a fiato, ma il loro morso è così devastante che può causare danni alla costituzione a causa della perdita di sangue dovuta alle profonde lacerazioni.",
+									"{@b Hunted and Dwindling.} Quando Tiamat venne a conoscenza dell'esistenza di questi draghi al di fuori del suo controllo, tentò di soggiogare la specie. Inviando i suoi seguaci a cercarli e a \"migliorare\" le uova dei loro piccoli con un rituale che li avrebbe trasformati in quelli che sarebbero diventati noti come draghi grigi, quegli stessi draghi grigi furono incaricati di purificare i restanti draghi zannuti. Cacciati, con il loro numero in diminuzione, i draghi zanna detestano Tiamat e tutti i suoi seguaci e li attaccano a vista. I draghi zanna parlano frammenti di molte lingue e si accordano per evitare battaglie difficili o mortali."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"I draghi zanna sono apparsi originariamente nei Reami nelle rovine di Myth Drannor, facendo ipotizzare ad alcuni saggi che siano in qualche modo collegati ai demoni che hanno infestato l'antica città elfica dalla sua caduta. Si trovano comunemente nelle regioni di Starwoods di Cormanthor e occasionalmente nella Foresta di Confine, nei Boschi di Spiderhaunt e in altre foreste nella regione delle Dalelands, Sembia e Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Il tesoro di un drago zannuto è simile a quello di altri draghi, in quanto contiene varie ricchezze, a causa della loro natura intrinsecamente avida. Tuttavia, a differenza degli altri draghi, il tesoro di un drago zannuto contiene anche vari trofei delle sue precedenti cacce. Dai teschi delle uccisioni, alle corna, ai denti, alle ossa, alle squame, alle pelli e ad altri pezzi che ha magicamente conservato, il suo tesoro sarà disseminato di questi trofei. Alcuni di essi possono essere molto preziosi per l'acquirente giusto..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Il più forte dei draghi zannuti, che ha cacciato e consumato molte altre creature leggendarie, può subire una trasformazione che lo renderà uno dei più potenti cacciatori mai esistiti. Gli agenti di Tiamat fanno sì che la probabilità che un drago zannuto raggiunga questo livello di potere sia estremamente rara, poiché chiunque tenti la Grande Caccia riceve la piena attenzione dei luogotenenti più fidati di Tiamat.",
+							"Per riuscirci, il drago deve conoscere i suoi echi e dare inizio alla Grande Caccia. Per riuscire nella Grande Caccia, una Zanna del Drago Antica deve cacciare e consumare la carne dei suoi echi. Il drago deve farlo da solo, perché non c'è caccia più grande della caccia a se stessi. Grazie all'astuzia e all'abilità, la Grande Caccia offre il potere e alcuni dei più grandi trofei che un drago con le zanne potrà mai aggiungere al suo bottino.",
+							"I bisnonni zannuti sono un vero terrore da vedere. Enormi esseri dalla forza cruda, sono dotati di lame affilate, punte che si rigenerano quasi istantaneamente e lame d'osso dure come l'acciaio. Una volta raggiunto lo status di greatwyrm, i draghi zannuti danno attivamente la caccia agli agenti di Tiamat con fervore."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+							"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici.",
+							"Incantesimi come {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sono più comuni; tuttavia sono noti anche incantesimi che li aiutano a cacciare in modo più efficace o, più raramente, a provocare cruda distruzione."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"I draghi zannuti abitano in aree montuose e boscose. La tana di un drago zannuto è una caverna grezza e accidentata, piena di rocce frastagliate e vegetazione ricoperta di spine. I trofei delle cacce del drago si trovano mescolati al suo bottino. In genere murano le loro tane con enormi massi o altri materiali per tenere lontani gli intrusi in loro assenza. I draghi zannuti tendono a scegliere grotte con caratteristiche tali da potersi nascondere o da poter colpire ignari intrusi.",
+									"Il grado di sfida di un drago leggendario con le zanne aumenta di 1 quando lo si incontra nella sua tana."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/tfxZZuV.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Young",
+			"size": [
+				"L"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 18,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "14d10 + 56",
+				"average": 133
+			},
+			"speed": {
+				"walk": 40,
+				"climb": 40,
+				"fly": 60,
+				"canHover": false
+			},
+			"str": 20,
+			"dex": 10,
+			"con": 19,
+			"int": 12,
+			"wis": 13,
+			"cha": 15,
+			"passive": 17,
+			"cr": "8",
+			"shortName": "Dragon Fang Young",
+			"senses": [
+				"blindsight 60 ft.",
+				"darkvision 120 ft."
+			],
+			"senseTags": [
+				"B",
+				"SD"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+3",
+				"con": "+7",
+				"wis": "+4",
+				"cha": "+5"
+			},
+			"skill": {
+				"perception": "+7",
+				"stealth": "+3",
+				"survival": "+4"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Il drago può imitare qualsiasi suono che ha sentito, comprese le voci. Una creatura che sente i suoni può capire che si tratta di imitazioni con una prova di Saggezza (intuizione) riuscita {@dc 13}."
+					]
+				},
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare in collera. Durante l'ira, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +2 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo se il drago viene abbattuto {@condition unconscious} o se termina il suo turno e non ha attaccato una creatura ostile dal suo ultimo turno né ha subito danni da allora. Può anche terminare la sua rabbia nel suo turno come azione bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Quando il drago riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per volare fino a metà della sua velocità di volo ed effettuare un attacco con morso (deve iniziare e terminare questo movimento a terra)."
+					]
+				}
+			],
+			"conditionInflict": [
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il drago effettua tre attacchi: uno con il morso e due con gli artigli."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 8} per colpire, portata di 10 metri, un bersaglio. {@h}18 ({@damage 2d12 + 5}) danni perforanti e il bersaglio deve riuscire in un tiro salvezza di {@dc 18} Costituzione o il punteggio di Costituzione del bersaglio viene ridotto del {@dice 1d2}.Il bersaglio muore se questo riduce la sua Costituzione a 0.Altrimenti, la riduzione dura finché il bersaglio non termina un riposo breve o lungo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 8} per colpire, portata 5 ft., un bersaglio. {@h}14 ({@damage 2d8 + 5}) danni da taglio."
+					]
+				}
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"bonus": [
+				{
+					"name": "Rage (1/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare in collera. Durante l'ira, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +2 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo se il drago viene abbattuto {@condition unconscious} o se termina il suo turno e non ha attaccato una creatura ostile dal suo ultimo turno né ha subito danni da allora. Può anche terminare la sua rabbia nel suo turno come azione bonus."
+					]
+				}
+			],
+			"dragonAge": "young",
+			"tokenUrl": "https://i.imgur.com/l7IgyLP.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Young|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"I draghi zanna sono creature avide, rapaci e astute. Vivono per la caccia e sono eccezionalmente ben adattati ad essa. Combattenti selvaggi, anche per gli standard draconici, i draghi zannuti amano la possibilità di consumare la carne di altre creature e si buttano volentieri nella mischia per avere la possibilità di gustare il loro pasto preferito.",
+									"I draghi zannuti, i più terrificanti dal punto di vista fisico, sono corazzati con placche ossee che si ergono in speroni sporgenti alle giunture degli arti e terminano con lunghe code biforcute, dotate di un paio di lame ossee simili a falci. Le placche del corpo sono di colore grigio e marrone screziato e un leggero odore di sangue circonda il drago zannuto. Le loro ali sono piccole ma muscolose e, pur volando male, possono alzarsi con un solo battito d'ali per lanciarsi in avanti. La testa di un drago zannuto è ornata da molte piccole corna o spuntoni, mentre gli occhi tendono a essere rossi o arancioni scintillanti.",
+									"{@b Angry and Twisted.} Stravolti dalle energie magiche che li hanno creati, i draghi zannuti sono inclini alla violenza casuale e agli scoppi d'ira. Si divertono con la violenza e, quando sentono di essere in vantaggio, si gettano nella mischia con fervore. Con il tempo, imparano a domare la rabbia e a usarla a proprio vantaggio. Brutali e feroci, le creature che cercano i draghi zannuti dovrebbero farlo con estrema cautela, poiché non esiteranno a scatenare il caos su qualsiasi creatura che ritengono più debole di loro e che viene percepita come una minaccia o un fastidio.",
+									"{@b Consummate Hunters.} I draghi zannuti si nutrono di ogni tipo di carne fresca, apprezzando soprattutto la carne di creature intelligenti. Preferiscono cercare il cibo lontano dalle loro tane e usano la loro capacità di imitare i suoni che hanno sentito per attirare le prede. I draghi zanna hanno l'inquietante tendenza a giocare con il cibo in modo estremamente crudele. I draghi zanna sono maestri del combattimento fisico e ogni parte del loro corpo è letale. Non hanno un'arma a fiato, ma il loro morso è così devastante che può causare danni alla costituzione a causa della perdita di sangue dovuta alle profonde lacerazioni.",
+									"{@b Hunted and Dwindling.} Quando Tiamat venne a conoscenza dell'esistenza di questi draghi al di fuori del suo controllo, tentò di soggiogare la specie. Inviando i suoi seguaci a cercarli e a \"migliorare\" le uova dei loro piccoli con un rituale che li avrebbe trasformati in quelli che sarebbero diventati noti come draghi grigi, quegli stessi draghi grigi furono incaricati di purificare i restanti draghi zannuti. Cacciati, con il loro numero in diminuzione, i draghi zanna detestano Tiamat e tutti i suoi seguaci e li attaccano a vista. I draghi zanna parlano frammenti di molte lingue e si accordano per evitare battaglie difficili o mortali."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"I draghi zanna sono apparsi originariamente nei Reami nelle rovine di Myth Drannor, facendo ipotizzare ad alcuni saggi che siano in qualche modo collegati ai demoni che hanno infestato l'antica città elfica dalla sua caduta. Si trovano comunemente nelle regioni di Starwoods di Cormanthor e occasionalmente nella Foresta di Confine, nei Boschi di Spiderhaunt e in altre foreste nella regione delle Dalelands, Sembia e Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Il tesoro di un drago zannuto è simile a quello di altri draghi, in quanto contiene varie ricchezze, a causa della loro natura intrinsecamente avida. Tuttavia, a differenza degli altri draghi, il tesoro di un drago zannuto contiene anche vari trofei delle sue precedenti cacce. Dai teschi delle uccisioni, alle corna, ai denti, alle ossa, alle squame, alle pelli e ad altri pezzi che ha magicamente conservato, il suo tesoro sarà disseminato di questi trofei. Alcuni di essi possono essere molto preziosi per l'acquirente giusto..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Il più forte dei draghi zannuti, che ha cacciato e consumato molte altre creature leggendarie, può subire una trasformazione che lo renderà uno dei più potenti cacciatori mai esistiti. Gli agenti di Tiamat fanno sì che la probabilità che un drago zannuto raggiunga questo livello di potere sia estremamente rara, poiché chiunque tenti la Grande Caccia riceve la piena attenzione dei luogotenenti più fidati di Tiamat.",
+							"Per riuscirci, il drago deve conoscere i suoi echi e dare inizio alla Grande Caccia. Per riuscire nella Grande Caccia, una Zanna del Drago Antica deve cacciare e consumare la carne dei suoi echi. Il drago deve farlo da solo, perché non c'è caccia più grande della caccia a se stessi. Grazie all'astuzia e all'abilità, la Grande Caccia offre il potere e alcuni dei più grandi trofei che un drago con le zanne potrà mai aggiungere al suo bottino.",
+							"I bisnonni zannuti sono un vero terrore da vedere. Enormi esseri dalla forza cruda, sono dotati di lame affilate, punte che si rigenerano quasi istantaneamente e lame d'osso dure come l'acciaio. Una volta raggiunto lo status di greatwyrm, i draghi zannuti danno attivamente la caccia agli agenti di Tiamat con fervore."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+							"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici.",
+							"Incantesimi come {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sono più comuni; tuttavia sono noti anche incantesimi che li aiutano a cacciare in modo più efficace o, più raramente, a provocare cruda distruzione."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"I draghi zannuti abitano in aree montuose e boscose. La tana di un drago zannuto è una caverna grezza e accidentata, piena di rocce frastagliate e vegetazione ricoperta di spine. I trofei delle cacce del drago si trovano mescolati al suo bottino. In genere murano le loro tane con enormi massi o altri materiali per tenere lontani gli intrusi in loro assenza. I draghi zannuti tendono a scegliere grotte con caratteristiche tali da potersi nascondere o da poter colpire ignari intrusi.",
+									"Il grado di sfida di un drago leggendario con le zanne aumenta di 1 quando lo si incontra nella sua tana."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/gciGzdi.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Wyrmling",
+			"size": [
+				"M"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 17,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "5d8 + 10",
+				"average": 32
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30,
+				"fly": 40,
+				"canHover": false
+			},
+			"str": 16,
+			"dex": 10,
+			"con": 15,
+			"int": 10,
+			"wis": 11,
+			"cha": 13,
+			"passive": 14,
+			"cr": "2",
+			"shortName": "Dragon Fang Wyrmling",
+			"senses": [
+				"blindsight 10 ft.",
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"B",
+				"D"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+2",
+				"con": "+4",
+				"wis": "+2",
+				"cha": "+3"
+			},
+			"skill": {
+				"perception": "+4",
+				"stealth": "+2",
+				"survival": "+2"
+			},
+			"trait": [
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Il drago può imitare qualsiasi suono che ha sentito, comprese le voci. Una creatura che sente i suoni può riconoscere che si tratta di imitazioni con una prova di Saggezza (intuizione) riuscita {@dc 11}."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Quando il drago riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per volare fino a metà della sua velocità di volo ed effettuare un attacco con morso (deve iniziare e terminare questo movimento a terra)."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 5} per colpire, portata di 5 metri, un bersaglio. {@h}9 ({@damage 1d12 + 3}) danni perforanti e il bersaglio deve riuscire in un tiro salvezza di Costituzione {@dc 13} o il suo punteggio di Costituzione viene ridotto di 1. Il bersaglio muore se questo riduce la sua Costituzione a 0. Altrimenti, la riduzione dura finché il bersaglio non termina un riposo breve o lungo."
+					]
+				}
+			],
+			"damageTags": [
+				"P"
+			],
+			"miscTags": [
+				"MW"
+			],
+			"dragonAge": "wyrmling",
+			"tokenUrl": "https://i.imgur.com/aAjrZ68.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Wyrmling|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"I draghi zanna sono creature avide, rapaci e astute. Vivono per la caccia e sono eccezionalmente ben adattati ad essa. Combattenti selvaggi, anche per gli standard draconici, i draghi zannuti amano la possibilità di consumare la carne di altre creature e si buttano volentieri nella mischia per avere la possibilità di gustare il loro pasto preferito.",
+									"I draghi zannuti, i più terrificanti dal punto di vista fisico, sono corazzati con placche ossee che si ergono in speroni sporgenti alle giunture degli arti e terminano con lunghe code biforcute, dotate di un paio di lame ossee simili a falci. Le placche del corpo sono di colore grigio e marrone screziato e un leggero odore di sangue circonda il drago zannuto. Le loro ali sono piccole ma muscolose e, pur volando male, possono alzarsi con un solo battito d'ali per lanciarsi in avanti. La testa di un drago zannuto è ornata da molte piccole corna o spuntoni, mentre gli occhi tendono a essere rossi o arancioni scintillanti.",
+									"{@b Angry and Twisted.} Stravolti dalle energie magiche che li hanno creati, i draghi zannuti sono inclini alla violenza casuale e agli scoppi d'ira. Si divertono con la violenza e, quando sentono di essere in vantaggio, si gettano nella mischia con fervore. Con il tempo, imparano a domare la rabbia e a usarla a proprio vantaggio. Brutali e feroci, le creature che cercano i draghi zannuti dovrebbero farlo con estrema cautela, poiché non esiteranno a scatenare il caos su qualsiasi creatura che ritengono più debole di loro e che viene percepita come una minaccia o un fastidio.",
+									"{@b Consummate Hunters.} I draghi zannuti si nutrono di ogni tipo di carne fresca, apprezzando soprattutto la carne di creature intelligenti. Preferiscono cercare il cibo lontano dalle loro tane e usano la loro capacità di imitare i suoni che hanno sentito per attirare le prede. I draghi zanna hanno l'inquietante tendenza a giocare con il cibo in modo estremamente crudele. I draghi zanna sono maestri del combattimento fisico e ogni parte del loro corpo è letale. Non hanno un'arma a fiato, ma il loro morso è così devastante che può causare danni alla costituzione a causa della perdita di sangue dovuta alle profonde lacerazioni.",
+									"{@b Hunted and Dwindling.} Quando Tiamat venne a conoscenza dell'esistenza di questi draghi al di fuori del suo controllo, tentò di soggiogare la specie. Inviando i suoi seguaci a cercarli e a \"migliorare\" le uova dei loro piccoli con un rituale che li avrebbe trasformati in quelli che sarebbero diventati noti come draghi grigi, quegli stessi draghi grigi furono incaricati di purificare i restanti draghi zannuti. Cacciati, con il loro numero in diminuzione, i draghi zanna detestano Tiamat e tutti i suoi seguaci e li attaccano a vista. I draghi zanna parlano frammenti di molte lingue e si accordano per evitare battaglie difficili o mortali."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"I draghi zanna sono apparsi originariamente nei Reami nelle rovine di Myth Drannor, facendo ipotizzare ad alcuni saggi che siano in qualche modo collegati ai demoni che hanno infestato l'antica città elfica dalla sua caduta. Si trovano comunemente nelle regioni di Starwoods di Cormanthor e occasionalmente nella Foresta di Confine, nei Boschi di Spiderhaunt e in altre foreste nella regione delle Dalelands, Sembia e Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Il tesoro di un drago zannuto è simile a quello di altri draghi, in quanto contiene varie ricchezze, a causa della loro natura intrinsecamente avida. Tuttavia, a differenza degli altri draghi, il tesoro di un drago zannuto contiene anche vari trofei delle sue precedenti cacce. Dai teschi delle uccisioni, alle corna, ai denti, alle ossa, alle squame, alle pelli e ad altri pezzi che ha magicamente conservato, il suo tesoro sarà disseminato di questi trofei. Alcuni di essi possono essere molto preziosi per l'acquirente giusto..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Il più forte dei draghi zannuti, che ha cacciato e consumato molte altre creature leggendarie, può subire una trasformazione che lo renderà uno dei più potenti cacciatori mai esistiti. Gli agenti di Tiamat fanno sì che la probabilità che un drago zannuto raggiunga questo livello di potere sia estremamente rara, poiché chiunque tenti la Grande Caccia riceve la piena attenzione dei luogotenenti più fidati di Tiamat.",
+							"Per riuscirci, il drago deve conoscere i suoi echi e dare inizio alla Grande Caccia. Per riuscire nella Grande Caccia, una Zanna del Drago Antica deve cacciare e consumare la carne dei suoi echi. Il drago deve farlo da solo, perché non c'è caccia più grande della caccia a se stessi. Grazie all'astuzia e all'abilità, la Grande Caccia offre il potere e alcuni dei più grandi trofei che un drago con le zanne potrà mai aggiungere al suo bottino.",
+							"I bisnonni zannuti sono un vero terrore da vedere. Enormi esseri dalla forza cruda, sono dotati di lame affilate, punte che si rigenerano quasi istantaneamente e lame d'osso dure come l'acciaio. Una volta raggiunto lo status di greatwyrm, i draghi zannuti danno attivamente la caccia agli agenti di Tiamat con fervore."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+							"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici.",
+							"Incantesimi come {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sono più comuni; tuttavia sono noti anche incantesimi che li aiutano a cacciare in modo più efficace o, più raramente, a provocare cruda distruzione."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"I draghi zannuti abitano in aree montuose e boscose. La tana di un drago zannuto è una caverna grezza e accidentata, piena di rocce frastagliate e vegetazione ricoperta di spine. I trofei delle cacce del drago si trovano mescolati al suo bottino. In genere murano le loro tane con enormi massi o altri materiali per tenere lontani gli intrusi in loro assenza. I draghi zannuti tendono a scegliere grotte con caratteristiche tali da potersi nascondere o da poter colpire ignari intrusi.",
+									"Il grado di sfida di un drago leggendario con le zanne aumenta di 1 quando lo si incontra nella sua tana."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/JW62gx5.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Se il drago fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Se il greatwyrm sarebbe ridotto a 0 punti ferita, il suo totale attuale di punti ferita si ripristina invece a 375 punti ferita e riacquista tutti gli usi di Resistenza Leggendaria spesi. Inoltre, il greatwyrm può ora utilizzare le opzioni della sezione \"Azioni mitiche\" per 1 ora.Conferisce al gruppo 105.000 XP aggiuntivi (210.000 XP totali) per aver sconfitto il greatwyrm dopo l'attivazione della sua \"furia unyeilding\"."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Il drago può imitare qualsiasi suono che ha sentito, comprese le voci. Una creatura che sente i suoni può riconoscere che si tratta di imitazioni con una prova di Saggezza {@dc 22} riuscita."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare in collera. Durante l'ira, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +5 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious}, oppure termina la sua furia nel suo turno come azione bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Quando il drago riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per volare fino a metà della sua velocità di volo ed effettuare un attacco con morso (deve iniziare e terminare questo movimento a terra)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Gli attacchi con armi da mischia del drago ottengono un colpo critico con un tiro di 18, 19 o 20. Inoltre, tira un dado di danno da arma aggiuntivo quando determina il danno extra per un colpo critico con un attacco con arma da mischia."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il drago può usare la sua Presenza Spaventosa. Poi compie tre attacchi: uno con il morso e due con gli artigli."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 15 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni perforanti e il bersaglio deve riuscire in un tiro salvezza di {@dc 26} Costituzione o il suo punteggio di Costituzione viene ridotto del {@dice 1d6}. Il bersaglio muore se questo riduce la sua Costituzione a 0. Altrimenti, la riduzione dura finché il bersaglio non termina un riposo breve o lungo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata di 10 m, un bersaglio. {@h}21 ({@damage 2d10 + 10}) danni da taglio."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 20 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni da percosse. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 26} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 20 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 26} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 20 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni da taglio. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 26} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Ogni creatura a scelta del drago che si trovi entro 120 piedi dal drago e ne sia a conoscenza deve riuscire in un tiro salvezza di Saggezza {@dc 22} o diventare spaventata per 1 minuto. Una creatura può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stessa in caso di successo. Se il tiro salvezza di una creatura ha successo o se l'effetto termina per lei, la creatura è immune alla Presenza Spaventosa del drago per le 24 ore successive."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare in collera. Durante l'ira, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +5 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious}, oppure termina la sua furia nel suo turno come azione bonus."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Il drago effettua un attacco di coda."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Il drago ruota e si dimena con la coda. Ogni creatura entro 6 metri dal drago deve riuscire in un tiro salvezza di Destrezza {@dc 26} o subire 21 ({@dice 2d10 + 10}) danni da percosse o da fendenti ed essere colpita {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} per colpire, gittata 200/400 ft., un bersaglio. {@h}16 ({@damage 1d12 + 10}) danni perforanti. Il greatwyrm lancia 2 spuntoni contro un bersaglio nel raggio d'azione."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"Il greatwyrm compie un attacco con il morso."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"Il greatwyrm è irto di spuntoni e li lancia in tutte le direzioni. Ogni creatura in una sfera di 60 piedi di raggio centrata sul greatwyrm deve superare un tiro salvezza di Destrezza {@dc 26}, subendo 42 ({@damage 5d12 + 10}) danni da perforazione se il tiro fallisce e la metà se riesce."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/2NoEwjM.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"I draghi zanna sono creature avide, rapaci e astute. Vivono per la caccia e sono eccezionalmente ben adattati ad essa. Combattenti selvaggi, anche per gli standard draconici, i draghi zannuti amano la possibilità di consumare la carne di altre creature e si buttano volentieri nella mischia per avere la possibilità di gustare il loro pasto preferito.",
+									"I draghi zannuti, i più terrificanti dal punto di vista fisico, sono corazzati con placche ossee che si ergono in speroni sporgenti alle giunture degli arti e terminano con lunghe code biforcute, dotate di un paio di lame ossee simili a falci. Le placche del corpo sono di colore grigio e marrone screziato e un leggero odore di sangue circonda il drago zannuto. Le loro ali sono piccole ma muscolose e, pur volando male, possono alzarsi con un solo battito d'ali per lanciarsi in avanti. La testa di un drago zannuto è ornata da molte piccole corna o spuntoni, mentre gli occhi tendono a essere rossi o arancioni scintillanti.",
+									"{@b Angry and Twisted.} Stravolti dalle energie magiche che li hanno creati, i draghi zannuti sono inclini alla violenza casuale e agli scoppi d'ira. Si divertono con la violenza e, quando sentono di essere in vantaggio, si gettano nella mischia con fervore. Con il tempo, imparano a domare la rabbia e a usarla a proprio vantaggio. Brutali e feroci, le creature che cercano i draghi zannuti dovrebbero farlo con estrema cautela, poiché non esiteranno a scatenare il caos su qualsiasi creatura che ritengono più debole di loro e che viene percepita come una minaccia o un fastidio.",
+									"{@b Consummate Hunters.} I draghi zannuti si nutrono di ogni tipo di carne fresca, apprezzando soprattutto la carne di creature intelligenti. Preferiscono cercare il cibo lontano dalle loro tane e usano la loro capacità di imitare i suoni che hanno sentito per attirare le prede. I draghi zanna hanno l'inquietante tendenza a giocare con il cibo in modo estremamente crudele. I draghi zanna sono maestri del combattimento fisico e ogni parte del loro corpo è letale. Non hanno un'arma a fiato, ma il loro morso è così devastante che può causare danni alla costituzione a causa della perdita di sangue dovuta alle profonde lacerazioni.",
+									"{@b Hunted and Dwindling.} Quando Tiamat venne a conoscenza dell'esistenza di questi draghi al di fuori del suo controllo, tentò di soggiogare la specie. Inviando i suoi seguaci a cercarli e a \"migliorare\" le uova dei loro piccoli con un rituale che li avrebbe trasformati in quelli che sarebbero diventati noti come draghi grigi, quegli stessi draghi grigi furono incaricati di purificare i restanti draghi zannuti. Cacciati, con il loro numero in diminuzione, i draghi zanna detestano Tiamat e tutti i suoi seguaci e li attaccano a vista. I draghi zanna parlano frammenti di molte lingue e si accordano per evitare battaglie difficili o mortali."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"I draghi zanna sono apparsi originariamente nei Reami nelle rovine di Myth Drannor, facendo ipotizzare ad alcuni saggi che siano in qualche modo collegati ai demoni che hanno infestato l'antica città elfica dalla sua caduta. Si trovano comunemente nelle regioni di Starwoods di Cormanthor e occasionalmente nella Foresta di Confine, nei Boschi di Spiderhaunt e in altre foreste nella regione delle Dalelands, Sembia e Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Il tesoro di un drago zannuto è simile a quello di altri draghi, in quanto contiene varie ricchezze, a causa della loro natura intrinsecamente avida. Tuttavia, a differenza degli altri draghi, il tesoro di un drago zannuto contiene anche vari trofei delle sue precedenti cacce. Dai teschi delle uccisioni, alle corna, ai denti, alle ossa, alle squame, alle pelli e ad altri pezzi che ha magicamente conservato, il suo tesoro sarà disseminato di questi trofei. Alcuni di essi possono essere molto preziosi per l'acquirente giusto..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Il più forte dei draghi zannuti, che ha cacciato e consumato molte altre creature leggendarie, può subire una trasformazione che lo renderà uno dei più potenti cacciatori mai esistiti. Gli agenti di Tiamat fanno sì che la probabilità che un drago zannuto raggiunga questo livello di potere sia estremamente rara, poiché chiunque tenti la Grande Caccia riceve la piena attenzione dei luogotenenti più fidati di Tiamat.",
+							"Per riuscirci, il drago deve conoscere i suoi echi e dare inizio alla Grande Caccia. Per riuscire nella Grande Caccia, una Zanna del Drago Antica deve cacciare e consumare la carne dei suoi echi. Il drago deve farlo da solo, perché non c'è caccia più grande della caccia a se stessi. Grazie all'astuzia e all'abilità, la Grande Caccia offre il potere e alcuni dei più grandi trofei che un drago con le zanne potrà mai aggiungere al suo bottino.",
+							"I bisnonni zannuti sono un vero terrore da vedere. Enormi esseri dalla forza cruda, sono dotati di lame affilate, punte che si rigenerano quasi istantaneamente e lame d'osso dure come l'acciaio. Una volta raggiunto lo status di greatwyrm, i draghi zannuti danno attivamente la caccia agli agenti di Tiamat con fervore."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+							"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici.",
+							"Incantesimi come {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sono più comuni; tuttavia sono noti anche incantesimi che li aiutano a cacciare in modo più efficace o, più raramente, a provocare cruda distruzione."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"I draghi zannuti abitano in aree montuose e boscose. La tana di un drago zannuto è una caverna grezza e accidentata, piena di rocce frastagliate e vegetazione ricoperta di spine. I trofei delle cacce del drago si trovano mescolati al suo bottino. In genere murano le loro tane con enormi massi o altri materiali per tenere lontani gli intrusi in loro assenza. I draghi zannuti tendono a scegliere grotte con caratteristiche tali da potersi nascondere o da poter colpire ignari intrusi.",
+									"Il grado di sfida di un drago leggendario con le zanne aumenta di 1 quando lo si incontra nella sua tana."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IcVPE1D.jpg"
+						}
+					}
+				]
+			}
+		},
+		{
+			"name": "Dragon Fang Greatwyrm (Variant Caster)",
+			"size": [
+				"G"
+			],
+			"type": "dragon",
+			"source": "KGFD",
+			"alignment": [
+				"C",
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 22,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 216",
+				"average": 468
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 60,
+				"climb": 60,
+				"fly": 80,
+				"canHover": false
+			},
+			"str": 30,
+			"dex": 14,
+			"con": 28,
+			"int": 19,
+			"wis": 24,
+			"cha": 22,
+			"passive": 35,
+			"cr": "28",
+			"shortName": "Dragon Fang Greatwyrm (Variant Caster)",
+			"senses": [
+				"truesight 120 ft."
+			],
+			"senseTags": [
+				"U"
+			],
+			"languages": [
+				"Common",
+				"Draconic"
+			],
+			"languageTags": [
+				"C",
+				"DR"
+			],
+			"save": {
+				"dex": "+10",
+				"con": "+18",
+				"wis": "+15",
+				"cha": "+14"
+			},
+			"skill": {
+				"perception": "+25",
+				"stealth": "+10",
+				"survival": "+16"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened",
+				"poisoned"
+			],
+			"immune": [
+				"poison"
+			],
+			"spellcasting": [
+				{
+					"name": "Innate Spellcasting",
+					"headerEntries": [
+						"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+						"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici."
+					],
+					"will": [
+						"{@spell blindness/deafness}",
+						"{@spell counterspell}",
+						"{@spell dispel magic}",
+						"{@spell globe of invulnerability}",
+						"{@spell hold person}",
+						"{@spell protection from evil and good}",
+						"{@spell silence}"
+					],
+					"type": "spellcasting"
+				}
+			],
+			"spellcastingTags": [
+				"I"
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Se il drago fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Unyielding Rage (Recharges after a Short or Long Rest)",
+					"entries": [
+						"Se il greatwyrm sarebbe ridotto a 0 punti ferita, il suo totale attuale di punti ferita si ripristina invece a 375 punti ferita e riacquista tutti gli usi di Resistenza Leggendaria spesi. Inoltre, il greatwyrm può ora utilizzare le opzioni della sezione \"Azioni mitiche\" per 1 ora.Conferisce al gruppo 105.000 XP aggiuntivi (210.000 XP totali) per aver sconfitto il greatwyrm dopo l'attivazione della sua \"furia unyeilding\"."
+					]
+				},
+				{
+					"name": "Mimicry",
+					"entries": [
+						"Il drago può imitare qualsiasi suono che ha sentito, comprese le voci. Una creatura che sente i suoni può riconoscere che si tratta di imitazioni con una prova di Saggezza {@dc 22} riuscita."
+					]
+				},
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare in collera. Durante l'ira, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +5 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious}, oppure termina la sua furia nel suo turno come azione bonus."
+					]
+				},
+				{
+					"name": "Ravenous Onslaught",
+					"entries": [
+						"Quando il drago riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per volare fino a metà della sua velocità di volo ed effettuare un attacco con morso (deve iniziare e terminare questo movimento a terra)."
+					]
+				},
+				{
+					"name": "Vicious Critical",
+					"entries": [
+						"Gli attacchi con armi da mischia del drago ottengono un colpo critico con un tiro di 18, 19 o 20. Inoltre, tira un dado di danno da arma aggiuntivo quando determina il danno extra per un colpo critico con un attacco con arma da mischia."
+					]
+				}
+			],
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"conditionInflict": [
+				"prone",
+				"unconscious"
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il drago può usare la sua Presenza Spaventosa. Poi compie tre attacchi: uno con il morso e due con gli artigli."
+					]
+				},
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 15 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni perforanti e il bersaglio deve riuscire in un tiro salvezza di {@dc 26} Costituzione o il suo punteggio di Costituzione viene ridotto del {@dice 1d6}. Il bersaglio muore se questo riduce la sua Costituzione a 0. Altrimenti, la riduzione dura finché il bersaglio non termina un riposo breve o lungo."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata di 10 m, un bersaglio. {@h}21 ({@damage 2d10 + 10}) danni da taglio."
+					]
+				},
+				{
+					"name": "Tail (bludgeoning)",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 20 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni da percosse. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 26} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (piercing)",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 20 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni perforanti. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 26} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Tail (slashing)",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 20 m, un bersaglio. {@h}23 ({@damage 2d12 + 10}) danni da taglio. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 26} o essere colpito {@condition prone}."
+					]
+				},
+				{
+					"name": "Frightful Presence",
+					"entries": [
+						"Ogni creatura a scelta del drago che si trovi entro 120 piedi dal drago e ne sia a conoscenza deve riuscire in un tiro salvezza di Saggezza {@dc 22} o diventare spaventata per 1 minuto. Una creatura può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stessa in caso di successo. Se il tiro salvezza di una creatura ha successo o se l'effetto termina per lei, la creatura è immune alla Presenza Spaventosa del drago per le 24 ore successive."
+					]
+				}
+			],
+			"actionTags": [
+				"Frightful Presence",
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"P",
+				"S"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"AOE",
+				"RW"
+			],
+			"bonus": [
+				{
+					"name": "Rage (4/Day)",
+					"entries": [
+						"Come azione bonus, il drago può entrare in collera. Durante l'ira, ottiene i seguenti benefici:",
+						{
+							"type": "list",
+							"items": [
+								"Il drago ha vantaggio sulle prove di Forza e sui tiri salvezza.",
+								"Quando il drago effettua un attacco con armi da mischia, ottiene un bonus di +5 al tiro per i danni.",
+								"Il drago ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+							]
+						},
+						"La sua rabbia dura 1 minuto. Termina in anticipo solo se il drago viene abbattuto {@condition unconscious}, oppure termina la sua furia nel suo turno come azione bonus."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "FangDragonsLairActionsFangDragon",
+				"source": "KGFD"
+			},
+			"legendaryActions": 3,
+			"legendaryHeader": [
+				"The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Tail Attack",
+					"entries": [
+						"Il drago effettua un attacco di coda."
+					]
+				},
+				{
+					"name": "Tail Sweep (Costs 2 Actions)",
+					"entries": [
+						"Il drago ruota e si dimena con la coda. Ogni creatura entro 6 metri dal drago deve riuscire in un tiro salvezza di Destrezza {@dc 26} o subire 21 ({@dice 2d10 + 10}) danni da percosse o da fendenti ed essere colpita {@condition prone}."
+					]
+				},
+				{
+					"name": "Hurl Spikes",
+					"entries": [
+						"{@atk rw} {@hit 18} per colpire, gittata 200/400 ft., un bersaglio. {@h}16 ({@damage 1d12 + 10}) danni perforanti. Il greatwyrm lancia 2 spuntoni contro un bersaglio nel raggio d'azione."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If the greatwyrm's Unyielding Rage trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Bite",
+					"entries": [
+						"Il greatwyrm compie un attacco con il morso."
+					]
+				},
+				{
+					"name": "Spike Storm. (Costs 2 Actions)",
+					"entries": [
+						"Il greatwyrm è irto di spuntoni e li lancia in tutte le direzioni. Ogni creatura in una sfera di 60 piedi di raggio centrata sul greatwyrm deve superare un tiro salvezza di Destrezza {@dc 26}, subendo 42 ({@damage 5d12 + 10}) danni da perforazione se il tiro fallisce e la metà se riesce."
+					]
+				}
+			],
+			"dragonAge": "greatwyrm",
+			"tokenUrl": "https://i.imgur.com/kMbk4Iw.png",
+			"fluff": {
+				"entries": [
+					"{@link Dragon Fang Greatwyrm (Variant Caster)|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}",
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "Fang Dragons",
+								"entries": [
+									"I draghi zanna sono creature avide, rapaci e astute. Vivono per la caccia e sono eccezionalmente ben adattati ad essa. Combattenti selvaggi, anche per gli standard draconici, i draghi zannuti amano la possibilità di consumare la carne di altre creature e si buttano volentieri nella mischia per avere la possibilità di gustare il loro pasto preferito.",
+									"I draghi zannuti, i più terrificanti dal punto di vista fisico, sono corazzati con placche ossee che si ergono in speroni sporgenti alle giunture degli arti e terminano con lunghe code biforcute, dotate di un paio di lame ossee simili a falci. Le placche del corpo sono di colore grigio e marrone screziato e un leggero odore di sangue circonda il drago zannuto. Le loro ali sono piccole ma muscolose e, pur volando male, possono alzarsi con un solo battito d'ali per lanciarsi in avanti. La testa di un drago zannuto è ornata da molte piccole corna o spuntoni, mentre gli occhi tendono a essere rossi o arancioni scintillanti.",
+									"{@b Angry and Twisted.} Stravolti dalle energie magiche che li hanno creati, i draghi zannuti sono inclini alla violenza casuale e agli scoppi d'ira. Si divertono con la violenza e, quando sentono di essere in vantaggio, si gettano nella mischia con fervore. Con il tempo, imparano a domare la rabbia e a usarla a proprio vantaggio. Brutali e feroci, le creature che cercano i draghi zannuti dovrebbero farlo con estrema cautela, poiché non esiteranno a scatenare il caos su qualsiasi creatura che ritengono più debole di loro e che viene percepita come una minaccia o un fastidio.",
+									"{@b Consummate Hunters.} I draghi zannuti si nutrono di ogni tipo di carne fresca, apprezzando soprattutto la carne di creature intelligenti. Preferiscono cercare il cibo lontano dalle loro tane e usano la loro capacità di imitare i suoni che hanno sentito per attirare le prede. I draghi zanna hanno l'inquietante tendenza a giocare con il cibo in modo estremamente crudele. I draghi zanna sono maestri del combattimento fisico e ogni parte del loro corpo è letale. Non hanno un'arma a fiato, ma il loro morso è così devastante che può causare danni alla costituzione a causa della perdita di sangue dovuta alle profonde lacerazioni.",
+									"{@b Hunted and Dwindling.} Quando Tiamat venne a conoscenza dell'esistenza di questi draghi al di fuori del suo controllo, tentò di soggiogare la specie. Inviando i suoi seguaci a cercarli e a \"migliorare\" le uova dei loro piccoli con un rituale che li avrebbe trasformati in quelli che sarebbero diventati noti come draghi grigi, quegli stessi draghi grigi furono incaricati di purificare i restanti draghi zannuti. Cacciati, con il loro numero in diminuzione, i draghi zanna detestano Tiamat e tutti i suoi seguaci e li attaccano a vista. I draghi zanna parlano frammenti di molte lingue e si accordano per evitare battaglie difficili o mortali."
+								]
+							}
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "In The Realms",
+								"entries": [
+									"I draghi zanna sono apparsi originariamente nei Reami nelle rovine di Myth Drannor, facendo ipotizzare ad alcuni saggi che siano in qualche modo collegati ai demoni che hanno infestato l'antica città elfica dalla sua caduta. Si trovano comunemente nelle regioni di Starwoods di Cormanthor e occasionalmente nella Foresta di Confine, nei Boschi di Spiderhaunt e in altre foreste nella regione delle Dalelands, Sembia e Moonsea."
+								]
+							}
+						]
+					},
+					{
+						"type": "inset",
+						"name": "A Fang Dragon's Hoard",
+						"entries": [
+							"Il tesoro di un drago zannuto è simile a quello di altri draghi, in quanto contiene varie ricchezze, a causa della loro natura intrinsecamente avida. Tuttavia, a differenza degli altri draghi, il tesoro di un drago zannuto contiene anche vari trofei delle sue precedenti cacce. Dai teschi delle uccisioni, alle corna, ai denti, alle ossa, alle squame, alle pelli e ad altri pezzi che ha magicamente conservato, il suo tesoro sarà disseminato di questi trofei. Alcuni di essi possono essere molto preziosi per l'acquirente giusto..."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "The Great Hunt",
+						"entries": [
+							"Il più forte dei draghi zannuti, che ha cacciato e consumato molte altre creature leggendarie, può subire una trasformazione che lo renderà uno dei più potenti cacciatori mai esistiti. Gli agenti di Tiamat fanno sì che la probabilità che un drago zannuto raggiunga questo livello di potere sia estremamente rara, poiché chiunque tenti la Grande Caccia riceve la piena attenzione dei luogotenenti più fidati di Tiamat.",
+							"Per riuscirci, il drago deve conoscere i suoi echi e dare inizio alla Grande Caccia. Per riuscire nella Grande Caccia, una Zanna del Drago Antica deve cacciare e consumare la carne dei suoi echi. Il drago deve farlo da solo, perché non c'è caccia più grande della caccia a se stessi. Grazie all'astuzia e all'abilità, la Grande Caccia offre il potere e alcuni dei più grandi trofei che un drago con le zanne potrà mai aggiungere al suo bottino.",
+							"I bisnonni zannuti sono un vero terrore da vedere. Enormi esseri dalla forza cruda, sono dotati di lame affilate, punte che si rigenerano quasi istantaneamente e lame d'osso dure come l'acciaio. Una volta raggiunto lo status di greatwyrm, i draghi zannuti danno attivamente la caccia agli agenti di Tiamat con fervore."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant: Fang Dragons as Innate Spellcasters",
+						"entries": [
+							"I draghi zannuti possono anche utilizzare le regole di incantatore innato variante per i draghi presentate nel Manuale del Sentiero del Morso Furioso.",
+							"Hanno la tendenza a fare incantesimi che annullano altre magie o che ostacolano gli incantatori nemici.",
+							"Incantesimi come {@spell blindness/deafness}, {@spell counterspell}, {@spell dispel magic}, {@spell globe of invulnerability}, {@spell hold person}, {@spell protection from evil and good}, {@spell silence}, sono più comuni; tuttavia sono noti anche incantesimi che li aiutano a cacciare in modo più efficace o, più raramente, a provocare cruda distruzione."
+						]
+					},
+					{
+						"type": "inset",
+						"name": "Variant Rule: Half Dragon Fang",
+						"entries": [
+							"{@variantrule Half Dragon (Fang)|KGFD} Rule"
+						]
+					},
+					{
+						"type": "section",
+						"entries": [
+							{
+								"name": "A Fang Dragon's Lair",
+								"entries": [
+									"I draghi zannuti abitano in aree montuose e boscose. La tana di un drago zannuto è una caverna grezza e accidentata, piena di rocce frastagliate e vegetazione ricoperta di spine. I trofei delle cacce del drago si trovano mescolati al suo bottino. In genere murano le loro tane con enormi massi o altri materiali per tenere lontani gli intrusi in loro assenza. I draghi zannuti tendono a scegliere grotte con caratteristiche tali da potersi nascondere o da poter colpire ignari intrusi.",
+									"Il grado di sfida di un drago leggendario con le zanne aumenta di 1 quando lo si incontra nella sua tana."
+								]
+							}
+						]
+					}
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/WhjJDXL.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"race": [
+		{
+			"name": "Dragonborn (Fang)",
+			"source": "KGFD",
+			"lineage": "VRGR",
+			"size": [
+				"M"
+			],
+			"speed": {
+				"walk": 30
+			},
+			"entries": [
+				"Il vostro retaggio draconico si manifesta in una serie di tratti che condividete con gli altri dragonborn.",
+				{
+					"name": "Ability Score Increase",
+					"type": "entries",
+					"entries": [
+						"Quando si determinano i punteggi di abilità del personaggio, aumentare di 2 uno di questi punteggi e di 1 un altro, oppure aumentare di 1 tre punteggi diversi."
+					]
+				},
+				{
+					"name": "Age",
+					"type": "entries",
+					"entries": [
+						"I giovani draghetti crescono rapidamente. Camminano poche ore dopo la schiusa, raggiungono le dimensioni e lo sviluppo di un bambino umano di 10 anni entro i 3 anni, e raggiungono l'età adulta entro i 15. Vivono fino a circa 80 anni."
+					]
+				},
+				{
+					"name": "Alignment",
+					"type": "entries",
+					"entries": [
+						"I nati del drago della zanna tendono a venerare soprattutto la libertà. La maggior parte dei nati da zanne sono caotici neutrali. Tuttavia, ci sono rare eccezioni che si uniscono a Bahamut nella guerra contro Tiamat, adottando tendenze legittime o buone."
+					]
+				},
+				{
+					"name": "Size",
+					"type": "entries",
+					"entries": [
+						"I Dragonborn Fang sono più alti e pesanti degli umani: superano il metro e ottanta di altezza e pesano in media quasi 250 chili. La taglia è Media. Velocità. La velocità di base è di 9 metri."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Speed",
+					"entries": [
+						"La velocità di camminata base è di 9 metri."
+					]
+				},
+				{
+					"name": "Languages",
+					"entries": [
+						"Il personaggio è in grado di parlare, leggere e scrivere in comune e in un'altra lingua che voi e il vostro DM ritenete appropriata per il personaggio."
+					],
+					"type": "entries"
+				},
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Ancestry Specific Traits",
+							"entries": [
+								"Il vostro antenato era un drago zannuto e questo conferisce tratti specifici alla vostra specie.",
+								{
+									"name": "Bite",
+									"entries": [
+										"La tua bocca zannuta è un'arma naturale che puoi usare per sferrare colpi senz'armi. Se si colpisce con essa, si infligge un danno perforante pari a {@b 1d6 + your Strength modifier}, invece del normale danno da percosse per un colpo senz'armi."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Merciless Rive",
+									"entries": [
+										"Subito dopo aver ridotto una creatura a 0 punti ferita o aver messo a segno un colpo critico, nell'ambito di un'azione di attacco del proprio turno, si può affondare in avanti e usare il morso per sferrare un attacco devastante. Ci si muove fino a metà della propria velocità di movimento e si effettua un attacco con il morso. Questo attacco viene effettuato con vantaggio e, se riesce, infligge 1d6 danni perforanti aggiuntivi. I danni aggiuntivi aumentano a 3d6 al 5° livello, 5d6 all'11° livello e 7d6 al 17° livello.",
+										"Si può usare la Rive spietata un numero di volte pari al proprio bonus di competenza, e si recuperano tutti gli usi spesi al termine di un riposo lungo."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Draconic Resistance",
+									"entries": [
+										"Condividete parte della capacità del vostro antenato di respingere gli attacchi magici. Hai un vantaggio su tutti i tiri salvezza di Forza, Destrezza e Costituzione contro la magia."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Thrill of the Hunt",
+									"entries": [
+										"Si ha una competenza nell'abilità di sopravvivenza"
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				}
+			],
+			"skillProficiencies": [
+				{
+					"survival": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"common": true,
+					"other": true
+				}
+			],
+			"age": {
+				"mature": 15,
+				"max": 80
+			},
+			"fluff": {
+				"entries": [
+					"Nati dai draghi, come proclama il loro nome, i dragonborn camminano con orgoglio in un mondo che li accoglie con timorosa incomprensione. Plasmati da divinità draconiche o dai draghi stessi, i dragonborn si sono originariamente schiusi dalle uova di drago come una razza unica, che combina i migliori attributi dei draghi e degli umanoidi. Alcuni dragonborn sono fedeli servitori dei veri draghi, altri formano i ranghi dei soldati nelle grandi guerre e altri ancora si ritrovano alla deriva, senza una chiara vocazione nella vita."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/EO3wlZY.jpg"
+						}
+					}
+				]
+			}
+		}
+	],
+	"variantrule": [
+		{
+			"name": "Half Dragon (Fang)",
+			"source": "KGFD",
+			"ruleType": "O",
+			"entries": [
+				"Quando un drago zannuto in forma polimorfa si accoppia con un'altra creatura, l'unione a volte produce una prole di drago mezza zanna. Una creatura può anche trasformarsi in un drago a mezza zanna in seguito a un incantesimo di un mago pazzo o a un bagno rituale nel sangue di drago. In tutti questi casi, il risultato è una creatura che combina l'essenza di un drago con la forma della sua razza originaria. Indipendentemente dalle loro origini, tutti i draghi a mezza zanna hanno caratteristiche e aspetto simili, con sensi speciali, una rabbia feroce e un morso mortale.",
+				{
+					"type": "section",
+					"entries": [
+						{
+							"name": "Half Fang Dragon Template",
+							"entries": [
+								{
+									"name": "Draconic Nature",
+									"entries": [
+										"I draghi con le mezze zanne non sono in grado di avere una prole naturale. Quelli che desiderano riprodursi devono trovare altri modi per farlo, quasi sempre ricorrendo alla magia. Per compensazione, i draghi a mezza zanna sono benedetti da una lunga vita. Salvo disgrazie impreviste, l'aspettativa di vita di un tipico drago a mezza zanna è doppia rispetto a quella della sua linea non draconica, così che un umano drago a mezza zanna può vivere più di un secolo e mezzo. I draghi a mezza zanna ereditano tratti della personalità comuni al loro retaggio draconico. Questi tratti sono mitigati dall'altro lignaggio del drago a mezza zanna, ma i draghi a mezza zanna sono più rapidi ad arrabbiarsi e più inclini ad atti di violenza rispetto a un normale membro del loro lignaggio non draconico.",
+										"Una bestia, un umanoide, un gigante o una mostruosità può diventare un drago a mezza zanna. Quando una creatura diventa un drago a mezza zanna, mantiene tutte le sue statistiche, tranne quelle indicate di seguito."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "Senses",
+									"entries": [
+										"Il drago a mezza zanna ottiene la vista cieca con un raggio di 3 metri e la scurovisione con un raggio di 60 metri."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Rage (1/Day)",
+									"entries": [
+										"Come azione bonus, il drago a mezza zanna può entrare in collera. Per un minuto, ottiene i seguenti benefici:",
+										{
+											"type": "list",
+											"items": [
+												"Il drago a mezza zanna ha vantaggio sulle prove di Forza e sui tiri salvezza di Forza.",
+												"Quando il drago a mezza zanna effettua un attacco con arma da mischia, ottiene un bonus di +2 al tiro per i danni.",
+												"Il drago a mezza zanna ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+											]
+										}
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Trait: Ravenous Onslaught",
+									"entries": [
+										"Quando il drago a mezza zanna riduce una creatura a 0 punti ferita o mette a segno un colpo critico con un attacco in mischia nel suo turno, può compiere un'azione bonus per muoversi fino a metà della sua velocità ed effettuare un attacco con morso."
+									],
+									"type": "entries"
+								},
+								{
+									"name": "New Action: Bite",
+									"entries": [
+										"Il drago mezza zanna ha il morso della sua metà drago. La taglia del drago mezza zanna determina il funzionamento di questa azione.",
+										{
+											"type": "table",
+											"caption": "Half fang dragon bite",
+											"colLabels": [
+												"Size",
+												"Bite"
+											],
+											"colStyles": [
+												"col-6 text-center",
+												"col-6 text-center"
+											],
+											"rows": [
+												[
+													"Grande o piccolo",
+													"Come wyrmling ({@damage 1d12 + 3} danni da perforazione)"
+												],
+												[
+													"Huge",
+													"Come giovane drago ({@damage 2d12 + 5} danni da perforazione)"
+												],
+												[
+													"Gargantuesco",
+													"Come drago adulto ({@damage 2d12 + 7} danni da perforazione)"
+												]
+											]
+										}
+									],
+									"type": "entries"
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "entries",
+					"entries": [
+						"Arte e oggetti disegnati da {@link Kajagrae|https://www.gmbinder.com/share/-M-0Zv5sg7zp2gLntCYV}. Si prega di dare credito se si ripubblicano altrove."
+					]
+				}
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"shortName": "Path of the Furious Maw",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"page": 1,
+			"subclassFeatures": [
+				"Path of the Furious Maw|Barbarian|PHB|Path of the Furious Maw|KGFD|3",
+				"Dogged Awareness|Barbarian|PHB|Path of the Furious Maw|KGFD|6",
+				"No Escape|Barbarian|PHB|Path of the Furious Maw|KGFD|10",
+				"Vicious Strikes|Barbarian|PHB|Path of the Furious Maw|KGFD|14"
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"shortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"subclassFeatures": [
+				"Draconic Bloodline (Fang)|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1",
+				"Draconic Affinity|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|6",
+				"Sorcerous Frenzy|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|14",
+				"Draconic Presence|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|18"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "Path of the Furious Maw",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"entries": [
+				"Al 3° livello, il barbaro ottiene la caratteristica Sentiero Primordiale. Il barbaro ha a disposizione le seguenti opzioni, oltre a quelle offerte dal Manuale del Giocatore e dalla Guida di Xanthar a tutto.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Path of the Furious Maw Features|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Merciless Onslaught|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Cunning Hunter|Barbarian|PHB|Path of the Furious Maw|KGFD|3|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Path of the Furious Maw Features",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Alcune creature sono così feroci da ispirare le culture a emularle nel loro stile di vita. Queste tribù insegnano che l'abilità nella caccia e l'abietta ferocia sono di per sé un mezzo per raggiungere un fine. Quando un barbaro che segue questa strada si scatena, diventa un terrore spietato in combattimento.",
+				"I barbari che attingono alla ferocia primordiale di questa via sono terrificanti da vedere in combattimento. Tipicamente adornati con trofei di precedenti uccisioni, si gettano nella mischia e gettano scompiglio sui loro avversari. Nel pieno della loro furia, sono persino noti per giocare con l'ultimo esemplare della loro preda prima di sferrare il colpo finale.",
+				{
+					"type": "table",
+					"caption": "Path of the Furious Maw Features",
+					"colLabels": [
+						"Barbarian Level",
+						"Feature"
+					],
+					"colStyles": [
+						"col-3 text-center",
+						"col-9"
+					],
+					"rows": [
+						[
+							"3rd",
+							"Assalto spietato, Cacciatore astuto"
+						],
+						[
+							"6th",
+							"Consapevolezza"
+						],
+						[
+							"10th",
+							"Nessuna fuga"
+						],
+						[
+							"14th",
+							"Colpi feroci"
+						]
+					]
+				}
+			]
+		},
+		{
+			"name": "Merciless Onslaught",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"A partire dal 3° livello, quando scegliete questo percorso, incanalate la ferocia delle vie della vostra tribù nella vostra rabbia. Durante l'ira, quando si riduce una creatura a 0 punti ferita o si ottiene un colpo critico con un attacco in mischia nel proprio turno, come azione bonus ci si può muovere fino a metà della propria velocità ed effettuare un attacco in mischia."
+			]
+		},
+		{
+			"name": "Cunning Hunter",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"A partire dal 3° livello, quando scegliete questo percorso, incanalate la ferocia delle vie della vostra tribù nella vostra rabbia. Durante l'ira, quando si riduce una creatura a 0 punti ferita o si ottiene un colpo critico con un attacco in mischia nel proprio turno, come azione bonus ci si può muovere fino a metà della propria velocità ed effettuare un attacco in mischia."
+			]
+		},
+		{
+			"name": "Dogged Awareness",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"A partire dal 6° livello, la vostra conoscenza della caccia ha sintonizzato i vostri sensi per farvi capire che il cacciatore è diventato la preda. Hai un vantaggio sulle prove di Saggezza (Percezione) per individuare le creature nascoste. Inoltre, non si può più essere sorpresi."
+			]
+		},
+		{
+			"name": "No Escape",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"A partire dal 10° livello, il tuo zelo per la caccia e il combattimento si sono intrecciati a tal punto che a volte cerchi di prolungarli entrambi.",
+				"Una volta per rabbia, si può tentare di paralizzare uno dei propri avversari. Quando si sferra un attacco con un'arma da mischia, il bersaglio deve riuscire a superare un tiro salvezza di Forza pari a 8 + il proprio bonus di competenza + il proprio modificatore di Forza, oppure viene messo a terra prono. Inoltre, la sua velocità di movimento è dimezzata finché non riceve una guarigione magica o non termina un lungo riposo."
+			]
+		},
+		{
+			"name": "Vicious Strikes",
+			"source": "KGFD",
+			"className": "Barbarian",
+			"classSource": "PHB",
+			"subclassShortName": "Path of the Furious Maw",
+			"subclassSource": "KGFD",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"Al 14° livello, la ferocia della vostra rabbia ha raggiunto l'apice. Durante l'ira, i tuoi attacchi con le armi ottengono un colpo critico con un tiro di 19 o 20. Se i tuoi attacchi hanno già ottenuto un colpo critico con un tiro di 19 o 20 da un'altra fonte, otterrai invece un colpo critico con un tiro di 18-20."
+			]
+		},
+		{
+			"name": "Draconic Bloodline (Fang)",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"entries": [
+				"Al 1° livello, uno stregone ottiene la caratteristica Origine Stregonesca.Le seguenti opzioni sono disponibili per uno stregone, in aggiunta a quelle offerte dal Manuale del Giocatore e dalla Guida di Xanthar a Tutto.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Bloodline|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Draconic Resilience|Sorcerer|PHB|Draconic Bloodline (Fang)|KGFD|1|KGFD"
+				}
+			]
+		},
+		{
+			"name": "Draconic Bloodline",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"La vostra magia innata deriva dalla magia draconica che si è mescolata al vostro sangue o a quello dei vostri antenati. Il più delle volte, gli stregoni con questa origine fanno risalire la loro discendenza a un potente stregone dell'antichità che ha fatto un patto con un drago o che potrebbe anche aver rivendicato un genitore drago. Alcune di queste linee di sangue sono ben radicate nel mondo, ma la maggior parte sono oscure. Ogni stregone potrebbe essere il primo di una nuova linea di sangue, come risultato di un patto o di un'altra circostanza eccezionale."
+			]
+		},
+		{
+			"name": "Draconic Resilience",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 1,
+			"header": 1,
+			"entries": [
+				"Quando la magia scorre nel tuo corpo, fa emergere i tratti fisici dei tuoi antenati draghi. Al 1° livello, i punti ferita massimi aumentano di 1 e aumentano nuovamente di 1 ogni volta che si guadagna un livello in questa classe. Inoltre, alcune parti della pelle sono ricoperte da una sottile lucentezza di scaglie simili a quelle dei draghi. Quando non si indossa un'armatura, la propria CA è pari a 13 + il proprio modificatore di Destrezza."
+			]
+		},
+		{
+			"name": "Draconic Affinity",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"A partire dal 6° livello, quando si lancia un incantesimo che infligge danni da percosse, perforazioni o fendenti, si aggiunge il proprio modificatore di Carisma a quei danni. Si ottiene anche la capacità di spendere 2 punti stregoneria per ottenere resistenza alla magia per 1 minuto."
+			]
+		},
+		{
+			"name": "Sorcerous Frenzy",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"La rabbia del drago zannuto scorre nel tuo sangue. Al 14° livello, potete fare appello a questa rabbia e incanalarla nella vostra magia. Nel vostro turno, potete entrare in una frenesia stregonesca come azione bonus. Durante la frenesia, si ottengono i seguenti benefici: Ottenete un bonus di +2 alla DC di salvataggio degli incantesimi.",
+				{
+					"type": "list",
+					"items": [
+						"La gittata critica dei tuoi attacchi di incantesimi aumenta di 1.",
+						"Il costo in punti incantesimo per le opzioni metamagiche è ridotto della metà, fino a un minimo di 1.",
+						"Il costo in punti incantesimo per la creazione di slot incantesimo è ridotto di 1."
+					]
+				},
+				"La frenesia dura 1 minuto. Termina in anticipo se si perde i sensi o se il proprio turno finisce e non si è danneggiata una creatura ostile dall'ultimo turno o non si sono subiti danni da allora. La frenesia può terminare anche nel proprio turno come azione bonus.",
+				"Una volta utilizzata questa caratteristica, non è possibile utilizzarla di nuovo fino al termine di un riposo lungo."
+			]
+		},
+		{
+			"name": "Draconic Presence",
+			"source": "KGFD",
+			"className": "Sorcerer",
+			"classSource": "PHB",
+			"subclassSource": "KGFD",
+			"subclassShortName": "Draconic Bloodline (Fang)",
+			"page": 1,
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"A partire dal 18° livello, potete incanalare la spaventosa presenza del vostro antenato drago, provocando in chi vi circonda stupore o paura. Come azione, potete spendere 5 punti stregoneria per attingere a questo potere ed emanare un'aura di timore o paura (a vostra scelta) a una distanza di 60 piedi. Per 1 minuto o finché non si perde la concentrazione (come se si stesse lanciando un incantesimo di concentrazione), ogni creatura ostile che inizia il suo turno in quest'aura deve superare un tiro salvezza di Saggezza o essere ammaliata (se si è scelto soggezione) o spaventata (se si è scelto paura) finché l'aura non termina. Una creatura che riesce a superare questo tiro salvezza è immune all'aura per 24 ore."
+			]
+		}
+	]
+}
