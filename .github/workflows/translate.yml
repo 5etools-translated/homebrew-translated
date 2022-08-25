@@ -58,6 +58,7 @@ jobs:
            cd $GITHUB_WORKSPACE
            mkdir data.${{ matrix.language }} || true
            ./translation/translate.py --language ${{ matrix.language }} --maxrun 18000 --translate --deepl $SOURCE_FILES
+           rm -Rf data.${{ matrix.language }} # Delete so we remove duplicates and regenerate in the next step
            ./translation/translate.py --language ${{ matrix.language }} --translate $SOURCE_FILES
            (cd data && npm install)
            cd data.${{ matrix.language }}
