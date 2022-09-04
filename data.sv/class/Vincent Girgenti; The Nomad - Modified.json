@@ -1,0 +1,946 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "NMD:BN",
+				"abbreviation": "NMD:BN",
+				"full": "The Nomad: A Class for Planar Travelers - Modified",
+				"authors": [
+					"Vincent Girgenti (u/SubjectiveSloth)",
+					"Blubber Nibble#8845"
+				],
+				"convertedBy": [
+					"Lyra [he/him]"
+				],
+				"version": "2.1",
+				"color": "d0b5ef",
+				"url": "https://docs.google.com/document/d/1Ge7prcNKIkDkce1IwaLAcqRQrVQ1eech15202CHwLuo/edit",
+				"dateReleased": "2022-08-26"
+			}
+		],
+		"optionalFeatureTypes": {
+			"NMD:FS": "Nomad: Fighting Style",
+			"NMD:EA": "Nomad: Elemental Affinity",
+			"NMD:PC": "Nomad: Planar Collision"
+		},
+		"dateAdded": 1661773477,
+		"dateLastModified": 1662112512,
+		"_dateLastModifiedHash": "45ee09df3d"
+	},
+	"class": [
+		{
+			"name": "Nomad (Modified)",
+			"source": "NMD:BN",
+			"hd": {
+				"number": 1,
+				"faces": 8
+			},
+			"proficiency": [
+				"str",
+				"wis"
+			],
+			"startingProficiencies": {
+				"armor": [
+					"light",
+					"medium"
+				],
+				"weapons": [
+					"simple",
+					"martial"
+				],
+				"tools": [
+					"{@item Cartographer's Tools|PHB}"
+				],
+				"skills": [
+					{
+						"choose": {
+							"count": 2,
+							"from": [
+								"acrobatics",
+								"arcana",
+								"history",
+								"nature",
+								"perception",
+								"survival"
+							]
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"default": [
+					"(a) {@item scale mail|phb} or (b) {@item leather armor|phb}",
+					"(a) a {@item rapier|phb} or (b) {@item longsword|PHB}",
+					"(a) 2 {@item dagger|PHB|daggers} or (b) {@filter any simple or martial weapon|items|source=|type=!futuristic;martial weapon;!modern;!renaissance;simple weapon;!treasure|rarity=none}",
+					"(a) an {@item explorer's pack|phb} or (b) {@item dungeoneer's pack|phb}"
+				],
+				"additionalFromBackground": true,
+				"defaultData": [
+					{
+						"a": [
+							"scale mail|phb"
+						],
+						"b": [
+							"leather armor|phb"
+						]
+					},
+					{
+						"a": [
+							"rapier|phb"
+						],
+						"b": [
+							"longsword|phb"
+						]
+					},
+					{
+						"a": [
+							"dagger|phb",
+							"dagger|phb"
+						],
+						"b": [
+							{
+								"equipmentType": "weapon"
+							}
+						]
+					}
+				]
+			},
+			"subclassTitle": "Planar Link",
+			"multiclassing": {
+				"requirements": {
+					"str": 13,
+					"int": 13
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light",
+						"medium"
+					],
+					"weapons": [
+						"simple",
+						"martial"
+					],
+					"skills": [
+						{
+							"choose": {
+								"count": 1,
+								"from": [
+									"acrobatics",
+									"arcana",
+									"history",
+									"nature",
+									"perception",
+									"survival"
+								]
+							}
+						}
+					]
+				}
+			},
+			"fluff": [
+				{
+					"type": "section",
+					"source": "NMD",
+					"name": "Nomad",
+					"page": 1,
+					"entries": [
+						"{@note This file depends upon the following file, click here if you're having issues. {@loader Nomad|class/Vincent Girgenti; The Nomad.json}}",
+						"En ung flicka hoppar fram genom lågorna, hennes silverglänsande hår står i kontrast till hennes ockrafärgade hud i ljuset från elden. Hon kastar snabbt sin dolk mot kultisten framför sig, men den försvinner i en ljusglimt strax efter att ha lämnat hennes hand. Fienden avancerar mot henne innan han låter en hemsk stön och faller till golvet. En liten dolk sticker ut från mitten av hans rygg.",
+						"En gammal elvemänniska står vid avgrunden av en enormt hög klippa, med sina spruckna glasögon som sitter lågt på den förtvinade näsan. Han stirrar ut i fjärran, en ljus och vacker vildmark av grönskande berg och dalar, som accentueras av två massiva flytande öar av sten. Han skrattar för sig själv, bara lite, innan hans syn hindras av en ljusblixt och en skiva av virvlande färger öppnar sig framför honom.",
+						"Nomader är planarresenärer, jägare, spårare, vagabonder och utforskare. De är experter på att korsa planerna och deras vandringslust är aldrig tillfredsställd och deras resa är oändlig.",
+						{
+							"type": "entries",
+							"name": "An Unending Journey",
+							"page": 1,
+							"entries": [
+								"Nomadernas liv är ett liv som präglas av upptäckter och äventyr, där man följer ett koncept som kallas resan. Detta är det slutliga målet för de flesta nomader, ett mål att uppleva alla aspekter av tillvaron. Nomaderna reser i jakt på allt som kommer att hända dem på vägen, och absorberar och njuter av livets alla upplevelser.",
+								"Vissa väljer att organisera och ta upp stora grupper som tillsammans reser genom planerna i jakt på interpersonella upplevelser. Andra njuter av ensamheten under en personlig resa och väljer att utforska kosmos oändliga möjligheter på egen hand.",
+								"Nomader har generellt sett svårt att slå sig ner på en plats för länge, även när de nästan har slutat sina år. Att avsluta resan innan de går bort kommer helt enkelt aldrig på fråga för de flesta, så ambitiös är nomaden."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "A Peculiar Attraction",
+							"page": 1,
+							"entries": [
+								"De som reser runt på planerna dras till vissa aspekter av det ena eller andra planet. Med tiden och avståndet blir denna attraktion, eller länk, starkare och lockar nomadens sinne tillbaka till det av skäl som de kanske inte förstår. Denna länk drar till sig vissa aspekter djupt inne i en persons själ och binder den till planet, en permanent manifestation av planen och deras utomvärldsliga kraft som fastläggs i resenärens sinne.",
+								"De som forskar om planerna har teoretiserat att en kraft som liknar tektoniska förskjutningar i jorden uppstår mellan planerna, vilket genererar kraftfull magi. Denna magi har något som liknar en stor känslighet och kan \"se\" de varelser som den påverkar. Från dessa teorier uppstod ett slags dyrkan bland vissa nomader, där de ser sig själva som mindre beskyddare av den eldritchiska existens som själva The Great Wheel är, även om inte alla tror på denna historia.",
+								"Den länk som en nomad skapar kan vara ett påtagligt val som de förväntar sig eller känner omedelbart, eller så kan det vara så att ett plan som man bara har passerat kortvarigt har lämnat ett subtilt intryck på deras sinne."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Creating a Nomad",
+							"page": 2,
+							"entries": [
+								"När du skapar din nomadkaraktär bör du fundera på vad som fick dem att börja resa och varför de fortsätter sitt sökande. Tog din far eller mor med dig på resan? Har du hört talas om någon fantastisk berättelse om plan långt borta? Eller blev du helt enkelt uttråkad av materialets vardagliga trivialitet?",
+								"Vad har du gjort på din resa? Var det en farlig resa genom Pandemonium och de nio helvetena? En lugn promenad genom Bytopia som fick dig att ompröva dina motiv? Kan det till och med ha varit en virvelvind genom de mest kända tavernorna på de yttre planen?",
+								"Hur har din planar link påverkat dig? Kanske har du trots din avskilda ungdom blivit kopplad till ett avskyvärt plan av ondska, och det har lockat fram mörka tankar som du en gång hade glömt? Eller har du verkligen anslutit dig till ditt plan och har ofta kämpat med dig själv om huruvida du ska stanna kvar där, för att sedan lämna det bakom dig?",
+								"Den stora variationen av plan och nomader innebär att de kan falla in i vilken inriktning som helst och vilken planarlänk som helst, även om de flesta som har sett ytterligheterna av gott, ont, lag och kaos föredrar att förbli neutrala."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Quick Build",
+							"page": 2,
+							"entries": [
+								"Du kan snabbt bli nomad genom att följa dessa förslag. För det första bör du ha styrka eller smidighet som högsta poäng, följt av intelligens. För det andra ska du välja en {@background outlander} bakgrund."
+							]
+						}
+					]
+				}
+			],
+			"classFeatures": [
+				"Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN",
+				"Traveller's Sense|Nomad|NMD|1|NMD",
+				"Portal Arts|Nomad (Modified)|NMD:BN|2|NMD:BN",
+				"Fighting Style|Nomad (Modified)|NMD:BN|2|NMD:BN",
+				{
+					"classFeature": "Planar Link|Nomad (Modified)|NMD:BN|3",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Nomad|NMD|4|NMD",
+				"Extra Attack|Nomad|NMD|5|NMD",
+				"Portal Art: Blink Strike|Nomad (Modified)|NMD:BN|6|NMD:BN",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|7",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Nomad|NMD|8|NMD",
+				"Arcane Shift|Nomad (Modified)|NMD:BN|9|NMD:BN",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|10",
+					"gainSubclassFeature": true
+				},
+				"Split Strike|Nomad (Modified)|NMD:BN|11|NMD:BN",
+				"Far Strike Improvement|Nomad|NMD|11|NMD",
+				"Ability Score Improvement|Nomad|NMD|12|NMD",
+				"Portal Art: Falling Dodge|Nomad|NMD|13|NMD",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|14",
+					"gainSubclassFeature": true
+				},
+				"Planar Rejuvenation|Nomad|NMD|15|NMD",
+				"Ability Score Improvement|Nomad|NMD|16|NMD",
+				"Planar Travel|Nomad (Modified)|NMD:BN|17|NMD:BN",
+				"Far Strike Improvement|Nomad|NMD|18|NMD",
+				"Ability Score Improvement|Nomad|NMD|19|NMD",
+				"Interplanar Gateway|Nomad (Modified)|NMD:BN|20|NMD:BN"
+			]
+		}
+	],
+	"classFeature": [
+		{
+			"name": "Far Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 2,
+			"level": 1,
+			"entries": [
+				"{@note This file depends upon the following file, click here if you're having issues. {@loader Nomad|class/Vincent Girgenti; The Nomad.json}}",
+				"Som nomad är du en mästare på mindre portaler och kan använda dem för att förbättra dina stridsförmågor. På 1:a nivån, när du tar {@action Attack} åtgärden på din tur med ett närstridsvapen, blir räckvidden för ditt vapen 10 fot fram till slutet av din tur då du trollar fram en portal på kort avstånd som ditt vapen passerar igenom mitt i svinget. Attacker som görs på det här sättet ignorerar inte skydd och kräver att målet är synligt. Den här tekniken kräver att en av dina händer är fri för att skapa portalen. Dessutom kan du använda dina portaler med de snabba projektilerna från distansvapen, vilket gör att du kan göra Far Strike-attacker med dem. Detta ändrar inte vapnets räckvidd.",
+				"Din distansstridsräckvidd ökar till 20 fot när du når 11:e nivån och 30 fot när du når 18:e nivån."
+			]
+		},
+		{
+			"name": "Portal Arts",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 2,
+			"entries": [
+				"På nivå 2 lär du dig att använda dina portaler på genomtänkta och unika sätt. Du börjar med en enkel Portal Art: Portal, och får ytterligare Portal Arts-alternativ när du ökar i nivå i den här klassen.",
+				"Du väljer själv vilken effekt du skapar när du använder dina Portal Arts. Du har ett antal användningar av dessa konster som är lika med din intelligensmodifierare. Alla förbrukade användningar återställs när du avslutar en {@quickref resting|PHB|2|0|short or long rest}.",
+				"Dina portalkonster är beroende av din intelligens, din kunskap om de plan från vilka du hämtar dessa effekter.",
+				"Vissa Portal Arts kräver ett räddningskast. När du använder en sådan effekt från den här klassen beräknas DC:n på följande sätt:",
+				{
+					"type": "abilityDc",
+					"name": "Portal Art",
+					"attributes": [
+						"int"
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Portal Art: Portal",
+					"page": 3,
+					"entries": [
+						"Som en handling på din tur använder du en användning av dina Portal Arts för att skapa länkade teleporteringsportaler som förblir öppna i upp till 1 minut, tills 4 varelser eller föremål har passerat genom dem, eller tills du väljer att stänga dem som en bonusåtgärd. Välj två obebodda platser på marken som du kan se, en inom 5 fot från dig och den andra inom 30 fot från dig. En portal öppnas över varje punkt. Portalerna är glödande, avlånga sfärer som svävar centimeter från marken och vinkelrätt mot den. Dimman som fyller varje portal är ogenomskinlig och blockerar synen genom den.",
+						"Varje medium eller mindre varelse eller objekt som går in i det utrymme som portalen upptar går ut från den andra portalen som om de två var samma utrymme. Till exempel, om en pil går in i portalen från öster kommer den att komma ut från väster som om den hade passerat genom vilket annat tomt utrymme som helst. En varelse som tvingas in i portalens utrymme kan göra ett Dexterity räddningskast för att motstå att röra sig genom den, och kommer ut i det närmaste obefolkade utrymmet intill portalen vid ett lyckat räddningskast.",
+						"Räckvidden för den andra portalen ökar till 60 fot på 11:e nivån och 120 fot på 17:e nivån."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fighting Style",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 2,
+			"entries": [
+				"Du använder dig av en särskild kampstil som din specialitet. Välj ett av följande alternativ. Du kan inte välja samma alternativ för fighting style mer än en gång, även om du får välja igen.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Dueling"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Archery"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Great Weapon Fighting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Port Retrieving|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Planar Link",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 3,
+			"entries": [
+				"Nomader är resenärer, och ofta reser de genom alla möjliga plan och demiplan i sina liv. Precis som materiella resenärer har de dock alltid en koppling till ett visst plan i sina hjärtan. På 3:e nivån har du mognat i dina resor tillräckligt mycket för att ha etablerat en magisk och personlig länk. Det finns uppenbarligen ett stort antal plan och regioner i multiversumet. Några vanliga Planar Links som presenteras i slutet av denna klassbeskrivning är {@class Nomad (Modified)|NMD:BN|The Elemental Planes|Elemental Plane|NMD:BN}, {@class Nomad (Modified)|NMD:BN|The Far Realms|Far Realm|NMD:BN} och {@class Nomad (Modified)|NMD:BN|The Astral Plane|Astral Plane|NMD:BN}.",
+				"Din Planar Link ger dig egenskaper på 3:e nivån, och igen på 7:e, 10:e och 14:e nivån."
+			]
+		},
+		{
+			"name": "Portal Art: Blink Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 6,
+			"entries": [
+				"På 6:e nivån utvecklas dina reflexer så att du kan hoppa genom portaler som du skapar med {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN}. När du träffar en varelse med en närstridsattack {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} kan du använda en användning av dina Portalkonster för att hoppa genom portalen som skapats runt ditt vapen och dyka upp i ett obebott utrymme inom 5 fot från målet. Om attacken görs med ett distansvapen kan du välja att röra dig upp till din {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} räckvidd i vilken riktning som helst efter attacken."
+			]
+		},
+		{
+			"name": "Arcane Shift",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 9,
+			"entries": [
+				"På nionde nivån kan du enkelt blinka från plats till plats. En gång i din tur om du får en minst tre meter lång uppkörning i en rak linje kan du teleportera till en räckvidd som motsvarar upp till halva din rörelse och dyka upp i ett obebott utrymme som du kan se. Du förbrukar fortfarande rörelse som om du gick. Genom att ta åtgärden {@action Dash} kan du öka räckvidden som du kan teleportera."
+			]
+		},
+		{
+			"name": "Split Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 11,
+			"entries": [
+				"På 11:e nivån har du lärt dig att skapa speciella portaler med flera utgångar. En gång under din tur kan du rikta en andra varelse mot en av dina {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} attacker när du tar {@action Attack} handlingen. Samma, enda attackrulle används för båda målen för attacken."
+			]
+		},
+		{
+			"name": "Planar Travel",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 17,
+			"entries": [
+				"På 17:e nivån behöver du inte längre söka efter planarportaler. Som en handling i din tur kan du upprätta en interplanär länk. Du öppnar en portal till en plats på ett plan som du har varit på tidigare och minns i ett obebott utrymme inom 5 meter från dig. Portalens destination måste vara på ett plan som du inte befinner dig på för tillfället, och den är synlig genom portalen.",
+				"Portalen är tillräckligt stor för att medelstora eller mindre varelser lätt ska kunna passera igenom. En varelse som tvingas in i portalen kan göra ett räddningskast i Dexterity för att undvika att gå igenom. Vid ett lyckat räddningsförsök dyker varelsen upp i ett upptaget utrymme i anslutning till portalen.",
+				"I annat fall skickas de via porten och dess destination. Portalen förblir öppen i 1 minut tills du stänger den som en bonusåtgärd på din tur.",
+				"När du har använt den här funktionen kan du inte använda den igen förrän du har avslutat en {@quickref resting|PHB|2|0|long rest}."
+			]
+		},
+		{
+			"name": "Interplanar Gateway",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 20,
+			"entries": [
+				"På 20:e nivån blir din förmåga att skapa portaler oöverträffad, vilket gör att du kan skapa portaler som är tillräckligt stabila för att stå emot tidens tand. Med 4 timmars arbete och 2000 gp i material kan du skapa en permanent planär portal som är stor nog för Medium eller mindre varelser, eller dubbelt så lång tid och kostnad för Large eller mindre varelser. Du måste skapa två portar för att kunna resa mellan dem.",
+				"Portaler som skapas med den här funktionen är runda ramar av trä, metall eller andra material som rymmer portalen och håller den stabil när dess skapare inte är närvarande. Om ramen blir ofullständig på något sätt, t.ex. genom att den bränns, krossas eller välts, stängs portalen omedelbart.",
+				"Du kan hantera högst 6 gateways samtidigt. Varje gateway kan endast kopplas till en annan, vilket skapar en tvåvägsportal. Alla varelser som kan rymmas inom en portal reser genom den när de kommer i kontakt med den. En portals portal kan avaktiveras med en 1-minuters ritual, vilket gör att de kan kopplas ihop med en annan portal, eller helt enkelt stängas av för en tid.",
+				"Var försiktig när du använder gateways. Om oönskade kosmiska gäster upptäcker dem kan de äventyra hela plan."
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "The Elemental Planes",
+			"source": "NMD:BN",
+			"page": 5,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Elemental",
+			"subclassFeatures": [
+				"The Elemental Planes|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN",
+				"Elemental Affinity|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|7|NMD:BN",
+				"Portal Art: Elemental Allies|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|10|NMD:BN",
+				"Planar Collision|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|14|NMD:BN"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"Summon Elemental|TCE"
+						]
+					},
+					"resourceName": "Portal Art"
+				}
+			]
+		},
+		{
+			"name": "The Far Realm",
+			"source": "NMD:BN",
+			"page": 6,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Far Realm",
+			"subclassFeatures": [
+				"The Far Realm|Nomad|NMD|Far Realm|NMD|3|NMD",
+				"Portal Art: Madness of The Infinite Void|Nomad|NMD|Far Realm|NMD|7|NMD",
+				"Insatiable Hunger|Nomad|NMD|Far Realm|NMD|10|NMD",
+				"Eldritch Truth|Nomad (Modified)|NMD:BN|Far Realm|NMD:BN|14|NMD:BN"
+			]
+		},
+		{
+			"name": "The Astral Plane",
+			"source": "NMD:BN",
+			"page": 7,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Astral",
+			"subclassFeatures": [
+				"The Astral Plane|Nomad|NMD|Astral|NMD|3|NMD",
+				"Distant Grip|Nomad (Modified)|NMD:BN|Astral|NMD:BN|7|NMD:BN",
+				"Portal Art: Redirection Shield|Nomad|NMD|Astral|NMD|10|NMD",
+				"Master of Portals|Nomad (Modified)|NMD:BN|Astral|NMD:BN|14|NMD:BN"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "The Elemental Planes",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Du har blivit kopplad till ett eller flera av elementarplanerna, de fyra källorna till elementarkraft i multiversum. Kanske är det så att deras enkla renhet i formen vädjar till en längtan efter enkelhet inom dig, eller så är det så att din eldiga ande eller din flytande världsåskådning finner sig bäst hemma bland dessa plan. Oavsett vilket har du samlat på dig en stor kunskap om dessa plan och deras mäktigaste platser, och du kan dra nytta av dem med dina portaler.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Portal Art: Elemental Strikes|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Touch of The Elements|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN"
+				}
+			]
+		},
+		{
+			"name": "Portal Art: Elemental Strikes",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"På tredje nivån när du väljer den här länken börjar du använda dina portaler för att få fram elementarplanernas krafter. När du träffar en varelse med en {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} attack kan du använda en användning av dina Portalkonster för att skicka ditt vapen eller din missil genom ett av elementalplanerna innan det når ditt mål. Den här attacken ger ytterligare {@damage 3d6} skada av kyla, eld, blixtnedslag eller gift.",
+				"Denna skada ökar till {@damage 3d8} på 11:e nivån och {@damage 3d10} på 17:e nivån."
+			]
+		},
+		{
+			"name": "Touch of The Elements",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"På 3:e nivån när du väljer den här länken lär du dig att använda elementär kraft i dina stridsförmågor. När du träffar en varelse med en {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} attack på din tur, kan du använda din bonushandling för att kanalisera elementär kraft genom portalen också, vilket gör att attacken ger ytterligare gift-, eld-, kall- eller blixtskada (ditt val) lika med din intelligensmodifierare."
+			]
+		},
+		{
+			"name": "Elemental Affinity",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 7,
+			"header": 1,
+			"entries": [
+				"Din tid på de elementära planen har gjort att du har anpassat din kropp till deras hårda miljöer. På 7:e nivån väljer du ett plan som du har anpassat dig till och får dess egenskap.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Air|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Earth|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Fire|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Water|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Portal Art: Elemental Allies",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 10,
+			"header": 1,
+			"entries": [
+				"När du når 10:e nivån har du fått tillräckligt med kontakt med elementarplanerna för att kunna be om hjälp från elementarerna. Du kan använda en användning av dina Portal Arts för att kasta {@spell Summon Elemental|TCE} utan att behöva den materiella eller verbala komponenten. Den elemental som kallas framträder genom en portal som du har skapat inom räckvidd."
+			]
+		},
+		{
+			"name": "Planar Collision",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"På 14:e nivån når dina krafter för planarmanipulation nya höjder, vilket gör det möjligt för dig att framkalla massiva manifestationer av de elementära kraftverk du har anpassat dig till. Du kan skapa en av följande effekter som en handling i din tur. DC för räddningskast som görs för att motstå dessa effekter är lika med din Portal Arts räddnings DC. När du har använt någon av dessa förmågor kan du inte använda den här funktionen igen förrän du avslutar en {@quickref resting|PHB|2|0|long rest}.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Air|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Earth|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Fire|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Water|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Eldritch Truth",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 6,
+			"subclassShortName": "Far Realm",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"Den fjärran rikets eldritch landskap innehåller alla former av kunskap om många olika saker. Du minns vissa saker som om de fortfarande var närvarande framför dig, och andra inte alls, som om de var avskilda i de bortre delarna av ditt medvetande. När du når den 14:e nivån kan du försöka frammana denna kunskap i ditt medvetande.",
+				"Du kan utföra en 4 timmars ritual för att försöka återkalla detaljer från den fjärran världen. I slutet av ritualen gör du ett {@dc 15} räddningskast för intelligens. Vid ett misslyckande tar du {@damage 3d10} psykisk skada när ditt sinne översvämmas av odeklarerbar eldritchkunskap. Om du lyckas minns du svaren på två frågor som du ställer i ditt sinne. Dessa frågor kan relatera till multiversums natur, gudarna, högre makter och större dödliga interaktioner med något av dessa koncept eller varelser.",
+				"Du kan till exempel få reda på att det finns en överenskommelse mellan en ärkefiende och en framstående dödlig, var en viktig portal på det materiella planet finns, eller hur en halvgud fick sin makt.",
+				"Din erfarenhet av kunskapen om den fjärran världen är dock inte oändlig. Svaret på din fråga kan vara okänt eller till och med okänt, beroende på ämnet.",
+				"När du har utfört ritualen kan du inte försöka igen förrän du har slutfört en {@quickref resting|PHB|2|0|long rest}."
+			]
+		},
+		{
+			"name": "Distant Grip",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 7,
+			"subclassShortName": "Astral",
+			"subclassSource": "NMD:BN",
+			"level": 7,
+			"header": 1,
+			"entries": [
+				"Stabiliteten i era portaler är tillräckligt stark för att de ska kunna stå emot en kamp inom dem. När du når 7:e nivån kan du försöka att {@action grapple} skapa varelser på avstånd.",
+				"Som en åtgärd på din tur kan du skapa en särskilt stabil portal inom ditt {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} räckvidd och sticka din arm genom den för att försöka ta tag i målet. Gör ett obeväpnat slag mot målet. Vid träff lyckas du {@action grapple} målet om det inte är mer än en storlek större än du. Du kan fortsätta att hålla fast den i upp till en minut, eller tills du rör dig inom 5 fot från målet. Målet kan göra ett räddningskast för styrka i slutet av var och en av sina vändningar, och undkommer {@action grapple} vid en framgång. Du kan bara ha en varelse {@condition grappled} på detta sätt samtidigt.",
+				"Om målet tvingas röra sig mer än 5 fot i någon riktning är målet inte längre {@condition grappled}."
+			]
+		},
+		{
+			"name": "Master of Portals",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 7,
+			"subclassShortName": "Astral",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"När du når 14:e nivån kan du upprätthålla många fler portaler än någon annan nomad. Du har ett antal användningar av dina portalkonster som är lika med din intelligensmodifierare + 2."
+			]
+		}
+	],
+	"optionalfeature": [
+		{
+			"name": "Port Retrieving",
+			"source": "NMD:BN",
+			"page": 3,
+			"featureType": [
+				"NMD:FS"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 2
+					}
+				}
+			],
+			"entries": [
+				"Du har tränat dig själv i att använda portaler samtidigt som du kastar vapen med precision, vilket gör att kastade vapen kan göra {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} attacker. Räckvidden för dina kastade vapenattacker ökar med din {@classFeature far strike|Nomad (Modified)|NMD:BN|1|NMD:BN} räckvidd. När du gör en misslyckad kastvapenattack återvänder ditt vapen dessutom omedelbart till din hand genom en andra portal."
+			]
+		},
+		{
+			"name": "EA: Air",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Du får motstånd mot blixtskador. Du får också förmågan att flyta lätt i vinden. När du faller kan du välja att falla med en bromsad hastighet på 60 fot per runda (ingen åtgärd krävs). När du landar i denna hastighet tar du ingen fallskada och kan landa på fötterna. Slutligen kan du kasta {@spell Gust|XGE} cantrip med hjälp av din Portal Arts räddning DC"
+			],
+			"resist": [
+				"lightning"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"gust|XGE#c"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "EA: Earth",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Du får motstånd mot giftskador. Om du redan har giftresistens får du syraresistens istället. Du får också en klättringshastighet på 30 fot, och att förflytta dig genom icke-magisk svår terräng orsakad av kuperad eller instabil jord kostar dig ingen extra rörelse. Slutligen kan du kasta {@spell Mold Earth|XGE} cantrip med hjälp av din Portal Arts save DC."
+			],
+			"resist": [
+				{
+					"choose": {
+						"from": [
+							"poison",
+							"acid"
+						]
+					}
+				}
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"mold earth|XGE#c"
+						]
+					}
+				}
+			],
+			"foundryEffects": [
+				{
+					"changes": [
+						{
+							"key": "data.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "30"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "EA: Fire",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Du får motstånd mot brandskador. Din kropp producerar en otrolig mängd värme. Du är immun mot effekterna av {@hazard Extreme Cold}. Dessutom kan du kasta {@spell Control Flames|XGE} cantrip med hjälp av din Portal Arts räddnings DC."
+			],
+			"resist": [
+				"fire"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"control flames|XGE#c"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "EA: Water",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Du får motstånd mot kall skada. Du får också en simhastighet på 30 fot, du kan andas under vatten och kan utföra {@action Disengage} eller {@action Dash} åtgärder som en bonusåtgärd. Dessutom kan du kasta {@spell Shape Water|XGE} cantrip med hjälp av din Portal Arts räddning DC"
+			],
+			"resist": [
+				"cold"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"shape water|XGE#c"
+						]
+					}
+				}
+			],
+			"foundryEffects": [
+				{
+					"changes": [
+						{
+							"key": "data.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "30"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PC: Air",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"En stor portal öppnas rakt framför dig, genom vilken kraftiga vindar strömmar och dundrande dån hörs. En övernaturligt massiv blixt slår utåt i en 15 fot bred linje direkt framför dig i upp till 600 fot. Varelser inom denna linje måste göra ett räddningskast i Dexterity, och tar {@damage 4d8} blixtskada och blir {@condition stunned} till slutet av nästa tur vid ett misslyckat räddningskast, eller hälften så mycket och blir inte {@condition stunned} vid ett lyckat räddningskast. Den här förmågan skapar en öronbedövande spricka som kan höras upp till 1000 fot bort."
+			]
+		},
+		{
+			"name": "PC: Earth",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Du kallar fram ett massivt, klyvigt stenblock från en lika stor portal och kastar det mot en punkt som du kan se inom 90 fot från dig. Varelser inom en sfär med en radie på 20 fot centrerad på den punkten måste göra ett räddningskast i Dexterity, och tar {@damage 8d12} blåslagningsskada och blir omkullslagen {@condition prone} vid ett misslyckat räddningskast, eller hälften så mycket skada och inte bli omkullslagen {@condition prone} vid ett lyckat räddningskast."
+			]
+		},
+		{
+			"name": "PC: Fire",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Du öppnar en stor portal ovanför dig genom vilken den brinnande himlen på Elemental Plane of Fire syns tydligt. Sex malar av flammande inferno kommer ut från portalen. Varje eldmoln riktar sig mot en varelse av ditt val som du kan se inom 60 fot från dig. Den varelsen måste göra ett räddningskast i Dexterity för varje eldmoln som riktar sig mot den, och tar {@damage 4d6} brandskada på ett misslyckat räddningskast, eller hälften så mycket på ett lyckat. Du kan rikta eldmolnen så att de träffar en eller flera varelser."
+			]
+		},
+		{
+			"name": "PC: Water",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Fem stora ispelare stiger upp ur portaler på fem synliga platser som du väljer inom 60 fot från dig. Pelarna är upp till 30 fot höga och 10 fot i diameter vid basen. Varelser som befinner sig i pelarnas väg när de skapas måste lyckas med ett räddningskast i Dexterity, och tar {@damage 3d8} köldskada på ett misslyckat räddningskast, eller hälften så mycket på ett lyckat, innan de flyttar sig till det närmaste obefolkade utrymmet intill pelaren. Pelarna har vardera 50 träffpunkter och en AC på 10. Du kan förstöra upp till 5 pelare som en bonusåtgärd på din tur. Pelarna står kvar tills de förstörs."
+			]
+		}
+	]
+}
