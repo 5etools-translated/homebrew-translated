@@ -1,0 +1,946 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "NMD:BN",
+				"abbreviation": "NMD:BN",
+				"full": "The Nomad: A Class for Planar Travelers - Modified",
+				"authors": [
+					"Vincent Girgenti (u/SubjectiveSloth)",
+					"Blubber Nibble#8845"
+				],
+				"convertedBy": [
+					"Lyra [he/him]"
+				],
+				"version": "2.1",
+				"color": "d0b5ef",
+				"url": "https://docs.google.com/document/d/1Ge7prcNKIkDkce1IwaLAcqRQrVQ1eech15202CHwLuo/edit",
+				"dateReleased": "2022-08-26"
+			}
+		],
+		"optionalFeatureTypes": {
+			"NMD:FS": "Nomad: Fighting Style",
+			"NMD:EA": "Nomad: Elemental Affinity",
+			"NMD:PC": "Nomad: Planar Collision"
+		},
+		"dateAdded": 1661773477,
+		"dateLastModified": 1662112512,
+		"_dateLastModifiedHash": "45ee09df3d"
+	},
+	"class": [
+		{
+			"name": "Nomad (Modified)",
+			"source": "NMD:BN",
+			"hd": {
+				"number": 1,
+				"faces": 8
+			},
+			"proficiency": [
+				"str",
+				"wis"
+			],
+			"startingProficiencies": {
+				"armor": [
+					"light",
+					"medium"
+				],
+				"weapons": [
+					"simple",
+					"martial"
+				],
+				"tools": [
+					"{@item Cartographer's Tools|PHB}"
+				],
+				"skills": [
+					{
+						"choose": {
+							"count": 2,
+							"from": [
+								"acrobatics",
+								"arcana",
+								"history",
+								"nature",
+								"perception",
+								"survival"
+							]
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"default": [
+					"(a) {@item scale mail|phb} or (b) {@item leather armor|phb}",
+					"(a) a {@item rapier|phb} or (b) {@item longsword|PHB}",
+					"(a) 2 {@item dagger|PHB|daggers} or (b) {@filter any simple or martial weapon|items|source=|type=!futuristic;martial weapon;!modern;!renaissance;simple weapon;!treasure|rarity=none}",
+					"(a) an {@item explorer's pack|phb} or (b) {@item dungeoneer's pack|phb}"
+				],
+				"additionalFromBackground": true,
+				"defaultData": [
+					{
+						"a": [
+							"scale mail|phb"
+						],
+						"b": [
+							"leather armor|phb"
+						]
+					},
+					{
+						"a": [
+							"rapier|phb"
+						],
+						"b": [
+							"longsword|phb"
+						]
+					},
+					{
+						"a": [
+							"dagger|phb",
+							"dagger|phb"
+						],
+						"b": [
+							{
+								"equipmentType": "weapon"
+							}
+						]
+					}
+				]
+			},
+			"subclassTitle": "Planar Link",
+			"multiclassing": {
+				"requirements": {
+					"str": 13,
+					"int": 13
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light",
+						"medium"
+					],
+					"weapons": [
+						"simple",
+						"martial"
+					],
+					"skills": [
+						{
+							"choose": {
+								"count": 1,
+								"from": [
+									"acrobatics",
+									"arcana",
+									"history",
+									"nature",
+									"perception",
+									"survival"
+								]
+							}
+						}
+					]
+				}
+			},
+			"fluff": [
+				{
+					"type": "section",
+					"source": "NMD",
+					"name": "Nomad",
+					"page": 1,
+					"entries": [
+						"{@note This file depends upon the following file, click here if you're having issues. {@loader Nomad|class/Vincent Girgenti; The Nomad.json}}",
+						"Een jong meisje springt door de vlammen naar voren, haar glanzende zilveren haar steekt af tegen haar okerkleurige huid in het licht van het vuur. Ze gooit haar dolk snel naar de sekteleider voor haar, maar die verdwijnt in een lichtflits vlak nadat hij haar hand heeft verlaten. De vijand komt op haar af voordat hij een afschuwelijke kreun slaakt en op de grond valt. Een kleine dolk steekt uit het midden van zijn rug.",
+						"Een oude elfenman staat aan de rand van een enorm hoge klif, zijn gebarsten bril laag op zijn verdorde neus. Hij staart in de verte, een heldere en mooie wildernis van groene bergen en valleien, geaccentueerd door twee enorme drijvende eilanden van steen. Hij grinnikt in zichzelf, slechts lichtjes, voordat zijn zicht wordt belemmerd door een lichtflits en een schijf van wervelende kleuren zich voor hem opent.",
+						"Nomaden zijn planaire reizigers, jagers, spoorzoekers, vagebonden en ontdekkingsreizigers. Zij zijn experts in het doorkruisen van de planeten, wier zwerflust nooit bevredigd is en wier reis oneindig is.",
+						{
+							"type": "entries",
+							"name": "An Unending Journey",
+							"page": 1,
+							"entries": [
+								"Het leven van een nomade is er een van ontdekking en avontuur, het najagen van een concept dat bekend staat als De Reis. Dit is het uiteindelijke doel van de meeste nomaden, een doel van het ervaren van elk facet van het bestaan. Nomaden reizen op zoek naar alles wat zich onderweg aan hen voordoet, ze absorberen en genieten van alle ervaringen in het leven.",
+								"Sommigen kiezen ervoor om grote groepen te organiseren en samen de vlakken te doorkruisen op zoek naar intermenselijke ervaringen. Anderen genieten van de eenzaamheid van een persoonlijke Reis, en kiezen ervoor om de oneindige mogelijkheden van de kosmos alleen te verkennen.",
+								"Nomaden hebben het over het algemeen moeilijk om zich te lang op één plaats te vestigen, zelfs als hun jaren er bijna op zitten. Het komt bij de meesten niet op om de reis te beëindigen voordat ze voorbij zijn, zo ambitieus is de nomade."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "A Peculiar Attraction",
+							"page": 1,
+							"entries": [
+								"Zij die door de planeten reizen voelen zich aangetrokken tot bepaalde aspecten van het ene of het andere vlak. Met de tijd en afstand wordt deze aantrekkingskracht, of band, sterker, en trekt de geest van de nomade terug naar het vliegtuig om redenen die hij misschien niet begrijpt. Deze link trekt bepaalde aspecten diep in de ziel van een persoon en bindt het aan het vlak, een permanente manifestatie van de vlakken en hun buitenwereldse kracht vast in de geest van de reiziger.",
+								"Degenen die de vlakken onderzoeken hebben getheoretiseerd dat een kracht vergelijkbaar met tektonische verschuivingen in de aarde plaatsvindt tussen de vlakken, waardoor krachtige magie ontstaat. Deze magie heeft iets wat lijkt op een groot gevoel, en kan de wezens \"zien\" die het beïnvloedt. Uit deze theorieën ontstond een soort verering onder sommige nomaden, waar zij zichzelf beschouwen als kleine beschermers van het eldritische bestaan dat Het Grote Wiel zelf is, hoewel niet iedereen dit verhaal gelooft.",
+								"De band die een nomade vormt kan een tastbare keuze zijn die hij onmiddellijk verwacht of voelt, of het kan zijn dat een vlak waar men slechts kort doorheen is gegaan een subtiele indruk op zijn geest heeft achtergelaten."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Creating a Nomad",
+							"page": 2,
+							"entries": [
+								"Denk bij de creatie van je nomadenpersonage na over wat hen er in de eerste plaats toe aanzette om op reis te gaan, en waarom ze hun zoektocht voortzetten. Hebben je vader of moeder je meegenomen op hun reizen? Heb je gehoord van een fantastisch verhaal over verre planeten? Of verveelde je je gewoon met de alledaagsheid van het materiaal?",
+								"Wat heb je gedaan op je reis? Was er een gevaarlijke tocht door Pandemonium en de Negen Hells? Een rustige wandeling door Bytopia die je je motieven deed heroverwegen? Zou er zelfs een wervelende tocht zijn geweest door de meest gerenommeerde taveernes van de buitenste planes?",
+								"Hoe heeft je planaire link je beïnvloed? Misschien ben je ondanks je afgezonderde jeugd verbonden geraakt met een afschuwelijke kwade planeet, en heeft het donkere gedachten naar boven gebracht die je ooit vergeten was? Of heb je je echt verbonden met je vlak en heb je vaak voor jezelf uitgevochten of je daar wilde blijven, om het vervolgens achter je te laten?",
+								"De grote verscheidenheid aan planes en nomaden betekent dat zij in elke groepering of planaire band kunnen vallen, hoewel de meesten die de uitersten van goed, kwaad, wet en chaos hebben gezien er de voorkeur aan geven neutraal te blijven."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Quick Build",
+							"page": 2,
+							"entries": [
+								"Je kunt snel een nomade maken door de volgende suggesties op te volgen. Ten eerste moet Strength of Dexterity je hoogste ability score zijn, gevolgd door Intelligence. Ten tweede, kies de {@background outlander} achtergrond."
+							]
+						}
+					]
+				}
+			],
+			"classFeatures": [
+				"Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN",
+				"Traveller's Sense|Nomad|NMD|1|NMD",
+				"Portal Arts|Nomad (Modified)|NMD:BN|2|NMD:BN",
+				"Fighting Style|Nomad (Modified)|NMD:BN|2|NMD:BN",
+				{
+					"classFeature": "Planar Link|Nomad (Modified)|NMD:BN|3",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Nomad|NMD|4|NMD",
+				"Extra Attack|Nomad|NMD|5|NMD",
+				"Portal Art: Blink Strike|Nomad (Modified)|NMD:BN|6|NMD:BN",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|7",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Nomad|NMD|8|NMD",
+				"Arcane Shift|Nomad (Modified)|NMD:BN|9|NMD:BN",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|10",
+					"gainSubclassFeature": true
+				},
+				"Split Strike|Nomad (Modified)|NMD:BN|11|NMD:BN",
+				"Far Strike Improvement|Nomad|NMD|11|NMD",
+				"Ability Score Improvement|Nomad|NMD|12|NMD",
+				"Portal Art: Falling Dodge|Nomad|NMD|13|NMD",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|14",
+					"gainSubclassFeature": true
+				},
+				"Planar Rejuvenation|Nomad|NMD|15|NMD",
+				"Ability Score Improvement|Nomad|NMD|16|NMD",
+				"Planar Travel|Nomad (Modified)|NMD:BN|17|NMD:BN",
+				"Far Strike Improvement|Nomad|NMD|18|NMD",
+				"Ability Score Improvement|Nomad|NMD|19|NMD",
+				"Interplanar Gateway|Nomad (Modified)|NMD:BN|20|NMD:BN"
+			]
+		}
+	],
+	"classFeature": [
+		{
+			"name": "Far Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 2,
+			"level": 1,
+			"entries": [
+				"{@note This file depends upon the following file, click here if you're having issues. {@loader Nomad|class/Vincent Girgenti; The Nomad.json}}",
+				"Als nomade ben je een meester in kleine portalen, en je kunt ze gebruiken om je gevechtsvaardigheden te verbeteren. Als je op het 1e niveau in je beurt de actie {@action Attack} met een wapen uit de lucht uitvoert, wordt de reikwijdte van je wapen tot het einde van je beurt 10 meter, omdat je een korte-afstandsportaal oproept waar je wapen midden in een zwaai doorheen gaat. Aanvallen die op deze manier worden uitgevoerd, negeren dekking niet en vereisen dat het doelwit zichtbaar is. Voor deze techniek moet een van je handen vrij zijn om het portaal te creëren. Bovendien kun je je portalen gebruiken met de snel bewegende projectielen van afstandswapens, zodat je er Far Strike-aanvallen mee kunt doen. Dit verandert het bereik van het wapen niet.",
+				"Je Far Strike Range wordt 20 voet als je 11e level bent, en 30 voet als je 18e level bent."
+			]
+		},
+		{
+			"name": "Portal Arts",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 2,
+			"entries": [
+				"Op het 2e niveau leer je om je portalen op doordachte en unieke manieren te gebruiken. Je begint met één simpele Portaal Kunst: Portal, en je krijgt extra Portal Arts opties als je levels stijgt in deze klasse.",
+				"Jij kiest welk effect je creëert als je je portaalkunsten gebruikt. Je hebt een aantal gebruiken van deze kunsten gelijk aan je Intelligentie modifier. Alle verbruikte gebruiken worden hersteld wanneer je een {@quickref resting|PHB|2|0|short or long rest} beëindigt.",
+				"Je Portaalkunsten zijn afhankelijk van je Intelligentie, je kennis van de vlakken waaruit je deze effecten haalt.",
+				"Sommige Portaalkunsten vereisen een reddende worp. Als je zo'n effect van deze klasse gebruikt, wordt de DC als volgt berekend:",
+				{
+					"type": "abilityDc",
+					"name": "Portal Art",
+					"attributes": [
+						"int"
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Portal Art: Portal",
+					"page": 3,
+					"entries": [
+						"Als een actie tijdens je beurt gebruik je een van je Portaalkunsten om gekoppelde teleportatieportalen te creëren die tot 1 minuut open blijven, totdat 4 wezens of voorwerpen erdoor zijn gegaan, of totdat je ervoor kiest om ze te sluiten als een bonusactie. Kies twee onbezette plaatsen op de grond die je kunt zien, een binnen 5 voet van jou en de andere binnen 30 voet van jou. Over elk punt opent zich een portaal. De portalen zijn gloeiende, langwerpige, sferoïden die centimeters van de grond zweven en er loodrecht op staan. De mist die elk portaal vult, is ondoorzichtig en blokkeert het zicht er doorheen.",
+						"Elk medium of kleiner wezen of voorwerp dat de ruimte binnengaat die het portaal inneemt, komt uit het andere portaal alsof het dezelfde ruimte is. Als bijvoorbeeld een pijl vanuit het oosten het portaal binnenkomt, komt hij er vanuit het westen weer uit, alsof hij door een andere lege ruimte is gegaan. Een wezen dat in de ruimte van het portaal wordt gedwongen, kan een Dexterity saving throw doen om zich er niet doorheen te bewegen, en als hij slaagt, komt hij uit in de dichtstbijzijnde onbezette ruimte naast het portaal.",
+						"De reikwijdte van het tweede portaal neemt toe tot 60 voet op het 11e niveau en tot 120 voet op het 17e niveau."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fighting Style",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 2,
+			"entries": [
+				"Je neemt een bepaalde vechtstijl aan als je specialiteit. Kies een van de volgende opties. Je kunt dezelfde vechtstijl niet meer dan één keer kiezen, zelfs niet als je opnieuw mag kiezen.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Dueling"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Archery"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Great Weapon Fighting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Port Retrieving|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Planar Link",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 3,
+			"entries": [
+				"Nomaden zijn reizigers, en vaak doorkruisen zij in hun leven allerlei planeten en demiplane gebieden. Net als reizigers van de materie hebben zij echter altijd een band met een bepaalde planeet in hun hart. Op het 3e niveau ben je voldoende gerijpt in je reizen om een magische en persoonlijke band te hebben gelegd. Er zijn natuurlijk een groot aantal planeten en gebieden in het multiversum. Enkele veel voorkomende Planaire Verbindingen die aan het eind van deze klassebeschrijving worden gepresenteerd zijn {@class Nomad (Modified)|NMD:BN|The Elemental Planes|Elemental Plane|NMD:BN}, {@class Nomad (Modified)|NMD:BN|The Far Realms|Far Realm|NMD:BN} en {@class Nomad (Modified)|NMD:BN|The Astral Plane|Astral Plane|NMD:BN}.",
+				"Je Planar Link verleent je eigenschappen op het 3e niveau, en opnieuw op het 7e, 10e en 14e niveau."
+			]
+		},
+		{
+			"name": "Portal Art: Blink Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 6,
+			"entries": [
+				"Op het 6e niveau ontwikkel je reflexen, waardoor je door de portalen kunt springen die je met {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} creëert. Als je een wezen raakt met een mêlee aanval {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN}, kun je een portaaltoets gebruiken om door het portaal te springen dat rond je wapen is ontstaan en uit te komen in een onbezette ruimte binnen 2 meter van het doelwit. Als de aanval is uitgevoerd met een afstandswapen, kun je ervoor kiezen om na de aanval tot je {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} bereik in een willekeurige richting te bewegen."
+			]
+		},
+		{
+			"name": "Arcane Shift",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 9,
+			"entries": [
+				"Op het 9e niveau kun je met gemak van plaats naar plaats knipperen. Eenmaal in je beurt als je minstens 10 voet in een rechte lijn omhoog loopt, kun je teleporteren naar een bereik gelijk aan maximaal de helft van je beweging, waarbij je in een onbezette ruimte verschijnt die je kunt zien. Je gebruikt nog steeds beweging alsof je loopt. Als je de actie {@action Dash} uitvoert, kun je het bereik dat je kunt teleporteren vergroten."
+			]
+		},
+		{
+			"name": "Split Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 11,
+			"entries": [
+				"Op je 11e level heb je geleerd om speciale portalen met meerdere uitgangen te maken. Eenmaal in je beurt kun je een tweede wezen aanvallen met een van je {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} aanvallen wanneer je de {@action Attack} actie uitvoert. Dezelfde, enkele aanvalsrol wordt gebruikt voor beide doelen van de aanval."
+			]
+		},
+		{
+			"name": "Planar Travel",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 17,
+			"entries": [
+				"Op 17e niveau hoef je niet langer te zoeken naar planaire portalen. Als een actie tijdens je beurt, maak je een interplanaire link. Je opent een portaal naar een locatie op een vlak waar je al eerder bent geweest en herinnert je een onbezette ruimte binnen een straal van 5 meter van je vandaan. De bestemming van het portaal moet op een vlak liggen waar je je op dat moment niet bevindt, en het is zichtbaar door het portaal.",
+				"Het portaal is groot genoeg voor wezens van gemiddelde grootte of kleiner om er gemakkelijk doorheen te gaan. Een wezen dat het portaal in wordt gedwongen kan een Dexterity saving throw doen om er niet doorheen te gaan. Als dat lukt, verschijnt het wezen in een bezette ruimte naast het portaal.",
+				"Anders worden ze door de poort en zijn bestemming gestuurd. De poort blijft 1 minuut open totdat je hem sluit als bonusactie tijdens je beurt.",
+				"Als je deze functie eenmaal hebt gebruikt, kun je hem niet meer gebruiken totdat je een {@quickref resting|PHB|2|0|long rest} hebt voltooid."
+			]
+		},
+		{
+			"name": "Interplanar Gateway",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 20,
+			"entries": [
+				"Op 20e niveau wordt je vaardigheid in het maken van portalen onovertroffen, waardoor je portalen kunt maken die stabiel genoeg zijn om de tand des tijds te doorstaan. Met 4 uur werk en 2000 gp aan materialen kun je een permanente planaire poort maken die groot genoeg is voor wezens van gemiddelde grootte of kleinere wezens, of de tijd en kosten verdubbelen voor wezens van grote grootte of kleinere wezens. Je moet twee poorten maken om ertussen te kunnen reizen.",
+				"Poortgebouwen die met deze functie zijn gemaakt zijn ronde frames van hout, metaal of andere materialen die een portaal huisvesten en het stabiel houden in de afwezigheid van de maker. Als het frame op enigerlei wijze onvolledig wordt, bijvoorbeeld doordat het verbrand, verbrijzeld of omgevallen wordt, sluit het portaal onmiddellijk.",
+				"U kunt maximaal 6 gateways tegelijk beheren. Elke poort kan maar met één andere poort verbonden worden, waardoor een tweerichtingspoort ontstaat. Elk wezen dat in een poort past, reist er doorheen als het ermee in aanraking komt. Een portaal van een poort kan met een ritueel van 1 minuut worden gedeactiveerd, zodat hij aan een andere poort kan worden gekoppeld, of gewoon voor een tijd worden uitgeschakeld.",
+				"Wees voorzichtig met het gebruik van poorten. Als ze ontdekt worden door ongewenste kosmische gasten, kunnen ze hele planeten in gevaar brengen."
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "The Elemental Planes",
+			"source": "NMD:BN",
+			"page": 5,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Elemental",
+			"subclassFeatures": [
+				"The Elemental Planes|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN",
+				"Elemental Affinity|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|7|NMD:BN",
+				"Portal Art: Elemental Allies|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|10|NMD:BN",
+				"Planar Collision|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|14|NMD:BN"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"Summon Elemental|TCE"
+						]
+					},
+					"resourceName": "Portal Art"
+				}
+			]
+		},
+		{
+			"name": "The Far Realm",
+			"source": "NMD:BN",
+			"page": 6,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Far Realm",
+			"subclassFeatures": [
+				"The Far Realm|Nomad|NMD|Far Realm|NMD|3|NMD",
+				"Portal Art: Madness of The Infinite Void|Nomad|NMD|Far Realm|NMD|7|NMD",
+				"Insatiable Hunger|Nomad|NMD|Far Realm|NMD|10|NMD",
+				"Eldritch Truth|Nomad (Modified)|NMD:BN|Far Realm|NMD:BN|14|NMD:BN"
+			]
+		},
+		{
+			"name": "The Astral Plane",
+			"source": "NMD:BN",
+			"page": 7,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Astral",
+			"subclassFeatures": [
+				"The Astral Plane|Nomad|NMD|Astral|NMD|3|NMD",
+				"Distant Grip|Nomad (Modified)|NMD:BN|Astral|NMD:BN|7|NMD:BN",
+				"Portal Art: Redirection Shield|Nomad|NMD|Astral|NMD|10|NMD",
+				"Master of Portals|Nomad (Modified)|NMD:BN|Astral|NMD:BN|14|NMD:BN"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "The Elemental Planes",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Je bent verbonden geraakt met een of meer van de elementaire vlakken, de vier bronnen van elementaire kracht in het multiversum. Misschien roept hun eenvoudige zuivere vorm een verlangen naar eenvoud in je op, of misschien voelt je vurige geest of vloeiende wereldbeeld zich het beste thuis op deze planes. Hoe dan ook, je hebt een grote kennis vergaard van deze planeten en hun krachtigste locaties, en je kunt ze aanspreken met je portalen.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Portal Art: Elemental Strikes|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Touch of The Elements|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN"
+				}
+			]
+		},
+		{
+			"name": "Portal Art: Elemental Strikes",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Als je op het 3e niveau deze link kiest, begin je je portalen te gebruiken om de krachten van de Elemental Planes naar voren te brengen. Wanneer je een wezen raakt met een {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} aanval, kun je een gebruik van je Portaalkunsten gebruiken om je wapen of raket door een van de elementaire vlakken te sturen voordat het je doelwit bereikt. Deze aanval veroorzaakt een extra {@damage 3d6} koude-, vuur-, bliksem- of gifschade.",
+				"Deze schade neemt toe tot {@damage 3d8} op 11e niveau, en {@damage 3d10} op 17e niveau."
+			]
+		},
+		{
+			"name": "Touch of The Elements",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Op 3de niveau als je deze link kiest, leer je om elementaire kracht in je gevechtsvaardigheden te stoppen. Wanneer je in je beurt een wezen raakt met een {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} aanval, kun je je bonusactie gebruiken om ook elementaire kracht door het portaal te kanaliseren, waardoor de aanval extra gif-, vuur-, koude- of bliksemschade (jouw keuze) toebrengt, gelijk aan je intelligentiegetal."
+			]
+		},
+		{
+			"name": "Elemental Affinity",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 7,
+			"header": 1,
+			"entries": [
+				"Je tijd op de elementaire planes heeft je in staat gesteld je lichaam aan te passen aan hun harde omgeving. Op 7e level kies je een vlak waaraan je je hebt aangepast en verkrijg je de eigenschap ervan.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Air|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Earth|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Fire|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Water|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Portal Art: Elemental Allies",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 10,
+			"header": 1,
+			"entries": [
+				"Als je het 10e niveau hebt bereikt, heb je genoeg verstand gekregen binnen de Elemental Planes om de hulp van elementalen in te roepen. Je kunt een gebruik van je Portaalkunsten gebruiken om te bezweren {@spell Summon Elemental|TCE} zonder dat je de materiële of verbale component nodig hebt. De opgeroepen Elemental verschijnt door een portaal van jouw keuze binnen bereik."
+			]
+		},
+		{
+			"name": "Planar Collision",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"Op het 14e niveau bereiken je krachten van planaire manipulatie nieuwe hoogten, waardoor je massale manifestaties kunt oproepen van de elementaire krachtpatsers waar je je mee verbonden hebt. Je kunt een van de volgende effecten oproepen als een actie tijdens je beurt. De DC voor reddingsacties om deze effecten te weerstaan is gelijk aan je Portal Arts save DC. Als je eenmaal een van deze effecten hebt gebruikt, kun je deze eigenschap niet meer gebruiken totdat je een {@quickref resting|PHB|2|0|long rest} hebt voltooid.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Air|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Earth|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Fire|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Water|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Eldritch Truth",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 6,
+			"subclassShortName": "Far Realm",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"In de eldrithe landen van het Verre Rijk vind je allerlei vormen van kennis, over heel veel dingen. Sommige dingen herinner je je alsof ze nog voor je lagen, andere helemaal niet, alsof ze in de verste uithoeken van je bewustzijn waren weggestopt. Wanneer je het 14e niveau bereikt, kun je proberen deze kennis naar de voorgrond van je geest te halen.",
+				"Je kunt een ritueel van 4 uur uitvoeren om te proberen details uit het Verre Rijk op te roepen. Aan het einde van dit ritueel moet je een {@dc 15} Intelligentie-redding doen. Als je faalt, ontvang je {@damage 3d10} psychische schade en stroomt je geest over van onleesbare veldritskennis. Als je slaagt, herinner je je de antwoorden op twee vragen die je in je geest stelt. Deze vragen kunnen betrekking hebben op de aard van het multiversum, de goden, hogere machten, en belangrijke sterfelijke interacties met een van deze concepten of wezens.",
+				"Je zou bijvoorbeeld te weten kunnen komen dat er een overeenkomst bestaat tussen een aartsvijand en een vooraanstaande sterveling, waar een belangrijke poort op het materiële vlak zich bevindt, of hoe een halfgod aan zijn macht is gekomen.",
+				"Je ervaring met de kennis van de Far Realm is echter niet oneindig. Het antwoord op je vraag kan onbekend of zelfs onkenbaar zijn, afhankelijk van het onderwerp.",
+				"Als je het ritueel eenmaal hebt uitgevoerd, kun je het niet opnieuw proberen totdat je een {@quickref resting|PHB|2|0|long rest} hebt voltooid."
+			]
+		},
+		{
+			"name": "Distant Grip",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 7,
+			"subclassShortName": "Astral",
+			"subclassSource": "NMD:BN",
+			"level": 7,
+			"header": 1,
+			"entries": [
+				"De stabiliteit van je portalen is sterk genoeg dat ze een worsteling binnenin kunnen weerstaan. Als je 7e level bereikt, kun je proberen om {@action grapple} wezens van veraf te vangen.",
+				"Als actie tijdens je beurt kun je een bijzonder stabiel portaal binnen je {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} bereik maken en je arm erdoorheen steken, in een poging het doelwit te grijpen. Maak een Unarmed Strike tegen het doelwit. Als je het doelwit raakt, pak je het met succes {@action grapple} vast als het niet groter is dan één maat groter dan jij. Je kunt hem tot een minuut vasthouden, of tot je je binnen een straal van 2 meter van het doelwit beweegt. Het doelwit kan aan het eind van elke beurt een krachtsparende worp doen, waarbij het bij succes ontsnapt aan de {@action grapple}. Je kunt maar één wezen {@condition grappled} op deze manier tegelijk hebben.",
+				"Als het doelwit gedwongen wordt meer dan 5 voet in een richting te bewegen, is het doelwit niet meer {@condition grappled}."
+			]
+		},
+		{
+			"name": "Master of Portals",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 7,
+			"subclassShortName": "Astral",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"Als je het 14e level bereikt, kun je veel meer portalen onderhouden dan elke andere Nomade. Je hebt een aantal portaalkunsten dat gelijk is aan je intelligentie + 2."
+			]
+		}
+	],
+	"optionalfeature": [
+		{
+			"name": "Port Retrieving",
+			"source": "NMD:BN",
+			"page": 3,
+			"featureType": [
+				"NMD:FS"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 2
+					}
+				}
+			],
+			"entries": [
+				"Je hebt jezelf getraind om portalen te gebruiken terwijl je nauwkeurig wapens gooit, waardoor gegooide wapens {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} aanvallen kunnen doen. De reikwijdte van uw wapenaanvallen neemt toe met uw {@classFeature far strike|Nomad (Modified)|NMD:BN|1|NMD:BN} reikwijdte. Als je een mislukte aanval met een werpwapen uitvoert, keert je wapen onmiddellijk terug naar je hand door een tweede portaal."
+			]
+		},
+		{
+			"name": "EA: Air",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Je krijgt weerstand tegen bliksemschade. Je krijgt ook het vermogen om licht te stromen op de wind. Als je valt, kun je ervoor kiezen om met een vertraagde snelheid van 60 voet per ronde te vallen (geen actie nodig). Als je met deze snelheid landt, loop je geen valschade op en kun je op je voeten landen. Tenslotte kun je de {@spell Gust|XGE} cantrip uitroepen met je portaal Arts save DC"
+			],
+			"resist": [
+				"lightning"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"gust|XGE#c"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "EA: Earth",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Je krijgt weerstand tegen gifschade. Als je al gifweerstand hebt, krijg je in plaats daarvan zuurweerstand. Je krijgt ook een klimsnelheid van 30 voet, en bewegen door niet magisch moeilijk terrein veroorzaakt door grillige of onstabiele aarde kost je geen extra beweging. Tenslotte kun je de {@spell Mold Earth|XGE} cantrip uitvoeren met je Portal Arts save DC."
+			],
+			"resist": [
+				{
+					"choose": {
+						"from": [
+							"poison",
+							"acid"
+						]
+					}
+				}
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"mold earth|XGE#c"
+						]
+					}
+				}
+			],
+			"foundryEffects": [
+				{
+					"changes": [
+						{
+							"key": "data.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "30"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "EA: Fire",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Je krijgt weerstand tegen vuurschade. Je lichaam produceert een ongelooflijke hoeveelheid hitte. Je bent immuun voor de effecten van {@hazard Extreme Cold}. Bovendien kun je de {@spell Control Flames|XGE} cantrip uitroepen met gebruik van je Portal Arts save DC."
+			],
+			"resist": [
+				"fire"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"control flames|XGE#c"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "EA: Water",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Je krijgt weerstand tegen koude schade. Je krijgt ook een zwemsnelheid van 30 voet, je kunt onder water ademen en je kunt de {@action Disengage} of {@action Dash} actie als bonus actie uitvoeren. Bovendien kun je de {@spell Shape Water|XGE} cantrip uitvoeren met je Portal Arts save DC"
+			],
+			"resist": [
+				"cold"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"shape water|XGE#c"
+						]
+					}
+				}
+			],
+			"foundryEffects": [
+				{
+					"changes": [
+						{
+							"key": "data.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "30"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PC: Air",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Een groot portaal opent zich recht voor je, waardoor krachtige winden stromen en donderachtig gebulder te horen is. Een bovennatuurlijk grote bliksemschicht scheurt naar buiten in een 15 voet brede lijn recht voor je tot op 600 voet. Wezens binnen deze lijn moeten een Dexterity saving throw doen, waarbij ze {@damage 4d8} bliksemschade oplopen en {@condition stunned} worden tot het einde van hun volgende beurt als ze niet slagen, of half zoveel als ze slagen en {@condition stunned} niet worden. Deze vaardigheid veroorzaakt een oorverdovende krak die tot op 1.000 voet afstand kan worden gehoord."
+			]
+		},
+		{
+			"name": "PC: Earth",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Je roept een massief, gekarteld rotsblok uit een even groot portaal en lanceert het naar een punt dat je kunt zien binnen 90 voet van jou. Wezens binnen een straal van 20 voet rond dat punt moeten een Dexterity saving throw doen, waarbij ze {@damage 8d12} schade oplopen door verwonding en {@condition prone} neergehaald worden als ze niet slagen, of half zoveel schade oplopen en {@condition prone} niet neergehaald worden als ze wel slagen."
+			]
+		},
+		{
+			"name": "PC: Fire",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Je opent een grote poort boven je waardoor de brandende hemel van het Elementaire Vlak van Vuur duidelijk te zien is. Zes motten van laaiend inferno komen uit de poort. Elke vuurpijl richt zich op een wezen naar keuze dat je kunt zien binnen 60 meter van jou. Dat wezen moet een Dexterity saving throw doen voor elke vuurpijl die op hem afkomt, en krijgt {@damage 4d6} vuurschade als hij faalt, of half zoveel als hij slaagt. Je kunt de vuurpijlen richten op één of meerdere wezens."
+			]
+		},
+		{
+			"name": "PC: Water",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Vijf grote zuilen van ijs rijzen op uit portalen op vijf zichtbare plaatsen die je kiest binnen 60 voet van je. De pilaren zijn tot 30 voet hoog en 10 voet in diameter aan hun basis. Wezens die zich in het pad van deze pilaren bevinden wanneer ze worden gevormd, moeten slagen op een Dexterity saving throw, waarbij ze {@damage 3d8} koude schade oplopen als ze niet slagen, of half zoveel als ze slagen, voordat ze naar de dichtstbijzijnde onbezette ruimte naast de pilaar gaan. De pilaren hebben elk 50 hit points, en een AC van 10. Je kunt tot 5 pilaren vernietigen als een bonus actie tijdens je beurt. De pilaren blijven staan tot ze vernietigd worden."
+			]
+		}
+	]
+}
