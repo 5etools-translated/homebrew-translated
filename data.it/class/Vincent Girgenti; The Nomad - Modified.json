@@ -1,0 +1,946 @@
+{
+	"_meta": {
+		"sources": [
+			{
+				"json": "NMD:BN",
+				"abbreviation": "NMD:BN",
+				"full": "The Nomad: A Class for Planar Travelers - Modified",
+				"authors": [
+					"Vincent Girgenti (u/SubjectiveSloth)",
+					"Blubber Nibble#8845"
+				],
+				"convertedBy": [
+					"Lyra [he/him]"
+				],
+				"version": "2.1",
+				"color": "d0b5ef",
+				"url": "https://docs.google.com/document/d/1Ge7prcNKIkDkce1IwaLAcqRQrVQ1eech15202CHwLuo/edit",
+				"dateReleased": "2022-08-26"
+			}
+		],
+		"optionalFeatureTypes": {
+			"NMD:FS": "Nomad: Fighting Style",
+			"NMD:EA": "Nomad: Elemental Affinity",
+			"NMD:PC": "Nomad: Planar Collision"
+		},
+		"dateAdded": 1661773477,
+		"dateLastModified": 1662112512,
+		"_dateLastModifiedHash": "45ee09df3d"
+	},
+	"class": [
+		{
+			"name": "Nomad (Modified)",
+			"source": "NMD:BN",
+			"hd": {
+				"number": 1,
+				"faces": 8
+			},
+			"proficiency": [
+				"str",
+				"wis"
+			],
+			"startingProficiencies": {
+				"armor": [
+					"light",
+					"medium"
+				],
+				"weapons": [
+					"simple",
+					"martial"
+				],
+				"tools": [
+					"{@item Cartographer's Tools|PHB}"
+				],
+				"skills": [
+					{
+						"choose": {
+							"count": 2,
+							"from": [
+								"acrobatics",
+								"arcana",
+								"history",
+								"nature",
+								"perception",
+								"survival"
+							]
+						}
+					}
+				]
+			},
+			"startingEquipment": {
+				"default": [
+					"(a) {@item scale mail|phb} or (b) {@item leather armor|phb}",
+					"(a) a {@item rapier|phb} or (b) {@item longsword|PHB}",
+					"(a) 2 {@item dagger|PHB|daggers} or (b) {@filter any simple or martial weapon|items|source=|type=!futuristic;martial weapon;!modern;!renaissance;simple weapon;!treasure|rarity=none}",
+					"(a) an {@item explorer's pack|phb} or (b) {@item dungeoneer's pack|phb}"
+				],
+				"additionalFromBackground": true,
+				"defaultData": [
+					{
+						"a": [
+							"scale mail|phb"
+						],
+						"b": [
+							"leather armor|phb"
+						]
+					},
+					{
+						"a": [
+							"rapier|phb"
+						],
+						"b": [
+							"longsword|phb"
+						]
+					},
+					{
+						"a": [
+							"dagger|phb",
+							"dagger|phb"
+						],
+						"b": [
+							{
+								"equipmentType": "weapon"
+							}
+						]
+					}
+				]
+			},
+			"subclassTitle": "Planar Link",
+			"multiclassing": {
+				"requirements": {
+					"str": 13,
+					"int": 13
+				},
+				"proficienciesGained": {
+					"armor": [
+						"light",
+						"medium"
+					],
+					"weapons": [
+						"simple",
+						"martial"
+					],
+					"skills": [
+						{
+							"choose": {
+								"count": 1,
+								"from": [
+									"acrobatics",
+									"arcana",
+									"history",
+									"nature",
+									"perception",
+									"survival"
+								]
+							}
+						}
+					]
+				}
+			},
+			"fluff": [
+				{
+					"type": "section",
+					"source": "NMD",
+					"name": "Nomad",
+					"page": 1,
+					"entries": [
+						"{@note This file depends upon the following file, click here if you're having issues. {@loader Nomad|class/Vincent Girgenti; The Nomad.json}}",
+						"Una giovane ragazza balza in avanti tra le fiamme, con i capelli d'argento lucente che contrastano con la sua pelle ocra sotto la luce del fuoco. Lancia rapidamente il pugnale verso il cultista che ha di fronte, ma il pugnale svanisce in un lampo di luce appena lasciato la sua mano. Il nemico avanza verso di lei prima di emettere un gemito spettrale e cadere a terra. Un piccolo pugnale spunta dal centro della sua schiena.",
+						"Un vecchio elfo è in piedi sul precipizio di un'altissima scogliera, con gli occhiali rotti sul naso avvizzito. Guarda in lontananza, una natura selvaggia e luminosa di montagne e valli verdi e verdeggianti, accentuata da due massicce isole di pietra galleggianti. Ridacchia tra sé e sé, solo leggermente, prima che la sua vista sia ostruita da un lampo di luce e un disco di colori vorticosi si apra davanti a lui.",
+						"I Nomadi sono viaggiatori planari, cacciatori, inseguitori, vagabondi ed esploratori. Sono esperti nell'attraversamento dei piani, la cui sete di vagabondaggio non è mai soddisfatta e il cui Viaggio non ha fine.",
+						{
+							"type": "entries",
+							"name": "An Unending Journey",
+							"page": 1,
+							"entries": [
+								"La vita di un nomade è all'insegna della scoperta e dell'avventura, inseguendo un concetto noto come Viaggio. Questo è l'obiettivo finale della maggior parte dei nomadi, quello di sperimentare ogni aspetto dell'esistenza. I nomadi viaggiano alla ricerca di tutto ciò che capita loro lungo il cammino, assorbendo e godendo di tutte le esperienze della vita.",
+								"Alcuni scelgono di organizzare e intraprendere grandi gruppi, attraversando insieme i piani alla ricerca di esperienze interpersonali. Altri amano la solitudine di un Viaggio personale, scegliendo di esplorare da soli le infinite possibilità del cosmo.",
+								"In genere, i nomadi hanno difficoltà a stabilirsi in un unico luogo per troppo tempo, anche quando i loro anni sono quasi finiti. La maggior parte di loro non riesce a terminare il viaggio prima di morire, perché l'ambizione dei nomadi è tale."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "A Peculiar Attraction",
+							"page": 1,
+							"entries": [
+								"Chi viaggia sui piani si trova attratto da certi aspetti di un piano o di un altro. Con il tempo e la distanza questa attrazione, o legame, si rafforza, attirando la mente del nomade verso di esso per ragioni che non può comprendere. Questo legame attinge a certi aspetti profondi dell'anima di una persona e la lega al piano, una manifestazione permanente dei piani e del loro potere ultraterreno fissata nella mente del viaggiatore.",
+								"Coloro che si occupano di ricerca sui piani hanno teorizzato che una forza simile agli spostamenti tettonici della terra si verifica tra i piani, generando una potente magia. Questa magia ha qualcosa di simile a una grande sensibilità e può \"vedere\" le creature che colpisce. Da queste teorie è nata una sorta di culto tra alcuni nomadi, che si considerano come piccoli patroni dell'esistenza ultraterrena che è la Grande Ruota stessa, anche se non tutti credono a questa storia.",
+								"Il legame che un nomade forma può essere una scelta tangibile che si aspetta o che sente immediatamente, oppure può essere che un piano che si è attraversato solo per poco tempo abbia lasciato un'impressione sottile nella sua mente."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Creating a Nomad",
+							"page": 2,
+							"entries": [
+								"Nel creare il vostro personaggio nomade, considerate cosa lo ha spinto a intraprendere il viaggio e perché continua la sua ricerca. Vostro padre o vostra madre vi hanno portato con sé nei loro viaggi? Avete sentito parlare di storie fantastiche di aerei lontani? O semplicemente vi siete annoiati della banalità del materiale?",
+								"Che cosa avete fatto nel vostro viaggio? Avete affrontato una corsa pericolosa attraverso Pandemonium e i Nove Inferni? Una tranquilla passeggiata attraverso Bytopia che vi ha fatto ripensare alle vostre motivazioni? Potrebbe anche esserci stato un vorticoso giro per le taverne più rinomate dei piani esterni?",
+								"Che effetto ha avuto il vostro legame planare? Forse vi siete trovati legati a un orribile piano del male nonostante la vostra giovinezza in clausura, e questo ha fatto emergere pensieri oscuri che un tempo avevate dimenticato? Oppure vi siete veramente legati al vostro piano e avete spesso combattuto con voi stessi per decidere se rimanervi o meno, per poi lasciarvelo alle spalle?",
+								"La grande varietà di piani e di nomadi fa sì che essi possano rientrare in qualsiasi allineamento o legame planare, anche se la maggior parte di coloro che hanno visto gli estremi del bene, del male, della legge e del caos preferiscono rimanere neutrali."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Quick Build",
+							"page": 2,
+							"entries": [
+								"È possibile creare rapidamente un nomade seguendo i seguenti suggerimenti. In primo luogo, Forza o Destrezza dovrebbero essere i punteggi di abilità più alti, seguiti da Intelligenza. In secondo luogo, scegliere lo sfondo {@background outlander}."
+							]
+						}
+					]
+				}
+			],
+			"classFeatures": [
+				"Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN",
+				"Traveller's Sense|Nomad|NMD|1|NMD",
+				"Portal Arts|Nomad (Modified)|NMD:BN|2|NMD:BN",
+				"Fighting Style|Nomad (Modified)|NMD:BN|2|NMD:BN",
+				{
+					"classFeature": "Planar Link|Nomad (Modified)|NMD:BN|3",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Nomad|NMD|4|NMD",
+				"Extra Attack|Nomad|NMD|5|NMD",
+				"Portal Art: Blink Strike|Nomad (Modified)|NMD:BN|6|NMD:BN",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|7",
+					"gainSubclassFeature": true
+				},
+				"Ability Score Improvement|Nomad|NMD|8|NMD",
+				"Arcane Shift|Nomad (Modified)|NMD:BN|9|NMD:BN",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|10",
+					"gainSubclassFeature": true
+				},
+				"Split Strike|Nomad (Modified)|NMD:BN|11|NMD:BN",
+				"Far Strike Improvement|Nomad|NMD|11|NMD",
+				"Ability Score Improvement|Nomad|NMD|12|NMD",
+				"Portal Art: Falling Dodge|Nomad|NMD|13|NMD",
+				{
+					"classFeature": "Planar Link feature|Nomad|NMD|14",
+					"gainSubclassFeature": true
+				},
+				"Planar Rejuvenation|Nomad|NMD|15|NMD",
+				"Ability Score Improvement|Nomad|NMD|16|NMD",
+				"Planar Travel|Nomad (Modified)|NMD:BN|17|NMD:BN",
+				"Far Strike Improvement|Nomad|NMD|18|NMD",
+				"Ability Score Improvement|Nomad|NMD|19|NMD",
+				"Interplanar Gateway|Nomad (Modified)|NMD:BN|20|NMD:BN"
+			]
+		}
+	],
+	"classFeature": [
+		{
+			"name": "Far Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 2,
+			"level": 1,
+			"entries": [
+				"{@note This file depends upon the following file, click here if you're having issues. {@loader Nomad|class/Vincent Girgenti; The Nomad.json}}",
+				"Come nomade, sei un maestro dei portali minori e puoi usarli per migliorare le tue capacità di combattimento. Al 1° livello, quando si effettua l'azione {@action Attack} nel proprio turno con un'arma da mischia, la portata dell'arma diventa di 3 metri fino alla fine del turno, mentre si evoca un portale a corto raggio attraverso il quale l'arma passa a metà corsa. Gli attacchi effettuati in questo modo non ignorano la copertura e richiedono che il bersaglio sia visibile. Questa tecnica richiede che una delle mani sia libera per creare il portale. Inoltre, è possibile utilizzare i portali con i proiettili a movimento rapido delle armi a distanza, consentendo di effettuare con essi attacchi di tipo Far Strike. Questo non cambia la gittata dell'arma.",
+				"La gittata del colpo lontano aumenta a 6 metri al raggiungimento dell'11° livello e a 9 metri al raggiungimento del 18° livello."
+			]
+		},
+		{
+			"name": "Portal Arts",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 2,
+			"entries": [
+				"Al 2° livello, si impara a utilizzare i propri portali in modi ponderati e unici. Si inizia con una semplice Arte del Portale: Portale, e si ottengono ulteriori opzioni di Arti del Portale man mano che si sale di livello in questa classe.",
+				"Scegliete quale effetto creare quando usate le vostre Arti del Portale. Hai un numero di utilizzi di queste arti pari al tuo modificatore di Intelligenza. Tutti gli usi consumati vengono ripristinati quando si termina un {@quickref resting|PHB|2|0|short or long rest}.",
+				"Le Arti del Portale dipendono dalla vostra Intelligenza, dalla vostra conoscenza dei piani da cui traete questi effetti.",
+				"Alcune Arti del Portale richiedono un tiro salvezza. Quando si utilizza un effetto di questa classe, la DC viene calcolata come segue:",
+				{
+					"type": "abilityDc",
+					"name": "Portal Art",
+					"attributes": [
+						"int"
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Portal Art: Portal",
+					"page": 3,
+					"entries": [
+						"Come azione del proprio turno, si spende un uso delle Arti del Portale per creare dei portali di teletrasporto collegati che rimangono aperti per un massimo di 1 minuto, finché non vi sono passate 4 creature o oggetti, o finché non si sceglie di chiuderli come azione bonus. Scegliete due spazi non occupati sul terreno che potete vedere, uno entro 3 metri da voi e l'altro entro 9 metri da voi. Su ogni punto si apre un portale. I portali sono sferoidi oblunghi e incandescenti che si librano a pochi centimetri dal terreno e sono perpendicolari ad esso. La nebbia che riempie ogni portale è opaca e blocca la visione attraverso di essa.",
+						"Qualsiasi creatura o oggetto medio o più piccolo che entra nello spazio occupato dal portale esce dall'altro portale come se i due fossero lo stesso spazio. Ad esempio, se una freccia entra nel portale da est, uscirà da ovest come se avesse attraversato un qualsiasi altro spazio vuoto. Una creatura costretta nello spazio del portale può effettuare un tiro salvezza di Destrezza per resistere a muoversi attraverso di esso, emergendo nel più vicino spazio non occupato adiacente al portale in caso di successo del tiro salvezza.",
+						"La portata del secondo portale aumenta a 60 metri all'11° livello e a 120 metri al 17° livello."
+					]
+				}
+			]
+		},
+		{
+			"name": "Fighting Style",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 2,
+			"entries": [
+				"Adotti un particolare stile di combattimento come tua specialità. Scegliere una delle seguenti opzioni. Non si può scegliere lo stesso stile di combattimento più di una volta, anche se si può scegliere di nuovo.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Dueling"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Archery"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Great Weapon Fighting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Port Retrieving|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Planar Link",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 3,
+			"entries": [
+				"I nomadi sono viaggiatori e spesso nella loro vita attraversano ogni sorta di piano e demipiano. Tuttavia, proprio come i viaggiatori della materia, conservano sempre nel cuore un legame con un determinato piano. Al 3° livello, siete maturati abbastanza nei vostri viaggi da aver stabilito un legame magico e personale. Ovviamente ci sono moltissimi piani e regioni nel multiverso. Alcuni legami planari comuni, presentati alla fine della descrizione di questa classe, sono {@class Nomad (Modified)|NMD:BN|The Elemental Planes|Elemental Plane|NMD:BN}, {@class Nomad (Modified)|NMD:BN|The Far Realms|Far Realm|NMD:BN} e {@class Nomad (Modified)|NMD:BN|The Astral Plane|Astral Plane|NMD:BN}.",
+				"Il vostro Legame Planare vi conferisce caratteristiche al 3° livello, e di nuovo al 7°, 10° e 14° livello."
+			]
+		},
+		{
+			"name": "Portal Art: Blink Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 6,
+			"entries": [
+				"Al 6° livello, i tuoi riflessi si sviluppano e ti permettono di saltare attraverso i portali che crei con {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN}. Quando si colpisce una creatura con un attacco in mischia {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN}, si può spendere un uso delle Arti del Portale per saltare attraverso il portale creato intorno all'arma, emergendo in uno spazio non occupato entro 2 metri dal bersaglio. Se l'attacco viene effettuato con un'arma a distanza, dopo l'attacco si può scegliere di muoversi in qualsiasi direzione fino alla propria gittata {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN}."
+			]
+		},
+		{
+			"name": "Arcane Shift",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 3,
+			"level": 9,
+			"entries": [
+				"Al 9° livello, si può lampeggiare da un luogo all'altro con facilità. Una volta nel vostro turno, se riuscite a fare almeno 3 metri di corsa in linea retta, potete teletrasportarvi in un raggio pari alla metà del vostro movimento, apparendo in uno spazio non occupato che riuscite a vedere. Si continua a spendere movimento come se si stesse camminando. L'azione {@action Dash} può aumentare la portata del teletrasporto."
+			]
+		},
+		{
+			"name": "Split Strike",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 11,
+			"entries": [
+				"All'11° livello, avete imparato a creare portali speciali con uscite multiple. Una volta nel proprio turno, si può bersagliare una seconda creatura con uno dei propri attacchi {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} quando si effettua l'azione {@action Attack}. Lo stesso tiro di attacco singolo viene utilizzato per entrambi i bersagli dell'attacco."
+			]
+		},
+		{
+			"name": "Planar Travel",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 17,
+			"entries": [
+				"Al 17° livello, non è più necessario cercare portali planari. Come azione del proprio turno, si stabilisce un collegamento interplanare. Si apre un portale verso un luogo su un piano in cui si è già stati e che si ricorda in uno spazio non occupato entro un raggio di 2 metri. La destinazione del portale deve trovarsi su un piano in cui non ci si trova attualmente e deve essere visibile attraverso il portale.",
+				"Il portale è abbastanza grande da poter essere attraversato facilmente da creature medie o piccole. Una creatura costretta a entrare nel portale può effettuare un tiro salvezza di Destrezza per evitare di attraversarlo. Se il tiro salvezza riesce, la creatura appare in uno spazio occupato adiacente al portale.",
+				"Altrimenti, vengono inviati attraverso il porto e la sua destinazione. Il portale rimane aperto per 1 minuto finché non viene chiuso come azione bonus nel proprio turno.",
+				"Una volta utilizzata questa funzione, non è possibile utilizzarla di nuovo finché non si termina un {@quickref resting|PHB|2|0|long rest}."
+			]
+		},
+		{
+			"name": "Interplanar Gateway",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 4,
+			"level": 20,
+			"entries": [
+				"Al 20° livello, la vostra abilità nel creare portali diventa insuperabile, permettendovi di creare portali abbastanza stabili da resistere alla prova del tempo. Con 4 ore di lavoro e 2000 gp di materiali si può creare un portale planare permanente abbastanza grande per creature medie o piccole, oppure raddoppiare il tempo e il costo per creature grandi o piccole. È necessario creare due portali per poter viaggiare tra di essi.",
+				"I portali creati da questa caratteristica sono cornici rotonde di legno, metallo o altri materiali che ospitano un portale e lo mantengono stabile in assenza del suo creatore. Se la cornice viene resa incompleta in qualsiasi modo, ad esempio se viene bruciata, schiacciata o rovesciata, il portale si chiude immediatamente.",
+				"È possibile gestire un massimo di 6 gateway alla volta. Ogni portale può essere collegato solo a un altro, creando un portale bidirezionale. Qualsiasi creatura che possa entrare in un portale lo attraversa quando vi entra in contatto. Il portale di un portale può essere disattivato con un rituale di 1 minuto, consentendo di collegarlo a un altro portale, o semplicemente di spegnerlo per un certo periodo.",
+				"Fate attenzione all'uso dei gateway. Se scoperti da ospiti cosmici indesiderati, possono mettere in pericolo interi piani."
+			]
+		}
+	],
+	"subclass": [
+		{
+			"name": "The Elemental Planes",
+			"source": "NMD:BN",
+			"page": 5,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Elemental",
+			"subclassFeatures": [
+				"The Elemental Planes|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN",
+				"Elemental Affinity|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|7|NMD:BN",
+				"Portal Art: Elemental Allies|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|10|NMD:BN",
+				"Planar Collision|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|14|NMD:BN"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"Summon Elemental|TCE"
+						]
+					},
+					"resourceName": "Portal Art"
+				}
+			]
+		},
+		{
+			"name": "The Far Realm",
+			"source": "NMD:BN",
+			"page": 6,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Far Realm",
+			"subclassFeatures": [
+				"The Far Realm|Nomad|NMD|Far Realm|NMD|3|NMD",
+				"Portal Art: Madness of The Infinite Void|Nomad|NMD|Far Realm|NMD|7|NMD",
+				"Insatiable Hunger|Nomad|NMD|Far Realm|NMD|10|NMD",
+				"Eldritch Truth|Nomad (Modified)|NMD:BN|Far Realm|NMD:BN|14|NMD:BN"
+			]
+		},
+		{
+			"name": "The Astral Plane",
+			"source": "NMD:BN",
+			"page": 7,
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"shortName": "Astral",
+			"subclassFeatures": [
+				"The Astral Plane|Nomad|NMD|Astral|NMD|3|NMD",
+				"Distant Grip|Nomad (Modified)|NMD:BN|Astral|NMD:BN|7|NMD:BN",
+				"Portal Art: Redirection Shield|Nomad|NMD|Astral|NMD|10|NMD",
+				"Master of Portals|Nomad (Modified)|NMD:BN|Astral|NMD:BN|14|NMD:BN"
+			]
+		}
+	],
+	"subclassFeature": [
+		{
+			"name": "The Elemental Planes",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Siete diventati legati a uno o più piani elementali, le quattro fonti del potere elementale nel multiverso. Forse la semplice purezza della loro forma richiama il desiderio di semplicità che è in voi, o forse il vostro spirito ardente o la vostra visione fluida del mondo si trovano a loro agio su questi piani. In ogni caso, avete accumulato una grande conoscenza di questi piani e dei loro luoghi più potenti e potete attingervi con i vostri portali.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Portal Art: Elemental Strikes|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Touch of The Elements|Nomad (Modified)|NMD:BN|Elemental|NMD:BN|3|NMD:BN"
+				}
+			]
+		},
+		{
+			"name": "Portal Art: Elemental Strikes",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Al 3° livello, quando scegliete questo legame, iniziate a usare i vostri portali per far emergere i poteri dei piani elementali. Quando si colpisce una creatura con un attacco {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN}, si può spendere un uso delle Arti del Portale per inviare l'arma o il missile attraverso uno dei piani elementali prima che raggiunga il bersaglio. Questo attacco infligge un danno aggiuntivo {@damage 3d6} da freddo, fuoco, fulmine o veleno.",
+				"Questo danno aumenta a {@damage 3d8} all'11° livello e a {@damage 3d10} al 17° livello."
+			]
+		},
+		{
+			"name": "Touch of The Elements",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Al 3° livello, quando si sceglie questo legame, si impara a inserire la forza elementale nelle proprie capacità di combattimento. Quando si colpisce una creatura con un attacco {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} nel proprio turno, si può usare la propria azione bonus per incanalare anche la forza elementale attraverso il portale, facendo sì che l'attacco infligga danni aggiuntivi da veleno, fuoco, freddo o fulmine (a scelta) pari al proprio modificatore di Intelligenza."
+			]
+		},
+		{
+			"name": "Elemental Affinity",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 7,
+			"header": 1,
+			"entries": [
+				"Il tempo trascorso sui piani elementali vi ha permesso di adattare il vostro corpo ai loro ambienti ostili. Al 7° livello, si sceglie un piano a cui ci si è adattati e si ottiene la sua caratteristica.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Air|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Earth|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Fire|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "EA: Water|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Portal Art: Elemental Allies",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 10,
+			"header": 1,
+			"entries": [
+				"Quando si raggiunge il 10° livello, si è acquisito un rapporto sufficiente con i piani elementali per richiedere l'aiuto degli elementali. Potete spendere un uso delle vostre Arti del Portale per lanciare {@spell Summon Elemental|TCE} senza bisogno della componente materiale o verbale. L'elementale evocato appare attraverso un portale di vostra creazione nel raggio d'azione."
+			]
+		},
+		{
+			"name": "Planar Collision",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 5,
+			"subclassShortName": "Elemental",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"Al 14° livello i vostri poteri di manipolazione planare raggiungono nuove vette, permettendovi di evocare massicce manifestazioni delle potenze elementali con cui vi siete allineati. Potete creare uno dei seguenti effetti come azione nel vostro turno. La D.C. dei tiri salvezza per resistere a questi effetti è pari alla D.C. dei tiri salvezza di Arti del Portale. Una volta utilizzata una di queste capacità, non è possibile utilizzarla di nuovo finché non si termina un {@quickref resting|PHB|2|0|long rest}.",
+				{
+					"type": "options",
+					"count": 1,
+					"style": "list-hang-notitle",
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Air|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Earth|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Fire|NMD:BN"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "PC: Water|NMD:BN"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Eldritch Truth",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 6,
+			"subclassShortName": "Far Realm",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"Le terre eldrittiche del Regno Lontano custodiscono ogni forma di conoscenza, relativa a moltissime cose. Ricordate alcune cose come se fossero ancora presenti davanti a voi, mentre altre non le ricordate affatto, come se fossero segregate nelle zone più lontane della vostra coscienza. Quando raggiungete il 14° livello, potete tentare di richiamare questa conoscenza in primo piano nella vostra mente.",
+				"Si può eseguire un rituale di 4 ore per tentare di ricordare i dettagli del Regno Lontano. Alla fine di questo rituale, effettua un tiro salvezza di Intelligenza {@dc 15}. Se fallisce, subisce {@damage 3d10} danni psichici e la sua mente viene inondata da indecifrabili conoscenze eldritch. Se il tiro salvezza ha successo, si rievocano le risposte a due domande che si pongono all'interno della propria mente. Queste domande possono riguardare la natura del multiverso, gli dei, i poteri superiori e le principali interazioni dei mortali con questi concetti o esseri.",
+				"Per esempio, potreste venire a conoscenza dell'esistenza di un accordo tra un arcidemone e un importante mortale, della posizione di un importante portale sul piano materiale o della natura di come un semidio ha acquisito il suo potere.",
+				"La vostra esperienza con la conoscenza del Regno Lontano non è tuttavia infinita. La risposta alla vostra domanda potrebbe essere sconosciuta o addirittura inconoscibile, a seconda dell'argomento trattato.",
+				"Una volta eseguito il rituale, non si può tentare di nuovo fino a quando non si finisce un {@quickref resting|PHB|2|0|long rest}."
+			]
+		},
+		{
+			"name": "Distant Grip",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 7,
+			"subclassShortName": "Astral",
+			"subclassSource": "NMD:BN",
+			"level": 7,
+			"header": 1,
+			"entries": [
+				"La stabilità dei vostri portali è abbastanza forte da poter sopportare una lotta al loro interno. Quando si raggiunge il 7° livello, si può tentare di {@action grapple} le creature da lontano.",
+				"Come azione nel proprio turno, si può creare un portale particolarmente stabile nel proprio raggio d'azione {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} e spingere il braccio attraverso di esso, cercando di afferrare il bersaglio. Eseguire un colpo senz'armi contro il bersaglio. Se si colpisce, si riesce ad afferrare {@action grapple} il bersaglio se non è più grande di una taglia rispetto a noi. Si può continuare a trattenerlo per un massimo di un minuto, o finché non ci si sposta entro un metro e mezzo dal bersaglio. Il bersaglio può effettuare un tiro salvezza di Forza alla fine di ogni turno, e in caso di successo può sfuggire al {@action grapple}. Si può avere una sola creatura {@condition grappled} in questo modo in qualsiasi momento.",
+				"Se il bersaglio è costretto a spostarsi di oltre un metro e mezzo in qualsiasi direzione, non è più {@condition grappled}."
+			]
+		},
+		{
+			"name": "Master of Portals",
+			"source": "NMD:BN",
+			"className": "Nomad (Modified)",
+			"classSource": "NMD:BN",
+			"page": 7,
+			"subclassShortName": "Astral",
+			"subclassSource": "NMD:BN",
+			"level": 14,
+			"header": 1,
+			"entries": [
+				"Quando si raggiunge il 14° livello, si possono sostenere molti più portali di qualsiasi altro Nomade. Avete un numero di utilizzi delle vostre arti del portale pari al vostro modificatore di Intelligenza + 2."
+			]
+		}
+	],
+	"optionalfeature": [
+		{
+			"name": "Port Retrieving",
+			"source": "NMD:BN",
+			"page": 3,
+			"featureType": [
+				"NMD:FS"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 2
+					}
+				}
+			],
+			"entries": [
+				"Ti sei allenato a utilizzare i portali mentre lanci le armi con precisione, consentendo alle armi lanciate di sferrare {@classFeature Far Strike|Nomad (Modified)|NMD:BN|1|NMD:BN} attacchi. La portata degli attacchi con armi da lancio aumenta del {@classFeature far strike|Nomad (Modified)|NMD:BN|1|NMD:BN}. Inoltre, quando un attacco con armi da lancio non va a segno, l'arma torna immediatamente in mano attraverso un secondo portale."
+			]
+		},
+		{
+			"name": "EA: Air",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Si ottiene resistenza ai danni da fulmine. Si ottiene anche la capacità di fluire leggermente sulla brezza. Quando si cade, si può scegliere di cadere a una velocità decelerata di 60 piedi per round (non è richiesta alcuna azione). Quando si atterra a questa velocità, non si subiscono danni da caduta e si può atterrare in piedi. Infine, si può lanciare il cantrip {@spell Gust|XGE} utilizzando il tiro salvezza di Arti del Portale con la DC"
+			],
+			"resist": [
+				"lightning"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"gust|XGE#c"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "EA: Earth",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Si ottiene resistenza ai danni da veleno. Se si ha già una resistenza al veleno, si ottiene invece una resistenza all'acido. Si ottiene anche una velocità di scalata di 9 metri e muoversi attraverso terreni difficili non magici causati da terra frastagliata o instabile non costa alcun movimento aggiuntivo. Infine, è possibile lanciare il cantrip {@spell Mold Earth|XGE} utilizzando la propria DC di tiro per le Arti del Portale."
+			],
+			"resist": [
+				{
+					"choose": {
+						"from": [
+							"poison",
+							"acid"
+						]
+					}
+				}
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"mold earth|XGE#c"
+						]
+					}
+				}
+			],
+			"foundryEffects": [
+				{
+					"changes": [
+						{
+							"key": "data.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "30"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "EA: Fire",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Si ottiene resistenza ai danni da fuoco. Il corpo produce un'incredibile quantità di calore. Si è immuni agli effetti di {@hazard Extreme Cold}. Inoltre, puoi lanciare il cantrip {@spell Control Flames|XGE} usando la tua DC di tiro per le Arti del Portale."
+			],
+			"resist": [
+				"fire"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"control flames|XGE#c"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "EA: Water",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:EA"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 7
+					}
+				}
+			],
+			"entries": [
+				"Si ottiene resistenza ai danni da freddo. Si ottiene anche una velocità di nuoto di 9 metri, si può respirare sott'acqua e si può compiere l'azione {@action Disengage} o {@action Dash} come azione bonus. Inoltre, è possibile lanciare il cantrip {@spell Shape Water|XGE} utilizzando il proprio tiro salvezza di Arti del Portale."
+			],
+			"resist": [
+				"cold"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"shape water|XGE#c"
+						]
+					}
+				}
+			],
+			"foundryEffects": [
+				{
+					"changes": [
+						{
+							"key": "data.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "30"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PC: Air",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Davanti a voi si apre un grande portale, attraverso il quale scorrono potenti venti e si sentono dei boati. Un fulmine sovrannaturale e massiccio si sprigiona in una linea larga 15 piedi direttamente di fronte a voi per un massimo di 600 piedi. Le creature che si trovano all'interno di questa linea devono effettuare un tiro salvezza di Destrezza, subendo {@damage 4d8} danni da fulmine e diventando {@condition stunned} fino alla fine del loro prossimo turno in caso di tiro salvezza fallito, o la metà e non diventando {@condition stunned} in caso di tiro salvezza riuscito. Questa capacità crea un crepitio assordante che può essere udito fino a 1.000 metri di distanza."
+			]
+		},
+		{
+			"name": "PC: Earth",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Richiamate un masso massiccio e frastagliato da un portale altrettanto grande, lanciandolo verso un punto visibile entro 9 metri da voi. Le creature entro una sfera di 6 metri di raggio centrata su quel punto devono effettuare un tiro salvezza di Destrezza, subendo {@damage 8d12} danni da percosse e subendo un colpo {@condition prone} in caso di fallimento del tiro salvezza, o la metà dei danni e non subendo colpi {@condition prone} in caso di successo."
+			]
+		},
+		{
+			"name": "PC: Fire",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Aprite un grande portale sopra di voi attraverso il quale si vede chiaramente il cielo infuocato del Piano Elementale del Fuoco. Dal portale fuoriescono sei moti di fuoco infernale. Ciascuna goccia di fuoco prende di mira una creatura a vostra scelta che potete vedere entro 60 piedi da voi. Quella creatura deve effettuare un tiro salvezza di Destrezza per ogni goccia di fuoco che la bersaglia, subendo {@damage 4d6} danni da fuoco in caso di tiro salvezza fallito, o la metà in caso di tiro salvezza riuscito. Si possono dirigere le macchie di fuoco per colpire una o più creature."
+			]
+		},
+		{
+			"name": "PC: Water",
+			"source": "NMD:BN",
+			"page": 5,
+			"featureType": [
+				"NMD:PC"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"class": {
+							"name": "Nomad (Modified)",
+							"source": "NMD:BN"
+						},
+						"subclass": {
+							"name": "Elemental",
+							"source": "NMD:BN",
+							"visible": true
+						},
+						"level": 14
+					}
+				}
+			],
+			"entries": [
+				"Cinque grandi colonne di ghiaccio si innalzano da portali in cinque punti visibili a scelta nel raggio di 60 piedi da voi. I pilastri sono alti fino a 9 metri e hanno un diametro di 3 metri alla base. Le creature che si trovano sulla traiettoria di questi pilastri quando vengono creati devono superare un tiro salvezza di Destrezza, subendo {@damage 3d8} danni da freddo in caso di tiro salvezza fallito, o la metà in caso di tiro salvezza riuscito, prima di spostarsi nel più vicino spazio non occupato adiacente al pilastro. I pilastri hanno ciascuno 50 punti ferita e una CA pari a 10. È possibile distruggere fino a 5 pilastri come azione bonus nel proprio turno. I pilastri rimangono finché non vengono distrutti."
+			]
+		}
+	]
+}
