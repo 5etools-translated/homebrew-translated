@@ -7,13 +7,13 @@
 				"abbreviation": "MMG",
 				"authors": [
 					"dmblc",
-					"k-martawardaya"
+					"Luminagi"
 				],
 				"convertedBy": [
 					"dmblc"
 				],
 				"url": "https://www.gmbinder.com/share/-MCweKWSUvZbUJBPQZkF",
-				"version": "220413.1",
+				"version": "221017.1",
 				"targetSchema": "1.2.3"
 			},
 			{
@@ -22,19 +22,19 @@
 				"abbreviation": "MMG:AS",
 				"authors": [
 					"dmblc",
-					"k-martawardaya"
+					"Luminagi"
 				],
 				"convertedBy": [
 					"dmblc"
 				],
 				"url": "https://www.gmbinder.com/share/-MWO4EQWbpyBRd86GxBZ",
-				"version": "220313.1",
+				"version": "221017.1",
 				"targetSchema": "1.2.3"
 			}
 		],
 		"dateAdded": 1647054503,
-		"dateLastModified": 1650452898,
-		"_dateLastModifiedHash": "8262fb2c35"
+		"dateLastModified": 1666001256,
+		"_dateLastModifiedHash": "348db776ef"
 	},
 	"race": [
 		{
@@ -74,7 +74,7 @@
 					"name": "Age",
 					"type": "entries",
 					"entries": [
-						"Mimiga har en livslängd på cirka 300 år och blir vuxna ungefär samtidigt som människor och anses vara äldre vid cirka 200 års ålder. När Mimiga är unga visar de mer djuriska drag som morrhår och pälsfläckar. Dessa drag blir så småningom mindre framträdande när de åldras."
+						"Mimiga har en livslängd på cirka 300 år, men blir mogna något tidigare än människor, vid cirka 15 års ålder. De anses vara äldre vid cirka 200 års ålder."
 					]
 				},
 				{
@@ -88,7 +88,7 @@
 					"name": "Size",
 					"type": "entries",
 					"entries": [
-						"Mimiga är något kortare än människor men har liknande proportioner; vanligtvis är de ungefär 1,80 meter långa och väger runt 110 pund. Din storlek är Medium."
+						"Mimiga har liknande proportioner som människor men är något kortare, vanligtvis mellan 1,5 och 1,80 meter långa och väger omkring 110 pund när de är vuxna. Din storlek är Medium."
 					]
 				},
 				{
@@ -109,7 +109,7 @@
 					"name": "Claws",
 					"type": "entries",
 					"entries": [
-						"Dina klor är ett naturligt vapen som du kan använda för att göra obeväpnade slag. Om du träffar med dem, ger du slashing damage lika med 1d4 + din Strength modifier."
+						"Du kan använda dina klor för att göra obeväpnade slag. När du träffar med dem ger slaget {@damage 1d6} + din styrka-modifierare slashing damage, istället för bludgeoning damage som är normalt för ett obeväpnat slag."
 					]
 				},
 				{
@@ -150,6 +150,12 @@
 			],
 			"additionalSpells": [
 				{
+					"ability": "cha",
+					"known": {
+						"1": [
+							"dancing lights#c"
+						]
+					},
 					"innate": {
 						"1": {
 							"daily": {
@@ -158,12 +164,6 @@
 								]
 							}
 						}
-					},
-					"ability": "int",
-					"known": {
-						"1": [
-							"dancing lights#c"
-						]
 					}
 				}
 			],
@@ -179,7 +179,8 @@
 					"name": "Crafty Magic",
 					"type": "entries",
 					"entries": [
-						" Du känner till {@spell minor illusion} cantrip. Du kan också kasta {@spell disguise self} en gång, och den laddas upp efter en lång vila. Intelligens är din trollkonstförmåga för dessa trollformler."
+						"Du känner till {@spell minor illusion} cantrip. Du kan också kasta {@spell disguise self} trollformeln med denna egenskap. När du väl har kastat besvärjelsen med denna egenskap kan du inte göra det igen förrän du avslutar en lång vila. Du kan också kasta trollformeln med hjälp av alla trollformelplatser du har på lämplig nivå.",
+						"Charisma är din trollformelförmåga för dessa trollformler."
 					]
 				}
 			],
@@ -224,7 +225,7 @@
 					"name": "Nine Lives",
 					"type": "entries",
 					"entries": [
-						"När du har minskat till 0 träffpunkter men inte dödats direkt kan du istället minska till 1 träffpunkt. Du kan inte använda den här funktionen igen förrän du avslutar en lång vila."
+						"Du har en otrolig förmåga att överleva dödliga slag. När du är reducerad till 0 träffpunkter men inte dödad direkt kan du kasta {@dice 1d20}. Vid ett kast på 10 eller högre sjunker du istället till 1 träffpunkt. Du kan använda den här egenskapen ett antal gånger som är lika med din kompetensbonus, och när du väl använt den här egenskapen kan du inte använda den igen förrän i början av din nästa tur. Du återfår alla förbrukade användningar av den när du avslutar en lång vila."
 					]
 				}
 			],
@@ -269,7 +270,7 @@
 					"name": "Witty Escape",
 					"type": "entries",
 					"entries": [
-						"Du kan utföra åtgärden {@action Disengage} eller {@action Hide} som en bonusåtgärd. Du kan inte använda den här funktionen igen förrän du avslutar en kort eller lång vila."
+						"Du kan använda dina vänner som en distraktion i en handling som inte är feg utan strategisk. En gång per tur, när du rör dig utanför en varelses räckvidd, provocerar du inte {@action opportunity attack|phb|opportunity attacks} från den om en av dina allierade befinner sig inom en halvmeter från den. Du kan använda den här egenskapen ett antal gånger som är lika med din kompetensbonus, och du återfår alla förbrukade användningar av den när du avslutar en lång vila."
 					]
 				}
 			],
@@ -314,7 +315,7 @@
 					"name": "Lucky Feet",
 					"type": "entries",
 					"entries": [
-						"Du har starka fötter som bär dig snabbt över marken. När du rör dig vid din tur i strid kan du fördubbla din hastighet fram till slutet av vändningen. När du använder den här egenskapen kan du inte använda den igen förrän du förflyttar dig 0 fot under en av dina vändningar."
+						"Du har starka fötter som bär dig snabbt över marken. När du rör dig vid din tur i strid kan du fördubbla din gånghastighet, distans för långhopp och höjd för höghopp fram till slutet av vändan. Du kan använda den här egenskapen ett antal gånger som är lika med din kompetensbonus, och när du väl använt den här egenskapen kan du inte använda den igen förrän du rör dig 0 fot under en av dina vändningar. Du återfår alla förbrukade användningar av det när du avslutar en lång vila."
 					]
 				}
 			],
@@ -343,7 +344,7 @@
 			},
 			"toolProficiencies": [
 				{
-					"any": 2
+					"any": 1
 				}
 			],
 			"entries": [
@@ -378,7 +379,8 @@
 					"name": "Tool Mastery",
 					"type": "entries",
 					"entries": [
-						"Du får två {@book tool|phb|5|tools} färdigheter som du själv väljer. Dessutom väljer du ett verktyg som du är duktig på. Det behöver inte vara ett av dem som beviljas av den här egenskapen. Du fördubblar din kompetensbonus för alla förmågekontroller du gör med det."
+						"Du får en {@table tools|phb|tool} färdighet som du själv väljer.",
+						"Välj dessutom ett verktyg som du behärskar. Du får expertis med det verktyget, vilket innebär att din kompetensbonus fördubblas för varje förmågekontroll du gör med det. Verktyget du väljer måste vara ett verktyg som inte redan gynnas av en egenskap, till exempel Expertise, som fördubblar din kompetensbonus."
 					]
 				}
 			],
@@ -423,7 +425,7 @@
 					"name": "Horns",
 					"type": "entries",
 					"entries": [
-						"Du kan använda huvudet och hornen för att göra obeväpnade slag. Om du träffar med dem, ger du en blåslagningsskada som är lika med 1d4 + din styrka-modifierare."
+						"Du kan använda dina horn för att göra obeväpnade slag. När du träffar med dem ger slaget {@damage 1d6} + din styrka-modifierare blåslagningsskada."
 					],
 					"data": {
 						"overwrite": "Claws"
@@ -440,7 +442,7 @@
 					"name": "Battering Ram",
 					"type": "entries",
 					"entries": [
-						"Om du rör dig minst 30 fot rakt mot ett mål och sedan träffar det med en närstridsattack i samma vändning, kan du omedelbart följa den attacken med en bonusåtgärd och göra ett obeväpnat slag mot målet med dina horn. Vid en träff måste målet göra ett räddningskast för styrka. Vid ett misslyckande kan du knuffa dem 5 fot bort från dig till ett obebott utrymme eller slå dem {@condition prone}, förutsatt att målet inte är mer än en storlek större än du. DC är lika med 8 + din kompetensbonus + din styrka-modifierare."
+						"Om du rör dig minst 30 fot rakt mot en varelse och sedan träffar den med ett närstridsvapen {@action attack} i samma vändning, kan du omedelbart följa den attacken med en bonusåtgärd och göra ett obeväpnat slag mot målet med dina horn. Vid en träff kan du försöka att {@action shove} varelsen, och den kan bara göra ett räddningskast i styrka mot en DC som är lika med 8 + din kompetensbonus + din styrka-modifierare."
 					]
 				}
 			],
@@ -468,14 +470,14 @@
 			],
 			"speed": {
 				"walk": 30,
-				"fly": 30
+				"fly": true
 			},
 			"entries": [
 				{
 					"name": "Alignment",
 					"type": "entries",
 					"entries": [
-						"Koumori Mimiga tenderar att vara neutrala. De ser världen som en plats med rovdjur och byte, där liv och död är naturliga processer. De vill bara överleva och föredrar att lämna andra varelser åt sitt öde."
+						"Koumori mimiga är oberoende och självförsörjande och har en tendens till neutralitet. De lever i utkanten av samhället och tenderar att undvika att bli sammanflätade med andra varelser."
 					],
 					"data": {
 						"overwrite": "Alignment"
@@ -485,7 +487,7 @@
 					"name": "Fangs",
 					"type": "entries",
 					"entries": [
-						"Dina huggtänder är ett naturligt vapen som du kan använda för att göra obeväpnade slag. Om du träffar med det, ger du genomträngande skada lika med 1d4 + din styrka-modifierare."
+						"Du kan använda dina huggtänder för att göra obeväpnade slag. När du träffar med dem ger slaget {@dice 1d6} + din styrka-modifierare genomträngande skada, istället för den vanliga slagskadan för ett obeväpnat slag."
 					],
 					"data": {
 						"overwrite": "Claws"
@@ -495,14 +497,15 @@
 					"name": "Bat's Wings",
 					"type": "entries",
 					"entries": [
-						"Du har en flyghastighet på 30 fot när du inte bär en tung rustning."
+						"Tack vare dina vingar har du en flyghastighet som är lika stor som din gånghastighet. Du kan inte använda den här flyghastigheten om du bär medium eller tung rustning.",
+						"När du använder den här flyghastigheten kan du inte göra attackkast eller förmågekontroller som kräver hand- och armrörelser, och du kan inte utföra de somatiska komponenterna i trollformler."
 					]
 				},
 				{
-					"name": "Blindsight",
+					"name": "Echolocation",
 					"type": "entries",
 					"entries": [
-						"Du kan uppfatta din omgivning utan att förlita dig på synen. Medan du inte är {@condition deafened} har du {@sense blindsight} med en räckvidd på 6 meter."
+						"Du kan uppfatta din omgivning utan att förlita dig på synen. Medan du inte är {@condition deafened} har du {@sense blindsight} med en räckvidd på 15 fot."
 					],
 					"data": {
 						"overwrite": "Darkvision"
@@ -516,17 +519,17 @@
 					]
 				},
 				{
-					"name": "Echolocation",
+					"name": "Reclusive",
 					"type": "entries",
 					"entries": [
-						"Som en bonusåtgärd kan du sända ut en serie högfrekventa ljudpulser för att avgöra var fasta föremål och varelser inom 30 fot från dig befinner sig. Ljudpulserna går inte runt hörn. Du har fördel på attackkast på mål som upptäcks med denna förmåga och som du också kan se. Du kan inte använda den här egenskapen när du är döv."
+						"När du befinner dig i svagt ljus eller mörker har du fördel på Dexterity ({@skill Stealth})-kontroller när du utför åtgärden {@action Hide}."
 					],
 					"data": {
 						"overwrite": "Animal Whisperer"
 					}
 				}
 			],
-			"blindsight": 20,
+			"blindsight": 15,
 			"traitTags": [
 				"Uncommon Race",
 				"Sunlight Sensitivity"
