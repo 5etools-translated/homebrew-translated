@@ -7,13 +7,13 @@
 				"abbreviation": "MMG",
 				"authors": [
 					"dmblc",
-					"k-martawardaya"
+					"Luminagi"
 				],
 				"convertedBy": [
 					"dmblc"
 				],
 				"url": "https://www.gmbinder.com/share/-MCweKWSUvZbUJBPQZkF",
-				"version": "220413.1",
+				"version": "221017.1",
 				"targetSchema": "1.2.3"
 			},
 			{
@@ -22,19 +22,19 @@
 				"abbreviation": "MMG:AS",
 				"authors": [
 					"dmblc",
-					"k-martawardaya"
+					"Luminagi"
 				],
 				"convertedBy": [
 					"dmblc"
 				],
 				"url": "https://www.gmbinder.com/share/-MWO4EQWbpyBRd86GxBZ",
-				"version": "220313.1",
+				"version": "221017.1",
 				"targetSchema": "1.2.3"
 			}
 		],
 		"dateAdded": 1647054503,
-		"dateLastModified": 1650452898,
-		"_dateLastModifiedHash": "8262fb2c35"
+		"dateLastModified": 1666001256,
+		"_dateLastModifiedHash": "348db776ef"
 	},
 	"race": [
 		{
@@ -74,7 +74,7 @@
 					"name": "Age",
 					"type": "entries",
 					"entries": [
-						"Mimiga haben eine Lebenserwartung von etwa 300 Jahren und erreichen die Geschlechtsreife etwa zur gleichen Zeit wie die Menschen und gelten mit etwa 200 Jahren als alt. In ihrer Jugend weisen die Mimiga eher tierische Merkmale wie Schnurrhaare und Fellflecken auf. Diese Merkmale werden mit zunehmendem Alter immer weniger ausgeprägt."
+						"Mimiga haben eine Lebenserwartung von etwa 300 Jahren, werden aber etwas früher als Menschen erwachsen, nämlich mit etwa 15 Jahren. Sie werden mit etwa 200 Jahren als Senioren betrachtet."
 					]
 				},
 				{
@@ -88,7 +88,7 @@
 					"name": "Size",
 					"type": "entries",
 					"entries": [
-						"Mimiga sind etwas kleiner als Menschen, haben aber ähnliche Proportionen; sie sind in der Regel etwa 1,50 bis 1,50 m groß und wiegen etwa 110 Pfund. Ihre Größe ist Medium."
+						"Mimiga haben ähnliche Proportionen wie Menschen, sind aber etwas kleiner, in der Regel zwischen 5 und 6 Fuß groß und wiegen in der Reifezeit etwa 110 Pfund. Ihre Größe ist Medium."
 					]
 				},
 				{
@@ -109,7 +109,7 @@
 					"name": "Claws",
 					"type": "entries",
 					"entries": [
-						"Deine Klauen sind eine natürliche Waffe, mit der du unbewaffnete Schläge ausführen kannst. Wenn du mit ihnen triffst, fügst du Hiebschaden in Höhe von 1d4 + deinem Stärkemodifikator zu."
+						"Du kannst deine Klauen für unbewaffnete Schläge einsetzen. Wenn du damit triffst, verursacht der Schlag {@damage 1d6} + deinen Stärkemodifikator Hiebschaden anstelle des normalen Hiebschadens eines unbewaffneten Schlags."
 					]
 				},
 				{
@@ -150,6 +150,12 @@
 			],
 			"additionalSpells": [
 				{
+					"ability": "cha",
+					"known": {
+						"1": [
+							"dancing lights#c"
+						]
+					},
 					"innate": {
 						"1": {
 							"daily": {
@@ -158,12 +164,6 @@
 								]
 							}
 						}
-					},
-					"ability": "int",
-					"known": {
-						"1": [
-							"dancing lights#c"
-						]
 					}
 				}
 			],
@@ -179,7 +179,8 @@
 					"name": "Crafty Magic",
 					"type": "entries",
 					"entries": [
-						" Du kennst den {@spell minor illusion}-Zaubertrick. Du kannst auch {@spell disguise self} einmal wirken, der sich nach einer langen Pause wieder auflädt. Intelligenz ist deine Zauberfertigkeit für diese Zaubersprüche."
+						"Du kennst den {@spell minor illusion} Cantrip. Du kannst auch den {@spell disguise self}-Zauber mit dieser Eigenschaft wirken. Wenn du den Zauber mit dieser Eigenschaft gewirkt hast, kannst du ihn erst wieder nach einer langen Pause wirken. Du kannst den Zauber auch mit einem deiner Zauberplätze der entsprechenden Stufe wirken.",
+						"Charisma ist deine Zauberfertigkeit für diese Zaubersprüche."
 					]
 				}
 			],
@@ -224,7 +225,7 @@
 					"name": "Nine Lives",
 					"type": "entries",
 					"entries": [
-						"Wenn du auf 0 Trefferpunkte reduziert, aber nicht getötet wurdest, kannst du stattdessen auf 1 Trefferpunkt fallen. Du kannst diese Fähigkeit erst wieder nutzen, wenn du eine lange Pause gemacht hast."
+						"Du hast die unheimliche Fähigkeit, tödliche Schläge zu überleben. Wenn du auf 0 Trefferpunkte reduziert, aber nicht getötet wirst, kannst du würfeln {@dice 1d20}. Bei einem Wurf von 10 oder höher fällst du stattdessen auf 1 Trefferpunkt. Du kannst diese Eigenschaft so oft benutzen, wie es deinem Fertigkeitsbonus entspricht. Wenn du diese Eigenschaft einmal benutzt hast, kannst du sie bis zum Beginn deines nächsten Zuges nicht wieder benutzen. Du erhältst alle verbrauchten Verwendungen dieser Eigenschaft zurück, wenn du eine lange Ruhepause beendest."
 					]
 				}
 			],
@@ -269,7 +270,7 @@
 					"name": "Witty Escape",
 					"type": "entries",
 					"entries": [
-						"Du kannst die {@action Disengage} oder {@action Hide} Aktion als Bonusaktion ausführen. Du kannst diese Fähigkeit erst wieder einsetzen, wenn du eine kurze oder lange Pause gemacht hast."
+						"Du kannst deine Freunde als Ablenkung benutzen, und zwar nicht aus Feigheit, sondern aus Strategie. Einmal pro Runde, wenn du dich aus der Reichweite einer Kreatur bewegst, provozierst du sie nicht {@action opportunity attack|phb|opportunity attacks}, wenn sich einer deiner Verbündeten innerhalb von 5 Fuß um sie herum befindet. Du kannst diese Eigenschaft so oft einsetzen, wie es deinem Fertigkeitsbonus entspricht, und du erhältst alle verbrauchten Einsätze dieser Eigenschaft zurück, wenn du eine lange Pause beendet hast."
 					]
 				}
 			],
@@ -314,7 +315,7 @@
 					"name": "Lucky Feet",
 					"type": "entries",
 					"entries": [
-						"Du hast starke Füße, die dich schnell über den Boden tragen. Wenn du dich in deinem Zug im Kampf bewegst, kannst du deine Geschwindigkeit bis zum Ende des Zuges verdoppeln. Wenn du diese Eigenschaft einmal benutzt hast, kannst du sie erst wieder benutzen, wenn du dich in einem deiner Züge um 0 Fuß bewegst."
+						"Du hast starke Füße, die dich schnell über den Boden tragen. Wenn du dich in deinem Zug im Kampf bewegst, kannst du deine Gehgeschwindigkeit, deine Weitsprungweite und deine Hochsprunghöhe bis zum Ende deines Zuges verdoppeln. Du kannst diese Eigenschaft so oft benutzen, wie es deinem Fertigkeitsbonus entspricht. Wenn du diese Eigenschaft einmal benutzt hast, kannst du sie erst wieder benutzen, wenn du dich in einem deiner Züge 0 Fuß weit bewegst. Du erhältst alle verbrauchten Verwendungen dieser Eigenschaft zurück, wenn du eine lange Pause beendest."
 					]
 				}
 			],
@@ -343,7 +344,7 @@
 			},
 			"toolProficiencies": [
 				{
-					"any": 2
+					"any": 1
 				}
 			],
 			"entries": [
@@ -378,7 +379,8 @@
 					"name": "Tool Mastery",
 					"type": "entries",
 					"entries": [
-						"Du erhältst zwei {@book tool|phb|5|tools} Fertigkeiten deiner Wahl. Zusätzlich darfst du dir ein Werkzeug aussuchen, das du beherrschst. Es muss nicht eines der Werkzeuge sein, die du durch diese Eigenschaft erhältst. Du verdoppelst deinen Beherrschungsbonus für alle Fähigkeitsproben, die du damit machst."
+						"Du erhältst eine {@table tools|phb|tool} Fertigkeit deiner Wahl.",
+						"Zusätzlich wählst du ein Werkzeug, das du beherrschst. Du erhältst Expertise in diesem Werkzeug, was bedeutet, dass dein Beherrschungsbonus für jede Fähigkeitsprüfung, die du damit machst, verdoppelt wird. Das Werkzeug, das du auswählst, muss eines sein, das nicht bereits von einer Eigenschaft wie Expertise profitiert, die deinen Beherrschungsbonus verdoppelt."
 					]
 				}
 			],
@@ -423,7 +425,7 @@
 					"name": "Horns",
 					"type": "entries",
 					"entries": [
-						"Du kannst deinen Kopf und deine Hörner für unbewaffnete Schläge einsetzen. Wenn du damit triffst, fügst du Wuchtschaden in Höhe von 1d4 + Stärke-Modifikator zu."
+						"Du kannst deine Hörner für unbewaffnete Schläge einsetzen. Wenn du mit ihnen triffst, fügt der Schlag {@damage 1d6} + deinen Stärke-Modifikator Knüppelschaden zu."
 					],
 					"data": {
 						"overwrite": "Claws"
@@ -440,7 +442,7 @@
 					"name": "Battering Ram",
 					"type": "entries",
 					"entries": [
-						"Wenn du dich mindestens 30 Fuß geradeaus auf ein Ziel zubewegst und es dann im selben Zug mit einem Nahkampfwaffenangriff triffst, kannst du diesem Angriff sofort eine Bonusaktion folgen lassen und einen waffenlosen Schlag mit deinen Hörnern gegen das Ziel ausführen. Bei einem Treffer muss das Ziel einen Rettungswurf auf Stärke machen. Bei einem Fehlschlag kannst du es 5 Fuß von dir weg in einen unbesetzten Raum schubsen oder es stoßen {@condition prone}, vorausgesetzt, das Ziel ist nicht mehr als eine Größe größer als du. Der DC ist gleich 8 + dein Fähigkeits-Bonus + dein Stärke-Modifikator."
+						"Wenn du dich mindestens 30 Fuß geradeaus auf eine Kreatur zubewegst und sie dann im selben Zug mit einer Nahkampfwaffe {@action attack} triffst, kannst du diesem Angriff sofort eine Bonusaktion folgen lassen und einen waffenlosen Schlag mit deinen Hörnern gegen das Ziel ausführen. Bei einem Treffer kannst du versuchen, {@action shove} die Kreatur zu töten, und sie kann nur einen Schutzwurf gegen einen DC gleich 8 + deinen Fertigkeitsbonus + deinen Stärkemodifikator machen."
 					]
 				}
 			],
@@ -468,14 +470,14 @@
 			],
 			"speed": {
 				"walk": 30,
-				"fly": 30
+				"fly": true
 			},
 			"entries": [
 				{
 					"name": "Alignment",
 					"type": "entries",
 					"entries": [
-						"Die Koumori Mimiga neigen zur Neutralität. Sie sehen die Welt als einen Ort, an dem es Raubtiere und Beute gibt, wo Leben und Tod natürliche Prozesse sind. Sie wollen nur überleben und ziehen es vor, andere Lebewesen sich selbst zu überlassen."
+						"Unabhängig und selbständig, neigen die Koumori-Mimiga zur Neutralität. Sie leben am Rande der Gesellschaft und neigen dazu, Verstrickungen mit anderen Lebewesen zu vermeiden."
 					],
 					"data": {
 						"overwrite": "Alignment"
@@ -485,7 +487,7 @@
 					"name": "Fangs",
 					"type": "entries",
 					"entries": [
-						"Deine Reißzähne sind eine natürliche Waffe, die du für unbewaffnete Schläge einsetzen kannst. Wenn du damit triffst, verursachst du Stich-Schaden in Höhe von 1d4 + deinem Stärke-Modifikator."
+						"Du kannst deine Reißzähne für unbewaffnete Schläge einsetzen. Wenn du damit triffst, verursacht der Schlag {@dice 1d6} + deinen Stärkemodifikator durchdringenden Schaden anstelle des für einen unbewaffneten Schlag üblichen Knüppelschadens."
 					],
 					"data": {
 						"overwrite": "Claws"
@@ -495,14 +497,15 @@
 					"name": "Bat's Wings",
 					"type": "entries",
 					"entries": [
-						"Du hast eine Fluggeschwindigkeit von 30 Fuß, solange du keine schwere Rüstung trägst."
+						"Dank deiner Flügel hast du eine Fluggeschwindigkeit, die deiner Gehgeschwindigkeit entspricht. Du kannst diese Fluggeschwindigkeit nicht nutzen, wenn du eine mittlere oder schwere Rüstung trägst.",
+						"Während du diese Fluggeschwindigkeit nutzt, kannst du keine Angriffswürfe oder Fähigkeitsprüfungen durchführen, die Hand- und Armbewegungen erfordern, und du kannst die somatischen Komponenten von Zaubern nicht ausführen."
 					]
 				},
 				{
-					"name": "Blindsight",
+					"name": "Echolocation",
 					"type": "entries",
 					"entries": [
-						"Du kannst deine Umgebung wahrnehmen, ohne dich auf dein Sehvermögen zu verlassen. Obwohl du nicht {@condition deafened} bist, hast du {@sense blindsight} mit einer Reichweite von 20 Fuß."
+						"Du kannst deine Umgebung wahrnehmen, ohne dich auf dein Sehvermögen zu verlassen. Obwohl du nicht {@condition deafened} bist, hast du {@sense blindsight} mit einer Reichweite von 15 Fuß."
 					],
 					"data": {
 						"overwrite": "Darkvision"
@@ -516,17 +519,17 @@
 					]
 				},
 				{
-					"name": "Echolocation",
+					"name": "Reclusive",
 					"type": "entries",
 					"entries": [
-						"Als Bonusaktion kannst du eine Reihe von Hochfrequenz-Schallimpulsen aussenden, um den Standort von festen Objekten und Kreaturen im Umkreis von 30 Fuß zu bestimmen. Die Schallimpulse gehen nicht um Ecken herum. Du hast einen Vorteil bei Angriffswürfen auf Ziele, die du mit dieser Fähigkeit entdeckst und die du auch sehen kannst. Du kannst diese Fähigkeit nicht einsetzen, wenn du betäubt bist."
+						"Wenn du dich in schwachem Licht oder in der Dunkelheit befindest, hast du einen Vorteil bei Geschicklichkeitsüberprüfungen ({@skill Stealth}), wenn du die Aktion {@action Hide} ausführst."
 					],
 					"data": {
 						"overwrite": "Animal Whisperer"
 					}
 				}
 			],
-			"blindsight": 20,
+			"blindsight": 15,
 			"traitTags": [
 				"Uncommon Race",
 				"Sunlight Sensitivity"
