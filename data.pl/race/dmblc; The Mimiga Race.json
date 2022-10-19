@@ -7,13 +7,13 @@
 				"abbreviation": "MMG",
 				"authors": [
 					"dmblc",
-					"k-martawardaya"
+					"Luminagi"
 				],
 				"convertedBy": [
 					"dmblc"
 				],
 				"url": "https://www.gmbinder.com/share/-MCweKWSUvZbUJBPQZkF",
-				"version": "220413.1",
+				"version": "221017.1",
 				"targetSchema": "1.2.3"
 			},
 			{
@@ -22,19 +22,19 @@
 				"abbreviation": "MMG:AS",
 				"authors": [
 					"dmblc",
-					"k-martawardaya"
+					"Luminagi"
 				],
 				"convertedBy": [
 					"dmblc"
 				],
 				"url": "https://www.gmbinder.com/share/-MWO4EQWbpyBRd86GxBZ",
-				"version": "220313.1",
+				"version": "221017.1",
 				"targetSchema": "1.2.3"
 			}
 		],
 		"dateAdded": 1647054503,
-		"dateLastModified": 1650452898,
-		"_dateLastModifiedHash": "8262fb2c35"
+		"dateLastModified": 1666001256,
+		"_dateLastModifiedHash": "348db776ef"
 	},
 	"race": [
 		{
@@ -74,7 +74,7 @@
 					"name": "Age",
 					"type": "entries",
 					"entries": [
-						"Mimigi żyją około 300 lat, osiągając dojrzałość mniej więcej w tym samym czasie co ludzie i są uważane za starsze w wieku około 200 lat. W młodości Mimigi wykazują bardziej bestialskie cechy, takie jak wąsiska i płaty futra. Z wiekiem cechy te stają się coraz mniej widoczne."
+						"Mimigi mają długość życia około 300 lat, ale osiągają dojrzałość nieco wcześniej niż ludzie, w wieku około 15 lat. Za seniora uważa się je w wieku około 200 lat."
 					]
 				},
 				{
@@ -88,7 +88,7 @@
 					"name": "Size",
 					"type": "entries",
 					"entries": [
-						"Mimigi są nieco niższe od ludzi, ale mają podobne proporcje; zwykle stoją na wysokości około 5 do 6 stóp i ważą około 110 funtów. Twój rozmiar to Medium."
+						"Mimigi mają podobne proporcje do ludzi, ale są nieco niższe, zwykle mają od 5 do 6 stóp wzrostu i ważą około 110 funtów w wieku dojrzałym. Twój rozmiar to Medium."
 					]
 				},
 				{
@@ -109,7 +109,7 @@
 					"name": "Claws",
 					"type": "entries",
 					"entries": [
-						"Twoje pazury są naturalną bronią, której możesz używać do wykonywania uderzeń bez broni. Jeśli trafisz nimi, zadajesz obrażenia równe 1d4 + twój modyfikator siły."
+						"Możesz użyć swoich pazurów do wykonania nieuzbrojonych uderzeń. Gdy trafisz nimi, zadają one {@damage 1d6} + twój modyfikator siły obrażenia od cięcia, zamiast normalnych dla uderzeń nieuzbrojonych obrażeń od zranienia."
 					]
 				},
 				{
@@ -150,6 +150,12 @@
 			],
 			"additionalSpells": [
 				{
+					"ability": "cha",
+					"known": {
+						"1": [
+							"dancing lights#c"
+						]
+					},
 					"innate": {
 						"1": {
 							"daily": {
@@ -158,12 +164,6 @@
 								]
 							}
 						}
-					},
-					"ability": "int",
-					"known": {
-						"1": [
-							"dancing lights#c"
-						]
 					}
 				}
 			],
@@ -179,7 +179,8 @@
 					"name": "Crafty Magic",
 					"type": "entries",
 					"entries": [
-						" Znasz {@spell minor illusion} cantrip. Możesz też rzucić {@spell disguise self} raz, a ładuje się ono po długim odpoczynku. Inteligencja jest twoją zdolnością zaklinania dla tych zaklęć."
+						"Znasz {@spell minor illusion} cantrip. Możesz również rzucić {@spell disguise self} zaklęcie z tą cechą. Gdy raz rzucisz zaklęcie z tą cechą, nie możesz tego zrobić ponownie, aż do zakończenia długiego odpoczynku. Możesz również rzucić zaklęcie używając dowolnych slotów na czary, które posiadasz o odpowiednim poziomie.",
+						"Charyzma jest twoją umiejętnością rzucania zaklęć dla tych czarów."
 					]
 				}
 			],
@@ -224,7 +225,7 @@
 					"name": "Nine Lives",
 					"type": "entries",
 					"entries": [
-						"Kiedy zostaniesz zredukowany do 0 punktów życia, ale nie zostaniesz zabity, możesz spaść do 1 punktu życia. Nie możesz użyć tej cechy ponownie, dopóki nie zakończysz długiego odpoczynku."
+						"Masz niebywałą zdolność do przetrwania śmiertelnych ciosów. Kiedy zostaniesz zredukowany do 0 punktów życia, ale nie zginiesz, możesz wykonać rzut {@dice 1d20}. Przy wyniku 10 lub wyższym, zamiast tego spadasz do 1 punktu trafienia. Możesz użyć tej cechy tyle razy, ile wynosi twój bonus do biegłości, a gdy raz użyjesz tej cechy, nie możesz jej użyć ponownie aż do początku swojej następnej tury. Odzyskujesz wszystkie użyte cechy po zakończeniu długiego odpoczynku."
 					]
 				}
 			],
@@ -269,7 +270,7 @@
 					"name": "Witty Escape",
 					"type": "entries",
 					"entries": [
-						"Możesz podjąć akcję {@action Disengage} lub {@action Hide} jako akcję dodatkową. Nie możesz użyć tej cechy ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+						"Możesz wykorzystać swoich przyjaciół jako odwrócenie uwagi w akcie, nie tchórzostwa, ale strategii. Raz na turę, gdy poruszasz się poza zasięgiem jakiegoś stworzenia, nie prowokujesz {@action opportunity attack|phb|opportunity attacks} od niego, jeśli jeden z twoich sojuszników znajduje się w odległości 5 stóp od niego. Możesz użyć tej cechy tyle razy, ile wynosi twoja premia do biegłości, a wszystkie jej zużyte zastosowania odzyskujesz po zakończeniu długiego odpoczynku."
 					]
 				}
 			],
@@ -314,7 +315,7 @@
 					"name": "Lucky Feet",
 					"type": "entries",
 					"entries": [
-						"Masz silne stopy, które szybko przenoszą cię po ziemi. Kiedy poruszasz się w swojej turze w walce, możesz podwoić swoją szybkość do końca tury. Gdy raz użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie poruszysz się o 0 stóp w jednej ze swoich tur."
+						"Masz silne stopy, które szybko przenoszą cię po ziemi. Kiedy poruszasz się w swojej turze w walce, możesz podwoić swoją prędkość chodzenia, odległość długiego skoku i wysokość wysokiego skoku do końca tury. Możesz użyć tej cechy tyle razy, ile wynosi twoja premia do biegłości, a gdy raz użyjesz tej cechy, nie możesz jej użyć ponownie, dopóki nie poruszysz się o 0 stóp w jednej ze swoich tur. Odzyskujesz wszystkie zużyte jej zastosowania po zakończeniu długiego odpoczynku."
 					]
 				}
 			],
@@ -343,7 +344,7 @@
 			},
 			"toolProficiencies": [
 				{
-					"any": 2
+					"any": 1
 				}
 			],
 			"entries": [
@@ -378,7 +379,8 @@
 					"name": "Tool Mastery",
 					"type": "entries",
 					"entries": [
-						"Zyskujesz dwie {@book tool|phb|5|tools} biegłości do wyboru. Dodatkowo wybierz jedno narzędzie, w którym jesteś biegły. Nie musi być ono z tych, które daje ta cecha. Podwajasz swoją premię do biegłości do wszelkich testów umiejętności, które wykonujesz za jego pomocą."
+						"Zyskujesz jedną {@table tools|phb|tool} biegłość do wyboru.",
+						"Dodatkowo wybierz jedno narzędzie, w którym masz biegłość. Zyskujesz biegłość w tym narzędziu, co oznacza, że twoja premia do biegłości jest podwajana do każdego testu umiejętności, który wykonasz za jego pomocą. Narzędzie, które wybierzesz, musi być takie, które nie korzysta jeszcze z cechy, takiej jak Ekspertyza, która podwaja premię do biegłości."
 					]
 				}
 			],
@@ -423,7 +425,7 @@
 					"name": "Horns",
 					"type": "entries",
 					"entries": [
-						"Możesz użyć swojej głowy i rogów do wykonania uderzeń bez broni. Jeśli trafisz, zadajesz obrażenia równe 1d4 + twój modyfikator siły."
+						"Możesz użyć swoich rogów do wykonania nieuzbrojonych uderzeń. Kiedy trafisz, zadają one {@damage 1d6} + twój modyfikator wytrzymałości, obrażenia od uderzeń."
 					],
 					"data": {
 						"overwrite": "Claws"
@@ -440,7 +442,7 @@
 					"name": "Battering Ram",
 					"type": "entries",
 					"entries": [
-						"Jeśli przemieścisz się o co najmniej 30 stóp prosto w kierunku celu i trafisz go atakiem z broni do walki wręcz w tej samej turze, możesz natychmiast wykonać po tym ataku dodatkową akcję, wykonując jedno uderzenie bez broni w cel rogami. W przypadku trafienia, cel musi wykonać rzut ratujący wytrzymałość. W przypadku porażki możesz odepchnąć go na 5 stóp od siebie na niezajętą przestrzeń lub powalić {@condition prone}, pod warunkiem, że cel jest nie większy od ciebie o jeden rozmiar. DC jest równe 8 + twój bonus do biegłości + twój modyfikator Siły."
+						"Jeśli przemieścisz się o co najmniej 30 stóp prosto w kierunku stworzenia, a następnie trafisz je bronią do walki wręcz {@action attack} w tej samej turze, możesz natychmiast podążyć za tym atakiem z akcją bonusową, wykonując jedno uderzenie bez broni w cel rogami. W przypadku trafienia, możesz spróbować {@action shove} stwora, a on może wykonać tylko rzut ratujący z Wytrzymałości przeciwko DC równemu 8 + twój bonus do biegłości + twój modyfikator Wytrzymałości."
 					]
 				}
 			],
@@ -468,14 +470,14 @@
 			],
 			"speed": {
 				"walk": 30,
-				"fly": 30
+				"fly": true
 			},
 			"entries": [
 				{
 					"name": "Alignment",
 					"type": "entries",
 					"entries": [
-						"Koumori Mimiga skłaniają się ku neutralności. Postrzegają świat jako miejsce drapieżników i ofiar, gdzie życie i śmierć są naturalnymi procesami. Chcą tylko przetrwać i wolą zostawić inne stworzenia samym sobie."
+						"Niezależne i samodzielne, koumori mimiga są skłonne do neutralności. Żyją na obrzeżach społeczeństwa i mają tendencję do unikania związków z innymi istotami."
 					],
 					"data": {
 						"overwrite": "Alignment"
@@ -485,7 +487,7 @@
 					"name": "Fangs",
 					"type": "entries",
 					"entries": [
-						"Twoje kły są naturalną bronią, której możesz używać do wykonywania uderzeń bez broni. Jeśli trafisz, zadajesz obrażenia równe 1d4 + twój modyfikator siły."
+						"Możesz użyć swoich kłów do wykonania nieuzbrojonych uderzeń. Gdy trafisz nimi, zadają one {@dice 1d6} + twój modyfikator wytrzymałości obrażenia przeszywające, zamiast normalnych dla uderzeń z broni palnej obrażeń od zranienia."
 					],
 					"data": {
 						"overwrite": "Claws"
@@ -495,14 +497,15 @@
 					"name": "Bat's Wings",
 					"type": "entries",
 					"entries": [
-						"Masz prędkość lotu 30 stóp, gdy nie masz na sobie ciężkiej zbroi."
+						"Dzięki skrzydłom masz prędkość lotu równą prędkości chodzenia. Nie możesz używać tej prędkości lotu, jeśli masz na sobie średnią lub ciężką zbroję.",
+						"Podczas korzystania z tej prędkości lotu nie możesz wykonywać rzutów ataku ani sprawdzać zdolności wymagających ruchów rąk i ramion, nie możesz też wykonywać somatycznych komponentów zaklęć."
 					]
 				},
 				{
-					"name": "Blindsight",
+					"name": "Echolocation",
 					"type": "entries",
 					"entries": [
-						"Możesz postrzegać swoje otoczenie nie polegając na wzroku. Podczas gdy nie jesteś {@condition deafened}, masz {@sense blindsight} o zasięgu 20 stóp."
+						"Możesz postrzegać swoje otoczenie nie polegając na wzroku. Podczas gdy nie jesteś {@condition deafened}, masz {@sense blindsight} o zasięgu 15 stóp."
 					],
 					"data": {
 						"overwrite": "Darkvision"
@@ -516,17 +519,17 @@
 					]
 				},
 				{
-					"name": "Echolocation",
+					"name": "Reclusive",
 					"type": "entries",
 					"entries": [
-						"Jako akcja bonusowa możesz emitować serię impulsów dźwiękowych o wysokiej częstotliwości, aby określić położenie obiektów stałych i istot w promieniu 30 stóp od ciebie. Impulsy dźwiękowe nie przechodzą za rogi. Masz przewagę w rolkach ataku na cele wykryte przez tę zdolność, które również widzisz. Nie możesz używać tej cechy będąc ogłuszonym."
+						"Gdy znajdujesz się w słabym świetle lub ciemności, masz przewagę w sprawdzaniu Zręczności ({@skill Stealth}), gdy podejmujesz akcję {@action Hide}."
 					],
 					"data": {
 						"overwrite": "Animal Whisperer"
 					}
 				}
 			],
-			"blindsight": 20,
+			"blindsight": 15,
 			"traitTags": [
 				"Uncommon Race",
 				"Sunlight Sensitivity"
