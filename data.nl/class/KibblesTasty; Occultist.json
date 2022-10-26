@@ -10,7 +10,8 @@
 				],
 				"convertedBy": [
 					"cellescent",
-					"SasquatchBrah"
+					"SasquatchBrah",
+					"hakr14"
 				],
 				"url": "https://www.gmbinder.com/share/-M-WtrKeZNFdEXq0MKXw",
 				"version": "1.2"
@@ -18,11 +19,19 @@
 		],
 		"optionalFeatureTypes": {
 			"ktor": "Occult Rite",
-			"ktom": "Oracle Mystery"
+			"ktom": "Oracle Mystery",
+			"FS:O": "Fighting Style: Occultist",
+			"ktcs": "Casting Style"
+		},
+		"dependencies": {
+			"spell": [
+				"KibblesTasty:GS",
+				"KibblesTasty:CC"
+			]
 		},
 		"dateAdded": 1603793256,
-		"dateLastModified": 1661285343,
-		"_dateLastModifiedHash": "bc70c83dea"
+		"dateLastModified": 1666668781,
+		"_dateLastModifiedHash": "e4dffdf91c"
 	},
 	"class": [
 		{
@@ -836,6 +845,23 @@
 					"page": 1
 				}
 			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Rites",
+					"progression": {
+						"2": 2,
+						"5": 3,
+						"7": 4,
+						"9": 5,
+						"12": 6,
+						"15": 7,
+						"18": 8
+					}
+				}
+			],
 			"cantripProgression": [
 				3,
 				3,
@@ -983,7 +1009,7 @@
 			"level": 2,
 			"entries": [
 				"Als je je verdiept in je Traditie van occulte magie, vind je afwijkingen en vertakkingen om te onderzoeken die je helpen je te specialiseren en je vak te perfectioneren op de manier die het beste bij je past.",
-				"Op 2e Level krijg je er twee {@filter Occult Rites|optionalfeatures|Feature Type=ktor} naar keuze bij. Je Occulte Rites opties staan beschreven aan het eind van de subklasse beschrijving voor subklasse specifieke Rites, en aan het eind van de klasse beschrijving voor algemene Rites, je kunt kiezen uit je subklasse of klasse lijst. Als je bepaalde Occultist levels behaalt, krijg je extra Occult Rites naar keuze.",
+				"Op 2e niveau krijg je er twee {@filter Occult Rites|optionalfeatures|Feature Type=ktor} naar keuze bij. Je Occulte Rites opties worden gedetailleerd aan het einde van de subklasse beschrijving voor subklasse specifieke Rites, en aan het einde van de klasse beschrijving voor algemene Rites, je kunt kiezen uit je subklasse of klasse lijst. Als je bepaalde Occultist-niveaus bereikt, krijg je extra Occulte Riten naar keuze.",
 				"Bovendien kun je, als je een level stijgt in deze klasse, een van de Occulte Riten die je kent kiezen en vervangen door een andere Occulte Rite die je op dat level zou kunnen leren. Een niveauvoorwaarde in een Occulte Rite verwijst naar Occultistenniveau, niet naar karakterniveau.",
 				{
 					"type": "inset",
@@ -996,7 +1022,7 @@
 					"type": "inset",
 					"name": "Losing Invested Objects",
 					"entries": [
-						"ALS een Rite een object creëert, kun je dat object herscheppen als het verloren gaat of vernietigd wordt. Als de regels niet elders zijn gespecificeerd, is het een proces dat elk basisvoorwerp vereist dat de Rite heeft gedaan en 4 uur tijd. Als het origineel nog ergens bestaat, verliest het zijn magische eigenschappen als je dit proces voltooit."
+						"Als een Rite een voorwerp maakt, kun je dat voorwerp opnieuw maken als het verloren gaat of vernietigd wordt. Als de regels niet elders zijn gespecificeerd, is het een proces dat elk basisvoorwerp dat de Rite deed en 4 uur tijd vereist. Als het origineel nog ergens bestaat, verliest het zijn magische eigenschappen als je dit proces voltooit."
 					]
 				}
 			]
@@ -1055,9 +1081,37 @@
 			"classSource": "KT:O",
 			"level": 10,
 			"entries": [
-				"Vanaf het 10e niveau geeft je doorgegeven kennis van traditie je expertise in een vaardigheid van je traditie; kies een van je vaardigheidsproficiënties uit {@skill Animal Handling}, {@skill Arcana}, {@skill Medicine}, {@skill Nature}, {@skill Survival}. Je vaardigheidsbonus wordt verdubbeld voor elke vaardigheidstest die je doet en die gebruik maakt van de gekozen vaardigheid. Als je geen van de gekozen vaardigheden beheerst, kun je in plaats daarvan een vaardigheid naar keuze verwerven.",
+				"Vanaf het 10e niveau geeft uw doorgegeven kennis van traditie u expertise in een vaardigheid van uw traditie; kies een van uw vaardigheidsproficiënties uit {@skill Animal Handling}, {@skill Arcana}, {@skill Medicine}, {@skill Nature}, {@skill Survival}. Uw vaardigheidsbonus wordt verdubbeld voor elke vaardigheidscontrole die u uitvoert die gebruik maakt van de gekozen vaardigheid. Als u geen van de geselecteerde vaardigheden beheerst, kunt u een vaardigheid naar keuze verwerven.",
 				"Bovendien kun je, als je een vaardigheidstest voor Wijsheid doet, je Traditie gebruiken en een spreukslot van het eerste niveau gebruiken om voordeel te krijgen bij de test."
-			]
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a Wisdom ability check",
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"consume.amount": 1
+			},
+			"foundryImg": "icons/commodities/materials/parchment-secrets.webp"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -1131,6 +1185,17 @@
 			],
 			"entries": [
 				"Je verdiept je in je traditie om een nieuwe rite te perfectioneren. Je kunt een {@filter Occult Rite|optionalfeatures|source=KT:O|feature type=ktor} uit de Occultist klasse Occult Rite lijst kiezen. Je kunt geen rite kiezen die je al kent, of die een niveaubeperking vereist, zelfs als je al dat niveau hebt. Je kunt er alleen een kiezen uit de lijst van een subklasse als je minstens één niveau in die subklasse hebt."
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Specialist",
+					"progression": {
+						"*": 1
+					}
+				}
 			]
 		}
 	],
@@ -1167,11 +1232,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1189,16 +1260,43 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"Als bonusactie kun je een toverspreuk van het 1e niveau gebruiken om je haar gedurende 1 minuut te verlengen, te versterken en tot leven te brengen. Terwijl het geanimeerd is, kun je je actie gebruiken om er een melee-spreukaanval mee te doen met een bereik van 5 voet, waarbij je bij een treffer 1d8 schade toebrengt. Dit neemt toe met 1d8 als je 5e level bent (2d8), 11e level (3d8), en 17e level (4d8). Als je een Large of kleiner wezen met deze aanval raakt, kun je als bonusactie proberen om {@action grapple} het wezen met je haar te raken, waarbij je je Wisdom modifier in plaats van je Strength modifier gebruikt om een grapple te initiëren en te onderhouden.",
+				"Als bonusactie kun je een 1e niveau spreukslot gebruiken om je haar 1 minuut lang te verlengen, te versterken en tot leven te wekken. Terwijl het geanimeerd is, kun je je actie gebruiken om er een melee-spreukaanval met een bereik van 5 voet mee uit te voeren, die {@damage 1d8} schade door doodslag toebrengt. Dit wordt verhoogd met 1d8 wanneer je 5e niveau bereikt ({@damage 2d8}), 11e niveau ({@damage 3d8}), en 17e niveau ({@damage 4d8}). Als je een groot of kleiner wezen raakt met deze aanval, kun je als bonusactie proberen het wezen met je haar {@action grapple} vast te houden door je Wijsheidmodificator te gebruiken in plaats van je Sterktemodificator om een houdgreep te starten en te behouden.",
 				"Een {@condition grappled} wezen kan de worsteling betwisten of 5 schade toebrengen aan het haar om zichzelf te bevrijden. Het haar heeft een AC van 12, en je neemt geen schade als het wordt aangevallen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"conusme.amount": 1,
+				"actionType": "msak",
+				"damage.parts": [
+					[
+						"floor((@details.level + 7) / 6)",
+						"bludgeoning"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/materials/hair-tuft-grey.webp"
 		},
 		{
 			"name": "Companion Coven",
@@ -1209,8 +1307,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1218,7 +1328,17 @@
 			"entries": [
 				"Als een ritueel dat 1 uur duurt, kun je een verbond vormen met een gewillig wezen dat spell slots heeft. Terwijl jullie beiden bij bewustzijn zijn en binnen een straal van 120 meter van elkaar, krijg je de mogelijkheid om spell slots te delen tot een spell slot level van je Witch level gedeeld door vier (naar beneden afgerond), met een minimum van 1st level slots. Terwijl deze band actief is, kun jij jouw Spellcasting eigenschap gebruiken om te casten met hun spell slots (verbruik ze als normaal), en zij kunnen hun Spellcasting eigenschap gebruiken (als ze er een hebben) om te casten met jouw qualifying spell slots (verbruik ze als normaal).",
 				"Bovendien weet je te allen tijde waar ze zich bevinden zolang ze deel uitmaken van je kring en zich binnen een straal van 120 meter van jou bevinden. Je kunt maar met één wezen tegelijk verbonden zijn met deze band. Je kunt deze band op elk moment beëindigen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "hour",
+				"activation.cost": 1,
+				"target.value": 1,
+				"target.type": "creature",
+				"range.value": 120,
+				"range.units": "ft",
+				"formula": "max(1, floor(@classes.occultist.levels / 4))[max spell slot level]"
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-white.webp"
 		},
 		{
 			"name": "Divine Presence",
@@ -1229,8 +1349,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks, White Coven",
+						"entry": "White Coven",
 						"entrySummary": "Witch (White Coven)"
 					}
 				}
@@ -1248,8 +1380,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1262,7 +1406,18 @@
 				{
 					"intimidation": true
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.cost": 1,
+				"activation.condition": "A creature within 15 feet attacks you",
+				"range.value": 15,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/perception/eye-slit-red-orange.webp"
 		},
 		{
 			"name": "Familiar Swap",
@@ -1273,15 +1428,42 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Als je bekende zich binnen 60 meter van je bevindt, kun je als actie van plaats verwisselen met je bekende. Als je niet kunt passen in de ruimte waar je bekende zich bevindt, mislukt de actie en neem je {@damage 1d6} krachtschade. Als je dit eenmaal hebt gedaan, kun je dit niet meer doen totdat je een korte of lange rust hebt genomen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"activation.condition": "If your familiar is within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft",
+				"actionType": "util",
+				"damage.parts": [
+					[
+						"1d6",
+						"force"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/time/arrows-circling-pink.webp"
 		},
 		{
 			"name": "Form of the Familiar",
@@ -1292,14 +1474,44 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"Je leert de {@spell form of familiar|KT:O} spreuk en kunt hem als actie eenmalig uitspreken zonder een spell slot te gebruiken. Na een korte of lange rustperiode kun je de spreuk weer op deze manier uitspreken."
+				"Je leert de {@spell form of familiar|KibblesTasty:GS} spreuk, en krijgt de mogelijkheid om hem één keer uit te spreken zonder een spreukslot uit te geven als actie. Na een korte of lange rustperiode kun je hem weer op deze manier uitspreken."
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": {
+							"rest": {
+								"1e": [
+									"form of familiar|KibblesTasty:GS"
+								]
+							}
+						}
+					},
+					"known": {
+						"_": [
+							"form of familiar|KibblesTasty:GS"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1311,8 +1523,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1352,6 +1576,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"faerie fire"
+						],
+						"3": [
+							"moonbeam"
+						],
+						"5": [
+							"tidal wave|xge"
+						],
+						"7": [
+							"control water"
+						],
+						"9": [
+							"wall of light|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1363,15 +1608,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Als je een bekende hebt zonder vliegsnelheid, kun je die als actie 8 uur lang laten veranderen in een wezen dat één maat groter is dan jijzelf (tot de maat Large). Als actie kun je de familiar weer hun normale grootte teruggeven. Op 12e niveau kun je deze vaardigheid gebruiken om vertrouwd te raken met vliegende snelheid. Als je dit eenmaal hebt gedaan, kun je dit niet meer doen totdat je een korte of lange rust hebt genomen. De kracht van je familiar wordt 10 terwijl hij vergroot is, als hij niet al groter was."
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"duration.value": 8,
+				"duration.units": "hour",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/nature/wolf-paw-glow-large-orange.webp"
 		},
 		{
 			"name": "Skulking Familiar",
@@ -1382,19 +1649,26 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Elke familiar die door jou wordt opgeroepen wordt vaardiger in de vaardigheid {@skill Stealth} en zijn beweging lokt geen gelegenheidsaanvallen uit."
-			],
-			"skillProficiencies": [
-				{
-					"stealth": true
-				}
 			]
 		},
 		{
@@ -1406,8 +1680,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1423,7 +1709,12 @@
 						"Als je groep de {@link KibbleTasty Artificer|https://www.gmbinder.com/share/-LAEn6ZdC6lYUKhQ67Qk} gebruikt, kan je de regels voor Alchemische Infusies (Artificer, pg 17) gebruiken voor deze eigenschap, maar kan je er maar 1 drankje mee maken tijdens een korte of lange rust, en de je Bekende Spreuken gebruiken als geldige keuzemogelijkheden."
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "During a short or long rest"
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-purple-glow.webp"
 		},
 		{
 			"name": "Witch's Claws",
@@ -1434,8 +1725,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1449,6 +1752,15 @@
 						"Merk op dat je met Witch's Touch twee keer je Wisdom modifier aan je damage roll kunt toevoegen. Dit is met opzet gedaan, en daarom is dit een rite in plaats van dat het gewoon aan de spellijst wordt toegevoegd."
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"primal savagery|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1460,8 +1772,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Heks",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1479,8 +1803,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1488,6 +1824,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"Je leert een extra cantrip uit de Occultistenlijst of uit de uitgebreide lijst van de eigenschap Praktische Vaardigheden."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1499,15 +1847,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Als je een reddende worp doet tegen een spreuk die je kent, of een vaardigheidstest om {@spell counterspell} of {@spell dispel magic} te gebruiken tegen een spreuk die je kent, heb je voordeel bij de reddende worp of de vaardigheidstest."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a saving throw against a spell you know, or make a spellcasting ability check to use counterspell or dispel magic against a spell you know"
+			},
+			"foundryImg": "icons/commodities/tech/bulb.webp"
 		},
 		{
 			"name": "Manipulate Magic",
@@ -1521,18 +1886,41 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Je leert één metamagische optie van een Magiër. Je kunt deze metamagie één keer gebruiken en weer gebruiken na een lange rustperiode. Je kunt hem opnieuw gebruiken door een spreukengroef te gebruiken van een niveau gelijk aan het aantal Sorcery Points dat de metamagie kost."
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"MM"
+					],
+					"name": "Manipulate Magic",
+					"progression": {
+						"*": 1
+					}
+				}
+			],
+			"foundryData": {
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/unholy/orb-colllecting-energy-green.webp"
 		},
 		{
 			"name": "Mass Cantrip",
@@ -1543,15 +1931,36 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Wanneer je een Occultist-cantrip uitvoert die op een of meer wezens is gericht, kun je de cantrip richten op een aantal extra wezens binnen een bereik dat gelijk is aan je bekwaamheidsbonus voor de spreuk. Als je dat eenmaal hebt gedaan, kun je dat niet meer doen totdat je een lange rustpauze hebt gehad. Je kunt een spell slot gebruiken om een soortgelijk effect te krijgen, waardoor de cantrip zich richt op een aantal extra wezens dat gelijk is aan het niveau van het spell slot dat je hebt gebruikt."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast an Occultist cantrip that targets one or more creatures",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr",
+				"formula": "@prof[additional targets]"
+			},
+			"foundryImg": "icons/magic/unholy/barrier-fire-pink.webp"
 		},
 		{
 			"name": "Mastered Basics",
@@ -1565,11 +1974,17 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1587,15 +2002,34 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Je hebt een spreuk zo vaak uitgesproken dat het een tweede natuur is geworden. Kies een Occulist-spreuk van het eerste niveau die je kent. Je kunt deze spreuk uitspreken zonder een spreukslot te gebruiken, een aantal keren dat gelijk is aan de helft van je vaardigheidsfactor (naar boven afgerond), en je krijgt alle keren dat je hem hebt gebruikt weer terug als je een lange rustpauze hebt genomen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.max": "ceil(@prof / 2)",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/symbols/runes-carved-stone-yellow.webp"
 		},
 		{
 			"name": "Practiced Reach",
@@ -1606,8 +2040,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1628,11 +2074,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1653,18 +2105,31 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Je kunt al je ervaring richten op het krachtig gebruiken van je meeste magie. Als een bonus actie kun je in een staat van geconcentreerde concentratie komen, alsof je je concentreert op een spreuk. Als je dat doet, krijg je voordeel op aanvalsrollen die je maakt voor cantrips gedurende 1 minuut, of tot je je concentratie op deze staat van concentratie beëindigt."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryImg": "icons/magic/holy/meditation-chi-focus-blue.webp"
 		},
 		{
 			"name": "Simple Magic",
@@ -1678,11 +2143,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1700,8 +2171,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1709,6 +2192,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"Je gekende spreuken nemen met één toe."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1723,17 +2218,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de heggenmagiër",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
-				"Wanneer je cantrips uitvoert die gewicht kunnen heffen, gebieden van elementen kunnen beïnvloeden, een gebied op de grond kunnen raken of kleine onmiddellijke effecten kunnen veroorzaken, leef je twee keer zo veel, richt je twee keer zo veel op een gebied of behoud je een extra onmiddellijk effect."
+				"Wanneer u gebruikscantra's uitvoert die gewicht kunnen heffen, gebieden van elementen kunnen beïnvloeden, op de grond kunnen richten of kleine onmiddellijke effecten kunnen veroorzaken, tilt u twee keer zoveel, richt u twee keer zoveel gebied of behoudt u een extra onmiddellijk effect."
 			]
 		},
 		{
@@ -1745,8 +2246,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1774,7 +2287,7 @@
 						],
 						[
 							"5th",
-							"{@spell wither|KT:O}"
+							"{@spell wither|KibblesTasty:CC}"
 						],
 						[
 							"7th",
@@ -1782,9 +2295,30 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}"
+							"{@spell killing curse|KibblesTasty:CC}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"false life"
+						],
+						"3": [
+							"gentle repose"
+						],
+						"5": [
+							"wither|KibblesTasty:CC"
+						],
+						"7": [
+							"blight"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC"
+						]
+					}
 				}
 			]
 		},
@@ -1797,8 +2331,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1838,6 +2384,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"continual flame"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"fire shield"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1849,8 +2416,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1890,6 +2469,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"healing word"
+						],
+						"3": [
+							"warding bond"
+						],
+						"5": [
+							"mass healing word"
+						],
+						"7": [
+							"aura of life"
+						],
+						"9": [
+							"mass cure wounds"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1901,8 +2501,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1942,6 +2554,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderous smite"
+						],
+						"3": [
+							"branding smite"
+						],
+						"5": [
+							"blinding smite"
+						],
+						"7": [
+							"staggering smite"
+						],
+						"9": [
+							"banishing smite"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1953,8 +2586,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1994,6 +2639,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"unseen servant"
+						],
+						"3": [
+							"healing spirit|xge"
+						],
+						"5": [
+							"spirit guardians"
+						],
+						"7": [
+							"guardian of faith"
+						],
+						"9": [
+							"raise dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2008,11 +2674,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2020,7 +2692,15 @@
 			"entries": [
 				"Je kunt de lijnen van het lot zien, en detecteren wanneer een van hen op het punt staat te breken. Wanneer een bondgenoot die je kan zien of horen door het oplopen van schade tot 0 hit points zou dalen, kun je met een cryptische waarschuwing het lot van die bondgenoot manipuleren, waardoor hij ternauwernood zijn ondergang kan voorkomen en in plaats daarvan tot 1 hit point daalt.",
 				"Als je deze vaardigheid eenmaal hebt gebruikt, kun je hem niet meer gebruiken totdat je een lange rustpauze hebt gehad."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When an ally that can see or hear you would drop to 0 hit points as a result of taking damage",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/life/ankh-shadow-green.webp"
 		},
 		{
 			"name": "Divine Miracle",
@@ -2039,6 +2719,18 @@
 			],
 			"entries": [
 				"Je leert een spreuk {@filter cleric spell|spells|class=cleric} naar keuze. De spreuk moet van een niveau zijn dat jij kunt leren, en wordt voor jou een Occultist-spreuk. De spreuk telt niet mee voor je bekende spreuken."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=cleric",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2053,18 +2745,37 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Als je {@sense blindsight} hebt, krijg je {@sense truesight} met een bereik gelijk aan je blindsight."
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Truesight",
+					"changes": [
+						{
+							"key": "system.attributes.senses.truesight",
+							"mode": "UPGRADE",
+							"value": "@attributes.senses.blindsight"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp"
 		},
 		{
 			"name": "Oracle's Sight",
@@ -2075,14 +2786,31 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Je krijgt {@sense blindsight} met een bereik van 15 voet. Wanneer je langer dan een minuut door de {@condition Blinded} conditie wordt beïnvloed, wordt het bereik van dit zicht verdubbeld terwijl je onder dat effect bent."
+			],
+			"senses": [
+				{
+					"blindsight": 15
+				}
 			]
 		},
 		{
@@ -2095,17 +2823,42 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Je kunt de negatieve energie direct aanraken. Als je een spreuk van het 1e niveau of hoger doet die koude of necrotische schade aanricht, kun je je Wisdom modifier toevoegen aan één schade worp van die spreuk. Als je de kracht van de dood op deze manier kanaliseert, word je tijdelijk verzwakt en vermindert je bewegingssnelheid met 5 voet tot het einde van je volgende beurt. Als je dit gebruikt terwijl je al op deze manier verzwakt bent, wordt de duur verlengd en stapelt het effect zich op."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals cold or necrotic damage",
+				"ability": "wis",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"@mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/magic/death/weapon-scythe-rune-green.webp"
 		},
 		{
 			"name": "Revelation of Fire",
@@ -2117,17 +2870,43 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Je krachten trekken vlammen om je heen. Als je een spreuk van het 1e niveau of hoger doet die vuurschade veroorzaakt, kun je jezelf tot het begin van je volgende beurt in vlammen hullen. Je krijgt halve dekking, en elk wezen dat je met een wapen of aanval raakt of zijn beurt beëindigt binnen een straal van 5 meter van jou, krijgt 1d6 vuurschade. Aan het begin van je volgende beurt, neem je 1 vuurschade. Een spreuk kan maar één openbaring triggeren. Als er meerdere openbaringen van toepassing zijn, kies er dan één."
-			]
+				"Je krachten trekken vlammen om je heen. Wanneer je een spreuk van 1e niveau of hoger uitspreekt die vuurschade toebrengt, kun je jezelf in vlammen hullen tot het begin van je volgende beurt. Je krijgt halve dekking, en elk wezen dat je raakt met een melee wapen of aanval of zijn beurt eindigt binnen 5 voet van je krijgt {@damage 1d6} vuurschade. Aan het begin van je volgende beurt neem je 1 vuurschade. Een spreuk kan maar één openbaring activeren. Als er meerdere openbaringen van toepassing zijn, kies je er een."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals fire damage",
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/barrier-wall-flame-ring-yellow.webp"
 		},
 		{
 			"name": "Revelation of Life",
@@ -2139,10 +2918,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2162,10 +2953,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2173,7 +2976,21 @@
 			"entries": [
 				"De zielen van de overledenen zijn overal. Als je een spreuk van niveau 1 of hoger uitspreekt, kun je een welwillende geest of een gekwelde geest oproepen om de ruimte die je binnen 30 meter kunt zien, leeg te maken en een kubus van 5 meter te vullen.",
 				"Het eerste wezen dat de ruimte van de geest betreedt of zijn beurt beëindigt binnen de ruimte van de geest, krijgt een aantal hitpoints gelijk aan 1d4 + het niveau van de spreuk als je een welwillende geest hebt opgeroepen, of loopt schade op gelijk aan 1d4 + het niveau van de spreuk als het een gekwelde geest betrof. Een spreuk kan maar één openbaring oproepen. Als er meerdere openbaringen van toepassing zijn, kies er dan een."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that restores hit points or grants temporary hit points",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "heal",
+				"damage.parts": [
+					[
+						"@classes.occultist.levels",
+						"heal"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-large-white.webp"
 		},
 		{
 			"name": "Revelation of War",
@@ -2185,10 +3002,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of War"
+						"{@optfeature Mystery of War|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2196,7 +3025,12 @@
 			"entries": [
 				"Binnen oorlog en conflict zie je de ware essentie van perfect conflict. Eenmaal per beurt, wanneer je een spreuk van 1e niveau of hoger uitspreekt, kun je als onderdeel van dezelfde actie een enkele aanval met een mêlee-wapen doen. Een spreuk kan maar één openbaring oproepen. Als er meerdere openbaringen van toepassing zijn, kies er dan één.",
 				"Bovendien, als je een wapenaanval doet, kun je je Wisdom modifier gebruiken, in plaats van Strength of Dexterity, voor de aanval en schade rollen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/skills/melee/blade-tip-energy-green.webp"
 		},
 		{
 			"name": "Touch of Fire",
@@ -2208,17 +3042,54 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Je leert de cantrip {@spell burn|KT:O}. Bovendien kun je als bonusactie 1 vuurschade oplopen en een wapen dat je draagt in vlammen laten uitbarsten gedurende 1 minuut of tot je het loslaat. Gedurende die tijd verspreidt het wapen helder licht over een afstand van 10 meter en gedempt licht over nog eens 10 meter. Aanvallen met het wapen terwijl het brandt, veroorzaken een extra 1d6 brandschade."
-			]
+				"Je leert de cantrip {@spell burn|KibblesTasty:CC}. Bovendien kun je als bonusactie 1 vuurschade oplopen en een wapen dat je draagt in vlammen laten opgaan, gedurende 1 minuut of tot je het loslaat. Voor de duur ervan werpt het helder licht voor 10 voet en zwak licht voor nog eens 10 voet. Aanvallen met het wapen terwijl het brandt geven extra {@damage 1d6} brandschade."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"burn|KibblesTasty:CC"
+						]
+					}
+				}
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					],
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-blood-red.webp"
 		},
 		{
 			"name": "Truth of Death",
@@ -2230,17 +3101,34 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"De mars des doods is onverbiddelijk. Wanneer je een wezen necrotische schade toebrengt, kun je de aanraking van de dood op hem plaatsen, waardoor hij tot het begin van je volgende beurt geen hit points meer kan oplopen. Als je dit doet, betekent het associëren met de kracht van de dood, dat ook jij geen hit points meer kunt krijgen tot het begin van je volgende beurt."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you deal necrotic damage to a creature"
+			},
+			"foundryImg": "icons/magic/death/hand-undead-skeleton-fire-green.webp"
 		},
 		{
 			"name": "Truth of Fire",
@@ -2252,17 +3140,41 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Alles brandt. Als je brandschade gooit, mag je een willekeurig aantal brandschadedobbelstenen opnieuw gooien. Je moet de nieuwe worpen gebruiken. Als je alle dobbelstenen van de schadeworp opnieuw gooit, gaat de schade voorbij aan de vuurbestendigheid van het doelwit. Je neemt 1 vuurschade voor elke dobbelsteen die je opnieuw gooit, deze schade kan niet worden weerstaan."
-			]
+				"Alles brandt. Als je brandschade gooit, mag je een willekeurig aantal dobbelstenen opnieuw gooien. Je moet de nieuwe worpen gebruiken. Als je alle dobbelstenen opnieuw gooit, gaat de schade voorbij aan de vuurbestendigheid van het doelwit. Voor elke gegooide dobbelsteen neem je 1 maal vuurschade, deze schade kan niet worden weerstaan."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you roll fire damage",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/blast-jet-stream-splash.webp"
 		},
 		{
 			"name": "Truth of Life",
@@ -2274,17 +3186,36 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"De levensadem wordt door alle wezens gedeeld. Als een wezen binnen 60 meter van jou zijn laatste adem uitblaast, kun je met je reactie een deel van die verspreidende levenskracht overbrengen op een ander wezen binnen 60 meter van jou (inclusief jezelf). Het doelwit krijgt evenveel hit points als je Wisdom modifier, of het maximum aantal hit points van het wezen (de laagste waarde is van toepassing)."
-			]
+				"De levensadem wordt gedeeld door alle wezens. Wanneer een wezen binnen 60 meter van je vandaan zijn laatste adem uitblaast, kun je je reactie gebruiken om een deel van die verspreidende levenskracht over te dragen aan een ander wezen binnen 60 meter van je (inclusief jezelf). Het beoogde wezen krijgt raakpunten gelijk aan je Wijsheid-aanpassing, of het maximum aantal raakpunten van het wezen (wat het laagste is)."
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.condition": "When a creature breathes their last within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft"
+			},
+			"foundryImg": "icons/magic/life/heart-broken-red.webp"
 		},
 		{
 			"name": "Truth of Souls",
@@ -2296,10 +3227,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2317,23 +3260,29 @@
 			],
 			"prerequisite": [
 				{
+					"feature": [
+						"{@optfeature Mystery of War|KT:O}"
+					],
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
-					"feature": [
-						"Mystery of War"
-					],
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Uw begrip van oorlog onthult dat het gemakkelijk komt. Je kunt de {@optfeature Revelation of War|KT:O|Revelation of Battle} activeren wanneer je een cantrip uitvoert met een worp-tijd van één actie."
+				"Jouw begrip van oorlog onthult dat het gemakkelijk komt. Je kunt de {@optfeature Revelation of War|KT:O|Revelation of Battle} activeren als je een cantrip uitvoert met een uitroeitijd van één actie."
 			]
 		},
 		{
@@ -2348,11 +3297,17 @@
 					"level": {
 						"level": 9,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van het Orakel",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2373,17 +3328,34 @@
 					"level": {
 						"level": 11,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Je leert de {@spell investiture of flame|XGE|investiture of fire}, {@spell investiture of ice|XGE}, en {@spell investiture of stone|XGE} spreuken. Dit zijn Occultistische spreuken voor jou. Wanneer je een van deze spreuken uitspreekt, kun je ervoor kiezen om de duur van de spreuk in te korten tot 1 minuut. Als je dat doet, vereisen deze spreuken geen concentratie."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"investiture of flame|XGE",
+							"investiture of ice|XGE",
+							"investiture of stone|XGE"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2398,11 +3370,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2421,15 +3399,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Als actie kun je een gemanifesteerde geest tot ontploffing brengen, waardoor hij uitbarst in een vlam van kracht. Alle wezens binnen 3 meter moeten een Dexterity saving throw doen. Als je niet slaagt, loopt het doelwit een schade op die gelijk is aan tweemaal de gemanifesteerde schade van de geest. Als de geest was bekrachtigd met een spell slot, krijgt een doelwit de helft van de schade bij een succesvolle. De geest wordt onmiddellijk losgelaten en verdwijnt."
-			]
+				"Als een actie kun je {@subclassFeature Call Spirit|Occultist|kt:o|Shaman|kt:o|1|kt:o|manifested spirit} detoneren, waardoor het uitbarst in een gloed van kracht. Alle wezens binnen een straal van 10 meter moeten een reddingsoefening doen. Een doelwit krijgt schade gelijk aan twee keer de gemanifesteerde schade van de geest bij een mislukte reddingsworp. Als de geest was bekrachtigd met een spell slot, krijgt het doelwit half zoveel schade als hij slaagt. De geest wordt onmiddellijk vrijgelaten en verdwijnt."
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"range.value": 10,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "dex",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/explosion-star-glow-silhouette.webp"
 		},
 		{
 			"name": "Elemental Weapons",
@@ -2441,17 +3441,29 @@
 			"prerequisite": [
 				{
 					"spell": [
-						"fists of fire|KT:O#c",
-						"ice weapon|KT:O#c"
+						"fists of fire|KibblesTasty:CC#c",
+						"ice weapon|KibblesTasty:CC#c"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Wanneer je een wapen maakt met {@spell fists of fire|KT:O} of {@spell ice weapon|KT:O} wordt de schade dobbelsteen van het wapen verhoogd met één maat (bijvoorbeeld van een d6 naar een d8)."
+				"Wanneer u een wapen maakt met {@spell fists of fire|KibblesTasty:CC} of {@spell ice weapon|KibblesTasty:CC} wordt de dobbelsteen van het wapen met één grootte verhoogd (bijvoorbeeld van een d6 naar een d8)."
 			]
 		},
 		{
@@ -2463,15 +3475,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Je krijgt de mogelijkheid om je wapen te doordrenken met de kracht die je van de geesten krijgt. Als je een krachtgevende geest hebt gebonden, kun je al zijn energie in je wapen gieten (en het oproepen als het gemanifesteerd is). De volgende aanval met dat wapen voegt twee keer de extra schade van de geest toe, maar de binding vervalt onmiddellijk."
-			]
+				"Je krijgt het vermogen om je wapen te doordrenken met de kracht die de geesten je schenken. Terwijl je een {@subclassFeature Empowered Spirits|Occultist|kt:o|Shaman|kt:o|1|kt:o|empowered spirit} gebonden hebt, kun je al zijn energie in je wapen gieten (en het terugroepen als het gemanifesteerd is). De volgende aanval met dat wapen voegt tweemaal de extra schade van de geest toe, maar de binding vervalt onmiddellijk."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "While you have an empowered spirit bonded"
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Guidance of the Spirits",
@@ -2482,8 +3511,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2501,8 +3542,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2523,11 +3576,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2545,8 +3604,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2578,13 +3649,34 @@
 						],
 						[
 							"7th",
-							"{@spell orbital stones|KT:O}"
+							"{@spell orbital stones|KibblesTasty:GS}"
 						],
 						[
 							"9th",
 							"{@spell wall of stone}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"earth tremor|xge"
+						],
+						"3": [
+							"earthbind|xge"
+						],
+						"5": [
+							"erupting earth|xge"
+						],
+						"7": [
+							"orbital stones|KibblesTasty:GS"
+						],
+						"9": [
+							"wall of stone"
+						]
+					}
 				}
 			]
 		},
@@ -2597,8 +3689,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2638,6 +3742,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"ice knife|xge"
+						],
+						"3": [
+							"snilloc's snowball swarm|XGE"
+						],
+						"5": [
+							"sleet storm"
+						],
+						"7": [
+							"ice storm"
+						],
+						"9": [
+							"cone of cold"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2649,8 +3774,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2690,6 +3827,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"pyrotechnics|xge"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"wall of fire"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2701,8 +3859,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2734,13 +3904,34 @@
 						],
 						[
 							"7th",
-							"{@spell jumping jolt|KT:O}"
+							"{@spell jumping jolt|KibblesTasty:GS}"
 						],
 						[
 							"9th",
-							"{@spell sky burst|KT:O}"
+							"{@spell sky burst|KibblesTasty:GS}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderwave"
+						],
+						"3": [
+							"gust of wind"
+						],
+						"5": [
+							"lightning bolt"
+						],
+						"7": [
+							"jumping jolt|KibblesTasty:GS"
+						],
+						"9": [
+							"sky burst|KibblesTasty:GS"
+						]
+					}
 				}
 			]
 		},
@@ -2756,18 +3947,34 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Als je een geest aan je hebt gebonden, kun je als bonusactie ervoor zorgen dat hij kracht uitstraalt, waardoor alle wezens binnen een straal van 2 meter van jou (of van de geest als hij op een andere plek is gemanifesteerd) een Wisdom saving throw moeten doen tegen jouw spell save DC, of schade oplopen die gelijk is aan de gemanifesteerde schade."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/hand-sparks-glow-yellow.webp"
 		},
 		{
 			"name": "Rite of Prowess",
@@ -2778,15 +3985,83 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Je kunt een vechtstijl kiezen uit {@optfeature Dueling}, {@optfeature Two-Weapon Fighting}, of {@optfeature Great Weapon Fighting}."
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:O"
+					],
+					"progression": {
+						"*": 1
+					}
+				}
 			]
+		},
+		{
+			"name": "Dueling",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Als je een melee wapen in één hand hebt en geen andere wapens, krijg je een +2 bonus op schaderollen met dat wapen."
+			],
+			"foundryEffects": [
+				{
+					"name": "Fighting Style: Dueling",
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"disabled": true
+				}
+			]
+		},
+		{
+			"name": "Two-Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Als je met twee wapens vecht, kun je je vaardigheidsmodificatie toevoegen aan de schade van de tweede aanval."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-white-blue.webp"
+		},
+		{
+			"name": "Great Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Wanneer je een 1 of 2 gooit op een dobbelsteen voor een aanval met een melee wapen dat je met twee handen hanteert, mag je de dobbelsteen opnieuw gooien en moet je de nieuwe worp gebruiken, zelfs als de nieuwe worp een 1 of een 2 is."
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-steel-yellow.webp"
 		},
 		{
 			"name": "Shaman's Touch",
@@ -2800,11 +4075,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2822,14 +4103,35 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Traditie van de Sjamaan",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Je leert de spreuk {@spell shield}, en het wordt een Occultist spreuk voor jou, maar telt niet mee voor je gekende spreuken."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"shield"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2842,6 +4144,11 @@
 			"entries": [
 				"Je krijgt vaardigheid met {@item alchemist's supplies|PHB|alchemy tools}. Tijdens een lange rust kun je ze gebruiken om een geïmproviseerde {@item potion of healing} te brouwen, waarbij je 1 uur van de lange rust besteedt aan het sudderen ervan. Omdat het een geïmproviseerd drankje is, vervalt het na 24 uur en heeft het geen waarde in goudstukken.",
 				"Tijdens dit proces kun je een spreuk van het 5e niveau gebruiken om er een {@item potion of greater healing|DMG|greater healing potion} van te maken. De verbruikte spell slot wordt teruggewonnen wanneer de lange rust is voltooid zoals normaal."
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				}
 			]
 		},
 		{
@@ -2856,7 +4163,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2877,7 +4185,7 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Blood Rituals"
+						"{@optfeature Blood Rituals|KT:O}"
 					]
 				}
 			],
@@ -2906,7 +4214,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2925,6 +4234,15 @@
 			],
 			"entries": [
 				"Je leert de {@spell speak with dead} spreuk, en het is een Occultist spreuk voor jou, maar telt niet mee voor je bekende spreuken. Je kunt hem uitspreken zonder een spreukgleuf te gebruiken. Als je hem eenmaal op deze manier hebt uitgesproken, moet je een korte of lange rustpauze inlassen voordat je hem weer op deze manier kunt uitspreken."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"speak with dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2950,13 +4268,34 @@
 					"level": {
 						"level": 10,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Je kunt een extra vaardigheid kiezen waarin je een proficiency hebt van Traditionele Expertise. Je vaardigheidsbonus wordt verdubbeld voor elke vaardigheidstoets die je doet en die gebruik maakt van de gekozen vaardigheid. Als je geen van de gekozen vaardigheden beheerst, kun je je in plaats daarvan bekwamen in een van je keuzes."
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
 			]
 		},
 		{
@@ -2971,13 +4310,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Je leert de spreuk {@spell animate dead}. Het is een occultistische spreuk voor jou. Je kunt deze spreuk niet omzetten in een ritueel met {@optfeature Lost Ritual|KT:O}."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"animate dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2989,7 +4338,15 @@
 			],
 			"entries": [
 				"Je leert over een ritueel dat verloren is gegaan in de tijd. Kies een Occultist spreuk die je kent van 5e niveau of lager. Deze spreuk wordt een rituele spreuk voor jou. Je kunt deze spreuk eenmaal als ritueel uitspreken en moet een korte of lange rustperiode inlassen voor je hem opnieuw als ritueel uitspreekt."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/defensive/barrier-shield-dome-pink.webp"
 		},
 		{
 			"name": "Markings of Protections",
@@ -3000,7 +4357,20 @@
 			],
 			"entries": [
 				"Je markeert jezelf met magische symbolen en patronen, die je beschermen tegen kwaad. Je bent onder het effect van de {@spell mage armor} betovering."
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Mage Armor",
+					"changes": [
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "mage"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/symbols/cross-circle-blue.webp"
 		},
 		{
 			"name": "Occult Haste",
@@ -3014,13 +4384,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Je leert de spreuk {@spell haste}. Het is een Occultist spreuk voor jou."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"haste"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3032,6 +4412,15 @@
 			],
 			"entries": [
 				"Je maakt een bezwering tegen bovennatuurlijk kwaad. Als je dit amulet draagt, kun je het gebruiken om {@spell protection from evil and good} te bezweren zonder dat je een spell slot, componenten of concentratie nodig hebt, maar de spreuk duurt een aantal rondes gelijk aan je Wisdom modifier. Je kunt deze betovering ook gebruiken als reactie op een aanval of een redding, maar dan duurt de betovering slechts tot het begin van je volgende beurt."
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"protection from evil and good"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3046,7 +4435,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3067,7 +4457,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3088,13 +4479,26 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Je leert er 10 {@filter cantrips|spells|level=0} uit een klassenlijst naar keuze. Het zijn Occultist spreuken voor jou."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0",
+								"count": 10
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3149,6 +4553,15 @@
 			"entries": [
 				"Je leert de {@spell warding bond} spreuk. Het is een Occultist spreuk voor jou, maar telt niet mee voor je bekende spreuken.",
 				"Wanneer je de warding bond uitvoert kan je kiezen om de kracht van de bond te verhogen. Als je dat doet, en een van de wezens van de bonding doet een Intelligentie-, Wijsheids- of Charisma saving throw, dan doen beide wezens de save. Als een van beiden slaagt, slagen beiden, maar als beiden falen, worden beiden getroffen door de conditie waartegen gered wordt, zelfs als slechts een van beiden het doelwit was. Als beide wezens tegen hetzelfde effect redden, gooien ze niet twee keer, maar beiden slagen als een van beiden slaagt, en beiden zakken als beiden hun reddingsworp niet halen."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"warding bond"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3160,6 +4573,45 @@
 			],
 			"entries": [
 				"Je behaalt vaardigheid met {@filter medium armor|items|source=PHB|type=medium armor} en {@item shield|PHB|shields}."
+			],
+			"armorProficiencies": [
+				{
+					"medium": true,
+					"shield|phb": true
+				}
+			]
+		},
+		{
+			"name": "Reliable Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Als u een 1 of 2 gooit op een dobbelsteen voor een Occultist-cantrip, kunt u de dobbelsteen opnieuw gooien en moet u de nieuwe worp gebruiken, zelfs als de nieuwe worp een 1 of een 2 is."
+			]
+		},
+		{
+			"name": "Habitual Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Wanneer je een Occultist-cantrip uitvoert die concentratie vereist, kun je in plaats daarvan het effect zonder concentratie een aantal rondes laten voortduren dat gelijk is aan je Occultist-niveau (als 1e niveau Occultist zou het bijvoorbeeld eindigen aan het begin van je volgende beurt). Je kunt een spreuk die op deze manier aanhoudt vroegtijdig beëindigen als een actie."
+			]
+		},
+		{
+			"name": "Tactical Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Wanneer je de {@action Ready} actie uitvoert met een Occultist cantrip, is er geen concentratie nodig om de spreuk gereed te houden."
 			]
 		}
 	],
@@ -3269,7 +4721,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell rotting curse|KT:O}, {@spell arms of hadar}"
+							"{@spell rotting curse|KibblesTasty:CC}, {@spell arms of hadar}"
 						],
 						[
 							"3rd",
@@ -3277,7 +4729,7 @@
 						],
 						[
 							"5th",
-							"{@spell animate shadow|KT:O}, {@spell summon shadowspawn|TCE}"
+							"{@spell animate shadow|KibblesTasty:CC}, {@spell summon shadowspawn|TCE}"
 						],
 						[
 							"7th",
@@ -3285,7 +4737,7 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}, {@spell contagion}"
+							"{@spell killing curse|KibblesTasty:CC}, {@spell contagion}"
 						]
 					]
 				},
@@ -3303,7 +4755,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell binding curse|KT:O}, {@spell healing word}"
+							"{@spell binding curse|KibblesTasty:CC}, {@spell healing word}"
 						],
 						[
 							"3rd",
@@ -3319,7 +4771,7 @@
 						],
 						[
 							"9th",
-							"{@spell curse of impotence|KT:O}, {@spell summon celestial|TCE}"
+							"{@spell curse of impotence|KibblesTasty:CC}, {@spell summon celestial|TCE}"
 						]
 					]
 				},
@@ -3337,7 +4789,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell befuddling curse|KT:O}, {@spell entangle}"
+							"{@spell befuddling curse|KibblesTasty:CC}, {@spell entangle}"
 						],
 						[
 							"3rd",
@@ -3353,7 +4805,7 @@
 						],
 						[
 							"9th",
-							"{@spell swapping curse|KT:O}, {@spell wrath of nature|XGE}"
+							"{@spell swapping curse|KibblesTasty:CC}, {@spell wrath of nature|XGE}"
 						]
 					]
 				}
@@ -3383,7 +4835,7 @@
 					"type": "entries",
 					"name": "White Coven",
 					"entries": [
-						"Wanneer je een lange rust voltooit, krijgt je familiar tijdelijke hit points gelijk aan je Wisdom modifier + je tweemaal Occultist level. Terwijl het een of meer tijdelijke hit points heeft, als zijn actie, of als een reactie op een wezen binnen 30 voet van het nemen van schade, kan het teleporteren naar geallieerde doelen geven dat doelwit een aantal van zijn tijdelijke hit points (minimum een)."
+						"Wanneer je een lange rustperiode voltooit, krijgt je familiar tijdelijke hit points gelijk aan je Wisdom modifier + tweemaal je Occultist level. Terwijl hij een of meer tijdelijke trefpunten heeft, kan hij als actie, of als reactie op een wezen binnen 30 voet van hem dat schade oploopt, teleporteren naar geallieerde doelwitten en dat doelwit een deel van zijn tijdelijke trefpunten geven (minimaal één)."
 					]
 				},
 				{
@@ -3419,7 +4871,12 @@
 					]
 				},
 				"Je kunt deze effecten ook toekennen aan een andere spreuk met een bereik dat groter is dan aanraken door het bereik ervan aan te laten raken, of deze effecten toekennen als een actie zonder een spreuk uit te spreken door een doelwit aan te raken (door een melee spreukaanval te doen als het doelwit een onwillig wezen is). Als je het bereik van een vloekspreuk aanraakt, heb je de materiële component voor de spreuk niet meer nodig."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activaiton.condition": "Whenever you cast a spell with a range of touch"
+			},
+			"foundryImg": "icons/magic/death/hand-withered-gray.webp"
 		},
 		{
 			"name": "Master of Curses",
@@ -3489,7 +4946,7 @@
 			"header": 1,
 			"entries": [
 				"{@i 1st-level Tradition of the Hedge Mage feature}",
-				"Je behaalt vaardigheid in een van de volgende vaardigheden naar keuze: {@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature}, of {@skill Survival}. Daarnaast kun je 1 extra cantrip naar keuze selecteren uit {@filter the occultist list|spells|class=Occultist (KT:O)}, of uit de volgende uitgebreide cantrip-spreukenlijst: {@spell blade ward}, {@spell firebolt} , {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. Wanneer u een nieuwe cantrip leert, kunt u naast de Occultst-lijst ook kiezen uit de bovenstaande uitgebreide lijst.",
+				"Je krijgt vaardigheid in één van de volgende vaardigheden naar keuze: {@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature}, of {@skill Survival}. Daarnaast kun je 1 extra cantrips naar keuze selecteren uit {@filter the occultist list|spells|class=Occultist (KT:O)}, of uit de volgende uitgebreide cantrip-spreukenlijst: {@spell blade ward}, {@spell fire bolt}, {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. Als je een nieuwe cantrip leert, kun je naast de Occultst-lijst kiezen uit de bovenstaande uitgebreide lijst.",
 				"Je leert je magie door zelfontdekking, vaak met vallen en opstaan. Omdat je niet weet wat onmogelijk of onpraktisch zou moeten zijn, ontwikkelt je magie unieke aspecten. Je kunt de spreuken die je leert aanpassen met de volgende eigenschap.",
 				{
 					"type": "entries",
@@ -3513,6 +4970,20 @@
 						}
 					]
 				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"animal handling",
+							"medicine",
+							"nature",
+							"survival"
+						],
+						"count": 1
+					}
+				}
 			]
 		},
 		{
@@ -3531,9 +5002,18 @@
 				{
 					"type": "list",
 					"items": [
-						"{@b Reliable Casting.} Als je een 1 of een 2 gooit op een dobbelsteen voor een Occultist-cantrip, mag je de dobbelsteen opnieuw gooien en moet je de nieuwe worp gebruiken, zelfs als de nieuwe worp een 1 of een 2 is.",
-						"{@b Habitual Casting.} Als je een Occultist-cantrip uitvoert waarvoor concentratie vereist is, kun je het effect in plaats daarvan zonder concentratie laten voortduren gedurende een aantal rondes dat gelijk is aan je Occultist-niveau (als 1e niveau Occultist zou het effect bijvoorbeeld eindigen aan het begin van je volgende beurt). Je kunt een spreuk die op deze manier blijft bestaan vroegtijdig beëindigen als een actie.",
-						"{@b Tactical Casting.} Wanneer je de actie Klaar met een Occultist-cantrip uitvoert, is er geen concentratie nodig om de spreuk gereed te houden."
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Reliable Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Habitual Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Tactical Casting|KT:O"
+						}
 					]
 				}
 			]
@@ -3831,7 +5311,15 @@
 						"Dit doet {@i not} het normale nadeel teniet van het meervoudig uitspreken van Augury. Naarmate je verder graaft naar meer informatie, wordt het moeilijker te lezen omdat de stroom onrustiger wordt voor je veranderingen erin."
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"acitvation.cost": 1,
+				"activation.condition": "When you are hit by an attack",
+				"uses.max": "@prof",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/sundries/books/book-clasp-spiral-green.webp"
 		},
 		{
 			"name": "Enlightened Understanding",
@@ -3846,7 +5334,20 @@
 			"entries": [
 				"{@i 6th-level Tradition of the Oracle feature}",
 				"Vanaf het 6e niveau krijg je, als je een Openbaring activeert, tijdelijk evenveel hitpoints als je Wisdom modifier. Bovendien kun je een Openbaring activeren als je een spreuk van het eerste niveau uitvoert die anders niet aan de vereisten voldoet (bijvoorbeeld, een Openbaring van Vuur activeren op een spreuk die geen vuurschade veroorzaakt)"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "Whenever you activate a Revelation",
+				"actionType": "heal",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"@mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/sundries/books/book-open-purple.webp"
 		},
 		{
 			"name": "Master of Prophecy",
@@ -3920,6 +5421,18 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"Wanneer je deze subklasse kiest, krijg je vaardigheid in {@filter simple weapons|items|source=PHB|type=simple weapon}, {@filter light armor|items|source=PHB|type=light armor}, {@filter medium armor|items|source=PHB|type=medium armor} en {@item shield|PHB|shields}. Bovendien neemt je maximale aantal hitpoints toe met 1 en neemt weer toe met 1 telkens wanneer je een level stijgt in deze klasse."
+			],
+			"weaponProficiencies": [
+				{
+					"simple": true
+				}
+			],
+			"armorProficiencies": [
+				{
+					"light": true,
+					"medium": true,
+					"shield|phb": true
+				}
 			]
 		},
 		{
@@ -3935,10 +5448,27 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"Vanaf het 1e niveau kun je als bonusactie een geest aan je zijde roepen. Dit kan een oergeest van vuur, kou of bliksem zijn, of een voorouderlijke geest met stralings- of necrotische kracht. Deze band duurt 10 minuten als hij eenmaal is gevormd. Je kunt een spirit vervroegd loslaten als actie, en hij wordt onmiddellijk losgelaten als je een andere spirit oproept.",
-				"Terwijl een geest met je verbonden is, versterkt hij je mêlee wapenaanvallen, waardoor ze een extra 1d4 schade aanrichten van het type van de geest.",
-				"Als een bonus actie kun je de geest manifesteren binnen 30 meter van je. De gemanifesteerde geest is middelgroot maar spookachtig van aard. Terwijl de geest gemanifesteerd is, mag je telkens als je de aanvalsactie doet een willekeurig aantal aanvallen die je normaal zou kunnen doen, vervangen door melee-spreukaanvallen van je gebonden geest. Melee spell attacks gedaan door de spirit geven 1d4 + je Wisdom modifier schade van hetzelfde spirit type bij een hit. Als bonusactie kun je de geest tot 30 voet in elke richting verplaatsen of hem bij jezelf roepen, waardoor zijn manifestatie eindigt.",
+				"Als een geest met je verbonden is, versterkt hij je aanvallen met melee wapens, waardoor ze {@damage 1d4} extra schade toebrengen aan het type geest.",
+				"Als een bonusactie terwijl hij gebonden is, kun je de geest manifesteren binnen 30 voet van je. De geest is middelgroot maar spectraal van aard terwijl hij gemanifesteerd is. Terwijl de geest gemanifesteerd is, mag je telkens wanneer je de aanvalsactie uitvoert een willekeurig aantal aanvallen die je normaal zou kunnen uitvoeren, vervangen door melee-spreukaanvallen van je gebonden geest. Melee-spreukaanvallen van de geest geven {@damage 1d4} + je Wijsheidsmodificator schade van hetzelfde type geest bij een treffer. Als bonusactie kun je hem tot 30 voet in elke richting verplaatsen of hem bij jezelf terugroepen en zijn manifestatie beëindigen.",
 				"Een gemanifesteerde geest kan zich niet verder dan 60 voet van je verwijderen, en wordt naar je teruggeroepen als je je verder dan 60 voet van hem verwijdert."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 10,
+				"duration.units": "minute",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "msak",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"1d4 + @mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-masked-blue.webp"
 		},
 		{
 			"name": "Empowered Spirits",
@@ -3952,7 +5482,7 @@
 			"header": 2,
 			"entries": [
 				"{@i 3rd-level Tradition of the Shaman feature}",
-				"Als je vanaf het 3e niveau een geest oproept, gebruik je een spell slot van het 1e niveau of hoger om die geest te bekrachtigen. Een bekrachtigde geest voegt extra schade toe aan je wapen en brengt extra gemanifesteerde schade toe. Terwijl de geest wordt opgeroepen en niet wordt gemanifesteerd, win je aan het begin van elke beurt tijdelijke hit points die gelijk zijn aan het niveau van de spell slot die je hebt gebruikt om de geest te bekrachtigen.",
+				"Vanaf 3de niveau kun je, als je een geest oproept, een spreukslot van 1ste niveau of hoger gebruiken om die geest te bekrachtigen. Een bekrachtigde geest voegt extra schade toe aan je wapen en geeft extra gemanifesteerde schade. Terwijl de geest wordt opgeroepen en zich niet manifesteert, krijg je aan het begin van elke beurt tijdelijke hitpoints gelijk aan het niveau van de spreukslot die is gebruikt om de geest te bekrachtigen.",
 				{
 					"type": "table",
 					"colLabels": [
@@ -3970,32 +5500,32 @@
 					"rows": [
 						[
 							"1st",
-							"1d6",
-							"2d4",
+							"{@damage 1d6}",
+							"{@damage 2d4}",
 							"1"
 						],
 						[
 							"2nd",
-							"1d8",
-							"2d6",
+							"{@damage 1d8}",
+							"{@damage 2d6}",
 							"2"
 						],
 						[
 							"3rd",
-							"1d10",
-							"2d6",
+							"{@damage 1d10}",
+							"{@damage 2d6}",
 							"3"
 						],
 						[
 							"4th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"4"
 						],
 						[
 							"5th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"5"
 						]
 					]
@@ -4031,7 +5561,12 @@
 			"entries": [
 				"{@i 14th-level Tradition of the Shaman feature}",
 				"Vanaf 14e niveau kun je als je een spreuk van 1e niveau of hoger uitvoert, een enkele wapenaanval doen als bonusactie. Als je een gemanifesteerde geest hebt, kun je daarmee aanvallen in plaats van een wapenaanval te doen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
 		}
 	],
 	"subclass": [
@@ -4047,7 +5582,140 @@
 				"Master of Curses|Occultist|KT:O|Witch|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"name": "Black Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"rotting curse|KibblesTasty:CC",
+							"arms of hadar"
+						],
+						"3": [
+							"blindness/deafness",
+							"darkness"
+						],
+						"5": [
+							"animate shadow|KibblesTasty:CC",
+							"summon shadowspawn|tce"
+						],
+						"7": [
+							"blight",
+							"evard's black tentacles"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC",
+							"contagion"
+						]
+					}
+				},
+				{
+					"name": "White Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"binding curse|KibblesTasty:CC",
+							"healing word"
+						],
+						"3": [
+							"calm emotions",
+							"hold person"
+						],
+						"5": [
+							"revivify",
+							"mass healing word"
+						],
+						"7": [
+							"banishment",
+							"otiluke's resilient sphere"
+						],
+						"9": [
+							"curse of impotence|KibblesTasty:CC",
+							"summon celestial|tce"
+						]
+					}
+				},
+				{
+					"name": "Green Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"befuddling curse|KibblesTasty:CC",
+							"entangle"
+						],
+						"3": [
+							"alter self",
+							"enlarge/reduce"
+						],
+						"5": [
+							"major image",
+							"summon fey|tce"
+						],
+						"7": [
+							"greater invisibility",
+							"polymorph"
+						],
+						"9": [
+							"swapping curse|KibblesTasty:CC",
+							"wrath of nature|xge"
+						]
+					}
+				}
+			],
+			"subSubclassSpells": {
+				"Black Coven": [
+					"rotting curse|KibblesTasty:CC",
+					"arms of hadar",
+					"blindness/deafness",
+					"darkness",
+					"animate shadow|KibblesTasty:CC",
+					"summon shadowspawn|tce",
+					"blight",
+					"evard's black tentacles",
+					"killing curse|KibblesTasty:CC",
+					"contagion"
+				],
+				"White Coven": [
+					"binding curse|KibblesTasty:CC",
+					"healing word",
+					"calm emotions",
+					"hold person",
+					"revivify",
+					"mass healing word",
+					"banishment",
+					"otiluke's resilient sphere",
+					"curse of impotence|KibblesTasty:CC",
+					"summon celestial|tce"
+				],
+				"Green Coven": [
+					"befuddling curse|KibblesTasty:CC",
+					"entangle",
+					"alter self",
+					"enlarge/reduce",
+					"major image",
+					"summon fey|tce",
+					"greater invisibility",
+					"polymorph",
+					"swapping curse|KibblesTasty:CC",
+					"wrath of nature|xge"
+				]
+			},
+			"subclassSpells": [
+				"find familiar"
+			]
 		},
 		{
 			"name": "Tradition of the Hedge Mage",
@@ -4063,7 +5731,80 @@
 				"Cantrip Mastery|Occultist|KT:O|Hedge Mage|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						],
+						"6": [
+							{
+								"choose": "level=1;2|class=bard;cleric;druid;wizard",
+								"count": 1
+							}
+						]
+					},
+					"expanded": {
+						"1": [
+							"blade ward",
+							"fire bolt",
+							"mage hand",
+							"prestidigitation",
+							"friends",
+							"ray of frost",
+							"shillelagh",
+							"spare the dying",
+							"thaumaturgy",
+							"true strike"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Casting Style",
+					"featureType": [
+						"ktcs"
+					],
+					"progression": {
+						"1": 1
+					}
+				},
+				{
+					"name": "Personalized Path",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"3": 1
+					}
+				},
+				{
+					"name": "Stolen Techniques",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"6": 1
+					}
+				}
+			],
+			"subclassSpells": [
+				"blade ward",
+				"fire bolt",
+				"mage hand",
+				"prestidigitation",
+				"friends",
+				"ray of frost",
+				"shillelagh",
+				"spare the dying",
+				"thaumaturgy",
+				"true strike"
+			]
 		},
 		{
 			"name": "Tradition of the Oracle",
@@ -4077,7 +5818,58 @@
 				"Master of Prophecy|Occultist|KT:O|Oracle|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"guidance",
+							"thaumaturgy",
+							"identify"
+						],
+						"3": [
+							"locate object"
+						],
+						"5": [
+							"clairvoyance"
+						],
+						"7": [
+							"locate creature"
+						],
+						"9": [
+							"legend lore"
+						]
+					},
+					"innate": {
+						"3": [
+							"augury"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Mystery Unveiled",
+					"featureType": [
+						"ktom"
+					],
+					"progression": {
+						"1": 1,
+						"5": 2,
+						"11": 3
+					}
+				}
+			],
+			"subclassSpells": [
+				"guidance",
+				"thaumaturgy",
+				"identify",
+				"locate object",
+				"clairvoyance",
+				"locate creature",
+				"legend lore",
+				"augury"
+			]
 		},
 		{
 			"name": "Tradition of the Shaman",
