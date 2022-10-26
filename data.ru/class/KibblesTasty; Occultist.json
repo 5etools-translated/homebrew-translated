@@ -10,7 +10,8 @@
 				],
 				"convertedBy": [
 					"cellescent",
-					"SasquatchBrah"
+					"SasquatchBrah",
+					"hakr14"
 				],
 				"url": "https://www.gmbinder.com/share/-M-WtrKeZNFdEXq0MKXw",
 				"version": "1.2"
@@ -18,11 +19,19 @@
 		],
 		"optionalFeatureTypes": {
 			"ktor": "Occult Rite",
-			"ktom": "Oracle Mystery"
+			"ktom": "Oracle Mystery",
+			"FS:O": "Fighting Style: Occultist",
+			"ktcs": "Casting Style"
+		},
+		"dependencies": {
+			"spell": [
+				"KibblesTasty:GS",
+				"KibblesTasty:CC"
+			]
 		},
 		"dateAdded": 1603793256,
-		"dateLastModified": 1661285343,
-		"_dateLastModifiedHash": "bc70c83dea"
+		"dateLastModified": 1666668781,
+		"_dateLastModifiedHash": "e4dffdf91c"
 	},
 	"class": [
 		{
@@ -836,6 +845,23 @@
 					"page": 1
 				}
 			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Rites",
+					"progression": {
+						"2": 2,
+						"5": 3,
+						"7": 4,
+						"9": 5,
+						"12": 6,
+						"15": 7,
+						"18": 8
+					}
+				}
+			],
 			"cantripProgression": [
 				3,
 				3,
@@ -983,7 +1009,7 @@
 			"level": 2,
 			"entries": [
 				"По мере того как вы углубляетесь в свою Традицию оккультной магии, вы находите отклонения и ответвления, которые помогают вам специализироваться и совершенствовать свое ремесло наиболее подходящим для вас способом.",
-				"На 2-м уровне вы получаете два {@filter Occult Rites|optionalfeatures|Feature Type=ktor} на выбор. Варианты ваших оккультных обрядов подробно описаны в конце описания подкласса для специфических обрядов подкласса и в конце описания класса для общих обрядов, вы можете выбрать из списка подкласса или класса. Когда вы получаете определенные уровни оккультиста, вы получаете дополнительные оккультные обряды по вашему выбору.",
+				"На 2-м уровне вы получаете два {@filter Occult Rites|optionalfeatures|Feature Type=ktor} на выбор. Варианты оккультных обрядов подробно описаны в конце описания подкласса для конкретных обрядов подкласса и в конце описания класса для общих обрядов, вы можете выбрать из списка подкласса или класса. Когда вы получаете определенные уровни оккультиста, вы получаете дополнительные оккультные обряды по вашему выбору.",
 				"Кроме того, когда вы получаете уровень в этом классе, вы можете выбрать один из известных вам оккультных обрядов и заменить его другим оккультным обрядом, который вы могли бы изучить на этом уровне. Необходимый уровень в оккультном обряде относится к уровню оккультиста, а не к уровню персонажа.",
 				{
 					"type": "inset",
@@ -996,7 +1022,7 @@
 					"type": "inset",
 					"name": "Losing Invested Objects",
 					"entries": [
-						"ЕСЛИ Обряд создает объект, вы можете воссоздать этот объект, если он потерян или уничтожен. Если правила не оговорены в другом месте, то для этого процесса требуется любой базовый предмет, который создал Обряд, и 4 часа времени. Если оригинал все еще существует где-либо, он теряет свои магические свойства, когда вы завершаете этот процесс."
+						"Если Обряд создает объект, вы можете воссоздать этот объект, если он потерян или уничтожен. Если правила не оговорены в другом месте, то для этого процесса требуется любой базовый предмет, который создал Обряд, и 4 часа времени. Если оригинал все еще существует где-либо, он теряет свои магические свойства, когда вы завершаете этот процесс."
 					]
 				}
 			]
@@ -1055,9 +1081,37 @@
 			"classSource": "KT:O",
 			"level": 10,
 			"entries": [
-				"Начиная с 10-го уровня, ваше переданное по наследству знание традиций дает вам опыт в одном из навыков вашей традиции; выберите один из ваших навыков в форме {@skill Animal Handling}, {@skill Arcana}, {@skill Medicine}, {@skill Nature}, {@skill Survival}. Ваш бонус к мастерству удваивается при любой проверке способностей, в которой используется выбранное мастерство. Если вы не владеете ни одним из выбранных навыков, вы можете получить навык по своему выбору.",
+				"Начиная с 10-го уровня, переданное вам по наследству знание традиций дает вам опыт в одном из навыков вашей традиции; выберите один из ваших навыков из {@skill Animal Handling}, {@skill Arcana}, {@skill Medicine}, {@skill Nature}, {@skill Survival}. Ваш бонус к мастерству удваивается при любой проверке способностей, в которой используется выбранное мастерство. Если вы не владеете ни одним из выбранных навыков, вы можете получить навык одного из них по своему выбору.",
 				"Кроме того, когда вы делаете проверку способности Мудрости, вы можете использовать свою Традицию и потратить слот заклинания 1-го уровня, чтобы получить преимущество при проверке."
-			]
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a Wisdom ability check",
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"consume.amount": 1
+			},
+			"foundryImg": "icons/commodities/materials/parchment-secrets.webp"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -1131,6 +1185,17 @@
 			],
 			"entries": [
 				"Вы углубляетесь в свою традицию, совершенствуя новый обряд. Вы можете выбрать {@filter Occult Rite|optionalfeatures|source=KT:O|feature type=ktor} из списка оккультных обрядов класса Occultist. Вы не можете выбрать обряд, который вы уже знаете, или тот, который требует ограничения по уровню, даже если вы уже достигли этого уровня. Вы можете выбрать обряд из списка подклассов, только если у вас есть хотя бы один уровень в этом подклассе."
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Specialist",
+					"progression": {
+						"*": 1
+					}
+				}
 			]
 		}
 	],
@@ -1167,11 +1232,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1189,16 +1260,43 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"В качестве бонусного действия вы можете потратить слот заклинания 1-го уровня, чтобы ваши волосы удлинились, окрепли и ожили на 1 минуту. Пока они оживлены, вы можете использовать свое действие, чтобы атаковать их заклинанием ближнего боя с дальностью 5 футов, нанося 1d8 повреждений при попадании. При достижении 5-го уровня (2d8), 11-го уровня (3d8) и 17-го уровня (4d8) этот показатель увеличивается на 1d8. Если вы попали этой атакой в большое или меньшее существо, в качестве бонусного действия вы можете попытаться {@action grapple} схватить существо за волосы, используя свой модификатор мудрости вместо модификатора силы, чтобы начать и поддерживать захват.",
+				"В качестве бонусного действия вы можете потратить слот заклинания 1-го уровня, чтобы ваши волосы удлинились, окрепли и ожили на 1 минуту. Пока они оживлены, вы можете использовать свое действие, чтобы атаковать их заклинанием ближнего боя с дальностью 5 футов, нанося {@damage 1d8} поражающий урон при попадании. При достижении 5-го уровня ({@damage 2d8}), 11-го уровня ({@damage 3d8}) и 17-го уровня ({@damage 4d8}) этот показатель увеличивается на 1d8. Если вы попали этой атакой в большое или меньшее существо, в качестве бонусного действия вы можете попытаться {@action grapple} схватить существо за волосы, используя свой модификатор мудрости вместо модификатора силы для начала и поддержания захвата.",
 				"Существо {@condition grappled} может парировать захват как обычно, или нанести 5 косых, огненных или кислотных повреждений волосу, чтобы освободиться. Волос имеет AC 12, и вы не получаете урона, когда его атакуют."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"conusme.amount": 1,
+				"actionType": "msak",
+				"damage.parts": [
+					[
+						"floor((@details.level + 7) / 6)",
+						"bludgeoning"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/materials/hair-tuft-grey.webp"
 		},
 		{
 			"name": "Companion Coven",
@@ -1209,8 +1307,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1218,7 +1328,17 @@
 			"entries": [
 				"В качестве ритуала, который занимает 1 час, вы можете образовать связь шабаша с одним желающим существом, у которого есть слоты для заклинаний. Пока вы оба находитесь в сознании и в радиусе 120 футов друг от друга, вы получаете способность делиться слотами заклинаний до уровня слотов заклинаний, равного вашему уровню ведьмы, деленному на четыре (округленно вниз), минимум слоты 1-го уровня. Пока эта связь активна, вы можете использовать свою способность к заклинаниям, чтобы использовать их слоты для заклинаний (расходуя их как обычно), а они могут использовать свою способность к заклинаниям (если она у них есть), чтобы использовать ваши слоты для заклинаний (расходуя их как обычно).",
 				"Кроме того, вы знаете их местоположение в любое время, пока они входят в ваш ковен и находятся в пределах 120 футов от вас. Одновременно вы можете быть связаны этой связью только с одним существом. Вы можете расторгнуть этот союз в любой момент."
-			]
+			],
+			"foundryData": {
+				"activation.type": "hour",
+				"activation.cost": 1,
+				"target.value": 1,
+				"target.type": "creature",
+				"range.value": 120,
+				"range.units": "ft",
+				"formula": "max(1, floor(@classes.occultist.levels / 4))[max spell slot level]"
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-white.webp"
 		},
 		{
 			"name": "Divine Presence",
@@ -1229,8 +1349,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы, Белый ковен",
+						"entry": "Белый шабаш",
 						"entrySummary": "Witch (White Coven)"
 					}
 				}
@@ -1248,8 +1380,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1262,7 +1406,18 @@
 				{
 					"intimidation": true
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.cost": 1,
+				"activation.condition": "A creature within 15 feet attacks you",
+				"range.value": 15,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/perception/eye-slit-red-orange.webp"
 		},
 		{
 			"name": "Familiar Swap",
@@ -1273,15 +1428,42 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Если ваш знакомый находится в пределах 60 футов от вас, в качестве действия вы можете поменяться местами со своим знакомым. Если вы не можете поместиться в пространстве, где находится ваш знакомый, способность не срабатывает, и вы получаете {@damage 1d6} урона силы. Сделав это, вы не сможете сделать это снова, пока не завершите короткий или длинный отдых."
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"activation.condition": "If your familiar is within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft",
+				"actionType": "util",
+				"damage.parts": [
+					[
+						"1d6",
+						"force"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/time/arrows-circling-pink.webp"
 		},
 		{
 			"name": "Form of the Familiar",
@@ -1292,14 +1474,44 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"Вы изучаете заклинание {@spell form of familiar|KT:O} и получаете способность произнести его один раз, не расходуя слот заклинания, в качестве действия. Вы вновь обретаете способность произносить заклинание таким образом после завершения короткого или длительного отдыха."
+				"Вы изучаете заклинание {@spell form of familiar|KibblesTasty:GS} и получаете способность произнести его один раз, не расходуя слот заклинания, в качестве действия. Вы вновь обретаете способность произносить заклинание таким образом после завершения короткого или длительного отдыха."
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": {
+							"rest": {
+								"1e": [
+									"form of familiar|KibblesTasty:GS"
+								]
+							}
+						}
+					},
+					"known": {
+						"_": [
+							"form of familiar|KibblesTasty:GS"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1311,8 +1523,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1352,6 +1576,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"faerie fire"
+						],
+						"3": [
+							"moonbeam"
+						],
+						"5": [
+							"tidal wave|xge"
+						],
+						"7": [
+							"control water"
+						],
+						"9": [
+							"wall of light|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1363,15 +1608,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Если у вас есть знакомый, не обладающий скоростью полета, в качестве действия вы можете заставить его стать существом на один размер больше вас (вплоть до большого размера) на 8 часов. В качестве действия вы можете вернуть вашего знакомого к его нормальному размеру. На 12-м уровне вы можете использовать эту способность, чтобы стать знакомым со скоростью полета. Сделав это однажды, вы не сможете сделать это снова, пока не завершите короткий или длинный отдых. Во время увеличения сила вашего знакомого становится равной 10, если она еще не была выше."
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"duration.value": 8,
+				"duration.units": "hour",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/nature/wolf-paw-glow-large-orange.webp"
 		},
 		{
 			"name": "Skulking Familiar",
@@ -1382,19 +1649,26 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Любой вызванный вами знакомый получает навык {@skill Stealth}, и его передвижение не провоцирует атаки по возможности."
-			],
-			"skillProficiencies": [
-				{
-					"stealth": true
-				}
 			]
 		},
 		{
@@ -1406,8 +1680,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1423,7 +1709,12 @@
 						"Если ваша группа использует {@link KibbleTasty Artificer|https://www.gmbinder.com/share/-LAEn6ZdC6lYUKhQ67Qk}, вы можете использовать правила для Алхимических настоев (Artificer, pg 17) для этой особенности, но можете сделать только 1 зелье во время короткого или длинного отдыха с ним, и используя ваши Известные заклинания в качестве допустимых вариантов выбора."
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "During a short or long rest"
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-purple-glow.webp"
 		},
 		{
 			"name": "Witch's Claws",
@@ -1434,8 +1725,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1449,6 +1752,15 @@
 						"Обратите внимание, что в случае с \"Прикосновением ведьмы\" это позволит вам дважды добавить модификатор мудрости к броскам урона. Это сделано намеренно, и именно поэтому это обряд, а не просто добавление в список заклинаний."
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"primal savagery|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1460,8 +1772,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции ведьмы",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1479,8 +1803,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1488,6 +1824,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"Вы изучаете дополнительное заклинание из списка оккультистов или из расширенного списка, предоставляемого функцией \"Практические навыки\"."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1499,15 +1847,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Когда вы делаете бросок спасброска против известного вам заклинания или делаете проверку способности к заклинанию, чтобы использовать {@spell counterspell} или {@spell dispel magic} против известного вам заклинания, вы имеете преимущество в броске спасброска или проверке способности к заклинанию."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a saving throw against a spell you know, or make a spellcasting ability check to use counterspell or dispel magic against a spell you know"
+			},
+			"foundryImg": "icons/commodities/tech/bulb.webp"
 		},
 		{
 			"name": "Manipulate Magic",
@@ -1521,18 +1886,41 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Вы изучаете одну метамагическую способность у колдуна. Вы можете использовать эту метамагическую способность один раз, восстанавливая способность использовать ее снова после длительного отдыха. Вы можете использовать ее снова, потратив слот заклинания уровня, равного количеству очков колдовства, затраченных на метамагию."
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"MM"
+					],
+					"name": "Manipulate Magic",
+					"progression": {
+						"*": 1
+					}
+				}
+			],
+			"foundryData": {
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/unholy/orb-colllecting-energy-green.webp"
 		},
 		{
 			"name": "Mass Cantrip",
@@ -1543,15 +1931,36 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Когда вы применяете заклинание оккультизма, направленное на одно или несколько существ, вы можете сделать так, чтобы заклинание было направлено на дополнительное количество существ в радиусе действия, равном вашему бонусу мастерства к заклинанию. Сделав это, вы не сможете сделать это снова, пока не завершите длительный отдых. Вы можете потратить слот заклинания, чтобы получить аналогичный эффект, в результате чего заклинание будет нацелено на количество дополнительных существ, равное уровню потраченного слота заклинания."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast an Occultist cantrip that targets one or more creatures",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr",
+				"formula": "@prof[additional targets]"
+			},
+			"foundryImg": "icons/magic/unholy/barrier-fire-pink.webp"
 		},
 		{
 			"name": "Mastered Basics",
@@ -1565,11 +1974,17 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1587,15 +2002,34 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Вы произносили заклинание столько раз, что оно стало для вас привычным. Выберите известное вам заклинание Оккультизма 1-го уровня. Вы можете произнести это заклинание, не расходуя слот заклинания, количество раз, равное половине вашего модификатора мастерства (округлите вверх)."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.max": "ceil(@prof / 2)",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/symbols/runes-carved-stone-yellow.webp"
 		},
 		{
 			"name": "Practiced Reach",
@@ -1606,8 +2040,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1628,11 +2074,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1653,18 +2105,31 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Вы можете сосредоточить весь свой опыт на том, чтобы мощно использовать свою магию. В качестве бонусного действия вы можете войти в состояние сосредоточенной концентрации, как будто концентрируетесь на заклинании. При этом вы получаете преимущество при бросках атаки, сделанных для кантрий, на 1 минуту или до тех пор, пока вы не прекратите концентрацию на этом состоянии."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryImg": "icons/magic/holy/meditation-chi-focus-blue.webp"
 		},
 		{
 			"name": "Simple Magic",
@@ -1678,11 +2143,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1700,8 +2171,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1709,6 +2192,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"Количество известных вам заклинаний увеличивается на единицу."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1723,17 +2218,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции мага ежа",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
-				"Когда вы применяете полезные заклинания, которые могут поднимать вес, воздействовать на области стихий, нацеливаться на область на земле или вызывать незначительные мгновенные эффекты, вы получаете в два раза больше жизни, нацеливаетесь на вдвое большую область или поддерживаете дополнительные мгновенные эффекты."
+				"Когда вы применяете полезные заклинания, которые могут поднимать вес, воздействовать на области стихий, нацеливаться на область на земле или вызывать незначительные мгновенные эффекты, вы поднимаете вдвое больше, нацеливаетесь на вдвое большую область или поддерживаете дополнительный мгновенный эффект."
 			]
 		},
 		{
@@ -1745,8 +2246,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1774,7 +2287,7 @@
 						],
 						[
 							"5th",
-							"{@spell wither|KT:O}"
+							"{@spell wither|KibblesTasty:CC}"
 						],
 						[
 							"7th",
@@ -1782,9 +2295,30 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}"
+							"{@spell killing curse|KibblesTasty:CC}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"false life"
+						],
+						"3": [
+							"gentle repose"
+						],
+						"5": [
+							"wither|KibblesTasty:CC"
+						],
+						"7": [
+							"blight"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC"
+						]
+					}
 				}
 			]
 		},
@@ -1797,8 +2331,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1838,6 +2384,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"continual flame"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"fire shield"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1849,8 +2416,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1890,6 +2469,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"healing word"
+						],
+						"3": [
+							"warding bond"
+						],
+						"5": [
+							"mass healing word"
+						],
+						"7": [
+							"aura of life"
+						],
+						"9": [
+							"mass cure wounds"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1901,8 +2501,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1942,6 +2554,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderous smite"
+						],
+						"3": [
+							"branding smite"
+						],
+						"5": [
+							"blinding smite"
+						],
+						"7": [
+							"staggering smite"
+						],
+						"9": [
+							"banishing smite"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1953,8 +2586,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1994,6 +2639,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"unseen servant"
+						],
+						"3": [
+							"healing spirit|xge"
+						],
+						"5": [
+							"spirit guardians"
+						],
+						"7": [
+							"guardian of faith"
+						],
+						"9": [
+							"raise dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2008,11 +2674,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2020,7 +2692,15 @@
 			"entries": [
 				"Вы можете видеть линии судьбы и определять, когда одна из них вот-вот оборвется. Когда союзник, который может видеть или слышать вас, упадет до 0 хит-пойнтов в результате получения урона, вы можете манипулировать его судьбой с помощью загадочного предупреждения, заставляя его едва избежать гибели, вместо этого упав до 1 хит-пойнта.",
 				"После использования этой способности вы не сможете использовать ее снова, пока не завершите длительный отдых."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When an ally that can see or hear you would drop to 0 hit points as a result of taking damage",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/life/ankh-shadow-green.webp"
 		},
 		{
 			"name": "Divine Miracle",
@@ -2039,6 +2719,18 @@
 			],
 			"entries": [
 				"Вы изучаете одно заклинание {@filter cleric spell|spells|class=cleric} по своему выбору. Заклинание должно быть того уровня, который вы можете выучить, и становится для вас заклинанием оккультиста. Это заклинание не учитывается в ваших известных заклинаниях."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=cleric",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2053,18 +2745,37 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Если у вас есть {@sense blindsight}, вы получаете {@sense truesight} с радиусом действия, равным вашему зрению."
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Truesight",
+					"changes": [
+						{
+							"key": "system.attributes.senses.truesight",
+							"mode": "UPGRADE",
+							"value": "@attributes.senses.blindsight"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp"
 		},
 		{
 			"name": "Oracle's Sight",
@@ -2075,14 +2786,31 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Вы получаете {@sense blindsight} с радиусом действия 15 футов. Если состояние {@condition Blinded} влияет на вас более минуты, то дальность этого зрения удваивается, пока вы находитесь под этим эффектом."
+			],
+			"senses": [
+				{
+					"blindsight": 15
+				}
 			]
 		},
 		{
@@ -2095,17 +2823,42 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Вы можете напрямую касаться негативной энергии. Когда вы произносите заклинание 1-го уровня или выше, наносящее холодный или некротический урон, вы можете добавить свой модификатор мудрости к одному броску урона этого заклинания. Привлечение силы смерти таким образом временно ослабляет вас, снижая вашу скорость передвижения на 5 футов до конца вашего следующего хода. Если вы используете это заклинание, будучи уже ослабленным подобным образом, его продолжительность увеличивается, а эффект суммируется."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals cold or necrotic damage",
+				"ability": "wis",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"@mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/magic/death/weapon-scythe-rune-green.webp"
 		},
 		{
 			"name": "Revelation of Fire",
@@ -2117,17 +2870,43 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Ваша сила притягивает пламя вокруг вас. Когда вы произносите заклинание 1-го уровня или выше, наносящее урон огнем, вы можете окутать себя пламенем до начала вашего следующего хода. Вы получаете половину укрытия, и любое существо, которое поражает вас оружием ближнего боя или атакой или заканчивает свой ход в радиусе 5 футов от вас, получает 1d6 урона огнем. В начале вашего следующего хода вы получаете 1 урон от огня. Заклинание может вызвать только одно откровение. Если действует несколько откровений, выберите одно."
-			]
+				"Ваша сила притягивает пламя вокруг вас. Когда вы произносите заклинание 1-го уровня или выше, наносящее урон огнем, вы можете окутать себя пламенем до начала вашего следующего хода. Вы получаете полуприкрытие, и любое существо, которое поражает вас оружием ближнего боя, атакует или заканчивает свой ход в радиусе 5 футов от вас, получает {@damage 1d6} урон от огня. В начале вашего следующего хода вы получаете 1 урон от огня. Заклинание может вызвать только одно откровение. Если действует несколько откровений, выберите одно."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals fire damage",
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/barrier-wall-flame-ring-yellow.webp"
 		},
 		{
 			"name": "Revelation of Life",
@@ -2139,10 +2918,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2162,10 +2953,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2173,7 +2976,21 @@
 			"entries": [
 				"Души усопших повсюду. Когда вы произносите заклинание 1-го уровня или выше, вы можете призвать доброжелательного или мучимого духа в пустое пространство, которое вы можете видеть в радиусе 30 футов, заполняя 5 футовый куб.",
 				"Первое существо, которое войдет в пространство духа или закончит свой ход в пространстве духа, получает количество хит-пойнтов, равное 1d4 + уровень заклинания, если вы вызвали доброжелательного духа, или получает урон, равный 1d4 + уровень заклинания, если дух был мучительным. Заклинание может вызвать только одно откровение. Если применимо несколько откровений, выберите одно."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that restores hit points or grants temporary hit points",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "heal",
+				"damage.parts": [
+					[
+						"@classes.occultist.levels",
+						"heal"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-large-white.webp"
 		},
 		{
 			"name": "Revelation of War",
@@ -2185,10 +3002,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of War"
+						"{@optfeature Mystery of War|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2196,7 +3025,12 @@
 			"entries": [
 				"В войне и конфликте вы видите истинную сущность совершенного конфликта. Раз в ход, когда вы произносите заклинание 1-го уровня или выше, вы можете совершить одну атаку оружием ближнего боя в рамках того же действия. Заклинание может вызвать только одно откровение. Если применимо несколько откровений, выберите одно.",
 				"Кроме того, при атаке оружием вы можете использовать свой модификатор мудрости, вместо силы или ловкости, для бросков атаки и урона."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/skills/melee/blade-tip-energy-green.webp"
 		},
 		{
 			"name": "Touch of Fire",
@@ -2208,17 +3042,54 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Вы изучаете заклинание {@spell burn|KT:O}. Кроме того, в качестве бонусного действия вы можете нанести 1 урон огнем и заставить оружие, которое вы несете, вспыхнуть в течение 1 минуты или пока вы не отпустите его. В течение всего времени оно излучает яркий свет на 10 футов и тусклый свет еще на 10 футов. Атаки, нанесенные оружием, пока оно горит, наносят дополнительные 1d6 урона огнем."
-			]
+				"Вы изучаете заклинание {@spell burn|KibblesTasty:CC}. Кроме того, в качестве бонусного действия вы можете нанести 1 урон огнем и заставить оружие, которое вы несете, вспыхнуть в течение 1 минуты или пока вы не отпустите его. В течение всего времени оно излучает яркий свет на 10 футов и тусклый свет еще на 10 футов. Атаки, нанесенные оружием, пока оно горит, наносят дополнительный {@damage 1d6} урон огнем."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"burn|KibblesTasty:CC"
+						]
+					}
+				}
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					],
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-blood-red.webp"
 		},
 		{
 			"name": "Truth of Death",
@@ -2230,17 +3101,34 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Марш смерти неумолим. Когда вы наносите существу некротический урон, вы можете наложить на него прикосновение смерти, не позволяя ему восстанавливать хит-пойнты до начала вашего следующего хода. Когда вы это делаете, связь с силой смерти означает, что и вы не сможете восстановить хит-пойнты до начала вашего следующего хода."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you deal necrotic damage to a creature"
+			},
+			"foundryImg": "icons/magic/death/hand-undead-skeleton-fire-green.webp"
 		},
 		{
 			"name": "Truth of Fire",
@@ -2252,17 +3140,41 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Все горит. При броске урона от огня вы можете перебросить любое количество кубиков урона от огня. Вы должны использовать новые броски. Если вы перебросили все кубики, то урон обходит сопротивление огню, которое есть у цели. Вы получаете 1 урон от огня за каждый переброшенный кубик, этому урону нельзя противостоять."
-			]
+				"Все горит. Когда вы бросаете урон от огня, вы можете перебросить любое количество кубиков урона от огня. Вы должны использовать новые броски. Если вы перебросили все кубики броска урона, урон обходит сопротивление огню, которое есть у цели. Вы получаете 1 урон от огня за каждый переброшенный кубик, этому урону нельзя противостоять."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you roll fire damage",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/blast-jet-stream-splash.webp"
 		},
 		{
 			"name": "Truth of Life",
@@ -2274,17 +3186,36 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Дыхание жизни разделяют все существа. Если существо умирает в радиусе 60 футов от вас, вы можете использовать свою реакцию, чтобы передать часть рассеивающейся жизненной силы другому существу в радиусе 60 футов от вас (включая себя). Целевое существо получает хит-пойнты, равные вашему модификатору мудрости или максимальному количеству хит-пойнтов этого существа (в зависимости от того, что меньше)."
-			]
+				"Дыхание жизни разделяют все существа. Когда существо умирает в радиусе 60 футов от вас, вы можете использовать свою реакцию, чтобы передать часть рассеивающейся жизненной силы другому существу в радиусе 60 футов от вас (включая себя). Целевое существо получает хит-пойнты, равные вашему модификатору мудрости или максимальному количеству хит-пойнтов этого существа (в зависимости от того, что меньше)."
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.condition": "When a creature breathes their last within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft"
+			},
+			"foundryImg": "icons/magic/life/heart-broken-red.webp"
 		},
 		{
 			"name": "Truth of Souls",
@@ -2296,10 +3227,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2317,17 +3260,23 @@
 			],
 			"prerequisite": [
 				{
+					"feature": [
+						"{@optfeature Mystery of War|KT:O}"
+					],
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
-					"feature": [
-						"Mystery of War"
-					],
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2348,11 +3297,17 @@
 					"level": {
 						"level": 9,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиция оракула",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2373,17 +3328,34 @@
 					"level": {
 						"level": 11,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Вы изучаете заклинания {@spell investiture of flame|XGE|investiture of fire}, {@spell investiture of ice|XGE} и {@spell investiture of stone|XGE}. Для вас это заклинания оккультистов. Когда вы произносите одно из этих заклинаний, вы можете выбрать сокращение длительности заклинания до 1 минуты. Когда вы это делаете, эти заклинания не требуют концентрации."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"investiture of flame|XGE",
+							"investiture of ice|XGE",
+							"investiture of stone|XGE"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2398,11 +3370,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2421,15 +3399,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"В качестве действия вы можете взорвать проявленный дух, заставив его вспыхнуть мощной вспышкой. Все существа в радиусе 10 футов от него должны сделать бросок на ловкость. При неудачном спасброске цель получает урон, равный удвоенному урону проявленного духа. Если дух был наделен силой слота заклинаний, при успешном спасброске цель получает вдвое меньше урона. Дух немедленно освобождается и исчезает."
-			]
+				"В качестве действия вы можете взорвать {@subclassFeature Call Spirit|Occultist|kt:o|Shaman|kt:o|1|kt:o|manifested spirit}, заставив его вспыхнуть мощной вспышкой. Все существа в радиусе 10 футов от него должны сделать бросок на ловкость. При неудачном спасброске цель получает урон, равный удвоенному урону духа. Если дух был наделен силой слота заклинаний, при успешном спасброске цель получает вдвое меньше урона. Дух немедленно освобождается и исчезает."
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"range.value": 10,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "dex",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/explosion-star-glow-silhouette.webp"
 		},
 		{
 			"name": "Elemental Weapons",
@@ -2441,17 +3441,29 @@
 			"prerequisite": [
 				{
 					"spell": [
-						"fists of fire|KT:O#c",
-						"ice weapon|KT:O#c"
+						"fists of fire|KibblesTasty:CC#c",
+						"ice weapon|KibblesTasty:CC#c"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Когда вы создаете оружие с {@spell fists of fire|KT:O} или {@spell ice weapon|KT:O}, кубик урона оружия увеличивается на один размер (например, с d6 до d8)."
+				"Когда вы создаете оружие с {@spell fists of fire|KibblesTasty:CC} или {@spell ice weapon|KibblesTasty:CC}, кубик урона оружия увеличивается на один размер (например, с d6 до d8)."
 			]
 		},
 		{
@@ -2463,15 +3475,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Вы получаете способность наделять свое оружие силой, дарованной вам духами. Пока вы связаны с духом, наделенным силой, вы можете влить всю его энергию в свое оружие (вызывая его, если он проявлен). Следующая атака этим оружием добавляет удвоенный дополнительный урон от духа, но связь немедленно прекращается."
-			]
+				"Вы получаете способность наделять свое оружие силой, дарованной вам духами. Пока у вас есть {@subclassFeature Empowered Spirits|Occultist|kt:o|Shaman|kt:o|1|kt:o|empowered spirit} связанный дух, вы можете влить всю его энергию в свое оружие (вызывая его, если он проявлен). Следующая атака этим оружием добавляет вдвое больше дополнительного урона от духа, но действие связи немедленно прекращается."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "While you have an empowered spirit bonded"
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Guidance of the Spirits",
@@ -2482,8 +3511,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2501,8 +3542,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2523,11 +3576,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2545,8 +3604,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2578,13 +3649,34 @@
 						],
 						[
 							"7th",
-							"{@spell orbital stones|KT:O}"
+							"{@spell orbital stones|KibblesTasty:GS}"
 						],
 						[
 							"9th",
 							"{@spell wall of stone}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"earth tremor|xge"
+						],
+						"3": [
+							"earthbind|xge"
+						],
+						"5": [
+							"erupting earth|xge"
+						],
+						"7": [
+							"orbital stones|KibblesTasty:GS"
+						],
+						"9": [
+							"wall of stone"
+						]
+					}
 				}
 			]
 		},
@@ -2597,8 +3689,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2638,6 +3742,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"ice knife|xge"
+						],
+						"3": [
+							"snilloc's snowball swarm|XGE"
+						],
+						"5": [
+							"sleet storm"
+						],
+						"7": [
+							"ice storm"
+						],
+						"9": [
+							"cone of cold"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2649,8 +3774,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2690,6 +3827,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"pyrotechnics|xge"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"wall of fire"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2701,8 +3859,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2734,13 +3904,34 @@
 						],
 						[
 							"7th",
-							"{@spell jumping jolt|KT:O}"
+							"{@spell jumping jolt|KibblesTasty:GS}"
 						],
 						[
 							"9th",
-							"{@spell sky burst|KT:O}"
+							"{@spell sky burst|KibblesTasty:GS}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderwave"
+						],
+						"3": [
+							"gust of wind"
+						],
+						"5": [
+							"lightning bolt"
+						],
+						"7": [
+							"jumping jolt|KibblesTasty:GS"
+						],
+						"9": [
+							"sky burst|KibblesTasty:GS"
+						]
+					}
 				}
 			]
 		},
@@ -2756,18 +3947,34 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Пока дух связан с вами, в качестве бонусного действия вы можете заставить его излучать силу, заставляя всех существ в радиусе 5 футов от вас (или от него, если он проявляется в другом месте) сделать бросок спасброска по Мудрости против вашего DC спасброска заклинания или получить урон, равный его проявленному урону."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/hand-sparks-glow-yellow.webp"
 		},
 		{
 			"name": "Rite of Prowess",
@@ -2778,15 +3985,83 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Вы можете выбрать один боевой стиль из {@optfeature Dueling}, {@optfeature Two-Weapon Fighting} или {@optfeature Great Weapon Fighting}."
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:O"
+					],
+					"progression": {
+						"*": 1
+					}
+				}
 			]
+		},
+		{
+			"name": "Dueling",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Когда вы держите оружие ближнего боя в одной руке и не имеете другого оружия, вы получаете бонус +2 к броскам урона этим оружием."
+			],
+			"foundryEffects": [
+				{
+					"name": "Fighting Style: Dueling",
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"disabled": true
+				}
+			]
+		},
+		{
+			"name": "Two-Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Когда вы участвуете в бою двумя оружиями, вы можете добавить свой модификатор способности к урону второй атаки."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-white-blue.webp"
+		},
+		{
+			"name": "Great Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Если при атаке оружием ближнего боя, которое вы держите двумя руками, выпадает 1 или 2 на кубике урона, вы можете перебросить кубик и должны использовать новый бросок, даже если новый бросок равен 1 или 2."
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-steel-yellow.webp"
 		},
 		{
 			"name": "Shaman's Touch",
@@ -2800,11 +4075,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2822,14 +4103,35 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Традиции шамана",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Вы изучаете заклинание {@spell shield}, и оно становится для вас заклинанием оккультиста, но не засчитывается в ваши известные заклинания."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"shield"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2842,6 +4144,11 @@
 			"entries": [
 				"Вы получаете навыки владения {@item alchemist's supplies|PHB|alchemy tools}. Во время длительного отдыха вы можете использовать их для приготовления импровизированного {@item potion of healing}, потратив 1 час длительного отдыха на его кипячение. Импровизированное снадобье истекает через 24 часа и не имеет стоимости в золотых единицах.",
 				"Во время этого процесса вы можете потратить заклинание 5-го уровня, чтобы сделать его {@item potion of greater healing|DMG|greater healing potion}. Расходованный слот заклинания восстанавливается, когда длительный отдых завершается обычным образом."
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				}
 			]
 		},
 		{
@@ -2856,7 +4163,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2877,7 +4185,7 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Blood Rituals"
+						"{@optfeature Blood Rituals|KT:O}"
 					]
 				}
 			],
@@ -2906,7 +4214,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2925,6 +4234,15 @@
 			],
 			"entries": [
 				"Вы изучаете заклинание {@spell speak with dead}, и оно является для вас заклинанием оккультиста, но не учитывается в ваших известных заклинаниях. Вы можете произнести его, не тратя слот заклинания. После того, как вы произнесли заклинание таким образом, вы должны завершить короткий или долгий отдых, прежде чем сможете произнести его снова."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"speak with dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2950,13 +4268,34 @@
 					"level": {
 						"level": 10,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Вы можете выбрать дополнительный навык, которым вы владеете, из традиционной экспертизы. Ваш бонус к мастерству удваивается при любой проверке способностей, в которой используется выбранное мастерство. Если вы не владеете ни одним из выбранных навыков, вы можете получить навык в одном из выбранных вами."
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
 			]
 		},
 		{
@@ -2971,13 +4310,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Вы изучаете заклинание {@spell animate dead}. Для вас это заклинание является оккультистским. Вы не можете превратить это заклинание в ритуал с {@optfeature Lost Ritual|KT:O}."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"animate dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2989,7 +4338,15 @@
 			],
 			"entries": [
 				"Вы узнаете о ритуале, утраченном со временем. Выберите известное вам оккультистское заклинание 5-го уровня или ниже. Это заклинание становится для вас ритуальным заклинанием. Вы можете произнести это заклинание как ритуальное один раз и должны завершить короткий или долгий отдых, прежде чем произнести его как ритуальное снова."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/defensive/barrier-shield-dome-pink.webp"
 		},
 		{
 			"name": "Markings of Protections",
@@ -3000,7 +4357,20 @@
 			],
 			"entries": [
 				"Вы помечаете себя магическими символами и узорами, защищающими вас от вреда. На вас действует заклинание {@spell mage armor}."
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Mage Armor",
+					"changes": [
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "mage"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/symbols/cross-circle-blue.webp"
 		},
 		{
 			"name": "Occult Haste",
@@ -3014,13 +4384,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Вы изучаете заклинание {@spell haste}. Для вас это заклинание оккультизма."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"haste"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3032,6 +4412,15 @@
 			],
 			"entries": [
 				"Вы создаете защиту от сверхъестественного вреда. Пока вы носите этот амулет, вы можете использовать его для заклинания {@spell protection from evil and good}, не тратя слот заклинания, компоненты и не требуя концентрации, но заклинание длится количество раундов, равное вашему модификатору мудрости. Вы можете произнести это заклинание как реакцию на атаку или спасбросок, от которого вы получите пользу, но в этом случае оно действует только до начала вашего следующего хода."
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"protection from evil and good"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3046,7 +4435,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3067,7 +4457,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3088,13 +4479,26 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Вы изучаете 10 {@filter cantrips|spells|level=0} заклинаний из любого списка классов по вашему выбору. Для вас это заклинания оккультистов."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0",
+								"count": 10
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3149,6 +4553,15 @@
 			"entries": [
 				"Вы изучаете заклинание {@spell warding bond}. Это заклинание является для вас заклинанием оккультистов, но не учитывается в ваших известных заклинаниях.",
 				"Когда вы накладываете заклинание \"Охраняющая связь\", вы можете выбрать увеличение силы связи. Когда вы это сделаете, если одно из связанных существ сделает бросок спасброска на интеллект, мудрость или харизму, оба существа сделают этот бросок. Если одно из них спасется, то оба пройдут спасбросок, но если оба провалятся, то оба будут затронуты состоянием, от которого спасаются, даже если целью был только один из них. Если оба существа спасаются от одного и того же эффекта, они не бросают дважды, но оба проходят, если одно из них прошло бросок спасения, и оба проваливаются, если оба провалили бросок спасения."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"warding bond"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3160,6 +4573,45 @@
 			],
 			"entries": [
 				"Вы получаете навыки владения {@filter medium armor|items|source=PHB|type=medium armor} и {@item shield|PHB|shields}."
+			],
+			"armorProficiencies": [
+				{
+					"medium": true,
+					"shield|phb": true
+				}
+			]
+		},
+		{
+			"name": "Reliable Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Когда вы бросаете 1 или 2 на кубике урона для оккультистского заклинания, вы можете перебросить кубик и должны использовать новый бросок, даже если он равен 1 или 2."
+			]
+		},
+		{
+			"name": "Habitual Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Когда вы разыгрываете заклинание оккультиста, требующее концентрации, вы можете вместо этого заставить эффект сохраняться без концентрации количество раундов, равное вашему уровню оккультиста (например, если вы оккультист 1-го уровня, эффект закончится в начале вашего следующего хода). Вы можете завершить заклинание, сохраняющееся таким образом, досрочно, как действие."
+			]
+		},
+		{
+			"name": "Tactical Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Когда вы совершаете действие {@action Ready} с оккультистским заклинанием, вам не требуется концентрация, чтобы держать заклинание готовым."
 			]
 		}
 	],
@@ -3269,7 +4721,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell rotting curse|KT:O}, {@spell arms of hadar}"
+							"{@spell rotting curse|KibblesTasty:CC}, {@spell arms of hadar}"
 						],
 						[
 							"3rd",
@@ -3277,7 +4729,7 @@
 						],
 						[
 							"5th",
-							"{@spell animate shadow|KT:O}, {@spell summon shadowspawn|TCE}"
+							"{@spell animate shadow|KibblesTasty:CC}, {@spell summon shadowspawn|TCE}"
 						],
 						[
 							"7th",
@@ -3285,7 +4737,7 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}, {@spell contagion}"
+							"{@spell killing curse|KibblesTasty:CC}, {@spell contagion}"
 						]
 					]
 				},
@@ -3303,7 +4755,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell binding curse|KT:O}, {@spell healing word}"
+							"{@spell binding curse|KibblesTasty:CC}, {@spell healing word}"
 						],
 						[
 							"3rd",
@@ -3319,7 +4771,7 @@
 						],
 						[
 							"9th",
-							"{@spell curse of impotence|KT:O}, {@spell summon celestial|TCE}"
+							"{@spell curse of impotence|KibblesTasty:CC}, {@spell summon celestial|TCE}"
 						]
 					]
 				},
@@ -3337,7 +4789,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell befuddling curse|KT:O}, {@spell entangle}"
+							"{@spell befuddling curse|KibblesTasty:CC}, {@spell entangle}"
 						],
 						[
 							"3rd",
@@ -3353,7 +4805,7 @@
 						],
 						[
 							"9th",
-							"{@spell swapping curse|KT:O}, {@spell wrath of nature|XGE}"
+							"{@spell swapping curse|KibblesTasty:CC}, {@spell wrath of nature|XGE}"
 						]
 					]
 				}
@@ -3383,7 +4835,7 @@
 					"type": "entries",
 					"name": "White Coven",
 					"entries": [
-						"Когда вы завершаете длительный отдых, ваш знакомый получает временные очки попадания, равные вашему модификатору мудрости + ваш удвоенный уровень оккультиста. Пока он имеет одно или более временных очков попадания, в качестве действия или реакции на получение урона существом в радиусе 30 футов от него, он может телепортироваться к союзным целям, давая им часть своих временных очков попадания (минимум одно)."
+						"Когда вы завершаете длительный отдых, ваш знакомый получает временные очки попадания, равные вашему модификатору мудрости + удвоенный уровень оккультиста. Пока он имеет одно или более временных очков попадания, в качестве действия или реакции на получение урона существом в радиусе 30 футов от него, он может телепортироваться к союзным целям, передавая им часть своих временных очков попадания (минимум одно)."
 					]
 				},
 				{
@@ -3419,7 +4871,12 @@
 					]
 				},
 				"Вы также можете наделить этими эффектами другое заклинание с радиусом действия больше, чем касание, сделав его радиус действия касанием, или наделить этими эффектами в качестве действия без произнесения заклинания, коснувшись цели (сделав для этого атаку заклинанием ближнего боя, если цель - безвольное существо). Если вы сделаете радиус действия заклинания проклятия касанием, вам больше не понадобится материальный компонент для заклинания."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activaiton.condition": "Whenever you cast a spell with a range of touch"
+			},
+			"foundryImg": "icons/magic/death/hand-withered-gray.webp"
 		},
 		{
 			"name": "Master of Curses",
@@ -3489,7 +4946,7 @@
 			"header": 1,
 			"entries": [
 				"{@i 1st-level Tradition of the Hedge Mage feature}",
-				"Вы приобретаете мастерство в одном из следующих навыков: {@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature} или {@skill Survival}. Кроме того, вы можете выбрать 1 дополнительное заклинание на выбор из {@filter the occultist list|spells|class=Occultist (KT:O)} или из следующего расширенного списка заклинаний: {@spell blade ward}, {@spell firebolt} , {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. Когда вы изучаете новое заклинание, вы можете выбрать его из вышеприведенного расширенного списка в дополнение к списку оккультистов.",
+				"Вы приобретаете мастерство в одном из следующих навыков: {@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature} или {@skill Survival}. Кроме того, вы можете выбрать 1 дополнительное заклинание на выбор из {@filter the occultist list|spells|class=Occultist (KT:O)} или из следующего расширенного списка заклинаний: {@spell blade ward}, {@spell fire bolt}, {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. Когда вы изучаете новое заклинание, вы можете выбрать его из вышеприведенного расширенного списка в дополнение к списку оккультистов.",
 				"Вы учитесь своей магии путем самопознания, часто методом проб и ошибок. Не зная, что должно быть невозможно или непрактично, ваша магия приобретает уникальные аспекты. Вы можете изменять изученные заклинания с помощью следующей особенности.",
 				{
 					"type": "entries",
@@ -3513,6 +4970,20 @@
 						}
 					]
 				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"animal handling",
+							"medicine",
+							"nature",
+							"survival"
+						],
+						"count": 1
+					}
+				}
 			]
 		},
 		{
@@ -3531,9 +5002,18 @@
 				{
 					"type": "list",
 					"items": [
-						"{@b Reliable Casting.} Когда вы бросаете 1 или 2 на кубике урона для оккультистского заклинания, вы можете перебросить кубик и должны использовать новый бросок, даже если новый бросок равен 1 или 2.",
-						"{@b Habitual Casting.} Когда вы разыгрываете заклинание оккультиста, требующее концентрации, вы можете вместо этого заставить эффект сохраняться без концентрации количество раундов, равное вашему уровню оккультиста (например, если вы оккультист 1-го уровня, эффект закончится в начале вашего следующего хода). Вы можете завершить заклинание, сохраняющееся таким образом, досрочно, как действие.",
-						"{@b Tactical Casting.} Когда вы выполняете действие \"Готовность\" с оккультистским заклинанием, не требуется концентрация, чтобы держать заклинание в готовности."
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Reliable Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Habitual Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Tactical Casting|KT:O"
+						}
 					]
 				}
 			]
@@ -3831,7 +5311,15 @@
 						"Это {@i not} отменяет обычный недостаток многократного применения аугурии. По мере того, как вы углубляетесь в информацию, ее становится все труднее читать, поскольку поток становится более бурным для ваших изменений в нем."
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"acitvation.cost": 1,
+				"activation.condition": "When you are hit by an attack",
+				"uses.max": "@prof",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/sundries/books/book-clasp-spiral-green.webp"
 		},
 		{
 			"name": "Enlightened Understanding",
@@ -3846,7 +5334,20 @@
 			"entries": [
 				"{@i 6th-level Tradition of the Oracle feature}",
 				"Начиная с 6-го уровня, всякий раз, когда вы активируете Откровение, вы получаете временные хит-пойнты, равные вашему модификатору мудрости. Кроме того, вы можете вызвать Откровение, когда произносите заклинание 1-го уровня, которое в противном случае не соответствует его требованиям (например, вызвать Откровение огня на заклинание, которое не наносит урон огнем)."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "Whenever you activate a Revelation",
+				"actionType": "heal",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"@mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/sundries/books/book-open-purple.webp"
 		},
 		{
 			"name": "Master of Prophecy",
@@ -3920,6 +5421,18 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"Когда вы выбираете этот подкласс, вы получаете мастерство в {@filter simple weapons|items|source=PHB|type=simple weapon}, {@filter light armor|items|source=PHB|type=light armor}, {@filter medium armor|items|source=PHB|type=medium armor} и {@item shield|PHB|shields}. Кроме того, ваш максимум хит-пойнтов увеличивается на 1 и снова увеличивается на 1 каждый раз, когда вы получаете уровень в этом классе."
+			],
+			"weaponProficiencies": [
+				{
+					"simple": true
+				}
+			],
+			"armorProficiencies": [
+				{
+					"light": true,
+					"medium": true,
+					"shield|phb": true
+				}
 			]
 		},
 		{
@@ -3935,10 +5448,27 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"Начиная с 1-го уровня, в качестве бонусного действия вы можете призвать на свою сторону духа. Это может быть первобытный дух огня, холода или молнии, или дух предков с лучевой или некротической силой. Эта связь длится 10 минут. Вы можете отпустить духа досрочно, как действие, и он немедленно освободится, если вы вызовете другого духа.",
-				"Пока дух связан с вами, он усиливает ваши атаки оружием ближнего боя, нанося дополнительные 1d4 урона по типу духа.",
-				"В качестве бонусного действия, пока он связан, вы можете вызвать дух в радиусе 30 футов от вас. Во время проявления дух имеет средний размер и спектральную природу. Пока дух проявлен, каждый раз, когда вы совершаете действие атаки, вы можете заменить любое количество атак, которые вы обычно могли бы совершить, атаками заклинаниями ближнего боя от связанного с вами духа. Атаки заклинаниями духа в ближнем бою наносят 1d4 + ваш модификатор мудрости урон того же типа духа при попадании. В качестве бонусного действия вы можете переместить его на расстояние до 30 футов в любом направлении или вызвать его к себе, завершив его проявление.",
+				"Пока дух связан с вами, он усиливает ваши атаки оружием ближнего боя, нанося дополнительные {@damage 1d4} повреждения типа духа.",
+				"В качестве бонусного действия, пока он связан, вы можете вызвать дух в радиусе 30 футов от вас. Во время проявления дух имеет средний размер и спектральную природу. Пока дух проявлен, каждый раз, когда вы совершаете действие атаки, вы можете заменить любое количество атак, которые вы обычно могли бы совершить, атаками заклинаниями ближнего боя от связанного с вами духа. Атаки заклинаниями духа в ближнем бою наносят {@damage 1d4} + ваш модификатор мудрости урон того же типа духа при попадании. В качестве бонусного действия вы можете переместить его на расстояние до 30 футов в любом направлении или вызвать его к себе, завершив его проявление.",
 				"Проявленный дух не может отойти от вас на расстояние более 60 футов и отзывается к вам, если вы отходите от него на расстояние более 60 футов."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 10,
+				"duration.units": "minute",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "msak",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"1d4 + @mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-masked-blue.webp"
 		},
 		{
 			"name": "Empowered Spirits",
@@ -3952,7 +5482,7 @@
 			"header": 2,
 			"entries": [
 				"{@i 3rd-level Tradition of the Shaman feature}",
-				"Начиная с 3-го уровня, когда вы вызываете духа, вы тратите слот заклинания 1-го уровня или выше, чтобы наделить его силой. Вызванный дух добавляет дополнительный урон вашему оружию и наносит дополнительный урон от проявленного. Пока дух призван и не проявлен, вы получаете временные хит-пойнты, равные уровню слота заклинания, потраченного на наделение силой, в начале каждого вашего хода.",
+				"Начиная с 3-го уровня, когда вы вызываете духа, вы можете потратить слот заклинания 1-го уровня или выше, чтобы наделить его силой. Вызванный дух добавляет дополнительный урон вашему оружию и наносит дополнительный урон от проявленного. Пока дух призван и не проявлен, вы получаете временные хит-пойнты, равные уровню слота заклинания, потраченного на силу, в начале каждого вашего хода.",
 				{
 					"type": "table",
 					"colLabels": [
@@ -3970,32 +5500,32 @@
 					"rows": [
 						[
 							"1st",
-							"1d6",
-							"2d4",
+							"{@damage 1d6}",
+							"{@damage 2d4}",
 							"1"
 						],
 						[
 							"2nd",
-							"1d8",
-							"2d6",
+							"{@damage 1d8}",
+							"{@damage 2d6}",
 							"2"
 						],
 						[
 							"3rd",
-							"1d10",
-							"2d6",
+							"{@damage 1d10}",
+							"{@damage 2d6}",
 							"3"
 						],
 						[
 							"4th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"4"
 						],
 						[
 							"5th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"5"
 						]
 					]
@@ -4031,7 +5561,12 @@
 			"entries": [
 				"{@i 14th-level Tradition of the Shaman feature}",
 				"Начиная с 14-го уровня, когда вы произносите заклинание 1-го уровня или выше, вы можете сделать одну атаку оружием в качестве бонусного действия. Если у вас есть проявленный дух, вы можете атаковать им вместо атаки оружием."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
 		}
 	],
 	"subclass": [
@@ -4047,7 +5582,140 @@
 				"Master of Curses|Occultist|KT:O|Witch|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"name": "Black Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"rotting curse|KibblesTasty:CC",
+							"arms of hadar"
+						],
+						"3": [
+							"blindness/deafness",
+							"darkness"
+						],
+						"5": [
+							"animate shadow|KibblesTasty:CC",
+							"summon shadowspawn|tce"
+						],
+						"7": [
+							"blight",
+							"evard's black tentacles"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC",
+							"contagion"
+						]
+					}
+				},
+				{
+					"name": "White Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"binding curse|KibblesTasty:CC",
+							"healing word"
+						],
+						"3": [
+							"calm emotions",
+							"hold person"
+						],
+						"5": [
+							"revivify",
+							"mass healing word"
+						],
+						"7": [
+							"banishment",
+							"otiluke's resilient sphere"
+						],
+						"9": [
+							"curse of impotence|KibblesTasty:CC",
+							"summon celestial|tce"
+						]
+					}
+				},
+				{
+					"name": "Green Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"befuddling curse|KibblesTasty:CC",
+							"entangle"
+						],
+						"3": [
+							"alter self",
+							"enlarge/reduce"
+						],
+						"5": [
+							"major image",
+							"summon fey|tce"
+						],
+						"7": [
+							"greater invisibility",
+							"polymorph"
+						],
+						"9": [
+							"swapping curse|KibblesTasty:CC",
+							"wrath of nature|xge"
+						]
+					}
+				}
+			],
+			"subSubclassSpells": {
+				"Black Coven": [
+					"rotting curse|KibblesTasty:CC",
+					"arms of hadar",
+					"blindness/deafness",
+					"darkness",
+					"animate shadow|KibblesTasty:CC",
+					"summon shadowspawn|tce",
+					"blight",
+					"evard's black tentacles",
+					"killing curse|KibblesTasty:CC",
+					"contagion"
+				],
+				"White Coven": [
+					"binding curse|KibblesTasty:CC",
+					"healing word",
+					"calm emotions",
+					"hold person",
+					"revivify",
+					"mass healing word",
+					"banishment",
+					"otiluke's resilient sphere",
+					"curse of impotence|KibblesTasty:CC",
+					"summon celestial|tce"
+				],
+				"Green Coven": [
+					"befuddling curse|KibblesTasty:CC",
+					"entangle",
+					"alter self",
+					"enlarge/reduce",
+					"major image",
+					"summon fey|tce",
+					"greater invisibility",
+					"polymorph",
+					"swapping curse|KibblesTasty:CC",
+					"wrath of nature|xge"
+				]
+			},
+			"subclassSpells": [
+				"find familiar"
+			]
 		},
 		{
 			"name": "Tradition of the Hedge Mage",
@@ -4063,7 +5731,80 @@
 				"Cantrip Mastery|Occultist|KT:O|Hedge Mage|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						],
+						"6": [
+							{
+								"choose": "level=1;2|class=bard;cleric;druid;wizard",
+								"count": 1
+							}
+						]
+					},
+					"expanded": {
+						"1": [
+							"blade ward",
+							"fire bolt",
+							"mage hand",
+							"prestidigitation",
+							"friends",
+							"ray of frost",
+							"shillelagh",
+							"spare the dying",
+							"thaumaturgy",
+							"true strike"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Casting Style",
+					"featureType": [
+						"ktcs"
+					],
+					"progression": {
+						"1": 1
+					}
+				},
+				{
+					"name": "Personalized Path",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"3": 1
+					}
+				},
+				{
+					"name": "Stolen Techniques",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"6": 1
+					}
+				}
+			],
+			"subclassSpells": [
+				"blade ward",
+				"fire bolt",
+				"mage hand",
+				"prestidigitation",
+				"friends",
+				"ray of frost",
+				"shillelagh",
+				"spare the dying",
+				"thaumaturgy",
+				"true strike"
+			]
 		},
 		{
 			"name": "Tradition of the Oracle",
@@ -4077,7 +5818,58 @@
 				"Master of Prophecy|Occultist|KT:O|Oracle|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"guidance",
+							"thaumaturgy",
+							"identify"
+						],
+						"3": [
+							"locate object"
+						],
+						"5": [
+							"clairvoyance"
+						],
+						"7": [
+							"locate creature"
+						],
+						"9": [
+							"legend lore"
+						]
+					},
+					"innate": {
+						"3": [
+							"augury"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Mystery Unveiled",
+					"featureType": [
+						"ktom"
+					],
+					"progression": {
+						"1": 1,
+						"5": 2,
+						"11": 3
+					}
+				}
+			],
+			"subclassSpells": [
+				"guidance",
+				"thaumaturgy",
+				"identify",
+				"locate object",
+				"clairvoyance",
+				"locate creature",
+				"legend lore",
+				"augury"
+			]
 		},
 		{
 			"name": "Tradition of the Shaman",
