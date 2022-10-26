@@ -10,7 +10,8 @@
 				],
 				"convertedBy": [
 					"cellescent",
-					"SasquatchBrah"
+					"SasquatchBrah",
+					"hakr14"
 				],
 				"url": "https://www.gmbinder.com/share/-M-WtrKeZNFdEXq0MKXw",
 				"version": "1.2"
@@ -18,11 +19,19 @@
 		],
 		"optionalFeatureTypes": {
 			"ktor": "Occult Rite",
-			"ktom": "Oracle Mystery"
+			"ktom": "Oracle Mystery",
+			"FS:O": "Fighting Style: Occultist",
+			"ktcs": "Casting Style"
+		},
+		"dependencies": {
+			"spell": [
+				"KibblesTasty:GS",
+				"KibblesTasty:CC"
+			]
 		},
 		"dateAdded": 1603793256,
-		"dateLastModified": 1661285343,
-		"_dateLastModifiedHash": "bc70c83dea"
+		"dateLastModified": 1666668781,
+		"_dateLastModifiedHash": "e4dffdf91c"
 	},
 	"class": [
 		{
@@ -836,6 +845,23 @@
 					"page": 1
 				}
 			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Rites",
+					"progression": {
+						"2": 2,
+						"5": 3,
+						"7": 4,
+						"9": 5,
+						"12": 6,
+						"15": 7,
+						"18": 8
+					}
+				}
+			],
 			"cantripProgression": [
 				3,
 				3,
@@ -996,7 +1022,7 @@
 					"type": "inset",
 					"name": "Losing Invested Objects",
 					"entries": [
-						"WENN ein Ritus ein Objekt erschafft, kann man dieses Objekt wiederherstellen, wenn es verloren geht oder zerstört wird. Wenn die Regeln nicht anderweitig festgelegt sind, ist dies ein Prozess, für den ein beliebiger Basisgegenstand, den der Ritus geschaffen hat, und 4 Stunden Zeit benötigt werden. Wenn das Original noch irgendwo existiert, verliert es seine magischen Eigenschaften, wenn du diesen Prozess abschließt."
+						"Wenn ein Ritus ein Objekt erschafft, kann man dieses Objekt wiederherstellen, wenn es verloren geht oder zerstört wird. Wenn die Regeln nicht anderweitig festgelegt sind, ist dies ein Prozess, für den jeder Basisgegenstand, den der Ritus geschaffen hat, und 4 Stunden Zeit benötigt werden. Wenn das Original noch irgendwo existiert, verliert es seine magischen Eigenschaften, wenn du diesen Prozess abschließt."
 					]
 				}
 			]
@@ -1057,7 +1083,35 @@
 			"entries": [
 				"Ab der 10. Stufe verleiht dir dein vererbtes Traditionswissen Expertise in einer Fertigkeit deiner Tradition; wähle eine deiner Fertigkeitsprofessionen aus {@skill Animal Handling}, {@skill Arcana}, {@skill Medicine}, {@skill Nature}, {@skill Survival}. Dein Beherrschungsbonus wird für jede Fähigkeitsprüfung verdoppelt, bei der du die gewählte Beherrschung einsetzt. Wenn du keine der gewählten Fertigkeiten beherrschst, kannst du stattdessen eine Fertigkeit deiner Wahl erlernen.",
 				"Außerdem kannst du bei einer Prüfung der Fähigkeit Weisheit auf deine Tradition zurückgreifen und einen Zauberslot der Stufe 1 ausgeben, um einen Vorteil bei der Prüfung zu erhalten."
-			]
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a Wisdom ability check",
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"consume.amount": 1
+			},
+			"foundryImg": "icons/commodities/materials/parchment-secrets.webp"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -1131,6 +1185,17 @@
 			],
 			"entries": [
 				"Du vertiefst dich in deine Tradition und perfektionierst einen neuen Ritus. Du kannst einen {@filter Occult Rite|optionalfeatures|source=KT:O|feature type=ktor} aus der Liste der okkulten Riten der Klasse Okkultist wählen. Du kannst keinen Ritus wählen, den du bereits kennst, oder einen, der eine Stufenbeschränkung erfordert, selbst wenn du bereits die entsprechende Stufe hast. Du kannst nur einen Ritus aus der Liste einer Unterklasse wählen, wenn du mindestens eine Stufe in dieser Unterklasse hast."
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Specialist",
+					"progression": {
+						"*": 1
+					}
+				}
 			]
 		}
 	],
@@ -1167,11 +1232,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1189,16 +1260,43 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"Als Bonusaktion kannst du einen Zauberslot der Stufe 1 ausgeben, um dein Haar zu verlängern, zu stärken und für 1 Minute zum Leben zu erwecken. Während es animiert ist, kannst du deine Aktion nutzen, um mit ihm einen Nahkampf-Zauberangriff mit einer Reichweite von 5 Fuß auszuführen, der bei einem Treffer 1d8 Wuchtschaden verursacht. Dieser erhöht sich um 1d8, wenn du die 5. Stufe (2d8), die 11. Stufe (3d8) und die 17. Stufe (4d8) erreichst. Wenn du eine große oder kleinere Kreatur mit diesem Angriff triffst, kannst du als Bonusaktion versuchen, die Kreatur mit deinen Haaren zu packen {@action grapple}, indem du deinen Weisheitsmodifikator anstelle deines Stärkemodifikators verwendest, um einen Haltegriff einzuleiten und aufrechtzuerhalten.",
+				"Als Bonusaktion kannst du einen Zauberslot der 1. Stufe ausgeben, um dein Haar 1 Minute lang zu verlängern, zu stärken und zum Leben zu erwecken. Während es animiert ist, kannst du deine Aktion nutzen, um mit ihm einen Nahkampf-Zauberangriff mit einer Reichweite von 5 Fuß auszuführen, der bei einem Treffer {@damage 1d8} Wuchtschaden verursacht. Dieser erhöht sich um 1d8, wenn du die 5. Stufe ({@damage 2d8}), die 11. Stufe ({@damage 3d8}) und die 17. Stufe ({@damage 4d8}) erreichst. Wenn du mit diesem Angriff eine große oder kleinere Kreatur triffst, kannst du als Bonusaktion versuchen, {@action grapple} die Kreatur mit deinen Haaren zu packen, indem du deinen Weisheitsmodifikator anstelle deines Stärkemodifikators verwendest, um einen Haltegriff einzuleiten und aufrechtzuerhalten.",
 				"Eine {@condition grappled} Kreatur kann den Haltegriff wie üblich anfechten oder dem Haar 5 Hieb-, Feuer- oder Säureschaden zufügen, um sich zu befreien. Das Haar hat einen AC von 12, und du erleidest keinen Schaden, wenn es angegriffen wird."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"conusme.amount": 1,
+				"actionType": "msak",
+				"damage.parts": [
+					[
+						"floor((@details.level + 7) / 6)",
+						"bludgeoning"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/materials/hair-tuft-grey.webp"
 		},
 		{
 			"name": "Companion Coven",
@@ -1209,8 +1307,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1218,7 +1328,17 @@
 			"entries": [
 				"In einem Ritual, das 1 Stunde dauert, kannst du einen Hexenzirkel mit einer willigen Kreatur bilden, die über Zauberplätze verfügt. Solange ihr beide bei Bewusstsein seid und euch in einem Umkreis von 120 Fuß befindet, erhaltet ihr die Fähigkeit, Zauberplätze bis zu einer Zauberplatzstufe zu teilen, die eurer Hexenstufe geteilt durch vier (abgerundet) entspricht, mindestens jedoch Zauberplätze der 1.Stufe. Solange diese Bindung aktiv ist, kannst du deine Zaubereigenschaft benutzen, um mit ihren Zauberplätzen zu wirken (und sie wie üblich verbrauchen), und sie können ihre Zaubereigenschaft (falls sie eine haben) benutzen, um mit deinen qualifizierten Zauberplätzen zu wirken (und sie wie üblich verbrauchen).",
 				"Außerdem kennst du jederzeit ihren Standort, solange sie Teil deines Hexenzirkels sind und sich in einem Umkreis von 120 Fuß um dich befinden. Du kannst immer nur mit einer Kreatur mit dieser Bindung verbunden sein. Du kannst diesen Zirkel jederzeit beenden."
-			]
+			],
+			"foundryData": {
+				"activation.type": "hour",
+				"activation.cost": 1,
+				"target.value": 1,
+				"target.type": "creature",
+				"range.value": 120,
+				"range.units": "ft",
+				"formula": "max(1, floor(@classes.occultist.levels / 4))[max spell slot level]"
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-white.webp"
 		},
 		{
 			"name": "Divine Presence",
@@ -1229,8 +1349,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe, Weißer Hexenzirkel",
+						"entry": "Weißer Hexenzirkel",
 						"entrySummary": "Witch (White Coven)"
 					}
 				}
@@ -1248,8 +1380,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1262,7 +1406,18 @@
 				{
 					"intimidation": true
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.cost": 1,
+				"activation.condition": "A creature within 15 feet attacks you",
+				"range.value": 15,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/perception/eye-slit-red-orange.webp"
 		},
 		{
 			"name": "Familiar Swap",
@@ -1273,15 +1428,42 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Wenn sich dein Vertrauter innerhalb von 60 Fuß um dich herum befindet, kannst du als Aktion den Platz mit deinem Vertrauten tauschen. Wenn du nicht in den Raum passt, in dem sich dein Vertrauter befindet, schlägt die Fähigkeit fehl und du erleidest {@damage 1d6} Kraftschaden. Wenn du dies einmal getan hast, kannst du es erst wieder tun, wenn du eine kurze oder lange Pause gemacht hast."
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"activation.condition": "If your familiar is within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft",
+				"actionType": "util",
+				"damage.parts": [
+					[
+						"1d6",
+						"force"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/time/arrows-circling-pink.webp"
 		},
 		{
 			"name": "Form of the Familiar",
@@ -1292,14 +1474,44 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"Du erlernst den {@spell form of familiar|KT:O}-Zauber und erhältst die Fähigkeit, ihn einmal zu wirken, ohne einen Zauberslot als Aktion zu verbrauchen. Du erlangst die Fähigkeit, ihn auf diese Weise zu wirken, wieder, nachdem du eine kurze oder lange Pause gemacht hast."
+				"Du erlernst den {@spell form of familiar|KibblesTasty:GS}-Zauber und erhältst die Fähigkeit, ihn einmal als Aktion zu wirken, ohne einen Zauberslot zu verbrauchen. Du erlangst die Fähigkeit, ihn auf diese Weise zu wirken, wieder, nachdem du eine kurze oder lange Pause gemacht hast."
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": {
+							"rest": {
+								"1e": [
+									"form of familiar|KibblesTasty:GS"
+								]
+							}
+						}
+					},
+					"known": {
+						"_": [
+							"form of familiar|KibblesTasty:GS"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1311,8 +1523,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1352,6 +1576,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"faerie fire"
+						],
+						"3": [
+							"moonbeam"
+						],
+						"5": [
+							"tidal wave|xge"
+						],
+						"7": [
+							"control water"
+						],
+						"9": [
+							"wall of light|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1363,15 +1608,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Wenn du einen Vertrauten hast, der nicht fliegen kann, kannst du ihn als Aktion 8 Stunden lang in eine Kreatur verwandeln, die eine Größe größer ist als du (bis zur Größe Groß). Als Aktion kannst du deinen Vertrauten wieder in seine normale Größe zurückversetzen. Auf der 12. Stufe kannst du diese Fähigkeit einsetzen, um mit der Fluggeschwindigkeit vertraut zu werden. Wenn du dies einmal getan hast, kannst du es nicht wieder tun, bis du eine kurze oder lange Ruhepause einlegst. Die Stärke deines Vertrauten wird während der Vergrößerung auf 10 erhöht, falls sie nicht bereits höher war."
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"duration.value": 8,
+				"duration.units": "hour",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/nature/wolf-paw-glow-large-orange.webp"
 		},
 		{
 			"name": "Skulking Familiar",
@@ -1382,19 +1649,26 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"Jeder von dir beschworene Vertraute erlangt die Fertigkeit {@skill Stealth}, und seine Bewegung provoziert keine Gelegenheitsangriffe."
-			],
-			"skillProficiencies": [
-				{
-					"stealth": true
-				}
 			]
 		},
 		{
@@ -1406,8 +1680,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1423,7 +1709,12 @@
 						"Wenn deine Gruppe den {@link KibbleTasty Artificer|https://www.gmbinder.com/share/-LAEn6ZdC6lYUKhQ67Qk} verwendet, kannst du die Regeln für Alchemistische Infusionen (Artificer, S. 17) für diese Eigenschaft verwenden, kannst aber nur 1 Trank während einer kurzen oder langen Pause damit herstellen und als gültige Auswahloptionen deine Bekannten Zauber verwenden."
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "During a short or long rest"
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-purple-glow.webp"
 		},
 		{
 			"name": "Witch's Claws",
@@ -1434,8 +1725,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1449,6 +1752,15 @@
 						"Beachte, dass du bei \"Berührung der Hexe\" deinen Weisheitsmodifikator zweimal zu deinem Schadenswurf addieren kannst. Das ist Absicht und der Grund, warum dies ein Ritus ist und nicht einfach zur Zauberliste hinzugefügt wird."
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"primal savagery|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1460,8 +1772,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition der Hexe",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1479,8 +1803,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1488,6 +1824,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"Du erlernst einen zusätzlichen Zaubertrick aus der Okkultistenliste oder aus der erweiterten Liste, die durch die Eigenschaft Praktische Fertigkeiten bereitgestellt wird."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1499,15 +1847,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Wenn du einen Rettungswurf gegen einen Zauber machst, den du kennst, oder eine Zauberfähigkeitsüberprüfung machst, um {@spell counterspell} oder {@spell dispel magic} gegen einen Zauber zu verwenden, den du kennst, hast du einen Vorteil bei dem Rettungswurf oder der Zauberfähigkeitsüberprüfung."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a saving throw against a spell you know, or make a spellcasting ability check to use counterspell or dispel magic against a spell you know"
+			},
+			"foundryImg": "icons/commodities/tech/bulb.webp"
 		},
 		{
 			"name": "Manipulate Magic",
@@ -1521,18 +1886,41 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Du lernst eine metamagische Option von einem Hexenmeister. Du kannst diese metamagische Option einmal benutzen und die Fähigkeit, sie erneut zu benutzen, nach einer langen Pause wiedererlangen. Du kannst sie erneut benutzen, indem du einen Zauberslot der Stufe aufbrauchst, die der Anzahl der Zauberpunkte entspricht, die die Metamagie kostet."
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"MM"
+					],
+					"name": "Manipulate Magic",
+					"progression": {
+						"*": 1
+					}
+				}
+			],
+			"foundryData": {
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/unholy/orb-colllecting-energy-green.webp"
 		},
 		{
 			"name": "Mass Cantrip",
@@ -1543,15 +1931,36 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Wenn du einen okkultistischen Zaubertrick wirkst, der auf eine oder mehrere Kreaturen abzielt, kannst du den Zaubertrick auf eine zusätzliche Anzahl von Kreaturen in Reichweite wirken, die deinem Fertigkeitsbonus für diesen Zauber entspricht. Wenn du dies einmal getan hast, kannst du es erst wieder tun, wenn du eine lange Pause gemacht hast. Du kannst einen Zauberschlitz ausgeben, um einen ähnlichen Effekt zu erzielen, der den Zaubertrick auf eine Anzahl zusätzlicher Kreaturen in Höhe der Stufe des ausgegebenen Zauberschlitzes wirken lässt."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast an Occultist cantrip that targets one or more creatures",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr",
+				"formula": "@prof[additional targets]"
+			},
+			"foundryImg": "icons/magic/unholy/barrier-fire-pink.webp"
 		},
 		{
 			"name": "Mastered Basics",
@@ -1565,11 +1974,17 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1587,15 +2002,34 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Du hast einen Zauber so oft gewirkt, dass er dir zur zweiten Natur geworden ist. Wähle einen okkulten Zauber der Stufe 1, den du kennst. Du kannst diesen Zauber, ohne einen Zauberslot zu verbrauchen, so oft wirken, wie die Hälfte deines Fähigkeitsmodifikators (aufgerundet), und du kannst alle Anwendungen wiederholen, wenn du eine lange Pause machst."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.max": "ceil(@prof / 2)",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/symbols/runes-carved-stone-yellow.webp"
 		},
 		{
 			"name": "Practiced Reach",
@@ -1606,8 +2040,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1628,11 +2074,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1653,18 +2105,31 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"Du kannst deine gesamte Erfahrung darauf konzentrieren, deine Magie möglichst wirkungsvoll einzusetzen. Als Bonusaktion kannst du dich in einen Zustand fokussierter Konzentration begeben, als ob du dich auf einen Zauber konzentrieren würdest. Wenn du dies tust, erhältst du 1 Minute lang oder bis du deine Konzentration in diesem Zustand beendest, einen Vorteil auf Angriffswürfe für Zaubertricks."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryImg": "icons/magic/holy/meditation-chi-focus-blue.webp"
 		},
 		{
 			"name": "Simple Magic",
@@ -1678,11 +2143,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1700,8 +2171,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1709,6 +2192,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"Deine bekannten Zaubersprüche erhöhen sich um eins."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1723,17 +2218,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Heckenmagiers",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
-				"Wenn du nützliche Zaubertricks wirkst, die Gewicht heben, Bereiche von Elementen beeinflussen, einen Bereich auf dem Boden anvisieren oder geringfügige Soforteffekte verursachen, lebst du doppelt so viel, visierst einen doppelt so großen Bereich an oder erhältst einen zusätzlichen Soforteffekt."
+				"Wenn du Nutzzauber wirkst, die Gewicht heben, Bereiche von Elementen beeinflussen, einen Bereich auf dem Boden anvisieren oder geringfügige Soforteffekte verursachen, hebst du doppelt so viel an, visierst einen doppelt so großen Bereich an oder erhältst einen zusätzlichen Soforteffekt."
 			]
 		},
 		{
@@ -1745,8 +2246,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1774,7 +2287,7 @@
 						],
 						[
 							"5th",
-							"{@spell wither|KT:O}"
+							"{@spell wither|KibblesTasty:CC}"
 						],
 						[
 							"7th",
@@ -1782,9 +2295,30 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}"
+							"{@spell killing curse|KibblesTasty:CC}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"false life"
+						],
+						"3": [
+							"gentle repose"
+						],
+						"5": [
+							"wither|KibblesTasty:CC"
+						],
+						"7": [
+							"blight"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC"
+						]
+					}
 				}
 			]
 		},
@@ -1797,8 +2331,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1838,6 +2384,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"continual flame"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"fire shield"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1849,8 +2416,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1890,6 +2469,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"healing word"
+						],
+						"3": [
+							"warding bond"
+						],
+						"5": [
+							"mass healing word"
+						],
+						"7": [
+							"aura of life"
+						],
+						"9": [
+							"mass cure wounds"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1901,8 +2501,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1942,6 +2554,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderous smite"
+						],
+						"3": [
+							"branding smite"
+						],
+						"5": [
+							"blinding smite"
+						],
+						"7": [
+							"staggering smite"
+						],
+						"9": [
+							"banishing smite"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1953,8 +2586,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1994,6 +2639,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"unseen servant"
+						],
+						"3": [
+							"healing spirit|xge"
+						],
+						"5": [
+							"spirit guardians"
+						],
+						"7": [
+							"guardian of faith"
+						],
+						"9": [
+							"raise dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2008,11 +2674,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2020,7 +2692,15 @@
 			"entries": [
 				"Du kannst die Schicksalslinien sehen und erkennen, wann eine von ihnen zu reißen droht. Wenn ein Verbündeter, der dich sehen oder hören kann, durch den erlittenen Schaden auf 0 Trefferpunkte fallen würde, kannst du sein Schicksal mit einer kryptischen Warnung manipulieren, so dass er nur knapp dem Tod entgeht und stattdessen auf 1 Trefferpunkt sinkt.",
 				"Wenn du diese Fähigkeit einmal benutzt hast, kannst du sie erst wieder nach einer langen Pause einsetzen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When an ally that can see or hear you would drop to 0 hit points as a result of taking damage",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/life/ankh-shadow-green.webp"
 		},
 		{
 			"name": "Divine Miracle",
@@ -2039,6 +2719,18 @@
 			],
 			"entries": [
 				"Du lernst einen {@filter cleric spell|spells|class=cleric} deiner Wahl. Der Zauber muss eine Stufe haben, die du lernen kannst, und wird für dich zu einem Okkultistenzauber. Der Zauber zählt nicht zu deinen bekannten Zaubern."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=cleric",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2053,18 +2745,37 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Wenn du {@sense blindsight} hast, erhältst du {@sense truesight} mit einer Reichweite, die deiner Blindheit entspricht."
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Truesight",
+					"changes": [
+						{
+							"key": "system.attributes.senses.truesight",
+							"mode": "UPGRADE",
+							"value": "@attributes.senses.blindsight"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp"
 		},
 		{
 			"name": "Oracle's Sight",
@@ -2075,14 +2786,31 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Du erhältst {@sense blindsight} mit einer Reichweite von 15 Fuß. Wenn der {@condition Blinded}-Zustand länger als eine Minute anhält, verdoppelt sich die Reichweite dieses Blicks, solange er unter diesem Effekt steht."
+			],
+			"senses": [
+				{
+					"blindsight": 15
+				}
 			]
 		},
 		{
@@ -2095,17 +2823,42 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Du kannst die negative Energie direkt berühren. Wenn du einen Zauber der 1. Stufe oder höher wirkst, der Kälte- oder Nekrotischen Schaden verursacht, kannst du deinen Weisheitsmodifikator zu einem Schadenswurf dieses Zaubers addieren. Wenn du die Macht des Todes auf diese Weise kanalisierst, wirst du vorübergehend geschwächt und verkümmerst, was deine Bewegungsgeschwindigkeit bis zum Ende deiner nächsten Runde um 5 Fuß verringert. Wenn du diesen Zauber einsetzt, während du bereits auf diese Weise geschwächt bist, verlängert sich die Dauer und der Effekt wird gestapelt."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals cold or necrotic damage",
+				"ability": "wis",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"@mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/magic/death/weapon-scythe-rune-green.webp"
 		},
 		{
 			"name": "Revelation of Fire",
@@ -2117,17 +2870,43 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Deine Kräfte ziehen Flammen um dich herum an. Wenn du einen Zauber der Stufe 1 oder höher wirkst, der Feuerschaden verursacht, kannst du dich bis zum Beginn deines nächsten Zuges in Flammen hüllen. Du erhältst halbe Deckung und jede Kreatur, die dich mit einer Nahkampfwaffe oder einem Angriff trifft oder ihren Zug in einem Umkreis von 5 Fuß von dir beendet, erleidet 1d6 Feuerschaden. Zu Beginn deines nächsten Zuges erleidest du 1 Feuerschaden. Ein Zauberspruch kann nur eine Enthüllung auslösen. Wenn mehrere Enthüllungen zutreffen, wähle eine aus."
-			]
+				"Deine Kräfte ziehen Flammen um dich herum an. Wenn du einen Zauber der Stufe 1 oder höher wirkst, der Feuerschaden verursacht, kannst du dich bis zum Beginn deines nächsten Zuges in Flammen hüllen. Du erhältst halbe Deckung, und jede Kreatur, die dich mit einer Nahkampfwaffe oder einem Angriff trifft oder ihren Zug im Umkreis von 5 Fuß um dich beendet, erleidet {@damage 1d6} Feuerschaden. Zu Beginn deines nächsten Zuges erleidest du 1 Feuerschaden. Ein Zauberspruch kann nur eine Enthüllung auslösen. Wenn mehrere Enthüllungen zutreffen, wähle eine aus."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals fire damage",
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/barrier-wall-flame-ring-yellow.webp"
 		},
 		{
 			"name": "Revelation of Life",
@@ -2139,10 +2918,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2162,10 +2953,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2173,7 +2976,21 @@
 			"entries": [
 				"Die Seelen der Verstorbenen sind allgegenwärtig. Wenn du einen Zauber der 1. Stufe oder höher wirkst, kannst du einen wohlwollenden Geist oder einen gequälten Geist in einen leeren Raum beschwören, den du innerhalb von 30 Fuß sehen kannst und der einen Würfel von 5 Fuß ausfüllt.",
 				"Die erste Kreatur, die den Raum des Geistes betritt oder ihren Zug im Raum des Geistes beendet, erhält eine Anzahl von Trefferpunkten in Höhe von 1d4 + der Stufe des Zaubers, wenn du einen wohlwollenden Geist beschworen hast, oder erleidet Schaden in Höhe von 1d4 + der Stufe des Zaubers, wenn der Geist ein gequälter Geist war. Ein Zauber kann nur eine Enthüllung auslösen. Wenn mehrere Enthüllungen zutreffen, wähle eine aus."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that restores hit points or grants temporary hit points",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "heal",
+				"damage.parts": [
+					[
+						"@classes.occultist.levels",
+						"heal"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-large-white.webp"
 		},
 		{
 			"name": "Revelation of War",
@@ -2185,10 +3002,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of War"
+						"{@optfeature Mystery of War|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2196,7 +3025,12 @@
 			"entries": [
 				"In Krieg und Konflikt siehst du die wahre Essenz des perfekten Konflikts. Wenn du einmal pro Zug einen Zauber der Stufe 1 oder höher wirkst, kannst du als Teil derselben Aktion einen einzigen Angriff mit einer Nahkampfwaffe ausführen. Ein Zauberspruch kann nur eine Enthüllung auslösen. Wenn mehrere Enthüllungen zutreffen, wähle eine aus.",
 				"Wenn du einen Waffenangriff ausführst, kannst du außerdem deinen Weisheitsmodifikator anstelle von Stärke oder Geschicklichkeit für die Angriffs- und Schadenswürfe verwenden."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/skills/melee/blade-tip-energy-green.webp"
 		},
 		{
 			"name": "Touch of Fire",
@@ -2208,17 +3042,54 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Du erlernst den Zaubertrick {@spell burn|KT:O}. Zusätzlich kannst du als Bonusaktion 1 Feuerschaden erleiden und eine Waffe, die du trägst, 1 Minute lang oder bis du sie loslässt, in Flammen aufgehen lassen. Während dieser Zeit spendet die Waffe helles Licht für 10 Fuß und schwaches Licht für weitere 10 Fuß. Angriffe, die mit der Waffe ausgeführt werden, während sie brennt, verursachen zusätzlich 1d6 Feuerschaden."
-			]
+				"Du erlernst den Cantrip {@spell burn|KibblesTasty:CC}. Zusätzlich kannst du als Bonusaktion 1 Feuerschaden erleiden und eine Waffe, die du trägst, 1 Minute lang oder bis du sie loslässt, in Flammen aufgehen lassen. Während dieser Zeit spendet die Waffe helles Licht für 10 Fuß und schwaches Licht für weitere 10 Fuß. Angriffe, die mit der Waffe ausgeführt werden, während sie brennt, verursachen zusätzlichen {@damage 1d6} Feuerschaden."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"burn|KibblesTasty:CC"
+						]
+					}
+				}
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					],
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-blood-red.webp"
 		},
 		{
 			"name": "Truth of Death",
@@ -2230,17 +3101,34 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Der Marsch des Todes ist unaufhaltsam. Wenn du einer Kreatur nekrotischen Schaden zufügst, kannst du sie mit der Berührung des Todes belegen und verhindern, dass sie bis zum Beginn deines nächsten Zuges Trefferpunkte wiedererlangt. Wenn du dies tust, bedeutet die Verbindung mit der Macht des Todes, dass du ebenfalls bis zum Beginn deines nächsten Zuges keine Trefferpunkte wiedererlangen kannst."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you deal necrotic damage to a creature"
+			},
+			"foundryImg": "icons/magic/death/hand-undead-skeleton-fire-green.webp"
 		},
 		{
 			"name": "Truth of Fire",
@@ -2252,17 +3140,41 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"Alles brennt. Wenn du Feuerschaden würfelst, kannst du eine beliebige Anzahl von Feuerschadenwürfeln neu werfen. Du musst die neuen Würfel verwenden. Wenn du alle Würfel des Schadenswurfs wiederholst, umgeht der Schaden jegliche Feuerresistenz des Ziels. Für jeden neu gewürfelten Schaden erleidest du 1 Feuerschaden, dem du nicht widerstehen kannst."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you roll fire damage",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/blast-jet-stream-splash.webp"
 		},
 		{
 			"name": "Truth of Life",
@@ -2274,17 +3186,36 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Der Atem des Lebens wird von allen Kreaturen geteilt. Wenn eine Kreatur in einem Umkreis von 60 Fuß um dich herum ihren letzten Atemzug tut, kannst du deine Reaktion nutzen, um einen Teil der sich verteilenden Lebenskraft auf eine andere Kreatur im Umkreis von 60 Fuß um dich herum zu übertragen (dich selbst eingeschlossen). Die Zielkreatur erhält Trefferpunkte in Höhe deines Weisheitsmodifikators oder der maximalen Trefferpunkte der Kreatur (je nachdem, welcher Wert niedriger ist)."
-			]
+				"Der Atem des Lebens wird von allen Kreaturen geteilt. Wenn eine Kreatur im Umkreis von 60 Fuß um dich ihren letzten Atemzug tut, kannst du deine Reaktion nutzen, um einen Teil der sich verteilenden Lebenskraft auf eine andere Kreatur im Umkreis von 60 Fuß um dich zu übertragen (einschließlich dir selbst). Die Zielkreatur erhält Trefferpunkte in Höhe deines Weisheitsmodifikators oder der maximalen Trefferpunkte der Kreatur (je nachdem, welcher Wert niedriger ist)."
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.condition": "When a creature breathes their last within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft"
+			},
+			"foundryImg": "icons/magic/life/heart-broken-red.webp"
 		},
 		{
 			"name": "Truth of Souls",
@@ -2296,10 +3227,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2317,23 +3260,29 @@
 			],
 			"prerequisite": [
 				{
+					"feature": [
+						"{@optfeature Mystery of War|KT:O}"
+					],
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
-					"feature": [
-						"Mystery of War"
-					],
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"Dein Verständnis von Krieg zeigt, dass es leicht ist. Du kannst die {@optfeature Revelation of War|KT:O|Revelation of Battle} auslösen, wenn du einen Zaubertrick wirkst, der eine Wirkzeit von einer Aktion hat."
+				"Dein Verständnis von Krieg verrät, dass es leicht ist. Du kannst die {@optfeature Revelation of War|KT:O|Revelation of Battle} auslösen, wenn du einen Zauberspruch wirkst, der eine Wirkzeit von einer Aktion hat."
 			]
 		},
 		{
@@ -2348,11 +3297,17 @@
 					"level": {
 						"level": 9,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Tradition des Orakels",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2373,17 +3328,34 @@
 					"level": {
 						"level": 11,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Du lernst die {@spell investiture of flame|XGE|investiture of fire}, {@spell investiture of ice|XGE} und {@spell investiture of stone|XGE} Zaubersprüche. Dies sind Okkultisten-Zauber für dich. Wenn du einen dieser Zauber sprichst, kannst du die Dauer des Zaubers bis auf 1 Minute verkürzen. Wenn du dies tust, erfordern diese Zauber keine Konzentration."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"investiture of flame|XGE",
+							"investiture of ice|XGE",
+							"investiture of stone|XGE"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2398,11 +3370,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2421,15 +3399,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Als Aktion kannst du den manifestierten Geist detonieren lassen, wodurch er in einer Fackel der Macht ausbricht. Alle Kreaturen im Umkreis von 10 Fuß müssen einen Rettungswurf in Geschicklichkeit ablegen. Bei einem misslungenen Schutzwurf erleidet das Ziel Schaden in Höhe des doppelten manifestierten Schadens des Geistes. Wenn der Geist mit einem Zauberslot ausgestattet war, erleidet das Ziel bei einem erfolgreichen Schutzwurf halb so viel Schaden. Der Geist wird sofort freigelassen und verschwindet."
-			]
+				"Als Aktion kannst du eine Detonation {@subclassFeature Call Spirit|Occultist|kt:o|Shaman|kt:o|1|kt:o|manifested spirit} auslösen, die ihn in einer Fackel der Macht ausbrechen lässt. Alle Kreaturen im Umkreis von 10 Fuß müssen einen Rettungswurf in Geschicklichkeit machen. Bei einem misslungenen Schutzwurf erleidet das Ziel Schaden in Höhe des doppelten manifestierten Schadens des Geistes. Wenn der Geist mit einem Zauberslot ausgestattet war, erleidet das Ziel bei einem erfolgreichen Schutzwurf die Hälfte des Schadens. Der Geist wird sofort freigelassen und verschwindet."
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"range.value": 10,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "dex",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/explosion-star-glow-silhouette.webp"
 		},
 		{
 			"name": "Elemental Weapons",
@@ -2441,17 +3441,29 @@
 			"prerequisite": [
 				{
 					"spell": [
-						"fists of fire|KT:O#c",
-						"ice weapon|KT:O#c"
+						"fists of fire|KibblesTasty:CC#c",
+						"ice weapon|KibblesTasty:CC#c"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Wenn du eine Waffe mit {@spell fists of fire|KT:O} oder {@spell ice weapon|KT:O} herstellst, wird der Schadenswürfel der Waffe um eine Größe erhöht (z.B. von einem d6 zu einem d8)."
+				"Wenn du eine Waffe mit {@spell fists of fire|KibblesTasty:CC} oder {@spell ice weapon|KibblesTasty:CC} herstellst, wird der Schadenswürfel der Waffe um eine Größe erhöht (zum Beispiel von einem d6 auf einen d8)."
 			]
 		},
 		{
@@ -2463,15 +3475,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"Du erhältst die Fähigkeit, deine Waffe mit der dir von den Geistern verliehenen Macht zu durchdringen. Solange du einen ermächtigten Geist gebunden hast, kannst du seine gesamte Energie in deine Waffe einfließen lassen (und sie zurückrufen, wenn sie manifestiert ist). Der nächste Angriff mit dieser Waffe fügt den doppelten zusätzlichen Schaden des Geistes hinzu, aber die Bindung erlischt sofort."
-			]
+				"Du erhältst die Fähigkeit, deine Waffe mit der dir von den Geistern verliehenen Macht zu durchdringen. Solange du einen {@subclassFeature Empowered Spirits|Occultist|kt:o|Shaman|kt:o|1|kt:o|empowered spirit} gebunden hast, kannst du seine gesamte Energie in deine Waffe fließen lassen (und sie zurückrufen, wenn sie manifestiert ist). Der nächste Angriff mit dieser Waffe fügt das Doppelte des zusätzlichen Schadens des Geistes hinzu, aber die Bindung erlischt sofort."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "While you have an empowered spirit bonded"
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Guidance of the Spirits",
@@ -2482,8 +3511,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2501,8 +3542,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2523,11 +3576,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2545,8 +3604,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2578,13 +3649,34 @@
 						],
 						[
 							"7th",
-							"{@spell orbital stones|KT:O}"
+							"{@spell orbital stones|KibblesTasty:GS}"
 						],
 						[
 							"9th",
 							"{@spell wall of stone}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"earth tremor|xge"
+						],
+						"3": [
+							"earthbind|xge"
+						],
+						"5": [
+							"erupting earth|xge"
+						],
+						"7": [
+							"orbital stones|KibblesTasty:GS"
+						],
+						"9": [
+							"wall of stone"
+						]
+					}
 				}
 			]
 		},
@@ -2597,8 +3689,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2638,6 +3742,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"ice knife|xge"
+						],
+						"3": [
+							"snilloc's snowball swarm|XGE"
+						],
+						"5": [
+							"sleet storm"
+						],
+						"7": [
+							"ice storm"
+						],
+						"9": [
+							"cone of cold"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2649,8 +3774,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2690,6 +3827,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"pyrotechnics|xge"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"wall of fire"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2701,8 +3859,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2734,13 +3904,34 @@
 						],
 						[
 							"7th",
-							"{@spell jumping jolt|KT:O}"
+							"{@spell jumping jolt|KibblesTasty:GS}"
 						],
 						[
 							"9th",
-							"{@spell sky burst|KT:O}"
+							"{@spell sky burst|KibblesTasty:GS}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderwave"
+						],
+						"3": [
+							"gust of wind"
+						],
+						"5": [
+							"lightning bolt"
+						],
+						"7": [
+							"jumping jolt|KibblesTasty:GS"
+						],
+						"9": [
+							"sky burst|KibblesTasty:GS"
+						]
+					}
 				}
 			]
 		},
@@ -2756,18 +3947,34 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Solange du einen Geist an dich gebunden hast, kannst du als Bonusaktion bewirken, dass er Macht ausstrahlt und alle Kreaturen im Umkreis von 1,5 Metern um dich (oder den Geist, wenn er sich an einem anderen Ort manifestiert hat) einen Rettungswurf der Weisheit gegen deinen Zauberschutz-DC machen müssen oder Schaden in Höhe seines manifestierten Schadens erleiden."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/hand-sparks-glow-yellow.webp"
 		},
 		{
 			"name": "Rite of Prowess",
@@ -2778,15 +3985,83 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Du kannst einen Kampfstil aus {@optfeature Dueling}, {@optfeature Two-Weapon Fighting} oder {@optfeature Great Weapon Fighting} auswählen."
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:O"
+					],
+					"progression": {
+						"*": 1
+					}
+				}
 			]
+		},
+		{
+			"name": "Dueling",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Wenn du eine Nahkampfwaffe in einer Hand führst und keine anderen Waffen, erhältst du einen Bonus von +2 auf Schadenswürfe mit dieser Waffe."
+			],
+			"foundryEffects": [
+				{
+					"name": "Fighting Style: Dueling",
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"disabled": true
+				}
+			]
+		},
+		{
+			"name": "Two-Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Wenn du mit zwei Waffen kämpfst, kannst du deinen Fähigkeitsmodifikator auf den Schaden des zweiten Angriffs addieren."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-white-blue.webp"
+		},
+		{
+			"name": "Great Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"Wenn du bei einem Angriff mit einer Nahkampfwaffe, die du mit zwei Händen führst, eine 1 oder 2 auf einen Schadenswürfel wirfst, darfst du den Würfel neu werfen und musst den neuen Wurf verwenden, auch wenn der neue Wurf eine 1 oder 2 ist. Die Waffe muss die Eigenschaft Zweihändig oder Vielseitig haben, damit du diesen Vorteil erhältst."
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-steel-yellow.webp"
 		},
 		{
 			"name": "Shaman's Touch",
@@ -2800,11 +4075,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2822,14 +4103,35 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "Die Tradition des Schamanen",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"Du lernst den Zauber {@spell shield} und er wird für dich zu einem Okkultisten-Zauber, zählt aber nicht zu deinen bekannten Zaubern."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"shield"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2842,6 +4144,11 @@
 			"entries": [
 				"Du erlangst die Beherrschung von {@item alchemist's supplies|PHB|alchemy tools}. Während einer langen Ruhepause kannst du damit ein improvisiertes {@item potion of healing} zusammenbrauen und 1 Stunde der langen Ruhepause dafür verwenden, es zu kochen. Da es sich um ein improvisiertes Produkt handelt, verfällt es nach 24 Stunden und hat keinen Wert in Goldstücken.",
 				"Während dieses Vorgangs kannst du einen Zauber der Stufe 5 aufwenden, um ihn zu einem {@item potion of greater healing|DMG|greater healing potion} zu machen. Der verbrauchte Zauberslot wird wiederhergestellt, wenn die lange Ruhepause wie üblich beendet ist."
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				}
 			]
 		},
 		{
@@ -2856,7 +4163,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2877,7 +4185,7 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Blood Rituals"
+						"{@optfeature Blood Rituals|KT:O}"
 					]
 				}
 			],
@@ -2906,7 +4214,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2925,6 +4234,15 @@
 			],
 			"entries": [
 				"Du erlernst den Zauber {@spell speak with dead}, der für dich ein Okkultistenzauber ist, aber nicht zu deinen bekannten Zaubern zählt. Du kannst ihn wirken, ohne einen Zauberslot zu verbrauchen. Wenn du ihn einmal auf diese Weise gewirkt hast, musst du eine kurze oder lange Pause einlegen, bevor du ihn erneut auf diese Weise wirken kannst."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"speak with dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2950,13 +4268,34 @@
 					"level": {
 						"level": 10,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Du kannst eine zusätzliche Fertigkeit aus dem Bereich Traditionelle Fertigkeiten wählen, die du beherrschst. Dein Beherrschungsbonus wird für jede Fähigkeitsprüfung verdoppelt, die du mit der gewählten Beherrschung durchführst. Wenn du keine der gewählten Fertigkeiten beherrschst, kannst du stattdessen eine deiner Wahlfertigkeiten erlernen."
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
 			]
 		},
 		{
@@ -2971,13 +4310,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Du lernst den Zauberspruch {@spell animate dead}. Es ist ein Okkultisten-Zauber für dich. Du kannst diesen Zauberspruch nicht in ein Ritual mit {@optfeature Lost Ritual|KT:O} verwandeln."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"animate dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2989,7 +4338,15 @@
 			],
 			"entries": [
 				"Du erfährst von einem Ritual, das für die Zeit verloren ist. Wähle einen Okkultisten-Zauberspruch, den du kennst, auf Stufe 5 oder niedriger. Dieser Zauber wird für dich zu einem Ritualzauber. Du kannst diesen Zauber einmal als Ritual wirken und musst eine kurze oder lange Pause einlegen, bevor du ihn erneut als Ritual wirken kannst."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/defensive/barrier-shield-dome-pink.webp"
 		},
 		{
 			"name": "Markings of Protections",
@@ -3000,7 +4357,20 @@
 			],
 			"entries": [
 				"Du markierst dich mit magischen Symbolen und Mustern, die dich vor Schaden schützen. Du stehst unter dem Einfluss des {@spell mage armor} Zaubers."
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Mage Armor",
+					"changes": [
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "mage"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/symbols/cross-circle-blue.webp"
 		},
 		{
 			"name": "Occult Haste",
@@ -3014,13 +4384,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Du lernst den Zauberspruch {@spell haste}. Es ist ein Okkultisten-Zauber für dich."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"haste"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3032,6 +4412,15 @@
 			],
 			"entries": [
 				"Du machst einen Schutzzauber gegen übernatürlichen Schaden. Während du diesen Zauber trägst, kannst du damit {@spell protection from evil and good} zaubern, ohne einen Zauberplatz oder Komponenten zu verbrauchen oder Konzentration zu benötigen, aber der Zauber hält eine Anzahl von Runden an, die deinem Weisheitsmodifikator entspricht. Du kannst diesen Zauber als Reaktion auf einen Angriff oder einen Schutzwurf wirken, von dem du profitieren würdest, aber wenn du dies tust, hält er nur bis zum Beginn deines nächsten Zuges an."
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"protection from evil and good"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3046,7 +4435,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3067,7 +4457,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3088,13 +4479,26 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"Du lernst 10 {@filter cantrips|spells|level=0} aus einer Klassenliste deiner Wahl. Sie sind Okkultisten-Zauber für dich."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0",
+								"count": 10
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3149,6 +4553,15 @@
 			"entries": [
 				"Du erlernst den {@spell warding bond} Zauberspruch. Er ist ein Okkultisten-Zauber für dich, zählt aber nicht zu deinen bekannten Zaubern.",
 				"Wenn du \"Abwehrende Bindung\" wirkst, kannst du wählen, ob du die Macht der Bindung erhöhen willst. Wenn du dies tust, machen beide Kreaturen den Rettungswurf, wenn eine der beiden gebundenen Kreaturen einen Intelligenz-, Weisheits- oder Charisma-Rettungswurf macht. Wenn einer von beiden den Schutzwurf besteht, bestehen beide den Schutzwurf, aber wenn beide scheitern, sind beide von dem Zustand betroffen, gegen den der Schutzwurf gewirkt wurde, auch wenn nur einer von ihnen betroffen war. Wenn beide Kreaturen gegen denselben Effekt retten, würfeln sie nicht zweimal, sondern beide bestehen, wenn einer der beiden seine Rettungswürfe besteht, und beide scheitern, wenn beide ihre Rettungswürfe nicht bestehen."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"warding bond"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3160,6 +4573,45 @@
 			],
 			"entries": [
 				"Du erhältst Fertigkeiten in {@filter medium armor|items|source=PHB|type=medium armor} und {@item shield|PHB|shields}."
+			],
+			"armorProficiencies": [
+				{
+					"medium": true,
+					"shield|phb": true
+				}
+			]
+		},
+		{
+			"name": "Reliable Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Wenn du eine 1 oder 2 auf einem Schadenswürfel für einen Okkultisten-Cantrip würfelst, kannst du den Würfel wiederholen und musst den neuen Wurf verwenden, auch wenn der neue Wurf eine 1 oder 2 ist."
+			]
+		},
+		{
+			"name": "Habitual Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Wenn du einen Okkultisten-Kantrip wirfst, der Konzentration erfordert, kannst du stattdessen bewirken, dass der Effekt ohne Konzentration eine Anzahl von Runden andauert, die deiner Okkultistenstufe entspricht (als Okkultist der Stufe 1 würde er beispielsweise zu Beginn deines nächsten Zuges enden). Du kannst einen auf diese Weise fortbestehenden Zauber vorzeitig als Aktion beenden."
+			]
+		},
+		{
+			"name": "Tactical Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"Wenn du die {@action Ready}-Aktion mit einem Okkultisten-Kantrip ausführst, ist keine Konzentration erforderlich, um den Zauber bereitzuhalten."
 			]
 		}
 	],
@@ -3269,7 +4721,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell rotting curse|KT:O}, {@spell arms of hadar}"
+							"{@spell rotting curse|KibblesTasty:CC}, {@spell arms of hadar}"
 						],
 						[
 							"3rd",
@@ -3277,7 +4729,7 @@
 						],
 						[
 							"5th",
-							"{@spell animate shadow|KT:O}, {@spell summon shadowspawn|TCE}"
+							"{@spell animate shadow|KibblesTasty:CC}, {@spell summon shadowspawn|TCE}"
 						],
 						[
 							"7th",
@@ -3285,7 +4737,7 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}, {@spell contagion}"
+							"{@spell killing curse|KibblesTasty:CC}, {@spell contagion}"
 						]
 					]
 				},
@@ -3303,7 +4755,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell binding curse|KT:O}, {@spell healing word}"
+							"{@spell binding curse|KibblesTasty:CC}, {@spell healing word}"
 						],
 						[
 							"3rd",
@@ -3319,7 +4771,7 @@
 						],
 						[
 							"9th",
-							"{@spell curse of impotence|KT:O}, {@spell summon celestial|TCE}"
+							"{@spell curse of impotence|KibblesTasty:CC}, {@spell summon celestial|TCE}"
 						]
 					]
 				},
@@ -3337,7 +4789,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell befuddling curse|KT:O}, {@spell entangle}"
+							"{@spell befuddling curse|KibblesTasty:CC}, {@spell entangle}"
 						],
 						[
 							"3rd",
@@ -3353,7 +4805,7 @@
 						],
 						[
 							"9th",
-							"{@spell swapping curse|KT:O}, {@spell wrath of nature|XGE}"
+							"{@spell swapping curse|KibblesTasty:CC}, {@spell wrath of nature|XGE}"
 						]
 					]
 				}
@@ -3383,7 +4835,7 @@
 					"type": "entries",
 					"name": "White Coven",
 					"entries": [
-						"Wenn du eine lange Pause abschließt, erhält dein Vertrauter temporäre Trefferpunkte in Höhe deines Weisheitsmodifikators + deiner doppelten Okkultistenstufe. Solange er einen oder mehrere temporäre Trefferpunkte hat, kann er sich als Aktion oder als Reaktion auf eine Kreatur im Umkreis von 30 Fuß, die Schaden erleidet, zu verbündeten Zielen teleportieren und diesem Ziel einen Teil seiner temporären Trefferpunkte (mindestens einen) geben."
+						"Wenn du eine lange Ruhepause abschließt, erhält dein Vertrauter temporäre Trefferpunkte in Höhe deines Weisheitsmodifikators + das Doppelte deiner Stufe als Okkultist. Solange er einen oder mehrere temporäre Trefferpunkte hat, kann er sich als Aktion oder als Reaktion auf eine Kreatur im Umkreis von 30 Fuß, die Schaden erleidet, zu verbündeten Zielen teleportieren und diesem Ziel einen Teil seiner temporären Trefferpunkte (mindestens einen) geben."
 					]
 				},
 				{
@@ -3419,7 +4871,12 @@
 					]
 				},
 				"Du kannst diese Effekte auch auf einen anderen Zauber übertragen, dessen Reichweite länger als Berührung ist, indem du seine Reichweite auf Berührung stellst, oder du kannst diese Effekte als Aktion übertragen, ohne einen Zauber zu wirken, indem du ein Ziel berührst (und dafür einen Nahkampfzauberangriff ausführst, wenn das Ziel eine unwillige Kreatur ist). Wenn du die Reichweite eines Fluchzaubers auf Berührung stellst, brauchst du die materielle Komponente für den Zauber nicht mehr."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activaiton.condition": "Whenever you cast a spell with a range of touch"
+			},
+			"foundryImg": "icons/magic/death/hand-withered-gray.webp"
 		},
 		{
 			"name": "Master of Curses",
@@ -3489,7 +4946,7 @@
 			"header": 1,
 			"entries": [
 				"{@i 1st-level Tradition of the Hedge Mage feature}",
-				"Du erhältst eine der folgenden Fertigkeiten nach Wahl: {@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature}, oder {@skill Survival}. Zusätzlich kannst du 1 zusätzlichen Zaubertrick deiner Wahl aus {@filter the occultist list|spells|class=Occultist (KT:O)} oder aus der folgenden erweiterten Zaubertrickliste wählen: {@spell blade ward}, {@spell firebolt} , {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. Wenn du einen neuen Zaubertrick erlernst, kannst du zusätzlich zur Occultst-Liste aus der oben genannten erweiterten Liste wählen.",
+				"Du erhältst eine der folgenden Fertigkeiten nach Wahl: {@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature}, oder {@skill Survival}. Zusätzlich kannst du 1 zusätzlichen Zauberspruch deiner Wahl aus {@filter the occultist list|spells|class=Occultist (KT:O)} oder aus der folgenden erweiterten Liste von Zaubersprüchen wählen: {@spell blade ward}, {@spell fire bolt}, {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. Wenn du einen neuen Cantrip erlernst, kannst du zusätzlich zur Occultst-Liste aus der obigen erweiterten Liste wählen.",
 				"Du lernst deine Magie durch Selbstentdeckung, die oft mit Versuch und Irrtum verbunden ist. Da du nicht weißt, was unmöglich oder unpraktisch sein soll, entwickelt deine Magie einzigartige Aspekte. Du kannst erlernte Zaubersprüche mit der folgenden Funktion modifizieren.",
 				{
 					"type": "entries",
@@ -3513,6 +4970,20 @@
 						}
 					]
 				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"animal handling",
+							"medicine",
+							"nature",
+							"survival"
+						],
+						"count": 1
+					}
+				}
 			]
 		},
 		{
@@ -3531,9 +5002,18 @@
 				{
 					"type": "list",
 					"items": [
-						"{@b Reliable Casting.} Wenn du bei einem Schadenswürfel für einen okkultistischen Zaubertrick eine 1 oder 2 würfelst, kannst du den Würfel neu werfen und musst den neuen Wurf verwenden, auch wenn der neue Wurf eine 1 oder 2 ist.",
-						"{@b Habitual Casting.} Wenn du einen okkultistischen Zaubertrick wirkst, der Konzentration erfordert, kannst du stattdessen den Effekt ohne Konzentration eine Anzahl von Runden lang bestehen lassen, die deiner Okkultistenstufe entspricht (als Okkultist der 1. Stufe würde er zum Beispiel zu Beginn deines nächsten Zuges enden). Du kannst einen auf diese Weise fortbestehenden Zauber vorzeitig als Aktion beenden.",
-						"{@b Tactical Casting.} Wenn du die Aktion Bereit mit einem okkultistischen Zaubertrick ausführst, ist keine Konzentration erforderlich, um den Zauber bereit zu halten."
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Reliable Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Habitual Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Tactical Casting|KT:O"
+						}
 					]
 				}
 			]
@@ -3831,7 +5311,15 @@
 						"Dadurch wird der normale Nachteil des mehrfachen Zauberns von Auguren {@i not} aufgehoben. Je weiter Sie nach weiteren Informationen suchen, desto schwieriger wird es, sie zu lesen, da der Fluss für Ihre Änderungen immer turbulenter wird."
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"acitvation.cost": 1,
+				"activation.condition": "When you are hit by an attack",
+				"uses.max": "@prof",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/sundries/books/book-clasp-spiral-green.webp"
 		},
 		{
 			"name": "Enlightened Understanding",
@@ -3846,7 +5334,20 @@
 			"entries": [
 				"{@i 6th-level Tradition of the Oracle feature}",
 				"Ab Stufe 6 erhältst du jedes Mal, wenn du eine Offenbarung aktivierst, vorübergehend Trefferpunkte in Höhe deines Weisheitsmodifikators. Außerdem kannst du eine Offenbarung auslösen, wenn du einen Zauber der 1. Stufe wirkst, der sonst nicht die Voraussetzungen erfüllt (z.B. die Offenbarung des Feuers bei einem Zauber auslösen, der keinen Feuerschaden verursacht)."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "Whenever you activate a Revelation",
+				"actionType": "heal",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"@mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/sundries/books/book-open-purple.webp"
 		},
 		{
 			"name": "Master of Prophecy",
@@ -3920,6 +5421,18 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"Wenn du diese Unterklasse wählst, erhältst du Fertigkeiten in {@filter simple weapons|items|source=PHB|type=simple weapon}, {@filter light armor|items|source=PHB|type=light armor}, {@filter medium armor|items|source=PHB|type=medium armor} und {@item shield|PHB|shields}. Außerdem erhöht sich dein Trefferpunkte-Maximum um 1 und erhöht sich erneut um 1, wenn du eine Stufe in dieser Klasse erreichst."
+			],
+			"weaponProficiencies": [
+				{
+					"simple": true
+				}
+			],
+			"armorProficiencies": [
+				{
+					"light": true,
+					"medium": true,
+					"shield|phb": true
+				}
 			]
 		},
 		{
@@ -3935,10 +5448,27 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"Ab der 1. Stufe kannst du als Bonusaktion einen Geist an deine Seite rufen. Dabei kann es sich um einen Urgeist des Feuers, der Kälte oder des Blitzes oder um einen Ahnengeist mit strahlender oder nekrotischer Macht handeln. Diese Bindung hält 10 Minuten an, sobald sie hergestellt ist. Du kannst einen Geist vorzeitig als Aktion entlassen, und er wird sofort entlassen, wenn du einen anderen Geist rufst.",
-				"Solange ein Geist an dich gebunden ist, verstärkt er deine Angriffe mit Nahkampfwaffen, so dass sie zusätzlich 1d4 Schaden des Typs des Geistes verursachen.",
-				"Solange er gebunden ist, kannst du als Bonusaktion den Geist in einem Umkreis von 30 Fuß manifestieren. Der Geist ist mittelgroß, aber von spektraler Natur, solange er manifestiert ist. Während der Geist manifestiert ist, kannst du jedes Mal, wenn du die Angriffsaktion ausführst, eine beliebige Anzahl von Angriffen, die du normalerweise ausführen könntest, durch Nahkampf-Zauberangriffe deines gebundenen Geistes ersetzen. Nahkampf-Zauberangriffe, die der Geist ausführt, verursachen bei einem Treffer 1d4 + deinen Weisheitsmodifikator Schaden desselben Geistertyps. Als Bonusaktion kannst du den Geist bis zu 30 Fuß in eine beliebige Richtung bewegen oder ihn zu dir zurückrufen, um seine Manifestation zu beenden.",
+				"Solange ein Geist an dich gebunden ist, verstärkt er deine Angriffe mit Nahkampfwaffen, so dass sie zusätzlichen {@damage 1d4} Schaden des Typs des Geistes verursachen.",
+				"Solange er gebunden ist, kannst du als Bonusaktion den Geist in einem Umkreis von 30 Fuß manifestieren. Der Geist ist mittelgroß, aber von spektraler Natur, solange er manifestiert ist. Während der Geist manifestiert ist, kannst du jedes Mal, wenn du die Angriffsaktion ausführst, eine beliebige Anzahl von Angriffen, die du normalerweise ausführen könntest, durch Nahkampf-Zauberangriffe deines gebundenen Geistes ersetzen. Nahkampf-Zauberangriffe, die von dem Geist ausgeführt werden, verursachen bei einem Treffer {@damage 1d4} + deinen Weisheitsmodifikator Schaden desselben Geistertyps. Als Bonusaktion kannst du den Geist bis zu 30 Fuß in eine beliebige Richtung bewegen oder ihn zu dir zurückrufen und seine Manifestation beenden.",
 				"Ein manifestierter Geist kann sich nicht weiter als 60 Fuß von dir entfernen und wird zu dir zurückgerufen, wenn du dich mehr als 60 Fuß von ihm entfernst."
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 10,
+				"duration.units": "minute",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "msak",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"1d4 + @mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-masked-blue.webp"
 		},
 		{
 			"name": "Empowered Spirits",
@@ -3952,7 +5482,7 @@
 			"header": 2,
 			"entries": [
 				"{@i 3rd-level Tradition of the Shaman feature}",
-				"Wenn du ab Stufe 3 einen Geist rufst, verbrauchst du einen Zauberslot der Stufe 1 oder höher, um diesen Geist zu ermächtigen. Ein ermächtigter Geist fügt deiner Waffe zusätzlichen Schaden zu und verursacht zusätzlichen manifestierten Schaden. Solange der Geist gerufen und nicht manifestiert ist, erhältst du zu Beginn jeder deiner Runden vorübergehend Trefferpunkte in Höhe der Stufe des für die Ermächtigung ausgegebenen Zauberslots.",
+				"Ab Stufe 3 kannst du, wenn du einen Geist rufst, einen Zauberslot der Stufe 1 oder höher ausgeben, um diesen Geist zu ermächtigen. Ein ermächtigter Geist fügt deiner Waffe zusätzlichen Schaden zu und verursacht zusätzlichen manifestierten Schaden. Solange der Geist gerufen und nicht manifestiert ist, erhältst du zu Beginn jeder deiner Runden vorübergehend Trefferpunkte in Höhe der Stufe des für die Ermächtigung ausgegebenen Zauberslots.",
 				{
 					"type": "table",
 					"colLabels": [
@@ -3970,32 +5500,32 @@
 					"rows": [
 						[
 							"1st",
-							"1d6",
-							"2d4",
+							"{@damage 1d6}",
+							"{@damage 2d4}",
 							"1"
 						],
 						[
 							"2nd",
-							"1d8",
-							"2d6",
+							"{@damage 1d8}",
+							"{@damage 2d6}",
 							"2"
 						],
 						[
 							"3rd",
-							"1d10",
-							"2d6",
+							"{@damage 1d10}",
+							"{@damage 2d6}",
 							"3"
 						],
 						[
 							"4th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"4"
 						],
 						[
 							"5th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"5"
 						]
 					]
@@ -4031,7 +5561,12 @@
 			"entries": [
 				"{@i 14th-level Tradition of the Shaman feature}",
 				"Ab der 14. Stufe kannst du, wenn du einen Zauber der 1. Stufe oder höher wirkst, einen einzelnen Waffenangriff als Bonusaktion ausführen. Wenn du einen manifestierten Geist hast, kannst du mit ihm anstelle eines Waffenangriffs angreifen."
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
 		}
 	],
 	"subclass": [
@@ -4047,7 +5582,140 @@
 				"Master of Curses|Occultist|KT:O|Witch|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"name": "Black Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"rotting curse|KibblesTasty:CC",
+							"arms of hadar"
+						],
+						"3": [
+							"blindness/deafness",
+							"darkness"
+						],
+						"5": [
+							"animate shadow|KibblesTasty:CC",
+							"summon shadowspawn|tce"
+						],
+						"7": [
+							"blight",
+							"evard's black tentacles"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC",
+							"contagion"
+						]
+					}
+				},
+				{
+					"name": "White Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"binding curse|KibblesTasty:CC",
+							"healing word"
+						],
+						"3": [
+							"calm emotions",
+							"hold person"
+						],
+						"5": [
+							"revivify",
+							"mass healing word"
+						],
+						"7": [
+							"banishment",
+							"otiluke's resilient sphere"
+						],
+						"9": [
+							"curse of impotence|KibblesTasty:CC",
+							"summon celestial|tce"
+						]
+					}
+				},
+				{
+					"name": "Green Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"befuddling curse|KibblesTasty:CC",
+							"entangle"
+						],
+						"3": [
+							"alter self",
+							"enlarge/reduce"
+						],
+						"5": [
+							"major image",
+							"summon fey|tce"
+						],
+						"7": [
+							"greater invisibility",
+							"polymorph"
+						],
+						"9": [
+							"swapping curse|KibblesTasty:CC",
+							"wrath of nature|xge"
+						]
+					}
+				}
+			],
+			"subSubclassSpells": {
+				"Black Coven": [
+					"rotting curse|KibblesTasty:CC",
+					"arms of hadar",
+					"blindness/deafness",
+					"darkness",
+					"animate shadow|KibblesTasty:CC",
+					"summon shadowspawn|tce",
+					"blight",
+					"evard's black tentacles",
+					"killing curse|KibblesTasty:CC",
+					"contagion"
+				],
+				"White Coven": [
+					"binding curse|KibblesTasty:CC",
+					"healing word",
+					"calm emotions",
+					"hold person",
+					"revivify",
+					"mass healing word",
+					"banishment",
+					"otiluke's resilient sphere",
+					"curse of impotence|KibblesTasty:CC",
+					"summon celestial|tce"
+				],
+				"Green Coven": [
+					"befuddling curse|KibblesTasty:CC",
+					"entangle",
+					"alter self",
+					"enlarge/reduce",
+					"major image",
+					"summon fey|tce",
+					"greater invisibility",
+					"polymorph",
+					"swapping curse|KibblesTasty:CC",
+					"wrath of nature|xge"
+				]
+			},
+			"subclassSpells": [
+				"find familiar"
+			]
 		},
 		{
 			"name": "Tradition of the Hedge Mage",
@@ -4063,7 +5731,80 @@
 				"Cantrip Mastery|Occultist|KT:O|Hedge Mage|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						],
+						"6": [
+							{
+								"choose": "level=1;2|class=bard;cleric;druid;wizard",
+								"count": 1
+							}
+						]
+					},
+					"expanded": {
+						"1": [
+							"blade ward",
+							"fire bolt",
+							"mage hand",
+							"prestidigitation",
+							"friends",
+							"ray of frost",
+							"shillelagh",
+							"spare the dying",
+							"thaumaturgy",
+							"true strike"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Casting Style",
+					"featureType": [
+						"ktcs"
+					],
+					"progression": {
+						"1": 1
+					}
+				},
+				{
+					"name": "Personalized Path",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"3": 1
+					}
+				},
+				{
+					"name": "Stolen Techniques",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"6": 1
+					}
+				}
+			],
+			"subclassSpells": [
+				"blade ward",
+				"fire bolt",
+				"mage hand",
+				"prestidigitation",
+				"friends",
+				"ray of frost",
+				"shillelagh",
+				"spare the dying",
+				"thaumaturgy",
+				"true strike"
+			]
 		},
 		{
 			"name": "Tradition of the Oracle",
@@ -4077,7 +5818,58 @@
 				"Master of Prophecy|Occultist|KT:O|Oracle|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"guidance",
+							"thaumaturgy",
+							"identify"
+						],
+						"3": [
+							"locate object"
+						],
+						"5": [
+							"clairvoyance"
+						],
+						"7": [
+							"locate creature"
+						],
+						"9": [
+							"legend lore"
+						]
+					},
+					"innate": {
+						"3": [
+							"augury"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Mystery Unveiled",
+					"featureType": [
+						"ktom"
+					],
+					"progression": {
+						"1": 1,
+						"5": 2,
+						"11": 3
+					}
+				}
+			],
+			"subclassSpells": [
+				"guidance",
+				"thaumaturgy",
+				"identify",
+				"locate object",
+				"clairvoyance",
+				"locate creature",
+				"legend lore",
+				"augury"
+			]
 		},
 		{
 			"name": "Tradition of the Shaman",
