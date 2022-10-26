@@ -10,7 +10,8 @@
 				],
 				"convertedBy": [
 					"cellescent",
-					"SasquatchBrah"
+					"SasquatchBrah",
+					"hakr14"
 				],
 				"url": "https://www.gmbinder.com/share/-M-WtrKeZNFdEXq0MKXw",
 				"version": "1.2"
@@ -18,11 +19,19 @@
 		],
 		"optionalFeatureTypes": {
 			"ktor": "Occult Rite",
-			"ktom": "Oracle Mystery"
+			"ktom": "Oracle Mystery",
+			"FS:O": "Fighting Style: Occultist",
+			"ktcs": "Casting Style"
+		},
+		"dependencies": {
+			"spell": [
+				"KibblesTasty:GS",
+				"KibblesTasty:CC"
+			]
 		},
 		"dateAdded": 1603793256,
-		"dateLastModified": 1661285343,
-		"_dateLastModifiedHash": "bc70c83dea"
+		"dateLastModified": 1666668781,
+		"_dateLastModifiedHash": "e4dffdf91c"
 	},
 	"class": [
 		{
@@ -836,6 +845,23 @@
 					"page": 1
 				}
 			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Rites",
+					"progression": {
+						"2": 2,
+						"5": 3,
+						"7": 4,
+						"9": 5,
+						"12": 6,
+						"15": 7,
+						"18": 8
+					}
+				}
+			],
 			"cantripProgression": [
 				3,
 				3,
@@ -996,7 +1022,7 @@
 					"type": "inset",
 					"name": "Losing Invested Objects",
 					"entries": [
-						"如果一个仪式创造了一个物体，那么如果该物体丢失或被毁，你可以重新创造它。如果其他地方没有指定规则，这是一个需要该仪式所做的任何基础对象和4小时时间的过程。如果原物仍然存在于任何地方，当你完成这个过程时，它就会失去其魔法属性。"
+						"如果一个仪式创造了一个对象，如果它丢失或被毁，你可以重新创造这个对象。如果其他地方没有规定规则，这是一个需要该仪式所做的任何基础对象和4小时时间的过程。如果原物仍然存在于任何地方，当你完成这个过程时，它就会失去其魔法属性。"
 					]
 				}
 			]
@@ -1055,9 +1081,37 @@
 			"classSource": "KT:O",
 			"level": 10,
 			"entries": [
-				"从10级开始，你传下来的传统知识使你在你的传统技能上有了专长；从你的技能熟练度中选择一个（%0%）、（%1%）、（%2%）、（%3%）、（%4%）。在你进行任何使用所选熟练度的能力检查时，你的熟练度奖励会翻倍。如果你对所选择的技能都不精通，你可以获得你所选择的一个技能的熟练度。",
+				"从10级开始，你传承下来的传统知识使你在你的传统技能中具有专长；从（%0%）、（%1%）、（%2%）、（%3%）、（%4%）中选择一个技能专长。在你进行任何使用所选熟练度的能力检查时，你的熟练度奖励会翻倍。如果你对所选择的技能都不精通，你可以获得你所选择的一个技能的熟练度。",
 				"此外，当你进行智慧能力检查时，你可以利用你的传统并消耗一个一级法术槽来获得检查上的优势。"
-			]
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a Wisdom ability check",
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"consume.amount": 1
+			},
+			"foundryImg": "icons/commodities/materials/parchment-secrets.webp"
 		},
 		{
 			"name": "Ability Score Improvement",
@@ -1131,6 +1185,17 @@
 			],
 			"entries": [
 				"你深入研究你的传统，完善一个新仪式。你可以从神秘主义者等级的神秘仪式列表中选择一个（%0%）。你不能选择一个你已经知道的仪式，或者一个需要等级限制的仪式，即使你已经达到那个等级。你只能从子类列表中选择一个，如果你在该子类中至少有一个等级。"
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"ktor"
+					],
+					"name": "Occult Specialist",
+					"progression": {
+						"*": 1
+					}
+				}
 			]
 		}
 	],
@@ -1167,11 +1232,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1189,16 +1260,43 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"作为一个额外的行动，你可以消耗一个一级法术槽来使你的头发变长、变强、变活，持续1分钟。当它被激活时，你可以使用你的行动，用它进行一次范围为5英尺的近战法术攻击，击中后造成1d8的打击伤害。当你达到5级（2d8）、11级（3d8）和17级（4d8）时，这个伤害会增加1d8。如果你用这次攻击击中一个大型或较小的生物，作为一个额外的动作，你可以用你的智慧修改器代替你的力量修改器，尝试用你的头发（%0%）来启动和维持抓捕。",
+				"作为一个额外的行动，你可以消耗一个1级的法术槽，使你的头发延长、增强，并在1分钟内涌现出活力。当它被激活时，你可以使用你的行动，用它进行一次范围为5英尺的近战法术攻击，击中后造成{@damage 1d8}重击伤害。当你达到5级（{@damage 2d8}）、11级（{@damage 3d8}）和17级（{@damage 4d8}）时，这个伤害增加1d8。如果你用这次攻击击中了一个大型或小型的生物，作为一个额外的动作，你可以用你的智慧修饰来代替你的力量修饰，试图用你的头发来{@action grapple}抓捕该生物，并保持抓捕。",
 				"一个{@condition grappled}的生物可以像平常一样对抓捕进行抗争，或者对头发造成5次砍击、火焰或酸液伤害来释放自己。头发的抵抗力为12，当它被攻击时你不会受到伤害。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"consume.type": "attribute",
+				"consume.target": "spells.spell1.value",
+				"conusme.amount": 1,
+				"actionType": "msak",
+				"damage.parts": [
+					[
+						"floor((@details.level + 7) / 6)",
+						"bludgeoning"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/materials/hair-tuft-grey.webp"
 		},
 		{
 			"name": "Companion Coven",
@@ -1209,8 +1307,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1218,7 +1328,17 @@
 			"entries": [
 				"作为一个需要1小时的仪式，你可以与一个有法术槽的自愿生物形成一个巫师团的纽带。当你们两个人都有意识并且在彼此120英尺范围内时，你们获得了共享法术槽的能力，法术槽的等级为你们的巫师等级除以4（向下取整），最小为1级法术槽。当这个纽带处于激活状态时，你可以使用你的施法特征来使用他们的法术槽进行施法（如常消耗），而他们可以使用他们的施法特征（如果他们有的话）来使用你合格的法术槽进行施法（如常消耗）。",
 				"此外，当他们属于你的巫师团并且在你周围120英尺范围内时，你随时都知道他们的位置。你在同一时间只能与一个生物结成这种契约。你可以在任何时候结束这个结界。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "hour",
+				"activation.cost": 1,
+				"target.value": 1,
+				"target.type": "creature",
+				"range.value": 120,
+				"range.units": "ft",
+				"formula": "max(1, floor(@classes.occultist.levels / 4))[max spell slot level]"
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-white.webp"
 		},
 		{
 			"name": "Divine Presence",
@@ -1229,8 +1349,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统，白色女巫团",
+						"entry": "白衣女巫",
 						"entrySummary": "Witch (White Coven)"
 					}
 				}
@@ -1248,8 +1380,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1262,7 +1406,18 @@
 				{
 					"intimidation": true
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.cost": 1,
+				"activation.condition": "A creature within 15 feet attacks you",
+				"range.value": 15,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/perception/eye-slit-red-orange.webp"
 		},
 		{
 			"name": "Familiar Swap",
@@ -1273,15 +1428,42 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"如果你的熟人在你60英尺以内，作为一个动作，你可以和你的熟人交换位置。如果你不能进入你熟悉的人所在的空间，这个能力就会失败，并且你会受到{@damage 1d6}武力伤害。一旦你这样做了，你就不能再这样做了，直到你完成一个短期或长期休息。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"activation.condition": "If your familiar is within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft",
+				"actionType": "util",
+				"damage.parts": [
+					[
+						"1d6",
+						"force"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/time/arrows-circling-pink.webp"
 		},
 		{
 			"name": "Form of the Familiar",
@@ -1292,14 +1474,44 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
-				"你学会了{@spell form of familiar|KT:O}的法术，并获得在不消耗法术槽的情况下以行动方式施放一次的能力。在完成短暂或长时间的休息后，你会重新获得以这种方式施放的能力。"
+				"你学会了{@spell form of familiar|KibblesTasty:GS}的法术，并获得在不消耗法术槽的情况下以行动方式施放一次的能力。在完成短时或长时休息后，你会重新获得以这种方式施展的能力。"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": {
+							"rest": {
+								"1e": [
+									"form of familiar|KibblesTasty:GS"
+								]
+							}
+						}
+					},
+					"known": {
+						"_": [
+							"form of familiar|KibblesTasty:GS"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1311,8 +1523,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1352,6 +1576,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"faerie fire"
+						],
+						"3": [
+							"moonbeam"
+						],
+						"5": [
+							"tidal wave|xge"
+						],
+						"7": [
+							"control water"
+						],
+						"9": [
+							"wall of light|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1363,15 +1608,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"如果你有一个没有飞行速度的熟人，作为一个行动，你可以让他们变成比你大一号的生物（最多大号），持续8小时。作为一个动作，你可以将你的熟人恢复到它的正常大小。在12级时，你可以使用这个能力来熟悉飞行速度。一旦你这样做了，你就不能再这样做了，直到你完成一个短期或长期休息。你熟悉的人的力量在放大后会变成10，如果它本来就不高的话。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"duration.value": 8,
+				"duration.units": "hour",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/nature/wolf-paw-glow-large-orange.webp"
 		},
 		{
 			"name": "Skulking Familiar",
@@ -1382,19 +1649,26 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
 			],
 			"entries": [
 				"任何被你召唤的熟人都会获得熟练的（%0%）技能，而且它的移动不会引起机会攻击。"
-			],
-			"skillProficiencies": [
-				{
-					"stealth": true
-				}
 			]
 		},
 		{
@@ -1406,8 +1680,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1423,7 +1709,12 @@
 						"如果你的团体使用（%0%），你可以使用炼金术灌输（Artificer，第17页）的规则来实现这个功能，但在短时或长时休息期间只能用它制作1种药水，并使用你的已知法术作为有效选择。"
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "During a short or long rest"
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-purple-glow.webp"
 		},
 		{
 			"name": "Witch's Claws",
@@ -1434,8 +1725,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1449,6 +1752,15 @@
 						"请注意，对于 \"女巫之触\"，这将让你在你的伤害卷中加入你的智慧修正值两次。这是故意的，这也是为什么这是一个仪式，而不是简单地加入到法术列表中。"
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"primal savagery|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1460,8 +1772,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Witch",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "巫师的传统",
+						"entry": "",
 						"entrySummary": "Witch"
 					}
 				}
@@ -1479,8 +1803,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1488,6 +1824,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"你从奥术师列表中或从实用技能功能提供的扩展列表中额外学习一个咒语。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1499,15 +1847,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"当你对你所知道的法术进行蓄力，或对你所知道的法术进行法术能力检定，以使用（%0%）或（%1%）的法术，你在蓄力或法术能力检定上具有优势。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you make a saving throw against a spell you know, or make a spellcasting ability check to use counterspell or dispel magic against a spell you know"
+			},
+			"foundryImg": "icons/commodities/tech/bulb.webp"
 		},
 		{
 			"name": "Manipulate Magic",
@@ -1521,18 +1886,41 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"你从一个巫师那里学到了一个玄术选项。你可以使用这个法术选项一次，在完成长时间的休息后可以重新获得使用它的能力。你可以通过消耗一个与该法术所耗费的巫术点数相同等级的法术槽来再次使用它。"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"featureType": [
+						"MM"
+					],
+					"name": "Manipulate Magic",
+					"progression": {
+						"*": 1
+					}
+				}
+			],
+			"foundryData": {
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/unholy/orb-colllecting-energy-green.webp"
 		},
 		{
 			"name": "Mass Cantrip",
@@ -1543,15 +1931,36 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"当你施展以一个或多个生物为目标的奥术师咒语时，你可以使咒语以范围内的额外生物为目标，其数量等于你对该咒语的熟练度加成。一旦你这样做了，你就不能再这样做了，直到你完成一个长时间的休息。你可以消耗一个法术槽来获得类似的效果，使咒语针对与所消耗的法术槽等级相同的额外生物数量。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast an Occultist cantrip that targets one or more creatures",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr",
+				"formula": "@prof[additional targets]"
+			},
+			"foundryImg": "icons/magic/unholy/barrier-fire-pink.webp"
 		},
 		{
 			"name": "Mastered Basics",
@@ -1565,11 +1974,17 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1587,15 +2002,34 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"你已经施展了很多次法术，已经成为你的第二天性。选择一个你知道的一级奥术师法术。你可以在不消耗法术槽的情况下施放这个法术，次数相当于你的一半熟练度修正值（四舍五入），当你完成一次长时休息时，可以恢复所有的使用。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.max": "ceil(@prof / 2)",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/symbols/runes-carved-stone-yellow.webp"
 		},
 		{
 			"name": "Practiced Reach",
@@ -1606,8 +2040,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1628,11 +2074,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1653,18 +2105,31 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
 				"你可以把你所有的经验集中到使用你最有力的魔法上。作为一个额外的动作，你可以进入一个集中注意力的状态，就像专注于一个法术一样。当你这样做时，你会在1分钟内获得攻击卷轴的优势，或者直到你结束对这种专注状态的关注。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryImg": "icons/magic/holy/meditation-chi-focus-blue.webp"
 		},
 		{
 			"name": "Simple Magic",
@@ -1678,11 +2143,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1700,8 +2171,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
@@ -1709,6 +2192,18 @@
 			"entries": [
 				"{@i (You can take this Rite multiple times)}",
 				"你的已知法术增加一个。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=occultist (kt:o)",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1723,17 +2218,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Hedge Mage",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "绿篱法师的传统",
+						"entry": "",
 						"entrySummary": "Hedge Mage"
 					}
 				}
 			],
 			"entries": [
-				"当你施展可以提升重量、影响元素区域、针对地面区域或造成轻微瞬时效果的实用咒语时，你的生命值是两倍，目标区域是两倍，或保持一个额外的瞬时效果。"
+				"当你施展可以提升重量、影响元素区域、以地面上的区域为目标、或造成轻微瞬时效果的实用咒语时，你会提升两倍的重量，以两倍的区域为目标，或保持一个额外的瞬时效果。"
 			]
 		},
 		{
@@ -1745,8 +2246,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1774,7 +2287,7 @@
 						],
 						[
 							"5th",
-							"{@spell wither|KT:O}"
+							"{@spell wither|KibblesTasty:CC}"
 						],
 						[
 							"7th",
@@ -1782,9 +2295,30 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}"
+							"{@spell killing curse|KibblesTasty:CC}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"false life"
+						],
+						"3": [
+							"gentle repose"
+						],
+						"5": [
+							"wither|KibblesTasty:CC"
+						],
+						"7": [
+							"blight"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC"
+						]
+					}
 				}
 			]
 		},
@@ -1797,8 +2331,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1838,6 +2384,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"continual flame"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"fire shield"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1849,8 +2416,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1890,6 +2469,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"healing word"
+						],
+						"3": [
+							"warding bond"
+						],
+						"5": [
+							"mass healing word"
+						],
+						"7": [
+							"aura of life"
+						],
+						"9": [
+							"mass cure wounds"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1901,8 +2501,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1942,6 +2554,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderous smite"
+						],
+						"3": [
+							"branding smite"
+						],
+						"5": [
+							"blinding smite"
+						],
+						"7": [
+							"staggering smite"
+						],
+						"9": [
+							"banishing smite"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -1953,8 +2586,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -1994,6 +2639,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"unseen servant"
+						],
+						"3": [
+							"healing spirit|xge"
+						],
+						"5": [
+							"spirit guardians"
+						],
+						"7": [
+							"guardian of faith"
+						],
+						"9": [
+							"raise dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2008,11 +2674,17 @@
 					"level": {
 						"level": 12,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2020,7 +2692,15 @@
 			"entries": [
 				"你可以看到命运之线，并探测到其中一条线即将断裂的时候。当一个能看到或听到你的盟友会因为受到伤害而下降到0点生命值时，你可以用一个神秘的警告来操纵他们的命运，使他们险些避免死亡，而下降到1点生命值。",
 				"一旦你使用这个能力，你就不能再使用它，直到你完成一个长时间的休息。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When an ally that can see or hear you would drop to 0 hit points as a result of taking damage",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/magic/life/ankh-shadow-green.webp"
 		},
 		{
 			"name": "Divine Miracle",
@@ -2039,6 +2719,18 @@
 			],
 			"entries": [
 				"你学习一个你选择的（%0%）。该法术必须是你可以学习的等级，并成为你的奥术师法术。该法术不计入你的已知法术。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "class=cleric",
+								"count": 1
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2053,18 +2745,37 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"如果你有{@sense blindsight}，你获得{@sense truesight}，范围等于你的盲目性。"
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Truesight",
+					"changes": [
+						{
+							"key": "system.attributes.senses.truesight",
+							"mode": "UPGRADE",
+							"value": "@attributes.senses.blindsight"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp"
 		},
 		{
 			"name": "Oracle's Sight",
@@ -2075,14 +2786,31 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"你获得（%0%），范围为15英尺。当受到{@condition Blinded}条件的影响超过一分钟时，在该效果下，该视线的范围会增加一倍。"
+			],
+			"senses": [
+				{
+					"blindsight": 15
+				}
 			]
 		},
 		{
@@ -2095,17 +2823,42 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"你可以直接接触到负能量。当你施展一个一级或更高等级的造成寒冷或坏死伤害的法术时，你可以在该法术的一个伤害卷上加上你的智慧修改器。以这种方式引导死亡的力量会使你暂时枯萎和虚弱，使你的移动速度降低5英尺，直到你下一个回合结束。如果你在已经被削弱的情况下使用这个方法，持续时间会延长，效果会叠加。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals cold or necrotic damage",
+				"ability": "wis",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"@mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/magic/death/weapon-scythe-rune-green.webp"
 		},
 		{
 			"name": "Revelation of Fire",
@@ -2117,17 +2870,43 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"你的力量吸引了你周围的火焰。当你施展一个一级或更高等级的造成火焰伤害的法术时，你可以将自己笼罩在火焰中，直到你下一个回合开始。你获得一半的掩护，任何用近战武器或攻击攻击你的生物，或在你5英尺范围内结束他们的回合，都会受到1d6的火焰伤害。在你的下一个回合开始时，你会受到1个火力伤害。一个法术只能触发一个启示。如果多个启示适用，请选择一个。"
-			]
+				"你的力量吸引了你周围的火焰。当你施展一个一级或更高等级的造成火焰伤害的法术时，你可以将自己笼罩在火焰中，直到你下一个回合开始。你获得一半的掩护，任何用近战武器或攻击攻击你的生物或在你5英尺范围内结束他们的回合的生物都会受到（%0%）的火焰伤害。在你的下一个回合开始时，你会受到1个火焰伤害。一个法术只能触发一个启示。如果多个启示适用，请选择一个。"
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that deals fire damage",
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/barrier-wall-flame-ring-yellow.webp"
 		},
 		{
 			"name": "Revelation of Life",
@@ -2139,10 +2918,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2162,10 +2953,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2173,7 +2976,21 @@
 			"entries": [
 				"离世者的灵魂就在周围。当你施展一级或更高等级的法术时，你可以召唤一个仁慈的灵魂或一个受折磨的灵魂到30英尺内你能看到的空地上，填充一个5英尺的立方体。",
 				"第一个进入灵体空间的生物或在灵体空间内结束其回合的生物，如果你召唤的是仁慈的灵体，则会获得相当于1d4+该咒语等级的命中率，如果是受折磨的灵体，则会受到相当于1d4+该咒语等级的伤害。一个法术只能触发一个启示。如果多个启示适用，请选择一个。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condiion": "When you cast a spell of 1st level or higher that restores hit points or grants temporary hit points",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "heal",
+				"damage.parts": [
+					[
+						"@classes.occultist.levels",
+						"heal"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/control/energy-stream-link-large-white.webp"
 		},
 		{
 			"name": "Revelation of War",
@@ -2185,10 +3002,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of War"
+						"{@optfeature Mystery of War|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2196,7 +3025,12 @@
 			"entries": [
 				"在战争和冲突中，你看到了完美冲突的真正本质。在你的回合中，当你施放一个1级或以上的法术时，每回合一次，你可以在同一动作中进行一次近战武器攻击。一个法术只能触发一个启示。如果多个启示适用，请选择一个。",
 				"此外，当你进行武器攻击时，你可以使用你的智慧修饰，而不是力量或灵巧，来进行攻击和伤害卷。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/skills/melee/blade-tip-energy-green.webp"
 		},
 		{
 			"name": "Touch of Fire",
@@ -2208,17 +3042,54 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"你学会了咒语（%0%）。此外，作为一个额外的动作，你可以承受1个火力伤害，并可以使你携带的武器迸发出火焰，持续1分钟或直到你放开它。在持续时间内，它在10英尺内发出亮光，在另外10英尺内发出暗光。当武器燃烧时，用它进行的攻击会造成额外的1d6火焰伤害。"
-			]
+				"你学会了咒语（%0%）。此外，作为一个额外的动作，你可以承受1个火力伤害，并可以使你携带的武器迸发出火焰，持续1分钟或直到你放开它。在持续时间内，它在10英尺内发出亮光，在另外10英尺内发出暗光。当武器燃烧时，用它进行的攻击会造成额外的{@damage 1d6}火焰伤害。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"burn|KibblesTasty:CC"
+						]
+					}
+				}
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					],
+					[
+						"1d6",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-blood-red.webp"
 		},
 		{
 			"name": "Truth of Death",
@@ -2230,17 +3101,34 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Death"
+						"{@optfeature Mystery of Death|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
 				"死亡的步伐是不可阻挡的。当你对一个生物造成坏死伤害时，你可以在他们身上施加死亡之触，防止他们在你下一回合开始前重新获得生命值。当你这样做时，与死亡之力相关联意味着你在下一回合开始前也无法恢复生命值。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you deal necrotic damage to a creature"
+			},
+			"foundryImg": "icons/magic/death/hand-undead-skeleton-fire-green.webp"
 		},
 		{
 			"name": "Truth of Fire",
@@ -2252,17 +3140,41 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Fire"
+						"{@optfeature Mystery of Fire|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"一切都会燃烧。当掷出火灾伤害时，你可以重新掷出任何数量的火灾伤害骰子。你必须使用新的卷轴。如果你重新掷出伤害卷的所有骰子，该伤害会绕过目标的任何火抗。每重掷一个骰子，你就会受到1个火系伤害，这个伤害不能被抵御。"
-			]
+				"一切都会燃烧。当你掷出火伤害时，你可以重新掷出任何数量的火伤害骰子。你必须使用新的卷轴。如果你重新掷出伤害卷的所有骰子，该伤害会绕过目标的任何火抗。你每重新掷出一个骰子，就会受到一个火系伤害，这个伤害是不能被抵抗的。"
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you roll fire damage",
+				"actionType": "other",
+				"damage.parts": [
+					[
+						"1[self]",
+						"fire"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/fire/blast-jet-stream-splash.webp"
 		},
 		{
 			"name": "Truth of Life",
@@ -2274,17 +3186,36 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Life"
+						"{@optfeature Mystery of Life|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"生命的气息是所有生物所共有的。如果一个生物在你周围60英尺的范围内咽下最后一口气，你可以用你的反应将那分散的生命力的一部分转移到你周围60英尺内的另一个生物（包括你自己）。目标生物获得相当于你的智慧修正值的命中率，或该生物的最大命中率（以较低者为准）。"
-			]
+				"生命的气息是所有生物所共有的。当一个生物在你60英尺范围内咽下最后一口气时，你可以用你的反应将那分散的生命力的一部分转移到你60英尺范围内的另一个生物身上（包括你自己）。目标生物获得相当于你的智慧修饰值的命中率，或该生物的最大命中率（以较低者为准）。"
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"activation.condition": "When a creature breathes their last within 60 feet of you",
+				"range.value": 60,
+				"range.units": "ft"
+			},
+			"foundryImg": "icons/magic/life/heart-broken-red.webp"
 		},
 		{
 			"name": "Truth of Souls",
@@ -2296,10 +3227,22 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Mystery of Souls"
+						"{@optfeature Mystery of Souls|KT:O}"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2317,23 +3260,29 @@
 			],
 			"prerequisite": [
 				{
+					"feature": [
+						"{@optfeature Mystery of War|KT:O}"
+					],
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
-					"feature": [
-						"Mystery of War"
-					],
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
 			],
 			"entries": [
-				"你对战争的理解显示，它来得很容易。你可以在施放施法时间为一个行动的咒语时触发（%0%）。"
+				"你对战争的理解显示，它来得很容易。当你施放一个施放时间为一个行动的咒语时，你可以触发（%0%）。"
 			]
 		},
 		{
@@ -2348,11 +3297,17 @@
 					"level": {
 						"level": 9,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Oracle",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "神谕的传统",
+						"entry": "",
 						"entrySummary": "Oracle"
 					}
 				}
@@ -2373,17 +3328,34 @@
 					"level": {
 						"level": 11,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"你学会了（%0%）、（%1%）和（%2%）的法术。这些是你的奥术师法术。当你施展这些法术之一时，你可以选择将法术的持续时间缩短到1分钟。当你这样做时，这些法术不需要集中注意力。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"investiture of flame|XGE",
+							"investiture of ice|XGE",
+							"investiture of stone|XGE"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2398,11 +3370,17 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2421,15 +3399,37 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"作为一个动作，你可以引爆显现的精神，使其爆发出强大的力量。所有在它10英尺范围内的生物必须做一个灵巧的蓄力动作。拯救失败时，目标受到的伤害相当于灵魂显化伤害的两倍。如果精神被赋予了一个法术槽，那么成功后目标会受到一半的伤害。灵魂会立即被释放并消失。"
-			]
+				"作为一个行动，你可以引爆{@subclassFeature Call Spirit|Occultist|kt:o|Shaman|kt:o|1|kt:o|manifested spirit}，使其爆发出强大的力量。所有在它10英尺范围内的生物必须做一个灵巧的蓄力动作。拯救失败时，目标受到的伤害等于精神表现出来的伤害的两倍。如果精神被赋予了一个法术槽，那么成功后目标将受到一半的伤害。灵魂会立即被释放并消失。"
+			],
+			"foundryData": {
+				"activation.type": "action",
+				"activation.cost": 1,
+				"range.value": 10,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "dex",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/explosion-star-glow-silhouette.webp"
 		},
 		{
 			"name": "Elemental Weapons",
@@ -2441,17 +3441,29 @@
 			"prerequisite": [
 				{
 					"spell": [
-						"fists of fire|KT:O#c",
-						"ice weapon|KT:O#c"
+						"fists of fire|KibblesTasty:CC#c",
+						"ice weapon|KibblesTasty:CC#c"
 					],
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"当你用{@spell fists of fire|KT:O}或{@spell ice weapon|KT:O}创建武器时，武器的伤害模子会增加一个大小（例如，从d6到d8）。"
+				"当你用{@spell fists of fire|KibblesTasty:CC}或{@spell ice weapon|KibblesTasty:CC}创建武器时，武器的伤害模子会增加一个大小（例如，从d6到d8）。"
 			]
 		},
 		{
@@ -2463,15 +3475,32 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
-				"你获得了为你的武器注入神灵赋予的力量的能力。当你有一个被赋予力量的灵体结合时，你可以把它所有的能量灌注到你的武器中（如果它被显现出来的话，可以召回它）。用该武器进行的下一次攻击会增加两倍来自灵体的额外伤害，但绑定立即失效。"
-			]
+				"你获得了将神灵赋予你的力量注入你的武器的能力。当你有一个{@subclassFeature Empowered Spirits|Occultist|kt:o|Shaman|kt:o|1|kt:o|empowered spirit}的结合物时，你可以将它的所有能量灌注到你的武器中（如果它被显化了，就召回它）。用该武器进行的下一次攻击会增加两倍于灵体的额外伤害，但绑定立即失效。"
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "While you have an empowered spirit bonded"
+			},
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Guidance of the Spirits",
@@ -2482,8 +3511,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2501,8 +3542,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2523,11 +3576,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2545,8 +3604,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2578,13 +3649,34 @@
 						],
 						[
 							"7th",
-							"{@spell orbital stones|KT:O}"
+							"{@spell orbital stones|KibblesTasty:GS}"
 						],
 						[
 							"9th",
 							"{@spell wall of stone}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"earth tremor|xge"
+						],
+						"3": [
+							"earthbind|xge"
+						],
+						"5": [
+							"erupting earth|xge"
+						],
+						"7": [
+							"orbital stones|KibblesTasty:GS"
+						],
+						"9": [
+							"wall of stone"
+						]
+					}
 				}
 			]
 		},
@@ -2597,8 +3689,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2638,6 +3742,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"ice knife|xge"
+						],
+						"3": [
+							"snilloc's snowball swarm|XGE"
+						],
+						"5": [
+							"sleet storm"
+						],
+						"7": [
+							"ice storm"
+						],
+						"9": [
+							"cone of cold"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2649,8 +3774,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2690,6 +3827,27 @@
 						]
 					]
 				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"burning hands"
+						],
+						"3": [
+							"pyrotechnics|xge"
+						],
+						"5": [
+							"fireball"
+						],
+						"7": [
+							"wall of fire"
+						],
+						"9": [
+							"immolation|xge"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2701,8 +3859,20 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2734,13 +3904,34 @@
 						],
 						[
 							"7th",
-							"{@spell jumping jolt|KT:O}"
+							"{@spell jumping jolt|KibblesTasty:GS}"
 						],
 						[
 							"9th",
-							"{@spell sky burst|KT:O}"
+							"{@spell sky burst|KibblesTasty:GS}"
 						]
 					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"thunderwave"
+						],
+						"3": [
+							"gust of wind"
+						],
+						"5": [
+							"lightning bolt"
+						],
+						"7": [
+							"jumping jolt|KibblesTasty:GS"
+						],
+						"9": [
+							"sky burst|KibblesTasty:GS"
+						]
+					}
 				}
 			]
 		},
@@ -2756,18 +3947,34 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"当你有一个灵魂与你结合时，作为一个额外的行动，你可以使它发出力量，使你周围5英尺内的所有生物（如果它在其他地方显现，则为它）对你的法术救赎DC进行智慧救赎，或者受到相当于它显现的伤害。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"range.value": 5,
+				"range.units": "ft",
+				"actionType": "save",
+				"save.ability": "wis",
+				"save.scaling": "spell"
+			},
+			"foundryImg": "icons/magic/light/hand-sparks-glow-yellow.webp"
 		},
 		{
 			"name": "Rite of Prowess",
@@ -2778,15 +3985,83 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"你可以从（%0%）、（%1%）或（%2%）中选择一种战斗风格。"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:O"
+					],
+					"progression": {
+						"*": 1
+					}
+				}
 			]
+		},
+		{
+			"name": "Dueling",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"当你单手挥舞近战武器而没有其他武器时，你使用该武器的伤害卷获得+2的奖励。"
+			],
+			"foundryEffects": [
+				{
+					"name": "Fighting Style: Dueling",
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					],
+					"disabled": true
+				}
+			]
+		},
+		{
+			"name": "Two-Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"当你进行双武器战斗时，你可以在第二次攻击的伤害上加上你的能力修改值。"
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-white-blue.webp"
+		},
+		{
+			"name": "Great Weapon Fighting",
+			"source": "KT:O",
+			"featureType": [
+				"FS:O"
+			],
+			"entries": [
+				"当你用双手挥舞的近战武器进行攻击时，你可以重新掷骰子，并且必须使用新的骰子，即使新的骰子是1或2。"
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-steel-yellow.webp"
 		},
 		{
 			"name": "Shaman's Touch",
@@ -2800,11 +4075,17 @@
 					"level": {
 						"level": 7,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
 						}
 					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
@@ -2822,14 +4103,35 @@
 			],
 			"prerequisite": [
 				{
+					"level": {
+						"level": 1,
+						"class": {
+							"name": "Occultist",
+							"source": "KT:O"
+						},
+						"subclass": {
+							"name": "Tradition of the Shaman",
+							"source": "KT:O",
+							"visible": true
+						}
+					},
 					"otherSummary": {
-						"entry": "萨满的传统",
+						"entry": "",
 						"entrySummary": "Shaman"
 					}
 				}
 			],
 			"entries": [
 				"你学会了这个法术（%0%），它成为你的一个奥术师法术，但不计入你的已知法术。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"shield"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2842,6 +4144,11 @@
 			"entries": [
 				"你获得对（%0%）的熟练度。在长时间的休息中，你可以用它们来调制一种即兴的（1%），并在长时间的休息中花费1小时来处理它的熬制。由于它的即兴性质，它在24小时后失效，并且没有金币的价值。",
 				"在这个过程中，你可以消耗一个五级法术，使其成为（%0%）。消耗的法术槽在长期休息完成后会像正常一样恢复。"
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				}
 			]
 		},
 		{
@@ -2856,7 +4163,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2877,7 +4185,7 @@
 			"prerequisite": [
 				{
 					"feature": [
-						"Blood Rituals"
+						"{@optfeature Blood Rituals|KT:O}"
 					]
 				}
 			],
@@ -2906,7 +4214,8 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -2925,6 +4234,15 @@
 			],
 			"entries": [
 				"你学会了（%0%）的法术，对你来说这是一个奥术师法术，但不计入你的已知法术。你可以在不耗费法术槽的情况下施放它。一旦你以这种方式施展它，你必须在完成一次短暂或长时间的休息后才能再次以这种方式施展。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"speak with dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2950,13 +4268,34 @@
 					"level": {
 						"level": 10,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"你可以从传统的专业技能中选择一个额外的技能作为你的熟练度。在你进行任何使用所选技能的能力检查时，你的熟练度奖励会翻倍。如果你对所选的技能都不精通，你可以在你的选择中获得熟练度。"
+			],
+			"expertise": [
+				{
+					"animal handling": true
+				},
+				{
+					"arcana": true
+				},
+				{
+					"medicine": true
+				},
+				{
+					"nature": true
+				},
+				{
+					"survival": true
+				},
+				{
+					"anyProficientSkill": 1
+				}
 			]
 		},
 		{
@@ -2971,13 +4310,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"你学会了这个咒语（%0%）。这是你的一个神秘主义法术。你不能把这个咒语变成一个具有（%1%）的仪式。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"animate dead"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -2989,7 +4338,15 @@
 			],
 			"entries": [
 				"你了解到一个消失在时间中的仪式。选择一个你知道的五级或以下的奥术师法术。这个法术对你来说成为一个仪式法术。你可以将此咒语作为仪式施放一次，在再次作为仪式施放前必须完成一次短暂或长时间的休息。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast the selected spell",
+				"uses.value": 1,
+				"uses.max": 1,
+				"uses.per": "sr"
+			},
+			"foundryImg": "icons/magic/defensive/barrier-shield-dome-pink.webp"
 		},
 		{
 			"name": "Markings of Protections",
@@ -3000,7 +4357,20 @@
 			],
 			"entries": [
 				"你用魔法符号和图案标记自己，保护你免受伤害。你受到（%0%）法术的影响。"
-			]
+			],
+			"foundryEffects": [
+				{
+					"name": "Mage Armor",
+					"changes": [
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "mage"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/magic/symbols/cross-circle-blue.webp"
 		},
 		{
 			"name": "Occult Haste",
@@ -3014,13 +4384,23 @@
 					"level": {
 						"level": 5,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"你学会了这个咒语（%0%）。这是你的一个奥术师法术。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"haste"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3032,6 +4412,15 @@
 			],
 			"entries": [
 				"你对超自然的伤害做了一个防护。在佩戴此符咒时，你可以使用此符咒来施展（%0%），而不需要消耗法术槽、组件或要求集中注意力，但此符咒持续的回合数等于你的智慧修正值。你可以将此作为被攻击的反应或做出对你有利的救赎，但当你这样做时，它只持续到你下一回合的开始。"
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": [
+							"protection from evil and good"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3046,7 +4435,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3067,7 +4457,8 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
@@ -3088,13 +4479,26 @@
 					"level": {
 						"level": 15,
 						"class": {
-							"name": "Occultist"
+							"name": "Occultist",
+							"source": "KT:O"
 						}
 					}
 				}
 			],
 			"entries": [
 				"你从你选择的任何类别列表中学习10个（%0%）。它们是你的奥术师法术。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							{
+								"choose": "level=0",
+								"count": 10
+							}
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3149,6 +4553,15 @@
 			"entries": [
 				"你学会了（%0%）的法术。这对你来说是一个奥术师法术，但不计入你的已知法术。",
 				"当你施展守护结界时，你可以选择增加结界的力量。当你这样做的时候，如果任何一个被束缚的生物进行智力、智慧或魅力储蓄，两个生物都会进行储蓄。如果其中一个通过，则两个都通过，但如果两个都失败，则两个都会受到被救条件的影响，即使只有一个是目标。如果两个生物都在对同一个效果进行救赎，他们不会掷两次骰子，但如果其中一个通过了他们的救赎，则两个都通过，如果两个都没有通过他们的救赎则两个都失败。"
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"warding bond"
+						]
+					}
+				}
 			]
 		},
 		{
@@ -3160,6 +4573,45 @@
 			],
 			"entries": [
 				"你获得对（%0%）和（%1%）的熟练度。"
+			],
+			"armorProficiencies": [
+				{
+					"medium": true,
+					"shield|phb": true
+				}
+			]
+		},
+		{
+			"name": "Reliable Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"当你在奥术师咒语的伤害骰子上掷出1或2时，你可以重新掷骰子，并且必须使用新的骰子，即使新骰子是1或2。"
+			]
+		},
+		{
+			"name": "Habitual Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"当你施放一个需要集中注意力的奥术师咒语时，你可以使该效果在不集中注意力的情况下持续数个回合，相当于你的奥术师等级（例如，作为一级奥术师，它将在你下一回合开始时结束）。你可以作为一个行动提前结束一个以这种方式持续存在的法术。"
+			]
+		},
+		{
+			"name": "Tactical Casting",
+			"source": "KT:O",
+			"page": 8,
+			"featureType": [
+				"ktcs"
+			],
+			"entries": [
+				"当你用奥术师的咒语采取{@action Ready}行动时，不需要集中注意力来保持咒语的准备。"
 			]
 		}
 	],
@@ -3269,7 +4721,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell rotting curse|KT:O}, {@spell arms of hadar}"
+							"{@spell rotting curse|KibblesTasty:CC}, {@spell arms of hadar}"
 						],
 						[
 							"3rd",
@@ -3277,7 +4729,7 @@
 						],
 						[
 							"5th",
-							"{@spell animate shadow|KT:O}, {@spell summon shadowspawn|TCE}"
+							"{@spell animate shadow|KibblesTasty:CC}, {@spell summon shadowspawn|TCE}"
 						],
 						[
 							"7th",
@@ -3285,7 +4737,7 @@
 						],
 						[
 							"9th",
-							"{@spell killing curse|KT:O}, {@spell contagion}"
+							"{@spell killing curse|KibblesTasty:CC}, {@spell contagion}"
 						]
 					]
 				},
@@ -3303,7 +4755,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell binding curse|KT:O}, {@spell healing word}"
+							"{@spell binding curse|KibblesTasty:CC}, {@spell healing word}"
 						],
 						[
 							"3rd",
@@ -3319,7 +4771,7 @@
 						],
 						[
 							"9th",
-							"{@spell curse of impotence|KT:O}, {@spell summon celestial|TCE}"
+							"{@spell curse of impotence|KibblesTasty:CC}, {@spell summon celestial|TCE}"
 						]
 					]
 				},
@@ -3337,7 +4789,7 @@
 					"rows": [
 						[
 							"1st",
-							"{@spell befuddling curse|KT:O}, {@spell entangle}"
+							"{@spell befuddling curse|KibblesTasty:CC}, {@spell entangle}"
 						],
 						[
 							"3rd",
@@ -3353,7 +4805,7 @@
 						],
 						[
 							"9th",
-							"{@spell swapping curse|KT:O}, {@spell wrath of nature|XGE}"
+							"{@spell swapping curse|KibblesTasty:CC}, {@spell wrath of nature|XGE}"
 						]
 					]
 				}
@@ -3383,7 +4835,7 @@
 					"type": "entries",
 					"name": "White Coven",
 					"entries": [
-						"当你完成一个长时间的休息时，你的熟人会获得相当于你的智慧修正值+你的两倍奥术师等级的临时命中率。当它有一个或多个临时命中率时，作为它的行动，或作为对它30英尺内的生物受到伤害的反应，它可以传送到盟友的目标，给该目标一些临时命中率（最少一个）。"
+						"当你完成一个长时间的休息时，你的熟人会获得相当于你的智慧修正值+两倍你的奥术师等级的临时命中率。当它有一个或多个临时命中率时，作为它的行动，或者作为对它30英尺内的生物受到伤害的反应，它可以传送到盟友的目标，给该目标一些临时命中率（最少一个）。"
 					]
 				},
 				{
@@ -3419,7 +4871,12 @@
 					]
 				},
 				"你也可以通过使其范围触及，将这些效果赋予另一个范围长于触及的法术，或者在不施法的情况下，通过触及目标（如果目标是不愿意的生物，则进行近战法术攻击）来赋予这些效果。如果你使诅咒法术的范围触及，你不再需要该法术的物质成分。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activaiton.condition": "Whenever you cast a spell with a range of touch"
+			},
+			"foundryImg": "icons/magic/death/hand-withered-gray.webp"
 		},
 		{
 			"name": "Master of Curses",
@@ -3489,7 +4946,7 @@
 			"header": 1,
 			"entries": [
 				"{@i 1st-level Tradition of the Hedge Mage feature}",
-				"你获得以下技能的熟练度，你可以选择其中一个。{@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature}, 或 {@skill Survival}。此外，你可以从（%5%）或以下扩展的咒语列表中选择一个额外的咒语。{@spell blade ward}, {@spell firebolt} , {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. 当你学习一个新的咒语时，你可以从上述扩大的列表中选择，除了奥术师列表。",
+				"你获得以下技能的熟练度，你可以选择其中一个。{@skill Arcana}, {@skill Animal Handling}, {@skill Medicine}, {@skill Nature}, 或 {@skill Survival}。此外，你可以从（%5%）或以下扩展的咒语列表中选择一个额外的咒语。{@spell blade ward}, {@spell fire bolt}, {@spell mage hand}, {@spell prestidigitation}, {@spell friends}, {@spell ray of frost}, {@spell shillelagh}, {@spell spare the dying}, {@spell thaumaturgy}, {@spell true strike}. 当你学习一个新的咒语时，除了奥术师的列表外，你还可以从上述扩展列表中选择。",
 				"你通过自我发现来学习你的魔法，通常包含了试验和错误。由于不知道什么是不可能或不切实际的，你的魔法发展出独特的一面。你可以用以下功能修改你所学的法术。",
 				{
 					"type": "entries",
@@ -3513,6 +4970,20 @@
 						}
 					]
 				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"animal handling",
+							"medicine",
+							"nature",
+							"survival"
+						],
+						"count": 1
+					}
+				}
 			]
 		},
 		{
@@ -3531,9 +5002,18 @@
 				{
 					"type": "list",
 					"items": [
-						"{@b Reliable Casting.}当你为奥术师咒语的伤害骰子掷出1或2时，你可以重新掷骰子，并且必须使用新的骰子，即使新的骰子是1或2。",
-						"{@b Habitual Casting.}当你施放一个需要集中注意力的奥术师咒语时，你可以使该效果在不集中注意力的情况下持续数个回合，相当于你的奥术师等级（例如，作为一级奥术师，它将在你下一回合开始时结束）。你可以作为一个行动提前结束一个以这种方式持续存在的咒语。",
-						"{@b Tactical Casting.}当你用奥术师的咒语进行准备动作时，不需要集中注意力来保持咒语的准备。"
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Reliable Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Habitual Casting|KT:O"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Tactical Casting|KT:O"
+						}
 					]
 				}
 			]
@@ -3831,7 +5311,15 @@
 						"这确实（%0%）否定了多次施放蛟龙的正常缺点。随着你进一步深入了解更多的信息，它变得更难阅读，因为你对它的改变变得更加湍急。"
 					]
 				}
-			]
+			],
+			"foundryData": {
+				"activation.type": "reaction",
+				"acitvation.cost": 1,
+				"activation.condition": "When you are hit by an attack",
+				"uses.max": "@prof",
+				"uses.per": "lr"
+			},
+			"foundryImg": "icons/sundries/books/book-clasp-spiral-green.webp"
 		},
 		{
 			"name": "Enlightened Understanding",
@@ -3846,7 +5334,20 @@
 			"entries": [
 				"{@i 6th-level Tradition of the Oracle feature}",
 				"从6级开始，每当你激活一个启示，你就会获得相当于你的智慧修正值的临时打击点数。此外，当你施放一个不符合其要求的1级法术时，你可以触发一个启示（例如，在一个不造成火焰伤害的法术上触发火的启示）。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "Whenever you activate a Revelation",
+				"actionType": "heal",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"@mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/sundries/books/book-open-purple.webp"
 		},
 		{
 			"name": "Master of Prophecy",
@@ -3920,6 +5421,18 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"当你选择这个子阶级时，你获得对（%0%）、（%1%）、（%2%）和（%3%）的熟练度。此外，你的最大命中率增加1，并且每当你在这个等级中获得一个等级时，再增加1。"
+			],
+			"weaponProficiencies": [
+				{
+					"simple": true
+				}
+			],
+			"armorProficiencies": [
+				{
+					"light": true,
+					"medium": true,
+					"shield|phb": true
+				}
 			]
 		},
 		{
@@ -3935,10 +5448,27 @@
 			"entries": [
 				"{@i 1st-level Tradition of the Shaman feature}",
 				"从1级开始，作为一个额外的动作，你可以召唤一个灵魂到你身边。这可以是一个火、冷或闪电的原始精神，或者一个具有辐射或坏死力量的祖先精神。这种结合一旦形成就会持续10分钟。你可以作为一个行动提前释放一个精神，如果你召唤另一个精神，它将立即被释放。",
-				"当灵魂与你结合时，它会加强你的近战武器攻击，使它们造成额外的1d4灵魂类型的伤害。",
-				"当它被绑定时，作为一个额外的动作，你可以在你30英尺范围内显化这个精神。灵魂是中等大小的，但在显现时具有幽灵的性质。当灵体显现时，每当你采取攻击行动时，你可以用你绑定的灵体的近战法术攻击来取代你平时可以采取的任何数量的攻击。灵魂所做的近战法术攻击在命中时造成1d4+你的智慧修改器的同种精神类型的伤害。作为一个额外的动作，你可以将它向任何方向移动30英尺，或者将它召回到自己身边，结束它的表现。",
+				"当灵体与你结合时，它会加强你的近战武器攻击，使它们造成灵体类型的额外（%0%）的伤害。",
+				"当它被绑定时，作为一个额外的动作，你可以在你的30英尺范围内显化这个精神。灵魂是中等大小的，但在显现时具有幽灵的性质。当精神显化时，每当你采取攻击行动时，你可以用你所绑定的精神的近战法术攻击来取代你通常可以采取的任何数量的攻击。灵魂所做的近战法术攻击在命中时造成{@damage 1d4}+你的智慧修改器的同一灵魂类型的伤害。作为一个额外的动作，你可以将它向任何方向移动30英尺，或者将它召回自己，结束它的表现。",
 				"一个显现的灵魂不能从你身边移动超过60英尺，如果你从它身边移动超过60英尺就会被召回。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "bonus",
+				"activation.cost": 1,
+				"duration.value": 10,
+				"duration.units": "minute",
+				"range.value": 30,
+				"range.units": "ft",
+				"actionType": "msak",
+				"ability": "wis",
+				"damage.parts": [
+					[
+						"1d4 + @mod",
+						""
+					]
+				]
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-masked-blue.webp"
 		},
 		{
 			"name": "Empowered Spirits",
@@ -3952,7 +5482,7 @@
 			"header": 2,
 			"entries": [
 				"{@i 3rd-level Tradition of the Shaman feature}",
-				"从3级开始，当你召唤一个灵魂时，你会消耗一个1级或以上的法术槽来赋予该灵魂力量。一个被赋予力量的灵魂会给你的武器增加额外的伤害，并造成额外的显化伤害。当灵体被召唤而未被显现时，你会在每个回合开始时获得等同于为赋能而花费的法术槽等级的临时命中率。",
+				"从3级开始，当你召唤一个灵魂时，你可以消耗一个1级或以上的法术槽来赋予该灵魂力量。一个被赋予力量的灵魂会给你的武器增加额外的伤害，并造成额外的显现伤害。当灵体被召唤而未被显现时，你会在每个回合开始时获得等同于用于赋能的法术槽等级的临时命中率。",
 				{
 					"type": "table",
 					"colLabels": [
@@ -3970,32 +5500,32 @@
 					"rows": [
 						[
 							"1st",
-							"1d6",
-							"2d4",
+							"{@damage 1d6}",
+							"{@damage 2d4}",
 							"1"
 						],
 						[
 							"2nd",
-							"1d8",
-							"2d6",
+							"{@damage 1d8}",
+							"{@damage 2d6}",
 							"2"
 						],
 						[
 							"3rd",
-							"1d10",
-							"2d6",
+							"{@damage 1d10}",
+							"{@damage 2d6}",
 							"3"
 						],
 						[
 							"4th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"4"
 						],
 						[
 							"5th",
-							"1d12",
-							"2d8",
+							"{@damage 1d12}",
+							"{@damage 2d8}",
 							"5"
 						]
 					]
@@ -4031,7 +5561,12 @@
 			"entries": [
 				"{@i 14th-level Tradition of the Shaman feature}",
 				"从14级开始，当你施展1级或以上的法术时，你可以将一次武器攻击作为奖励动作。如果你有一个显化的精神，你可以用它来代替进行武器攻击。"
-			]
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you cast a spell of 1st level or higher"
+			},
+			"foundryImg": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
 		}
 	],
 	"subclass": [
@@ -4047,7 +5582,140 @@
 				"Master of Curses|Occultist|KT:O|Witch|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"name": "Black Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"rotting curse|KibblesTasty:CC",
+							"arms of hadar"
+						],
+						"3": [
+							"blindness/deafness",
+							"darkness"
+						],
+						"5": [
+							"animate shadow|KibblesTasty:CC",
+							"summon shadowspawn|tce"
+						],
+						"7": [
+							"blight",
+							"evard's black tentacles"
+						],
+						"9": [
+							"killing curse|KibblesTasty:CC",
+							"contagion"
+						]
+					}
+				},
+				{
+					"name": "White Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"binding curse|KibblesTasty:CC",
+							"healing word"
+						],
+						"3": [
+							"calm emotions",
+							"hold person"
+						],
+						"5": [
+							"revivify",
+							"mass healing word"
+						],
+						"7": [
+							"banishment",
+							"otiluke's resilient sphere"
+						],
+						"9": [
+							"curse of impotence|KibblesTasty:CC",
+							"summon celestial|tce"
+						]
+					}
+				},
+				{
+					"name": "Green Coven",
+					"known": {
+						"1": [
+							"find familiar",
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 2
+							},
+							"befuddling curse|KibblesTasty:CC",
+							"entangle"
+						],
+						"3": [
+							"alter self",
+							"enlarge/reduce"
+						],
+						"5": [
+							"major image",
+							"summon fey|tce"
+						],
+						"7": [
+							"greater invisibility",
+							"polymorph"
+						],
+						"9": [
+							"swapping curse|KibblesTasty:CC",
+							"wrath of nature|xge"
+						]
+					}
+				}
+			],
+			"subSubclassSpells": {
+				"Black Coven": [
+					"rotting curse|KibblesTasty:CC",
+					"arms of hadar",
+					"blindness/deafness",
+					"darkness",
+					"animate shadow|KibblesTasty:CC",
+					"summon shadowspawn|tce",
+					"blight",
+					"evard's black tentacles",
+					"killing curse|KibblesTasty:CC",
+					"contagion"
+				],
+				"White Coven": [
+					"binding curse|KibblesTasty:CC",
+					"healing word",
+					"calm emotions",
+					"hold person",
+					"revivify",
+					"mass healing word",
+					"banishment",
+					"otiluke's resilient sphere",
+					"curse of impotence|KibblesTasty:CC",
+					"summon celestial|tce"
+				],
+				"Green Coven": [
+					"befuddling curse|KibblesTasty:CC",
+					"entangle",
+					"alter self",
+					"enlarge/reduce",
+					"major image",
+					"summon fey|tce",
+					"greater invisibility",
+					"polymorph",
+					"swapping curse|KibblesTasty:CC",
+					"wrath of nature|xge"
+				]
+			},
+			"subclassSpells": [
+				"find familiar"
+			]
 		},
 		{
 			"name": "Tradition of the Hedge Mage",
@@ -4063,7 +5731,80 @@
 				"Cantrip Mastery|Occultist|KT:O|Hedge Mage|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							{
+								"choose": "level=0|class=occultist (kt:o)",
+								"count": 1
+							}
+						],
+						"6": [
+							{
+								"choose": "level=1;2|class=bard;cleric;druid;wizard",
+								"count": 1
+							}
+						]
+					},
+					"expanded": {
+						"1": [
+							"blade ward",
+							"fire bolt",
+							"mage hand",
+							"prestidigitation",
+							"friends",
+							"ray of frost",
+							"shillelagh",
+							"spare the dying",
+							"thaumaturgy",
+							"true strike"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Casting Style",
+					"featureType": [
+						"ktcs"
+					],
+					"progression": {
+						"1": 1
+					}
+				},
+				{
+					"name": "Personalized Path",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"3": 1
+					}
+				},
+				{
+					"name": "Stolen Techniques",
+					"featureType": [
+						"ktor"
+					],
+					"progression": {
+						"6": 1
+					}
+				}
+			],
+			"subclassSpells": [
+				"blade ward",
+				"fire bolt",
+				"mage hand",
+				"prestidigitation",
+				"friends",
+				"ray of frost",
+				"shillelagh",
+				"spare the dying",
+				"thaumaturgy",
+				"true strike"
+			]
 		},
 		{
 			"name": "Tradition of the Oracle",
@@ -4077,7 +5818,58 @@
 				"Master of Prophecy|Occultist|KT:O|Oracle|KT:O|14"
 			],
 			"className": "Occultist",
-			"classSource": "KT:O"
+			"classSource": "KT:O",
+			"additionalSpells": [
+				{
+					"known": {
+						"1": [
+							"guidance",
+							"thaumaturgy",
+							"identify"
+						],
+						"3": [
+							"locate object"
+						],
+						"5": [
+							"clairvoyance"
+						],
+						"7": [
+							"locate creature"
+						],
+						"9": [
+							"legend lore"
+						]
+					},
+					"innate": {
+						"3": [
+							"augury"
+						]
+					}
+				}
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Mystery Unveiled",
+					"featureType": [
+						"ktom"
+					],
+					"progression": {
+						"1": 1,
+						"5": 2,
+						"11": 3
+					}
+				}
+			],
+			"subclassSpells": [
+				"guidance",
+				"thaumaturgy",
+				"identify",
+				"locate object",
+				"clairvoyance",
+				"locate creature",
+				"legend lore",
+				"augury"
+			]
 		},
 		{
 			"name": "Tradition of the Shaman",
