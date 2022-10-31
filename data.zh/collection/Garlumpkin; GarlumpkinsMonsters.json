@@ -1,0 +1,1880 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "GarlumpkinMonsters",
+				"abbreviation": "GMB",
+				"full": "Garlumpkin's Monster Book",
+				"url": "https://github.com/Garlumpkin/homebrew",
+				"authors": [
+					"Garlumpkin"
+				],
+				"convertedBy": [
+					"Garlumpkin"
+				],
+				"version": "unknown"
+			}
+		],
+		"dateAdded": 1652292473,
+		"dateLastModified": 1652292473,
+		"_dateLastModifiedHash": "1c9bac8986"
+	},
+	"monster": [
+		{
+			"name": "Barixis the Undying",
+			"shortName": "Barixis",
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"L"
+			],
+			"type": "undead",
+			"alignment": [
+				"C",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 23,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "27d10 + 160",
+				"average": 308
+			},
+			"speed": {
+				"walk": 60,
+				"climb": 60
+			},
+			"str": 18,
+			"dex": 18,
+			"con": 22,
+			"int": 24,
+			"wis": 22,
+			"cha": 28,
+			"save": {
+				"int": "+16",
+				"wis": "+15",
+				"cha": "+18"
+			},
+			"skill": {
+				"intimidation": "+18",
+				"perception": "+15"
+			},
+			"senses": [
+				"truesight 120 ft."
+			],
+			"passive": 25,
+			"resist": [
+				{
+					"resist": [
+						"acid",
+						"psychic",
+						"radiant"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from magic weapons"
+				}
+			],
+			"immune": [
+				{
+					"immune": [
+						"fire",
+						"lightning",
+						"necrotic"
+					]
+				},
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from nonmagical attacks"
+				}
+			],
+			"vulnerable": [
+				"thunder"
+			],
+			"conditionImmune": [
+				"blinded",
+				"charmed",
+				"frightened",
+				"poisoned",
+				"prone"
+			],
+			"languages": [
+				"Common",
+				"Deep Speech",
+				"Undercommon"
+			],
+			"cr": "30",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"will": [
+						"{@spell counterspell}"
+					],
+					"spells": {
+						"9": {
+							"spells": [
+								"{@spell animate dead}",
+								"{@spell dimension door}",
+								"{@spell dominate monster}",
+								"{@spell globe of invulnerability}",
+								"{@spell power word kill}"
+							],
+							"slots": 4,
+							"lower": 1
+						}
+					},
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"如果Barixis的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Negative Energy Cone",
+					"entries": [
+						"Barixis的中央眼睛会发出一个{@condition invisible}，神奇的60英尺的负能量锥体。在它的每个回合开始时，Barixis决定锥体的方向以及锥体是否处于活动状态。该区域内的任何生物都无法重新获得命中率。"
+					]
+				},
+				{
+					"name": "Fire Absorption",
+					"entries": [
+						"每当Barixis受到火灾伤害时，它不会受到任何伤害，而是重新获得与所受火灾伤害相等的命中率。"
+					]
+				},
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"Barixis在面对法术和其他魔法效果时，在蓄力攻击上有优势。"
+					]
+				},
+				{
+					"name": "Reconstruction (Recharges after a short or long rest)",
+					"entries": [
+						"如果Barixis会被降低到0命中率，它当前的命中率总数反而会重置为275命中率，并且它重新获得所有使用的传奇抗性和任何消耗的法术槽。此外，Barixis可以在一小时内使用 \"神话行动 \"部分的选项。在Barixis重建发生后，击败它的一方可以获得额外的155,000XP（总共310,000XP）。"
+					]
+				},
+				{
+					"name": "Rejuvenation",
+					"entries": [
+						"如果巴里希斯有它的法器，一旦被摧毁，它会在{@dice 1d10}天内获得一个新的身体，恢复它所有的命中率并再次变得活跃。新的身体出现在法器的5英尺范围内。"
+					]
+				},
+				{
+					"name": "Unusual Nature",
+					"entries": [
+						"Barixis不需要食物或饮料。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13}击中，到达5英尺，一个目标。{@h}35 ({@damage 4d10 + 13})穿刺伤害。"
+					]
+				},
+				{
+					"name": "Psychic Barrage {@recharge 5}",
+					"entries": [
+						"{@atk rw} {@hit 16}击中，范围60/60英尺，一个目标。{@h}68 ({@damage 10d10 + 16})精神伤害。"
+					]
+				},
+				{
+					"name": "Eye Rays",
+					"entries": [
+						"观察者随机射出以下三道魔眼射线（重选重复），选择120英尺内它能看到的一至三个目标。",
+						"1.魅惑射线。目标生物必须在一个{@dc 23}的智慧救赎中成功，或者在1小时内被看守者{@condition charmed}，或者直到看守者伤害到该生物。",
+						"2.麻痹射线。目标生物必须在宪法规定的投掷中成功，否则将在1分钟内受到1%的伤害。目标可以在其每个回合结束时重复蓄力，如果成功则结束对自己的影响。",
+						"3. 恐惧射线。目标生物必须在智慧救赎中获得成功，否则将在1分钟内受到{@condition frightened}的影响。目标可以在其每个回合结束时重复蓄力，如果成功则结束对自己的影响。",
+						"4. 减速射线。目标生物必须在一个{@dc 23}灵巧的蓄力动作上成功。如果拯救失败，目标的速度会减半，持续1分钟。此外，该生物不能做出反应，它可以在其回合中采取一个行动或一个额外的行动，不能同时采取。该生物可以在其每个回合结束时重复蓄力，如果成功则结束对自己的影响。",
+						"5. 5.保护射线。目标生物必须做一个{@dc 23}宪法规定的救赎，如果救赎失败，将受到54({@damage 12d8})的坏死伤害，如果救赎成功，将受到一半的伤害。",
+						"6. 心灵感应射线。如果目标是一个生物，它必须在一个{@dc 23}的力量投掷中成功，否则持证人将其向任何方向移动最多30英尺。它将被射线的心灵感应所控制，直到持证人下一回合开始或持证人处于{@condition incapacitated}。",
+						"如果目标是一个重量在500磅或以下的物体，并且没有被佩戴或携带，那么它可以在任何方向上移动30英尺。观察者还可以用这种射线对物体进行精细控制，例如操纵一个简单的工具或打开一扇门或一个容器。",
+						"7. 睡眠射线。目标生物必须在智慧救赎中获得成功，否则就会睡着，并保持1分钟（1%）。如果目标受到伤害或其他生物采取行动唤醒它，它就会醒来。这个射线对构造物和亡灵没有影响。",
+						"8. 石化射线。目标生物必须做一个{@dc 23}灵巧的蓄力动作。拯救失败后，该生物开始变成石头，并且是（%1%）。它必须在下一回合结束时重复这个蓄力动作。成功时，效果结束。失败时，该生物会被（%2%），直到被（%3%）的咒语或其他魔法解救。",
+						"9. 瓦解射线。如果目标是一个生物，它必须在一个{@dc 23}灵巧的救赎中成功，否则会受到63({@damage 14d8})的力量伤害。如果这个伤害使生物的命中率降到0，它的身体就会变成一堆灰色的细小灰尘。",
+						"如果目标是大型或更小的非魔法物体或魔法力量的创造物，它就会被瓦解而不需要进行蓄力。如果目标是一个巨大或更大的物体或魔法力量的创造物，这个射线会瓦解它的一个10英尺立方体。",
+						"10. 死亡射线。目标生物必须在一个{@dc 23}的灵巧救赎中成功，否则会受到77({@damage 14d10})的坏死伤害。如果射线使目标生物的命中率降至0，则其死亡。"
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Spellcasting Awareness",
+					"entries": [
+						"Barixis每回合可以使用两个反应。这些反应是为使用（%0%）而保留的。"
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Eye Ray",
+					"entries": [
+						"巴里希斯使用一个随机的眼睛射线。"
+					]
+				},
+				{
+					"name": "Psychic Barrage Recharge",
+					"entries": [
+						"巴里希斯翻滚着给它的精神弹幕充电"
+					]
+				},
+				{
+					"name": "Psychic Barrage (Costs 2 Actions, must be charged)",
+					"entries": [
+						"巴里希斯使用它的精神弹幕。"
+					]
+				}
+			],
+			"mythicHeader": [
+				"If Barixis' reconstruction trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Telekinetic Ray",
+					"entries": [
+						"Barixis使用它的遥感眼射线"
+					]
+				},
+				{
+					"name": "Sphere of Obliviation (Costs 2 Actions)",
+					"entries": [
+						"巴里希斯用它的心灵感应射线吞噬一个生物（%0%）到它的中心眼。被吞噬的生物必须在{@dc 23}体质测试中成功，否则死亡。如果成功，目标会受到82({@damage 15d10})的坏死伤害，并被留在Barixis附近的空间中{@condition prone}。"
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "Barixis' Lair",
+				"source": "GarlumpkinMonsters"
+			},
+			"fluff": {
+				"entries": [
+					"巴里希斯在看家方面相当大--它的绿色和蓝色的金属和鳞片的身体直径约为6英尺，有4根长长的细茎发芽，末端是银色的眼睛。它有一个大的尖牙咧嘴，最明显的是，在它中央大眼睛的地方有一个深坑。在它的身体下面，粗暴地移植到它的皮肤上，有8条金刚腿，以及另外2条从它的身体里伸出来的金刚茎。",
+					"在生活中，Barixis是一个强大的beholder，拥有发达的奥术能力。它通过魔法手段寻求不朽的力量，并能够将自己的灵魂捆绑在一个法器上，代价是永远不满足于他人的死亡。随着时间的推移，许多人试图杀死伟大的Barixis，甚至刺穿它的眼睛使其失明，但凭借奥术技能，它重建了自己的身体并转向魔法，继续战斗和收集灵魂。",
+					"在经营竞技场和收集那些战斗者的灵魂来喂养他的法器的几个世纪后，竞技场慢慢变成了它自己的领域，与物质世界分开，在那里，巴里克斯让他的囚犯经历无尽的战斗，慢慢地以他们的灵魂为食，直到永远。"
+				]
+			},
+			"traitTags": [
+				"Damage Absorption",
+				"Legendary Resistances",
+				"Magic Resistance",
+				"Rejuvenation"
+			],
+			"senseTags": [
+				"U"
+			],
+			"languageTags": [
+				"C",
+				"DS",
+				"U"
+			],
+			"damageTags": [
+				"N",
+				"O",
+				"P",
+				"Y"
+			],
+			"miscTags": [
+				"AOE",
+				"MW",
+				"RW"
+			],
+			"conditionInflict": [
+				"charmed",
+				"frightened",
+				"paralyzed",
+				"petrified",
+				"prone",
+				"restrained",
+				"unconscious"
+			]
+		},
+		{
+			"name": "Humpty Dumpty",
+			"shortName": true,
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"G"
+			],
+			"type": "undead",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 26,
+					"from": [
+						"Adamantine Plating"
+					]
+				}
+			],
+			"hp": {
+				"formula": "26d12 + 260",
+				"average": 429
+			},
+			"speed": {
+				"walk": 25
+			},
+			"str": 30,
+			"dex": 18,
+			"con": 28,
+			"int": 22,
+			"wis": 28,
+			"cha": 14,
+			"save": {
+				"con": "+17",
+				"wis": "+17",
+				"str": "+18"
+			},
+			"skill": {
+				"athletics": "+18",
+				"intimidation": "+10",
+				"perception": "+17",
+				"survival": "+17",
+				"medicine": "+17"
+			},
+			"senses": [
+				"blindsight 60 ft."
+			],
+			"passive": 27,
+			"resist": [
+				"fire",
+				"radiant"
+			],
+			"immune": [
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from nonmagical attacks"
+				},
+				{
+					"immune": [
+						"necrotic"
+					]
+				}
+			],
+			"vulnerable": [
+				{
+					"vulnerable": [
+						"bludgeoning"
+					],
+					"note": "from fall damage"
+				}
+			],
+			"conditionImmune": [
+				"charmed",
+				"incapacitated",
+				"prone",
+				"stunned",
+				"unconscious"
+			],
+			"languages": [
+				"Common"
+			],
+			"cr": "25",
+			"trait": [
+				{
+					"name": "Reflective Shell",
+					"entries": [
+						"任何时候胖墩儿被魔法飞弹法术、直线法术或需要远程攻击的法术所瞄准，请掷出（%0%）。1到5时，胖墩儿不受影响。在6的时候，矮胖子不受影响，并且效果会反射到施法者身上，就像它来自矮胖子一样，将施法者变成目标。"
+					]
+				},
+				{
+					"name": "Limited Magic Immunity",
+					"entries": [
+						"胖墩儿不能被4级或更低的法术影响或探测到，除非它愿意。它对所有其他的法术和魔法效果都有救命的优势。"
+					]
+				},
+				{
+					"name": "Magic Weapons",
+					"entries": [
+						"胖墩儿的武器攻击是有魔力的。"
+					]
+				},
+				{
+					"name": "Critical Hit Immunity",
+					"entries": [
+						"矮胖子的金刚镀层使它不会受到关键打击的影响"
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"如果矮胖子的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Slow Moving",
+					"entries": [
+						"矮胖子不能采取小飞的行动"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"胖墩儿进行4次扫射攻击，最多可投掷一个{@condition grappled}生物。"
+					]
+				},
+				{
+					"name": "Swipe Attack",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达15英尺，一个目标。{@h}30 ({@damage 3d6 + 20})重击伤害。如果攻击是用手握住一个{@condition grappled}的生物，该生物也会受到伤害。如果目标是巨大的或更小的，它就会被胖墩儿{@condition grappled}。胖墩儿可以用这种方式抓取最多4个生物。"
+					]
+				},
+				{
+					"name": "Throw",
+					"entries": [
+						"{@atk rw} {@hit 16}击中，范围60/60英尺，一个目标。{@h}41 ({@damage 6d6 + 20})重击伤害。如果矮胖子击中其他生物，目标和被投掷的生物都会受到伤害，否则只有被投掷的生物会受到伤害。"
+					]
+				},
+				{
+					"name": "Stomp (recharge  5-6)",
+					"entries": [
+						"胖墩儿跺脚，60英尺范围内的所有生物都要做一个{@dc 26}灵巧的蓄力动作，否则会受到27({@damage 6d8})的重击和27({@damage 6d8})的火焰伤害，因为大地的裂缝会喷发出熔化的蛋黄。"
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Attack (costs 1 action)",
+					"entries": [
+						"矮胖子移动到他的速度，并做了一个扫射攻击"
+					]
+				},
+				{
+					"name": "Throw (costs 2 actions)",
+					"entries": [
+						"矮胖子做了一次投掷攻击"
+					]
+				},
+				{
+					"name": "Stomp (costs 3 actions)",
+					"entries": [
+						"胖墩儿充能并使用它的踩踏攻击"
+					]
+				}
+			],
+			"environment": [
+				"urban"
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IdHMlRo.png"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/dTxFYbb.png",
+			"traitTags": [
+				"Legendary Resistances",
+				"Magic Weapons"
+			],
+			"senseTags": [
+				"B"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"C"
+			],
+			"damageTags": [
+				"B",
+				"F"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW"
+			],
+			"conditionInflict": [
+				"grappled"
+			]
+		},
+		{
+			"name": "Eggs with Legs",
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"S"
+			],
+			"type": "construct",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				10
+			],
+			"hp": {
+				"formula": "12d8",
+				"average": 54
+			},
+			"speed": {
+				"walk": 10
+			},
+			"str": 10,
+			"dex": 10,
+			"con": 10,
+			"int": 10,
+			"wis": 10,
+			"cha": 10,
+			"senses": [
+				"tremorsense 60 ft."
+			],
+			"passive": 10,
+			"immune": [
+				{
+					"special": "All Damage"
+				}
+			],
+			"conditionImmune": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"exhaustion",
+				"frightened",
+				"grappled",
+				"incapacitated",
+				"paralyzed",
+				"poisoned",
+				"prone",
+				"restrained",
+				"stunned",
+				"unconscious"
+			],
+			"cr": "10",
+			"action": [
+				{
+					"name": "Give chase",
+					"entries": [
+						"有腿的蛋追赶最近的生物，使用冲刺动作，直到它们能够爆炸。"
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Explode",
+					"entries": [
+						"当一个生物在带脚的蛋的10英尺范围内时，它会爆炸。所有在10英尺范围内的生物必须做一个{@dc 26}的体质救赎，否则会受到28({@damage 8d6})的中毒伤害和28({@damage 8d6})的穿刺伤害，并且是{@condition poisoned}。如果通过，该生物只受到穿刺伤害。"
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/AWHKTL8.png"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/AWHKTL8.png",
+			"senseTags": [
+				"T"
+			],
+			"damageTags": [
+				"I",
+				"P"
+			],
+			"conditionInflict": [
+				"poisoned"
+			]
+		},
+		{
+			"name": "The Easter Bunny",
+			"shortName": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"L"
+			],
+			"type": "fey",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 26,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "26d12 + 182",
+				"average": 351
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 30,
+				"climb": 60
+			},
+			"str": 18,
+			"dex": 30,
+			"con": 24,
+			"int": 28,
+			"wis": 24,
+			"cha": 30,
+			"save": {
+				"str": "+12",
+				"dex": "+18",
+				"con": "+15",
+				"int": "+17",
+				"wis": "+15",
+				"cha": "+18"
+			},
+			"skill": {
+				"acrobatics": "+26",
+				"stealth": "+26",
+				"sleight of hand": "+26",
+				"perception": "+15",
+				"performance": "+18",
+				"persuasion": "+18",
+				"religion": "+17",
+				"survival": "+15",
+				"nature": "+17",
+				"medicine": "+15",
+				"investigation": "+17",
+				"intimidation": "+18",
+				"insight": "+15",
+				"history": "+17",
+				"deception": "+18",
+				"athletics": "+12",
+				"arcana": "+17",
+				"animal handling": "+15"
+			},
+			"senses": [
+				"truesight 120 ft."
+			],
+			"passive": 25,
+			"resist": [
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				}
+			],
+			"immune": [
+				"acid",
+				"cold",
+				"fire",
+				"lightning",
+				"poison",
+				"thunder"
+			],
+			"conditionImmune": [
+				"charmed",
+				"paralyzed",
+				"petrified",
+				"stunned",
+				"unconscious"
+			],
+			"languages": [
+				"All"
+			],
+			"cr": "27",
+			"trait": [
+				{
+					"name": "Jack(rabbit) of all trades",
+					"entries": [
+						"复活节兔子可以把它的熟练度加到它所做的任何能力检查上。"
+					]
+				},
+				{
+					"name": "Insane Hops",
+					"entries": [
+						"复活节兔子能跳到120英尺高"
+					]
+				},
+				{
+					"name": "Super Speeeeedy",
+					"entries": [
+						"复活节兔子的移动速度非常快，他总是出现在两个地方。在这个特性激活时，这使复活节兔子在近战攻击卷上具有优势。另外，每当攻击卷击中复活节兔子时，就会滚动一个（%0%）。在3-6的情况下，该攻击就会失误。如果攻击命中，那么在复活节兔子移动之前，这个特性是无效的。当复活节兔子在{@condition incapacitated}、{@condition restrained}或其他情况下无法移动时，它也是无效的。"
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"如果复活节兔子的拯救动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Evasion",
+					"entries": [
+						"如果复活节兔子受到的效果允许它做一个灵巧的蓄力动作来承受一半的伤害，如果蓄力动作成功，复活节兔子将不会受到伤害，如果失败，则只受到一半的伤害。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"复活节兔子最多可以进行6次胡萝卜柄的攻击或扔鸡蛋的攻击。"
+					]
+				},
+				{
+					"name": "Carrot Shank",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达10英尺，一个目标。{@h}42 ({@damage 5d8 + 20})重击伤害。"
+					]
+				},
+				{
+					"name": "Egg Toss",
+					"entries": [
+						"{@atk rw} {@hit 18}击中，范围30/60英尺，一个目标。{@h}41 ({@damage 6d6 + 20})伤害。复活节兔子可以从以下类型中选择伤害类型：酸，冷，火，闪电，毒，或雷。"
+					]
+				},
+				{
+					"name": "Fists of Furry {@recharge 4}",
+					"entries": [
+						"复活节兔子在120英尺范围内最多选择五个生物，并对每个生物进行两次徒手攻击，落在其中一个目标5英尺内的无人空间。从一个生物到另一个生物的移动不会引起机会攻击。"
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Insane Hops",
+					"entries": [
+						"复活节兔子最多跳跃120英尺而不引起机会攻击"
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Fast Reactions",
+					"entries": [
+						"复活节兔子可以做出3种反应。"
+					]
+				},
+				{
+					"name": "Uncanny Dodge",
+					"entries": [
+						"当攻击者击中复活节兔子时，它可以使用反应将该攻击的伤害减半。"
+					]
+				},
+				{
+					"name": "Extra Opportunity",
+					"entries": [
+						"每当复活节兔子进行一次机会攻击时，它可以进行两次攻击，而不是一次。"
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Hop (costs 1 action)",
+					"entries": [
+						"复活节兔子使用其疯狂跳跃的能力，然后进行一次攻击。"
+					]
+				},
+				{
+					"name": "Energize (costs 2 actions)",
+					"entries": [
+						"复活节兔子滚滚而来给毛茸茸的拳头充电"
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/LWlPsRm.png"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/CP2UlL3.png",
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"senseTags": [
+				"U"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW"
+			]
+		},
+		{
+			"name": "Snead van Veld",
+			"isNpc": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"M"
+			],
+			"type": "humanoid",
+			"alignment": [
+				"L",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"{@item plate armor|phb}",
+						"{@item shield|phb}"
+					]
+				}
+			],
+			"hp": {
+				"average": 180,
+				"formula": "19d8 + 95"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 20,
+			"dex": 11,
+			"con": 20,
+			"int": 12,
+			"wis": 16,
+			"cha": 18,
+			"save": {
+				"dex": "+6",
+				"wis": "+9",
+				"cha": "+10"
+			},
+			"skill": {
+				"athletics": "+11",
+				"acrobatics": "+6",
+				"deception": "+10",
+				"intimidation": "+10",
+				"investigation": "+7",
+				"stealth": "+6",
+				"insight": "+9",
+				"perception": "+9"
+			},
+			"passive": 19,
+			"immune": [
+				"poison",
+				"radiant"
+			],
+			"conditionImmune": [
+				"frightened",
+				"poisoned"
+			],
+			"languages": [
+				"Common"
+			],
+			"cr": "17",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"斯奈德是一个19级的施法者。它的法术能力是魅力（法术救赎（%0%），用法术攻击击中（%1%））。它准备了以下的圣骑士法术。"
+					],
+					"spells": {
+						"1": {
+							"spells": [
+								"{@spell command}",
+								"{@spell compelled duel}",
+								"{@spell detect magic}",
+								"{@spell searing smite}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell hold person}",
+								"{@spell magic weapon}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell dispel magic}",
+								"{@spell elemental weapon}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell banishment}",
+								"{@spell staggering smite}"
+							],
+							"slots": 3
+						},
+						"5": {
+							"spells": [
+								"{@spell destructive wave} (radiant)"
+							],
+							"slots": 2
+						}
+					},
+					"ability": "cha",
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"Snead van Veld在面对法术和其他魔法效果时，在救赎动作上有优势。"
+					]
+				},
+				{
+					"name": "Marshal Knights",
+					"entries": [
+						"除非斯内德是{@condition incapacitated}，否则他和其他在他60英尺范围内的它选择的生物在对被{@condition charmed}的拯救动作上有优势。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"斯内德进行了三次长剑攻击。"
+					]
+				},
+				{
+					"name": "Longsword",
+					"entries": [
+						"{@atk mw} {@hit 11}击中，到达5英尺，一个目标。{@h}9 ({@damage 1d8 + 5})的砍击伤害，如果用两只手使用，则是10 ({@damage 1d10 + 5})的砍击伤害，外加18 ({@damage 4d8})的坏死伤害。"
+					]
+				},
+				{
+					"name": "Radiant Orb (1/Day)",
+					"entries": [
+						"斯奈德投掷一个魔法光球，在它所看到的120英尺范围内的一个点爆炸。以该点为中心的20英尺半径范围内的每个生物都必须做一个{@dc 18}灵巧的蓄力动作。球体在转角处扩散。拯救失败时，生物会受到35({@damage 10d6})的辐射伤害和35({@damage 10d6})的火焰伤害，拯救成功时则会受到一半的伤害。"
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Parry",
+					"entries": [
+						"Snead在对抗一次会击中它的近战攻击时，会在AC上加6。要做到这一点，它必须看到攻击者并且挥舞着近战武器。"
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/7iz8CjL.png"
+						}
+					}
+				]
+			},
+			"traitTags": [
+				"Magic Resistance"
+			],
+			"actionTags": [
+				"Multiattack",
+				"Parry"
+			],
+			"languageTags": [
+				"C"
+			],
+			"damageTags": [
+				"F",
+				"N",
+				"R",
+				"S"
+			],
+			"damageTagsSpell": [
+				"A",
+				"C",
+				"F",
+				"L",
+				"N",
+				"R",
+				"T",
+				"Y"
+			],
+			"spellcastingTags": [
+				"CP"
+			],
+			"miscTags": [
+				"AOE",
+				"MW"
+			],
+			"conditionInflictSpell": [
+				"incapacitated",
+				"paralyzed",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Flying Spaghetti Monster",
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"G"
+			],
+			"type": "celestial",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 28,
+					"from": [
+						"natural armor"
+					],
+					"condition": "(special: see abilities)"
+				}
+			],
+			"hp": {
+				"formula": "50d20 + 375",
+				"average": 900
+			},
+			"speed": {
+				"fly": {
+					"number": 50,
+					"condition": "(hover)"
+				},
+				"canHover": true,
+				"walk": 15,
+				"climb": 15
+			},
+			"str": 22,
+			"dex": 20,
+			"con": 28,
+			"int": 30,
+			"wis": 30,
+			"cha": 25,
+			"save": {
+				"int": "+19",
+				"wis": "+19",
+				"cha": "+16",
+				"str": "+15"
+			},
+			"skill": {
+				"arcana": "+28",
+				"history": "+28",
+				"insight": "+28",
+				"intimidation": "+16",
+				"investigation": "+28",
+				"perception": "+28",
+				"survival": "+28"
+			},
+			"senses": [
+				"truesight 300 ft."
+			],
+			"passive": 38,
+			"resist": [
+				{
+					"resist": [
+						"force",
+						"lightning",
+						"necrotic",
+						"radiant",
+						"thunder"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from magical attacks"
+				}
+			],
+			"immune": [
+				"fire",
+				"psychic",
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"preNote": "non-magical"
+				}
+			],
+			"vulnerable": [
+				{
+					"vulnerable": [
+						"acid",
+						"cold",
+						"poison"
+					]
+				},
+				{
+					"vulnerable": [
+						{
+							"special": "being disproven"
+						}
+					]
+				}
+			],
+			"conditionImmune": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"frightened",
+				"grappled",
+				"poisoned",
+				"prone",
+				"restrained"
+			],
+			"languages": [
+				"All",
+				"telepathy (unlimited range)"
+			],
+			"cr": "30",
+			"trait": [
+				{
+					"name": "Magic Weapons",
+					"entries": [
+						"飞翔的意大利面条怪兽的武器攻击是神奇的。"
+					]
+				},
+				{
+					"name": "Divine Awareness",
+					"entries": [
+						"飞翔的意大利面条怪兽知道如果它听到的是谎言。"
+					]
+				},
+				{
+					"name": "Limited Magic Immunity",
+					"entries": [
+						"除非飞天面条怪愿意，否则它不能被6级或以下的法术影响或探测到。它对所有其他的法术和魔法效果都有救命的优势。它对造成酸、冷或毒伤害的法术没有免疫力。"
+					]
+				},
+				{
+					"name": "Divine Invulnerability",
+					"entries": [
+						"飞天神怪不能被攻击或法术所影响，直到它的神通被打败。在脆弱的时候，它可以承受不超过300的伤害，然后再变得无懈可击。当飞天面条怪的命中率达到0时，它不会死亡，而是消逝在帕斯塔法利亚，在那里它可以从损失中恢复过来。"
+					]
+				},
+				{
+					"name": "Rage of the Ravioli",
+					"entries": [
+						"如果飞天小怪被降低到300点以下的命中率，它就会恢复所有的健康，并获得使用其神话行动的机会。一旦这个特性被激活，24小时内不能再次使用。"
+					]
+				},
+				{
+					"name": "Omniscient",
+					"entries": [
+						"飞天面条怪不能出其不意，在战斗中总是先采取行动。飞天面条怪知道所有的法术。"
+					]
+				},
+				{
+					"name": "Innate Spellcasting",
+					"entries": [
+						"飞天面条怪的法术能力是智力。(法术救赎（%0%），用法术攻击命中率为（%1%））。"
+					]
+				},
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"如果飞天面条怪的蓄力动作失败，它可以选择成功。"
+					]
+				},
+				{
+					"name": "Burden of Proof",
+					"entries": [
+						"飞天神怪可以选择发出一个半径为60英尺的反幻觉场，其功能类似于（%0%），但只适用于幻觉流派的魔法。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"飞翔的意大利面条怪兽可进行五次 \"附肢 \"或 \"辣肉丸 \"的任意组合攻击。"
+					]
+				},
+				{
+					"name": "Noodly Appendage",
+					"entries": [
+						"{@atk mw} {@hit 15}击中，到达25英尺，一个目标。{@h}29 ({@damage 2d12 + 16})重击伤害+16 ({@damage 3d10})精神伤害，并且目标是{@condition grappled}和{@condition restrained}(逃跑{@dc 23})"
+					]
+				},
+				{
+					"name": "Spicy Meatball",
+					"entries": [
+						"{@atk rw} {@hit 14}击中，范围120/240英尺，一个目标。{@h}31 ({@damage 4d12 + 5})重击伤害，外加16 ({@damage 3d10})火力伤害。"
+					]
+				},
+				{
+					"name": "Carb Coma {@recharge 4}",
+					"entries": [
+						"飞天面条怪释放出一股昏睡的力量。所有它选择的生物都会受到{@spell slow}的影响，直到他们的下一个回合结束，并且必须做一个{@dc 23}宪法救赎动作，否则也会受到{@condition exhaustion}的影响。"
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Summon Avatars",
+					"entries": [
+						"飞天面条怪兽会召唤出{@dice 1d6}Ittehgaps的神像（如果激活了Rage of the Ravioli特质，则为{@dice 1d6 + 1d4}大神像），并立即变得无懈可击。这个反应只有在它很脆弱并且低于600点命中率时才能进行。本回合它不能采取任何其他反应。"
+					]
+				},
+				{
+					"name": "Summon Greater Avatars",
+					"entries": [
+						"飞天面条怪兽会召唤（%0%）伊泰格的大神通者（如果激活了馄饨之怒的特性，则为%1%），并立即变得无敌。这个反应只有在它很脆弱并且低于300点命中率时才能进行。本回合它不能采取任何其他反应。"
+					]
+				},
+				{
+					"name": "Counterspell (2/turn)",
+					"entries": [
+						"飞翔的意大利面条怪物在5级时施展（%0%）。"
+					]
+				}
+			],
+			"legendaryHeader": [
+				"The flying spaghetti monster can take 5 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. The flying spaghetti monster regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Attack (Costs one action)",
+					"entries": [
+						"飞翔的意大利面条怪兽会进行两次 \"附肢 \"或 \"辣肉丸 \"攻击。"
+					]
+				},
+				{
+					"name": "Touched by the Noodle (Costs two actions)",
+					"entries": [
+						"飞天面条怪的目标是它能看到的任何生物，给予它片刻的清醒--获得飞天面条怪并非真正的敌人的理解。该生物必须做一个{@dc 23}智力测验，或者立即使用它的反应来攻击一个盟友。"
+					]
+				},
+				{
+					"name": "Cast Spell - Level 0-3 (Costs one action)",
+					"entries": [
+						"飞翔的意大利面条怪兽在3级时可以施展任何3级或更低级的法术。"
+					]
+				},
+				{
+					"name": "Cast Spell - Level 4+ (Costs two actions)",
+					"entries": [
+						"飞翔的意大利面条怪在6级时可以施展任何6级或更低的法术。"
+					]
+				}
+			],
+			"mythicHeader": [
+				"The flying spaghetti monster gains the following options as Legendary Actions only after the Rage of the Ravioli has been activated"
+			],
+			"mythic": [
+				{
+					"name": "Disprove Existence (Costs one action)",
+					"entries": [
+						"飞翔的意大利面条怪针对一个生物。该生物必须通过一个{@dc 23}智力测验，否则就会停止存在，直到下一回合结束。第三次受到影响时，它的存在将被永久抹去，并被遗忘。"
+					]
+				},
+				{
+					"name": "Omnipotence (Costs two actions)",
+					"entries": [
+						"飞翔的意大利面条怪兽在9级时可以施展任何法术"
+					]
+				}
+			],
+			"fluff": {
+				"entries": [
+					"飞翔的意大利面条怪兽在Pastafaria平面上统治着一切，并利用其神圣的逻辑来反驳其他虚假神灵的存在。偶尔，它也会展示自己，用它的有节肢体的触摸来激励生物。"
+				]
+			},
+			"traitTags": [
+				"Legendary Resistances",
+				"Magic Weapons"
+			],
+			"senseTags": [
+				"U"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"TP"
+			],
+			"damageTags": [
+				"B",
+				"F",
+				"Y"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW"
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			]
+		},
+		{
+			"name": "Avatar of Ittehgaps",
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"page": 0,
+			"size": [
+				"L"
+			],
+			"type": "aberration",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 24,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 96",
+				"average": 348
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30
+			},
+			"str": 14,
+			"dex": 28,
+			"con": 18,
+			"int": 16,
+			"wis": 12,
+			"cha": 22,
+			"save": {
+				"int": "+10",
+				"wis": "+8",
+				"dex": "+16",
+				"con": "+11"
+			},
+			"skill": {
+				"investigation": "+10",
+				"insight": "+8",
+				"religion": "+10",
+				"perception": "+8"
+			},
+			"passive": 18,
+			"resist": [
+				{
+					"resist": [
+						"fire",
+						"psychic"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				}
+			],
+			"vulnerable": [
+				"cold"
+			],
+			"cr": "24",
+			"trait": [
+				{
+					"name": "Wrap In Tendrils",
+					"entries": [
+						"它的神通可以选择在成功击中时将其攻击伤害减半，将其目标的移动速度降低到0英尺，直到下一回合开始。"
+					]
+				},
+				{
+					"name": "Magical Attacks",
+					"entries": [
+						"为了克服抵抗力，\"伊特盖斯神通 \"的攻击被算作魔法和神力。"
+					]
+				},
+				{
+					"name": "Swarm",
+					"entries": [
+						"它的神通可以占据另一个生物的空间，反之亦然。它在对任何与它共享空间的生物的攻击中获得优势。"
+					]
+				},
+				{
+					"name": "Immutable Form",
+					"entries": [
+						"Ittehgaps的神通对任何改变其形态的法术或效果都是免疫的。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Writhing Multiattack",
+					"entries": [
+						"伊特加普的神通用它的蠕动面条攻击进行了3次攻击。"
+					]
+				},
+				{
+					"name": "Writhing Attack",
+					"entries": [
+						"{@atk mw} {@hit 12}击中，到达15英尺，一个目标。{@h}35 ({@damage 4d12 + 9})重击伤害，且目标为{@condition grappled}，逃跑{@dc 21}。目标可以在它的回合中使用它的行动来试图打破抓捕。"
+					]
+				},
+				{
+					"name": "Polpettapult",
+					"entries": [
+						"在50英尺范围内，最多两个由伊特盖普神通选择的目标生物必须做一个{@dc 21}灵巧的蓄力动作，因为肉块会在空中飞向他们。每个目标受到46({@damage 8d6 + 18})的重击伤害，目标5英尺内的所有生物受到21({@damage 6d6})的重击伤害。拯救成功后，目标会受到一半的伤害，目标5英尺内的生物不会受到此动作的伤害。"
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Writhing Attack (Costs 1 Actions)",
+					"entries": [
+						"它的神通对范围内的目标进行一次扭曲的攻击。"
+					]
+				},
+				{
+					"name": "Fatal Attraction (Costs 3 Actions)",
+					"entries": [
+						"Ittehgaps的神通在它自己120英尺范围内选择的两个敌人之间建立一个卷轴。这两个目标都必须成功地进行CHARISMA救赎动作。任何失败的目标必须在下一分钟尝试用它的咬合来吞噬另一个目标，但可以在它的每个回合结束时重新尝试拯救动作。在符咒的持续时间内，受影响的目标以咬人的方式进行的徒手攻击会造成14({@damage 3d8})的坏死伤害，如果目标受伤，则有优势。受影响的目标不能选择另一个目标，直到它身上的符咒被打破。"
+					]
+				}
+			],
+			"traitTags": [
+				"Immutable Form"
+			],
+			"damageTags": [
+				"B",
+				"N"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"conditionInflict": [
+				"grappled"
+			]
+		},
+		{
+			"name": "Greater Avatar of Ittehgaps",
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"page": 0,
+			"size": [
+				"L"
+			],
+			"type": "aberration",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 24,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "25d20 + 150",
+				"average": 412
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30
+			},
+			"str": 14,
+			"dex": 28,
+			"con": 22,
+			"int": 16,
+			"wis": 12,
+			"cha": 22,
+			"save": {
+				"int": "+11",
+				"wis": "+9",
+				"dex": "+17",
+				"con": "+14"
+			},
+			"skill": {
+				"investigation": "+11",
+				"insight": "+9",
+				"religion": "+11",
+				"perception": "+9"
+			},
+			"passive": 19,
+			"resist": [
+				{
+					"resist": [
+						"fire",
+						"psychic"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				}
+			],
+			"vulnerable": [
+				"cold"
+			],
+			"cr": "27",
+			"trait": [
+				{
+					"name": "Wrap In Tendrils",
+					"entries": [
+						"它的神通可以选择在成功击中时将其攻击伤害减半，将其目标的移动速度降低到0英尺，直到下一回合开始。"
+					]
+				},
+				{
+					"name": "Magical Attacks",
+					"entries": [
+						"为了克服抵抗力，\"伊特盖斯神通 \"的攻击被算作魔法和神力。"
+					]
+				},
+				{
+					"name": "Swarm",
+					"entries": [
+						"它的神通可以占据另一个生物的空间，反之亦然。它在对任何与它共享空间的生物的攻击中获得优势。"
+					]
+				},
+				{
+					"name": "Immutable Form",
+					"entries": [
+						"Ittehgaps的神通对任何改变其形态的法术或效果都是免疫的。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Writhing Multiattack",
+					"entries": [
+						"伊特加普的神通用它的蠕动面条攻击进行了3次攻击。"
+					]
+				},
+				{
+					"name": "Writhing Attack",
+					"entries": [
+						"{@atk mw} {@hit 13}击中，到达15英尺，一个目标。{@h}35 ({@damage 4d12 + 9})重击伤害，且目标为{@condition grappled}，逃跑{@dc 22}。目标可以在它的回合中使用它的行动来试图打破抓捕。"
+					]
+				},
+				{
+					"name": "Polpettapult",
+					"entries": [
+						"在50英尺范围内，最多两个伊特盖斯神通选择的目标生物必须做一个{@dc 22}灵巧的蓄力动作，因为肉块会在空中飞向他们。每个目标受到52({@damage 10d6 + 17})重击伤害，目标5英尺内的所有生物受到21({@damage 6d6})重击伤害。拯救成功后，目标会受到一半的伤害，而目标5英尺内的生物不会受到此动作的伤害。"
+					]
+				},
+				{
+					"name": "Pappardelle Piano {@recharge 5}",
+					"entries": [
+						"化身在90英尺范围内选择一个30英尺的广场。抓着的蠕动的意大利面条从该区域的地面上喷涌而出。在接下来的三个回合里，或者直到这个功能再次被激活，这种面条会将该区域的地面变成困难的地形。",
+						"当一个生物在一个回合中第一次进入受影响的区域或在那里开始它的回合时，该生物必须在一个{@dc 22}灵巧的蓄力动作上成功，否则会受到18({@damage 4d8})的重击伤害并被面条{@condition restrained}，直到该效果结束。在该区域开始回合的生物，如果已经被触手缠住{@condition restrained}，会受到18({@damage 4d8})的重击伤害。",
+						"被触手缠住的生物（%0%）可以用它的行动对你的法术救赎DC进行力量或灵巧检查（由它选择）。如果成功，它就能解脱。"
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Writhing Attack (Costs 1 Actions)",
+					"entries": [
+						"它的神通对范围内的目标进行一次扭曲的攻击。"
+					]
+				},
+				{
+					"name": "Fatal Attraction (Costs 3 Actions)",
+					"entries": [
+						"它的神通在自己120英尺范围内选择的两个敌人之间建立一个卷轴。这两个目标都必须成功地完成一个{@dc 19}的魅力拯救动作。任何失败的目标必须在下一分钟尝试用它的咬合来吞噬另一个目标，但可以在它的每个回合结束时重新尝试拯救。在符咒的持续时间内，受影响的目标以咬人的方式进行的徒手攻击会造成13({@damage 3d8})的坏死伤害，如果目标受伤，则有优势。受影响的目标不能选择另一个目标，直到它身上的符咒被打破。"
+					]
+				}
+			],
+			"traitTags": [
+				"Immutable Form"
+			],
+			"damageTags": [
+				"B",
+				"N"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			]
+		},
+		{
+			"name": "Giant Mantis Shrimp",
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"M"
+			],
+			"type": "beast",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 26,
+					"from": [
+						"exoskeleton"
+					]
+				}
+			],
+			"hp": {
+				"formula": "35d12 + 210",
+				"average": 437
+			},
+			"speed": {
+				"walk": 30,
+				"swim": 60,
+				"burrow": 30
+			},
+			"str": 28,
+			"dex": 30,
+			"con": 22,
+			"int": 16,
+			"wis": 22,
+			"cha": 18,
+			"save": {
+				"str": "+17",
+				"dex": "+18",
+				"con": "+14"
+			},
+			"skill": {
+				"acrobatics": "+26",
+				"animal handling": "+14",
+				"athletics": "+17",
+				"investigation": "+11",
+				"perception": "+22",
+				"stealth": "+26",
+				"survival": "+14"
+			},
+			"senses": [
+				"truesight 120 ft."
+			],
+			"passive": 32,
+			"resist": [
+				{
+					"resist": [
+						"bludgeoning",
+						"slashing"
+					]
+				},
+				{
+					"resist": [
+						"lightning"
+					]
+				}
+			],
+			"immune": [
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				},
+				{
+					"immune": [
+						"cold",
+						"fire",
+						"poison"
+					]
+				}
+			],
+			"conditionImmune": [
+				"blinded"
+			],
+			"cr": "27",
+			"trait": [
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"巨型螳螂虾在面对法术和其他魔法效果时，在蓄力攻击方面具有优势。"
+					]
+				},
+				{
+					"name": "Sexnocular Vision",
+					"entries": [
+						"巨型螳螂虾有特殊的视觉，使它不可能被包抄，并使它在所有依赖视觉的能力检查上有优势。它还可以看到与它目前所在的平面共存的任何平面。"
+					]
+				},
+				{
+					"name": "Ethereal Presence",
+					"entries": [
+						"巨型螳螂虾同时存在于物质世界和虚空世界，可以看到并影响任何一个世界的生物。"
+					]
+				},
+				{
+					"name": "Siege Monster",
+					"entries": [
+						"巨型螳螂虾对物体和结构造成双倍伤害。"
+					]
+				},
+				{
+					"name": "Dismembering Strike",
+					"entries": [
+						"当巨型螳螂虾在它的Dactyl Club攻击模子上掷出18-20时，掷出（%0%），使用以下结果。",
+						"1-80: 攻击造成正常的关键伤害-72({@damage 14d8 + 10})重击伤害。",
+						"81-98: 掷出攻击的伤害骰子三次 - 103 ({@damage 21d8 + 10})重击伤害。目标必须通过一个{@dc 26}的体质救赎，否则就会被{@condition stunned}，直到其下一回合结束",
+						"99-100：掷出攻击的伤害骰子四次--134（（%0%））重击伤害。如果这次攻击将目标降低到0HP，其头部会因撞击而爆炸，目标会死亡。"
+					]
+				},
+				{
+					"name": "Boiling Strike",
+					"entries": [
+						"如果在水下，所有使用仙人掌的攻击都会使附近的水短暂地空洞化。每次使用仙人掌攻击，目标和目标5英尺范围内的所有生物都会因此受到14（（%0%））的火焰伤害。如果该区域的任何生物穿着金属盔甲，他们必须通过一个{@dc 22}的灵巧救赎，否则该盔甲（包括魔法盔甲）的攻击力加成将减少1，直到巨型螳螂虾的下一回合开始。如果在任何时候，由于这个效果，AC奖励减少到0，那么盔甲就会被摧毁。"
+					]
+				},
+				{
+					"name": "Reflective Carapace",
+					"entries": [
+						"任何时候，当巨型螳螂虾被{@spell magic missile}的法术、直线法术或需要远程攻击的法术瞄准时，请掷出{@dice d6}。在1到5时，巨型螳螂虾不受影响。在6的时候，巨型螳螂虾不受影响，而且效果会反射到施法者身上，就像它来自巨型螳螂虾一样，把施法者变成目标。"
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"如果巨型螳螂虾的拯救动作失败，它可以选择成功。"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"巨型螳螂虾进行了四次二重棒攻击"
+					]
+				},
+				{
+					"name": "Dactyl Club",
+					"entries": [
+						"{@atk mw} {@hit 18}击中，到达10英尺，一个目标。{@h}41 ({@damage 7d8 + 10})重击伤害。由于攻击速度快，巨型螳螂虾的攻击具有优势，除非受到{@spell slow}法术的影响"
+					]
+				},
+				{
+					"name": "Searing Stream {@recharge 5}",
+					"entries": [
+						"巨型螳螂虾释放出一条宽10英尺、长60英尺的灼热之线。所有在其路径上的生物必须做一个{@dc 22}灵巧的蓄力动作，否则会受到44({@damage 8d10})的火焰伤害，如果成功则受到一半的伤害。"
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rapid Escape",
+					"entries": [
+						"巨型螳螂虾以它的速度移动，不会引起机会攻击。所有在其移动路径5英尺范围内的生物都会受到它的沸腾打击的影响。"
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Pre-Emptive Defense",
+					"entries": [
+						"当攻击将被击中时，巨型螳螂虾会尝试招架，并获得对该攻击+3的攻击力。每回合可以激活一次，当它被触发时，沸腾攻击也被触发。"
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Attack",
+					"entries": [
+						"巨型螳螂虾进行一次Dactyl俱乐部攻击"
+					]
+				},
+				{
+					"name": "Lunging Strike (Costs 2 actions)",
+					"entries": [
+						"巨型螳螂虾移动到它的速度，并进行Dactyl Club攻击。所有在其移动路径5英尺范围内的生物都会受到它的沸腾攻击的影响。"
+					]
+				},
+				{
+					"name": "Cavitation (Costs 3 actions)",
+					"entries": [
+						"巨型螳螂虾的抖动如此之快，以至于导致15英尺范围内的所有水都发生空化。强烈的光和热来自于这种空化，该区域内的所有生物都必须做一个DC24的体罚动作。如果失败，他们会被{@condition blinded}一分钟并受到55({@damage 10d10})的火焰伤害。成功时，他们不会被{@condition blinded}，只受到一半的伤害。处于{@condition blinded}的生物可以在他们每个回合结束时重复这个拯救。"
+					]
+				}
+			],
+			"environment": [
+				"underwater"
+			],
+			"fluff": {
+				"entries": [
+					"孔雀螳螂虾--Odontodactylus scyllarus--海洋中最致命的捕食者之一，是深海中的恐怖。它的移动速度非常快，以至于它周围的水都会出现空洞，它的拳头非常硬，可以击碎一个头骨。鲜艳的颜色是一个警告：如果你看到它--跑。"
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/U9CTg9Q.jpg"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/YRJ4j8C.png",
+			"traitTags": [
+				"Legendary Resistances",
+				"Magic Resistance",
+				"Siege Monster"
+			],
+			"senseTags": [
+				"U"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"F"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"conditionInflict": [
+				"stunned"
+			]
+		}
+	]
+}
