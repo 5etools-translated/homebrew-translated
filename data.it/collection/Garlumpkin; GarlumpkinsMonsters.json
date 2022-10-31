@@ -1,0 +1,1880 @@
+{
+	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_schema-fast/homebrew.json",
+	"_meta": {
+		"sources": [
+			{
+				"json": "GarlumpkinMonsters",
+				"abbreviation": "GMB",
+				"full": "Garlumpkin's Monster Book",
+				"url": "https://github.com/Garlumpkin/homebrew",
+				"authors": [
+					"Garlumpkin"
+				],
+				"convertedBy": [
+					"Garlumpkin"
+				],
+				"version": "unknown"
+			}
+		],
+		"dateAdded": 1652292473,
+		"dateLastModified": 1652292473,
+		"_dateLastModifiedHash": "1c9bac8986"
+	},
+	"monster": [
+		{
+			"name": "Barixis the Undying",
+			"shortName": "Barixis",
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"L"
+			],
+			"type": "undead",
+			"alignment": [
+				"C",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 23,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "27d10 + 160",
+				"average": 308
+			},
+			"speed": {
+				"walk": 60,
+				"climb": 60
+			},
+			"str": 18,
+			"dex": 18,
+			"con": 22,
+			"int": 24,
+			"wis": 22,
+			"cha": 28,
+			"save": {
+				"int": "+16",
+				"wis": "+15",
+				"cha": "+18"
+			},
+			"skill": {
+				"intimidation": "+18",
+				"perception": "+15"
+			},
+			"senses": [
+				"truesight 120 ft."
+			],
+			"passive": 25,
+			"resist": [
+				{
+					"resist": [
+						"acid",
+						"psychic",
+						"radiant"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from magic weapons"
+				}
+			],
+			"immune": [
+				{
+					"immune": [
+						"fire",
+						"lightning",
+						"necrotic"
+					]
+				},
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from nonmagical attacks"
+				}
+			],
+			"vulnerable": [
+				"thunder"
+			],
+			"conditionImmune": [
+				"blinded",
+				"charmed",
+				"frightened",
+				"poisoned",
+				"prone"
+			],
+			"languages": [
+				"Common",
+				"Deep Speech",
+				"Undercommon"
+			],
+			"cr": "30",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"will": [
+						"{@spell counterspell}"
+					],
+					"spells": {
+						"9": {
+							"spells": [
+								"{@spell animate dead}",
+								"{@spell dimension door}",
+								"{@spell dominate monster}",
+								"{@spell globe of invulnerability}",
+								"{@spell power word kill}"
+							],
+							"slots": 4,
+							"lower": 1
+						}
+					},
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Se Barixis fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Negative Energy Cone",
+					"entries": [
+						"L'occhio centrale di Barixis emette un cono magico di 60 metri di energia negativa {@condition invisible}. All'inizio di ogni suo turno, Barixis decide da che parte è rivolto il cono e se il cono è attivo. Qualsiasi creatura in quell'area non può recuperare punti ferita."
+					]
+				},
+				{
+					"name": "Fire Absorption",
+					"entries": [
+						"Ogni volta che Barixis subisce danni da fuoco, non subisce danni e recupera un numero di punti ferita pari ai danni da fuoco inflitti."
+					]
+				},
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"Barixis ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+					]
+				},
+				{
+					"name": "Reconstruction (Recharges after a short or long rest)",
+					"entries": [
+						"Se Barixis verrebbe ridotto a 0 punti ferita, il suo attuale totale di punti ferita si ripristina a 275 punti ferita e recupera tutti gli usi della sua resistenza leggendaria ed eventuali slot incantesimo spesi. Inoltre, Barixis può utilizzare le opzioni della sezione \"Azioni mitiche\" per un'ora. Il gruppo riceve 155.000 XP aggiuntivi (310.000 XP totali) per aver sconfitto Barixis dopo la sua ricostruzione."
+					]
+				},
+				{
+					"name": "Rejuvenation",
+					"entries": [
+						"Se Barixis ha il suo filatterio, una volta distrutto guadagna un nuovo corpo in {@dice 1d10} giorni, riacquistando tutti i suoi punti ferita e tornando attivo. Il nuovo corpo appare entro 3 metri dal filatterio."
+					]
+				},
+				{
+					"name": "Unusual Nature",
+					"entries": [
+						"Barixis non richiede cibo o bevande."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 13} per colpire, portata 5 ft., un bersaglio. {@h}35 ({@damage 4d10 + 13}) danni perforanti."
+					]
+				},
+				{
+					"name": "Psychic Barrage {@recharge 5}",
+					"entries": [
+						"{@atk rw} {@hit 16} per colpire, gittata 60/60 ft., un bersaglio. {@h}68 ({@damage 10d10 + 16}) danni psichici."
+					]
+				},
+				{
+					"name": "Eye Rays",
+					"entries": [
+						"Il beholder spara tre dei seguenti raggi oculari magici a caso (rerollare i duplicati), scegliendo da uno a tre bersagli che può vedere entro 120 piedi da lui:",
+						"1.Raggio d'incanto. La creatura bersagliata deve riuscire in un tiro salvezza di Saggezza {@dc 23} o essere {@condition charmed} dall'Osservatore per 1 ora, o finché l'Osservatore non danneggia la creatura.",
+						"2.Raggio paralizzante. La creatura bersaglio deve superare un tiro salvezza di Costituzione {@dc 23} o subire {@condition paralyzed} per 1 minuto. Il bersaglio può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stesso in caso di successo.",
+						"3. Raggio della paura. La creatura bersaglio deve superare un tiro salvezza di Saggezza {@dc 23} o subire {@condition frightened} per 1 minuto. Il bersaglio può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stesso in caso di successo.",
+						"4. Raggio rallentatore. La creatura bersaglio deve superare un tiro salvezza di Destrezza {@dc 23}. Se il tiro salvezza fallisce, la velocità del bersaglio si dimezza per 1 minuto. Inoltre, la creatura non può compiere reazioni e può compiere un'azione o un'azione bonus nel suo turno, ma non entrambe. La creatura può ripetere il tiro salvezza alla fine di ogni suo turno, terminando l'effetto su se stessa in caso di successo.",
+						"5. Raggio di conservazione. La creatura bersagliata deve effettuare un tiro salvezza di Costituzione {@dc 23}, subendo 54 ({@damage 12d8}) danni necrotici se il tiro salvezza fallisce, o la metà dei danni se riesce.",
+						"6. Raggio telecinetico. Se il bersaglio è una creatura, deve superare un tiro salvezza di Forza {@dc 23} o il beholder la sposta fino a 9 metri in qualsiasi direzione. La creatura è {@condition restrained} sottoposta alla morsa telecinetica del raggio fino all'inizio del prossimo turno del beholder o fino a quando il beholder è {@condition incapacitated}.",
+						"Se il bersaglio è un oggetto di peso pari o inferiore a 500 libbre che non viene indossato o trasportato, viene spostato fino a 9 metri in qualsiasi direzione. Con questo raggio, il beholder può anche esercitare un controllo fine sugli oggetti, come manipolare un semplice utensile o aprire una porta o un contenitore.",
+						"7. Raggio del sonno. La creatura bersaglio deve riuscire in un tiro salvezza di Saggezza {@dc 23} o addormentarsi e rimanere addormentata {@condition unconscious} per 1 minuto. Il bersaglio si risveglia se subisce danni o se un'altra creatura compie un'azione per svegliarlo. Questo raggio non ha effetto su costrutti e non morti.",
+						"8. Raggio di pietrificazione. La creatura bersaglio deve effettuare un tiro salvezza di Destrezza {@dc 23}. Se il tiro salvezza fallisce, la creatura inizia a trasformarsi in pietra e subisce un danno del {@condition restrained}. Deve ripetere il tiro salvezza alla fine del suo turno successivo. In caso di successo, l'effetto termina. Se fallisce, la creatura è {@condition petrified} finché non viene liberata dall'incantesimo {@spell greater restoration} o da un'altra magia.",
+						"9. Raggio di disintegrazione. Se il bersaglio è una creatura, deve superare un tiro salvezza di Destrezza {@dc 23} o subire 63 ({@damage 14d8}) danni da forza. Se questi danni riducono la creatura a 0 punti ferita, il suo corpo diventa un mucchio di polvere grigia.",
+						"Se il bersaglio è un oggetto non magico o una creazione di forza magica Grande o più piccola, viene disintegrato senza tiro salvezza. Se il bersaglio è un oggetto o una creazione di forza magica Enorme o più grande, questo raggio ne disintegra un cubo di 3 metri.",
+						"10. Raggio della morte. La creatura bersaglio deve riuscire in un tiro salvezza di Destrezza {@dc 23} o subire 77 ({@damage 14d10}) danni necrotici. Il bersaglio muore se il raggio lo riduce a 0 punti ferita."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Spellcasting Awareness",
+					"entries": [
+						"Barixis può utilizzare due reazioni per turno. Queste reazioni sono riservate all'uso di {@spell counterspell}."
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Eye Ray",
+					"entries": [
+						"Barixis utilizza un raggio oculare a caso."
+					]
+				},
+				{
+					"name": "Psychic Barrage Recharge",
+					"entries": [
+						"Barixis tira per ricaricare il suo Sbarramento Psichico."
+					]
+				},
+				{
+					"name": "Psychic Barrage (Costs 2 Actions, must be charged)",
+					"entries": [
+						"Barixis usa il suo fuoco di sbarramento psichico."
+					]
+				}
+			],
+			"mythicHeader": [
+				"If Barixis' reconstruction trait has activated in the last hour, it can use the options below as legendary actions."
+			],
+			"mythic": [
+				{
+					"name": "Telekinetic Ray",
+					"entries": [
+						"Barixis usa il suo Raggio Oculare Telecinetico"
+					]
+				},
+				{
+					"name": "Sphere of Obliviation (Costs 2 Actions)",
+					"entries": [
+						"Barixis inghiotte una creatura {@condition restrained} con il suo Raggio telecinetico nell'occhio centrale. Una creatura inghiottita in questo modo deve riuscire in un tiro salvezza di Costituzione {@dc 23} o morire. Il bersaglio subisce 82 ({@damage 15d10}) danni necrotici in caso di successo e rimane {@condition prone} in uno spazio adiacente a Barixis."
+					]
+				}
+			],
+			"legendaryGroup": {
+				"name": "Barixis' Lair",
+				"source": "GarlumpkinMonsters"
+			},
+			"fluff": {
+				"entries": [
+					"Barixis è piuttosto grande in termini di osservatore: il suo corpo verde e blu, metallico e squamoso, ha un diametro di circa 2 metri, con 4 lunghi steli sottili che spuntano e terminano con occhi argentati. Ha un grande ghigno a denti aguzzi e, cosa più evidente, una profonda fossa al posto del grande occhio centrale. Sotto il corpo, innestate nella pelle, ci sono 8 zampe di adamantio e altri 2 steli di adamantio che sporgono dal corpo.",
+					"In vita, Barixis era un potente beholder con abilità arcane ben sviluppate. Cercò il potere dell'immortalità attraverso mezzi magici e fu in grado di legare la sua anima a un filatterio, a costo di non essere mai soddisfatto della morte degli altri.Col tempo molti cercarono di uccidere il grande Barixis, perfino perforandogli l'occhio per accecarlo, ma con abilità arcana ricostruì il suo corpo e si rivolse alla magia per continuare a combattere e raccogliere anime.",
+					"Dopo secoli passati a gestire un'arena e a raccogliere le anime di coloro che combattevano per alimentare il suo filatterio, l'arena divenne lentamente un dominio proprio, separato dal piano materiale, e lì Barixis sottopose i suoi prigionieri a battaglie infinite, nutrendosi lentamente delle loro anime per l'eternità."
+				]
+			},
+			"traitTags": [
+				"Damage Absorption",
+				"Legendary Resistances",
+				"Magic Resistance",
+				"Rejuvenation"
+			],
+			"senseTags": [
+				"U"
+			],
+			"languageTags": [
+				"C",
+				"DS",
+				"U"
+			],
+			"damageTags": [
+				"N",
+				"O",
+				"P",
+				"Y"
+			],
+			"miscTags": [
+				"AOE",
+				"MW",
+				"RW"
+			],
+			"conditionInflict": [
+				"charmed",
+				"frightened",
+				"paralyzed",
+				"petrified",
+				"prone",
+				"restrained",
+				"unconscious"
+			]
+		},
+		{
+			"name": "Humpty Dumpty",
+			"shortName": true,
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"G"
+			],
+			"type": "undead",
+			"alignment": [
+				"A"
+			],
+			"ac": [
+				{
+					"ac": 26,
+					"from": [
+						"Adamantine Plating"
+					]
+				}
+			],
+			"hp": {
+				"formula": "26d12 + 260",
+				"average": 429
+			},
+			"speed": {
+				"walk": 25
+			},
+			"str": 30,
+			"dex": 18,
+			"con": 28,
+			"int": 22,
+			"wis": 28,
+			"cha": 14,
+			"save": {
+				"con": "+17",
+				"wis": "+17",
+				"str": "+18"
+			},
+			"skill": {
+				"athletics": "+18",
+				"intimidation": "+10",
+				"perception": "+17",
+				"survival": "+17",
+				"medicine": "+17"
+			},
+			"senses": [
+				"blindsight 60 ft."
+			],
+			"passive": 27,
+			"resist": [
+				"fire",
+				"radiant"
+			],
+			"immune": [
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from nonmagical attacks"
+				},
+				{
+					"immune": [
+						"necrotic"
+					]
+				}
+			],
+			"vulnerable": [
+				{
+					"vulnerable": [
+						"bludgeoning"
+					],
+					"note": "from fall damage"
+				}
+			],
+			"conditionImmune": [
+				"charmed",
+				"incapacitated",
+				"prone",
+				"stunned",
+				"unconscious"
+			],
+			"languages": [
+				"Common"
+			],
+			"cr": "25",
+			"trait": [
+				{
+					"name": "Reflective Shell",
+					"entries": [
+						"Ogni volta che Humpty Dumpty viene bersagliato da un incantesimo missile magico, un incantesimo di linea o un incantesimo che richiede un tiro per l'attacco a distanza, tira un {@dice d6}. Con un esito da 1 a 5, Humpty Dumpty non subisce alcun effetto. Con un 6, Humpty Dumpty non subisce alcun effetto e l'effetto si riflette sull'incantatore come se provenisse da Humpty Dumpty, trasformando l'incantatore nel bersaglio."
+					]
+				},
+				{
+					"name": "Limited Magic Immunity",
+					"entries": [
+						"Humpty Dumpty non può essere influenzato o individuato da incantesimi di 4° livello o inferiore, a meno che non lo desideri. Ha un vantaggio nei tiri salvezza contro tutti gli altri incantesimi ed effetti magici."
+					]
+				},
+				{
+					"name": "Magic Weapons",
+					"entries": [
+						"Gli attacchi delle armi di Humpty Dumpty sono magici."
+					]
+				},
+				{
+					"name": "Critical Hit Immunity",
+					"entries": [
+						"Il rivestimento adamitico di Humpty Dumpty impedisce che venga colpito dai colpi critici."
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Se l'Humpty Dumpty fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Slow Moving",
+					"entries": [
+						"Humpty Dumpty non può intraprendere l'azione Dash"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Humpty Dumpty compie 4 attacchi con la striscia e lancia fino a una creatura {@condition grappled}."
+					]
+				},
+				{
+					"name": "Swipe Attack",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, portata 15 m, un bersaglio. {@h}30 ({@damage 3d6 + 20}) danni da percosse. Se l'attacco avviene con una mano che tiene una creatura {@condition grappled}, anche questa subisce i danni. Se il bersaglio è enorme o più piccolo, subisce {@condition grappled} da Humpty Dumpty. Humpty Dumpty può afferrare fino a 4 creature in questo modo."
+					]
+				},
+				{
+					"name": "Throw",
+					"entries": [
+						"{@atk rw} {@hit 16} per colpire, gittata 60/60 ft., un bersaglio. {@h}41 ({@damage 6d6 + 20}) danni da percosse. Se Humpty Dumpty colpisce un'altra creatura, sia il bersaglio che la creatura lanciata subiscono i danni, altrimenti solo la creatura lanciata subisce i danni."
+					]
+				},
+				{
+					"name": "Stomp (recharge  5-6)",
+					"entries": [
+						"Humpty Dumpty calpesta e tutte le creature entro 60 ft musc effettuano un tiro salvezza di destrezza {@dc 26} o subiscono 27 ({@damage 6d8}) danni da percosse e 27 ({@damage 6d8}) danni da fuoco mentre si aprono crepe nella terra che eruttano tuorlo d'uovo fuso."
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Attack (costs 1 action)",
+					"entries": [
+						"Humpty Dumpty si sposta alla sua velocità ed esegue un attacco Swipe."
+					]
+				},
+				{
+					"name": "Throw (costs 2 actions)",
+					"entries": [
+						"Humpty Dumpty effettua un attacco di lancio"
+					]
+				},
+				{
+					"name": "Stomp (costs 3 actions)",
+					"entries": [
+						"Humpty Dumpty si ricarica e usa il suo attacco Stomp."
+					]
+				}
+			],
+			"environment": [
+				"urban"
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/IdHMlRo.png"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/dTxFYbb.png",
+			"traitTags": [
+				"Legendary Resistances",
+				"Magic Weapons"
+			],
+			"senseTags": [
+				"B"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"C"
+			],
+			"damageTags": [
+				"B",
+				"F"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW"
+			],
+			"conditionInflict": [
+				"grappled"
+			]
+		},
+		{
+			"name": "Eggs with Legs",
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"S"
+			],
+			"type": "construct",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				10
+			],
+			"hp": {
+				"formula": "12d8",
+				"average": 54
+			},
+			"speed": {
+				"walk": 10
+			},
+			"str": 10,
+			"dex": 10,
+			"con": 10,
+			"int": 10,
+			"wis": 10,
+			"cha": 10,
+			"senses": [
+				"tremorsense 60 ft."
+			],
+			"passive": 10,
+			"immune": [
+				{
+					"special": "All Damage"
+				}
+			],
+			"conditionImmune": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"exhaustion",
+				"frightened",
+				"grappled",
+				"incapacitated",
+				"paralyzed",
+				"poisoned",
+				"prone",
+				"restrained",
+				"stunned",
+				"unconscious"
+			],
+			"cr": "10",
+			"action": [
+				{
+					"name": "Give chase",
+					"entries": [
+						"Le uova con le zampe inseguono la creatura più vicina, utilizzando l'azione Dash finché non sono in grado di esplodere."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Explode",
+					"entries": [
+						"Quando una creatura si trova entro 3 metri dalle uova con le zampe, queste esplodono. Tutte le creature entro 3 metri devono effettuare un tiro salvezza di costituzione {@dc 26} o subiscono 28 ({@damage 8d6}) danni da veleno e 28 ({@damage 8d6}) danni da perforazione ed è {@condition poisoned}. Con un successo, la creatura subisce solo i danni da perforazione."
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/AWHKTL8.png"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/AWHKTL8.png",
+			"senseTags": [
+				"T"
+			],
+			"damageTags": [
+				"I",
+				"P"
+			],
+			"conditionInflict": [
+				"poisoned"
+			]
+		},
+		{
+			"name": "The Easter Bunny",
+			"shortName": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"L"
+			],
+			"type": "fey",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 26,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "26d12 + 182",
+				"average": 351
+			},
+			"speed": {
+				"walk": 60,
+				"burrow": 30,
+				"climb": 60
+			},
+			"str": 18,
+			"dex": 30,
+			"con": 24,
+			"int": 28,
+			"wis": 24,
+			"cha": 30,
+			"save": {
+				"str": "+12",
+				"dex": "+18",
+				"con": "+15",
+				"int": "+17",
+				"wis": "+15",
+				"cha": "+18"
+			},
+			"skill": {
+				"acrobatics": "+26",
+				"stealth": "+26",
+				"sleight of hand": "+26",
+				"perception": "+15",
+				"performance": "+18",
+				"persuasion": "+18",
+				"religion": "+17",
+				"survival": "+15",
+				"nature": "+17",
+				"medicine": "+15",
+				"investigation": "+17",
+				"intimidation": "+18",
+				"insight": "+15",
+				"history": "+17",
+				"deception": "+18",
+				"athletics": "+12",
+				"arcana": "+17",
+				"animal handling": "+15"
+			},
+			"senses": [
+				"truesight 120 ft."
+			],
+			"passive": 25,
+			"resist": [
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				}
+			],
+			"immune": [
+				"acid",
+				"cold",
+				"fire",
+				"lightning",
+				"poison",
+				"thunder"
+			],
+			"conditionImmune": [
+				"charmed",
+				"paralyzed",
+				"petrified",
+				"stunned",
+				"unconscious"
+			],
+			"languages": [
+				"All"
+			],
+			"cr": "27",
+			"trait": [
+				{
+					"name": "Jack(rabbit) of all trades",
+					"entries": [
+						"Il Coniglietto di Pasqua può aggiungere il suo bonus di competenza a qualsiasi prova di abilità che effettua."
+					]
+				},
+				{
+					"name": "Insane Hops",
+					"entries": [
+						"Il coniglietto di Pasqua può saltare fino a 120 piedi"
+					]
+				},
+				{
+					"name": "Super Speeeeedy",
+					"entries": [
+						"Il Coniglietto di Pasqua si muove così velocemente da apparire sempre in due punti. Questo garantisce al Coniglietto di Pasqua un vantaggio sui tiri di attacco in mischia quando questo tratto è attivo. Inoltre, ogni volta che un tiro di attacco colpisce il Coniglietto di Pasqua, tira un {@dice d6}. Con un 3-6 l'attacco viene mancato. Se un attacco va a segno, questo tratto è inattivo finché il Coniglio Pasquale non si muove. È inattivo anche quando il Coniglietto di Pasqua è {@condition incapacitated}, {@condition restrained} o comunque incapace di muoversi."
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Se il coniglietto pasquale fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Evasion",
+					"entries": [
+						"Se il coniglio pasquale subisce un effetto che gli consente di effettuare un tiro salvezza di Destrezza per subire solo metà dei danni, il coniglio pasquale non subisce alcun danno se riesce nel tiro salvezza e solo metà dei danni se fallisce."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il Coniglietto di Pasqua effettua fino a 6 attacchi di carota o di lancio di uova."
+					]
+				},
+				{
+					"name": "Carrot Shank",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, gittata di 10 m, un bersaglio. {@h}42 ({@damage 5d8 + 20}) danni da percosse."
+					]
+				},
+				{
+					"name": "Egg Toss",
+					"entries": [
+						"{@atk rw} {@hit 18} per colpire, gittata 30/60 ft., un bersaglio. {@h}41 ({@damage 6d6 + 20}) danni. Il Coniglietto di Pasqua può scegliere il tipo di danno tra i seguenti: acido, freddo, fuoco, fulmine, veleno o tuono."
+					]
+				},
+				{
+					"name": "Fists of Furry {@recharge 4}",
+					"entries": [
+						"Il Coniglietto di Pasqua sceglie fino a cinque creature nel raggio di 120 piedi ed effettua due attacchi con colpo senz'armi contro ciascuna di esse, atterrando in uno spazio non occupato entro 2 metri da uno dei bersagli. Passare da una creatura all'altra non provoca un attacco di opportunità."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Insane Hops",
+					"entries": [
+						"Il Coniglietto di Pasqua salta fino a 120 metri senza provocare un attacco di opportunità."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Fast Reactions",
+					"entries": [
+						"Il Coniglietto di Pasqua può avere 3 reazioni."
+					]
+				},
+				{
+					"name": "Uncanny Dodge",
+					"entries": [
+						"Quando un attaccante colpisce il Coniglietto di Pasqua, può usare una reazione per dimezzare i danni dell'attacco."
+					]
+				},
+				{
+					"name": "Extra Opportunity",
+					"entries": [
+						"Ogni volta che il Coniglietto di Pasqua subisce un attacco di opportunità, può effettuare due attacchi invece di uno."
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Hop (costs 1 action)",
+					"entries": [
+						"Il Coniglietto di Pasqua usa la sua abilità Salti folli e compie un attacco."
+					]
+				},
+				{
+					"name": "Energize (costs 2 actions)",
+					"entries": [
+						"Il coniglietto pasquale si rotola per ricaricare i pugni di pelo"
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/LWlPsRm.png"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/CP2UlL3.png",
+			"traitTags": [
+				"Legendary Resistances"
+			],
+			"senseTags": [
+				"U"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW"
+			]
+		},
+		{
+			"name": "Snead van Veld",
+			"isNpc": true,
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"M"
+			],
+			"type": "humanoid",
+			"alignment": [
+				"L",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 20,
+					"from": [
+						"{@item plate armor|phb}",
+						"{@item shield|phb}"
+					]
+				}
+			],
+			"hp": {
+				"average": 180,
+				"formula": "19d8 + 95"
+			},
+			"speed": {
+				"walk": 30
+			},
+			"str": 20,
+			"dex": 11,
+			"con": 20,
+			"int": 12,
+			"wis": 16,
+			"cha": 18,
+			"save": {
+				"dex": "+6",
+				"wis": "+9",
+				"cha": "+10"
+			},
+			"skill": {
+				"athletics": "+11",
+				"acrobatics": "+6",
+				"deception": "+10",
+				"intimidation": "+10",
+				"investigation": "+7",
+				"stealth": "+6",
+				"insight": "+9",
+				"perception": "+9"
+			},
+			"passive": 19,
+			"immune": [
+				"poison",
+				"radiant"
+			],
+			"conditionImmune": [
+				"frightened",
+				"poisoned"
+			],
+			"languages": [
+				"Common"
+			],
+			"cr": "17",
+			"spellcasting": [
+				{
+					"name": "Spellcasting",
+					"headerEntries": [
+						"Snead è un incantatore di 19° livello. La sua capacità di incantesimo è Carisma (tiro salvezza {@dc 18}, {@hit 10} per colpire con attacchi di incantesimi). Ha preparato i seguenti incantesimi da paladino:"
+					],
+					"spells": {
+						"1": {
+							"spells": [
+								"{@spell command}",
+								"{@spell compelled duel}",
+								"{@spell detect magic}",
+								"{@spell searing smite}"
+							],
+							"slots": 4
+						},
+						"2": {
+							"spells": [
+								"{@spell hold person}",
+								"{@spell magic weapon}"
+							],
+							"slots": 3
+						},
+						"3": {
+							"spells": [
+								"{@spell dispel magic}",
+								"{@spell elemental weapon}"
+							],
+							"slots": 3
+						},
+						"4": {
+							"spells": [
+								"{@spell banishment}",
+								"{@spell staggering smite}"
+							],
+							"slots": 3
+						},
+						"5": {
+							"spells": [
+								"{@spell destructive wave} (radiant)"
+							],
+							"slots": 2
+						}
+					},
+					"ability": "cha",
+					"type": "spellcasting"
+				}
+			],
+			"trait": [
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"Snead van Veld ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+					]
+				},
+				{
+					"name": "Marshal Knights",
+					"entries": [
+						"A meno che Snead non sia {@condition incapacitated}, lui e le altre creature a sua scelta entro 60 piedi da lui hanno vantaggio sui tiri salvezza contro l'essere {@condition charmed}"
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Snead effettua tre attacchi con la spada lunga."
+					]
+				},
+				{
+					"name": "Longsword",
+					"entries": [
+						"{@atk mw} {@hit 11} per colpire, portata di 5 metri, un bersaglio. {@h}9 ({@damage 1d8 + 5}) danni da taglio, o 10 ({@damage 1d10 + 5}) danni da taglio se usato a due mani, più 18 ({@damage 4d8}) danni necrotici."
+					]
+				},
+				{
+					"name": "Radiant Orb (1/Day)",
+					"entries": [
+						"Snead scaglia una palla di luce magica che esplode in un punto che può vedere entro 120 piedi da lui. Ogni creatura in una sfera di 6 metri di raggio centrata su quel punto deve effettuare un tiro salvezza di Destrezza {@dc 18}. La sfera si allarga intorno agli angoli. Una creatura subisce 35 ({@damage 10d6}) danni radianti e 35 ({@damage 10d6}) danni da fuoco se il tiro salvezza fallisce, o la metà dei danni se riesce."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Parry",
+					"entries": [
+						"Snead aggiunge 6 alla sua CA contro un attacco in mischia che lo colpirebbe. Per farlo, deve vedere l'attaccante e brandire un'arma da mischia."
+					]
+				}
+			],
+			"fluff": {
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/7iz8CjL.png"
+						}
+					}
+				]
+			},
+			"traitTags": [
+				"Magic Resistance"
+			],
+			"actionTags": [
+				"Multiattack",
+				"Parry"
+			],
+			"languageTags": [
+				"C"
+			],
+			"damageTags": [
+				"F",
+				"N",
+				"R",
+				"S"
+			],
+			"damageTagsSpell": [
+				"A",
+				"C",
+				"F",
+				"L",
+				"N",
+				"R",
+				"T",
+				"Y"
+			],
+			"spellcastingTags": [
+				"CP"
+			],
+			"miscTags": [
+				"AOE",
+				"MW"
+			],
+			"conditionInflictSpell": [
+				"incapacitated",
+				"paralyzed",
+				"prone"
+			],
+			"hasFluff": true,
+			"hasFluffImages": true
+		},
+		{
+			"name": "Flying Spaghetti Monster",
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"G"
+			],
+			"type": "celestial",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 28,
+					"from": [
+						"natural armor"
+					],
+					"condition": "(special: see abilities)"
+				}
+			],
+			"hp": {
+				"formula": "50d20 + 375",
+				"average": 900
+			},
+			"speed": {
+				"fly": {
+					"number": 50,
+					"condition": "(hover)"
+				},
+				"canHover": true,
+				"walk": 15,
+				"climb": 15
+			},
+			"str": 22,
+			"dex": 20,
+			"con": 28,
+			"int": 30,
+			"wis": 30,
+			"cha": 25,
+			"save": {
+				"int": "+19",
+				"wis": "+19",
+				"cha": "+16",
+				"str": "+15"
+			},
+			"skill": {
+				"arcana": "+28",
+				"history": "+28",
+				"insight": "+28",
+				"intimidation": "+16",
+				"investigation": "+28",
+				"perception": "+28",
+				"survival": "+28"
+			},
+			"senses": [
+				"truesight 300 ft."
+			],
+			"passive": 38,
+			"resist": [
+				{
+					"resist": [
+						"force",
+						"lightning",
+						"necrotic",
+						"radiant",
+						"thunder"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from magical attacks"
+				}
+			],
+			"immune": [
+				"fire",
+				"psychic",
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"preNote": "non-magical"
+				}
+			],
+			"vulnerable": [
+				{
+					"vulnerable": [
+						"acid",
+						"cold",
+						"poison"
+					]
+				},
+				{
+					"vulnerable": [
+						{
+							"special": "being disproven"
+						}
+					]
+				}
+			],
+			"conditionImmune": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"frightened",
+				"grappled",
+				"poisoned",
+				"prone",
+				"restrained"
+			],
+			"languages": [
+				"All",
+				"telepathy (unlimited range)"
+			],
+			"cr": "30",
+			"trait": [
+				{
+					"name": "Magic Weapons",
+					"entries": [
+						"Gli attacchi delle armi del Mostro Volante di Spaghetti sono magici."
+					]
+				},
+				{
+					"name": "Divine Awareness",
+					"entries": [
+						"Il Mostro di Spaghetti Volante sa se sente una bugia."
+					]
+				},
+				{
+					"name": "Limited Magic Immunity",
+					"entries": [
+						"Il Mostro Volante di Spaghetti non può essere influenzato o individuato da incantesimi di 6° livello o inferiore, a meno che non lo desideri. Ha vantaggio nei tiri salvezza contro tutti gli altri incantesimi ed effetti magici. Non è immune agli incantesimi che causano danni da acido, freddo o veleno."
+					]
+				},
+				{
+					"name": "Divine Invulnerability",
+					"entries": [
+						"Il Mostro Volante di Spaghetti non può essere bersagliato o colpito da attacchi o incantesimi finché i suoi Avatar non sono stati sconfitti. Quando è vulnerabile, non può subire più di 300 danni prima di tornare invulnerabile. Quando il Mostro Volante di Spaghetti raggiunge 0 punti ferita, non muore, ma svanisce nella Pastafaria dove si riprende dalla perdita."
+					]
+				},
+				{
+					"name": "Rage of the Ravioli",
+					"entries": [
+						"Se il Mostro Spaghetto Volante viene ridotto a meno di 300 punti ferita, riacquista tutta la sua salute e ottiene l'accesso alle sue Azioni Mitiche. Una volta attivato, questo tratto non può essere utilizzato nuovamente per 24 ore."
+					]
+				},
+				{
+					"name": "Omniscient",
+					"entries": [
+						"Il Mostro di Spaghetti Volante non può essere sorpreso e agisce sempre per primo in combattimento. Il mostro volante di spaghetti conosce tutti gli incantesimi."
+					]
+				},
+				{
+					"name": "Innate Spellcasting",
+					"entries": [
+						"L'abilità di incantesimo del Mostro Volante di Spaghetti è Intelligenza. (Tiro salvezza {@dc 27}, {@hit 19} per colpire con attacchi di incantesimi)."
+					]
+				},
+				{
+					"name": "Legendary Resistance (4/Day)",
+					"entries": [
+						"Se il mostro volante di spaghetti fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				},
+				{
+					"name": "Burden of Proof",
+					"entries": [
+						"Il Mostro Volante di Spaghetti può scegliere di emanare un campo anti-illusione con un raggio di 60 ft. Questo funziona in modo simile a {@spell antimagic field}, ma solo per le magie della scuola di illusione."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il Mostro Volante di Spaghetti esegue una qualsiasi combinazione di cinque attacchi di Appendici Noodles o Polpette Piccanti."
+					]
+				},
+				{
+					"name": "Noodly Appendage",
+					"entries": [
+						"{@atk mw} {@hit 15} per colpire, portata 25 m, un bersaglio. {@h}29 ({@damage 2d12 + 16}) danni da percosse + 16 ({@damage 3d10}) danni psichici, e il bersaglio è {@condition grappled} e {@condition restrained} (fuga {@dc 23})"
+					]
+				},
+				{
+					"name": "Spicy Meatball",
+					"entries": [
+						"{@atk rw} {@hit 14} per colpire, gittata 120/240 piedi, un bersaglio. {@h}31 ({@damage 4d12 + 5}) danni da percosse, più 16 ({@damage 3d10}) danni da fuoco."
+					]
+				},
+				{
+					"name": "Carb Coma {@recharge 4}",
+					"entries": [
+						"Il Mostro di Spaghetti Volante scatena un'ondata di letargia. Tutte le creature a sua scelta subiscono gli effetti di {@spell slow} fino alla fine del loro prossimo turno e devono effettuare un tiro salvezza di Costituzione {@dc 23} o prendere anche un livello di {@condition exhaustion}."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Summon Avatars",
+					"entries": [
+						"Il Mostro Volante di Spaghetti evoca {@dice 1d6} Avatar di Ittehgaps ({@dice 1d6 + 1d4} Avatar maggiori se è stato attivato il tratto Furia dei Ravioli) e diventa immediatamente invulnerabile. Questa reazione può essere intrapresa solo se è vulnerabile e scende sotto i 600 punti ferita. Non può effettuare altre reazioni in questo turno."
+					]
+				},
+				{
+					"name": "Summon Greater Avatars",
+					"entries": [
+						"Il Mostro Volante di Spaghetti evoca {@dice 1d4} Avatar Maggiori di Ittehgaps ({@dice 1d6} se è stato attivato il tratto Furia dei Ravioli) e diventa immediatamente invulnerabile. Questa reazione può essere intrapresa solo se è vulnerabile e scende sotto i 300 punti ferita. Non può effettuare altre reazioni in questo turno."
+					]
+				},
+				{
+					"name": "Counterspell (2/turn)",
+					"entries": [
+						"Il Mostro degli Spaghetti Volanti lancia {@spell counterspell} al 5° livello."
+					]
+				}
+			],
+			"legendaryHeader": [
+				"The flying spaghetti monster can take 5 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. The flying spaghetti monster regains spent legendary actions at the start of its turn."
+			],
+			"legendary": [
+				{
+					"name": "Attack (Costs one action)",
+					"entries": [
+						"Il Mostro Volante di Spaghetti effettua due attacchi di Appendice Noodle o Polpetta Piccante."
+					]
+				},
+				{
+					"name": "Touched by the Noodle (Costs two actions)",
+					"entries": [
+						"Il Mostro di Spaghetti Volante prende di mira qualsiasi creatura che riesce a vedere, concedendole un momento di lucidità e facendole capire che il Mostro di Spaghetti Volante non è veramente il nemico. Quella creatura deve effettuare un tiro salvezza di intelligenza {@dc 23} o usare immediatamente la sua reazione per attaccare un alleato."
+					]
+				},
+				{
+					"name": "Cast Spell - Level 0-3 (Costs one action)",
+					"entries": [
+						"Il Mostro Volante di Spaghetti lancia qualsiasi incantesimo di 3° livello o inferiore al 3° livello."
+					]
+				},
+				{
+					"name": "Cast Spell - Level 4+ (Costs two actions)",
+					"entries": [
+						"Il Mostro Volante di Spaghetti lancia qualsiasi incantesimo di 6° livello o inferiore al 6° livello."
+					]
+				}
+			],
+			"mythicHeader": [
+				"The flying spaghetti monster gains the following options as Legendary Actions only after the Rage of the Ravioli has been activated"
+			],
+			"mythic": [
+				{
+					"name": "Disprove Existence (Costs one action)",
+					"entries": [
+						"Il Mostro Spaghetti Volante bersaglia una creatura. Quella creatura deve superare un tiro salvezza di intelligenza {@dc 23} o cessare di esistere fino alla fine del suo prossimo turno. La terza volta che una creatura subisce questo effetto, la sua esistenza viene cancellata in modo permanente e viene dimenticata."
+					]
+				},
+				{
+					"name": "Omnipotence (Costs two actions)",
+					"entries": [
+						"Il Mostro Volante di Spaghetti lancia qualsiasi incantesimo al 9° livello."
+					]
+				}
+			],
+			"fluff": {
+				"entries": [
+					"Governando dal Piano della Pastafaria, il Mostro di Spaghetti Volante sa tutto e usa la sua logica divina per confutare l'esistenza di altre false divinità. A volte si mostra per ispirare le creature con il tocco della sua appendice nodosa."
+				]
+			},
+			"traitTags": [
+				"Legendary Resistances",
+				"Magic Weapons"
+			],
+			"senseTags": [
+				"U"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"languageTags": [
+				"TP"
+			],
+			"damageTags": [
+				"B",
+				"F",
+				"Y"
+			],
+			"miscTags": [
+				"MW",
+				"RCH",
+				"RW"
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			]
+		},
+		{
+			"name": "Avatar of Ittehgaps",
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"page": 0,
+			"size": [
+				"L"
+			],
+			"type": "aberration",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 24,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "24d20 + 96",
+				"average": 348
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30
+			},
+			"str": 14,
+			"dex": 28,
+			"con": 18,
+			"int": 16,
+			"wis": 12,
+			"cha": 22,
+			"save": {
+				"int": "+10",
+				"wis": "+8",
+				"dex": "+16",
+				"con": "+11"
+			},
+			"skill": {
+				"investigation": "+10",
+				"insight": "+8",
+				"religion": "+10",
+				"perception": "+8"
+			},
+			"passive": 18,
+			"resist": [
+				{
+					"resist": [
+						"fire",
+						"psychic"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				}
+			],
+			"vulnerable": [
+				"cold"
+			],
+			"cr": "24",
+			"trait": [
+				{
+					"name": "Wrap In Tendrils",
+					"entries": [
+						"L'Avatar di Ittehgaps può scegliere di dimezzare i danni dell'attacco su un colpo andato a segno per ridurre la velocità di movimento del bersaglio a 0ft fino all'inizio del suo turno successivo."
+					]
+				},
+				{
+					"name": "Magical Attacks",
+					"entries": [
+						"Gli attacchi dell'Avatar di Ittehgaps contano come magici e divini ai fini del superamento delle resistenze."
+					]
+				},
+				{
+					"name": "Swarm",
+					"entries": [
+						"L'Avatar di Ittehgaps può occupare lo spazio di un'altra creatura e viceversa. Ottiene un vantaggio negli attacchi contro qualsiasi creatura che condivida il suo spazio."
+					]
+				},
+				{
+					"name": "Immutable Form",
+					"entries": [
+						"L'Avatar di Ittehgaps è immune a qualsiasi incantesimo o effetto che possa alterare la sua forma."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Writhing Multiattack",
+					"entries": [
+						"L'Avatar di Ittehgaps compie 3 attacchi con il suo attacco di Spaghettini Contorti."
+					]
+				},
+				{
+					"name": "Writhing Attack",
+					"entries": [
+						"{@atk mw} {@hit 12} per colpire, portata 15 m, un bersaglio. {@h}35 ({@damage 4d12 + 9}) danni da percosse e il bersaglio è {@condition grappled}, fuga {@dc 21}. Il bersaglio può usare la sua azione nel suo turno per tentare di rompere la presa."
+					]
+				},
+				{
+					"name": "Polpettapult",
+					"entries": [
+						"Fino a due creature bersaglio a scelta dell'Avatar di Ittehgaps entro 15 metri devono effettuare un tiro salvezza di destrezza {@dc 21} mentre pezzi di carne volano in aria verso di loro. Ogni bersaglio subisce 46 ({@damage 8d6 + 18}) danni da percosse, e tutte le creature entro 3 metri dal bersaglio subiscono 21 ({@damage 6d6}) danni da percosse. Il bersaglio subisce metà dei danni con un tiro salvezza riuscito e le creature entro un raggio di 2 metri dal bersaglio non subiscono danni da questa azione."
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Writhing Attack (Costs 1 Actions)",
+					"entries": [
+						"L'Avatar di Ittehgaps compie un Attacco di contorsione contro un bersaglio a portata di tiro."
+					]
+				},
+				{
+					"name": "Fatal Attraction (Costs 3 Actions)",
+					"entries": [
+						"L'Avatar di Ittehgaps crea un viticcio tra due nemici a sua scelta entro 120 piedi da sé. Entrambi i bersagli devono superare un tiro salvezza di CHARISMA {@dc 18}. Il bersaglio che fallisce deve passare il minuto successivo a tentare di divorare l'altro bersaglio tramite colpi senz'armi con i suoi morsi, ma può ritentare il tiro salvezza alla fine di ogni suo turno. Per la durata dell'incantesimo, gli attacchi disarmati di un bersaglio colpito effettuati come morso infliggono 14 ({@damage 3d8}) danni necrotici e hanno vantaggio se il bersaglio è ferito. Un bersaglio colpito non può scegliere un altro bersaglio finché l'incantesimo non viene spezzato."
+					]
+				}
+			],
+			"traitTags": [
+				"Immutable Form"
+			],
+			"damageTags": [
+				"B",
+				"N"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"conditionInflict": [
+				"grappled"
+			]
+		},
+		{
+			"name": "Greater Avatar of Ittehgaps",
+			"isNamedCreature": true,
+			"source": "GarlumpkinMonsters",
+			"page": 0,
+			"size": [
+				"L"
+			],
+			"type": "aberration",
+			"alignment": [
+				"L",
+				"G",
+				"NY",
+				"E"
+			],
+			"ac": [
+				{
+					"ac": 24,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "25d20 + 150",
+				"average": 412
+			},
+			"speed": {
+				"walk": 30,
+				"climb": 30
+			},
+			"str": 14,
+			"dex": 28,
+			"con": 22,
+			"int": 16,
+			"wis": 12,
+			"cha": 22,
+			"save": {
+				"int": "+11",
+				"wis": "+9",
+				"dex": "+17",
+				"con": "+14"
+			},
+			"skill": {
+				"investigation": "+11",
+				"insight": "+9",
+				"religion": "+11",
+				"perception": "+9"
+			},
+			"passive": 19,
+			"resist": [
+				{
+					"resist": [
+						"fire",
+						"psychic"
+					]
+				},
+				{
+					"resist": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				}
+			],
+			"vulnerable": [
+				"cold"
+			],
+			"cr": "27",
+			"trait": [
+				{
+					"name": "Wrap In Tendrils",
+					"entries": [
+						"L'Avatar di Ittehgaps può scegliere di dimezzare i danni dell'attacco su un colpo andato a segno per ridurre la velocità di movimento del bersaglio a 0ft fino all'inizio del suo turno successivo."
+					]
+				},
+				{
+					"name": "Magical Attacks",
+					"entries": [
+						"Gli attacchi dell'Avatar di Ittehgaps contano come magici e divini ai fini del superamento delle resistenze."
+					]
+				},
+				{
+					"name": "Swarm",
+					"entries": [
+						"L'Avatar di Ittehgaps può occupare lo spazio di un'altra creatura e viceversa. Ottiene un vantaggio negli attacchi contro qualsiasi creatura che condivida il suo spazio."
+					]
+				},
+				{
+					"name": "Immutable Form",
+					"entries": [
+						"L'Avatar di Ittehgaps è immune a qualsiasi incantesimo o effetto che possa alterare la sua forma."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Writhing Multiattack",
+					"entries": [
+						"L'Avatar di Ittehgaps compie 3 attacchi con il suo attacco di Spaghettini Contorti."
+					]
+				},
+				{
+					"name": "Writhing Attack",
+					"entries": [
+						"{@atk mw} {@hit 13} per colpire, portata 15 m, un bersaglio. {@h}35 ({@damage 4d12 + 9}) danni da percosse e il bersaglio è {@condition grappled}, fuga {@dc 22}. Il bersaglio può usare la sua azione nel suo turno per tentare di rompere la presa."
+					]
+				},
+				{
+					"name": "Polpettapult",
+					"entries": [
+						"Fino a due creature bersaglio a scelta dell'Avatar di Ittehgaps entro 15 metri devono effettuare un tiro salvezza di destrezza {@dc 22} mentre pezzi di carne volano in aria verso di loro. Ogni bersaglio subisce 52 ({@damage 10d6 + 17}) danni da percosse, e tutte le creature entro 3 metri dal bersaglio subiscono 21 ({@damage 6d6}) danni da percosse. Il bersaglio subisce metà dei danni con un tiro salvezza riuscito e le creature entro un raggio di 2 metri dal bersaglio non subiscono danni da questa azione."
+					]
+				},
+				{
+					"name": "Pappardelle Piano {@recharge 5}",
+					"entries": [
+						"L'avatar sceglie un quadrato di 30 piedi entro 90 piedi. Dal terreno dell'area fuoriescono spaghetti alla marinara afferranti e contorcenti. Per i tre round successivi, o finché la caratteristica non viene attivata di nuovo, questa pasta trasforma il terreno nell'area in un terreno difficile.",
+						"Quando una creatura entra nell'area colpita per la prima volta in un turno o vi inizia il proprio turno, deve superare un tiro salvezza di Destrezza {@dc 22} o subire 18 ({@damage 4d8}) danni da percosse ed essere {@condition restrained} attaccata dai tentacoli fino al termine dell'effetto. Una creatura che inizia il suo turno nell'area ed è già {@condition restrained} dai tentacoli subisce 18 ({@damage 4d8}) danni da percosse.",
+						"Una creatura {@condition restrained} attaccata ai tentacoli può usare la sua azione per effettuare una prova di Forza o Destrezza (a sua scelta) contro la DC di salvataggio dell'incantesimo. In caso di successo, si libera."
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Writhing Attack (Costs 1 Actions)",
+					"entries": [
+						"L'Avatar di Ittehgaps compie un Attacco di contorsione contro un bersaglio a portata di tiro."
+					]
+				},
+				{
+					"name": "Fatal Attraction (Costs 3 Actions)",
+					"entries": [
+						"L'Avatar di Ittehgaps crea un viticcio tra due nemici a sua scelta entro 120 piedi da sé. Entrambi i bersagli devono superare un tiro salvezza di carisma {@dc 19}. Il bersaglio che fallisce deve passare il minuto successivo a tentare di divorare l'altro bersaglio tramite colpi senz'armi con i suoi morsi, ma può ritentare il tiro salvezza alla fine di ogni suo turno. Per la durata dell'incantesimo, gli attacchi disarmati di un bersaglio colpito effettuati come morso infliggono 13 ({@damage 3d8}) danni necrotici e hanno vantaggio se il bersaglio è ferito. Un bersaglio colpito non può scegliere un altro bersaglio finché l'incantesimo non viene spezzato."
+					]
+				}
+			],
+			"traitTags": [
+				"Immutable Form"
+			],
+			"damageTags": [
+				"B",
+				"N"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"conditionInflict": [
+				"grappled",
+				"restrained"
+			]
+		},
+		{
+			"name": "Giant Mantis Shrimp",
+			"source": "GarlumpkinMonsters",
+			"size": [
+				"M"
+			],
+			"type": "beast",
+			"alignment": [
+				"N"
+			],
+			"ac": [
+				{
+					"ac": 26,
+					"from": [
+						"exoskeleton"
+					]
+				}
+			],
+			"hp": {
+				"formula": "35d12 + 210",
+				"average": 437
+			},
+			"speed": {
+				"walk": 30,
+				"swim": 60,
+				"burrow": 30
+			},
+			"str": 28,
+			"dex": 30,
+			"con": 22,
+			"int": 16,
+			"wis": 22,
+			"cha": 18,
+			"save": {
+				"str": "+17",
+				"dex": "+18",
+				"con": "+14"
+			},
+			"skill": {
+				"acrobatics": "+26",
+				"animal handling": "+14",
+				"athletics": "+17",
+				"investigation": "+11",
+				"perception": "+22",
+				"stealth": "+26",
+				"survival": "+14"
+			},
+			"senses": [
+				"truesight 120 ft."
+			],
+			"passive": 32,
+			"resist": [
+				{
+					"resist": [
+						"bludgeoning",
+						"slashing"
+					]
+				},
+				{
+					"resist": [
+						"lightning"
+					]
+				}
+			],
+			"immune": [
+				{
+					"immune": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"note": "from non-magical sources"
+				},
+				{
+					"immune": [
+						"cold",
+						"fire",
+						"poison"
+					]
+				}
+			],
+			"conditionImmune": [
+				"blinded"
+			],
+			"cr": "27",
+			"trait": [
+				{
+					"name": "Magic Resistance",
+					"entries": [
+						"La mantide gigante ha vantaggio nei tiri salvezza contro incantesimi e altri effetti magici."
+					]
+				},
+				{
+					"name": "Sexnocular Vision",
+					"entries": [
+						"La mantide gigante ha una vista eccezionale che le rende impossibile essere affiancata e le dà un vantaggio su tutte le prove di abilità che si basano sulla vista. Può anche vedere in qualsiasi piano coesistente a quello in cui si trova attualmente."
+					]
+				},
+				{
+					"name": "Ethereal Presence",
+					"entries": [
+						"La mantide gigante esiste sia nel piano materiale che in quello eterico e può vedere e agire sulle creature di entrambi i piani."
+					]
+				},
+				{
+					"name": "Siege Monster",
+					"entries": [
+						"La mantide gigante infligge danni doppi a oggetti e strutture."
+					]
+				},
+				{
+					"name": "Dismembering Strike",
+					"entries": [
+						"Quando il gambero mantide gigante tira 18-20 sul suo dado d'attacco Dactyl Club, tira un {@dice d100}, usando i risultati qui sotto:",
+						"1-80: L'attacco infligge danni critici normali - 72 ({@damage 14d8 + 10}) danni da percosse.",
+						"81-98: tirare tre volte i dadi danno dell'attacco - 103 ({@damage 21d8 + 10}) danni da percosse. Il bersaglio deve superare un tiro salvezza di costituzione {@dc 26} o subire {@condition stunned} fino alla fine del suo prossimo turno.",
+						"99-100: tirare quattro volte i dadi danno dell'attacco - 134 ({@damage 28d8 + 10}) danni da randellate. Se questo attacco riduce il bersaglio a 0 HP, la sua testa esplode a causa dell'impatto e il bersaglio muore."
+					]
+				},
+				{
+					"name": "Boiling Strike",
+					"entries": [
+						"Se subacqueo, tutti gli attacchi con la clava dattilica provocano una breve cavitazione dell'acqua nelle immediate vicinanze. Ogni volta che viene sferrato un attacco con la clava dattilica, il bersaglio e tutte le creature entro 5 piedi dal bersaglio subiscono 14 ({@damage 4d6}) danni da fuoco. Se una creatura in quell'area indossa un'armatura di metallo, deve superare un tiro salvezza di destrezza {@dc 22} o il bonus alla CA di quell'armatura (comprese le armature magiche) viene ridotto di 1 fino all'inizio del prossimo turno della mantide gigante. Se in qualsiasi momento il bonus di CA viene ridotto a 0 a causa di questo effetto, l'armatura viene distrutta."
+					]
+				},
+				{
+					"name": "Reflective Carapace",
+					"entries": [
+						"Ogni volta che la mantide gigante viene bersagliata da un incantesimo {@spell magic missile}, da un incantesimo di linea o da un incantesimo che richiede un tiro per l'attacco a distanza, tira un {@dice d6}. Con un esito da 1 a 5, la mantide gigante non subisce alcun effetto. Con un 6, la mantide gigante non subisce alcun effetto e l'effetto si riflette sull'incantatore come se provenisse dalla mantide gigante, trasformando l'incantatore nel bersaglio."
+					]
+				},
+				{
+					"name": "Legendary Resistance (3/Day)",
+					"entries": [
+						"Se la mantide gigante fallisce un tiro salvezza, può invece scegliere di avere successo."
+					]
+				}
+			],
+			"action": [
+				{
+					"name": "Multiattack",
+					"entries": [
+						"Il gambero mantide gigante effettua quattro attacchi con la clava dattilica"
+					]
+				},
+				{
+					"name": "Dactyl Club",
+					"entries": [
+						"{@atk mw} {@hit 18} per colpire, gittata di 10 m, un bersaglio. {@h}41 ({@damage 7d8 + 10}) danni da percosse. A causa della velocità dell'attacco, la mantide gigante attacca con vantaggio, a meno che non sia soggetta all'incantesimo {@spell slow}."
+					]
+				},
+				{
+					"name": "Searing Stream {@recharge 5}",
+					"entries": [
+						"Il gambero mantide gigante sprigiona una linea di calore bruciante larga 3 metri e lunga 60 metri. Tutte le creature sul suo cammino devono effettuare un tiro salvezza di destrezza {@dc 22} o subire 44 ({@damage 8d10}) danni da fuoco, o la metà in caso di successo."
+					]
+				}
+			],
+			"bonus": [
+				{
+					"name": "Rapid Escape",
+					"entries": [
+						"La mantide gigante si muove alla sua velocità senza provocare attacchi di opportunità. Tutte le creature che si trovano entro un metro e mezzo dalla sua traiettoria di movimento subiscono gli effetti del suo colpo bollente."
+					]
+				}
+			],
+			"reaction": [
+				{
+					"name": "Pre-Emptive Defense",
+					"entries": [
+						"Quando un attacco potrebbe colpire, la mantide gigante tenta di parare e guadagna +3 alla sua CA contro quell'attacco. Questa funzione può essere attivata una volta per turno e, quando viene attivata, si attiva anche Colpo bollente."
+					]
+				}
+			],
+			"legendary": [
+				{
+					"name": "Attack",
+					"entries": [
+						"Il gambero mantide gigante effettua un attacco con la Mazza Dactyl."
+					]
+				},
+				{
+					"name": "Lunging Strike (Costs 2 actions)",
+					"entries": [
+						"La mantide gigante si muove alla sua velocità ed esegue un attacco di clava dattilica. Tutte le creature entro un raggio di 2 metri dalla sua traiettoria di movimento subiscono gli effetti del suo attacco bollente."
+					]
+				},
+				{
+					"name": "Cavitation (Costs 3 actions)",
+					"entries": [
+						"Il gambero mantide gigante trema così rapidamente da far cavitare tutta l'acqua entro 15 piedi. Luce e calore intensi provengono da questa cavitazione e tutte le creature nell'area devono effettuare un tiro salvezza di costituzione a Dc24. In caso di fallimento, sono {@condition blinded} per un minuto e subiscono 55 ({@damage 10d10}) danni da fuoco. In caso di successo, non subiscono {@condition blinded} e subiscono solo metà dei danni. Una creatura che è {@condition blinded} può ripetere questo tiro salvezza alla fine di ogni suo turno."
+					]
+				}
+			],
+			"environment": [
+				"underwater"
+			],
+			"fluff": {
+				"entries": [
+					"La mantide pavone - Odontodactylus scyllarus - è uno dei predatori più letali dell'oceano, un terrore degli abissi. Si muove così rapidamente da provocare la cavitazione dell'acqua circostante e sferra un colpo così forte da schiacciare un cranio. I colori vivaci sono un avvertimento: se lo vedete, scappate."
+				],
+				"images": [
+					{
+						"type": "image",
+						"href": {
+							"type": "external",
+							"url": "https://i.imgur.com/U9CTg9Q.jpg"
+						}
+					}
+				]
+			},
+			"tokenUrl": "https://i.imgur.com/YRJ4j8C.png",
+			"traitTags": [
+				"Legendary Resistances",
+				"Magic Resistance",
+				"Siege Monster"
+			],
+			"senseTags": [
+				"U"
+			],
+			"actionTags": [
+				"Multiattack"
+			],
+			"damageTags": [
+				"B",
+				"F"
+			],
+			"miscTags": [
+				"MW",
+				"RCH"
+			],
+			"conditionInflict": [
+				"stunned"
+			]
+		}
+	]
+}
