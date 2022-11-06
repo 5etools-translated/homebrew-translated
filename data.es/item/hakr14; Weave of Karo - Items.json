@@ -10,12 +10,12 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.1"
+				"version": "1.0.2"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1662264605,
-		"_dateLastModifiedHash": "67f4764c17"
+		"dateLastModified": 1667539141,
+		"_dateLastModifiedHash": "4856053686"
 	},
 	"item": [
 		{
@@ -58,13 +58,121 @@
 			"attachedSpells": [
 				"revivify"
 			],
-			"charges": "1",
+			"charges": 1,
 			"recharge": "dawn",
 			"entries": [
 				"La empuñadura de esta espada corta está tallada con un relieve de una figura alada que se arrodilla para ayudar a un soldado herido.",
 				"Esta espada corta tiene 1 carga. Como acción, puedes gastar una carga para lanzarla {@spell revivify}. Cuando se lanza de este modo, el hechizo no consume su componente material.",
 				"Cada amanecer, si la espada corta no tiene carga, tira un {@dice d8}. Con un 8, la espada corta recupera su carga."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Expedient Wrappings",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"charges": 5,
+			"recharge": "dawn",
+			"entries": [
+				"Estas envolturas de piernas tienen 5 cargas, y recuperan todas las cargas gastadas cada amanecer. Cuando usas la acción {@action Dash}, puedes gastar una carga para obtener también los beneficios de la acción {@action Disengage}."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you use the Dash action"
+			},
+			"foundryImg": "icons/equipment/wrist/wrap-wide-cloth-gold-red.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Crested Bluehawk Feather",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"reqAttune": true,
+			"entries": [
+				"Arrancada de un pájaro mágico vivo, esta pluma conserva algunas de sus propiedades más interesantes.",
+				"Mientras estés en sintonía con este objeto, cuando tengas una velocidad de vuelo, esa velocidad de vuelo se incrementa en 10 pies.",
+				"Además, una vez al día, puedes concederte una velocidad de vuelo de 3 metros durante 1 minuto. Esta velocidad de vuelo no puede beneficiarse de la velocidad adicional que otorga este objeto."
+			],
+			"foundryData": {
+				"activation.type": "none",
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryEffects": [
+				{
+					"name": "Wings of the Hawk",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Sleepless Serandite",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"entries": [
+				"Una piedra preciosa de color rosa apagado. La gema parpadea en blanco brillante cuando una criatura a menos de 1,5 metros se aleja de ella.",
+				"Cuando esto ocurre, puedes usar tu reacción para hacer un ataque de oportunidad contra esta criatura. No es necesario que puedas ver a la criatura para hacer esto.",
+				"Además, no puedes tener desventaja en los ataques de oportunidad mientras estés equipado con este objeto."
+			],
+			"foundryImg": "icons/commodities/gems/gem-faceted-teardrop-pink.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Summoner's Grimoire",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"reqAttune": "by a creature with the ability to summon another creature",
+			"entries": [
+				"Un grueso tomo. La mayor parte del texto es indescifrable, pero destaca un pasaje que detalla una forma de aprovechar la transferencia de energía de la invocación.",
+				"Cuando invocas a una criatura, cada criatura que elijas en un radio de 1,5 metros de la invocación debe hacer una tirada de salvación de Constitución DC 14. Si fallas, la criatura recibe {@damage 1d6} de daño necrótico y el daño causado se devuelve como puntos de golpe temporales, ya sea para ti o para la criatura invocada. Si falla, la criatura recibe {@damage 1d6} de daño necrótico, y el daño infligido se devuelve como puntos de vida temporales a ti o a la criatura invocada."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you summon a creature",
+				"target.value": 5,
+				"target.units": "ft",
+				"target.type": "rad",
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"1d6",
+						"necrotic"
+					]
+				],
+				"save.ability": "con",
+				"save.dc": 14,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/sundries/books/book-embossed-gold-green.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Lucky Pauldron",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"reqAttune": "by a creature with proficiency with medium armor",
+			"entries": [
+				"Un único pauldro, bien amado.",
+				"Mientras estés en sintonía con este pauldrón, tus ataques con armas consiguen un golpe crítico con una tirada de 19 o 20."
+			],
+			"foundryFlags": {
+				"flags.dnd5e.weaponCriticalThreshold": true
+			},
+			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
 		}
 	]
 }
