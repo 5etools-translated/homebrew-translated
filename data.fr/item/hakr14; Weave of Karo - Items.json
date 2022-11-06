@@ -10,12 +10,12 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.1"
+				"version": "1.0.2"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1662264605,
-		"_dateLastModifiedHash": "67f4764c17"
+		"dateLastModified": 1667539141,
+		"_dateLastModifiedHash": "4856053686"
 	},
 	"item": [
 		{
@@ -58,13 +58,121 @@
 			"attachedSpells": [
 				"revivify"
 			],
-			"charges": "1",
+			"charges": 1,
 			"recharge": "dawn",
 			"entries": [
 				"La poignée de cette épée courte est ornée d'un relief représentant une figure ailée s'agenouillant pour aider un soldat blessé.",
 				"Cette épée courte a 1 charge. Comme action, vous pouvez dépenser une charge pour lancer {@spell revivify}. Lorsqu'il est lancé de cette façon, le sort ne consomme pas sa composante matérielle.",
 				"A chaque aube, si l'épée courte n'est pas chargée, lancez un {@dice d8}. Sur un 8, l'épée courte regagne sa charge."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Expedient Wrappings",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"charges": 5,
+			"recharge": "dawn",
+			"entries": [
+				"Ces jambières ont 5 charges, et récupèrent toutes les charges dépensées à chaque aube. Lorsque vous utilisez l'action {@action Dash}, vous pouvez dépenser une charge pour bénéficier également des avantages de l'action {@action Disengage}."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you use the Dash action"
+			},
+			"foundryImg": "icons/equipment/wrist/wrap-wide-cloth-gold-red.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Crested Bluehawk Feather",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"reqAttune": true,
+			"entries": [
+				"Prélevée sur un oiseau magique vivant, cette plume conserve certaines de ses propriétés les plus intéressantes.",
+				"Lorsque cet objet est accordé, votre vitesse de vol est augmentée de 10 pieds.",
+				"De plus, une fois par jour, vous pouvez vous accorder une vitesse de vol de 10 pieds pendant 1 minute. Cette vitesse de vol ne peut pas bénéficier du bonus de vitesse accordé par cet objet."
+			],
+			"foundryData": {
+				"activation.type": "none",
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryEffects": [
+				{
+					"name": "Wings of the Hawk",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Sleepless Serandite",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"entries": [
+				"Une pierre précieuse rose pâle. La pierre précieuse clignote en blanc vif lorsqu'une créature située à moins de 1,5 mètre s'en éloigne.",
+				"Lorsque cela se produit, vous pouvez utiliser votre réaction pour effectuer une attaque d'opportunité contre cette créature. Vous n'avez pas besoin de voir la créature pour le faire.",
+				"De plus, vous ne pouvez pas avoir de désavantage sur une attaque d'opportunité lorsque vous êtes équipé de cet objet."
+			],
+			"foundryImg": "icons/commodities/gems/gem-faceted-teardrop-pink.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Summoner's Grimoire",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"reqAttune": "by a creature with the ability to summon another creature",
+			"entries": [
+				"Un épais tome. La plupart des textes qu'il contient sont indéchiffrables, mais un passage détaillant un moyen de tirer parti du transfert d'énergie de l'invocation se détache.",
+				"Lorsque vous invoquez une créature, chaque créature de votre choix située à moins de 1,5 mètre de l'invocation doit effectuer un jet de sauvegarde de Constitution DC 14. En cas d'échec, la créature subit {@damage 1d6} de dégâts nécrotiques, et les dégâts infligés sont rendus sous forme de points de vie temporaires, soit à vous, soit à la créature invoquée."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you summon a creature",
+				"target.value": 5,
+				"target.units": "ft",
+				"target.type": "rad",
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"1d6",
+						"necrotic"
+					]
+				],
+				"save.ability": "con",
+				"save.dc": 14,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/sundries/books/book-embossed-gold-green.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Lucky Pauldron",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"reqAttune": "by a creature with proficiency with medium armor",
+			"entries": [
+				"Un seul pauldron bien aimé.",
+				"Lorsque vous êtes en harmonie avec ce chaudron, les attaques de votre arme obtiennent un coup critique sur un jet de 19 ou 20."
+			],
+			"foundryFlags": {
+				"flags.dnd5e.weaponCriticalThreshold": true
+			},
+			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
 		}
 	]
 }
