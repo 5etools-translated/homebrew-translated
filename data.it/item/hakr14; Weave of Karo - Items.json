@@ -10,12 +10,12 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.1"
+				"version": "1.0.2"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1662264605,
-		"_dateLastModifiedHash": "67f4764c17"
+		"dateLastModified": 1667539141,
+		"_dateLastModifiedHash": "4856053686"
 	},
 	"item": [
 		{
@@ -58,13 +58,121 @@
 			"attachedSpells": [
 				"revivify"
 			],
-			"charges": "1",
+			"charges": 1,
 			"recharge": "dawn",
 			"entries": [
 				"L'elsa di questa spada corta è ornata con un rilievo di una figura alata inginocchiata per aiutare un soldato ferito.",
 				"Questa spada corta ha 1 carica. Come azione, si può spendere una carica per lanciare {@spell revivify}. Quando viene lanciato in questo modo, l'incantesimo non consuma la sua componente materiale.",
 				"Ogni alba, se la spada corta non ha carica, tirare un {@dice d8}. Con un 8, la spada corta riacquista la carica."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Expedient Wrappings",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"charges": 5,
+			"recharge": "dawn",
+			"entries": [
+				"Queste fasce per le gambe hanno 5 cariche e riacquistano tutte le cariche spese a ogni alba. Quando si usa l'azione {@action Dash}, si può spendere una carica per ottenere anche i benefici dell'azione {@action Disengage}."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you use the Dash action"
+			},
+			"foundryImg": "icons/equipment/wrist/wrap-wide-cloth-gold-red.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Crested Bluehawk Feather",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"reqAttune": true,
+			"entries": [
+				"Estratta da un uccello magico vivo, questa piuma conserva alcune delle sue proprietà più interessanti.",
+				"Mentre si è sintonizzati con questo oggetto, quando si ha una velocità di volo, questa viene aumentata di 3 metri.",
+				"Inoltre, una volta al giorno, si può ottenere una velocità di volo di 3 metri per 1 minuto. Questa velocità di volo non può beneficiare della velocità bonus concessa da questo oggetto."
+			],
+			"foundryData": {
+				"activation.type": "none",
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryEffects": [
+				{
+					"name": "Wings of the Hawk",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Sleepless Serandite",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"entries": [
+				"Una gemma rosa tenue. La gemma lampeggia di bianco brillante quando una creatura entro un metro e mezzo si allontana da essa.",
+				"Quando ciò accade, si può usare la propria reazione per effettuare un attacco di opportunità contro questa creatura. Non è necessario essere in grado di vedere la creatura per farlo.",
+				"Inoltre, non si può avere svantaggio sugli attacchi di opportunità quando si è equipaggiati con questo oggetto."
+			],
+			"foundryImg": "icons/commodities/gems/gem-faceted-teardrop-pink.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Summoner's Grimoire",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"reqAttune": "by a creature with the ability to summon another creature",
+			"entries": [
+				"Un tomo spesso. La maggior parte del testo è indecifrabile, ma spicca un passaggio che descrive un modo per sfruttare il trasferimento di energia dell'evocazione.",
+				"Quando si evoca una creatura, ogni creatura a propria scelta entro un raggio di 2 metri dall'evocazione deve effettuare un tiro salvezza di Costituzione a CC 14. In caso di fallimento, la creatura subisce {@damage 1d6} danni necrotici e i danni inflitti vengono restituiti come punti ferita temporanei a voi o alla creatura evocata."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you summon a creature",
+				"target.value": 5,
+				"target.units": "ft",
+				"target.type": "rad",
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"1d6",
+						"necrotic"
+					]
+				],
+				"save.ability": "con",
+				"save.dc": 14,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/sundries/books/book-embossed-gold-green.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Lucky Pauldron",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"reqAttune": "by a creature with proficiency with medium armor",
+			"entries": [
+				"Un unico pauldron ben curato.",
+				"Quando si è sintonizzati con questo pauldron, gli attacchi con le armi ottengono un colpo critico con un tiro di 19 o 20."
+			],
+			"foundryFlags": {
+				"flags.dnd5e.weaponCriticalThreshold": true
+			},
+			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
 		}
 	]
 }
