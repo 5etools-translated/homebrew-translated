@@ -10,12 +10,12 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.1"
+				"version": "1.0.2"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1662264605,
-		"_dateLastModifiedHash": "67f4764c17"
+		"dateLastModified": 1667539141,
+		"_dateLastModifiedHash": "4856053686"
 	},
 	"item": [
 		{
@@ -58,13 +58,121 @@
 			"attachedSpells": [
 				"revivify"
 			],
-			"charges": "1",
+			"charges": 1,
 			"recharge": "dawn",
 			"entries": [
 				"这把短剑的剑柄上华丽地雕刻着一个带翅膀的人物的浮雕，他跪下来帮助一个受伤的士兵。",
 				"这把短剑有1个电荷。作为一个动作，你可以消耗一个电荷来施放（%0%）。当以这种方式施放时，该法术不消耗其物质成分。",
 				"每当黎明时分，如果短剑没有电荷，就掷一个（%0%）。在8的情况下，短剑重新获得充能。"
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Expedient Wrappings",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"charges": 5,
+			"recharge": "dawn",
+			"entries": [
+				"这些裹脚布有5个电荷，并且在每个黎明时分恢复所有消耗的电荷。当你使用{@action Dash}行动时，你可以消耗一个电荷来同时获得{@action Disengage}行动的好处。"
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you use the Dash action"
+			},
+			"foundryImg": "icons/equipment/wrist/wrap-wide-cloth-gold-red.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Crested Bluehawk Feather",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"reqAttune": true,
+			"entries": [
+				"从一只活生生的魔幻鸟身上摘下的这种羽毛，保留了一些更有趣的特性。",
+				"当与此物品相适应时，当你有飞行速度时，该飞行速度会增加10英尺。",
+				"此外，每天一次，你可以赋予自己10英尺的飞行速度，持续1分钟。这个飞行速度不能从这个项目所赋予的额外速度中获益。"
+			],
+			"foundryData": {
+				"activation.type": "none",
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryEffects": [
+				{
+					"name": "Wings of the Hawk",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Sleepless Serandite",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"entries": [
+				"一颗柔和的粉红色宝石。当5英尺内的生物远离它时，宝石会闪烁出明亮的白色。",
+				"当这种情况发生时，你可以用你的反应来对这个生物进行一次机会攻击。你不需要看到这个生物就可以这样做。",
+				"此外，在装备此物品时，你不能在机会攻击中处于劣势。"
+			],
+			"foundryImg": "icons/commodities/gems/gem-faceted-teardrop-pink.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Summoner's Grimoire",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"reqAttune": "by a creature with the ability to summon another creature",
+			"entries": [
+				"一本厚厚的书。里面的大部分文字都无法辨认，但有一段话详细介绍了利用召唤的能量转移的方法，非常引人注目。",
+				"当你召唤一个生物时，你所选择的在召唤物5英尺范围内的每个生物都必须做一个DC14的宪法救赎动作。如果失败，该生物会受到{@damage 1d6}坏死伤害，所受伤害会以临时命中率的形式返回给你或被召唤的生物。"
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you summon a creature",
+				"target.value": 5,
+				"target.units": "ft",
+				"target.type": "rad",
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"1d6",
+						"necrotic"
+					]
+				],
+				"save.ability": "con",
+				"save.dc": 14,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/sundries/books/book-embossed-gold-green.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Lucky Pauldron",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"reqAttune": "by a creature with proficiency with medium armor",
+			"entries": [
+				"单一的、受人爱戴的宝鼎。",
+				"当与此宝典相适应时，你的武器攻击在掷出19或20时可获得关键打击。"
+			],
+			"foundryFlags": {
+				"flags.dnd5e.weaponCriticalThreshold": true
+			},
+			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
 		}
 	]
 }
