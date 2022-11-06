@@ -10,12 +10,12 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.1"
+				"version": "1.0.2"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1662264605,
-		"_dateLastModifiedHash": "67f4764c17"
+		"dateLastModified": 1667539141,
+		"_dateLastModifiedHash": "4856053686"
 	},
 	"item": [
 		{
@@ -58,13 +58,121 @@
 			"attachedSpells": [
 				"revivify"
 			],
-			"charges": "1",
+			"charges": 1,
 			"recharge": "dawn",
 			"entries": [
 				"Der Griff dieses Kurzschwerts ist mit dem Relief einer geflügelten Figur verziert, die sich hinkniet, um einem verwundeten Soldaten zu helfen.",
 				"Dieses Kurzschwert hat 1 Ladung. Als Aktion kannst du eine Ladung aufwenden, um den Zauber zu wirken {@spell revivify}. Wenn der Zauber auf diese Weise gewirkt wird, verbraucht er seine materielle Komponente nicht.",
 				"Wenn das Kurzschwert in der Morgendämmerung keine Ladung hat, wirf einen {@dice d8}. Bei einer 8 erhält das Kurzschwert seine Ladung zurück."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Expedient Wrappings",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"charges": 5,
+			"recharge": "dawn",
+			"entries": [
+				"Diese Beinumhüllungen haben 5 Ladungen und erhalten bei jeder Morgendämmerung alle verbrauchten Ladungen zurück. Wenn du die {@action Dash}-Aktion verwendest, kannst du eine Aufladung verbrauchen, um auch die Vorteile der {@action Disengage}-Aktion zu erhalten."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you use the Dash action"
+			},
+			"foundryImg": "icons/equipment/wrist/wrap-wide-cloth-gold-red.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Crested Bluehawk Feather",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"reqAttune": true,
+			"entries": [
+				"Von einem lebenden magischen Vogel gerupft, behält diese Feder einige ihrer interessantesten Eigenschaften bei.",
+				"Während du auf diesen Gegenstand eingestimmt bist, wird deine Fluggeschwindigkeit um 10 Fuß erhöht, wenn du eine Fluggeschwindigkeit hast.",
+				"Zusätzlich kannst du dir einmal pro Tag 1 Minute lang eine Fluggeschwindigkeit von 10 Fuß gewähren. Diese Fluggeschwindigkeit kann nicht von der Bonusgeschwindigkeit profitieren, die dieser Gegenstand gewährt."
+			],
+			"foundryData": {
+				"activation.type": "none",
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryEffects": [
+				{
+					"name": "Wings of the Hawk",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Sleepless Serandite",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"entries": [
+				"Ein gedämpfter rosa Edelstein. Der Edelstein blinkt hellweiß, wenn sich eine Kreatur im Umkreis von 5 Fuß von ihm wegbewegt.",
+				"Wenn dies geschieht, darfst du deine Reaktion nutzen, um einen Gelegenheitsangriff gegen diese Kreatur auszuführen. Du musst die Kreatur nicht sehen können, um dies zu tun.",
+				"Außerdem hast du keinen Nachteil bei Gelegenheitsangriffen, wenn du mit diesem Gegenstand ausgerüstet bist."
+			],
+			"foundryImg": "icons/commodities/gems/gem-faceted-teardrop-pink.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Summoner's Grimoire",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"reqAttune": "by a creature with the ability to summon another creature",
+			"entries": [
+				"Ein dicker Wälzer. Der meiste Text darin ist nicht zu entziffern, aber eine Passage, in der beschrieben wird, wie man sich den Energietransfer der Beschwörung zunutze machen kann, sticht hervor.",
+				"Wenn du eine Kreatur beschwörst, muss jede Kreatur deiner Wahl im Umkreis von 5 Fuß um die Beschwörung einen Rettungswurf der Konstitution DC 14 ablegen. Bei einem Fehlschlag erleidet die Kreatur {@damage 1d6} nekrotischen Schaden, und der verursachte Schaden wird entweder dir oder der beschworenen Kreatur als temporäre Trefferpunkte zurückgegeben."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you summon a creature",
+				"target.value": 5,
+				"target.units": "ft",
+				"target.type": "rad",
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"1d6",
+						"necrotic"
+					]
+				],
+				"save.ability": "con",
+				"save.dc": 14,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/sundries/books/book-embossed-gold-green.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Lucky Pauldron",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"reqAttune": "by a creature with proficiency with medium armor",
+			"entries": [
+				"Ein einzelner, gut erhaltener Kessel.",
+				"Während du auf diesen Panzer eingestimmt bist, erzielen deine Waffenangriffe bei einem Wurf von 19 oder 20 einen kritischen Treffer."
+			],
+			"foundryFlags": {
+				"flags.dnd5e.weaponCriticalThreshold": true
+			},
+			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
 		}
 	]
 }
