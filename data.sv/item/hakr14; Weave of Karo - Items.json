@@ -10,12 +10,12 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.1"
+				"version": "1.0.2"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1662264605,
-		"_dateLastModifiedHash": "67f4764c17"
+		"dateLastModified": 1667539141,
+		"_dateLastModifiedHash": "4856053686"
 	},
 	"item": [
 		{
@@ -58,13 +58,121 @@
 			"attachedSpells": [
 				"revivify"
 			],
-			"charges": "1",
+			"charges": 1,
 			"recharge": "dawn",
 			"entries": [
 				"Fästet på det här korta svärdet är utsmyckat med en relief av en bevingad figur som knäböjer för att hjälpa en sårad soldat.",
 				"Det här kortsvärdet har 1 laddning. Som en handling kan du använda en laddning för att kasta {@spell revivify}. När du kastar den på det här sättet förbrukar inte trollformeln sin materiella komponent.",
 				"Varje gryning, om shortsvärdet inte har någon laddning, kasta en {@dice d8}. Vid en 8 får shortsvärdet sin laddning tillbaka."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Expedient Wrappings",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"charges": 5,
+			"recharge": "dawn",
+			"entries": [
+				"Dessa benomslag har 5 laddningar och återfår alla förbrukade laddningar varje gryning. När du använder åtgärden {@action Dash} kan du använda en laddning för att också få fördelarna med åtgärden {@action Disengage}."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you use the Dash action"
+			},
+			"foundryImg": "icons/equipment/wrist/wrap-wide-cloth-gold-red.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Crested Bluehawk Feather",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"reqAttune": true,
+			"entries": [
+				"Den här fjädern har plockats från en levande magisk fågel och har behållit några av sina intressanta egenskaper.",
+				"När du är inställd på det här föremålet ökar din flyghastighet med 10 fot när du har en flyghastighet.",
+				"Dessutom kan du en gång om dagen ge dig själv en flyghastighet på 10 fot i 1 minut. Den här flyghastigheten kan inte dra nytta av den bonushastighet som det här föremålet ger."
+			],
+			"foundryData": {
+				"activation.type": "none",
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryEffects": [
+				{
+					"name": "Wings of the Hawk",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Sleepless Serandite",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"entries": [
+				"En dämpad rosa ädelsten. Ädelstenen blinkar ljust vitt när en varelse inom 5 fot rör sig bort från den.",
+				"När detta händer kan du använda din reaktion för att göra en tillfällig attack mot den här varelsen. Du behöver inte kunna se varelsen för att göra detta.",
+				"Dessutom kan du inte ha nackdel vid tillfälliga attacker när du är utrustad med det här föremålet."
+			],
+			"foundryImg": "icons/commodities/gems/gem-faceted-teardrop-pink.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Summoner's Grimoire",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"reqAttune": "by a creature with the ability to summon another creature",
+			"entries": [
+				"En tjock bok. Det mesta av texten är oläslig, men en passage som beskriver ett sätt att dra nytta av energiöverföringen vid framkallning sticker ut.",
+				"När du kallar på en varelse måste varje varelse som du väljer inom en radie på 1,5 meter göra ett räddningskast på 14 DC för konstitutionen. Vid ett misslyckande tar varelsen {@damage 1d6} nekrotisk skada, och skadan återges som tillfälliga träffpoäng antingen till dig eller till den framkallade varelsen."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you summon a creature",
+				"target.value": 5,
+				"target.units": "ft",
+				"target.type": "rad",
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"1d6",
+						"necrotic"
+					]
+				],
+				"save.ability": "con",
+				"save.dc": 14,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/sundries/books/book-embossed-gold-green.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Lucky Pauldron",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"reqAttune": "by a creature with proficiency with medium armor",
+			"entries": [
+				"En enda, välskött pauldron.",
+				"När du är inställd på den här pauldronen får dina vapenattacker en kritisk träff om du kastar 19 eller 20."
+			],
+			"foundryFlags": {
+				"flags.dnd5e.weaponCriticalThreshold": true
+			},
+			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
 		}
 	]
 }
