@@ -10,12 +10,12 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.1"
+				"version": "1.0.2"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1662264605,
-		"_dateLastModifiedHash": "67f4764c17"
+		"dateLastModified": 1667539141,
+		"_dateLastModifiedHash": "4856053686"
 	},
 	"item": [
 		{
@@ -58,13 +58,121 @@
 			"attachedSpells": [
 				"revivify"
 			],
-			"charges": "1",
+			"charges": 1,
 			"recharge": "dawn",
 			"entries": [
 				"На рукояти этого короткого меча вырезано рельефное изображение крылатой фигуры, опустившейся на колени, чтобы помочь раненому солдату.",
 				"Этот меч имеет 1 заряд. В качестве действия вы можете потратить заряд на заклинание {@spell revivify}. Когда заклинание произносится таким образом, оно не расходует свой материальный компонент.",
 				"Каждый рассвет, если меч не заряжен, бросьте {@dice d8}. При выпадении 8 шорт-нож восстанавливает заряд."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Expedient Wrappings",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"charges": 5,
+			"recharge": "dawn",
+			"entries": [
+				"Эти обертывания ног имеют 5 зарядов и восстанавливают все потраченные заряды каждый рассвет. Когда вы используете действие {@action Dash}, вы можете потратить заряд, чтобы получить преимущества действия {@action Disengage}."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you use the Dash action"
+			},
+			"foundryImg": "icons/equipment/wrist/wrap-wide-cloth-gold-red.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Crested Bluehawk Feather",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"reqAttune": true,
+			"entries": [
+				"Вырванное из живой магической птицы, это перо сохраняет некоторые из своих самых интересных свойств.",
+				"Пока вы настроены на этот предмет, когда вы обладаете скоростью полета, эта скорость полета увеличивается на 10 футов.",
+				"Кроме того, раз в день вы можете увеличить скорость полета на 10 футов на 1 минуту. Эта скорость полета не может быть получена от бонусной скорости, которую дает этот предмет."
+			],
+			"foundryData": {
+				"activation.type": "none",
+				"duration.value": 1,
+				"duration.units": "minute"
+			},
+			"foundryEffects": [
+				{
+					"name": "Wings of the Hawk",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Sleepless Serandite",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"entries": [
+				"Приглушенно-розовый драгоценный камень. Драгоценный камень вспыхивает ярким белым светом, когда существо в радиусе 5 футов отходит от него.",
+				"Когда это происходит, вы можете использовать свою реакцию, чтобы совершить атаку против этого существа. Для этого вам не нужно видеть существо.",
+				"Кроме того, во время использования этого предмета у вас не может быть преимущества при атаках с возможностью."
+			],
+			"foundryImg": "icons/commodities/gems/gem-faceted-teardrop-pink.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Summoner's Grimoire",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"reqAttune": "by a creature with the ability to summon another creature",
+			"entries": [
+				"Толстый фолиант. Большая часть текста в нем неразборчива, но выделяется отрывок, в котором подробно описывается способ использования энергии, передаваемой при вызове.",
+				"Когда вы вызываете существо, каждое существо по вашему выбору в радиусе 5 футов от вызванного должно сделать бросок на спасбросок по конституции DC 14. В случае неудачи существо получает {@damage 1d6} некротического урона, а нанесенный урон возвращается в виде временных хит-пойнтов либо вам, либо вызванному существу."
+			],
+			"foundryData": {
+				"activation.type": "special",
+				"activation.condition": "When you summon a creature",
+				"target.value": 5,
+				"target.units": "ft",
+				"target.type": "rad",
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"1d6",
+						"necrotic"
+					]
+				],
+				"save.ability": "con",
+				"save.dc": 14,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/sundries/books/book-embossed-gold-green.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Lucky Pauldron",
+			"rarity": "uncommon",
+			"wondrous": true,
+			"type": "G",
+			"reqAttune": "by a creature with proficiency with medium armor",
+			"entries": [
+				"Одиночный, хорошо сохранившийся паулдрон.",
+				"Когда вы настроены на этот паулдрон, ваши атаки оружием становятся критическими при броске на 19 или 20."
+			],
+			"foundryFlags": {
+				"flags.dnd5e.weaponCriticalThreshold": true
+			},
+			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
 		}
 	]
 }
