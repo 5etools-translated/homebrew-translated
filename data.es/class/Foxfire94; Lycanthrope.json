@@ -8,17 +8,17 @@
 				"authors": [
 					"Foxfire94"
 				],
-				"version": "1.2",
+				"version": "1.6",
 				"convertedBy": [
 					"Foxfire94"
 				],
-				"url": "https://www.dmsguild.com/product/304790/Lycanthrope-Class-for-DD-5e-2020?",
+				"url": "https://www.dmsguild.com/product/304790/Lycanthrope-Class-for-DD-5e-2022",
 				"targetSchema": "1.0.0"
 			}
 		],
 		"dateAdded": 1584380044,
-		"dateLastModified": 1628132888,
-		"_dateLastModifiedHash": "7ad50fc5a4"
+		"dateLastModified": 1668454530,
+		"_dateLastModifiedHash": "a116a7e3c3"
 	},
 	"class": [
 		{
@@ -1119,6 +1119,93 @@
 			"featureType": [
 				"Totem Power"
 			]
+		},
+		{
+			"name": "Enfeebling Fangs",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Lycanthrope"
+						}
+					},
+					"feature": [
+						"Werebat Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"Una vez por turno, cuando golpeas a una criatura con tu mordisco, puedes obligar a la criatura a realizar una tirada de salvación de Constitución con una DC igual a 8 + tu bono de competencia + tu modificador de Constitución. El objetivo puede repetir la tirada de salvación en cada uno de sus turnos durante la duración, terminando el efecto en caso de éxito."
+			],
+			"featureType": [
+				"Totem Power"
+			]
+		},
+		{
+			"name": "Vampiric Bite",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Lycanthrope"
+						}
+					},
+					"feature": [
+						"Werebat Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"Una vez por turno cuando golpeas a una criatura con tu mordisco puedes recuperar puntos de golpe iguales a tu nivel de licántropo."
+			],
+			"featureType": [
+				"Totem Power"
+			]
+		},
+		{
+			"name": "Nine-Tails",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"feature": [
+						"Werefox Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"Tus formas híbridas y animales despliegan un poder mágico con toque feérico, ganando una cola adicional por cada dos niveles de licántropo que poseas, hasta un máximo de 9 colas.",
+				"Por cada cola que tenga tu forma híbrida, elige un hechizo de 1er nivel del {@filter Druid spell list|spells|level=1|class=Druid}. Puedes lanzar uno de estos conjuros utilizando este poder de tótem un número de veces igual a tu bonificación de competencia, y recuperas todos los usos gastados de este poder de tótem cuando terminas un descanso largo."
+			],
+			"featureType": [
+				"Totem Power"
+			]
+		},
+		{
+			"name": "Silver Tongue Trickster",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Lycanthrope"
+						}
+					},
+					"feature": [
+						"Werefox Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"Cuando realices la acción de ataque en tu turno, puedes sustituir un ataque por un intento de engañar a un humanoide que puedas ver en un radio de 30 pies y que pueda verte y oírte. Haz un chequeo de Carisma ({@skill Deception}) impugnado por el chequeo de Sabiduría ({@skill Insight}) del objetivo. Si tu chequeo tiene éxito, tu movimiento no provoca ataques de oportunidad del objetivo y tus tiradas de ataque contra él tienen ventaja; ambos beneficios duran hasta el final de tu siguiente turno o hasta que uses esta habilidad en un objetivo diferente. Si tu chequeo falla, el objetivo no puede ser engañado por ti de esta manera durante 1 hora."
+			],
+			"featureType": [
+				"Totem Power"
+			]
 		}
 	],
 	"monster": [
@@ -1179,6 +1266,101 @@
 			],
 			"miscTags": [
 				"MW"
+			]
+		},
+		{
+			"name": "Fox",
+			"size": [
+				"S"
+			],
+			"type": "beast",
+			"source": "FoxfireLycan",
+			"alignment": [
+				"U"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "2d6 + 0",
+				"average": 7
+			},
+			"speed": {
+				"walk": 40
+			},
+			"str": 8,
+			"dex": 15,
+			"con": 10,
+			"int": 3,
+			"wis": 12,
+			"cha": 7,
+			"passive": 13,
+			"cr": "1/8",
+			"senses": [
+				"60ft. darkvision"
+			],
+			"senseTags": [
+				"D"
+			],
+			"skill": {
+				"perception": "+3",
+				"stealth": "+4"
+			},
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"trait": [
+				{
+					"name": "Keen Hearing and Smell",
+					"entries": [
+						"El zorro tiene ventaja en los chequeos de Sabiduría ({@skill Perception}) que dependen del oído o del olfato."
+					]
+				},
+				{
+					"name": "Pounce",
+					"entries": [
+						"Si el zorro se mueve al menos 6 metros en línea recta hacia una criatura y luego la golpea con un ataque de garras en el mismo turno, el objetivo debe tener éxito en una tirada de salvación de Fuerza {@dc 9} o ser derribado {@condition prone}. Si el objetivo es {@condition prone}, el zorro puede realizar un ataque de mordisco contra él como acción adicional."
+					]
+				}
+			],
+			"traitTags": [
+				"Keen Senses",
+				"Pounce"
+			],
+			"shortName": true,
+			"conditionInflict": [
+				"prone"
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 1} para golpear, alcance 5 pies, un objetivo. {@h}1 ({@damage 1d4 - 1}) de daño perforante."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 4} para golpear, alcance 5 pies, un objetivo. {@h}4 ({@damage 1d4 + 2}) de daño cortante."
+					]
+				}
+			],
+			"miscTags": [
+				"MW"
+			],
+			"reaction": [
+				{
+					"name": "Elude",
+					"entries": [
+						"El zorro añade 2 a su CA contra un ataque de oportunidad que lo golpearía."
+					]
+				}
 			]
 		}
 	],
@@ -2449,6 +2631,184 @@
 				"A 18º nivel, mientras estés en tu forma híbrida puedes usar tu acción para obligar a cada criatura que elijas y que esté a menos de 60 pies de ti y te conozca a hacer una tirada de salvación de Sabiduría con una DC de 8 + tu bonificador de competencia + tu modificador de Carisma o convertirse en {@condition frightened} de ti durante 1 minuto. Una criatura puede repetir la tirada de salvación al final de cada uno de sus turnos, terminando el efecto sobre sí misma si tiene éxito. Si la tirada de salvación de una criatura tiene éxito o el efecto termina para ella, la criatura es inmune a tu Presencia Espantosa durante las siguientes 24 horas.",
 				"Puedes usar esta característica un número de veces igual a tu modificador de Carisma (mínimo 1) y recuperas todos los usos gastados cuando terminas un descanso largo."
 			]
+		},
+		{
+			"name": "Werebat",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"entries": [
+				"Comúnmente, aunque de forma incorrecta, se piensa que son licántropos exclusivos de los goblinoides, los Werebats son chillones y mortales criaturas aladas de la noche. Como humanoides, suelen tener nariz de carlino y dientes afilados, pero estas diferencias son tan mínimas que son prácticamente indistinguibles; a menudo inteligentes, estos depredadores de emboscada disfrutan cazando la caza más peligrosa.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Bat-Hybrid Form|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|1"
+				}
+			]
+		},
+		{
+			"name": "Bat-Hybrid Form",
+			"entries": [
+				"Cuando eliges este origen a 1er nivel, tu forma híbrida toma la forma de un murciélago-humanoide y tu mordisco se convierte en un arma natural que dominas mientras estás en esa forma.",
+				"Cuando realizas un ataque cuerpo a cuerpo con tu mordisco, tienes un alcance de 1,5 metros e infliges {@dice 1d4} de daño perforante al impactar. Puedes añadir tu modificador de Fuerza o Destreza a las tiradas de ataque y daño.",
+				"Una criatura golpeada por tu mordisco debe tener éxito en una tirada de salvación de Constitución con una DC de 8 + tu bono de competencia + tu modificador de Constitución o ser maldecida con licantropía de werebat.",
+				"Además, mientras estás en tu forma híbrida ganas una velocidad de vuelo igual a tu velocidad de movimiento. Para utilizar esta velocidad, no puedes llevar armadura media o pesada. También puedes utilizar la Destreza en lugar de la Fuerza para las tiradas de ataque y daño de tus golpes desarmados realizados con tu rasgo depredador."
+			],
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Echolocation",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"A partir del 6º nivel obtienes visión ciega hasta un alcance de 30 pies, siempre que no estés ensordecido mientras estés en tu forma híbrida.",
+				"A nivel 14, el alcance de tu vista ciega aumenta a 60 pies."
+			]
+		},
+		{
+			"name": "Bat Form",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"A partir del 10º nivel, puedes transformarte en un {@creature bat|MM} en lugar de tu forma híbrida cuando uses tu rasgo de forma híbrida. Conservas los beneficios otorgados por el rasgo de forma híbrida. Todo el equipo que lleves puesto o que sea portador no se transforma y no puedes llevar ninguna armadura a menos que esté hecha para adaptarse a tu forma animal. Tienes desventaja al utilizar equipo destinado a los humanoides y no puedes lanzar hechizos que requieran componentes materiales mientras estés en esta forma.",
+				"Tus estadísticas, aparte de tu CA y tamaño, siguen siendo las mismas en tu forma animal. Tu CA cuando estás en tu forma animal es de 12 + tu modificador de Destreza + tu modificador de Constitución (sigues obteniendo el bono de CA de tu rasgo Esconderte resistente en las situaciones en las que se aplicaría) y tu tamaño pasa a ser Diminuto.",
+				"Para discernir que no eres un animal normal de tu tipo, una criatura puede usar su acción para inspeccionar tu apariencia y debe hacer un chequeo de Inteligencia ({@skill Investigation}) impugnado por tu chequeo de Carisma ({@skill deception}).",
+				"La transformación de esta manera cuenta como un uso de su característica de forma híbrida."
+			]
+		},
+		{
+			"name": "Dark Ambusher",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"A 14º nivel aprendes a con velocidad cegadora contra los desprevenidos. Tienes ventaja en las tiradas de iniciativa, además en tu primer turno durante el combate, tienes ventaja en las tiradas de ataque contra criaturas que aún no han actuado."
+			]
+		},
+		{
+			"name": "Screech",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"A partir del 18º nivel, puedes utilizar tu acción para soltar un chillido estremecedor. Cada criatura en un radio de 15 pies que pueda oír el chillido debe hacer una tirada de salvación de Constitución con una DC igual a 8 + tu bonificación de competencia + tu modificador de Constitución. Si falla, la criatura recibe {@damage 8d6} de daño por trueno y queda ensordecida durante 1 minuto. Si tiene éxito, la criatura recibe la mitad de daño y no queda ensordecida. El chillido inflige el doble de daño a los objetos y estructuras, emite un sonido espantoso audible hasta 300 pies y también te ensordece durante 1 minuto.",
+				"Una vez que utilices esta función, no podrás volver a usarla hasta que termines un descanso largo."
+			]
+		},
+		{
+			"name": "Werefox",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"entries": [
+				"Los Werefox son licántropos astutos e inteligentes, de los que se suele pensar que son egocéntricos, hedonistas y vanidosos; algunos, en cambio, son simplemente traviesos embaucadores. Como humanoides, irradian un aspecto similar al de los elfos, independientemente de su raza, mientras que en su forma híbrida conservan un físico delgado y ágil; ambos ayudan a sus tácticas engañosas e ilusorias preferidas. Aunque los werefoxes son mayoritariamente mujeres, existen raras excepciones.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Fox-Hybrid Form|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|1"
+				}
+			]
+		},
+		{
+			"name": "Fox-Hybrid Form",
+			"entries": [
+				"Cuando eliges este origen a 1er nivel, tu forma híbrida toma la forma de un zorro-humanoide y tu mordisco se convierte en un arma natural que dominas mientras estás en esa forma.",
+				"Cuando realizas un ataque cuerpo a cuerpo con tu mordisco, tienes un alcance de 1,5 metros e infliges {@dice 1d6} de daño perforante al impactar. Sumas tu modificador de Fuerza a las tiradas de ataque y de daño.",
+				"Una criatura golpeada por tu mordisco debe tener éxito en una tirada de salvación de Constitución con una DC de 8 + tu bonificador de competencia + tu modificador de Constitución o será maldecida con licantropía de werefox.",
+				"Además, mientras estás en tu forma híbrida ganas una velocidad de madriguera igual a la mitad de tu velocidad de movimiento."
+			],
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Vulpine Charm",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"A partir del 6º nivel tienes ventaja en las tiradas de salvación contra el encantamiento, la magia no puede dormirte y ganas ventaja en cualquier chequeo de Carisma ({@skill Deception}) o Carisma ({@skill Persuasion}) que hagas.",
+				"Además, con un chequeo de Carisma ({@skill Deception}) o Carisma ({@skill Persuasion}) exitoso, puedes gastar un uso de esta característica para hacer que la criatura quede encantada por ti durante 1 minuto o hasta que tú o tus compañeros le hagan algún daño. Puedes usar esta parte de la característica un número de veces igual a tu modificador de Carisma (mínimo 1). Recuperas los usos gastados de esta característica cuando terminas un descanso corto o largo."
+			]
+		},
+		{
+			"name": "Fox Form",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"A partir del 10º nivel, puedes transformarte en un {@creature fox|FoxfireLycan} en lugar de tu forma híbrida cuando uses tu rasgo de forma híbrida. Conservas los beneficios otorgados por el rasgo de forma híbrida. Todo el equipo que lleves puesto o que sea portador no se transforma y no puedes llevar ninguna armadura a menos que esté hecha para adaptarse a tu forma animal. Tienes desventaja al utilizar equipo destinado a los humanoides y no puedes lanzar hechizos que requieran componentes materiales mientras estés en esta forma.",
+				"Tus estadísticas, aparte de tu CA y tamaño, siguen siendo las mismas en tu forma animal. Tu CA cuando estás en tu forma animal es de 12 + tu modificador de Destreza + tu modificador de Constitución (sigues obteniendo el bono de CA de tu rasgo Esconderte resistente en las situaciones en las que se aplicaría) y tu tamaño pasa a ser Pequeño.",
+				"Para discernir que no eres un animal normal de tu tipo, una criatura puede usar su acción para inspeccionar tu apariencia y debe hacer un chequeo de Inteligencia ({@skill Investigation}) impugnado por tu chequeo de Carisma ({@skill deception}).",
+				"La transformación de esta manera cuenta como un uso de su característica de forma híbrida."
+			]
+		},
+		{
+			"name": "Infravision",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"A 14º nivel, siempre que estés en tu forma híbrida o animal eres capaz de ver normalmente en la luz tenue y en la oscuridad en un radio de 60 pies. No puedes discernir los colores en la oscuridad, sólo los tonos de gris."
+			]
+		},
+		{
+			"name": "Elude",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"A 18º nivel, cuando realices la acción de desenganche o seas golpeado por un ataque de oportunidad, puedes gastar un uso de esta característica y ganar un bonificador +5 a tu CA hasta el comienzo de tu siguiente turno.",
+				"Puedes utilizar esta característica un número de veces igual a tu modificador de Destreza (mínimo 1). Recuperas los usos gastados de esta característica cuando terminas un descanso corto o largo."
+			]
 		}
 	],
 	"subclass": [
@@ -2589,6 +2949,34 @@
 			],
 			"source": "FoxfireLycan",
 			"shortName": "Were-Dragon",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan"
+		},
+		{
+			"name": "Werebat",
+			"subclassFeatures": [
+				"Werebat|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|1",
+				"Echolocation|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|6",
+				"Bat Form|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|10",
+				"Dark Ambusher|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|14",
+				"Screech|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|18"
+			],
+			"source": "FoxfireLycan",
+			"shortName": "Werebat",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan"
+		},
+		{
+			"name": "Werefox",
+			"subclassFeatures": [
+				"Werefox|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|1",
+				"Vulpine Charm|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|6",
+				"Fox Form|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|10",
+				"Infravision|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|14",
+				"Elude|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|18"
+			],
+			"source": "FoxfireLycan",
+			"shortName": "Werefox",
 			"className": "Lycanthrope",
 			"classSource": "FoxfireLycan"
 		}
