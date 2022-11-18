@@ -8,17 +8,17 @@
 				"authors": [
 					"Foxfire94"
 				],
-				"version": "1.2",
+				"version": "1.6",
 				"convertedBy": [
 					"Foxfire94"
 				],
-				"url": "https://www.dmsguild.com/product/304790/Lycanthrope-Class-for-DD-5e-2020?",
+				"url": "https://www.dmsguild.com/product/304790/Lycanthrope-Class-for-DD-5e-2022",
 				"targetSchema": "1.0.0"
 			}
 		],
 		"dateAdded": 1584380044,
-		"dateLastModified": 1628132888,
-		"_dateLastModifiedHash": "7ad50fc5a4"
+		"dateLastModified": 1668454530,
+		"_dateLastModifiedHash": "a116a7e3c3"
 	},
 	"class": [
 		{
@@ -1119,6 +1119,93 @@
 			"featureType": [
 				"Totem Power"
 			]
+		},
+		{
+			"name": "Enfeebling Fangs",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Lycanthrope"
+						}
+					},
+					"feature": [
+						"Werebat Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"En gång per tur när du träffar en varelse med ditt bett kan du tvinga varelsen att göra ett räddningskast med en DC som är lika med 8 + din kompetensbonus + din konstitutionsmodifierare. Vid ett misslyckat räddningskast gör målet endast halva skadan med vapenattacker som använder Styrka i 1 minut Målet kan upprepa räddningskastet på var och en av sina vändor under hela varaktigheten, och effekten upphör vid en framgång."
+			],
+			"featureType": [
+				"Totem Power"
+			]
+		},
+		{
+			"name": "Vampiric Bite",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Lycanthrope"
+						}
+					},
+					"feature": [
+						"Werebat Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"En gång per tur när du träffar en varelse med ditt bett kan du återfå träffpoäng motsvarande din Lycanthrope-nivå."
+			],
+			"featureType": [
+				"Totem Power"
+			]
+		},
+		{
+			"name": "Nine-Tails",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"feature": [
+						"Werefox Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"Dina hybrid- och djurformer har magiska krafter med fey-touching och får ytterligare en svans för varje två Lycanthrope-nivåer du har, upp till maximalt 9 svansar.",
+				"För varje svans som din hybridform har kan du välja en besvärjelse på 1:a nivån från {@filter Druid spell list|spells|level=1|class=Druid}. Du kan kasta en av dessa trollformler med hjälp av denna totemkraft ett antal gånger som är lika med din kompetensbonus, och du återfår alla förbrukade användningar av denna totemkraft när du avslutar en lång vila."
+			],
+			"featureType": [
+				"Totem Power"
+			]
+		},
+		{
+			"name": "Silver Tongue Trickster",
+			"source": "FoxfireLycan",
+			"prerequisite": [
+				{
+					"level": {
+						"level": 10,
+						"class": {
+							"name": "Lycanthrope"
+						}
+					},
+					"feature": [
+						"Werefox Lycanthrope Origin"
+					]
+				}
+			],
+			"entries": [
+				"När du gör attacken på din tur kan du ersätta en attack med ett försök att lura en humanoid som du kan se inom 30 fot från dig och som kan se och höra dig. Gör en Charisma ({@skill Deception})-kontroll som bestrids av målets Visdom ({@skill Insight})-kontroll. Om din kontroll lyckas provocerar din rörelse inte fram tillfälliga attacker från målet och dina attackkast mot det har fördel; båda fördelarna varar till slutet av din nästa tur eller tills du använder den här förmågan på ett annat mål. Om din kontroll misslyckas kan målet inte bli lurat av dig på detta sätt under 1 timme."
+			],
+			"featureType": [
+				"Totem Power"
+			]
 		}
 	],
 	"monster": [
@@ -1179,6 +1266,101 @@
 			],
 			"miscTags": [
 				"MW"
+			]
+		},
+		{
+			"name": "Fox",
+			"size": [
+				"S"
+			],
+			"type": "beast",
+			"source": "FoxfireLycan",
+			"alignment": [
+				"U"
+			],
+			"ac": [
+				{
+					"ac": 12,
+					"from": [
+						"natural armor"
+					]
+				}
+			],
+			"hp": {
+				"formula": "2d6 + 0",
+				"average": 7
+			},
+			"speed": {
+				"walk": 40
+			},
+			"str": 8,
+			"dex": 15,
+			"con": 10,
+			"int": 3,
+			"wis": 12,
+			"cha": 7,
+			"passive": 13,
+			"cr": "1/8",
+			"senses": [
+				"60ft. darkvision"
+			],
+			"senseTags": [
+				"D"
+			],
+			"skill": {
+				"perception": "+3",
+				"stealth": "+4"
+			},
+			"damageTags": [
+				"P",
+				"S"
+			],
+			"trait": [
+				{
+					"name": "Keen Hearing and Smell",
+					"entries": [
+						"Räven har fördel på visdomskontroller ({@skill Perception}) som bygger på hörsel eller lukt."
+					]
+				},
+				{
+					"name": "Pounce",
+					"entries": [
+						"Om räven rör sig minst 6 meter rakt mot en varelse och sedan träffar den med en klonattack i samma vändning, måste målet lyckas med ett {@dc 9} räddningskast för styrka eller slås {@condition prone}. Om målet är {@condition prone} kan räven göra en bettattack mot det som en bonushandling."
+					]
+				}
+			],
+			"traitTags": [
+				"Keen Senses",
+				"Pounce"
+			],
+			"shortName": true,
+			"conditionInflict": [
+				"prone"
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit 1} för att träffa, räckvidd 1,5 m, ett mål. {@h}1 ({@damage 1d4 - 1}) genomträngande skada."
+					]
+				},
+				{
+					"name": "Claw",
+					"entries": [
+						"{@atk mw} {@hit 4} för att träffa, räckvidd 1,5 m, ett mål. {@h}4 ({@damage 1d4 + 2}) snittskada."
+					]
+				}
+			],
+			"miscTags": [
+				"MW"
+			],
+			"reaction": [
+				{
+					"name": "Elude",
+					"entries": [
+						"Räven lägger till 2 till sin AC mot en attack som skulle träffa den."
+					]
+				}
 			]
 		}
 	],
@@ -1932,7 +2114,7 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"På 6:e nivån får du en vargs jaktkänsla. Du kan spåra andra varelser när du färdas i snabb takt, och du kan röra dig smygande när du färdas i normal takt (se kapitel 8 i Player's Handbook för regler om färdtempo)."
+				"På 6:e nivån får du en vargs jaktkänsla. Du kan spåra andra varelser medan du färdas i snabb takt, och du kan röra dig smygande medan du färdas i normal takt (se kapitel 8 i Player's Handbook för regler om färdtempo)."
 			]
 		},
 		{
@@ -2449,6 +2631,184 @@
 				"På 18:e nivån kan du, medan du är i din hybridform, använda din handling för att tvinga varje valfri varelse som befinner sig inom 60 fot från dig och är medveten om dig att göra ett räddningskast med en DC på 8 + din kompetensbonus + din Charismamodifierare eller bli {@condition frightened} av dig i 1 minut. En varelse kan upprepa räddningskastet i slutet av var och en av sina varv, och avslutar effekten på sig själv vid en framgång. Om en varelses räddningskast lyckas eller om effekten slutar för den är varelsen immun mot din Frightful Presence de kommande 24 timmarna.",
 				"Du kan använda den här egenskapen ett antal gånger som är lika med din Charisma-modifierare (minst 1) och du återfår alla förbrukade användningar när du avslutar en lång vila."
 			]
+		},
+		{
+			"name": "Werebat",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"entries": [
+				"Werebats är skrikande och dödliga bevingade nattvarelser som vanligen, men felaktigt, anses vara lycanthroper som uteslutande är goblinoider. Som humanoider är de typiskt sett mopsiga och spetsiga tänder, men sådana skillnader är så små att de praktiskt taget inte går att skilja från varandra; ofta intelligenta, njuter dessa bakhållande rovdjur av att jaga det farligaste viltet.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Bat-Hybrid Form|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|1"
+				}
+			]
+		},
+		{
+			"name": "Bat-Hybrid Form",
+			"entries": [
+				"När du väljer detta ursprung på 1:a nivån tar din hybridform formen av en fladdermushumanoid och ditt bett blir ett naturligt vapen som du är duktig på när du är i den formen.",
+				"När du gör en närstridsattack med ditt bett har du en räckvidd på 1,5 meter och ger {@dice 1d4} genomträngande skada vid en träff. Du kan lägga till din styrka- eller Dexterity-modifiering till attack- och skaderollen.",
+				"En varelse som träffas av ditt bett måste lyckas med ett räddningskast med en DC på 8 + din kompetensbonus + din konstitutionsmodifierare eller bli förbannad med varbats lykantropi.",
+				"När du är i din hybridform får du dessutom en flyghastighet som är lika stor som din rörelsehastighet. För att använda den här hastigheten får du inte bära medium eller tung rustning. Du kan också använda Dexterity istället för Strength för attack- och skaderullarna för dina obeväpnade slag som görs med hjälp av din rovdjursfunktion."
+			],
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Echolocation",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"Från och med 6:e nivån får du blindsight inom en räckvidd av 30 fot så länge du inte är döv när du är i din hybridform.",
+				"På 14:e nivån ökar räckvidden för din blindsight till 60 fot."
+			]
+		},
+		{
+			"name": "Bat Form",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"Från och med 10:e nivån kan du förvandlas till en {@creature bat|MM} istället för din hybridform när du använder din Hybridform-funktion. Du behåller de fördelar som beviljas av hybridformfunktionen. Eventuell utrustning som du bär eller bär på förvandlas inte och du kan inte bära någon rustning om den inte är gjord för att passa din djurform. Du har nackdel när du använder utrustning som är avsedd för humanoider och kan inte kasta trollformler som kräver materiella komponenter när du är i den här formen.",
+				"Din statistik, förutom din AC och storlek, förblir densamma i din djurform. Din AC när du är i din djurform är 12 + din Dexterity-modifierare + din Constitution-modifierare (du får fortfarande bonus AC från din Resilient Hide-funktion i situationer där den skulle gälla) och din storlek blir Tiny.",
+				"För att upptäcka att du inte är ett normalt djur av din typ kan en varelse använda sin handling för att inspektera ditt utseende och måste göra en kontroll av intelligens ({@skill Investigation}), som du kan motbevisa med din kontroll av karisma ({@skill deception}).",
+				"Omvandling på detta sätt räknas som en användning av din hybridform-funktion."
+			]
+		},
+		{
+			"name": "Dark Ambusher",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"På 14:e nivån lär du dig att med bländande hastighet slå mot de oförberedda. Du har fördel på initiativrullningar, dessutom har du på din första tur under strid fördel på attackrullningar mot varelser som ännu inte har agerat."
+			]
+		},
+		{
+			"name": "Screech",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werebat",
+			"subclassSource": "FoxfireLycan",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"Från och med 18:e nivån kan du använda din handling för att släppa lös ett öronbedövande skrik. Varje varelse inom 15 fot från dig som kan höra skrikandet måste göra ett räddningskast med en DC som är lika med 8 + din kompetensbonus + din konstitutionsmodifierare. Vid ett misslyckande tar varelsen {@damage 8d6} åskskskada och blir döv i 1 minut. Vid ett lyckat resultat tar varelsen hälften så mycket skada och blir inte döv. Skrikandet ger dubbel skada på föremål och strukturer, avger ett fruktansvärt ljud som hörs på upp till 300 fot och gör dig också döv i 1 minut.",
+				"När du har använt den här funktionen kan du inte använda den igen förrän du har vilat länge."
+			]
+		},
+		{
+			"name": "Werefox",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"entries": [
+				"Werefoxes är listiga och smarta lycanthroper som vanligtvis anses vara självcentrerade, hedonistiska och fåfänga, men vissa är helt enkelt busiga tricksters. Som humanoider utstrålar de en älvliknande utstrålning oavsett ras, medan de i sin hybridform behåller en mager och smidig fysik; båda dessa hjälper deras föredragna bedrägliga och illusoriska taktik. Även om varufjuren till övervägande del är kvinnor finns det sällsynta undantag.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Fox-Hybrid Form|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|1"
+				}
+			]
+		},
+		{
+			"name": "Fox-Hybrid Form",
+			"entries": [
+				"När du väljer detta ursprung på 1:a nivån tar din hybridform formen av en räv-humanoid och ditt bett blir ett naturligt vapen som du är duktig på när du är i den formen.",
+				"När du gör en närstridsattack med ditt bett har du en räckvidd på 1,5 meter och ger {@dice 1d6} piercing damage vid en träff. Du lägger till din styrka-modifierare till attack- och skaderullarna.",
+				"En varelse som träffas av ditt bett måste lyckas med ett räddningskast med en DC på 8 + din kompetensbonus + din konstitutionsmodifierare eller bli förbannad med varfågellykantropi.",
+				"När du är i din hybridform får du dessutom en gräshastighet som är lika med halva din rörelsehastighet."
+			],
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 1,
+			"header": 1
+		},
+		{
+			"name": "Vulpine Charm",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 6,
+			"header": 2,
+			"entries": [
+				"Från och med 6:e nivån har du fördel på räddningskast mot att bli förtrollad, magi kan inte få dig att somna, och du får fördel på alla kontroller av Charisma ({@skill Deception}) eller Charisma ({@skill Persuasion}) som du gör.",
+				"Dessutom kan du med en lyckad Charisma ({@skill Deception}) eller Charisma ({@skill Persuasion})-kontroll spendera en användning av den här funktionen för att få varelsen att charmas av dig i 1 minut eller tills du eller dina följeslagare gör något skadligt mot den. Du kan använda den här delen av funktionen ett antal gånger som är lika med din Charisma-modifierare (minst 1). Du återfår förbrukade användningar av denna egenskap när du avslutar en kort eller lång vila."
+			]
+		},
+		{
+			"name": "Fox Form",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"Från och med 10:e nivån kan du förvandlas till en {@creature fox|FoxfireLycan} istället för din hybridform när du använder din Hybridform-funktion. Du behåller de fördelar som beviljas av hybridformfunktionen. Eventuell utrustning som du bär eller bär på förvandlas inte och du kan inte bära någon rustning om den inte är gjord för att passa din djurform. Du har nackdel när du använder utrustning som är avsedd för humanoider och kan inte kasta trollformler som kräver materiella komponenter när du är i den här formen.",
+				"Din statistik, förutom din AC och storlek, förblir densamma i din djurform. Din AC när du är i din djurform är 12 + din Dexterity-modifierare + din Constitution-modifierare (du får fortfarande bonus AC från din Resilient Hide-funktion i situationer där den skulle gälla) och din storlek blir Small.",
+				"För att upptäcka att du inte är ett normalt djur av din typ kan en varelse använda sin handling för att inspektera ditt utseende och måste göra en kontroll av intelligens ({@skill Investigation}), som du kan motbevisa med din kontroll av karisma ({@skill deception}).",
+				"Omvandling på detta sätt räknas som en användning av din hybridform-funktion."
+			]
+		},
+		{
+			"name": "Infravision",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 14,
+			"header": 2,
+			"entries": [
+				"På 14:e nivån, när du är i din hybrid- eller djurform kan du se normalt i svagt ljus och mörker inom 60 fot från dig. Du kan inte urskilja färger i mörker, bara gråtoner."
+			]
+		},
+		{
+			"name": "Elude",
+			"source": "FoxfireLycan",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan",
+			"subclassShortName": "Werefox",
+			"subclassSource": "FoxfireLycan",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"På 18:e nivån kan du, när du gör en \"disengage\"-åtgärd eller blir träffad av en opportunity attack, spendera en användning av den här egenskapen och få en +5-bonus på din AC fram till början av nästa vändning.",
+				"Du kan använda den här funktionen ett antal gånger som är lika med din Dexterity-modifierare (minst 1). Du återfår förbrukade användningar av denna egenskap när du avslutar en kort eller lång vila."
+			]
 		}
 	],
 	"subclass": [
@@ -2589,6 +2949,34 @@
 			],
 			"source": "FoxfireLycan",
 			"shortName": "Were-Dragon",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan"
+		},
+		{
+			"name": "Werebat",
+			"subclassFeatures": [
+				"Werebat|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|1",
+				"Echolocation|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|6",
+				"Bat Form|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|10",
+				"Dark Ambusher|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|14",
+				"Screech|Lycanthrope|FoxfireLycan|Werebat|FoxfireLycan|18"
+			],
+			"source": "FoxfireLycan",
+			"shortName": "Werebat",
+			"className": "Lycanthrope",
+			"classSource": "FoxfireLycan"
+		},
+		{
+			"name": "Werefox",
+			"subclassFeatures": [
+				"Werefox|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|1",
+				"Vulpine Charm|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|6",
+				"Fox Form|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|10",
+				"Infravision|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|14",
+				"Elude|Lycanthrope|FoxfireLycan|Werefox|FoxfireLycan|18"
+			],
+			"source": "FoxfireLycan",
+			"shortName": "Werefox",
 			"className": "Lycanthrope",
 			"classSource": "FoxfireLycan"
 		}
