@@ -40,13 +40,13 @@
 					"SasquatchBrah",
 					"cellescent"
 				],
-				"version": "1.4",
-				"url": "https://www.patreon.com/posts/kibbles-casting-50137612"
+				"version": "1.6.2",
+				"url": "https://www.gmbinder.com/share/-MNCb8aGYVO_NBsP3v2Q"
 			}
 		],
 		"dateAdded": 1622581997,
-		"dateLastModified": 1668987711,
-		"_dateLastModifiedHash": "a1335f1e17"
+		"dateLastModified": 1669155610,
+		"_dateLastModifiedHash": "212d3049b8"
 	},
 	"spell": [
 		{
@@ -364,15 +364,15 @@
 			}
 		},
 		{
-			"name": "Animate Object",
+			"name": "Dancing Objects (Animate Object)",
 			"source": "KibblesTasty:CC",
-			"page": 9,
+			"page": 10,
 			"level": 2,
 			"school": "T",
 			"time": [
 				{
 					"number": 1,
-					"unit": "bonus"
+					"unit": "action"
 				}
 			],
 			"range": {
@@ -414,6 +414,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			},
@@ -622,6 +626,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			}
@@ -765,7 +773,16 @@
 			],
 			"entries": [
 				"Wprowadzasz w błąd umysł stworzenia, zamieniając położenie dwóch rzeczy, które widzi, a które są tej samej wielkości i kategorii (np. dwa średnie stworzenia lub dwa gargantuiczne budynki). Istota będąca celem musi wykonać rzut ratujący mądrość. W przypadku porażki nie jest świadoma, że obie rzeczy zostały zamienione.",
-				"Za każdym razem, gdy stworzenie wchodzi w interakcję, atakuje lub jest atakowane przez zamienione cele, może powtórzyć swój rzut ratujący przeciwko efektowi."
+				"Za każdym razem, gdy stworzenie wchodzi w interakcję, atakuje lub jest atakowane przez zamienione cele, może powtórzyć swój rzut ratujący przeciwko efektowi.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Wszystkie zaklęcia klątwy wymagają \"czegoś z docelowego stworzenia (takiego jak krew, włosy lub łuski), co zaklęcie zużywa\" jako składnika materialnego. Można to spełnić albo posiadając ten materiał, albo będąc w zasięgu, aby dotknąć stworzenia podczas rzucania zaklęcia."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -818,7 +835,16 @@
 			],
 			"entries": [
 				"Przywiązujesz istotę do punktu znajdującego się w odległości 5 stóp od niej, powodując, że świecące łańcuchy światła łączą ją z tym punktem. Na czas trwania zaklęcia, jeśli stworzenie spróbuje oddalić się od tego punktu, musi wykonać rzut ratujący mądrość lub nie będzie mogło oddalić się od tego punktu na więcej niż 5 stóp do początku swojej następnej tury.",
-				"Jeśli stworzenie rozpoczyna swoją turę w odległości większej niż 10 stóp od punktu wiązania, musi wykonać rzut ratujący wytrzymałość lub zostanie przeciągnięte o 5 stóp w kierunku punktu wiązania."
+				"Jeśli stworzenie rozpoczyna swoją turę w odległości większej niż 10 stóp od punktu wiązania, musi wykonać rzut ratujący wytrzymałość lub zostanie przeciągnięte o 5 stóp w kierunku punktu wiązania.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Wszystkie zaklęcia klątwy wymagają \"czegoś z docelowego stworzenia (takiego jak krew, włosy lub łuski), co zaklęcie zużywa\" jako składnika materialnego. Można to spełnić albo posiadając ten materiał, albo będąc w zasięgu, aby dotknąć stworzenia podczas rzucania zaklęcia."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom",
@@ -834,10 +860,71 @@
 			}
 		},
 		{
+			"name": "Blade Mirage",
+			"source": "KibblesTasty:CC",
+			"page": 13,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Skręcasz iluzje wokół trzymanej przez siebie broni do walki wręcz. Kiedy rzucasz zaklęcie, a także w każdej następnej turze przez czas trwania jako akcja bonusowa, możesz tworzyć feintingowe ciosy iluzorycznymi kopiami swojego ostrza, rozpraszając swój cel i dając ci przewagę przy następnym ataku bronią przeciwko temu celowi przed końcem twojej tury. Zaklęcie kończy się wcześnie, jeśli wypuścisz broń, na którą je rzuciłeś.",
+				"Jako akcja, istota, która cię widzi, może wykonać test inteligencji ({@skill Investigation}) przeciwko twojemu DC obrony przed zaklęciem. W przypadku powodzenia, nie zyskujesz już przewagi z używania Iluzorycznych Ostrzy podczas robienia feintu przeciwko tej istocie, co czyni zaklęcie bezsilnym wobec tej istoty."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Blazing Beacon",
 			"source": "KibblesTasty:CC",
 			"page": 12,
-			"level": 1,
+			"level": 2,
 			"school": "E",
 			"time": [
 				{
@@ -1292,6 +1379,202 @@
 			}
 		},
 		{
+			"name": "Clay Touch",
+			"source": "KibblesTasty:CC",
+			"page": 14,
+			"level": 2,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a small clump of clay"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Wyciągasz rękę, aby spróbować dotknąć istotę w zasięgu. Musi ona wykonać rzut ratujący zręczność. W przypadku porażki, pancerz celu (w tym naturalne lub magiczne obrony) staje się miękki i plastyczny, choć zachowuje swoją formę, i nie zapewnia ochrony przed atakami zmniejszając AC celu do 10 + jego zręczność na czas trwania zaklęcia.",
+				"Możesz też dotknąć niemagicznego przedmiotu, który nie jest ostrzeżony lub niesiony i nie jest większy niż 2 stopy w dowolnym wymiarze, zmniejszając jego AC i każdy test Siły wymagany do jego złamania do 5 na czas trwania zaklęcia.",
+				{
+					"type": "inset",
+					"name": "Part of a larger object?",
+					"entries": [
+						"GM ma dużą swobodę w określaniu, co jest obiektem, np. czy kraty więzienia będą traktowane jako samodzielny obiekt, czy jako część drzwi. Ogólnie rzecz biorąc, rządziłbym hojnie w tej kwestii. Istnieją zaklęcia niższego poziomu, które mogą wydostać cię z zakratowanej celi."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Create Pit",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 1,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Wybierasz punkt na ziemi w obszarze brudu lub kamienia naturalnego, który możesz zobaczyć. Ziemia się zapada, a wokół tego punktu otwiera się dół o promieniu 5 stóp i głębokości 10 stóp. Jeśli powierzchnia nie jest wystarczająco duża, by pomieścić dół, czar się nie udaje. Stworzenia znajdujące się na tym obszarze muszą wykonać rzut ratujący zręczność. Jeśli się uda, mogą się przesunąć o 5 stóp poza promień zaklęcia. Stworzenia, które nie wykonają rzutu ratunkowego, spadają na dno jamy (otrzymując {@damage 1d6} obrażeń od uderzenia i spadając {@condition prone}). Boki dołu są chropowate, można się po nich wspinać. Dół pozostaje do momentu wypełnienia. Jeśli istota ocali się, ale nie może poruszyć się o 5 stóp, pada na kolana, zwisając z krawędzi jamy, i nie może stanąć, dopóki nie wyprowadzi się z obszaru jamy lub nie wpadnie do niej.",
+				{
+					"type": "inset",
+					"name": "Limitations",
+					"entries": [
+						"Zaklęcie nie działa, jeśli dół naruszyłby inny otwór (np. pokój lub jaskinię poniżej), ponieważ w ten sposób nie udałoby się go powstrzymać. GM ma dużą swobodę w określeniu, jakie powierzchnie kwalifikują się do użycia tego zaklęcia."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 2. poziomu lub wyższego, dół jest głębszy o 5 stóp za każdy slot poziomu około 1. (maksymalnie do 20 stóp głębokości)."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Crescent Wind Slash",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 3,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Wykonujesz serię trzech cięć, z których każde magicznie wypuszcza ostry jak brzytwa podmuch wiatru na cel w zasięgu. Możesz wystrzelić je w jeden cel lub kilka.",
+				"Wykonaj atak bronią użytą podczas rzucania tego zaklęcia dla każdego cięcia. Przy trafieniu, cel przyjmuje {@damage 1d6} + twój modyfikator ataku bronią."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu na czary 3 poziomu lub wyższego, możesz stworzyć jeden dodatkowy slash za każdy poziom slotu powyżej 2."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Crippling Agony",
 			"source": "KibblesTasty:CC",
 			"page": 14,
@@ -1393,7 +1676,16 @@
 					]
 				},
 				"Za każdym razem po pierwszym użyciu akcji do manipulowania lalką, po wystąpieniu efektu, istota może powtórzyć Charyzmę z minusem, kończąc efekt na udanym save'ie.",
-				"Gdy stworzenie zostanie namierzone przez to zaklęcie, nie może być ponownie namierzone przez 24 godziny."
+				"Gdy stworzenie zostanie namierzone przez to zaklęcie, nie może być ponownie namierzone przez 24 godziny.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Wszystkie zaklęcia klątwy wymagają \"czegoś z docelowego stworzenia (takiego jak krew, włosy lub łuski), co zaklęcie zużywa\" jako składnika materialnego. Można to spełnić albo posiadając ten materiał, albo będąc w zasięgu, aby dotknąć stworzenia podczas rzucania zaklęcia."
+					]
+				}
 			],
 			"entriesHigherLevel": [
 				{
@@ -1504,7 +1796,16 @@
 				}
 			],
 			"entries": [
-				"Przeklinasz wybraną istotę, powodując u niej przytłaczające poczucie bezsilności. Za każdym razem, gdy docelowe stworzenie próbuje zaatakować, rzucić czar zadający obrażenia lub użyć akcji zadającej obrażenia, musi wykonać rzut ratujący mądrość. Jeśli się powiedzie, wykonuje swoją akcję jak zwykle. W przypadku porażki, kończą swoją akcję, ale nie zadają żadnych obrażeń żadnemu z celów."
+				"Przeklinasz wybraną istotę, powodując u niej przytłaczające poczucie bezsilności. Za każdym razem, gdy docelowe stworzenie próbuje zaatakować, rzucić czar zadający obrażenia lub użyć akcji zadającej obrażenia, musi wykonać rzut ratujący mądrość. Jeśli się powiedzie, wykonuje swoją akcję jak zwykle. W przypadku porażki, kończą swoją akcję, ale nie zadają żadnych obrażeń żadnemu z celów.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Wszystkie zaklęcia klątwy wymagają \"czegoś z docelowego stworzenia (takiego jak krew, włosy lub łuski), co zaklęcie zużywa\" jako składnika materialnego. Można to spełnić albo posiadając ten materiał, albo będąc w zasięgu, aby dotknąć stworzenia podczas rzucania zaklęcia."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -1624,6 +1925,71 @@
 			"savingThrow": [
 				"constitution"
 			]
+		},
+		{
+			"name": "Devour Shadow",
+			"source": "KibblesTasty:CC",
+			"page": 17,
+			"level": 4,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Twój cień nagle wydłuża się do postaci przerażającej pożerającej abominacji i próbuje pożreć cień docelowej istoty w zasięgu. Cel musi wykonać ratujący rzut na Charyzmę. W przypadku porażki, cień docelowej istoty zostaje pożarty, a ona sama otrzymuje {@damage 6d6} obrażeń nekrotycznych i zostaje magicznie osłabiona, odejmując {@dice 1d4} od zwojów ataku, rzutów ratunkowych i kontroli zdolności na czas trwania zaklęcia, podczas gdy ty możesz dodać {@dice 1d4} do swoich zwojów ataku, rzutów ratunkowych i kontroli zdolności na czas trwania zaklęcia. W przypadku sukcesu, duży kąsek jest pobierany z cienia, a oni otrzymują o połowę mniej obrażeń i nie są osłabieni.",
+				"Jeśli albo ty, albo cel nie ma cienia, czar się nie udaje. Jeśli ich cień zostanie skonsumowany, nie mają cienia aż do zakończenia zaklęcia."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie ze slotem czaru 5 poziomu lub wyższym, możesz obrać za cel dodatkowe stworzenie za każdy poziom slotu czaru powyżej 4. Premia, którą zyskujesz konsumując cienie nie wzrasta poza 1d4, nawet jeśli skonsumujesz wiele cieni."
+					]
+				}
+			],
+			"damageInflict": [
+				"necrotic"
+			],
+			"savingThrow": [
+				"charisma"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
 		},
 		{
 			"name": "Devouring Darkness",
@@ -1886,6 +2252,72 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Divine Judgement",
+			"source": "KibblesTasty:CC",
+			"page": 18,
+			"level": 2,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Nad punktem docelowym tworzy się świetlisty miecz promienistej energii, po czym spada w dół w eksplozji boskiej mocy. Stworzenia znajdujące się w cylindrze o promieniu 10 stóp i wysokości 30 stóp, skupionym na punkcie docelowym, muszą wykonać rzut obronny na zręczność. Przy porażce stworzenie otrzymuje {@damage 2d8} obrażeń od promieniowania i {@damage 2d8} dodatkowych obrażeń od promieniowania, jeśli jest nieumarłym lub demonem. Przy udanym ataku cel otrzymuje o połowę mniej obrażeń.",
+				{
+					"type": "inset",
+					"name": "Alignment Powers",
+					"entries": [
+						"Jeśli twój DM używa wyrównania dla stworzeń, może opcjonalnie wprowadzić zasadę, że bonusowe obrażenia dotyczą wszystkich typów stworzeń, tak długo jak stworzenie jest przeciwnego moralnego wyrównania niż caster (zło do dobra lub dobro do zła)."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 3 poziomu lub wyższego, obrażenia bazowe wzrastają o {@damage 1d8} za każdy poziom slotu powyżej 2."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"savingThrow": [
+				"dexterity"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
 						"source": "PHB"
 					}
 				]
@@ -2575,6 +3007,154 @@
 			}
 		},
 		{
+			"name": "Hellfire Pit",
+			"source": "KibblesTasty:CC",
+			"page": 24,
+			"level": 7,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Otwierasz dół do piekła pod stopami swoich wrogów. Nadnaturalna pustka otwiera się w promieniu 10 stóp, głęboki na 10 stóp dół otwiera się wokół punktu, który widzisz w zasięgu.",
+				"Stworzenia znajdujące się na tym obszarze muszą wykonać rzut ratujący zręczność. W przypadku powodzenia, mogą przesunąć się o 5 stóp poza promień zaklęcia. Jeśli nie mogą poruszyć się o 5 stóp poza promień zaklęcia (np. nie mają ścieżki lub mają niewystarczającą szybkość ruchu), automatycznie oblewają rzut ratujący. Stworzenia, które obleją swój rzut ratujący, spadają na dno kęsa (otrzymując {@damage 1d6} obrażeń od uderzenia i spadając {@condition prone}). Podłoga bitu to płonące piekiełko. Stworzenia, które rozpoczynają swoją turę w dole, otrzymują {@damage 4d6} obrażeń od ognia i {@damage 4d6} obrażeń od nekroty.",
+				"Jama jest trudna do ucieczki, żarłocznie wciąga złapane w nią istoty w głąb piekła za pomocą silnych wiatrów, ryczącego ognia i piekielnych łańcuchów. Stworzenie ma 20 stóp ruchu (lub 10, jeśli ma szybkość latania lub wspinania się), aby spróbować uciec z jamy, wykonując rzut na wytrzymałość przeciwko DC obrony przed zaklęciem. Jeśli się uda, ucieknie. W przypadku porażki, spadają z powrotem na podłogę jamy, a ich prędkość ruchu staje się zerowa do początku ich następnej tury.",
+				"Gdy czar się kończy, nadnaturalna pustka do piekła zamyka się, a wszystkie istoty znajdujące się w jamie zostają osadzone na ziemi w miejscu, gdzie otworzyła się jama {@condition prone}.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"Według uznania GMa, stworzenia zredukowane do zera punktów trafień przez Hellfire Pit lub Infernal Shackles umierają i ich dusza zostaje uwięziona na płaszczyznach piekielnych. Skonsultuj z GM-em potencjalne kosmologiczne i moralne efekty uboczne używania zaklęć zasilanych piekielną energią potępienia."
+					]
+				}
+			],
+			"damageInflict": [
+				"bludgeoning",
+				"fire",
+				"necrotic"
+			],
+			"savingThrow": [
+				"dexterity",
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Hungering Void",
+			"source": "KibblesTasty:CC",
+			"page": 25,
+			"level": 3,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Tworzysz punktową czystą pustkę, która połyka sferę przestrzeni o promieniu 20 stóp, pogrążając ją w magicznej ciemności i tworząc pożerającą życie mroźną pustkę. Istota z {@sense darkvision} nie może widzieć przez tę ciemność, a niemagiczne światło nie może jej oświetlić, chyba że pochodzi z zaklęcia wyższego poziomu niż to.",
+				"Stworzenie, które rozpoczyna swoją turę w pustce, musi wykonać rzut ratujący Konstytucję. Przy porażce otrzymują {@damage 2d6} obrażeń od zimna i {@damage 2d6} obrażeń od nekroty, a ich szybkość zostaje zmniejszona o 5 stóp. Zmniejszenie prędkości trwa do momentu, gdy nie zaczną się znajdować w obszarze pustki i może się kumulować, aż do maksymalnego efektu zmniejszenia prędkości stworzenia do 5 stóp. W przypadku sukcesu, otrzymują o połowę mniejsze obrażenia, a ich prędkość nie jest zmniejszona.",
+				{
+					"type": "inset",
+					"name": "A Note",
+					"entries": [
+						"Jeśli wydaje się to nieco znajome innym zaklęciom tworzącym pustkę głodnej ciemności, to zaznaczę, że inne zaklęcia tej natury nie znajdują się w SRD i nie są dostępne dla produktów OGL i VTT.",
+						"Zaklęcia stworzone, aby stać w rolach innych nie będą już tak dokładnie odzwierciedlać alternatywnych zaklęć, ponieważ powoduje to więcej zamieszania niż rozwiązuje, a istnieje możliwość poprawy i usprawnienia dostępnych."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu zaklęcia 5 poziomu lub wyższego, obrażenia nekrotyczne i od zimna wzrastają do 1d6, a redukcja prędkości wzrasta do 10 stóp przy nieudanym save (z tym samym ograniczeniem minimalnej prędkości)."
+					]
+				}
+			],
+			"damageInflict": [
+				"cold",
+				"necrotic"
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Ice Weapon",
 			"source": "KibblesTasty:CC",
 			"page": 22,
@@ -2879,6 +3459,222 @@
 			}
 		},
 		{
+			"name": "Infernal Shackles",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a link from a chain burned in a fire that killed at least one creature"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Łańcuchy płonącego czarnego żelaza wyrastają z ziemi i próbują związać istotę, którą widzisz w zasięgu. Stworzenie, do którego są skierowane, musi wykonać rzut ratujący wytrzymałość. W przypadku porażki otrzymuje {@damage 3d6} obrażeń od ognia, a jego prędkość ruchu zostaje zredukowana do zera na czas trwania zaklęcia. W przypadku sukcesu otrzymuje o połowę mniejsze obrażenia i nie zostaje związana.",
+				"Na koniec każdej swojej tury cel powtarza swój rzut ratunkowy. Jeśli się powiedzie, łańcuchy zostają zerwane i zaklęcie kończy się dla danego celu. W przypadku porażki, cel pozostaje związany i otrzymuje dodatkowe {@damage 2d6} obrażenia od ognia, gdy jest przeszywany przez łańcuchy.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"Według uznania GMa, stworzenia zredukowane do zera punktów trafień przez Hellfire Pit lub Infernal Shackles umierają i ich dusza zostaje uwięziona na płaszczyznach piekielnych. Skonsultuj z GM-em potencjalne kosmologiczne i moralne efekty uboczne używania zaklęć zasilanych piekielną energią potępienia."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie z gniazdem czaru 3. poziomu lub wyższym, możesz obrać za cel dodatkowe stworzenie za każdy poziom gniazda czaru powyżej 2."
+					]
+				}
+			],
+			"damageInflict": [
+				"fire"
+			],
+			"savingThrow": [
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Instant Counter",
+			"source": "KibblesTasty:CC",
+			"page": 23,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "reaction",
+					"condition": "which you take in response to being damaged by a creature within 30 feet of you that you can see"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Znikasz, teleportując się do pustej przestrzeni w promieniu 5 stóp od istoty, która zadała ci obrażenia, i natychmiast wykonujesz przeciwko niej atak bronią użytą podczas rzucania zaklęcia.",
+				{
+					"type": "inset",
+					"name": "Damage Order",
+					"entries": [
+						"Nie zapobiega to obrażeniom od ataku wyzwalającego, ponieważ wyzwalacz przyjmuje obrażenia i nie zmienia to wyniku wyzwalania."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu na zaklęcie 3 poziomu lub wyższego, zadajesz {@damage 1d8} dodatkowych obrażeń od siły przy trafieniu za każdy poziom slotu powyżej 2."
+					]
+				}
+			],
+			"miscTags": [
+				"SGT",
+				"TP"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Iron Garden",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "radius",
+				"distance": {
+					"type": "feet",
+					"amount": 20
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Żelazne kolce wyrastają z ziemi we wszystkich kierunkach wokół ciebie, wbijając się w istoty znajdujące się w promieniu 20 stóp od ciebie. Stworzenia znajdujące się w polu rażenia muszą wykonać rzut obronny na zręczność albo otrzymają 6d8 obrażeń od przebicia, a ich prędkość ruchu spadnie do zera do końca następnej tury. W przypadku sukcesu otrzymują o połowę mniejsze obrażenia, a ich prędkość ruchu nie spada do zera.",
+				"Do początku twojej następnej tury, kiedy stworzenie porusza się na lub w obrębie tego obszaru, otrzymuje 1d8 obrażeń przeszywających za każde 5 stóp, które pokona. Na początku twojej następnej tury kolce rdzewieją na pył."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Gdy rzucone z 5. lub wyższym poziomem spell slot, obrażenia wzrastają o 1d10 za każdy poziom spell slot powyżej 4."
+					]
+				}
+			],
+			"miscTags": [
+				"SCL"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Iron Wind Strike",
 			"source": "KibblesTasty:CC",
 			"page": 23,
@@ -2937,6 +3733,269 @@
 			}
 		},
 		{
+			"name": "Illusionary Dart",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 0,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Tworzysz i rzucasz iluzoryczną rzutkę w istotę, którą widzisz w zasięgu. Wykonaj atak zaklęciem na odległość. Przy trafieniu otrzymują one {@damage 1d8} obrażeń psychicznych. Liczba rzutek, które możesz rzucić tym zaklęciem, wzrasta po osiągnięciu 5. poziomu (2 rzutki), 11. (3 rzutki) i 17. poziomu (4 rzutki). Możesz skierować rzutki na ten sam cel lub na różne. Dla każdej rzutki wykonaj osobny roll ataku."
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"spellAttack": [
+				"R"
+			],
+			"miscTags": [
+				"SGT"
+			],
+			"areaTags": [
+				"MT"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusionary Fireball",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 3,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "something that looks like bat guano"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Z Twojego palca wskazującego do wybranego przez Ciebie punktu w zasięgu błyska jasna smuga, a następnie z niskim rykiem rozkwita w iluzoryczną eksplozję płomieni. Każde wybrane przez ciebie stworzenie w promieniu 20 stóp od tego punktu musi wykonać rzut ratujący mądrość. W przypadku nieudanego testu cel otrzymuje {@damage 6d6} obrażeń psychicznych. Istoty, które zdadzą swój test, zdają sobie sprawę, że ogień jest iluzją i nie otrzymują żadnych obrażeń.",
+				"Możesz sprawić, by efekt iluzji był eksplozją lodu, błyskawic lub czystej energii siłowej.",
+				{
+					"type": "inset",
+					"name": "Targets of your choice",
+					"entries": [
+						"W przeciwieństwie do kuli ognia rzeczywistego, wersja iluzoryczna trafia tylko w wybrane przez ciebie cele, co czyni ją bezpieczną do użycia wśród sojuszników, choć zadaje mniejsze obrażenia i nie zadaje ich przy zdanym save'ie (ponieważ cel zdaje sobie sprawę z jej iluzorycznej natury)."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 4 poziomu lub wyższego, obrażenia wzrastają o 1d6 za każdy poziom slotu powyżej 3."
+					]
+				}
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusory Pit",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Tworzysz iluzoryczny dół o promieniu 5 stóp w miejscu, które widzisz na ziemi. Stworzenia znajdujące się w promieniu w momencie rzucenia zaklęcia muszą wykonać rzut ratujący mądrość. Stworzenie, któremu nie uda się rzut ratunkowy, wierzy, że wpadło do jamy i spada {@condition prone}, nie może wstać i znajduje się {@condition blinded} poza 5 stopami od iluzorycznej jamy. Stworzenie może wydać swoją akcję na próbę wydostania się z jamy, powtarzając swój rzut ratujący Mądrość. Jeśli się uda, poświęca cały swój ruch, by wstać i zdaje sobie sprawę, że dół jest iluzją, co kończy dla niego czar. W przypadku porażki nie może wydostać się z jamy i nadal wierzy, że w niej tkwi. Podczas działania efektu istota może poruszać się w obrębie przestrzeni objętych jamą.",
+				"Stworzenia o prędkości lotu nie są dotknięte efektem. Za każdym razem, gdy stworzenie objęte efektem otrzyma obrażenia, cel może wykonać kolejny rzut ratujący Mądrość."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu na zaklęcie 2. poziomu lub wyższego, promień jamy zwiększa się o 5 stóp na każdy poziom powyżej 1. poziomu, maksymalnie do promienia 20 stóp przy slocie na zaklęcie 4. poziomu."
+					]
+				}
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Karmic Reflection",
+			"source": "KibblesTasty:CC",
+			"page": 29,
+			"level": 1,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a broken shard of a mirror"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Nakładasz wiązanie na istotę, którą widzisz w zasięgu. Do początku twojej następnej tury, za każdym razem, gdy ta istota zada obrażenia swoją akcją, akcją bonusową lub reakcją, otrzyma obrażenia od promieniowania równe zadanym obrażeniom. Cel jest świadomy efektu tego zaklęcia, gdy jest nim dotknięty. Po odbiciu 10 obrażeń, czar się kończy."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 2. poziomu lub wyższego, maksymalne obrażenia wzrastają o 10 za każdy poziom slotu czaru powyżej 2."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Killing Curse",
 			"source": "KibblesTasty:CC",
 			"page": 24,
@@ -2976,7 +4035,16 @@
 			"entries": [
 				"Przeklinasz cel, aby umarł. Aktualne i maksymalne punkty trafień celu zostają zmniejszone o {@dice 3d10 + 10}. Jeśli spowoduje to, że istota ma zero punktów trafień, umiera.",
 				"Przez czas trwania zaklęcia cel nie może odzyskać punktów trafień, chyba że w wyniku zaklęcia rzuconego przy użyciu slotu zaklęcia wyższego poziomu niż slot zaklęcia, z którego rzucono tę klątwę, a każdy rzut ratujący przed śmiercią, który wykona, jest automatycznie traktowany jako 1.",
-				"Na początku swojej tury, gdy istoty znajdują się pod wpływem tego zaklęcia, wykonują rzut ratujący Charyzmę. W przypadku porażki, ich obecne i maksymalne punkty trafień zostają zmniejszone o {@dice 1d10 + 10}. W przypadku udanego ratunku, czar się kończy. Maksymalne punkty trafień zostają przywrócone po długim odpoczynku."
+				"Na początku swojej tury, gdy istoty znajdują się pod wpływem tego zaklęcia, wykonują rzut ratujący Charyzmę. W przypadku porażki, ich obecne i maksymalne punkty trafień zostają zmniejszone o {@dice 1d10 + 10}. W przypadku udanego ratunku, czar się kończy. Maksymalne punkty trafień zostają przywrócone po długim odpoczynku.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Wszystkie zaklęcia klątwy wymagają \"czegoś z docelowego stworzenia (takiego jak krew, włosy lub łuski), co zaklęcie zużywa\" jako składnika materialnego. Można to spełnić albo posiadając ten materiał, albo będąc w zasięgu, aby dotknąć stworzenia podczas rzucania zaklęcia."
+					]
+				}
 			],
 			"savingThrow": [
 				"charisma"
@@ -3386,6 +4454,73 @@
 			}
 		},
 		{
+			"name": "Melting Glob",
+			"source": "KibblesTasty:CC",
+			"page": 32,
+			"level": 1,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Rzucasz kulą kwasu w istotę w zasięgu, wykonując dystansowy atak zaklęciem. Przy trafieniu stworzenie otrzymuje {@damage 4d4} obrażeń od kwasu i zaczyna być topione przez kwas. Przez 1 minutę, na koniec każdej swojej tury, otrzymuje {@damage 1d4} obrażeń od kwasu. Stworzenie może zakończyć efekt wcześniej, używając swojej akcji, aby oczyścić się z kwasu."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 2. poziomu lub wyższego, początkowe obrażenia wzrastają o 2d4 za każdy poziom slotu powyżej 1."
+					]
+				}
+			],
+			"spellAttack": [
+				"R"
+			],
+			"damageInflict": [
+				"acid"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Mutate",
 			"source": "KibblesTasty:CC",
 			"page": 26,
@@ -3461,6 +4596,235 @@
 					},
 					{
 						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Platinum Lances",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 6,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 150
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Wyczarowujesz cztery gigantyczne lance promienistej energii, które spadają w czterech różnych punktach, które widzisz. Każda istota znajdująca się w cylindrze o promieniu 10 stóp i wysokości 100 stóp, skupionym na każdym punkcie, musi wykonać rzut ratujący zręczność.",
+				"Przy nieudanym save stworzenie otrzymuje {@damage 8d8} obrażeń od promieniowania i zostaje powalone {@condition prone}. Przy udanym save'ie otrzymuje o połowę mniejsze obrażenia i nie zostaje powalona na ziemię.",
+				"Istota znajdująca się w obszarze działania więcej niż jednej lancy jest dotknięta tylko raz."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu na czary 7 poziomu lub wyższego, obrażenia wzrastają o 1d8 za każdy poziom slotu powyżej 6."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Prismatic Flash",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 15
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a prism"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Z twojej ręki wystrzeliwuje żywa tęcza pryzmatycznych świateł. Każda istota w stożku 15 stóp musi wykonać rzut ratujący Konstytucję. W przypadku porażki, stworzenia są {@condition blinded} i oszołomione do końca twojej następnej tury. Podczas gdy są oszołomione w ten sposób nie mogą podejmować reakcji, a ich prędkość ruchu jest zmniejszona o połowę. Jeśli stwór poniesie porażkę o 10 lub więcej, jest dodatkowo {@condition stunned} na czas trwania. Przy udanym save stworzenie nie jest oślepione, ale jest chwilowo zdezorientowane przez błysk i ma minus na rolki ataku do końca twojej tury.",
+				"Stworzenia, które są już oślepione lub nie widzą cię, nie są dotknięte, ponieważ nie widzą rozerwania."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 2 poziomu lub wyższego, rozmiar stożka rozszerza się o 5 dodatkowych stóp."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quick Sand",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a pinch of sand"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Powodujesz, że ziemia w promieniu 20 stóp skupiona na punkcie, który widzisz, zmienia się w ruchome piaski na czas trwania zaklęcia. Stworzenie poruszające się przez lub z tego obszaru musi poświęcić 4 stopy ruchu za każdy 1 stopę, o którą się porusza. Stworzenie, które kończy swoją turę, musi wykonać rzut ratujący Wytrzymałość. Przy porażce spadają {@condition prone}."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quicksilver Steps",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Przez czas trwania zaklęcia twój ruch nie prowokuje ataków okazji, a ty możesz poruszyć się o 10 stóp za każdym razem, gdy inna istota, którą widzisz lub słyszysz, kończy swoją turę (nie wymaga to żadnej akcji), do 4 razy, odzyskując wszystkie użycia na początku swojej tury. Pierwszy atak przeciwko tobie po każdym ruchu ma minus."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu na czary 5 poziomu lub wyższego, ilość razy, kiedy możesz się poruszyć na koniec tury innej istoty zwiększa się o 1, równy poziomowi użytego slotu na czary."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
 						"source": "PHB"
 					},
 					{
@@ -3576,7 +4940,7 @@
 			]
 		},
 		{
-			"name": "Revised Dust Devil",
+			"name": "Dust Cyclone",
 			"source": "KibblesTasty:CC",
 			"page": 28,
 			"level": 2,
@@ -3648,6 +5012,55 @@
 			}
 		},
 		{
+			"name": "Rock Slam",
+			"source": "KibblesTasty:CC",
+			"page": 35,
+			"level": 0,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Rzucasz kamieniem istotę, którą widzisz w zasięgu. Wykonaj dystansowy atak zaklęciem. Przy trafieniu, cel otrzymuje {@damage 1d10} obrażeń od uderzenia. W przypadku trafienia krytycznego, cel zostaje odrzucony {@damage prone} lub 10 stóp do tyłu (do wyboru).",
+				"Obrażenia czaru wzrastają o 1d10 po osiągnięciu 5 poziomu (2d10), 11 poziomu (3d10) i 17 poziomu (4d10)."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Rotting Curse",
 			"source": "KibblesTasty:CC",
 			"page": 28,
@@ -3686,7 +5099,16 @@
 			],
 			"entries": [
 				"Zadajesz istocie gnijący rozkład, powodując, że zaczyna ona gnić. Przez czas trwania zaklęcia, za każdym razem gdy stworzenie otrzymuje obrażenia, otrzymuje dodatkowe {@damage 1d4} obrażeń nekrotycznych, a efekt wszystkich uzdrowień na stworzeniu jest zmniejszony o połowę.",
-				"Istota docelowa ma minus na wszelkich kontrolach Charyzmy dotyczących interakcji społecznych podczas działania zaklęcia."
+				"Istota docelowa ma minus na wszelkich kontrolach Charyzmy dotyczących interakcji społecznych podczas działania zaklęcia.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Wszystkie zaklęcia klątwy wymagają \"czegoś z docelowego stworzenia (takiego jak krew, włosy lub łuski), co zaklęcie zużywa\" jako składnika materialnego. Można to spełnić albo posiadając ten materiał, albo będąc w zasięgu, aby dotknąć stworzenia podczas rzucania zaklęcia."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -3746,6 +5168,63 @@
 				"fromClassList": [
 					{
 						"name": "Ranger",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Seismic Wave",
+			"source": "KibblesTasty:CC",
+			"page": 36,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Wypuszczasz falę sejsmiczną, uderzając w ziemię przed sobą, powodując gwałtowną eksplozję ziemi w stożku 30 stóp przed tobą. Istoty dotykające ziemi w tym obszarze muszą wykonać rzut ratujący wytrzymałość. W przypadku porażki otrzymują {@damage 4d10} obrażeń od uderzenia i spadają {condition prone}. W przypadku sukcesu otrzymują o połowę mniejsze obrażenia i nie padają na ziemię. Duże lub większe obiekty i budowle znajdujące się w obszarze działania automatycznie nie przechodzą testu i otrzymują podwójne obrażenia. Podłoże staje się trudnym terenem, dopóki nie zostanie oczyszczone. Każda część obszaru o powierzchni 5 stóp kwadratowych wymaga co najmniej 1 minuty na ręczne oczyszczenie."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 3 poziomu lub wyższego, obrażenia wzrastają o 1d10 za każdy poziom slotu powyżej 2."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
 						"source": "PHB"
 					}
 				]
@@ -3818,6 +5297,69 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Stone Coffin",
+			"source": "KibblesTasty:CC",
+			"page": 38,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Wywołujesz kamienną falę, która próbuje pochłonąć dużą lub mniejszą istotę w kamieniu. Cel musi wykonać rzut ratujący zręczność. Przy porażce stają się {@condition restrained} i {@condition blinded} w kamiennej trumnie. Stworzenie może zdecydować, że nie uda mu się uratować. Podczas uwięzienia w trumnie mają całkowitą osłonę przed wszystkimi źródłami. Trumna ma AC 15 i 50 punktów trafień, oraz odporność na wszystkie obrażenia oprócz obrażeń od pałek i piorunów. Gdy czar się skończy lub trumna spadnie do 0 punktów życia, rozpada się na kawałki, a znajdująca się w niej istota nie jest już skrępowana i oślepiona.",
+				"Na czas trwania zaklęcia możesz użyć swojej akcji bonusowej, aby spróbować zmiażdżyć istotę zamkniętą w trumnie, zadając {@damage 1d10} obrażeń obezwładniających."
+			],
+			"entriesHigherLevel": [
+				{
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu na czary 5 poziomu lub wyższego, kamienna trumna zyskuje 10 dodatkowych punktów trafień za każdy poziom powyżej 5."
+					],
+					"type": "entries"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					}
 				]
@@ -4471,7 +6013,16 @@
 			"entries": [
 				"Rzucasz klątwę na dwie osoby. Oba cele muszą wykonać rzut ratujący przed utratą Charyzmy (mogą zdecydować się na porażkę). Jeśli oba cele nie wykonają rzutu ratunkowego, na czas trwania zaklęcia ich dusze zostaną zamienione. Dusza kontroluje ciało, które zamieszkuje. Zyskuje wszelkie zdolności i działania, które posiadało ciało (poza legendarnymi działaniami i legendarną odpornością), ale zachowuje własne rzucanie zaklęć (jeśli ma je wrodzone lub inne), a także ma minusy we wszystkich rzutach na atak i rzutach ratujących siłę, zręczność i konstytucję przez {@dice 1d4} tur po zamianie ciał.",
 				"Na koniec tury zamienionych stworzeń, mogą one zdecydować się na powtórzenie rzutu ratunkowego, kończąc efekt w przypadku udanego ataku. Jeśli jego CR (lub poziom postaci, jeśli nie ma CR) jest wyższy niż ciała istoty, którą jest, ma przewagę w tym rzucie.",
-				"Jeśli stworzenie umrze podczas gdy jego dusza jest zamieniona, dusze wracają do swoich oryginalnych ciał. Jeśli dusza była w umierającym stworzeniu, które wraca do żywego ciała, to stworzenie otrzymuje {@damage 5d10} obrażeń nekrotycznych."
+				"Jeśli stworzenie umrze podczas gdy jego dusza jest zamieniona, dusze wracają do swoich oryginalnych ciał. Jeśli dusza była w umierającym stworzeniu, które wraca do żywego ciała, to stworzenie otrzymuje {@damage 5d10} obrażeń nekrotycznych.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Wszystkie zaklęcia klątwy wymagają \"czegoś z docelowego stworzenia (takiego jak krew, włosy lub łuski), co zaklęcie zużywa\" jako składnika materialnego. Można to spełnić albo posiadając ten materiał, albo będąc w zasięgu, aby dotknąć stworzenia podczas rzucania zaklęcia."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -4681,6 +6232,67 @@
 			]
 		},
 		{
+			"name": "Unholy Wave",
+			"source": "KibblesTasty:CC",
+			"page": 46,
+			"level": 2,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Z twojej wyciągniętej ręki wylatuje fala nekrotycznej energii w kształcie stożka o średnicy 30 stóp. Stworzenia znajdujące się w tym obszarze muszą wykonać rzut ratunkowy na Konstytucję lub zostaną spalone przez święty ogień. W przypadku nieudanego rzutu, otrzymują {@damage 4d6} obrażeń nekrotycznych i zostają spowite w trawiący je święty ogień na czas trwania zaklęcia. Raz na turę, jeśli zostaną trafieni atakiem, gdy są spowici w święty ogień, ich rany zostają strawione przez płomienie i otrzymują dodatkowe {@damage 1d6} obrażeń nekrotycznych. Przy udanym save'ie otrzymują o połowę mniejsze obrażenia i nie są spowici promienistym ogniem."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Kiedy rzucasz to zaklęcie używając slotu czaru 3 poziomu lub wyższego, obrażenia wzrastają o {@damage 1d6} za każdy poziom slotu powyżej 2."
+					]
+				}
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Vacuum Pull",
 			"source": "KibblesTasty:CC",
 			"page": 37,
@@ -4736,15 +6348,67 @@
 						"source": "PHB"
 					},
 					{
-						"name": "Occultist",
-						"source": "KT:O"
-					},
-					{
 						"name": "Ranger",
 						"source": "PHB"
 					},
 					{
 						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Volcanic Burst",
+			"source": "KibblesTasty:CC",
+			"page": 47,
+			"level": 6,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a piece of obsidian"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Przywołujesz ogniste siły spod ziemi, które gwałtownie wybuchają w górę, powodując, że skały pod punktem topią się i wybuchają w magmę. Ziemia w promieniu 10 stóp eksploduje w postaci deszczu ognia i magmy, który spada w promieniu 20 stóp. Stworzenia znajdujące się na tym obszarze muszą wykonać rzut ratujący zręczność. W przypadku porażki otrzymują {@damage 4d10} obrażeń od uderzeń i {@damage 4d6} obrażeń od ognia. Jeśli stworzenie znajduje się w wewnętrznym promieniu 10 stóp, to dodatkowo zostaje wyrzucone na 10 stóp w powietrze, otrzymując {@damage 1d6} obrażeń od obrażeń od obrażeń kłutych i spadając {@condition prone} przy lądowaniu. Przy udanym ocaleniu, stworzenie otrzymuje połowę obrażeń i nie otrzymuje żadnych dodatkowych efektów.",
+				"Środkowy obszar o promieniu 10 stóp staje się trudnym terenem, dopóki nie zostanie oczyszczony. Każda część obszaru o powierzchni 5 stóp kwadratowych wymaga co najmniej 1 minuty na ręczne oczyszczenie."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					},
 					{
@@ -5134,10 +6798,6 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
-					},
-					{
-						"name": "Occultist",
-						"source": "KT:O"
 					}
 				]
 			}
@@ -5354,6 +7014,10 @@
 			],
 			"classes": {
 				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
 					{
 						"name": "Wizard",
 						"source": "PHB"
@@ -8146,7 +9810,7 @@
 				"type": "cone",
 				"distance": {
 					"type": "feet",
-					"amount": 15
+					"amount": 20
 				}
 			},
 			"components": {
@@ -8604,7 +10268,7 @@
 				"type": "line",
 				"distance": {
 					"type": "feet",
-					"amount": 30
+					"amount": 40
 				}
 			},
 			"components": {
