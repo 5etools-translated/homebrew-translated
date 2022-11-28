@@ -40,13 +40,13 @@
 					"SasquatchBrah",
 					"cellescent"
 				],
-				"version": "1.4",
-				"url": "https://www.patreon.com/posts/kibbles-casting-50137612"
+				"version": "1.6.2",
+				"url": "https://www.gmbinder.com/share/-MNCb8aGYVO_NBsP3v2Q"
 			}
 		],
 		"dateAdded": 1622581997,
-		"dateLastModified": 1668987711,
-		"_dateLastModifiedHash": "a1335f1e17"
+		"dateLastModified": 1669155610,
+		"_dateLastModifiedHash": "212d3049b8"
 	},
 	"spell": [
 		{
@@ -364,15 +364,15 @@
 			}
 		},
 		{
-			"name": "Animate Object",
+			"name": "Dancing Objects (Animate Object)",
 			"source": "KibblesTasty:CC",
-			"page": 9,
+			"page": 10,
 			"level": 2,
 			"school": "T",
 			"time": [
 				{
 					"number": 1,
-					"unit": "bonus"
+					"unit": "action"
 				}
 			],
 			"range": {
@@ -414,6 +414,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			},
@@ -622,6 +626,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			}
@@ -765,7 +773,16 @@
 			],
 			"entries": [
 				"你迷惑一个生物的思想，将它能看到的两个相同大小和类别的东西的位置互换（例如，两个中型生物或两个巨大的建筑物）。目标生物必须做一个智慧救赎的动作。如果失败，它就不知道这两样东西被调换了。",
-				"每当该生物与被交换的目标互动、攻击或被攻击时，它可以重复其对该效果的蓄力动作。"
+				"每当该生物与被交换的目标互动、攻击或被攻击时，它可以重复其对该效果的蓄力动作。",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"所有的诅咒咒语都需要 \"来自目标生物的东西（比如血液、毛发或鳞片），咒语会消耗这些东西 \"作为物质成分。这可以通过拥有该材料或在施法时在范围内接触该生物来满足。"
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -818,7 +835,16 @@
 			],
 			"entries": [
 				"你将一个生物与它周围5英尺内的一个点捆绑在一起，导致一条发光的光链将它与该点相连。在咒语的持续时间内，如果该生物试图离开该点，必须做一个智慧救赎动作，否则在下一回合开始前无法离开该点超过5英尺。",
-				"如果一个生物开始它的回合时离束缚点超过10英尺，他们必须做一个力量救赎的动作，否则就会被拖向束缚点5英尺。"
+				"如果一个生物开始它的回合时离束缚点超过10英尺，他们必须做一个力量救赎的动作，否则就会被拖向束缚点5英尺。",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"所有的诅咒咒语都需要 \"来自目标生物的东西（比如血液、毛发或鳞片），咒语会消耗这些东西 \"作为物质成分。这可以通过拥有该材料或在施法时在范围内接触该生物来满足。"
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom",
@@ -834,10 +860,71 @@
 			}
 		},
 		{
+			"name": "Blade Mirage",
+			"source": "KibblesTasty:CC",
+			"page": 13,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你在你持有的近战武器周围扭曲幻象。当你施展该法术时，以及在持续时间内的每个回合作为额外行动，你可以用你刀刃的虚幻副本制造佯攻，分散目标的注意力，并在回合结束前对该目标的下一次武器攻击中给予你优势。如果放开你施放的武器，该咒语会提前结束。",
+				"作为一个行动，一个能看到你的生物可以对你的法术救赎DC进行智力（（%0%））检查。一旦成功，你在对该生物进行佯攻时不再获得使用幻象之刃的优势，使该法术对该生物无能为力。"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Blazing Beacon",
 			"source": "KibblesTasty:CC",
 			"page": 12,
-			"level": 1,
+			"level": 2,
 			"school": "E",
 			"time": [
 				{
@@ -1292,6 +1379,202 @@
 			}
 		},
 		{
+			"name": "Clay Touch",
+			"source": "KibblesTasty:CC",
+			"page": 14,
+			"level": 2,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a small clump of clay"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你伸手试图触摸范围内的一个生物。它必须做一个灵巧的拯救动作。一旦失败，目标的盔甲（包括自然或魔法防御）就会变得柔软可塑，尽管保留其形态，并且不提供对攻击的保护，在咒语的持续时间内将目标的AC降低到10+他们的灵巧。",
+				"或者，你可以触摸一个没有被警告或携带的非魔法物体，并且在任何维度上都不超过2英尺，在法术持续期间，将其反作用力和打破它所需的任何力量检验降低到5。",
+				{
+					"type": "inset",
+					"name": "Part of a larger object?",
+					"entries": [
+						"GM在确定什么是物体时有很大的余地，比如监狱的栅栏是作为自己的物体还是作为门的一部分来计算。一般来说，我会在这个问题上做出慷慨的裁决。有一些低级别的法术可以让你离开有栅栏的牢房。"
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Create Pit",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 1,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你在地面上选择一个你能看到的泥土或天然石头区域的一个点。地面会弯曲，在该点周围会出现一个半径为5英尺、深为10英尺的坑。如果地面不够大，不足以容纳这个坑，则法术失败。该区域内的生物必须做一个灵巧的蓄力动作。如果成功，他们可以在法术半径外移动5英尺。救赎失败的生物会跌落到坑底（受到{@damage 1d6}重击伤害并跌落{@condition prone}）。坑的两侧是粗糙的，可以爬上去。坑洞会一直存在，直到被填满。如果一个生物救活了，但是不能移动5英尺，他们就会俯卧，挂在坑的边缘，并且不能站立，直到他们离开坑的区域或者落入坑中。",
+				{
+					"type": "inset",
+					"name": "Limitations",
+					"entries": [
+						"如果这个坑会破坏另一个开口（比如下面的房间或洞穴），那么这个咒语就失败了，因为这将是无法遏制这个坑。GM有很大的自由裁量权来决定哪些表面符合这个咒语的条件。"
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用二级或以上的法术槽施展此法术时，每一级法术槽的深度为5英尺（最深为20英尺）。"
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Crescent Wind Slash",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 3,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你连砍三刀，每一刀都会向范围内的目标神奇地释放出一股锋利的风。你可以向一个或几个目标发射。",
+				"用施展此法术时使用的武器对每一刀进行武器攻击。一旦命中，目标会受到{@damage 1d6}+你的武器攻击修饰。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用3级或更高等级的法术槽施放此法术时，你可以为2级以上的每一个法术槽等级创造一个额外的斜线。"
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Crippling Agony",
 			"source": "KibblesTasty:CC",
 			"page": 14,
@@ -1393,7 +1676,16 @@
 					]
 				},
 				"在你第一次使用行动操纵玩偶之后的每一次，在效果发生之后，该生物可以在不利的情况下重复魅力，在拯救成功后结束效果。",
-				"一旦生物被此法术锁定，它们在24小时内不能再被锁定。"
+				"一旦生物被此法术锁定，它们在24小时内不能再被锁定。",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"所有的诅咒咒语都需要 \"来自目标生物的东西（比如血液、毛发或鳞片），咒语会消耗这些东西 \"作为物质成分。这可以通过拥有该材料或在施法时在范围内接触该生物来满足。"
+					]
+				}
 			],
 			"entriesHigherLevel": [
 				{
@@ -1504,7 +1796,16 @@
 				}
 			],
 			"entries": [
-				"你诅咒一个目标生物，使其产生一种压倒性的无力感。当目标生物试图攻击、施展造成伤害的法术或使用造成伤害的行动时，它必须做一个智慧救赎动作。如果成功，它们就会照常行动。如果失败，它们会完成它们的行动，但它们的行动不会对任何目标造成伤害。"
+				"你诅咒一个目标生物，使其产生一种压倒性的无力感。当目标生物试图攻击、施展造成伤害的法术或使用造成伤害的行动时，它必须做一个智慧救赎动作。如果成功，它们就会照常行动。如果失败，它们会完成它们的行动，但它们的行动不会对任何目标造成伤害。",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"所有的诅咒咒语都需要 \"来自目标生物的东西（比如血液、毛发或鳞片），咒语会消耗这些东西 \"作为物质成分。这可以通过拥有该材料或在施法时在范围内接触该生物来满足。"
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -1624,6 +1925,71 @@
 			"savingThrow": [
 				"constitution"
 			]
+		},
+		{
+			"name": "Devour Shadow",
+			"source": "KibblesTasty:CC",
+			"page": 17,
+			"level": 4,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你的影子突然拉长成一个可怕的吞噬者，并试图吃掉范围内目标生物的影子。目标必须做一个魅力储蓄动作。如果失败，目标生物的影子会被吞噬，他们会受到{@damage 6d6}的坏死伤害，并被魔法削弱，在法术持续期间，攻击卷、蓄力和能力检查会被减去{@dice 1d4}，而你可以在法术持续期间，将你的攻击卷、蓄力和能力检查增加{@dice 1d4}。一旦成功，就会被影子咬上一大口，他们会受到一半的伤害，而且不会被削弱。",
+				"如果你或目标没有影子，咒语失败。如果他们的影子被吞噬，他们就没有影子，直到法术结束。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你用5级以上的法术槽施展此法术时，你可以针对4级以上的每一个法术槽等级的额外生物。你获得的消耗影子的奖励不会超过1d4，即使你消耗了多个影子也不会增加。"
+					]
+				}
+			],
+			"damageInflict": [
+				"necrotic"
+			],
+			"savingThrow": [
+				"charisma"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
 		},
 		{
 			"name": "Devouring Darkness",
@@ -1886,6 +2252,72 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Divine Judgement",
+			"source": "KibblesTasty:CC",
+			"page": 18,
+			"level": 2,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"在目标点上方形成一把光芒四射的辉煌之剑，然后以神力的爆发猛然砸下。以目标点为中心的10英尺半径、30英尺高的圆柱体中的生物必须做一个灵巧的蓄力动作。如果失败，生物会受到{@damage 2d8}辐射伤害，如果是亡灵或恶魔，则会受到{@damage 2d8}额外的辐射伤害。拯救成功时，目标会受到一半的伤害。",
+				{
+					"type": "inset",
+					"name": "Alignment Powers",
+					"entries": [
+						"如果你的DM对生物使用了排列组合，他们可以选择性地规定，只要生物与施法者的道德排列组合相反（从恶到善或从善到恶），奖励伤害就适用于所有生物类型。由于并非所有的设定都使用严格的排列组合，这是一个由GM决定的可变规则。"
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用3级或以上的法术槽施放此法术时，每超过2级的法术槽等级，基础伤害增加（%0%）。"
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"savingThrow": [
+				"dexterity"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
 						"source": "PHB"
 					}
 				]
@@ -2575,6 +3007,154 @@
 			}
 		},
 		{
+			"name": "Hellfire Pit",
+			"source": "KibblesTasty:CC",
+			"page": 24,
+			"level": 7,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你在敌人的脚下打开一个通往地狱的坑。一个超自然的空洞在半径10英尺的范围内打开，10英尺深的坑在你能看到的范围内的一个点周围打开。",
+				"该区域内的生物必须做一个灵巧的蓄力动作。一旦成功，他们可以在法术半径外移动5英尺。如果他们不能在法术半径外移动5英尺（例如没有路径或移动速度不足），他们的蓄力动作就会自动失败。失败的生物会跌落到坑底（受到{@damage 1d6}重击伤害并跌落{@condition prone}）。坑洞的地面是一个炽热的地狱。在坑中开始他们的回合的生物会受到{@damage 4d6}火焰伤害和{@damage 4d6}坏死伤害。",
+				"这个坑是很难逃出来的，它用强风、熊熊的火焰和地狱的锁链贪婪地吸引陷入地狱深处的生物。一个生物可以移动20英尺（如果他们有飞行或攀爬的速度，则可以移动10英尺）试图逃离深渊，对你的法术救赎DC做一个力量救赎。如果成功，他们就能逃脱。失败时，他们会跌回坑中的地面，并且他们的移动速度变为零，直到他们下一回合开始。",
+				"当咒语结束时，通往地狱的超自然虚空关闭，坑中的所有生物都被安置在坑口的地面上（%0%）。",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"根据你的GM的决定，被地狱火坑或地狱枷锁降低到零命中率的生物会死亡，并且他们的灵魂会被困于地狱的平面。关于使用由地狱诅咒能量驱动的法术可能带来的宇宙学和道德上的副作用，请咨询你的GM。"
+					]
+				}
+			],
+			"damageInflict": [
+				"bludgeoning",
+				"fire",
+				"necrotic"
+			],
+			"savingThrow": [
+				"dexterity",
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Hungering Void",
+			"source": "KibblesTasty:CC",
+			"page": 25,
+			"level": 3,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你创造了一个纯粹的虚空点，吞噬了一个20英尺半径的空间球体，使其陷入魔法黑暗之中，形成一个吞噬生命的冰冻虚空。拥有{@sense darkvision}的生物无法看穿这片黑暗，非魔法的光也无法照亮它，除非它来自比这个更高等级的法术。",
+				"在虚空中开始他们的回合的生物必须做一个宪法救赎的动作。一旦失败，他们会受到{@damage 2d6}寒冷伤害和{@damage 2d6}坏死伤害，并且他们的速度会降低5英尺。他们的速度降低持续到他们开始不在虚空区域内为止，并且可以与自身叠加，最大效果是将一个生物的速度降低到5英尺。如果成功，他们会受到一半的伤害，并且他们的速度不会降低。",
+				{
+					"type": "inset",
+					"name": "A Note",
+					"entries": [
+						"如果这与其他创造饥饿黑暗的虚空的法术看起来有些相似，我会注意到，其他这种性质的法术不在SRD中，也不能用于OGL产品和VTT。",
+						"为站在别人的角色上而创造的法术将不再像其他法术那样紧密地反映，因为它造成的混乱比解决的问题更多，而且有机会改进和精简可用的法术。"
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用五级以上的法术槽施放这个法术时，坏死和寒冷的伤害都增加为1d6，并且在失败的情况下速度降低增加到10英尺（有相同的最低速度限制）。"
+					]
+				}
+			],
+			"damageInflict": [
+				"cold",
+				"necrotic"
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Ice Weapon",
 			"source": "KibblesTasty:CC",
 			"page": 22,
@@ -2879,6 +3459,222 @@
 			}
 		},
 		{
+			"name": "Infernal Shackles",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a link from a chain burned in a fire that killed at least one creature"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"燃烧的黑铁锁链从地面弹出，试图捆绑范围内你能看到的生物。目标生物必须做一个力量救赎的动作。一旦失败，它将受到{@damage 3d6}的火焰伤害，并且在咒语的持续时间内其移动速度降低到零。成功时，它们会受到一半的伤害，并且不会被束缚。",
+				"在他们每个回合结束时，目标重复其蓄力动作。如果成功，链子就会断裂，并且该目标的咒语就会结束。如果失败，它将继续被束缚，并在被锁链灼伤时受到额外的（%0%）火焰伤害。",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"根据你的GM的决定，被地狱火坑或地狱枷锁降低到零命中率的生物会死亡，并且他们的灵魂会被困于地狱的平面。关于使用由地狱诅咒能量驱动的法术可能带来的宇宙学和道德上的副作用，请咨询你的GM。"
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你用3级以上的法术槽施放此法术时，你可以针对2级以上的每一个法术槽等级的额外生物。"
+					]
+				}
+			],
+			"damageInflict": [
+				"fire"
+			],
+			"savingThrow": [
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Instant Counter",
+			"source": "KibblesTasty:CC",
+			"page": 23,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "reaction",
+					"condition": "which you take in response to being damaged by a creature within 30 feet of you that you can see"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你消失了，传送到伤害你的生物的5英尺范围内的空地上，并立即用施法时使用的武器对他们进行武器攻击。",
+				{
+					"type": "inset",
+					"name": "Damage Order",
+					"entries": [
+						"这并不妨碍来自触发攻击的伤害，因为触发者正在承受伤害，它并不改变触发的结果。"
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用3级或以上的法术槽施放此法术时，每超过2级的法术槽等级，你都会在命中时造成{@damage 1d8}的额外武力伤害。"
+					]
+				}
+			],
+			"miscTags": [
+				"SGT",
+				"TP"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Iron Garden",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "radius",
+				"distance": {
+					"type": "feet",
+					"amount": 20
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"铁钉从地面向你周围的各个方向延伸，刺伤你周围20英尺内的生物。目标区域内的生物必须成功地进行灵巧救赎，否则会受到6d8的穿刺伤害，并且他们的移动速度会下降到零，直到他们下一个回合结束。如果成功，他们会受到一半的伤害，而且他们的移动速度不会降低到零。",
+				"直到你下一回合开始，当一个生物进入该区域或在该区域内移动时，它每移动5英尺会受到1d8的穿刺伤害。在你的下一个回合开始时，尖刺会锈蚀成灰。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当用5级或更高的法术槽施放时，4级以上的法术槽等级每增加一级，伤害就增加1d10。"
+					]
+				}
+			],
+			"miscTags": [
+				"SCL"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Iron Wind Strike",
 			"source": "KibblesTasty:CC",
 			"page": 23,
@@ -2937,6 +3733,269 @@
 			}
 		},
 		{
+			"name": "Illusionary Dart",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 0,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你创造并向范围内你能看到的生物投掷一个幻象飞镖。进行一次范围性的法术攻击。一旦击中，他们会受到{@damage 1d8}的精神伤害。当你达到5级（2个飞镖），11级（3个飞镖）和17级（4个飞镖）时，你可以用这个法术投掷的飞镖数量增加。你可以将飞镖指向同一个目标或者不同的目标。为每个飞镖做一个单独的攻击卷。"
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"spellAttack": [
+				"R"
+			],
+			"miscTags": [
+				"SGT"
+			],
+			"areaTags": [
+				"MT"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusionary Fireball",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 3,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "something that looks like bat guano"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"一道亮光从你的指尖闪到你选择的范围内的一个点上，然后在低吼声中绽放出幻象般的火焰爆炸。在以该点为中心的20英尺半径范围内，你选择的每个生物都必须做一个智慧救赎动作。拯救失败时，目标会受到{@damage 6d6}精神伤害。通过救赎的生物会意识到火焰是幻觉，不会受到伤害。",
+				"你可以使虚幻的效果成为冰、闪电或纯武力能量的爆炸。",
+				{
+					"type": "inset",
+					"name": "Targets of your choice",
+					"entries": [
+						"与真正的火球不同，幻象版的火球只击中你选择的目标，这使得它在盟友中使用很安全，尽管它造成的伤害较小，并且在救赎通过时没有伤害（因为目标意识到它的虚幻性质）。"
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用四级以上的法术槽施放此法术时，每超过三级的法术槽等级，伤害就增加1d6。"
+					]
+				}
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusory Pit",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你在你能看到的地面上创造一个5英尺半径的虚幻坑。施法时半径范围内的生物必须做一个智慧救赎动作。如果一个生物没有完成他们的救赎，就会认为他们已经掉进了坑里，并且跌落（%0%），不能站起来，并且在虚幻的坑的5英尺以外（%1%）。生物可以用它的行动来尝试爬出坑洞，重复它的智慧救赎动作。如果成功，它将花费所有的行动力来站起来，并且意识到这个坑是一个幻觉，从而结束对它们的咒语。如果失败，它就无法走出坑洞，并继续相信自己被困在坑洞中。在该效果下，一个生物可以在坑所覆盖的空间内移动。",
+				"具有飞行速度的生物不受影响。每当受影响的生物受到伤害时，目标可以再做一次智慧拯救动作。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用二级或更高等级的法术槽施法时，坑的半径在一级以上每增加5英尺，到四级法术槽时最大半径为20英尺。"
+					]
+				}
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Karmic Reflection",
+			"source": "KibblesTasty:CC",
+			"page": 29,
+			"level": 1,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a broken shard of a mirror"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"你对范围内你能看到的生物施加一个束缚。直到你下一回合开始，任何时候该生物以其行动、额外行动或反应造成伤害，他们都会受到与所受伤害相等的辐射伤害。目标在受到影响时，会意识到这个法术的效果。反射10次伤害后，法术结束。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用2级以上的法术槽施放此法术时，法术槽等级每超过2级，最大伤害增加10。"
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Killing Curse",
 			"source": "KibblesTasty:CC",
 			"page": 24,
@@ -2976,7 +4035,16 @@
 			"entries": [
 				"你诅咒一个目标死亡。目标的当前和最大命中率会降低（%0%）。如果这导致一个生物的命中率为零，则该生物死亡。",
 				"在咒语的持续时间内，目标无法恢复命中率，除非是使用比该诅咒的咒语槽更高等级的咒语来施展，而且他们所做的任何死亡拯救动作都会自动被视为1。",
-				"在生物受此法术影响的回合开始时，他们要做一个魅力储蓄动作。一旦失败，他们当前和最大的命中率会降低（%0%）。拯救成功后，该咒语结束。一个生物的最大命中率会在它长时间休息后恢复。"
+				"在生物受此法术影响的回合开始时，他们要做一个魅力储蓄动作。一旦失败，他们当前和最大的命中率会降低（%0%）。拯救成功后，该咒语结束。一个生物的最大命中率会在它长时间休息后恢复。",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"所有的诅咒咒语都需要 \"来自目标生物的东西（比如血液、毛发或鳞片），咒语会消耗这些东西 \"作为物质成分。这可以通过拥有该材料或在施法时在范围内接触该生物来满足。"
+					]
+				}
 			],
 			"savingThrow": [
 				"charisma"
@@ -3386,6 +4454,73 @@
 			}
 		},
 		{
+			"name": "Melting Glob",
+			"source": "KibblesTasty:CC",
+			"page": 32,
+			"level": 1,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"你向范围内的生物投掷一个酸球，进行一次远程法术攻击。一旦命中，该生物受到{@damage 4d4}酸液伤害，并开始被酸液融化。在1分钟内，在它的每个回合结束时，它会受到{@damage 1d4}的酸液伤害。生物可以通过使用其行动来清除酸液而提前结束该效果。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用2级以上的法术槽施放此法术时，每超过1级的法术槽等级，初始伤害增加2d4。"
+					]
+				}
+			],
+			"spellAttack": [
+				"R"
+			],
+			"damageInflict": [
+				"acid"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Mutate",
 			"source": "KibblesTasty:CC",
 			"page": 26,
@@ -3461,6 +4596,235 @@
 					},
 					{
 						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Platinum Lances",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 6,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 150
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你召唤出四支巨大的辐射能量枪，在你能看到的四个不同点上骤然下降。以每个点为中心的10英尺半径、100英尺高的圆柱体中的每个生物都必须做一个灵巧的蓄力动作。",
+				"拯救失败时，生物受到{@damage 8d8}辐射伤害并被击倒{@condition prone}。拯救成功时，他们会受到一半的伤害，并且不会被击倒在地。",
+				"在一个以上的长矛区域内的生物只受到一次影响。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用7级以上的法术槽施放此法术时，法术槽等级每超过6级，伤害就会增加1d8。"
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Prismatic Flash",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 15
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a prism"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"一道鲜艳的棱镜光的彩虹从你手中射出。在15英尺范围内的每个生物都必须做一个宪法规定的蓄力动作。如果失败，生物会受到{@condition blinded}的眩晕，直到你下一回合结束。当他们以这种方式发呆时，他们无法做出反应，他们的移动速度减半。如果一个生物失败了10次或更多，它将在持续时间内额外地被（%1%）。拯救成功后，生物不会失明，但会被灿烂的闪光瞬间迷失方向，并且在攻击卷轴上有劣势，直到你的回合结束。",
+				"已经被蒙蔽或看不到你的生物不会受到影响，因为它们看不到爆裂。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用二级以上的法术槽施放此法术时，圆锥体的大小会额外扩大5英尺。"
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quick Sand",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a pinch of sand"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你使以你能看到的一点为中心的20英尺范围内的地面在咒语持续期间变成流沙。通过或离开该区域的生物必须每移动1英尺花费4英尺的移动距离。结束其回合的生物必须做一个力量救赎动作。一旦失败，他们就会坠落（%0%）。"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quicksilver Steps",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"在法术持续期间，你的移动不会引发机会攻击，而且每次你能看到或听到的其他生物结束他们的回合时，你可以移动最多10英尺（不需要行动），最多4次，在你的回合开始时恢复所有使用。在你每次移动之后，对你的第一次攻击都是不利的。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用五级或以上的法术槽施放此法术时，你在另一生物的回合结束时可以移动的次数增加1，等于所使用的法术槽的等级。"
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
 						"source": "PHB"
 					},
 					{
@@ -3576,7 +4940,7 @@
 			]
 		},
 		{
-			"name": "Revised Dust Devil",
+			"name": "Dust Cyclone",
 			"source": "KibblesTasty:CC",
 			"page": 28,
 			"level": 2,
@@ -3648,6 +5012,55 @@
 			}
 		},
 		{
+			"name": "Rock Slam",
+			"source": "KibblesTasty:CC",
+			"page": 35,
+			"level": 0,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你将一块石头扔给范围内你能看到的生物。进行一次远程法术攻击。一旦命中，目标会受到{@damage 1d10}重击伤害。命中时，目标会被击倒（1%）或向后退10英尺（由你选择）。",
+				"当你达到5级（2D10）、11级（3D10）和17级（4D10）时，该咒语的伤害增加1D10。"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Rotting Curse",
 			"source": "KibblesTasty:CC",
 			"page": 28,
@@ -3686,7 +5099,16 @@
 			],
 			"entries": [
 				"你对一个生物造成腐烂，使其开始腐烂。在法术持续期间，该生物每次受到伤害时，都会受到额外的（%0%）腐烂伤害，并且对该生物的所有治疗效果减半。",
-				"在法术作用期间，目标生物在任何社会交往的魅力检查中都处于劣势。"
+				"在法术作用期间，目标生物在任何社会交往的魅力检查中都处于劣势。",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"所有的诅咒咒语都需要 \"来自目标生物的东西（比如血液、毛发或鳞片），咒语会消耗这些东西 \"作为物质成分。这可以通过拥有该材料或在施法时在范围内接触该生物来满足。"
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -3746,6 +5168,63 @@
 				"fromClassList": [
 					{
 						"name": "Ranger",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Seismic Wave",
+			"source": "KibblesTasty:CC",
+			"page": 36,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你释放一个地震波，猛击你面前的地面，使大地在你面前30英尺的范围内猛烈爆炸。在该区域内接触地面的生物必须做一个力量储蓄动作。如果失败，他们会受到{@damage 4d10}重击伤害并跌倒{condition prone}。成功时，他们会受到一半的伤害，并且不会俯卧。效应区域内的大型或更大的物体和结构会自动失败并受到双倍伤害。地面变成困难的地形，直到被清除。该区域每5英尺见方的部分需要至少1分钟才能用手清理。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用3级以上的法术槽施放此法术时，法术槽等级每超过2级，伤害就会增加1d10。"
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
 						"source": "PHB"
 					}
 				]
@@ -3818,6 +5297,69 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Stone Coffin",
+			"source": "KibblesTasty:CC",
+			"page": 38,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"你引起石头的涌动，试图用石头吞噬一个大型或小型生物。目标必须做一个灵巧的拯救动作。一旦失败，他们就会在石棺中变成（%0%）和（%1%）。生物可以选择拯救失败。当被困在棺材里时，他们对所有来源都有完全的掩护。棺材有15点的生命值和50点的命中率，并且抵抗除击打和雷霆伤害之外的所有伤害。当咒语结束或棺材的命中率降至0时，它就会碎裂成碎片，里面的生物不再被限制和蒙蔽。",
+				"在咒语的持续时间内，你可以使用你的额外行动试图压碎被包裹在棺材中的生物，造成{@damage 1d10}重击伤害。"
+			],
+			"entriesHigherLevel": [
+				{
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用五级或以上的法术槽施展此法术时，石棺每超过五级就会获得10点额外的命中率。"
+					],
+					"type": "entries"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					}
 				]
@@ -4471,7 +6013,16 @@
 			"entries": [
 				"你对两个人施以诅咒。两个目标都必须做一个魅力储蓄动作（他们可以选择失败）。如果两个目标都失败了，在咒语的持续时间内他们的灵魂会被交换。灵魂控制它所居住的身体。它获得身体所具有的任何能力得分或行动（除了传奇行动或传奇抵抗），但保留自己的施法能力（如果它有施法能力，先天或其他），并且在交换身体后的{@dice 1d4}个回合内，在所有攻击卷和力量、灵巧和体质救赎上有劣势。",
 				"在被交换的生物的回合结束时，它可以选择重复拯救动作，在拯救成功时结束效果。如果它的CR（如果它没有CR，则为角色等级）高于它所在的生物的身体，它在救赎上就有优势。",
-				"如果一个生物在它的灵魂被调换时死亡，灵魂会回到它们原来的身体。如果一个灵魂在垂死的生物中，回到了活体中，该生物会受到{@damage 5d10}坏死伤害。"
+				"如果一个生物在它的灵魂被调换时死亡，灵魂会回到它们原来的身体。如果一个灵魂在垂死的生物中，回到了活体中，该生物会受到{@damage 5d10}坏死伤害。",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"所有的诅咒咒语都需要 \"来自目标生物的东西（比如血液、毛发或鳞片），咒语会消耗这些东西 \"作为物质成分。这可以通过拥有该材料或在施法时在范围内接触该生物来满足。"
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -4681,6 +6232,67 @@
 			]
 		},
 		{
+			"name": "Unholy Wave",
+			"source": "KibblesTasty:CC",
+			"page": 46,
+			"level": 2,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"一股坏死的能量从你伸出的手掌中冲出，形成一个30英尺的圆锥形。该区域内的生物必须做出宪法规定的投掷动作，否则会被邪恶的火焰烧死。如果救赎失败，他们会受到{@damage 4d6}坏死的伤害，并在咒语持续期间被消耗的邪恶之火所笼罩。每回合一次，如果他们在被邪恶之火包围时被攻击击中，他们的伤口会被火焰吞噬，并受到额外的（%1%）坏死伤害。如果救治成功，他们会受到一半的伤害，并且不会被辐射之火所包围。"
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"当你使用3级以上的法术槽施放此法术时，每超过2级的法术槽等级，伤害会增加（%0%）。"
+					]
+				}
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Vacuum Pull",
 			"source": "KibblesTasty:CC",
 			"page": 37,
@@ -4736,15 +6348,67 @@
 						"source": "PHB"
 					},
 					{
-						"name": "Occultist",
-						"source": "KT:O"
-					},
-					{
 						"name": "Ranger",
 						"source": "PHB"
 					},
 					{
 						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Volcanic Burst",
+			"source": "KibblesTasty:CC",
+			"page": 47,
+			"level": 6,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a piece of obsidian"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"你从地底召唤出火热的力量，猛烈地向上喷发，使一个点下面的岩石融化并喷发成岩浆。方圆10英尺内的地面在火与岩浆的喷发中爆炸，在20英尺范围内下起雨来。该区域内的生物必须做一个灵巧的蓄力动作。一旦失败，他们会受到{@damage 4d10}重击伤害和{@damage 4d6}火焰伤害。如果一个生物在10英尺的内部半径内，那么他们会被额外地抛到10英尺的空中，受到{@damage 1d6}重击伤害并在落地时跌落{@condition prone}。拯救成功后，生物会受到一半的伤害，并且不会受到额外的影响。",
+				"中间10英尺半径的地方成为困难的地形，直到清理完毕。每一个5英尺见方的部分需要至少1分钟的时间来手工清理。"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					},
 					{
@@ -5134,10 +6798,6 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
-					},
-					{
-						"name": "Occultist",
-						"source": "KT:O"
 					}
 				]
 			}
@@ -5354,6 +7014,10 @@
 			],
 			"classes": {
 				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
 					{
 						"name": "Wizard",
 						"source": "PHB"
@@ -8146,7 +9810,7 @@
 				"type": "cone",
 				"distance": {
 					"type": "feet",
-					"amount": 15
+					"amount": 20
 				}
 			},
 			"components": {
@@ -8604,7 +10268,7 @@
 				"type": "line",
 				"distance": {
 					"type": "feet",
-					"amount": 30
+					"amount": 40
 				}
 			},
 			"components": {
