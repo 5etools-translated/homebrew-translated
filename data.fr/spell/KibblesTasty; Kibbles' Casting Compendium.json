@@ -40,13 +40,13 @@
 					"SasquatchBrah",
 					"cellescent"
 				],
-				"version": "1.4",
-				"url": "https://www.patreon.com/posts/kibbles-casting-50137612"
+				"version": "1.6.2",
+				"url": "https://www.gmbinder.com/share/-MNCb8aGYVO_NBsP3v2Q"
 			}
 		],
 		"dateAdded": 1622581997,
-		"dateLastModified": 1668987711,
-		"_dateLastModifiedHash": "a1335f1e17"
+		"dateLastModified": 1669155610,
+		"_dateLastModifiedHash": "212d3049b8"
 	},
 	"spell": [
 		{
@@ -364,15 +364,15 @@
 			}
 		},
 		{
-			"name": "Animate Object",
+			"name": "Dancing Objects (Animate Object)",
 			"source": "KibblesTasty:CC",
-			"page": 9,
+			"page": 10,
 			"level": 2,
 			"school": "T",
 			"time": [
 				{
 					"number": 1,
-					"unit": "bonus"
+					"unit": "action"
 				}
 			],
 			"range": {
@@ -414,6 +414,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			},
@@ -622,6 +626,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			}
@@ -765,7 +773,16 @@
 			],
 			"entries": [
 				"Vous embrouillez l'esprit d'une créature en intervertissant la position de deux choses qu'elle peut voir et qui sont de la même taille et de la même catégorie (par exemple, deux créatures moyennes ou deux bâtiments gargantuesques). La créature visée doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, elle ignore que les deux choses ont été échangées.",
-				"Chaque fois que la créature interagit avec, attaque ou est attaquée par une cible permutée, elle peut répéter son jet de sauvegarde contre l'effet."
+				"Chaque fois que la créature interagit avec, attaque ou est attaquée par une cible permutée, elle peut répéter son jet de sauvegarde contre l'effet.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tous les sorts de malédiction nécessitent \"quelque chose de la créature cible (comme du sang, des cheveux ou des écailles) que le sort consomme\" comme composant matériel. Cela peut être satisfait soit en ayant cette matière, soit en étant à portée de toucher la créature pendant que vous lancez le sort."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -818,7 +835,16 @@
 			],
 			"entries": [
 				"Vous liez une créature à un point situé à moins de 1,5 mètre d'elle, en provoquant une chaîne de lumière incandescente qui la relie à ce point. Pendant la durée du sort, si la créature tente de s'éloigner de ce point, elle doit réussir un jet de sauvegarde de Sagesse, ou être incapable de s'éloigner de plus de 1,5 m de ce point jusqu'au début de son prochain tour.",
-				"Si une créature commence son tour à plus de 10 pieds du point de fixation, elle doit effectuer un jet de sauvegarde de Force ou être traînée à 5 pieds vers le point de fixation."
+				"Si une créature commence son tour à plus de 10 pieds du point de fixation, elle doit effectuer un jet de sauvegarde de Force ou être traînée à 5 pieds vers le point de fixation.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tous les sorts de malédiction nécessitent \"quelque chose de la créature cible (comme du sang, des cheveux ou des écailles) que le sort consomme\" comme composant matériel. Cela peut être satisfait soit en ayant cette matière, soit en étant à portée de toucher la créature pendant que vous lancez le sort."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom",
@@ -834,10 +860,71 @@
 			}
 		},
 		{
+			"name": "Blade Mirage",
+			"source": "KibblesTasty:CC",
+			"page": 13,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Vous tordez des illusions autour d'une arme de mêlée que vous tenez. Lorsque vous lancez le sort, et à chaque tour suivant pour la durée comme une action bonus, vous pouvez créer des coups de feinte avec les copies illusoires de votre lame, distrayant votre cible et vous donnant un avantage sur la prochaine attaque d'arme contre cette cible avant la fin de votre tour. Le sort prend fin prématurément si vous lâchez l'arme sur laquelle vous l'avez lancé.",
+				"Comme action, une créature qui peut vous voir peut faire un test d'Intelligence ({@skill Investigation}) contre votre DC de sauvegarde contre les sorts. En cas de succès, vous ne gagnez plus l'avantage d'utiliser les lames illusoires lorsque vous faites une feinte contre cette créature, rendant le sort impuissant contre cette créature."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Blazing Beacon",
 			"source": "KibblesTasty:CC",
 			"page": 12,
-			"level": 1,
+			"level": 2,
 			"school": "E",
 			"time": [
 				{
@@ -1292,6 +1379,202 @@
 			}
 		},
 		{
+			"name": "Clay Touch",
+			"source": "KibblesTasty:CC",
+			"page": 14,
+			"level": 2,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a small clump of clay"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Vous vous étirez pour tenter de toucher une créature à portée. Celle-ci doit effectuer un jet de sauvegarde de Dextérité. En cas d'échec, l'armure de la cible (y compris les défenses naturelles ou magiques) devient molle et malléable, tout en conservant sa forme, et ne fournit aucune protection contre les attaques réduisant la CA de la cible à 10 + sa dextérité pour la durée du sort.",
+				"Vous pouvez également toucher un objet non magique qui n'est ni averti ni transporté et dont la taille ne dépasse pas 60 cm dans toutes les dimensions, réduisant ainsi sa CA et tout test de Force nécessaire pour le briser à 5 pour la durée du sort.",
+				{
+					"type": "inset",
+					"name": "Part of a larger object?",
+					"entries": [
+						"Le MJ a une grande marge de manœuvre pour déterminer ce qui constitue un objet, par exemple si les barreaux d'une prison sont considérés comme un objet à part entière ou comme une partie de la porte. En général, je serais généreux sur ce point. Il existe des sorts de niveau inférieur qui peuvent vous faire sortir d'une cellule barrée."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Create Pit",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 1,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous choisissez un point sur le sol dans une zone de terre ou de pierre naturelle que vous pouvez voir. Le sol se déforme et une fosse de 5 pieds de rayon et de 10 pieds de profondeur s'ouvre autour de ce point. Si la surface n'est pas assez grande pour contenir la fosse, le sort échoue. Les créatures présentes dans la zone doivent effectuer un jet de sauvegarde de Dextérité. En cas de réussite, elles peuvent se déplacer de 1,5 m en dehors du rayon du sort. Les créatures qui ratent leur jet de sauvegarde tombent au fond du gouffre (subissant {@damage 1d6} de dégâts de matraquage et tombant {@condition prone}). Les parois de la fosse sont rugueuses et peuvent être escaladées. La fosse reste en place jusqu'à ce qu'elle soit remplie. Si une créature sauve, mais ne peut pas se déplacer de 5 pieds, elle tombe à plat ventre, accrochée au bord de la fosse, et ne peut pas se relever jusqu'à ce qu'elle sorte de la zone de la fosse ou y tombe.",
+				{
+					"type": "inset",
+					"name": "Limitations",
+					"entries": [
+						"Le sort échoue si la fosse fait une brèche dans une autre ouverture (comme une pièce ou une caverne en dessous), car cela reviendrait à ne pas contenir la fosse. Le MJ a toute latitude pour déterminer quelles surfaces peuvent bénéficier de ce sort."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 2e niveau ou plus, la fosse est plus profonde de 5 pieds pour chaque niveau d'emplacement autour du 1er (jusqu'à un maximum de 20 pieds de profondeur)."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Crescent Wind Slash",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 3,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous faites une série de trois entailles, chacune d'entre elles libérant magiquement un souffle de vent tranchant comme un rasoir sur une cible à portée. Vous pouvez les lancer sur une ou plusieurs cibles.",
+				"Effectuez une attaque avec l'arme utilisée lors de l'incantation de ce sort pour chaque entaille. Si elle est touchée, la cible subit {@damage 1d6} + votre modificateur d'attaque."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 3e niveau ou plus, vous pouvez créer une entaille supplémentaire pour chaque niveau d'emplacement supérieur au 2e."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Crippling Agony",
 			"source": "KibblesTasty:CC",
 			"page": 14,
@@ -1393,7 +1676,16 @@
 					]
 				},
 				"Chaque fois qu'après la première vous utilisez une action pour manipuler la poupée, après que l'effet ait eu lieu, la créature peut répéter le Charisme avec désavantage, mettant fin à l'effet sur une sauvegarde réussie.",
-				"Une fois qu'une créature a été ciblée par ce sort, elle ne peut plus l'être pendant 24 heures."
+				"Une fois qu'une créature a été ciblée par ce sort, elle ne peut plus l'être pendant 24 heures.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tous les sorts de malédiction nécessitent \"quelque chose de la créature cible (comme du sang, des cheveux ou des écailles) que le sort consomme\" comme composant matériel. Cela peut être satisfait soit en ayant cette matière, soit en étant à portée de toucher la créature pendant que vous lancez le sort."
+					]
+				}
 			],
 			"entriesHigherLevel": [
 				{
@@ -1504,7 +1796,16 @@
 				}
 			],
 			"entries": [
-				"Vous maudissez une créature cible, provoquant un sentiment d'impuissance écrasant. Chaque fois que la créature cible tente d'attaquer, de lancer un sort qui inflige des dégâts ou d'utiliser une action qui inflige des dégâts, elle doit effectuer un jet de sauvegarde de Sagesse. En cas de réussite, elle effectue son action normalement. En cas d'échec, elle termine son action, mais celle-ci n'inflige aucun dégât à la cible."
+				"Vous maudissez une créature cible, provoquant un sentiment d'impuissance écrasant. Chaque fois que la créature cible tente d'attaquer, de lancer un sort qui inflige des dégâts ou d'utiliser une action qui inflige des dégâts, elle doit effectuer un jet de sauvegarde de Sagesse. En cas de réussite, elle effectue son action normalement. En cas d'échec, elle termine son action, mais celle-ci n'inflige aucun dégât à la cible.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tous les sorts de malédiction nécessitent \"quelque chose de la créature cible (comme du sang, des cheveux ou des écailles) que le sort consomme\" comme composant matériel. Cela peut être satisfait soit en ayant cette matière, soit en étant à portée de toucher la créature pendant que vous lancez le sort."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -1624,6 +1925,71 @@
 			"savingThrow": [
 				"constitution"
 			]
+		},
+		{
+			"name": "Devour Shadow",
+			"source": "KibblesTasty:CC",
+			"page": 17,
+			"level": 4,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Votre ombre s'allonge soudainement pour prendre la forme d'une horrible abomination dévorante et tente de manger l'ombre d'une créature cible à portée. La cible doit effectuer un jet de sauvegarde de Charisme. En cas d'échec, l'ombre de la créature cible est dévorée et elle subit {@damage 6d6} de dégâts nécrotiques, et est magiquement affaiblie, soustrayant {@dice 1d4} aux jets d'attaque, jets de sauvegarde et tests de capacité pour la durée du sort, tandis que vous pouvez ajouter {@dice 1d4} à vos jets d'attaque, jets de sauvegarde et tests de capacité pour la durée du sort. En cas de réussite, l'ombre subit une grosse morsure et subit deux fois moins de dégâts, sans être affaiblie.",
+				"Si vous ou la cible n'avez pas d'ombre, le sort échoue. Si leur ombre est consumée, ils n'ont plus d'ombre jusqu'à la fin du sort."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort avec un emplacement de sort de 5e niveau ou plus, vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur au 4e. Le bonus que vous gagnez en consommant des ombres n'augmente pas au-delà de 1d4, même si vous consommez plusieurs ombres."
+					]
+				}
+			],
+			"damageInflict": [
+				"necrotic"
+			],
+			"savingThrow": [
+				"charisma"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
 		},
 		{
 			"name": "Devouring Darkness",
@@ -1886,6 +2252,72 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Divine Judgement",
+			"source": "KibblesTasty:CC",
+			"page": 18,
+			"level": 2,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Une épée brillante d'énergie rayonnante se forme au-dessus du point cible avant de s'abattre dans une explosion de puissance divine. Les créatures situées dans un cylindre de 10 pieds de rayon et de 30 pieds de haut centré sur le point cible doivent effectuer un jet de sauvegarde de Dextérité. En cas d'échec, la créature subit {@damage 2d8} de dégâts radiants, et {@damage 2d8} de dégâts radiants supplémentaires si elle est un mort-vivant ou un démon. En cas de sauvegarde réussie, la cible subit deux fois moins de dégâts.",
+				{
+					"type": "inset",
+					"name": "Alignment Powers",
+					"entries": [
+						"Si votre MJ utilise l'alignement pour les créatures, il peut éventuellement décider que le bonus de dégâts s'applique à tous les types de créatures tant que la créature est d'alignement moral opposé à celui du lanceur de sorts (du mal au bien ou du bien au mal). Comme tous les cadres n'utilisent pas un alignement strict, il s'agit d'une règle variante à la discrétion du MJ."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 3e niveau ou plus, les dégâts de base augmentent de {@damage 1d8} pour chaque niveau d'emplacement supérieur au 2e."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"savingThrow": [
+				"dexterity"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
 						"source": "PHB"
 					}
 				]
@@ -2575,6 +3007,154 @@
 			}
 		},
 		{
+			"name": "Hellfire Pit",
+			"source": "KibblesTasty:CC",
+			"page": 24,
+			"level": 7,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Vous ouvrez une fosse vers l'enfer sous les pieds de vos ennemis. Un vide surnaturel s'ouvre dans un rayon de 3 mètres, une fosse de 3 mètres de profondeur s'ouvre autour d'un point que vous pouvez voir à portée.",
+				"Les créatures situées dans la zone doivent effectuer un jet de sauvegarde de Dextérité. En cas de réussite, elles peuvent se déplacer de 5 pieds en dehors du rayon du sort. Si elles ne peuvent pas se déplacer de 5 pieds en dehors du rayon du sort (par exemple parce qu'elles n'ont pas de chemin ou que leur vitesse de déplacement est insuffisante), elles ratent automatiquement leur jet de sauvegarde. Les créatures qui ratent leur jet de sauvegarde tombent au fond de la fosse (subissant {@damage 1d6} de dégâts de matraquage et tombant {@condition prone}). Le sol de la fosse est un brasier infernal. Les créatures qui commencent leur tour dans la fosse subissent {@damage 4d6} de dégâts de feu et {@damage 4d6} de dégâts nécrotiques.",
+				"La fosse est difficile à fuir, attirant voracement les créatures prises dans les profondeurs de l'enfer avec des vents violents, des feux rugissants et des chaînes infernales. Une créature peut se déplacer de 20 pieds (ou 10 s'il s'agit d'une vitesse de vol ou d'escalade) pour tenter de s'échapper de la fosse, en effectuant un jet de sauvegarde de Force contre le DC de sauvegarde de votre sort. En cas de succès, elle s'échappe. En cas d'échec, elle retombe sur le sol de la fosse et sa vitesse de déplacement devient nulle jusqu'au début de son prochain tour.",
+				"Lorsque le sort prend fin, le vide surnaturel vers l'enfer se referme, et toutes les créatures présentes dans la fosse sont déposées sur le sol où la fosse s'est ouverte {@condition prone}.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"À la discrétion de votre MJ, les créatures réduites à zéro point de vie par Fosse de feu de l'enfer ou Entraves infernales meurent et voient leur âme piégée dans les plans de l'enfer. Consultez votre MJ sur les effets secondaires cosmologiques et moraux potentiels de l'utilisation de sorts alimentés par l'énergie infernale de la damnation."
+					]
+				}
+			],
+			"damageInflict": [
+				"bludgeoning",
+				"fire",
+				"necrotic"
+			],
+			"savingThrow": [
+				"dexterity",
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Hungering Void",
+			"source": "KibblesTasty:CC",
+			"page": 25,
+			"level": 3,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Vous créez un point de vide pur qui avale une sphère d'espace de 20 pieds de rayon, la plongeant dans les ténèbres magiques et formant un vide glacial dévoreur de vie. Une créature avec {@sense darkvision} ne peut pas voir à travers cette obscurité, et la lumière non magique ne peut pas l'éclairer à moins qu'elle ne provienne d'un sort de niveau supérieur à celui-ci.",
+				"Une créature qui commence son tour dans le vide doit effectuer un jet de sauvegarde de Constitution. En cas d'échec, elle subit {@damage 2d6} de dégâts de froid et {@damage 2d6} de dégâts nécrotiques, et sa vitesse est réduite de 5 pieds. La réduction de leur vitesse dure jusqu'à ce qu'elles ne commencent pas à l'intérieur de la zone de vide, et peut s'empiler avec elle-même, jusqu'à un effet maximum de réduction de la vitesse d'une créature à 5 pieds. En cas de réussite, elles subissent deux fois moins de dégâts et leur vitesse n'est pas réduite.",
+				{
+					"type": "inset",
+					"name": "A Note",
+					"entries": [
+						"Si cela semble familier à d'autres sorts qui créent un vide d'obscurité affamé, je noterai que d'autres sorts de cette nature ne sont pas dans le SRD et ne sont pas disponibles pour les produits OGL et les VTT.",
+						"Les sorts créés pour tenir le rôle d'autres personnes ne reflèteront plus aussi fidèlement les sorts alternatifs, car cela crée plus de confusion que cela n'en résout, et il est possible d'améliorer et de rationaliser l'offre."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 5e niveau ou plus, les dégâts nécrotiques et de froid augmentent tous deux à 1d6, et la réduction de vitesse passe à 10 pieds en cas d'échec (avec la même limitation de vitesse minimale)."
+					]
+				}
+			],
+			"damageInflict": [
+				"cold",
+				"necrotic"
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Ice Weapon",
 			"source": "KibblesTasty:CC",
 			"page": 22,
@@ -2879,6 +3459,222 @@
 			}
 		},
 		{
+			"name": "Infernal Shackles",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a link from a chain burned in a fire that killed at least one creature"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Des chaînes de fer noir brûlant jaillissent du sol et tentent de lier une créature que vous pouvez voir à portée. La créature ciblée doit effectuer un jet de sauvegarde de Force. En cas d'échec, elle subit {@damage 3d6} de dégâts de feu et sa vitesse de déplacement est réduite à zéro pour la durée du sort. En cas de succès, elle subit la moitié des dégâts et n'est pas liée.",
+				"À la fin de chacun de leurs tours, la cible répète son jet de sauvegarde. En cas de réussite, les chaînes sont brisées et le sort prend fin pour cette cible. En cas d'échec, elle reste liée et subit des dégâts de feu supplémentaires {@damage 2d6} lorsqu'elle est brûlée par les chaînes.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"À la discrétion de votre MJ, les créatures réduites à zéro point de vie par Fosse de feu de l'enfer ou Entraves infernales meurent et voient leur âme piégée dans les plans de l'enfer. Consultez votre MJ sur les effets secondaires cosmologiques et moraux potentiels de l'utilisation de sorts alimentés par l'énergie infernale de la damnation."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort avec un emplacement de sort de 3e niveau ou plus, vous pouvez cibler une créature supplémentaire pour chaque niveau d'emplacement de sort supérieur au 2e."
+					]
+				}
+			],
+			"damageInflict": [
+				"fire"
+			],
+			"savingThrow": [
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Instant Counter",
+			"source": "KibblesTasty:CC",
+			"page": 23,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "reaction",
+					"condition": "which you take in response to being damaged by a creature within 30 feet of you that you can see"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous disparaissez, vous téléportant dans un espace vide à moins de 1,5 mètre de la créature qui vous a endommagé, et vous effectuez immédiatement une attaque d'arme contre elle avec l'arme utilisée lors de l'incantation du sort.",
+				{
+					"type": "inset",
+					"name": "Damage Order",
+					"entries": [
+						"Cela n'empêche pas les dégâts de l'attaque déclenchante, puisque c'est le déclencheur qui subit les dégâts et cela ne change pas le résultat du déclencheur."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 3e niveau ou plus, vous infligez {@damage 1d8} de dégâts de force bonus sur le coup pour chaque niveau d'emplacement supérieur au 2e."
+					]
+				}
+			],
+			"miscTags": [
+				"SGT",
+				"TP"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Iron Garden",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "radius",
+				"distance": {
+					"type": "feet",
+					"amount": 20
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Des pointes de fer jaillissent du sol dans toutes les directions autour de vous, empalant les créatures situées à 6 mètres de vous. Les créatures dans la zone cible doivent réussir un jet de sauvegarde de Dextérité, ou subir 6d8 points de dégâts perforants, et leur vitesse de déplacement est réduite à zéro jusqu'à la fin de leur prochain tour. En cas de réussite, elles subissent deux fois moins de dégâts, et leur vitesse de déplacement n'est pas réduite à zéro.",
+				"Jusqu'au début de votre prochain tour, lorsqu'une créature se déplace dans ou à l'intérieur de la zone, elle subit 1d8 dégâts perforants par tranche de 5 pieds parcourus. Au début de votre prochain tour, les pointes se décomposent en poussière."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsqu'il est lancé avec un emplacement de sort de 5e niveau ou plus, les dégâts augmentent de 1d10 pour chaque niveau d'emplacement de sort supérieur au 4e."
+					]
+				}
+			],
+			"miscTags": [
+				"SCL"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Iron Wind Strike",
 			"source": "KibblesTasty:CC",
 			"page": 23,
@@ -2937,6 +3733,269 @@
 			}
 		},
 		{
+			"name": "Illusionary Dart",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 0,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous créez et lancez un dard illusoire sur une créature que vous pouvez voir à portée. Faites une attaque de sort à distance. Si elle est touchée, elle subit {@damage 1d8} de dégâts psychiques. Le nombre de fléchettes que vous pouvez lancer avec ce sort augmente lorsque vous atteignez le 5e niveau (2 fléchettes), le 11e (3 fléchettes) et le 17e niveau (4 fléchettes). Vous pouvez diriger les fléchettes vers la même cible ou vers des cibles différentes. Faites un jet d'attaque séparé pour chaque fléchette."
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"spellAttack": [
+				"R"
+			],
+			"miscTags": [
+				"SGT"
+			],
+			"areaTags": [
+				"MT"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusionary Fireball",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 3,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "something that looks like bat guano"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Un trait lumineux jaillit de votre doigt pointé vers un point de votre choix à portée, puis se transforme en une explosion de flammes illusoire avec un faible rugissement. Chaque créature de votre choix dans une sphère de 20 pieds de rayon centrée sur ce point doit effectuer un jet de sauvegarde de Sagesse. En cas d'échec, la cible subit {@damage 6d6} de dégâts psychiques. Une créature qui réussit son jet de sauvegarde réalise que le feu est illusoire et ne subit aucun dégât.",
+				"Vous pouvez faire de l'effet illusoire une explosion de glace, d'éclairs ou d'énergie de force pure.",
+				{
+					"type": "inset",
+					"name": "Targets of your choice",
+					"entries": [
+						"Contrairement à une boule de feu réelle, la version illusoire ne touche que les cibles de votre choix, ce qui permet de l'utiliser en toute sécurité entre alliés, bien qu'elle inflige moins de dégâts et n'en inflige aucun en cas de sauvegarde réussie (car la cible se rend compte de sa nature illusoire)."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 4e niveau ou plus, les dégâts augmentent de 1d6 pour chaque niveau d'emplacement supérieur au 3e."
+					]
+				}
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusory Pit",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Vous créez une fosse illusoire de 5 pieds de rayon à un point que vous pouvez voir sur le sol. Les créatures situées dans le rayon lorsque le sort est lancé doivent effectuer un jet de sauvegarde de Sagesse. Une créature qui échoue à son jet de sauvegarde croit être tombée dans la fosse, et tombe de {@condition prone}, ne peut pas se relever, et se trouve à {@condition blinded} au-delà de 1,5 m de la fosse illusoire. Une créature peut dépenser son action pour tenter de sortir de la fosse, en répétant son jet de sauvegarde de Sagesse. En cas de succès, elle dépense tout son mouvement pour se relever et réalise que la fosse est une illusion, ce qui met fin au sort pour elle. En cas d'échec, elle ne peut pas sortir de la fosse et continue de croire qu'elle est coincée dans une fosse. Une créature peut se déplacer dans les espaces couverts par la fosse pendant qu'elle est sous l'effet.",
+				"Les créatures ayant une vitesse de vol ne sont pas affectées. Chaque fois qu'une créature sous l'effet subit des dégâts, la cible peut effectuer un autre jet de sauvegarde de Sagesse."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 2ème niveau ou plus, le rayon de la fosse augmente de 5 pieds pour chaque niveau supérieur au 1er, jusqu'à un maximum de 20 pieds de rayon avec un emplacement de sort de 4ème niveau."
+					]
+				}
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Karmic Reflection",
+			"source": "KibblesTasty:CC",
+			"page": 29,
+			"level": 1,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a broken shard of a mirror"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Vous placez une liaison sur une créature que vous pouvez voir à portée. Jusqu'au début de votre prochain tour, chaque fois que cette créature inflige des dégâts avec son action, son action bonus ou sa réaction, elle subit des dégâts radiants égaux aux dégâts infligés. La cible est consciente de l'effet de ce sort tant qu'elle est affectée. Après avoir réfléchi 10 points de dégâts, le sort prend fin."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 2e niveau ou plus, les dégâts maximums augmentent de 10 pour chaque niveau d'emplacement de sort supérieur au 2e."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Killing Curse",
 			"source": "KibblesTasty:CC",
 			"page": 24,
@@ -2976,7 +4035,16 @@
 			"entries": [
 				"Vous maudissez une cible pour qu'elle meure. Les points de vie actuels et maximums de la cible sont réduits de {@dice 3d10 + 10}. Si cela amène une créature à avoir zéro point de vie, elle meurt.",
 				"Pendant la durée du sort, la cible ne peut pas regagner de points de vie, à moins qu'elle ne bénéficie d'un sort lancé à l'aide d'un emplacement de sort de niveau supérieur à celui avec lequel ce sort a été lancé, et tout jet de sauvegarde contre la mort qu'elle effectue est automatiquement considéré comme un 1.",
-				"Au début du tour d'une créature alors qu'elle est sous l'effet de ce sort, elle effectue un jet de sauvegarde de Charisme. En cas d'échec, ses points de vie actuels et maximums sont réduits de {@dice 1d10 + 10}. Si le jet de sauvegarde est réussi, le sort prend fin. Les points de vie maximum d'une créature sont restaurés lorsqu'elle prend un long repos."
+				"Au début du tour d'une créature alors qu'elle est sous l'effet de ce sort, elle effectue un jet de sauvegarde de Charisme. En cas d'échec, ses points de vie actuels et maximums sont réduits de {@dice 1d10 + 10}. Si le jet de sauvegarde est réussi, le sort prend fin. Les points de vie maximum d'une créature sont restaurés lorsqu'elle prend un long repos.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tous les sorts de malédiction nécessitent \"quelque chose de la créature cible (comme du sang, des cheveux ou des écailles) que le sort consomme\" comme composant matériel. Cela peut être satisfait soit en ayant cette matière, soit en étant à portée de toucher la créature pendant que vous lancez le sort."
+					]
+				}
 			],
 			"savingThrow": [
 				"charisma"
@@ -3386,6 +4454,73 @@
 			}
 		},
 		{
+			"name": "Melting Glob",
+			"source": "KibblesTasty:CC",
+			"page": 32,
+			"level": 1,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Vous lancez une boule d'acide sur une créature à portée, en faisant une attaque de sort à distance. Si elle est touchée, la créature subit {@damage 4d4} de dégâts d'acide, et commence à être fondue par l'acide. Pendant 1 minute, à la fin de chacun de ses tours, elle subit {@damage 1d4} de dégâts d'acide. Une créature peut mettre fin à l'effet plus tôt en utilisant son action pour évacuer l'acide."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 2e niveau ou plus, les dégâts initiaux augmentent de 2d4 pour chaque niveau d'emplacement supérieur au 1er."
+					]
+				}
+			],
+			"spellAttack": [
+				"R"
+			],
+			"damageInflict": [
+				"acid"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Mutate",
 			"source": "KibblesTasty:CC",
 			"page": 26,
@@ -3461,6 +4596,235 @@
 					},
 					{
 						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Platinum Lances",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 6,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 150
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous conjurez quatre lances géantes d'énergie rayonnante qui dégringolent vers quatre points différents que vous pouvez voir. Chaque créature dans un cylindre de 10 pieds de rayon et de 100 pieds de haut centré sur chaque point doit effectuer un jet de sauvegarde de Dextérité.",
+				"En cas d'échec, la créature subit {@damage 8d8} de dégâts radiants et est assommée {@condition prone}. En cas de sauvegarde réussie, elle subit deux fois moins de dégâts et n'est pas assommée.",
+				"Une créature dans la zone de plus d'une lance n'est affectée qu'une seule fois."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 7e niveau ou plus, les dégâts augmentent de 1d8 pour chaque niveau d'emplacement supérieur au 6e."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Prismatic Flash",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 15
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a prism"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Un vif arc-en-ciel de lumières prismatiques jaillit de votre main. Chaque créature dans un cône de 15 pieds doit effectuer un jet de sauvegarde de Constitution. En cas d'échec, les créatures sont {@condition blinded} et étourdies jusqu'à la fin de votre prochain tour. Tant qu'elles sont ainsi étourdies, elles sont incapables d'effectuer des réactions et leur vitesse de déplacement est réduite de moitié. Si une créature échoue par 10 ou plus, elle est en plus {@condition stunned} pour la durée. En cas de sauvegarde réussie, une créature n'est pas aveuglée mais est momentanément désorientée par l'éclair brillant et a un désavantage aux jets d'attaque jusqu'à la fin de votre tour.",
+				"Les créatures qui sont déjà aveuglées ou qui ne peuvent pas vous voir ne sont pas affectées car elles ne voient pas l'éclatement."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 2e niveau ou plus, la taille du cône s'étend de 5 pieds supplémentaires."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quick Sand",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a pinch of sand"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Vous faites en sorte que le sol dans un rayon de 20 pieds centré sur un point que vous pouvez voir se transforme en sables mouvants pour la durée du sort. Une créature se déplaçant à travers ou hors de la zone doit dépenser 4 pieds de mouvement pour chaque 1 pied qu'elle déplace. Une créature qui termine son tour doit effectuer un jet de sauvegarde de Force. En cas d'échec, elle tombe {@condition prone}."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quicksilver Steps",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Pendant la durée du sort, vos mouvements ne provoquent pas d'attaques d'opportunité, et vous pouvez vous déplacer de 3 mètres à chaque fois qu'une autre créature que vous pouvez voir ou entendre termine son tour (aucune action requise), jusqu'à 4 fois, en récupérant toutes les utilisations au début de votre tour. La première attaque contre vous après chaque déplacement a un désavantage."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 5e niveau ou plus, le nombre de fois où vous pouvez vous déplacer à la fin du tour d'une autre créature augmente de 1, égal au niveau de l'emplacement de sort utilisé."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
 						"source": "PHB"
 					},
 					{
@@ -3576,7 +4940,7 @@
 			]
 		},
 		{
-			"name": "Revised Dust Devil",
+			"name": "Dust Cyclone",
 			"source": "KibblesTasty:CC",
 			"page": 28,
 			"level": 2,
@@ -3648,6 +5012,55 @@
 			}
 		},
 		{
+			"name": "Rock Slam",
+			"source": "KibblesTasty:CC",
+			"page": 35,
+			"level": 0,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous lancez un rocher sur une créature que vous pouvez voir à portée. Faites une attaque de sort à distance. En cas de succès, la cible subit {@damage 1d10} de dégâts de matraquage. En cas de coup critique, la cible est renversée de {@damage prone} ou de 10 pieds en arrière (à votre choix).",
+				"Les dégâts du sort augmentent de 1d10 lorsque vous atteignez le 5e niveau (2d10), le 11e niveau (3d10) et le 17e niveau (4d10)."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Rotting Curse",
 			"source": "KibblesTasty:CC",
 			"page": 28,
@@ -3686,7 +5099,16 @@
 			],
 			"entries": [
 				"Vous infligez un pourrissement à une créature, ce qui fait qu'elle commence à pourrir. Pendant la durée du sort, chaque fois que la créature subit des dégâts, elle subit un {@damage 1d4} supplémentaire de dégâts nécrotiques, et l'effet de tous les soins sur la créature est réduit de moitié.",
-				"La créature cible a un désavantage sur tous les tests de Charisme pour l'interaction sociale pendant l'effet du sort."
+				"La créature cible a un désavantage sur tous les tests de Charisme pour l'interaction sociale pendant l'effet du sort.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tous les sorts de malédiction nécessitent \"quelque chose de la créature cible (comme du sang, des cheveux ou des écailles) que le sort consomme\" comme composant matériel. Cela peut être satisfait soit en ayant cette matière, soit en étant à portée de toucher la créature pendant que vous lancez le sort."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -3746,6 +5168,63 @@
 				"fromClassList": [
 					{
 						"name": "Ranger",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Seismic Wave",
+			"source": "KibblesTasty:CC",
+			"page": 36,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous libérez une onde sismique, frappant le sol devant vous et faisant exploser violemment la terre dans un cône de 10 mètres devant vous. Les créatures qui touchent le sol dans cette zone doivent effectuer un jet de sauvegarde de Force. En cas d'échec, elles subissent {@damage 4d10} de dégâts de matraquage et tombent {condition prone}. En cas de réussite, elles subissent deux fois moins de dégâts et ne tombent pas sur le sol. Les objets et structures de grande taille ou plus grands situés dans la zone d'effet échouent automatiquement au jet de sauvegarde et subissent des dégâts doubles. Le sol devient un terrain difficile jusqu'à ce qu'il soit dégagé. Chaque portion de 5 pieds carrés de la zone nécessite au moins 1 minute pour être dégagée à la main."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 3e niveau ou plus, les dégâts augmentent de 1d10 pour chaque niveau d'emplacement supérieur au 2e."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
 						"source": "PHB"
 					}
 				]
@@ -3818,6 +5297,69 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Stone Coffin",
+			"source": "KibblesTasty:CC",
+			"page": 38,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Vous provoquez un déferlement de pierre pour tenter d'engloutir dans la pierre une créature de grande taille ou plus petite. La cible doit effectuer un jet de sauvegarde de Dextérité. En cas d'échec, elle devient {@condition restrained} et {@condition blinded} dans le cercueil de pierre. Une créature peut choisir d'échouer son jet de sauvegarde. Lorsqu'ils sont piégés dans le cercueil, ils bénéficient d'une couverture totale contre toutes les sources. Le cercueil a une CA de 15 et 50 points de vie, et une résistance à tous les dégâts, à l'exception des dégâts de matraquage et de tonnerre. Lorsque le sort prend fin ou que le cercueil est réduit à 0 point de vie, il se désagrège en fragments et la créature qui s'y trouve n'est plus retenue ni aveuglée.",
+				"Pendant la durée du sort, vous pouvez utiliser votre action bonus pour tenter d'écraser une créature enfermée dans le cercueil, lui infligeant {@damage 1d10} de dégâts de matraquage."
+			],
+			"entriesHigherLevel": [
+				{
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 5e niveau ou plus, le cercueil de pierre gagne 10 points de vie supplémentaires pour chaque niveau supérieur au 5e."
+					],
+					"type": "entries"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					}
 				]
@@ -4471,7 +6013,16 @@
 			"entries": [
 				"Vous lancez une malédiction visant deux individus. Les deux cibles doivent effectuer un jet de sauvegarde de Charisme (qu'elles peuvent choisir d'échouer). Si les deux cibles échouent à leur jet de sauvegarde, leurs âmes sont échangées pour la durée du sort. Une âme contrôle le corps qu'elle habite. Elle gagne n'importe quel score de capacité ou d'action que le corps possédait (à l'exception des actions légendaires ou de la résistance légendaire), mais conserve son propre pouvoir de lancer des sorts (si elle possède le pouvoir de lancer des sorts, inné ou non), et a un désavantage sur tous les jets d'attaque et les jets de sauvegarde de force, dextérité et constitution pendant {@dice 1d4} tours après avoir échangé les corps.",
 				"À la fin du tour d'une créature échangée, elle peut choisir de répéter le jet de sauvegarde, mettant fin à l'effet en cas de sauvegarde réussie. Si son CR (ou son niveau de personnage si elle n'a pas de CR) est supérieur au corps de la créature qu'elle représente, elle a l'avantage sur le jet de sauvegarde.",
-				"Si une créature meurt alors que son âme est échangée, les âmes retournent dans leur corps d'origine. Si une âme se trouvait dans une créature mourante qui retourne dans un corps vivant, cette créature subit {@damage 5d10} de dégâts nécrotiques."
+				"Si une créature meurt alors que son âme est échangée, les âmes retournent dans leur corps d'origine. Si une âme se trouvait dans une créature mourante qui retourne dans un corps vivant, cette créature subit {@damage 5d10} de dégâts nécrotiques.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tous les sorts de malédiction nécessitent \"quelque chose de la créature cible (comme du sang, des cheveux ou des écailles) que le sort consomme\" comme composant matériel. Cela peut être satisfait soit en ayant cette matière, soit en étant à portée de toucher la créature pendant que vous lancez le sort."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -4681,6 +6232,67 @@
 			]
 		},
 		{
+			"name": "Unholy Wave",
+			"source": "KibblesTasty:CC",
+			"page": 46,
+			"level": 2,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Une vague d'énergie nécrotique déferle de votre main tendue en un cône de 30 pieds. Les créatures dans la zone doivent effectuer un jet de sauvegarde de Constitution, ou être brûlées par le feu impie. En cas d'échec au jet de sauvegarde, elles subissent {@damage 4d6} de dégâts nécrotiques et sont enveloppées d'un feu impie dévorant pour la durée du sort. Une fois par tour, s'ils sont touchés par une attaque alors qu'ils sont enveloppés de feu impie, leurs blessures sont consumées par les flammes, et ils subissent {@damage 1d6} de dégâts nécrotiques supplémentaires. En cas de sauvegarde réussie, ils subissent deux fois moins de dégâts et ne sont pas enveloppés de feu radieux."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Lorsque vous lancez ce sort en utilisant un emplacement de sort de 3e niveau ou plus, les dégâts augmentent de {@damage 1d6} pour chaque niveau d'emplacement supérieur au 2e."
+					]
+				}
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Vacuum Pull",
 			"source": "KibblesTasty:CC",
 			"page": 37,
@@ -4736,15 +6348,67 @@
 						"source": "PHB"
 					},
 					{
-						"name": "Occultist",
-						"source": "KT:O"
-					},
-					{
 						"name": "Ranger",
 						"source": "PHB"
 					},
 					{
 						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Volcanic Burst",
+			"source": "KibblesTasty:CC",
+			"page": 47,
+			"level": 6,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a piece of obsidian"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Vous appelez les forces ardentes du sous-sol pour qu'elles surgissent violemment, faisant fondre les roches sous un point et les transformant en magma. Le sol dans un rayon de 3 mètres explose en une pluie de feu et de magma, qui s'abat dans un rayon de 6 mètres. Les créatures situées dans la zone doivent effectuer un jet de sauvegarde de Dextérité. En cas d'échec, elles subissent {@damage 4d10} de dégâts de matraquage et {@damage 4d6} de dégâts de feu. Si une créature se trouve dans le rayon intérieur de 3 mètres, elle est en outre projetée à 3 mètres dans les airs, subissant {@damage 1d6} de dégâts de matraquage et subissant une chute de {@condition prone} lorsqu'elle atterrit. En cas de sauvegarde réussie, la créature subit la moitié des dégâts et ne subit aucun effet supplémentaire.",
+				"Le rayon central de 3 mètres devient un terrain difficile jusqu'à ce qu'il soit dégagé. Chaque portion de 5 pieds carrés de la zone nécessite au moins 1 minute pour être dégagée à la main."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					},
 					{
@@ -5134,10 +6798,6 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
-					},
-					{
-						"name": "Occultist",
-						"source": "KT:O"
 					}
 				]
 			}
@@ -5354,6 +7014,10 @@
 			],
 			"classes": {
 				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
 					{
 						"name": "Wizard",
 						"source": "PHB"
@@ -8146,7 +9810,7 @@
 				"type": "cone",
 				"distance": {
 					"type": "feet",
-					"amount": 15
+					"amount": 20
 				}
 			},
 			"components": {
@@ -8604,7 +10268,7 @@
 				"type": "line",
 				"distance": {
 					"type": "feet",
-					"amount": 30
+					"amount": 40
 				}
 			},
 			"components": {
