@@ -40,13 +40,13 @@
 					"SasquatchBrah",
 					"cellescent"
 				],
-				"version": "1.4",
-				"url": "https://www.patreon.com/posts/kibbles-casting-50137612"
+				"version": "1.6.2",
+				"url": "https://www.gmbinder.com/share/-MNCb8aGYVO_NBsP3v2Q"
 			}
 		],
 		"dateAdded": 1622581997,
-		"dateLastModified": 1668987711,
-		"_dateLastModifiedHash": "a1335f1e17"
+		"dateLastModified": 1669155610,
+		"_dateLastModifiedHash": "212d3049b8"
 	},
 	"spell": [
 		{
@@ -364,15 +364,15 @@
 			}
 		},
 		{
-			"name": "Animate Object",
+			"name": "Dancing Objects (Animate Object)",
 			"source": "KibblesTasty:CC",
-			"page": 9,
+			"page": 10,
 			"level": 2,
 			"school": "T",
 			"time": [
 				{
 					"number": 1,
-					"unit": "bonus"
+					"unit": "action"
 				}
 			],
 			"range": {
@@ -414,6 +414,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			},
@@ -622,6 +626,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			}
@@ -765,7 +773,16 @@
 			],
 			"entries": [
 				"Du förvirrar en varelses sinne genom att byta ut positionen för två saker som den kan se och som är av samma storlek och kategori (till exempel två medelstora varelser eller två gigantiska byggnader). Målvarelsen måste göra ett räddningskast med visdom. Vid misslyckande är den omedveten om att de två sakerna har bytts ut.",
-				"Varje gång varelsen interagerar med, attackerar eller blir attackerad av ett bytt mål kan den upprepa sitt räddningskast mot effekten."
+				"Varje gång varelsen interagerar med, attackerar eller blir attackerad av ett bytt mål kan den upprepa sitt räddningskast mot effekten.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Alla förbannelseformler kräver \"något från målvarelsen (t.ex. blod, hår eller fjäll) som förtrollningen förbrukar\" som materiell komponent. Detta kan uppfyllas antingen genom att ha detta material, eller genom att vara inom räckvidd för att röra vid varelsen medan man uttalar besvärjelsen."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -818,7 +835,16 @@
 			],
 			"entries": [
 				"Du binder en varelse till en punkt inom 1,5 meter från den, vilket gör att en glödande ljuskedja förbinder den med den punkten. Under trollformelns varaktighet måste varelsen, om den försöker röra sig bort från den punkten, göra ett räddningskast i Visdom, eller vara oförmögen att röra sig mer än 5 fot bort från den punkten fram till början av sin nästa tur.",
-				"Om en varelse börjar sin tur mer än 10 fot från bindningspunkten måste den göra ett räddningskast i styrka eller dras 5 fot mot bindningspunkten."
+				"Om en varelse börjar sin tur mer än 10 fot från bindningspunkten måste den göra ett räddningskast i styrka eller dras 5 fot mot bindningspunkten.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Alla förbannelseformler kräver \"något från målvarelsen (t.ex. blod, hår eller fjäll) som förtrollningen förbrukar\" som materiell komponent. Detta kan uppfyllas antingen genom att ha detta material, eller genom att vara inom räckvidd för att röra vid varelsen medan man uttalar besvärjelsen."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom",
@@ -834,10 +860,71 @@
 			}
 		},
 		{
+			"name": "Blade Mirage",
+			"source": "KibblesTasty:CC",
+			"page": 13,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Du vrider illusioner runt ett närstridsvapen som du håller i handen. När du kastar besvärjelsen, och vid varje efterföljande tur under varaktigheten som en bonushandling, kan du skapa skenande slag med de illusoriska kopiorna av ditt blad, vilket distraherar ditt mål och ger dig fördel vid nästa vapenattack mot det målet innan din tur är slut. Besvärjelsen upphör i förtid om du släpper det vapen som du kastade den på.",
+				"Som en handling kan en varelse som kan se dig göra en intelligenskontroll ({@skill Investigation}) mot ditt räddnings-DC för trollformeln. Om du lyckas får du inte längre fördel av att använda de illusoriska knivarna när du gör en finta mot den varelsen, vilket gör trollformeln impotent mot den varelsen."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Blazing Beacon",
 			"source": "KibblesTasty:CC",
 			"page": 12,
-			"level": 1,
+			"level": 2,
 			"school": "E",
 			"time": [
 				{
@@ -1292,6 +1379,202 @@
 			}
 		},
 		{
+			"name": "Clay Touch",
+			"source": "KibblesTasty:CC",
+			"page": 14,
+			"level": 2,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a small clump of clay"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Du sträcker ut din hand för att försöka röra vid en varelse inom räckhåll. Den måste göra ett räddningskast med Dexterity. Om du misslyckas blir målets rustning (inklusive naturliga eller magiska försvar) mjuk och formbar, även om den behåller sin form, och ger inget skydd mot attacker som reducerar målets AC till 10 + deras dexterity under trollformelns varaktighet.",
+				"Alternativt kan du röra vid ett icke-magiskt föremål som inte varnas eller bärs och som inte är större än 2 fot i någon dimension, vilket reducerar dess AC och alla styrkeprov som krävs för att bryta det till 5 under trollformelns varaktighet.",
+				{
+					"type": "inset",
+					"name": "Part of a larger object?",
+					"entries": [
+						"En GM har stort spelrum när det gäller att avgöra vad som utgör ett objekt, t.ex. om galler i ett fängelse räknas som ett eget objekt eller som en del av dörren. Generellt sett skulle jag vara generös när det gäller detta. Det finns trollformler på lägre nivå som kan få dig att ta dig ut ur en spärrad cell."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Create Pit",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 1,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du väljer en punkt på marken i ett område med jord eller natursten som du kan se. Marken böjer sig och en 5 fot radie, 10 fot djup grop öppnas runt den punkten. Om ytan inte är tillräckligt stor för att innehålla gropen misslyckas besvärjelsen. Varelser i området måste göra ett Dexterity räddningskast. Om de lyckas kan de förflytta sig 5 fot utanför trollformelns radie. Varelser som misslyckas med sitt räddningskast faller till botten av biten (tar {@damage 1d6} slagskada och faller {@condition prone}). Siderna på gropen är grova och kan klättras. Gropen finns kvar tills den är fylld. Om en varelse räddar, men inte kan röra sig 5 fot, faller de på rygg, hängande från gropens kant, och kan inte stå upp förrän de rör sig ut ur gropens område eller faller in i det.",
+				{
+					"type": "inset",
+					"name": "Limitations",
+					"entries": [
+						"Besvärjelsen misslyckas om gropen skulle bryta en annan öppning (t.ex. ett rum eller en grotta nedanför) eftersom det skulle vara att misslyckas med att hålla gropen. Spelföraren har stor frihet när det gäller vilka ytor som är kvalificerade för denna besvärjelse."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med hjälp av en spelledningsmodul på 2:a nivån eller högre blir gropen 5 fot djupare för varje modulnivå över 1:a nivån (till ett maximalt djup på 20 fot)."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Crescent Wind Slash",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 3,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du gör en serie av tre hugg, var och en av dem släpper magiskt ut en knivskarp vindstöt mot ett mål inom räckhåll. Du kan avfyra dem mot ett mål eller flera.",
+				"Gör en vapenattack med det vapen som användes vid utövandet av denna besvärjelse för varje slag. Vid träff tar målet {@damage 1d6} + din vapenattackmodifierare."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med hjälp av en spelledare på 3:e nivå eller högre kan du skapa ytterligare ett snedstreck för varje spelledarnivå över 2:a nivån."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Crippling Agony",
 			"source": "KibblesTasty:CC",
 			"page": 14,
@@ -1393,7 +1676,16 @@
 					]
 				},
 				"Varje gång efter den första du använder en handling för att manipulera dockan, efter att effekten har inträffat, kan varelsen upprepa Charisma med nackdel, vilket avslutar effekten vid ett lyckat räddningsförsök.",
-				"När en varelse har blivit måltavla för den här besvärjelsen kan den inte bli måltavla igen på 24 timmar."
+				"När en varelse har blivit måltavla för den här besvärjelsen kan den inte bli måltavla igen på 24 timmar.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Alla förbannelseformler kräver \"något från målvarelsen (t.ex. blod, hår eller fjäll) som förtrollningen förbrukar\" som materiell komponent. Detta kan uppfyllas antingen genom att ha detta material, eller genom att vara inom räckvidd för att röra vid varelsen medan man uttalar besvärjelsen."
+					]
+				}
 			],
 			"entriesHigherLevel": [
 				{
@@ -1504,7 +1796,16 @@
 				}
 			],
 			"entries": [
-				"Du förbannar en målvarelse och orsakar en överväldigande känsla av maktlöshet. Varje gång målvarelsen försöker attackera, kasta en besvärjelse som ger skada eller använda en handling som ger skada måste den göra ett räddningskast med Visdom. Vid framgång får den utföra sin handling som normalt. Vid misslyckande fullföljer den sin handling, men dess handling orsakar ingen skada på något mål."
+				"Du förbannar en målvarelse och orsakar en överväldigande känsla av maktlöshet. Varje gång målvarelsen försöker attackera, kasta en besvärjelse som ger skada eller använda en handling som ger skada måste den göra ett räddningskast med Visdom. Vid framgång får den utföra sin handling som normalt. Vid misslyckande fullföljer den sin handling, men dess handling orsakar ingen skada på något mål.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Alla förbannelseformler kräver \"något från målvarelsen (t.ex. blod, hår eller fjäll) som förtrollningen förbrukar\" som materiell komponent. Detta kan uppfyllas antingen genom att ha detta material, eller genom att vara inom räckvidd för att röra vid varelsen medan man uttalar besvärjelsen."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -1624,6 +1925,71 @@
 			"savingThrow": [
 				"constitution"
 			]
+		},
+		{
+			"name": "Devour Shadow",
+			"source": "KibblesTasty:CC",
+			"page": 17,
+			"level": 4,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Din skugga förlängs plötsligt till en fruktansvärd, slukande styggelse och försöker äta upp skuggan på en måltavla inom räckhåll. Målet måste göra ett räddningskast med Charisma. Vid misslyckande slukas målvarelsens skugga och de tar {@damage 6d6} nekrotisk skada och är magiskt försvagade, vilket drar av {@dice 1d4} från attackkast, räddningskast och förmågekontroller under trollformelns varaktighet, medan du kan lägga till {@dice 1d4} till dina attackkast, räddningskast och förmågekontroller under trollformelns varaktighet. Vid framgång tas ett stort bett från skuggan, och de tar hälften så mycket skada och försvagas inte.",
+				"Om varken du eller målet har någon skugga misslyckas förtrollningen. Om deras skugga förbrukas har de ingen skugga tills förtrollningen upphör."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 5:e nivå eller högre kan du rikta en ytterligare varelse för varje spell slot-nivå över 4:e. Bonusen du får genom att konsumera skuggor ökar inte utöver 1d4, även om du konsumerar flera skuggor."
+					]
+				}
+			],
+			"damageInflict": [
+				"necrotic"
+			],
+			"savingThrow": [
+				"charisma"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
 		},
 		{
 			"name": "Devouring Darkness",
@@ -1886,6 +2252,72 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Divine Judgement",
+			"source": "KibblesTasty:CC",
+			"page": 18,
+			"level": 2,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Ett strålande svärd av strålande energi bildas ovanför målpunkten innan det slår ner i en explosion av gudomlig kraft. Varelser i en 10-fots radie, 30-fots hög cylinder centrerad på målpunkten måste göra ett räddningskast i Dexterity. Vid misslyckande tar en varelse {@damage 2d8} strålningsskada, och {@damage 2d8} ytterligare strålningsskada om det är en odöd eller djävul. Vid ett lyckat räddningsförsök tar målet hälften så mycket skada.",
+				{
+					"type": "inset",
+					"name": "Alignment Powers",
+					"entries": [
+						"Om din spelförvaltare använder alignment för varelser kan han eller hon välja att reglera att bonusskadan gäller alla typer av varelser så länge varelsen är av motsatt moralisk alignment som kastaren har (ond till god eller god till ond).Eftersom inte alla miljöer använder strikt alignment är detta en variantregel som spelförvaltaren kan välja."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 3:e nivå eller högre ökar grundskadan med {@damage 1d8} för varje slotnivå över 2:a nivån."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"savingThrow": [
+				"dexterity"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
 						"source": "PHB"
 					}
 				]
@@ -2575,6 +3007,154 @@
 			}
 		},
 		{
+			"name": "Hellfire Pit",
+			"source": "KibblesTasty:CC",
+			"page": 24,
+			"level": 7,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Du öppnar en grop till helvetet under fötterna på dina fiender. Ett övernaturligt tomrum öppnas i en 10-fots radie, 10-fots djup grop öppnas runt en punkt som du kan se inom räckhåll.",
+				"Varelser i området måste göra ett räddningsprov med Dexterity. Om de lyckas kan de förflytta sig 5 fot utanför trollformelns radie. Om de inte kan förflytta sig 5 fot utanför trollformelns radie (t.ex. eftersom de inte har någon väg eller otillräcklig rörelsehastighet) misslyckas de automatiskt med räddningskastet. Varelser som misslyckas med sitt räddningskast faller till botten av biten (tar {@damage 1d6} blåslagningsskada och faller {@condition prone}). Golvet i gropen är ett flammande inferno av helvete. Varelser som börjar sin tur i gropen tar {@damage 4d6} brandskada och {@damage 4d6} nekrotisk skada.",
+				"Det är svårt att fly från gropen, som med starka vindar, brinnande eldar och infernaliska kedjor drar till sig de varelser som fångats i helvetets djup. En varelse kan röra sig 20 fot (eller 10 om de har en flyg- eller klättringshastighet) för att försöka fly från gropen, genom att göra ett räddningskast i styrka mot din trollformels räddnings-DC. Om de lyckas, flyr de. Vid misslyckande faller de tillbaka till golvet i gropen och deras rörelsehastighet blir noll fram till början av deras nästa tur.",
+				"När förtrollningen upphör stängs det övernaturliga tomrummet till helvetet, och alla varelser i gropen hamnar på marken där gropen öppnades {@condition prone}.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"På din GM:s begäran kan varelser som reducerats till noll träffpoäng av Hellfire Pit eller Infernal Shackles dö och få sin själ fångad i helvetets plan. Rådgör med din GM om de potentiella kosmologiska och moraliska bieffekterna av att använda trollformler som drivs av infernalisk energi av fördömelse."
+					]
+				}
+			],
+			"damageInflict": [
+				"bludgeoning",
+				"fire",
+				"necrotic"
+			],
+			"savingThrow": [
+				"dexterity",
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Hungering Void",
+			"source": "KibblesTasty:CC",
+			"page": 25,
+			"level": 3,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Du skapar en punkt av rent tomrum som sväljer en rymdsfär med en radie på 6 meter och fördjupar den i magiskt mörker och bildar ett livslukande fruset tomrum. En varelse med {@sense darkvision} kan inte se genom detta mörker, och icke-magiskt ljus kan inte belysa det om det inte kommer från en besvärjelse av högre nivå än denna.",
+				"En varelse som börjar sin tur i tomrummet måste göra ett räddningskast för konstitutionen. Vid ett misslyckande tar de {@damage 2d6} kallskada och {@damage 2d6} nekrotisk skada, och deras hastighet minskas med 5 fot. Minskningen av deras hastighet varar tills de börjar inte inom tomrummets område, och kan staplas med sig själv, upp till en maximal effekt av att minska en varelses hastighet till 5 fot. Vid en framgång tar de hälften så mycket skada och deras hastighet minskas inte.",
+				{
+					"type": "inset",
+					"name": "A Note",
+					"entries": [
+						"Om detta verkar bekant med andra trollformler som skapar ett tomrum av hungrigt mörker, vill jag påpeka att andra trollformler av det slaget inte finns i SRD och inte är tillgängliga för OGL-produkter och VTT:er.",
+						"Besvärjelser som skapats för att ersätta andra besvärjelser kommer inte längre att spegla alternativa besvärjelser lika noga, eftersom det skapar mer förvirring än det löser, och det finns en möjlighet att förbättra och effektivisera tillgängliga besvärjelser."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med hjälp av en spelledare på 5:e nivån eller högre ökar den nekrotiska och kalla skadan till 1d6, och hastighetsminskningen ökar till 10 fot vid en misslyckad räddning (med samma minsta hastighetsbegränsning)."
+					]
+				}
+			],
+			"damageInflict": [
+				"cold",
+				"necrotic"
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Ice Weapon",
 			"source": "KibblesTasty:CC",
 			"page": 22,
@@ -2879,6 +3459,222 @@
 			}
 		},
 		{
+			"name": "Infernal Shackles",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a link from a chain burned in a fire that killed at least one creature"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Kedjor av brinnande svart järn spränger ur marken och försöker binda en varelse som du kan se inom räckhåll. Målvarelsen måste göra ett räddningskast för styrka. Vid misslyckande tar den {@damage 3d6} brandskada och dess rörelsehastighet reduceras till noll under trollformelns varaktighet. Vid framgång tar den hälften så mycket skada och är inte bunden.",
+				"I slutet av varje tur upprepar målet sitt räddningskast. Vid ett lyckat resultat bryts kedjorna och förtrollningen upphör för det målet. Vid ett misslyckande förblir den bunden och tar ytterligare {@damage 2d6} brandskada när den skållas av kedjorna.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"På din GM:s begäran kan varelser som reducerats till noll träffpoäng av Hellfire Pit eller Infernal Shackles dö och få sin själ fångad i helvetets plan. Rådgör med din GM om de potentiella kosmologiska och moraliska bieffekterna av att använda trollformler som drivs av infernalisk energi av fördömelse."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 3:e nivå eller högre kan du rikta ytterligare en varelse för varje spell slot-nivå över 2:a nivån."
+					]
+				}
+			],
+			"damageInflict": [
+				"fire"
+			],
+			"savingThrow": [
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Instant Counter",
+			"source": "KibblesTasty:CC",
+			"page": 23,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "reaction",
+					"condition": "which you take in response to being damaged by a creature within 30 feet of you that you can see"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du försvinner och teleporterar dig till ett tomt utrymme inom 1,5 meter från den varelse som skadade dig, och gör omedelbart en vapenattack mot dem med det vapen som användes när trollformeln uttalades.",
+				{
+					"type": "inset",
+					"name": "Damage Order",
+					"entries": [
+						"Detta förhindrar inte skada från den utlösande attacken, eftersom den utlösande attacken tar skada och det ändrar inte utfallet av den utlösande attacken."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 3:e nivå eller högre, ger du {@damage 1d8} bonus kraftskada på träffen för varje slot-nivå över 2:a."
+					]
+				}
+			],
+			"miscTags": [
+				"SGT",
+				"TP"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Iron Garden",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "radius",
+				"distance": {
+					"type": "feet",
+					"amount": 20
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Järnpiggar sticker upp från marken i alla riktningar runt omkring dig och spetsar varelser inom sex meter från dig. Varelser i målområdet måste lyckas med ett räddningskast i Dexterity, eller ta 6d8 stickande skada, och deras rörelsehastighet sjunker till noll fram till slutet av deras nästa tur. Vid ett lyckat försök tar de hälften så mycket skada, och deras rörelsehastighet reduceras inte till noll.",
+				"Fram till början av din nästa vändning, när en varelse rör sig in i eller inom området, tar den 1d8 stickande skada för varje 5 fot den rör sig. I början av din nästa vändning rostar taggarna bort till stoft."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När den kastas med en trollformel på 5:e nivå eller högre ökar skadan med 1d10 för varje nivå över 4:e nivån på trollformelplatsen."
+					]
+				}
+			],
+			"miscTags": [
+				"SCL"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Iron Wind Strike",
 			"source": "KibblesTasty:CC",
 			"page": 23,
@@ -2937,6 +3733,269 @@
 			}
 		},
 		{
+			"name": "Illusionary Dart",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 0,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du skapar och kastar en illusorisk pil mot en varelse som du kan se inom räckhåll. Gör en trollformelattack på distans. Vid träff tar de {@damage 1d8} psykisk skada. Antalet pilar du kan kasta med den här besvärjelsen ökar när du når 5:e nivån (2 pilar), 11:e (3 pilar) och 17:e nivån (4 pilar). Du kan rikta pilen mot samma mål eller mot olika mål. Gör en separat anfallsroll för varje pil."
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"spellAttack": [
+				"R"
+			],
+			"miscTags": [
+				"SGT"
+			],
+			"areaTags": [
+				"MT"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusionary Fireball",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 3,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "something that looks like bat guano"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"En ljusa strimma blinkar från ditt pekfinger till en punkt som du väljer inom räckhåll och blommar sedan med ett lågt vrål till en illusionistisk explosion av flammor. Varje varelse som du väljer inom en sfär med en radie på 20 fot centrerad på den punkten måste göra ett räddningskast med visdom. Ett mål tar {@damage 6d6} psykisk skada vid ett misslyckat räddningsförsök. En varelse som klarar sitt räddningsförsök inser att elden är illusorisk och tar ingen skada.",
+				"Du kan göra den illusoriska effekten till en explosion av is, blixtar eller ren kraftenergi.",
+				{
+					"type": "inset",
+					"name": "Targets of your choice",
+					"entries": [
+						"Till skillnad från ett eldklot med verklig eld träffar den illusoriska versionen bara mål som du väljer, vilket gör det säkert att använda den bland allierade, även om den orsakar mindre skada och inte gör någon skada vid ett godkänt räddningspass (eftersom målet inser dess illusoriska natur)."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 4:e nivå eller högre ökar skadan med 1d6 för varje slotnivå över 3:e."
+					]
+				}
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusory Pit",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Du skapar en illusorisk grop med en radie på 5 fot vid en punkt som du kan se på marken. Varelser inom radien när besvärjelsen kastas måste göra ett räddningskast i visdom. En varelse som misslyckas med sitt räddningskast tror att de har fallit ner i gropen och faller {@condition prone}, kan inte resa sig upp och är {@condition blinded} bortom 5 fot från den illusoriska gropen. En varelse kan spendera sin handling för att försöka klättra upp ur gropen och upprepa sitt räddningskast i visdom. Om den lyckas spenderar den hela sin rörelse för att resa sig upp och inser att gropen är en illusion, vilket avslutar förtrollningen för dem. Vid misslyckande kan den inte ta sig upp ur gropen och fortsätter att tro att den sitter fast i en grop. En varelse kan röra sig inom de utrymmen som täcks av gropen medan den är under effekten.",
+				"Varelser med flygande hastighet påverkas inte. Varje gång en varelse under effekten tar skada kan målet göra ett nytt räddningskast för visdom."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du uttalar trollformeln med en trollformel på 2:a nivån eller högre ökar gropens radie med 5 fot för varje nivå över 1:a nivån, till en maximal radie på 20 fot med en trollformel på 4:e nivån."
+					]
+				}
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Karmic Reflection",
+			"source": "KibblesTasty:CC",
+			"page": 29,
+			"level": 1,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a broken shard of a mirror"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Du lägger en bindning på en varelse som du kan se inom räckhåll. Fram till början av din nästa tur, varje gång den varelsen orsakar skada med sin handling, bonushandling eller reaktion, tar den strålningsskada som är lika stor som skadan. Målet är medvetet om effekten av denna besvärjelse medan det påverkas. Efter att ha reflekterat 10 skador upphör förtrollningen."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 2:a nivån eller högre, ökar den maximala skadan med 10 för varje spell slot-nivå över 2:a nivån."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Killing Curse",
 			"source": "KibblesTasty:CC",
 			"page": 24,
@@ -2976,7 +4035,16 @@
 			"entries": [
 				"Du förbannar ett mål att dö. Målets nuvarande och maximala träffpunkter minskas med {@dice 3d10 + 10}. Om detta leder till att en varelse har noll träffpunkter dör den.",
 				"Under trollformelns varaktighet kan målet inte återfå träffpunkter om det inte är genom en trollformel som kastats med en högre nivå än den trollformel som den här förbannelsen kastades med, och alla räddningskast som de kastar för att rädda döden betraktas automatiskt som en 1.",
-				"I början av en varelses tur medan den är under effekt av denna besvärjelse gör den ett räddningskast med Charisma. Vid misslyckande minskas deras nuvarande och maximala träffpunkter med {@dice 1d10 + 10}. Vid ett lyckat räddningsförsök upphör förtrollningen. En varelses maximala träffpunkter återställs när den tar en lång vila."
+				"I början av en varelses tur medan den är under effekt av denna besvärjelse gör den ett räddningskast med Charisma. Vid misslyckande minskas deras nuvarande och maximala träffpunkter med {@dice 1d10 + 10}. Vid ett lyckat räddningsförsök upphör förtrollningen. En varelses maximala träffpunkter återställs när den tar en lång vila.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Alla förbannelseformler kräver \"något från målvarelsen (t.ex. blod, hår eller fjäll) som förtrollningen förbrukar\" som materiell komponent. Detta kan uppfyllas antingen genom att ha detta material, eller genom att vara inom räckvidd för att röra vid varelsen medan man uttalar besvärjelsen."
+					]
+				}
 			],
 			"savingThrow": [
 				"charisma"
@@ -3386,6 +4454,73 @@
 			}
 		},
 		{
+			"name": "Melting Glob",
+			"source": "KibblesTasty:CC",
+			"page": 32,
+			"level": 1,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Du kastar en klump syra mot en varelse inom räckvidd och gör en spökattack på distans. Vid träff tar varelsen {@damage 4d4} syreskada och börjar smältas av syra. I 1 minut, i slutet av var och en av dess turer, tar den {@damage 1d4} syreskada. En varelse kan avsluta effekten tidigt genom att använda sin handling för att rensa bort syran."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spelledare på 2:a nivån eller högre ökar den initiala skadan med 2d4 för varje spelledare över 1:a nivån."
+					]
+				}
+			],
+			"spellAttack": [
+				"R"
+			],
+			"damageInflict": [
+				"acid"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Mutate",
 			"source": "KibblesTasty:CC",
 			"page": 26,
@@ -3461,6 +4596,235 @@
 					},
 					{
 						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Platinum Lances",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 6,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 150
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du trollar fram fyra jättelika lansar av strålande energi som störtar ner på fyra olika punkter som du kan se. Varje varelse i en 10-fots radie, 100-fots hög cylinder centrerad på varje punkt måste göra ett räddningskast i Dexterity.",
+				"Om räddningen misslyckas tar en varelse {@damage 8d8} strålningsskada och slås {@condition prone}. Vid en lyckad räddning tar de hälften så mycket skada och slås inte omkull.",
+				"En varelse i området för mer än en lans påverkas bara en gång."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 7:e nivån eller högre ökar skadan med 1d8 för varje slotnivå över 6:e nivån."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Prismatic Flash",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 15
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a prism"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"En livlig regnbåge av prismatiska ljus skjuter ut från din hand. Varje varelse i en 15-fots kon måste göra ett räddningskast för konstitutionen. Vid ett misslyckande blir varelserna {@condition blinded} och förvirrade till slutet av din nästa tur. Medan de är förvirrade på detta sätt kan de inte ta reaktioner och deras rörelsehastighet halveras. Om en varelse misslyckas med 10 eller mer är den dessutom {@condition stunned} förblindad under hela tiden. Vid en lyckad räddning blir en varelse inte förblindad, men är tillfälligt desorienterad av den lysande blixten och har nackdel på attackkast fram till slutet av din tur.",
+				"Varelser som redan är förblindade eller inte kan se dig påverkas inte eftersom de inte ser utbrottet."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med hjälp av en spelledningsfält på 2:a nivån eller högre, expanderar konens storlek med ytterligare 5 fot."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quick Sand",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a pinch of sand"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Du får marken i en radie på 6 meter centrerad på en punkt du kan se att förvandlas till kvicksand under trollformelns varaktighet. En varelse som rör sig genom eller ut ur området måste spendera 4 fot av rörelse för varje 1 fot den rör sig. En varelse som avslutar sin tur måste göra ett räddningskast i styrka. Vid misslyckande faller de {@condition prone}."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quicksilver Steps",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Under trollformelns varaktighet framkallar din rörelse inte attacker av möjlighet, och du kan röra dig upp till 3 meter varje gång en annan varelse som du kan se eller höra avslutar sin tur (ingen åtgärd krävs), upp till 4 gånger, och återfår alla användningsområden i början av din tur. Den första attacken mot dig efter varje gång du rör dig har nackdel."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med hjälp av en spelledare på 5:e nivån eller högre, ökar antalet gånger du kan röra dig i slutet av en annan varelses tur med 1, vilket är lika med nivån på den använda spelledaren."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
 						"source": "PHB"
 					},
 					{
@@ -3576,7 +4940,7 @@
 			]
 		},
 		{
-			"name": "Revised Dust Devil",
+			"name": "Dust Cyclone",
 			"source": "KibblesTasty:CC",
 			"page": 28,
 			"level": 2,
@@ -3648,6 +5012,55 @@
 			}
 		},
 		{
+			"name": "Rock Slam",
+			"source": "KibblesTasty:CC",
+			"page": 35,
+			"level": 0,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du kastar en sten mot en varelse som du kan se inom räckhåll. Gör en trolldomsattack på distans. Om du träffar får målet {@damage 1d10} smällskada. Vid en kritisk träff slås målet {@damage prone} eller 10 fot bakåt (ditt val).",
+				"Besvärjelsens skada ökar med 1d10 när du når 5:e nivån (2d10), 11:e nivån (3d10) och 17:e nivån (4d10)."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Rotting Curse",
 			"source": "KibblesTasty:CC",
 			"page": 28,
@@ -3686,7 +5099,16 @@
 			],
 			"entries": [
 				"Du orsakar en ruttnande förruttnelse på en varelse, vilket gör att den börjar ruttna. Under trollformelns varaktighet, varje gång varelsen tar skada, tar den ytterligare {@damage 1d4} nekrotisk skada, och effekten av all helande på varelsen reduceras med hälften.",
-				"Målvarelsen har nackdel på alla Charisma-kontroller för social interaktion under trollformelns effekt."
+				"Målvarelsen har nackdel på alla Charisma-kontroller för social interaktion under trollformelns effekt.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Alla förbannelseformler kräver \"något från målvarelsen (t.ex. blod, hår eller fjäll) som förtrollningen förbrukar\" som materiell komponent. Detta kan uppfyllas antingen genom att ha detta material, eller genom att vara inom räckvidd för att röra vid varelsen medan man uttalar besvärjelsen."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -3746,6 +5168,63 @@
 				"fromClassList": [
 					{
 						"name": "Ranger",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Seismic Wave",
+			"source": "KibblesTasty:CC",
+			"page": 36,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du släpper ut en seismisk våg som slår mot marken framför dig och får jorden att explodera våldsamt i en 30 fot lång kon framför dig. Varelser som rör marken i området måste göra ett räddningskast för styrka. Om de misslyckas tar de {@damage 4d10} blåslagningsskada och faller {condition prone}. Vid framgång tar de hälften så mycket skada och faller inte på marken. Stora eller större föremål och strukturer i effektområdet misslyckas automatiskt med räddningsförsöket och tar dubbel skada. Marken blir svår terräng tills den rensas. Varje 5-fots kvadratmeter stor del av området kräver minst 1 minut för att rensas för hand."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 3:e nivå eller högre ökar skadan med 1d10 för varje slotnivå över 2:a nivån."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
 						"source": "PHB"
 					}
 				]
@@ -3818,6 +5297,69 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Stone Coffin",
+			"source": "KibblesTasty:CC",
+			"page": 38,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Du orsakar en stenstorm som försöker svälja en stor eller mindre varelse i sten. Målet måste göra ett räddningskast med Dexterity. Vid ett misslyckande blir de {@condition restrained} och {@condition blinded} i stenkistan. En varelse kan välja att misslyckas med sitt räddningsförsök. Medan de är fångade i kistan har de total täckning mot alla källor. Kistan har en AC på 15 och 50 träffpunkter, och motstånd mot all skada förutom slagskador och åskskskador. När förtrollningen upphör eller kistan reduceras till 0 träffpunkter faller den sönder till fragment och den varelse som befinner sig i den är inte längre fasthållen och förblindad.",
+				"Under trollformelns varaktighet kan du använda din bonusåtgärd för att försöka krossa en varelse som ligger i kistan, vilket ger {@damage 1d10} slagskada."
+			],
+			"entriesHigherLevel": [
+				{
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spell slot på 5:e nivå eller högre får stenkistan 10 extra träffpunkter för varje nivå över 5:e."
+					],
+					"type": "entries"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					}
 				]
@@ -4471,7 +6013,16 @@
 			"entries": [
 				"Du kastar en förbannelse mot två personer. Båda målen måste göra ett räddningskast med Charisma (som de kan välja att misslyckas med). Om båda målen misslyckas med sina räddningskast är deras själar utbytta under trollformelns varaktighet. En själ kontrollerar den kropp som den bor i. Den får alla förmågepoäng eller handlingar som kroppen hade (förutom legendariska handlingar eller legendariskt motstånd), men behåller sina egna trollformelkastningar (om den har trollformelkastningen, medfödd eller på annat sätt), och har nackdel på alla anfallskast och räddningskast för styrka, fingerfärdighet och konstitution i {@dice 1d4} vändor efter att ha bytt kropp.",
 				"I slutet av den bytta varelsens tur kan den välja att upprepa räddningskastet, vilket avslutar effekten om räddningen lyckas. Om dess CR (eller karaktärsnivå om den inte har någon CR) är högre än kroppen hos den varelse den är, har den fördel på räddningsförsöket.",
-				"Om en varelse dör medan dess själ är utbytt, återvänder själarna till sina ursprungliga kroppar. Om en själ fanns i en döende varelse som återvänder till en levande kropp tar den varelsen {@damage 5d10} nekrotisk skada."
+				"Om en varelse dör medan dess själ är utbytt, återvänder själarna till sina ursprungliga kroppar. Om en själ fanns i en döende varelse som återvänder till en levande kropp tar den varelsen {@damage 5d10} nekrotisk skada.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Alla förbannelseformler kräver \"något från målvarelsen (t.ex. blod, hår eller fjäll) som förtrollningen förbrukar\" som materiell komponent. Detta kan uppfyllas antingen genom att ha detta material, eller genom att vara inom räckvidd för att röra vid varelsen medan man uttalar besvärjelsen."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -4681,6 +6232,67 @@
 			]
 		},
 		{
+			"name": "Unholy Wave",
+			"source": "KibblesTasty:CC",
+			"page": 46,
+			"level": 2,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"En våg av nekrotisk energi slår ut från din utsträckta hand i en 30-fots kon. Varelser i området måste göra ett konstitutionellt räddningskast eller brännas av ohelig eld. Vid ett misslyckat räddningskast tar de {@damage 4d6} nekrotisk skada, och omsluts av förtärande ohelig eld under trollformelns varaktighet. En gång per tur, om de träffas av en attack medan de är omslutna av den oheliga elden förtärs deras sår av lågorna, och de tar ytterligare {@damage 1d6} nekrotisk skada. Vid ett lyckat räddningsförsök tar de hälften så mycket skada och är inte omgärdade av strålande eld."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"När du kastar den här besvärjelsen med en spelledare på 3:e nivå eller högre ökar skadan med {@damage 1d6} för varje spelledare på högre nivå än 2:a."
+					]
+				}
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Vacuum Pull",
 			"source": "KibblesTasty:CC",
 			"page": 37,
@@ -4736,15 +6348,67 @@
 						"source": "PHB"
 					},
 					{
-						"name": "Occultist",
-						"source": "KT:O"
-					},
-					{
 						"name": "Ranger",
 						"source": "PHB"
 					},
 					{
 						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Volcanic Burst",
+			"source": "KibblesTasty:CC",
+			"page": 47,
+			"level": 6,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a piece of obsidian"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Du kallar på eldkrafter från underjorden som bryter ut våldsamt uppåt och får stenarna under en punkt att smälta och bryta ut till magma. Marken i en radie av 10 fot exploderar i en skur av eld och magma som regnar ner i en radie av 20 fot. Varelser inom området måste göra ett Dexterity räddningskast. Om de misslyckas tar de {@damage 4d10} smällskada och {@damage 4d6} brandskada. Om en varelse befinner sig inom den inre 10-fotsradien kastas de dessutom 10 fot upp i luften, tar {@damage 1d6} smällskada och faller {@condition prone} när de landar. Vid en lyckad räddning tar en varelse halva skadan och drabbas inte av några ytterligare effekter.",
+				"Den mittersta 10-fotsradien blir svår terräng tills den är rensad. Det tar minst 1 minut att rensa varje del av området på 5 fot i kvadrat för hand."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					},
 					{
@@ -5134,10 +6798,6 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
-					},
-					{
-						"name": "Occultist",
-						"source": "KT:O"
 					}
 				]
 			}
@@ -5354,6 +7014,10 @@
 			],
 			"classes": {
 				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
 					{
 						"name": "Wizard",
 						"source": "PHB"
@@ -8146,7 +9810,7 @@
 				"type": "cone",
 				"distance": {
 					"type": "feet",
-					"amount": 15
+					"amount": 20
 				}
 			},
 			"components": {
@@ -8604,7 +10268,7 @@
 				"type": "line",
 				"distance": {
 					"type": "feet",
-					"amount": 30
+					"amount": 40
 				}
 			},
 			"components": {
