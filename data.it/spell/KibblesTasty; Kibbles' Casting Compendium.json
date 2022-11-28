@@ -40,13 +40,13 @@
 					"SasquatchBrah",
 					"cellescent"
 				],
-				"version": "1.4",
-				"url": "https://www.patreon.com/posts/kibbles-casting-50137612"
+				"version": "1.6.2",
+				"url": "https://www.gmbinder.com/share/-MNCb8aGYVO_NBsP3v2Q"
 			}
 		],
 		"dateAdded": 1622581997,
-		"dateLastModified": 1668987711,
-		"_dateLastModifiedHash": "a1335f1e17"
+		"dateLastModified": 1669155610,
+		"_dateLastModifiedHash": "212d3049b8"
 	},
 	"spell": [
 		{
@@ -364,15 +364,15 @@
 			}
 		},
 		{
-			"name": "Animate Object",
+			"name": "Dancing Objects (Animate Object)",
 			"source": "KibblesTasty:CC",
-			"page": 9,
+			"page": 10,
 			"level": 2,
 			"school": "T",
 			"time": [
 				{
 					"number": 1,
-					"unit": "bonus"
+					"unit": "action"
 				}
 			],
 			"range": {
@@ -414,6 +414,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			},
@@ -622,6 +626,10 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
+					},
+					{
+						"name": "Artificer (Revised)",
+						"source": "KT:A"
 					}
 				]
 			}
@@ -765,7 +773,16 @@
 			],
 			"entries": [
 				"Si confonde la mente di una creatura, scambiando la posizione di due cose che può vedere e che sono della stessa dimensione e categoria (ad esempio, due creature medie o due edifici gargantueschi). La creatura bersaglio deve effettuare un tiro salvezza di Saggezza. Se fallisce, non sa che le due cose sono state scambiate.",
-				"Ogni volta che la creatura interagisce, attacca o viene attaccata da un bersaglio scambiato, può ripetere il suo tiro salvezza contro l'effetto."
+				"Ogni volta che la creatura interagisce, attacca o viene attaccata da un bersaglio scambiato, può ripetere il suo tiro salvezza contro l'effetto.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tutti gli incantesimi di maledizione richiedono come componente materiale \"qualcosa della creatura bersaglio (come sangue, capelli o scaglie) che l'incantesimo consuma\". Per soddisfare questo requisito, si può avere quel materiale o essere nel raggio d'azione di toccare la creatura mentre si lancia l'incantesimo."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -818,7 +835,16 @@
 			],
 			"entries": [
 				"Si lega una creatura a un punto entro un raggio di 2 metri, provocando una catena di luce incandescente che la collega a quel punto. Per la durata dell'incantesimo, se la creatura tenta di allontanarsi da quel punto, deve effettuare un tiro salvezza con la Saggezza, oppure non potrà allontanarsi da quel punto per più di un metro e mezzo fino all'inizio del suo prossimo turno.",
-				"Se una creatura inizia il suo turno a più di 3 metri dal punto di legame, deve effettuare un tiro salvezza di Forza o essere trascinata per 3 metri verso il punto di legame."
+				"Se una creatura inizia il suo turno a più di 3 metri dal punto di legame, deve effettuare un tiro salvezza di Forza o essere trascinata per 3 metri verso il punto di legame.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tutti gli incantesimi di maledizione richiedono come componente materiale \"qualcosa della creatura bersaglio (come sangue, capelli o scaglie) che l'incantesimo consuma\". Per soddisfare questo requisito, si può avere quel materiale o essere nel raggio d'azione di toccare la creatura mentre si lancia l'incantesimo."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom",
@@ -834,10 +860,71 @@
 			}
 		},
 		{
+			"name": "Blade Mirage",
+			"source": "KibblesTasty:CC",
+			"page": 13,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "bonus"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Si creano illusioni intorno all'arma da mischia che si impugna. Quando si lancia l'incantesimo, e in ogni turno successivo per tutta la durata come azione bonus, si possono creare finte di colpi con le copie illusorie della propria lama, distraendo il bersaglio e ottenendo un vantaggio sul prossimo attacco con arma contro quel bersaglio prima della fine del proprio turno. L'incantesimo termina in anticipo se si lascia andare l'arma su cui è stato lanciato.",
+				"Come azione, una creatura che può vedervi può effettuare una prova di Intelligenza ({@skill Investigation}) contro la vostra DC di salvataggio dell'incantesimo. In caso di successo, non si ottiene più il vantaggio di usare le lame illusorie quando si effettua una finta contro quella creatura, rendendo l'incantesimo impotente contro quella creatura."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Blazing Beacon",
 			"source": "KibblesTasty:CC",
 			"page": 12,
-			"level": 1,
+			"level": 2,
 			"school": "E",
 			"time": [
 				{
@@ -1292,6 +1379,202 @@
 			}
 		},
 		{
+			"name": "Clay Touch",
+			"source": "KibblesTasty:CC",
+			"page": 14,
+			"level": 2,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "touch"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a small clump of clay"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Si allunga la mano per cercare di toccare una creatura nel raggio d'azione. Questa deve effettuare un tiro salvezza di Destrezza. In caso di fallimento, l'armatura del bersaglio (comprese le difese naturali o magiche) diventa morbida e malleabile, pur mantenendo la sua forma, e non fornisce alcuna protezione contro gli attacchi riducendo la CA del bersaglio a 10 + la sua destrezza per la durata dell'incantesimo.",
+				"In alternativa, si può toccare un oggetto non magico che non viene avvertito o trasportato e che non sia più grande di 2 piedi in qualsiasi dimensione, riducendo la sua CA e qualsiasi prova di Forza richiesta per romperlo a 5 per la durata dell'incantesimo.",
+				{
+					"type": "inset",
+					"name": "Part of a larger object?",
+					"entries": [
+						"Il GM ha un ampio margine di manovra nel determinare cosa costituisce un oggetto, ad esempio se le sbarre di una prigione contano come oggetto a sé stante o come parte della porta. In generale, mi regolerei in modo generoso su questo punto. Ci sono incantesimi di livello inferiore che possono farvi uscire da una cella sbarrata."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Create Pit",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 1,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Si sceglie un punto del terreno in un'area di terra o pietra naturale visibile. Il terreno si flette e intorno a quel punto si apre una fossa di 3 metri di raggio e profonda 3 metri. Se la superficie non è abbastanza grande da contenere la fossa, l'incantesimo fallisce. Le creature nell'area devono effettuare un tiro salvezza di Destrezza. In caso di successo, possono spostarsi di un metro e mezzo al di fuori del raggio dell'incantesimo. Le creature che falliscono il tiro salvezza cadono sul fondo della fossa (subendo {@damage 1d6} danni da percosse e cadendo {@condition prone}). I lati della fossa sono ruvidi e possono essere scalati. La fossa rimane fino a quando non viene riempita. Se una creatura si salva, ma non può muoversi di un metro e mezzo, cade prona, appesa al bordo della fossa, e non può alzarsi finché non si sposta dall'area della fossa o non vi cade dentro.",
+				{
+					"type": "inset",
+					"name": "Limitations",
+					"entries": [
+						"L'incantesimo fallisce se la fossa si apre su un'altra apertura (come una stanza o una caverna sottostante), poiché non riuscirebbe a contenere la fossa. Il GM ha un'ampia discrezione su quali superfici si qualifichino per questo incantesimo."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot incantesimo di 2° livello o superiore, la fossa diventa più profonda di 5 piedi per ogni livello di slot intorno al 1° (fino a un massimo di 6 metri di profondità)."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Crescent Wind Slash",
+			"source": "KibblesTasty:CC",
+			"page": 15,
+			"level": 3,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Eseguite una serie di tre fendenti, ognuno dei quali rilascia magicamente una raffica di vento affilata come un rasoio contro un bersaglio a portata di mano. Si possono lanciare contro un solo bersaglio o contro più bersagli.",
+				"Per ogni fendente, effettuare un attacco con l'arma utilizzata per lanciare l'incantesimo. Se colpito, il bersaglio subisce {@damage 1d6} + il proprio modificatore di attacco con l'arma."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot di 3° livello o superiore, si può creare un fendente aggiuntivo per ogni livello di slot superiore al 2°."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Crippling Agony",
 			"source": "KibblesTasty:CC",
 			"page": 14,
@@ -1393,7 +1676,16 @@
 					]
 				},
 				"Ogni volta che dopo la prima si usa un'azione per manipolare la bambola, dopo che l'effetto ha avuto luogo, la creatura può ripetere il Carisma con svantaggio, terminando l'effetto con un tiro salvezza riuscito.",
-				"Una volta che una creatura è stata bersagliata da questo incantesimo, non può essere bersagliata di nuovo per 24 ore."
+				"Una volta che una creatura è stata bersagliata da questo incantesimo, non può essere bersagliata di nuovo per 24 ore.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tutti gli incantesimi di maledizione richiedono come componente materiale \"qualcosa della creatura bersaglio (come sangue, capelli o scaglie) che l'incantesimo consuma\". Per soddisfare questo requisito, si può avere quel materiale o essere nel raggio d'azione di toccare la creatura mentre si lancia l'incantesimo."
+					]
+				}
 			],
 			"entriesHigherLevel": [
 				{
@@ -1504,7 +1796,16 @@
 				}
 			],
 			"entries": [
-				"Si maledice una creatura bersaglio, provocandole un opprimente senso di impotenza. Ogni volta che la creatura bersaglio tenta di attaccare, lanciare un incantesimo che infligge danni o utilizzare un'azione che infligge danni, deve effettuare un tiro salvezza di Saggezza. In caso di successo, l'azione viene eseguita normalmente. Se fallisce, completa l'azione, ma non infligge danni a nessun bersaglio."
+				"Si maledice una creatura bersaglio, provocandole un opprimente senso di impotenza. Ogni volta che la creatura bersaglio tenta di attaccare, lanciare un incantesimo che infligge danni o utilizzare un'azione che infligge danni, deve effettuare un tiro salvezza di Saggezza. In caso di successo, l'azione viene eseguita normalmente. Se fallisce, completa l'azione, ma non infligge danni a nessun bersaglio.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tutti gli incantesimi di maledizione richiedono come componente materiale \"qualcosa della creatura bersaglio (come sangue, capelli o scaglie) che l'incantesimo consuma\". Per soddisfare questo requisito, si può avere quel materiale o essere nel raggio d'azione di toccare la creatura mentre si lancia l'incantesimo."
+					]
+				}
 			],
 			"savingThrow": [
 				"wisdom"
@@ -1624,6 +1925,71 @@
 			"savingThrow": [
 				"constitution"
 			]
+		},
+		{
+			"name": "Devour Shadow",
+			"source": "KibblesTasty:CC",
+			"page": 17,
+			"level": 4,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"La vostra ombra si allunga improvvisamente in quella di un orribile abominio divoratore e tenta di mangiare l'ombra di una creatura bersaglio nel raggio d'azione. Il bersaglio deve effettuare un tiro salvezza di Carisma. Se fallisce, l'ombra della creatura bersaglio viene divorata e questa subisce {@damage 6d6} danni necrotici e viene indebolita magicamente, sottraendo {@dice 1d4} ai tiri di attacco, ai tiri salvezza e alle prove di abilità per la durata dell'incantesimo, mentre voi potete aggiungere {@dice 1d4} ai vostri tiri di attacco, ai tiri salvezza e alle prove di abilità per la durata dell'incantesimo. Se l'incantesimo ha successo, l'ombra riceve un grosso morso e subisce la metà dei danni, senza essere indebolita.",
+				"Se l'incantesimo non ha ombra, l'incantesimo fallisce. Se la loro ombra viene consumata, non hanno ombra fino al termine dell'incantesimo."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo con uno slot incantesimo di 5° livello o superiore, si può bersagliare una creatura aggiuntiva per ogni livello di slot incantesimo superiore al 4°. Il bonus ottenuto consumando ombre non aumenta oltre 1d4, anche se si consumano più ombre."
+					]
+				}
+			],
+			"damageInflict": [
+				"necrotic"
+			],
+			"savingThrow": [
+				"charisma"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
 		},
 		{
 			"name": "Devouring Darkness",
@@ -1886,6 +2252,72 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Divine Judgement",
+			"source": "KibblesTasty:CC",
+			"page": 18,
+			"level": 2,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Una spada brillante di energia radiante si forma sopra il punto bersaglio prima di abbattersi in un'esplosione di potere divino. Le creature che si trovano in un cilindro di 10 piedi di raggio e di 30 piedi di altezza centrato sul punto bersaglio devono effettuare un tiro salvezza di Destrezza. Se fallisce, la creatura subisce {@damage 2d8} danni radianti e {@damage 2d8} danni radianti aggiuntivi se è un non morto o un demone. Se il tiro salvezza ha successo, il bersaglio subisce la metà dei danni.",
+				{
+					"type": "inset",
+					"name": "Alignment Powers",
+					"entries": [
+						"Se il DM utilizza l'allineamento per le creature, può opzionalmente stabilire che il danno bonus si applica a tutti i tipi di creatura, purché la creatura sia di allineamento morale opposto a quello dell'incantatore (da malvagio a buono o da buono a cattivo)."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot di 3° livello o superiore, il danno base aumenta del {@damage 1d8} per ogni livello di slot superiore al 2°."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"savingThrow": [
+				"dexterity"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
 						"source": "PHB"
 					}
 				]
@@ -2575,6 +3007,154 @@
 			}
 		},
 		{
+			"name": "Hellfire Pit",
+			"source": "KibblesTasty:CC",
+			"page": 24,
+			"level": 7,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Si apre una fossa infernale sotto i piedi dei nemici. Un vuoto soprannaturale si apre in un raggio di 3 metri e una fossa profonda 3 metri si apre intorno a un punto visibile nel raggio d'azione.",
+				"Le creature nell'area devono effettuare un tiro salvezza di Destrezza. In caso di successo, possono spostarsi di un metro e mezzo fuori dal raggio dell'incantesimo. Se non possono spostarsi di un metro e mezzo fuori dal raggio dell'incantesimo (ad esempio perché non hanno un percorso o una velocità di movimento insufficiente), falliscono automaticamente il tiro salvezza. Le creature che falliscono il tiro salvezza cadono sul fondo della fossa (subendo {@damage 1d6} danni da percosse e cadendo {@condition prone}). Il pavimento della fossa è un inferno ardente. Le creature che iniziano il loro turno nella fossa subiscono {@damage 4d6} danni da fuoco e {@damage 4d6} danni necrotici.",
+				"La fossa è difficile da evitare e attira voracemente le creature catturate nelle profondità dell'inferno con forti venti, fuochi ruggenti e catene infernali. Una creatura ha a disposizione 6 metri di movimento (o 10 se ha una velocità di volo o di arrampicata) per tentare di fuggire dalla fossa, effettuando un tiro salvezza di Forza contro la DC di salvataggio dell'incantesimo. Se ha successo, riesce a fuggire. Se fallisce, ricade sul pavimento della fossa e la sua velocità di movimento diventa pari a zero fino all'inizio del suo prossimo turno.",
+				"Quando l'incantesimo termina, il vuoto soprannaturale verso l'inferno si chiude e tutte le creature presenti nella fossa vengono depositate sul terreno dove la fossa si è aperta {@condition prone}.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"A discrezione del GM, le creature ridotte a zero punti ferita da Fossa Infernale o Catene Infernali muoiono e la loro anima rimane intrappolata nei piani infernali. Consultate il vostro GM sui potenziali effetti collaterali cosmologici e morali dell'uso di incantesimi alimentati dall'energia infernale della dannazione."
+					]
+				}
+			],
+			"damageInflict": [
+				"bludgeoning",
+				"fire",
+				"necrotic"
+			],
+			"savingThrow": [
+				"dexterity",
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Hungering Void",
+			"source": "KibblesTasty:CC",
+			"page": 25,
+			"level": 3,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Si crea un punto di vuoto puro che inghiotte una sfera di 6 metri di raggio, facendola sprofondare nell'oscurità magica e formando un vuoto gelido divoratore di vita. Una creatura con {@sense darkvision} non può vedere attraverso questa oscurità e la luce non magica non può illuminarla a meno che non provenga da un incantesimo di livello superiore a questo.",
+				"Una creatura che inizia il proprio turno nel vuoto deve effettuare un tiro salvezza di Costituzione. Se fallisce, subisce {@damage 2d6} danni da freddo e {@damage 2d6} danni necrotici e la sua velocità viene ridotta di 2 metri. La riduzione della velocità dura fino a quando la creatura non si trova all'interno dell'area del vuoto e può essere cumulata, fino a un effetto massimo di riduzione della velocità di un metro e mezzo. Con un successo, la creatura subisce la metà dei danni e la sua velocità non viene ridotta.",
+				{
+					"type": "inset",
+					"name": "A Note",
+					"entries": [
+						"Se questo sembra in qualche modo familiare ad altri incantesimi che creano un vuoto di oscurità affamato, noterò che altri incantesimi di questa natura non sono presenti nella SRD e non sono disponibili per i prodotti OGL e le VTT.",
+						"Gli incantesimi creati per sostituirsi agli altri non rispecchieranno più così fedelmente gli incantesimi alternativi, perché causano più confusione di quanta ne risolvano, e c'è l'opportunità di migliorare e snellire la disponibilità."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot incantesimo di 5° livello o superiore, i danni necrotici e da freddo aumentano entrambi a 1d6 e la riduzione di velocità aumenta a 3 metri con un tiro salvezza fallito (con la stessa limitazione di velocità minima)."
+					]
+				}
+			],
+			"damageInflict": [
+				"cold",
+				"necrotic"
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Ice Weapon",
 			"source": "KibblesTasty:CC",
 			"page": 22,
@@ -2879,6 +3459,222 @@
 			}
 		},
 		{
+			"name": "Infernal Shackles",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a link from a chain burned in a fire that killed at least one creature"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Catene di ferro nero ardente scaturiscono dal terreno e tentano di legare una creatura visibile nel raggio d'azione. La creatura bersaglio deve effettuare un tiro salvezza di Forza. Se fallisce, subisce {@damage 3d6} danni da fuoco e la sua velocità di movimento è ridotta a zero per la durata dell'incantesimo. In caso di successo, la creatura subisce la metà dei danni e non viene legata.",
+				"Alla fine di ogni turno, il bersaglio ripete il suo tiro salvezza. In caso di successo, le catene si spezzano e l'incantesimo termina per quel bersaglio. In caso di fallimento, il bersaglio rimane legato e subisce un danno da fuoco aggiuntivo {@damage 2d6} mentre viene bruciato dalle catene.",
+				{
+					"type": "inset",
+					"name": "Variant: Spells of Damnnation",
+					"entries": [
+						"A discrezione del GM, le creature ridotte a zero punti ferita da Fossa Infernale o Catene Infernali muoiono e la loro anima rimane intrappolata nei piani infernali. Consultate il vostro GM sui potenziali effetti collaterali cosmologici e morali dell'uso di incantesimi alimentati dall'energia infernale della dannazione."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo con uno slot incantesimo di 3° livello o superiore, si può bersagliare una creatura aggiuntiva per ogni livello di slot incantesimo superiore al 2°."
+					]
+				}
+			],
+			"damageInflict": [
+				"fire"
+			],
+			"savingThrow": [
+				"strength"
+			],
+			"areaTags": [
+				"ST"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Instant Counter",
+			"source": "KibblesTasty:CC",
+			"page": 23,
+			"level": 2,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "reaction",
+					"condition": "which you take in response to being damaged by a creature within 30 feet of you that you can see"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a melee weapon worth at least 1 sp",
+					"cost": 10
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Svanisci, teletrasportandoti in uno spazio vuoto entro un raggio di 2 metri dalla creatura che ti ha danneggiato, ed effettua immediatamente un attacco con l'arma usata nel lancio dell'incantesimo.",
+				{
+					"type": "inset",
+					"name": "Damage Order",
+					"entries": [
+						"Questo non impedisce il danno dell'attacco innescato, poiché l'innescato sta subendo il danno e non cambia l'esito dell'innesco."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot di 3° livello o superiore, si infliggono {@damage 1d8} danni da forza bonus al colpo per ogni livello di slot superiore al 2°."
+					]
+				}
+			],
+			"miscTags": [
+				"SGT",
+				"TP"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Iron Garden",
+			"source": "KibblesTasty:CC",
+			"page": 27,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "radius",
+				"distance": {
+					"type": "feet",
+					"amount": 20
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Gli spuntoni di ferro partono dal terreno in tutte le direzioni intorno a voi, impalando le creature entro 6 piedi da voi. Le creature nell'area del bersaglio devono superare un tiro salvezza di Destrezza o subiscono 6d8 danni da perforazione e la loro velocità di movimento si riduce a zero fino alla fine del loro turno successivo. In caso di successo, subiscono la metà dei danni e la loro velocità di movimento non viene azzerata.",
+				"Fino all'inizio del tuo prossimo turno, quando una creatura si muove nell'area o al suo interno, subisce 1d8 danni da perforazione per ogni metro e mezzo di distanza. All'inizio del vostro turno successivo, gli spuntoni si arrugginiscono fino a diventare polvere."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando viene lanciato con un incantesimo di 5° livello o superiore, i danni aumentano di 1d10 per ogni livello di incantesimo superiore al 4°."
+					]
+				}
+			],
+			"miscTags": [
+				"SCL"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Iron Wind Strike",
 			"source": "KibblesTasty:CC",
 			"page": 23,
@@ -2937,6 +3733,269 @@
 			}
 		},
 		{
+			"name": "Illusionary Dart",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 0,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Si crea e si lancia un dardo illusorio contro una creatura visibile nel raggio d'azione. Effettua un attacco con incantesimo a distanza. Se colpita, subisce {@damage 1d8} danni psichici. Il numero di dardi che si possono lanciare con questo incantesimo aumenta al 5° livello (2 dardi), all'11° (3 dardi) e al 17° (4 dardi). I dardi possono essere diretti verso lo stesso bersaglio o verso bersagli diversi. Effettuare un tiro di attacco separato per ogni dardo."
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"spellAttack": [
+				"R"
+			],
+			"miscTags": [
+				"SGT"
+			],
+			"areaTags": [
+				"MT"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusionary Fireball",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 3,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "something that looks like bat guano"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Una striscia luminosa si sprigiona dal dito puntato verso un punto a scelta nel raggio d'azione, per poi sbocciare con un basso ruggito in un'illusoria esplosione di fiamme. Ogni creatura a scelta entro una sfera di 6 metri di raggio centrata su quel punto deve effettuare un tiro salvezza di Saggezza. Se il tiro salvezza fallisce, il bersaglio subisce {@damage 6d6} danni psichici. Le creature che superano i tiri salvezza si rendono conto che il fuoco è illusorio e non subiscono danni.",
+				"Si può trasformare l'effetto illusorio in un'esplosione di ghiaccio, fulmini o pura energia di forza.",
+				{
+					"type": "inset",
+					"name": "Targets of your choice",
+					"entries": [
+						"A differenza di una palla di fuoco vera e propria, la versione illusoria colpisce solo bersagli a scelta, il che la rende sicura da usare tra gli alleati, anche se infligge meno danni e non subisce danni in caso di tiro salvezza superato (poiché il bersaglio si rende conto della sua natura illusoria)."
+					]
+				}
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot di 4° livello o superiore, i danni aumentano di 1d6 per ogni livello di slot superiore al 3°."
+					]
+				}
+			],
+			"damageInflict": [
+				"psychic"
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Illusory Pit",
+			"source": "KibblesTasty:CC",
+			"page": 28,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Si crea una fossa illusoria di 5 piedi di raggio in un punto visibile sul terreno. Le creature che si trovano nel raggio quando l'incantesimo viene lanciato devono effettuare un tiro salvezza di Saggezza. Una creatura che fallisce il tiro salvezza crede di essere caduta nella fossa e cade {@condition prone}, non riesce a rialzarsi e si trova {@condition blinded} oltre un metro e mezzo dalla fossa illusoria. Una creatura può spendere la sua azione per tentare di uscire dalla fossa, ripetendo il suo tiro salvezza di Saggezza. Se ha successo, spende tutto il suo movimento per alzarsi e si rende conto che la fossa è un'illusione, ponendo fine all'incantesimo. Se fallisce, non può uscire dalla fossa e continua a credere di essere bloccato in una fossa. Una creatura può muoversi all'interno degli spazi coperti dalla fossa mentre è sotto l'effetto.",
+				"Le creature con velocità di volo non sono influenzate. Ogni volta che una creatura sotto l'effetto subisce danni, il bersaglio può effettuare un altro tiro salvezza della Saggezza."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia l'incantesimo utilizzando uno slot incantesimo di 2° livello o superiore, il raggio della fossa aumenta di 5 piedi per ogni livello superiore al 1°, fino a un massimo di 20 piedi di raggio con uno slot incantesimo di 4° livello."
+					]
+				}
+			],
+			"savingThrow": [
+				"wisdom"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Karmic Reflection",
+			"source": "KibblesTasty:CC",
+			"page": 29,
+			"level": 1,
+			"school": "E",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a broken shard of a mirror"
+				}
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Si pone un vincolo su una creatura che si può vedere nel raggio d'azione. Fino all'inizio del vostro prossimo turno, ogni volta che quella creatura infligge danni con un'azione, un'azione bonus o una reazione, subisce danni radianti pari ai danni inflitti. Il bersaglio è consapevole dell'effetto di questo incantesimo mentre ne è colpito. Dopo aver riflesso 10 danni, l'incantesimo termina."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot incantesimo di 2° livello o superiore, il danno massimo aumenta di 10 per ogni livello di slot incantesimo superiore al 2°."
+					]
+				}
+			],
+			"damageInflict": [
+				"radiant"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Killing Curse",
 			"source": "KibblesTasty:CC",
 			"page": 24,
@@ -2976,7 +4035,16 @@
 			"entries": [
 				"Si maledice un bersaglio per farlo morire. I punti ferita attuali e massimi del bersaglio vengono ridotti del {@dice 3d10 + 10}. Se questo fa sì che una creatura abbia zero punti ferita, la creatura muore.",
 				"Per la durata dell'incantesimo, il bersaglio non può riacquistare punti ferita se non grazie a un incantesimo lanciato con uno slot di livello superiore a quello con cui è stata lanciata la maledizione, e qualsiasi tiro salvezza per la morte effettuato viene automaticamente considerato un 1.",
-				"All'inizio del turno di una creatura mentre è sotto l'effetto di questo incantesimo, effettua un tiro salvezza di Carisma. Se fallisce, i suoi punti ferita attuali e massimi vengono ridotti del {@dice 1d10 + 10}. Se il tiro salvezza ha successo, l'incantesimo termina. I punti ferita massimi di una creatura vengono ripristinati quando si riposa a lungo."
+				"All'inizio del turno di una creatura mentre è sotto l'effetto di questo incantesimo, effettua un tiro salvezza di Carisma. Se fallisce, i suoi punti ferita attuali e massimi vengono ridotti del {@dice 1d10 + 10}. Se il tiro salvezza ha successo, l'incantesimo termina. I punti ferita massimi di una creatura vengono ripristinati quando si riposa a lungo.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tutti gli incantesimi di maledizione richiedono come componente materiale \"qualcosa della creatura bersaglio (come sangue, capelli o scaglie) che l'incantesimo consuma\". Per soddisfare questo requisito, si può avere quel materiale o essere nel raggio d'azione di toccare la creatura mentre si lancia l'incantesimo."
+					]
+				}
 			],
 			"savingThrow": [
 				"charisma"
@@ -3386,6 +4454,73 @@
 			}
 		},
 		{
+			"name": "Melting Glob",
+			"source": "KibblesTasty:CC",
+			"page": 32,
+			"level": 1,
+			"school": "C",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Si scaglia un globo di acido contro una creatura nel raggio d'azione, effettuando un attacco con incantesimo a distanza. Se colpita, la creatura subisce {@damage 4d4} danni da acido e inizia a essere sciolta dall'acido. Per 1 minuto, alla fine di ogni turno, subisce {@damage 1d4} danni da acido. Una creatura può terminare l'effetto in anticipo usando la sua azione per eliminare l'acido."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot incantesimo di 2° livello o superiore, i danni iniziali aumentano di 2d4 per ogni livello di slot superiore al 1°."
+					]
+				}
+			],
+			"spellAttack": [
+				"R"
+			],
+			"damageInflict": [
+				"acid"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Mutate",
 			"source": "KibblesTasty:CC",
 			"page": 26,
@@ -3461,6 +4596,235 @@
 					},
 					{
 						"name": "Warlock",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Platinum Lances",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 6,
+			"school": "V",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 150
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Evocate quattro gigantesche lance di energia radiante che piombano su quattro punti diversi che potete vedere. Ogni creatura in un cilindro di 10 piedi di raggio e 100 piedi di altezza centrato su ogni punto deve effettuare un tiro salvezza di Destrezza.",
+				"Con un tiro salvezza fallito, una creatura subisce {@damage 8d8} danni radianti e viene stordita {@condition prone}. Con un tiro salvezza riuscito, la creatura subisce la metà dei danni e non viene colpita.",
+				"Una creatura nell'area di più di una lancia viene colpita una sola volta."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot incantesimo di 7° livello o superiore, i danni aumentano di 1d8 per ogni livello di slot superiore al 6°."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Prismatic Flash",
+			"source": "KibblesTasty:CC",
+			"page": 33,
+			"level": 1,
+			"school": "I",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 15
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a prism"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "round",
+						"amount": 1
+					}
+				}
+			],
+			"entries": [
+				"Un vivido arcobaleno di luci prismatiche scaturisce dalla mano. Ogni creatura in un cono di 15 piedi deve effettuare un tiro salvezza di Costituzione. In caso di fallimento, le creature sono {@condition blinded} e stordite fino alla fine del vostro prossimo turno. Mentre sono stordite in questo modo, non possono compiere reazioni e la loro velocità di movimento è dimezzata. Se una creatura fallisce il tiro salvezza di 10 o più, è inoltre {@condition stunned} per tutta la durata. Se il tiro salvezza ha successo, la creatura non è accecata, ma è momentaneamente disorientata dal lampo brillante e ha svantaggio sui tiri di attacco fino alla fine del proprio turno.",
+				"Le creature già accecate o che non possono vedervi non subiscono l'effetto, poiché non vedono l'esplosione."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot incantesimo di 2° livello o superiore, la dimensione del cono si espande di 5 piedi aggiuntivi."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quick Sand",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a pinch of sand"
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Si fa in modo che il terreno in un raggio di 6 metri, centrato su un punto visibile, si trasformi in sabbie mobili per la durata dell'incantesimo. Una creatura che si muove attraverso o fuori dall'area deve spendere 4 piedi di movimento per ogni 1 piede che muove. Una creatura che termina il proprio turno deve effettuare un tiro salvezza di Forza. Se fallisce, cade {@condition prone}."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Quicksilver Steps",
+			"source": "KibblesTasty:CC",
+			"page": 34,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "self"
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Per la durata dell'incantesimo, il vostro movimento non provoca attacchi di opportunità e potete muovervi fino a 3 metri ogni volta che un'altra creatura che potete vedere o sentire termina il suo turno (non è richiesta alcuna azione), fino a 4 volte, riacquistando tutti gli usi all'inizio del vostro turno. Il primo attacco contro di voi dopo ogni spostamento ha svantaggio."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando un incantesimo di 5° livello o superiore, il numero di volte in cui ci si può muovere alla fine del turno di un'altra creatura aumenta di 1, pari al livello dell'incantesimo utilizzato."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Bard",
+						"source": "PHB"
+					},
+					{
+						"name": "Ranger",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
 						"source": "PHB"
 					},
 					{
@@ -3576,7 +4940,7 @@
 			]
 		},
 		{
-			"name": "Revised Dust Devil",
+			"name": "Dust Cyclone",
 			"source": "KibblesTasty:CC",
 			"page": 28,
 			"level": 2,
@@ -3648,6 +5012,55 @@
 			}
 		},
 		{
+			"name": "Rock Slam",
+			"source": "KibblesTasty:CC",
+			"page": 35,
+			"level": 0,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Lanci una pietra a una creatura che puoi vedere nel raggio d'azione. Effettua un attacco con incantesimo a distanza. Se viene colpito, il bersaglio subisce {@damage 1d10} danni da percosse. Con un colpo critico, il bersaglio viene sbalzato {@damage prone} o di 3 metri all'indietro (a scelta).",
+				"I danni dell'incantesimo aumentano di 1d10 al 5° livello (2d10), all'11° livello (3d10) e al 17° livello (4d10)."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Rotting Curse",
 			"source": "KibblesTasty:CC",
 			"page": 28,
@@ -3686,7 +5099,16 @@
 			],
 			"entries": [
 				"Infliggi un decadimento necrotico a una creatura, facendo sì che inizi a marcire. Per la durata dell'incantesimo, ogni volta che la creatura subisce danni, subisce un danno necrotico aggiuntivo {@damage 1d4} e l'effetto di tutte le guarigioni sulla creatura è ridotto della metà.",
-				"La creatura bersaglio ha svantaggio su qualsiasi prova di Carisma per l'interazione sociale durante l'effetto dell'incantesimo."
+				"La creatura bersaglio ha svantaggio su qualsiasi prova di Carisma per l'interazione sociale durante l'effetto dell'incantesimo.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tutti gli incantesimi di maledizione richiedono come componente materiale \"qualcosa della creatura bersaglio (come sangue, capelli o scaglie) che l'incantesimo consuma\". Per soddisfare questo requisito, si può avere quel materiale o essere nel raggio d'azione di toccare la creatura mentre si lancia l'incantesimo."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -3746,6 +5168,63 @@
 				"fromClassList": [
 					{
 						"name": "Ranger",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Seismic Wave",
+			"source": "KibblesTasty:CC",
+			"page": 36,
+			"level": 3,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Rilasciate un'onda sismica che sbatte sul terreno davanti a voi, facendo esplodere violentemente la terra in un cono di 30 piedi davanti a voi. Le creature che toccano il suolo nell'area devono effettuare un tiro salvezza di Forza. Se falliscono, subiscono {@damage 4d10} danni da percosse e cadono {condition prone}. In caso di successo, subiscono la metà dei danni e non cadono proni. Gli oggetti e le strutture grandi o più grandi nell'area d'effetto falliscono automaticamente il tiro salvezza e subiscono danni doppi. Il terreno diventa un terreno difficile finché non viene liberato. Ogni porzione di 5 piedi quadrati dell'area richiede almeno 1 minuto per essere liberata a mano."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot di 3° livello o superiore, i danni aumentano di 1d10 per ogni livello di slot superiore al 2°."
+					]
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
 						"source": "PHB"
 					}
 				]
@@ -3818,6 +5297,69 @@
 					},
 					{
 						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Stone Coffin",
+			"source": "KibblesTasty:CC",
+			"page": 38,
+			"level": 4,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 60
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Si provoca un'ondata di pietra che tenta di inghiottire una creatura grande o piccola nella pietra. Il bersaglio deve effettuare un tiro salvezza di Destrezza. Se fallisce, diventa {@condition restrained} e {@condition blinded} nella bara di pietra. Una creatura può scegliere di fallire il tiro salvezza. Mentre è intrappolata nella bara, ha una copertura totale contro tutte le fonti. La bara ha una CA di 15, 50 punti ferita e resistenza a tutti i danni, tranne quelli da percosse e da tuono. Quando l'incantesimo termina o la bara viene ridotta a 0 punti ferita, si sgretola in frammenti e la creatura al suo interno non è più trattenuta e accecata.",
+				"Per la durata dell'incantesimo si può usare la propria azione bonus per tentare di schiacciare una creatura racchiusa nella bara, infliggendo {@damage 1d10} danni da percosse."
+			],
+			"entriesHigherLevel": [
+				{
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot incantesimo di 5° livello o superiore, la bara di pietra guadagna 10 punti ferita aggiuntivi per ogni livello superiore al 5°."
+					],
+					"type": "entries"
+				}
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					}
 				]
@@ -4471,7 +6013,16 @@
 			"entries": [
 				"Si lancia una maledizione che colpisce due individui. Entrambi i bersagli devono effettuare un tiro salvezza in Carisma (che possono scegliere di fallire). Se entrambi i bersagli falliscono il tiro salvezza, per la durata dell'incantesimo le loro anime si scambiano. Un'anima controlla il corpo che abita. Guadagna tutti i punteggi di abilità o le azioni che il corpo aveva (a parte le azioni leggendarie o la resistenza leggendaria), ma mantiene il proprio lancio di incantesimi (se possiede l'incantesimo, innato o meno) e ha svantaggio su tutti i tiri di attacco e i tiri salvezza di forza, destrezza e costituzione per {@dice 1d4} turni dopo lo scambio di corpi.",
 				"Alla fine del turno di una creatura scambiata, essa può scegliere di ripetere il tiro salvezza, terminando l'effetto in caso di successo del tiro. Se la sua CR (o il livello del personaggio, se non ha CR) è superiore al corpo della creatura che rappresenta, ha un vantaggio sul tiro salvezza.",
-				"Se una creatura muore mentre la sua anima viene scambiata, le anime tornano ai loro corpi originali. Se un'anima era in una creatura morente che ritorna in un corpo vivente, questa creatura subisce {@damage 5d10} danni necrotici."
+				"Se una creatura muore mentre la sua anima viene scambiata, le anime tornano ai loro corpi originali. Se un'anima era in una creatura morente che ritorna in un corpo vivente, questa creatura subisce {@damage 5d10} danni necrotici.",
+				{
+					"type": "inset",
+					"name": "Curse Spell Material Components",
+					"source": "KT:O",
+					"page": 6,
+					"entries": [
+						"Tutti gli incantesimi di maledizione richiedono come componente materiale \"qualcosa della creatura bersaglio (come sangue, capelli o scaglie) che l'incantesimo consuma\". Per soddisfare questo requisito, si può avere quel materiale o essere nel raggio d'azione di toccare la creatura mentre si lancia l'incantesimo."
+					]
+				}
 			],
 			"damageInflict": [
 				"necrotic"
@@ -4681,6 +6232,67 @@
 			]
 		},
 		{
+			"name": "Unholy Wave",
+			"source": "KibblesTasty:CC",
+			"page": 46,
+			"level": 2,
+			"school": "N",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "cone",
+				"distance": {
+					"type": "feet",
+					"amount": 30
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true
+			},
+			"duration": [
+				{
+					"type": "timed",
+					"duration": {
+						"type": "minute",
+						"amount": 1
+					},
+					"concentration": true
+				}
+			],
+			"entries": [
+				"Un'onda di energia necrotica si sprigiona dalla mano tesa in un cono di 9 metri. Le creature nell'area devono effettuare un tiro salvezza di Costituzione o essere bruciate dal fuoco empio. Se il tiro salvezza fallisce, subiscono {@damage 4d6} danni necrotici e vengono avvolte da un fuoco empio divorante per tutta la durata dell'incantesimo. Una volta per turno, se vengono colpiti da un attacco mentre sono avvolti dal fuoco empio, le loro ferite vengono consumate dalle fiamme e subiscono un ulteriore {@damage 1d6} di danni necrotici. Con un tiro salvezza riuscito, subiscono la metà dei danni e non sono avvolti dal fuoco radiante."
+			],
+			"entriesHigherLevel": [
+				{
+					"type": "entries",
+					"name": "At Higher Levels",
+					"entries": [
+						"Quando si lancia questo incantesimo utilizzando uno slot di 3° livello o superiore, i danni aumentano del {@damage 1d6} per ogni livello di slot superiore al 2°."
+					]
+				}
+			],
+			"savingThrow": [
+				"constitution"
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Cleric",
+						"source": "PHB"
+					},
+					{
+						"name": "Paladin",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
 			"name": "Vacuum Pull",
 			"source": "KibblesTasty:CC",
 			"page": 37,
@@ -4736,15 +6348,67 @@
 						"source": "PHB"
 					},
 					{
-						"name": "Occultist",
-						"source": "KT:O"
-					},
-					{
 						"name": "Ranger",
 						"source": "PHB"
 					},
 					{
 						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Wizard",
+						"source": "PHB"
+					}
+				]
+			}
+		},
+		{
+			"name": "Volcanic Burst",
+			"source": "KibblesTasty:CC",
+			"page": 47,
+			"level": 6,
+			"school": "T",
+			"time": [
+				{
+					"number": 1,
+					"unit": "action"
+				}
+			],
+			"range": {
+				"type": "point",
+				"distance": {
+					"type": "feet",
+					"amount": 120
+				}
+			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": {
+					"text": "a piece of obsidian"
+				}
+			},
+			"duration": [
+				{
+					"type": "instant"
+				}
+			],
+			"entries": [
+				"Richiamate forze infuocate dal sottosuolo per eruttare violentemente verso l'alto, facendo fondere le rocce sotto un punto ed eruttando in magma. Il terreno nel raggio di 3 metri esplode in una pioggia di fuoco e magma, che piove nel raggio di 6 metri. Le creature nell'area devono effettuare un tiro salvezza di Destrezza. Se falliscono, subiscono {@damage 4d10} danni da percosse e {@damage 4d6} danni da fuoco. Se una creatura si trova nel raggio interno di 3 metri, viene anche scagliata in aria per 3 metri, subendo {@damage 1d6} danni da percosse e cadendo {@condition prone} quando atterra. Se il tiro salvezza riesce, la creatura subisce la metà dei danni e non subisce effetti aggiuntivi.",
+				"Il raggio centrale di 3 metri diventa un terreno difficile finché non viene liberato. Ogni porzione di area di 5 piedi quadrati richiede almeno 1 minuto per essere liberata a mano."
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Druid",
+						"source": "PHB"
+					},
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
+					{
+						"name": "Warlock",
 						"source": "PHB"
 					},
 					{
@@ -5134,10 +6798,6 @@
 					{
 						"name": "Wizard",
 						"source": "PHB"
-					},
-					{
-						"name": "Occultist",
-						"source": "KT:O"
 					}
 				]
 			}
@@ -5354,6 +7014,10 @@
 			],
 			"classes": {
 				"fromClassList": [
+					{
+						"name": "Sorcerer",
+						"source": "PHB"
+					},
 					{
 						"name": "Wizard",
 						"source": "PHB"
@@ -8146,7 +9810,7 @@
 				"type": "cone",
 				"distance": {
 					"type": "feet",
-					"amount": 15
+					"amount": 20
 				}
 			},
 			"components": {
@@ -8604,7 +10268,7 @@
 				"type": "line",
 				"distance": {
 					"type": "feet",
-					"amount": 30
+					"amount": 40
 				}
 			},
 			"components": {
