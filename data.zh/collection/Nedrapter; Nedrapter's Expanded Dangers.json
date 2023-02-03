@@ -23,10 +23,12 @@
 				"MPMM"
 			]
 		},
+		"optionalFeatureTypes": {
+			"TL:CotN": "The Lord; Champion of the Night"
+		},
 		"status": "ready",
 		"dateAdded": 1673971471,
-		"dateLastModified": 1673971471,
-		"_dateLastModifiedHash": "8acdc48191"
+		"dateLastModified": 1675065314
 	},
 	"feat": [
 		{
@@ -1403,14 +1405,14 @@
 						"_": {
 							"will": [
 								"Primal Savagery|XGE"
-							],
-							"_": [
-								"Blood Spear|NED"
-							],
+							]
+						}
+					},
+					"innate": {
+						"6": {
 							"daily": {
 								"1": [
-									"Suggestion",
-									"Gaseous Form"
+									"suggestion"
 								]
 							}
 						}
@@ -1565,66 +1567,23 @@
 				"You seek to strengthen your pact by forming a more direct contract with your Lord's champions. You get the benefits of the chosen champion.",
 				{
 					"type": "options",
+					"count": 1,
 					"entries": [
 						{
-							"type": "entries",
-							"name": "Night Huntress",
-							"page": 10,
-							"entries": [
-								"When in contract with the Night Huntress, you gain the following benefits.",
-								{
-									"type": "list",
-									"items": [
-										"Your speed increases by 20.",
-										"You can cast {@spell hunter's mark} once per day without expending a spell slot. Your Eldritch Blast also triggers Hunter's Mark damage."
-									]
-								}
-							]
+							"type": "refOptionalfeature",
+							"optionalfeature": "Night Huntress|NED"
 						},
 						{
-							"type": "entries",
-							"name": "Blood Caller",
-							"page": 10,
-							"entries": [
-								"When in contract with the Blood Caller, you gain the following benefits.",
-								{
-									"type": "list",
-									"items": [
-										"Whenever a creature within 15 feet of you takes slashing or piercing damage, you can use your reaction to cast a spell that targets only that creature.",
-										"Whenever you reduce a creature to less than 50% hp with a spell, you gain resistance to all damage from that creature until the end of your next turn."
-									]
-								}
-							]
+							"type": "refOptionalfeature",
+							"optionalfeature": "Blood Caller|NED"
 						},
 						{
-							"type": "entries",
-							"name": "Crimson Lancer",
-							"page": 10,
-							"entries": [
-								"When in contract with the Crimson Lancer, you gain the following benefits.",
-								{
-									"type": "list",
-									"items": [
-										"You learn the {@spell blood spear|NED} spell.",
-										"Whenever you kill a creature with your {@spell blood spear|NED}, each creature of your choice within 60 feet, must succeed on a Wisdom saving throw or be {@condition frightened} of you for 1 min. Those creatures can repeat the saving throws at the end of each of their turns."
-									]
-								}
-							]
+							"type": "refOptionalfeature",
+							"optionalfeature": "Crimson Lancer|NED"
 						},
 						{
-							"type": "entries",
-							"name": "Mist Warrior",
-							"page": 10,
-							"entries": [
-								"When in contract with the Mist Warrior, you gain the following benefits.",
-								{
-									"type": "list",
-									"items": [
-										"If damage would reduce your hp to 0 or lower it reduces it to 1 instead and you automatically cast {@spell gaseous form} on yourself without expending a spell slot. You gain temporary hit points equal to two times your warlock level and they last until the spell ends. You regain the use of this feature after a long rest.",
-										"A shroud of mist surrounds you when the light transitions. While in dim light conditions you can use a bonus action to take the {@action Dodge} action."
-									]
-								}
-							]
+							"type": "refOptionalfeature",
+							"optionalfeature": "Mist Warrior|NED"
 						}
 					]
 				}
@@ -1673,7 +1632,15 @@
 			],
 			"miscTags": [
 				"HL"
-			]
+			],
+			"classes": {
+				"fromClassList": [
+					{
+						"name": "Warlock",
+						"source": "PHB"
+					}
+				]
+			}
 		}
 	],
 	"race": [
@@ -2632,54 +2599,6 @@
 					"str": 1,
 					"dex": 1,
 					"con": 1
-				},
-				{
-					"str": 3,
-					"choose": {
-						"weighted": {
-							"from": [
-								"int",
-								"wis",
-								"cha"
-							],
-							"weights": [
-								-1,
-								-1
-							]
-						}
-					}
-				},
-				{
-					"dex": 3,
-					"choose": {
-						"weighted": {
-							"from": [
-								"int",
-								"wis",
-								"cha"
-							],
-							"weights": [
-								-1,
-								-1
-							]
-						}
-					}
-				},
-				{
-					"con": 3,
-					"choose": {
-						"weighted": {
-							"from": [
-								"int",
-								"wis",
-								"cha"
-							],
-							"weights": [
-								-1,
-								-1
-							]
-						}
-					}
 				}
 			]
 		},
@@ -3112,6 +3031,89 @@
 			]
 		}
 	],
+	"subrace": [
+		{
+			"name": "Agile",
+			"source": "NED",
+			"raceName": "Orc (S)",
+			"raceSource": "NED",
+			"overwrite": {
+				"ability": true
+			},
+			"ability": [
+				{
+					"dex": 3,
+					"choose": {
+						"weighted": {
+							"from": [
+								"int",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								-1,
+								-1
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Brute",
+			"source": "NED",
+			"raceName": "Orc (S)",
+			"raceSource": "NED",
+			"overwrite": {
+				"ability": true
+			},
+			"ability": [
+				{
+					"str": 3,
+					"choose": {
+						"weighted": {
+							"from": [
+								"int",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								-1,
+								-1
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Hardy",
+			"source": "NED",
+			"raceName": "Orc (S)",
+			"raceSource": "NED",
+			"overwrite": {
+				"ability": true
+			},
+			"ability": [
+				{
+					"con": 3,
+					"choose": {
+						"weighted": {
+							"from": [
+								"int",
+								"wis",
+								"cha"
+							],
+							"weights": [
+								-1,
+								-1
+							]
+						}
+					}
+				}
+			]
+		}
+	],
 	"background": [
 		{
 			"name": "Eratus Citizen",
@@ -3282,7 +3284,7 @@
 			"skillProficiencies": [
 				{
 					"arcana": true,
-					"Investigation": true
+					"investigation": true
 				}
 			],
 			"languageProficiencies": [
@@ -3439,6 +3441,128 @@
 				}
 			],
 			"foundryImg": "icons/magic/nature/symbol-sun-yellow.webp"
+		}
+	],
+	"optionalfeature": [
+		{
+			"name": "Night Huntress",
+			"source": "NED",
+			"page": 10,
+			"foundryEffects": [
+				{
+					"name": "Night Huntress Speed Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "data.attributes.movement.walk",
+							"mode": "ADD",
+							"value": "+20"
+						}
+					]
+				}
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": {
+							"daily": {
+								"1": [
+									"hunter's mark"
+								]
+							}
+						}
+					}
+				}
+			],
+			"entries": [
+				"When in contract with the Night Huntress, you gain the following benefits.",
+				{
+					"type": "list",
+					"items": [
+						"Your speed increases by 20.",
+						"You can cast {@spell hunter's mark} once per day without expending a spell slot. Your Eldritch Blast also triggers Hunter's Mark damage."
+					]
+				}
+			],
+			"featureType": [
+				"TL:CotN"
+			]
+		},
+		{
+			"name": "Blood Caller",
+			"source": "NED",
+			"page": 10,
+			"entries": [
+				"When in contract with the Blood Caller, you gain the following benefits.",
+				{
+					"type": "list",
+					"items": [
+						"Whenever a creature within 15 feet of you takes slashing or piercing damage, you can use your reaction to cast a spell that targets only that creature.",
+						"Whenever you reduce a creature to less than 50% hp with a spell, you gain resistance to all damage from that creature until the end of your next turn."
+					]
+				}
+			],
+			"featureType": [
+				"TL:CotN"
+			]
+		},
+		{
+			"name": "Crimson Lancer",
+			"source": "NED",
+			"page": 10,
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"blood spear|NED"
+						]
+					}
+				}
+			],
+			"entries": [
+				"When in contract with the Crimson Lancer, you gain the following benefits.",
+				{
+					"type": "list",
+					"items": [
+						"You learn the {@spell blood spear|NED} spell.",
+						"Whenever you kill a creature with your {@spell blood spear|NED}, each creature of your choice within 60 feet, must succeed on a Wisdom saving throw or be {@condition frightened} of you for 1 min. Those creatures can repeat the saving throws at the end of each of their turns."
+					]
+				}
+			],
+			"featureType": [
+				"TL:CotN"
+			]
+		},
+		{
+			"name": "Mist Warrior",
+			"source": "NED",
+			"page": 10,
+			"additionalSpells": [
+				{
+					"innate": {
+						"_": {
+							"daily": {
+								"1": [
+									"gaseous form"
+								]
+							}
+						}
+					}
+				}
+			],
+			"entries": [
+				"When in contract with the Mist Warrior, you gain the following benefits.",
+				{
+					"type": "list",
+					"items": [
+						"If damage would reduce your hp to 0 or lower it reduces it to 1 instead and you automatically cast {@spell gaseous form} on yourself without expending a spell slot. You gain temporary hit points equal to two times your warlock level and they last until the spell ends. You regain the use of this feature after a long rest.",
+						"A shroud of mist surrounds you when the light transitions. While in dim light conditions you can use a bonus action to take the {@action Dodge} action."
+					]
+				}
+			],
+			"featureType": [
+				"TL:CotN"
+			]
 		}
 	]
 }
