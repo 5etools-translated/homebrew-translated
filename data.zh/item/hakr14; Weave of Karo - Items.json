@@ -1,5 +1,4 @@
 {
-	"$schema": "../_schema-fast/homebrew.json",
 	"_meta": {
 		"sources": [
 			{
@@ -10,14 +9,69 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.2"
+				"version": "1.1"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1667938661,
-		"_dateLastModifiedHash": "6ae02d34f5"
+		"dateLastModified": 1678329046,
+		"_dateLastModifiedHash": "390ee8b9eb"
 	},
 	"item": [
+		{
+			"source": "karoitem",
+			"name": "Gutroot",
+			"rarity": "very rare",
+			"type": "G",
+			"poison": true,
+			"poisonTypes": [
+				"ingested"
+			],
+			"entries": [
+				"A creature subjected to this poison must succeed on a DC 17 Constitution saving throw or become {@condition poisoned} for 15 minutes. If the creature remains poisoned for the entire duration, it takes {@damage 1d2} necrotic damage at the end of each of its turns for the next hour. This damage cannot be reduced in any way. This effect can only be removed with the use of {@spell remove curse} or similar magic."
+			],
+			"fluff": {
+				"entries": [
+					"一种曾经平凡的真菌被某种古老的反常事件神奇地改变了。对任何吃它的东西都有剧毒，但也无法从早已死亡的宿主树干上传播太远，这种蘑菇群是反射森林的一个永久组成部分。",
+					"内脏根可以作为许多毒药的成分，其效果取决于它的制备方法。最有名的效果，也就是它的名字的由来，是让摄入的生物的消化系统突然腐烂，这在所有记录的案例中都证明是致命的。",
+					"在一次公开的晚宴上，肠胃根被以这种方式相当戏剧性地用来暗杀一名外交官。虽然它已经是一种非法物质，但这一事件导致当地政府对映山红森林及其周围进行了严密监控。"
+				]
+			},
+			"hasFluff": true,
+			"foundrySystem": {
+				"save.ability": "con",
+				"save.dc": 17,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/consumables/mushrooms/convex-green-brown.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Valkyrie's Shortsword",
+			"rarity": "rare",
+			"baseItem": "shortsword|phb",
+			"type": "M",
+			"weight": 2,
+			"weaponCategory": "martial",
+			"property": [
+				"F",
+				"L"
+			],
+			"dmg1": "1d6",
+			"dmgType": "P",
+			"sword": true,
+			"weapon": true,
+			"attachedSpells": [
+				"revivify"
+			],
+			"charges": 1,
+			"recharge": "special",
+			"entries": [
+				"这把短剑的剑柄上华丽地雕刻着一个带翅膀的人物的浮雕，他跪下来帮助一个受伤的士兵。",
+				"这把短剑有1个电荷。作为一个动作，你可以消耗一个电荷来施放（%0%）。当以这种方式施放时，该法术不消耗其物质成分。",
+				"每当黎明时分，如果短剑没有电荷，就掷一个（%0%）。在8的情况下，短剑重新获得充能。"
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
 		{
 			"source": "karoitem",
 			"name": "Gutroot",
@@ -89,6 +143,7 @@
 			"name": "Crested Bluehawk Feather",
 			"rarity": "uncommon",
 			"wondrous": true,
+			"type": "$",
 			"charges": 1,
 			"recharge": "dawn",
 			"reqAttune": true,
@@ -122,6 +177,7 @@
 			"name": "Sleepless Serandite",
 			"rarity": "uncommon",
 			"wondrous": true,
+			"type": "$",
 			"entries": [
 				"一颗柔和的粉红色宝石。当5英尺内的生物远离它时，宝石会闪烁出明亮的白色。",
 				"当这种情况发生时，你可以用你的反应来对这个生物进行一次机会攻击。你不需要看到这个生物就可以这样做。",
@@ -137,14 +193,13 @@
 			"reqAttune": "by a creature with the ability to summon another creature",
 			"entries": [
 				"一本厚厚的书。里面的大部分文字都无法辨认，但有一段话详细介绍了利用召唤的能量转移的方法，非常引人注目。",
-				"当你召唤一个生物时，你所选择的在召唤物5英尺范围内的每个生物都必须做一个DC14的宪法救赎动作。如果失败，该生物会受到{@damage 1d6}坏死伤害，所受伤害会以临时命中率的形式返回给你或被召唤的生物。"
+				"When you summon a creature, a creature of your choice within 5 feet of the summon must make a DC 14 Constitution saving throw. On a failure, the creature takes {@damage 1d10} necrotic damage, and the damage dealt is returned as temporary hit points either to you or to the summoned creature."
 			],
 			"foundrySystem": {
 				"activation.type": "special",
 				"activation.condition": "When you summon a creature",
 				"target.value": 5,
 				"target.units": "ft",
-				"target.type": "rad",
 				"actionType": "save",
 				"damage.parts": [
 					[
@@ -170,9 +225,54 @@
 				"当与此宝典相适应时，你的武器攻击在掷出19或20时可获得关键打击。"
 			],
 			"foundryFlags": {
-				"flags.dnd5e.weaponCriticalThreshold": true
+				"flags.dnd5e.weaponCriticalThreshold": 19
 			},
 			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Talespinner",
+			"rarity": "artifact",
+			"wondrous": true,
+			"type": "$",
+			"entries": [
+				"Despite holding powerful magic, Talespinner takes the appearance of an plain, dark grey spinning top with no decoration.",
+				"When spun normally, the top spins as normal, with no magical effects.",
+				"When spun on a flat surface while speaking the command word (as an action), the top instead spins indefinitely, and projects a powerful illusion.",
+				"All points of the illusion must have direct line of sight to the Talespinner (though can be \"blocked\" by creatures and other points of the illusion), and the furthest points of the illusion can be no further than 200 feet from the top. The illusion has no other constraints, and can have visual and auditory components of arbitrary complexity. The illusion can include illusory creatures that the spinner of the top can control."
+			],
+			"foundrySystem": {
+				"activation.cost": 1,
+				"activation.type": "action",
+				"duration.units": "perm",
+				"range.value": 200,
+				"range.units": "ft"
+			},
+			"foundryImg": "icons/tools/laboratory/funnel-steel-grey.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "The Same Coin",
+			"rarity": "artifact",
+			"wondrous": true,
+			"type": "$",
+			"weight": 0.02,
+			"charges": 1,
+			"recharge": "dawn",
+			"entries": [
+				"Of only slightly differing dimensions and identical weight to a standard coin, The Same Coin is a mostly ordinary looking gold coin, save for the embossed designs: a spiral on one side, and a cogwheel on the other.",
+				"There are two of these coins in all of existence; one in the Feywild, the other in the Shadowfell. Both are effectively trapped in their respective plane, and are otherwise identical.",
+				"Any attempt to transport either of the coins to another plane will automatically fail.",
+				"As an action, you can flip the coin. The coin only has a magical effect if the coin is flipped randomly. The coin has an effect depending on the result, which can be determined by rolling {@dice 2d100}.",
+				"On a result of 2 or 200, all creatures within 15 feet of the flipped coin are instantly teleported to a random location on the Material Plane.",
+				"Otherwise, roll a {@dice d2}. On a 1, all creatures within 15 feet of the coin in the Feywild are teleported to the location of the coin in the Shadowfell. On a 2, all creatures within 15 feet of the coin in the Shadowfell are teleported to the location of the coin in the Feywild.",
+				"No matter the result, neither coin is teleported and both instantly become inactive, and cannot be used again this way until the next dawn."
+			],
+			"foundrySystem": {
+				"activaiton.type": "action",
+				"formula": "2d100 + 1d2"
+			},
+			"foundryImg": "icons/commodities/currency/coin-inset-swirl-gold.webp"
 		}
 	]
 }
