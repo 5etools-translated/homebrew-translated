@@ -1,5 +1,4 @@
 {
-	"$schema": "../_schema-fast/homebrew.json",
 	"_meta": {
 		"sources": [
 			{
@@ -10,14 +9,69 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.2"
+				"version": "1.1"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1667938661,
-		"_dateLastModifiedHash": "6ae02d34f5"
+		"dateLastModified": 1678329046,
+		"_dateLastModifiedHash": "390ee8b9eb"
 	},
 	"item": [
+		{
+			"source": "karoitem",
+			"name": "Gutroot",
+			"rarity": "very rare",
+			"type": "G",
+			"poison": true,
+			"poisonTypes": [
+				"ingested"
+			],
+			"entries": [
+				"A creature subjected to this poison must succeed on a DC 17 Constitution saving throw or become {@condition poisoned} for 15 minutes. If the creature remains poisoned for the entire duration, it takes {@damage 1d2} necrotic damage at the end of each of its turns for the next hour. This damage cannot be reduced in any way. This effect can only be removed with the use of {@spell remove curse} or similar magic."
+			],
+			"fluff": {
+				"entries": [
+					"Некогда обычный гриб, магически измененный каким-то древним аберрантным событием. Дико ядовитая для всего, что ее ест, но неспособная распространиться далеко от ствола давно умершего дерева-хозяина, эта грибная колония стала практически постоянной частью Отражающего леса.",
+					"Кишечный корень может использоваться в качестве ингредиента многих ядов, причем его действие меняется в зависимости от способа приготовления. Самый известный эффект, от которого он и получил свое название, - это внезапное разложение пищеварительной системы проглотившего его существа, которое во всех задокументированных случаях оказывалось смертельным.",
+					"Гутроут был использован таким образом для довольно драматического убийства дипломата на публичном званом обеде. Хотя это вещество уже было запрещено, этот случай заставил местные власти установить усиленное наблюдение в Отражающем лесу и вокруг него."
+				]
+			},
+			"hasFluff": true,
+			"foundrySystem": {
+				"save.ability": "con",
+				"save.dc": 17,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/consumables/mushrooms/convex-green-brown.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Valkyrie's Shortsword",
+			"rarity": "rare",
+			"baseItem": "shortsword|phb",
+			"type": "M",
+			"weight": 2,
+			"weaponCategory": "martial",
+			"property": [
+				"F",
+				"L"
+			],
+			"dmg1": "1d6",
+			"dmgType": "P",
+			"sword": true,
+			"weapon": true,
+			"attachedSpells": [
+				"revivify"
+			],
+			"charges": 1,
+			"recharge": "special",
+			"entries": [
+				"На рукояти этого короткого меча вырезано рельефное изображение крылатой фигуры, опустившейся на колени, чтобы помочь раненому солдату.",
+				"Этот меч имеет 1 заряд. В качестве действия вы можете потратить заряд на заклинание {@spell revivify}. Когда заклинание произносится таким образом, оно не расходует свой материальный компонент.",
+				"Каждый рассвет, если меч не заряжен, бросьте {@dice d8}. При выпадении 8 шорт-нож восстанавливает заряд."
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
 		{
 			"source": "karoitem",
 			"name": "Gutroot",
@@ -89,6 +143,7 @@
 			"name": "Crested Bluehawk Feather",
 			"rarity": "uncommon",
 			"wondrous": true,
+			"type": "$",
 			"charges": 1,
 			"recharge": "dawn",
 			"reqAttune": true,
@@ -122,6 +177,7 @@
 			"name": "Sleepless Serandite",
 			"rarity": "uncommon",
 			"wondrous": true,
+			"type": "$",
 			"entries": [
 				"Приглушенно-розовый драгоценный камень. Драгоценный камень вспыхивает ярким белым светом, когда существо в радиусе 5 футов отходит от него.",
 				"Когда это происходит, вы можете использовать свою реакцию, чтобы совершить атаку против этого существа. Для этого вам не нужно видеть существо.",
@@ -137,14 +193,13 @@
 			"reqAttune": "by a creature with the ability to summon another creature",
 			"entries": [
 				"Толстый фолиант. Большая часть текста в нем неразборчива, но выделяется отрывок, в котором подробно описывается способ использования энергии, передаваемой при вызове.",
-				"Когда вы вызываете существо, каждое существо по вашему выбору в радиусе 5 футов от вызванного должно сделать бросок на спасбросок по конституции DC 14. В случае неудачи существо получает {@damage 1d6} некротического урона, а нанесенный урон возвращается в виде временных хит-пойнтов либо вам, либо вызванному существу."
+				"When you summon a creature, a creature of your choice within 5 feet of the summon must make a DC 14 Constitution saving throw. On a failure, the creature takes {@damage 1d10} necrotic damage, and the damage dealt is returned as temporary hit points either to you or to the summoned creature."
 			],
 			"foundrySystem": {
 				"activation.type": "special",
 				"activation.condition": "When you summon a creature",
 				"target.value": 5,
 				"target.units": "ft",
-				"target.type": "rad",
 				"actionType": "save",
 				"damage.parts": [
 					[
@@ -170,9 +225,54 @@
 				"Когда вы настроены на этот паулдрон, ваши атаки оружием становятся критическими при броске на 19 или 20."
 			],
 			"foundryFlags": {
-				"flags.dnd5e.weaponCriticalThreshold": true
+				"flags.dnd5e.weaponCriticalThreshold": 19
 			},
 			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Talespinner",
+			"rarity": "artifact",
+			"wondrous": true,
+			"type": "$",
+			"entries": [
+				"Despite holding powerful magic, Talespinner takes the appearance of an plain, dark grey spinning top with no decoration.",
+				"When spun normally, the top spins as normal, with no magical effects.",
+				"When spun on a flat surface while speaking the command word (as an action), the top instead spins indefinitely, and projects a powerful illusion.",
+				"All points of the illusion must have direct line of sight to the Talespinner (though can be \"blocked\" by creatures and other points of the illusion), and the furthest points of the illusion can be no further than 200 feet from the top. The illusion has no other constraints, and can have visual and auditory components of arbitrary complexity. The illusion can include illusory creatures that the spinner of the top can control."
+			],
+			"foundrySystem": {
+				"activation.cost": 1,
+				"activation.type": "action",
+				"duration.units": "perm",
+				"range.value": 200,
+				"range.units": "ft"
+			},
+			"foundryImg": "icons/tools/laboratory/funnel-steel-grey.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "The Same Coin",
+			"rarity": "artifact",
+			"wondrous": true,
+			"type": "$",
+			"weight": 0.02,
+			"charges": 1,
+			"recharge": "dawn",
+			"entries": [
+				"Of only slightly differing dimensions and identical weight to a standard coin, The Same Coin is a mostly ordinary looking gold coin, save for the embossed designs: a spiral on one side, and a cogwheel on the other.",
+				"There are two of these coins in all of existence; one in the Feywild, the other in the Shadowfell. Both are effectively trapped in their respective plane, and are otherwise identical.",
+				"Any attempt to transport either of the coins to another plane will automatically fail.",
+				"As an action, you can flip the coin. The coin only has a magical effect if the coin is flipped randomly. The coin has an effect depending on the result, which can be determined by rolling {@dice 2d100}.",
+				"On a result of 2 or 200, all creatures within 15 feet of the flipped coin are instantly teleported to a random location on the Material Plane.",
+				"Otherwise, roll a {@dice d2}. On a 1, all creatures within 15 feet of the coin in the Feywild are teleported to the location of the coin in the Shadowfell. On a 2, all creatures within 15 feet of the coin in the Shadowfell are teleported to the location of the coin in the Feywild.",
+				"No matter the result, neither coin is teleported and both instantly become inactive, and cannot be used again this way until the next dawn."
+			],
+			"foundrySystem": {
+				"activaiton.type": "action",
+				"formula": "2d100 + 1d2"
+			},
+			"foundryImg": "icons/commodities/currency/coin-inset-swirl-gold.webp"
 		}
 	]
 }
