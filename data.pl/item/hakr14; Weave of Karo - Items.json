@@ -1,5 +1,4 @@
 {
-	"$schema": "../_schema-fast/homebrew.json",
 	"_meta": {
 		"sources": [
 			{
@@ -10,14 +9,69 @@
 				"authors": [
 					"hakr14"
 				],
-				"version": "1.0.2"
+				"version": "1.1"
 			}
 		],
 		"dateAdded": 1662156010,
-		"dateLastModified": 1667938661,
-		"_dateLastModifiedHash": "6ae02d34f5"
+		"dateLastModified": 1678329046,
+		"_dateLastModifiedHash": "390ee8b9eb"
 	},
 	"item": [
+		{
+			"source": "karoitem",
+			"name": "Gutroot",
+			"rarity": "very rare",
+			"type": "G",
+			"poison": true,
+			"poisonTypes": [
+				"ingested"
+			],
+			"entries": [
+				"A creature subjected to this poison must succeed on a DC 17 Constitution saving throw or become {@condition poisoned} for 15 minutes. If the creature remains poisoned for the entire duration, it takes {@damage 1d2} necrotic damage at the end of each of its turns for the next hour. This damage cannot be reduced in any way. This effect can only be removed with the use of {@spell remove curse} or similar magic."
+			],
+			"fluff": {
+				"entries": [
+					"Niegdyś zwykły grzyb, magicznie zmieniony przez jakieś starożytne wydarzenie. Dziko toksyczny dla wszystkiego, co go zje, ale również nie jest w stanie rozprzestrzenić się zbyt daleko od pnia dawno obumarłego drzewa-gospodarza, ta kolonia grzybów jest niemalże stałą częścią Lasu Odbicia.",
+					"Gutroot może być stosowany jako składnik wielu trucizn, a jego działanie zmienia się w zależności od sposobu przygotowania. Najbardziej znanym efektem, od którego pochodzi jego nazwa, jest nagły rozkład układu pokarmowego spożywającego go stworzenia, który okazał się śmiertelny we wszystkich udokumentowanych przypadkach.",
+					"Gutroot został użyty w ten sposób do dość dramatycznego zamachu na dyplomatę podczas publicznej kolacji. Chociaż była to już substancja nielegalna, wydarzenie to spowodowało, że lokalne władze wprowadziły silny nadzór w i wokół Reflecting Woods."
+				]
+			},
+			"hasFluff": true,
+			"foundrySystem": {
+				"save.ability": "con",
+				"save.dc": 17,
+				"save.scaling": "flat"
+			},
+			"foundryImg": "icons/consumables/mushrooms/convex-green-brown.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Valkyrie's Shortsword",
+			"rarity": "rare",
+			"baseItem": "shortsword|phb",
+			"type": "M",
+			"weight": 2,
+			"weaponCategory": "martial",
+			"property": [
+				"F",
+				"L"
+			],
+			"dmg1": "1d6",
+			"dmgType": "P",
+			"sword": true,
+			"weapon": true,
+			"attachedSpells": [
+				"revivify"
+			],
+			"charges": 1,
+			"recharge": "special",
+			"entries": [
+				"Na rękojeści tego miecza znajduje się ozdobnie wyrzeźbiona płaskorzeźba skrzydlatej postaci klęczącej, by pomóc rannemu żołnierzowi.",
+				"Ten miecz krótki ma 1 ładunek. Jako akcję, możesz wydać ładunek, aby rzucić {@spell revivify}. Rzucone w ten sposób zaklęcie nie zużywa swojego składnika materialnego.",
+				"Każdego świtu, jeśli miecz nie ma ładunku, rzuć {@dice d8}. Na 8, miecz odzyskuje ładunek."
+			],
+			"foundryImg": "icons/weapons/swords/sword-guard-bronze.webp"
+		},
 		{
 			"source": "karoitem",
 			"name": "Gutroot",
@@ -89,6 +143,7 @@
 			"name": "Crested Bluehawk Feather",
 			"rarity": "uncommon",
 			"wondrous": true,
+			"type": "$",
 			"charges": 1,
 			"recharge": "dawn",
 			"reqAttune": true,
@@ -122,6 +177,7 @@
 			"name": "Sleepless Serandite",
 			"rarity": "uncommon",
 			"wondrous": true,
+			"type": "$",
 			"entries": [
 				"Kamień szlachetny w kolorze stonowanego różu. Kamień szlachetny błyska jasną bielą, gdy istota w promieniu 5 stóp oddali się od niego.",
 				"Kiedy to się stanie, możesz użyć swojej reakcji, aby wykonać atak okazjonalny przeciwko temu stworzeniu. Nie musisz widzieć tego stworzenia, aby to zrobić.",
@@ -137,14 +193,13 @@
 			"reqAttune": "by a creature with the ability to summon another creature",
 			"entries": [
 				"Grube tomisko. Większość tekstu jest nie do rozszyfrowania, ale wyróżnia się fragment opisujący sposób na wykorzystanie transferu energii podczas przywoływania.",
-				"Kiedy przywołujesz stwora, każde wybrane przez ciebie stworzenie w promieniu 5 stóp od niego musi wykonać rzut ratujący Konstytucję DC 14. W przypadku porażki, stworzenie otrzymuje {@damage 1d6} obrażeń nekrotycznych, a zadane obrażenia są zwracane w postaci tymczasowych punktów trafień tobie lub przywołanemu stworzeniu."
+				"When you summon a creature, a creature of your choice within 5 feet of the summon must make a DC 14 Constitution saving throw. On a failure, the creature takes {@damage 1d10} necrotic damage, and the damage dealt is returned as temporary hit points either to you or to the summoned creature."
 			],
 			"foundrySystem": {
 				"activation.type": "special",
 				"activation.condition": "When you summon a creature",
 				"target.value": 5,
 				"target.units": "ft",
-				"target.type": "rad",
 				"actionType": "save",
 				"damage.parts": [
 					[
@@ -170,9 +225,54 @@
 				"Podczas korzystania z niego, twoje ataki z użyciem broni trafiają krytycznie po uzyskaniu wyniku 19 lub 20."
 			],
 			"foundryFlags": {
-				"flags.dnd5e.weaponCriticalThreshold": true
+				"flags.dnd5e.weaponCriticalThreshold": 19
 			},
 			"foundryImg": "icons/equipment/shoulder/pauldron-purple-worn.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "Talespinner",
+			"rarity": "artifact",
+			"wondrous": true,
+			"type": "$",
+			"entries": [
+				"Despite holding powerful magic, Talespinner takes the appearance of an plain, dark grey spinning top with no decoration.",
+				"When spun normally, the top spins as normal, with no magical effects.",
+				"When spun on a flat surface while speaking the command word (as an action), the top instead spins indefinitely, and projects a powerful illusion.",
+				"All points of the illusion must have direct line of sight to the Talespinner (though can be \"blocked\" by creatures and other points of the illusion), and the furthest points of the illusion can be no further than 200 feet from the top. The illusion has no other constraints, and can have visual and auditory components of arbitrary complexity. The illusion can include illusory creatures that the spinner of the top can control."
+			],
+			"foundrySystem": {
+				"activation.cost": 1,
+				"activation.type": "action",
+				"duration.units": "perm",
+				"range.value": 200,
+				"range.units": "ft"
+			},
+			"foundryImg": "icons/tools/laboratory/funnel-steel-grey.webp"
+		},
+		{
+			"source": "karoitem",
+			"name": "The Same Coin",
+			"rarity": "artifact",
+			"wondrous": true,
+			"type": "$",
+			"weight": 0.02,
+			"charges": 1,
+			"recharge": "dawn",
+			"entries": [
+				"Of only slightly differing dimensions and identical weight to a standard coin, The Same Coin is a mostly ordinary looking gold coin, save for the embossed designs: a spiral on one side, and a cogwheel on the other.",
+				"There are two of these coins in all of existence; one in the Feywild, the other in the Shadowfell. Both are effectively trapped in their respective plane, and are otherwise identical.",
+				"Any attempt to transport either of the coins to another plane will automatically fail.",
+				"As an action, you can flip the coin. The coin only has a magical effect if the coin is flipped randomly. The coin has an effect depending on the result, which can be determined by rolling {@dice 2d100}.",
+				"On a result of 2 or 200, all creatures within 15 feet of the flipped coin are instantly teleported to a random location on the Material Plane.",
+				"Otherwise, roll a {@dice d2}. On a 1, all creatures within 15 feet of the coin in the Feywild are teleported to the location of the coin in the Shadowfell. On a 2, all creatures within 15 feet of the coin in the Shadowfell are teleported to the location of the coin in the Feywild.",
+				"No matter the result, neither coin is teleported and both instantly become inactive, and cannot be used again this way until the next dawn."
+			],
+			"foundrySystem": {
+				"activaiton.type": "action",
+				"formula": "2d100 + 1d2"
+			},
+			"foundryImg": "icons/commodities/currency/coin-inset-swirl-gold.webp"
 		}
 	]
 }
