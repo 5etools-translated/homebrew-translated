@@ -4,7 +4,7 @@
 			{
 				"json": "cgtsmedic",
 				"abbreviation": "CGtS:FM",
-				"full": "Complete Guide to Sanctum : Field Medic",
+				"full": "Complete Guide to Sanctum: Field Medic",
 				"authors": [
 					"FrostBladestorm"
 				],
@@ -12,34 +12,32 @@
 					"hakr14"
 				],
 				"version": "1.0",
-				"url": "https://www.gmbinder.com/share/-MdFixnKhFB10neMU6G6",
-				"targetSchema": "1.0.1"
+				"url": "https://www.gmbinder.com/share/-MdFixnKhFB10neMU6G6"
 			}
 		],
 		"dateAdded": 1634229171,
-		"dateLastModified": 1634415429,
-		"_dateLastModifiedHash": "9c2ed04948"
+		"dateLastModified": 1683400472,
+		"_dateLastModifiedHash": "face45b331"
 	},
 	"subclass": [
 		{
 			"name": "Field Medic",
-			"shortName": "Field Medic",
 			"source": "cgtsmedic",
+			"shortName": "Field Medic",
+			"className": "Rogue",
+			"classSource": "PHB",
 			"subclassFeatures": [
 				"Field Medic|Rogue||Field Medic|cgtsmedic|3",
 				"Emergency Reflexes|Rogue||Field Medic|cgtsmedic|9",
 				"Forensic Examination|Rogue||Field Medic|cgtsmedic|13",
 				"Improved Patches|Rogue||Field Medic|cgtsmedic|17"
-			],
-			"className": "Rogue",
-			"classSource": "PHB"
+			]
 		}
 	],
 	"subclassFeature": [
 		{
 			"name": "Field Medic",
 			"source": "cgtsmedic",
-			"page": 1,
 			"className": "Rogue",
 			"classSource": "PHB",
 			"subclassShortName": "Field Medic",
@@ -60,6 +58,13 @@
 		},
 		{
 			"name": "Combat Medic Training",
+			"source": "cgtsmedic",
+			"className": "Rogue",
+			"classSource": "PHB",
+			"subclassShortName": "Field Medic",
+			"subclassSource": "cgtsmedic",
+			"level": 3,
+			"header": 1,
 			"entries": [
 				"När du väljer den här arketypen på 3:e nivån får du kompetens i {@skill Medicine}. Om du redan har denna färdighet kan du välja {@item Alchemist's Supplies|phb}, en {@item Herbalism Kit|phb} eller en annan Visdomskunskap och få färdighet i den istället.",
 				"Dessutom får du följande fördelar:",
@@ -72,34 +77,66 @@
 					]
 				}
 			],
+			"skillProficiencies": [
+				{
+					"medicine": true
+				},
+				{
+					"choose": {
+						"from": [
+							"animal handling",
+							"insight",
+							"medicine",
+							"perception",
+							"survival"
+						],
+						"count": 1
+					}
+				}
+			],
+			"foundryImg": "icons/skills/toxins/poison-bottle-open-blood-red.webp"
+		},
+		{
+			"name": "Responder's Aid",
 			"source": "cgtsmedic",
-			"page": 1,
 			"className": "Rogue",
 			"classSource": "PHB",
 			"subclassShortName": "Field Medic",
 			"subclassSource": "cgtsmedic",
 			"level": 3,
-			"header": 1
-		},
-		{
-			"name": "Responder's Aid",
+			"header": 1,
 			"entries": [
 				"På tredje nivån kan du också använda dina kunskaper i medicin för att hjälpa skadade. Under en lång vila kan du skapa ett antal medicinska plåster som är lika stort som din visdomsmodifierare (minst 1). Ett plåster representerar en serie bandage, smärtlindring och naturläkemedel som hjälper till att sluta sår. Dessa plåster räcker fram till din nästa långa vila.",
 				"Som en åtgärd kan du applicera ett plåster på en varelse inom 5 meter från dig. När du gör det, kasta dina {@classFeature Sneak Attack|Rogue||1} tärningar och lägg till din visdomsmodifierare. Varelsen återfår träffpoäng lika med summan (minst 1 träffpunkt)."
 			],
-			"source": "cgtsmedic",
-			"page": 1,
-			"className": "Rogue",
-			"classSource": "PHB",
-			"subclassShortName": "Field Medic",
-			"subclassSource": "cgtsmedic",
-			"level": 3,
-			"header": 1
+			"foundrySystem": {
+				"ability": "wis",
+				"actionType": "heal",
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"max(1, @scale.rogue.sneak-attack + @mod)",
+						"healing"
+					]
+				],
+				"range": {
+					"value": 5,
+					"units": "ft"
+				},
+				"target.type": "creature",
+				"uses": {
+					"max": "max(1, @abilities.wis.mod)",
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/commodities/cloth/cloth-roll-gold-green.webp"
 		},
 		{
 			"name": "Emergency Reflexes",
 			"source": "cgtsmedic",
-			"page": 1,
 			"className": "Rogue",
 			"classSource": "PHB",
 			"subclassShortName": "Field Medic",
@@ -109,12 +146,19 @@
 			"entries": [
 				"Från och med 9:e nivån kan du snabbt minska gapet till dina allierade. När en allierad som du kan se eller höra reduceras till 0 träffpoäng och faller {@condition unconscious} kan du använda din reaktion för att röra dig upp till din hastighet utan att provocera {@action opportunity attack|phb|opportunity attacks}. Du måste avsluta denna rörelse närmare din allierade än du började.",
 				"Din hastighet halveras inte heller när du släpar eller bär en medvetslös varelse som är lika stor som du eller mindre."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"condition": "When an ally you can see or hear is reduced to 0 hit points and falls unconscious"
+				}
+			},
+			"foundryImg": "icons/skills/movement/arrow-upward-blue.webp"
 		},
 		{
 			"name": "Forensic Examination",
 			"source": "cgtsmedic",
-			"page": 1,
 			"className": "Rogue",
 			"classSource": "PHB",
 			"subclassShortName": "Field Medic",
@@ -132,12 +176,18 @@
 						"Ungefär hur gammal varelsen var när den dog."
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "minute"
+				}
+			},
+			"foundryImg": "icons/tools/scribal/magnifying-glass.webp"
 		},
 		{
 			"name": "Improved Patches",
 			"source": "cgtsmedic",
-			"page": 1,
 			"className": "Rogue",
 			"classSource": "PHB",
 			"subclassShortName": "Field Medic",
@@ -154,7 +204,14 @@
 						"Du kan avsluta antingen en sjukdom eller ett tillstånd som drabbar målet. Tillståndet kan vara {@condition Blinded}, {@condition Deafened}, {@condition Paralyzed}, {@condition Poisoned} eller {@condition Stunned}."
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you apply a patch to a creature"
+				}
+			},
+			"foundryImg": "icons/magic/life/heart-area-circle-red-green.webp"
 		}
 	]
 }
