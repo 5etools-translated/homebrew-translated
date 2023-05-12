@@ -1,32 +1,31 @@
 {
-	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/5etools-utils/master/schema/brew-fast/homebrew.json",
 	"_meta": {
 		"sources": [
 			{
 				"json": "llfafs",
 				"abbreviation": "LLFAFS",
-				"full": "LaserLLama's Fighter Archetypes & Fighting Styles",
+				"full": "LaserLlama's Fighter Archetypes & Fighting Styles",
 				"authors": [
 					"laserllama"
 				],
 				"convertedBy": [
-					"JoeyJoestar"
+					"JoeyJoestar",
+					"hakr14"
 				],
-				"version": "2.1.0",
+				"version": "2.2.0",
 				"color": "4287f5",
 				"url": "https://www.gmbinder.com/share/-M0i_wbRAX8qAz1OIjbF",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.7"
 			}
 		],
 		"dateAdded": 1652153430,
-		"dateLastModified": 1678748267,
+		"dateLastModified": 1683601714,
 		"optionalFeatureTypes": {
-			"FS:M": "Fighting Style; Magus",
-			"FS:W": "Fighting Style; Warlord",
+			"GC": "Guerrilla Combatancy",
 			"QR": "Quartermaster Rations",
 			"TS": "Tinker Knight Schematics"
 		},
-		"_dateLastModifiedHash": "43eb5e4c72"
+		"_dateLastModifiedHash": "7ad32ec261"
 	},
 	"subclass": [
 		{
@@ -37,7 +36,7 @@
 			"shortName": "Commander",
 			"subclassFeatures": [
 				"Commander|Fighter|phb|Commander|llfafs|3",
-				"Strategic Insights|Fighter|phb|Commander|llfafs|7",
+				"Strategic Command|Fighter|phb|Commander|llfafs|7",
 				"Heroic Surge|Fighter|phb|Commander|llfafs|10",
 				"Invigorating Orders|Fighter|phb|Commander|llfafs|15",
 				"Legendary Commander|Fighter|phb|Commander|llfafs|18"
@@ -51,11 +50,42 @@
 			"shortName": "Crusader",
 			"subclassFeatures": [
 				"Crusader|Fighter|phb|Crusader|llfafs|3",
-				"Mantle of Faith|Fighter|phb|Crusader|llfafs|7",
 				"Renewed Fervor|Fighter|phb|Crusader|llfafs|7",
 				"Zealous Fury|Fighter|phb|Crusader|llfafs|10",
 				"Righteous Judgement|Fighter|phb|Crusader|llfafs|15",
-				"Divine Rebuke|Fighter|phb|Crusader|llfafs|18"
+				"Legendary Crusader|Fighter|phb|Crusader|llfafs|18"
+			]
+		},
+		{
+			"name": "Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"shortName": "Drifter",
+			"subclassFeatures": [
+				"Drifter|Fighter|phb|Drifter|llfafs|3",
+				"Hair-Trigger|Fighter|phb|Drifter|llfafs|7",
+				"Tenacious Pursuit|Fighter|phb|Drifter|llfafs|10",
+				"Deadly Hunter|Fighter|phb|Drifter|llfafs|15",
+				"Legendary Drifter|Fighter|phb|Drifter|llfafs|18"
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Wrangler",
+					"configuration": {
+						"identifier": "wrangler",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -68,8 +98,8 @@
 				"Guardian|Fighter|phb|Guardian|llfafs|3",
 				"Rallying Wind|Fighter|phb|Guardian|llfafs|7",
 				"Stalwart Defender|Fighter|phb|Guardian|llfafs|10",
-				"Improved Guardian Stance|Fighter|phb|Guardian|llfafs|15",
-				"Unshakable Bastion|Fighter|phb|Guardian|llfafs|18"
+				"Improved Stance|Fighter|phb|Guardian|llfafs|15",
+				"Legendary Guardian|Fighter|phb|Guardian|llfafs|18"
 			]
 		},
 		{
@@ -83,7 +113,31 @@
 				"By Land or Sea|Fighter|phb|Guerrilla|llfafs|7",
 				"Adaptable Fighting Style|Fighter|phb|Guerrilla|llfafs|10",
 				"Unwavering|Fighter|phb|Guerrilla|llfafs|15",
-				"Elite Guerrilla|Fighter|phb|Guerrilla|llfafs|18"
+				"Legendary Guerrilla|Fighter|phb|Guerrilla|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Adaptable Superiority",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"3": 3,
+						"7": 4,
+						"10": 5,
+						"15": 6
+					}
+				},
+				{
+					"name": "By Land or Sea",
+					"featureType": [
+						"GC"
+					],
+					"progression": {
+						"7": 1,
+						"15": 2
+					}
+				}
 			]
 		},
 		{
@@ -97,7 +151,21 @@
 				"Cunning Shot|Fighter|phb|Marksman|llfafs|7",
 				"Reposition|Fighter|phb|Marksman|llfafs|10",
 				"Reliable Shot|Fighter|phb|Marksman|llfafs|15",
-				"Deadeye|Fighter|phb|Marksman|llfafs|18"
+				"Legendary Marksman|Fighter|phb|Marksman|llfafs|18"
+			]
+		},
+		{
+			"name": "Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"shortName": "Martial Artist",
+			"subclassFeatures": [
+				"Martial Artist|Fighter|phb|Martial Artist|llfafs|3",
+				"Counter|Fighter|phb|Martial Artist|llfafs|7",
+				"Evasive Footwork|Fighter|phb|Martial Artist|llfafs|10",
+				"Unbreakable|Fighter|phb|Martial Artist|llfafs|15",
+				"Legendary Martial Artist|Fighter|phb|Martial Artist|llfafs|18"
 			]
 		},
 		{
@@ -115,17 +183,17 @@
 			]
 		},
 		{
-			"name": "Pact Warrior",
+			"name": "Witch Knight",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"shortName": "Pact Warrior",
+			"shortName": "Witch Knight",
 			"subclassFeatures": [
-				"Pact Warrior|Fighter|phb|Pact Warrior|llfafs|3",
-				"Otherworldly Step|Fighter|phb|Pact Warrior|llfafs|7",
-				"Enchanted Strikes|Fighter|phb|Pact Warrior|llfafs|10",
-				"Improved Sanguine Offering|Fighter|phb|Pact Warrior|llfafs|15",
-				"Profane Sacrifice|Fighter|phb|Pact Warrior|llfafs|18"
+				"Witch Knight|Fighter|phb|Witch Knight|llfafs|3",
+				"Otherworldly Step|Fighter|phb|Witch Knight|llfafs|7",
+				"Enchanted Strikes|Fighter|phb|Witch Knight|llfafs|10",
+				"Greater Offering|Fighter|phb|Witch Knight|llfafs|15",
+				"Profane Sacrifice|Fighter|phb|Witch Knight|llfafs|18"
 			],
 			"casterProgression": "pact",
 			"spellcastingAbility": "cha",
@@ -133,6 +201,19 @@
 				{
 					"className": "Warlock",
 					"classSource": "phb"
+				}
+			],
+			"additionalSpells": [
+				{
+					"ability": "cha",
+					"known": {
+						"3": [
+							{
+								"choose": "level=0",
+								"count": 1
+							}
+						]
+					}
 				}
 			],
 			"cantripProgression": [
@@ -327,7 +408,7 @@
 			"subclassFeatures": [
 				"Quartermaster|Fighter|phb|Quartermaster|llfafs|3",
 				"Dependable|Fighter|phb|Quartermaster|llfafs|7",
-				"Improved Rations|Fighter|phb|Quartermaster|llfafs|10",
+				"Quick Ration|Fighter|phb|Quartermaster|llfafs|10",
 				"Ever Ready|Fighter|phb|Quartermaster|llfafs|15",
 				"Iron Stomach|Fighter|phb|Quartermaster|llfafs|18"
 			]
@@ -341,9 +422,41 @@
 			"subclassFeatures": [
 				"Swordsage|Fighter|phb|Swordsage|llfafs|3",
 				"Heightened Reflexes|Fighter|phb|Swordsage|llfafs|7",
-				"Improved Battle Trance|Fighter|phb|Swordsage|llfafs|10",
-				"Technical Mastery|Fighter|phb|Swordsage|llfafs|15",
-				"Legendary Swordsage|Fighter|phb|Swordsage|llfafs|18"
+				"Masterful Trance|Fighter|phb|Swordsage|llfafs|10",
+				"Legendary Swordsage|Fighter|phb|Swordsage|llfafs|15",
+				"Legendary Swordsage (d8)|Fighter|phb|Swordsage|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Student of the Blade",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"3": 3,
+						"7": 4,
+						"10": 5,
+						"15": 6
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Battle Trance",
+					"configuration": {
+						"identifier": "battle-trance-ac",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"10": {
+								"value": 2
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -358,6 +471,20 @@
 				"Mechanical Synergy|Fighter|phb|Tinker Knight|llfafs|10",
 				"Flexible Innovation|Fighter|phb|Tinker Knight|llfafs|15",
 				"Masterwork Inventions|Fighter|phb|Tinker Knight|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Inventive Arsenal",
+					"featureType": [
+						"TS"
+					],
+					"progression": {
+						"3": 2,
+						"7": 3,
+						"10": 4,
+						"15": 5
+					}
+				}
 			]
 		}
 	],
@@ -371,27 +498,26 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Niet alle strijders vertrouwen alleen op zichzelf in de strijd, sommigen gebruiken hun kennis van slagveldtactieken om hun bondgenoten te commanderen. Commandanten zijn krijgers die hun soldaten vanaf het front leiden, bevelen geven en anderen inspireren tot grootsheid door hun eigen moedige daden. Door hun aanwezigheid kan een commandant een ongeorganiseerde militie in een dodelijke strijdmacht veranderen.",
+				"Not all Fighters rely solely on themselves in battle, some use their knowledge of battlefield tactics to command their allies. Commanders are warriors who lead their soldiers from the front, issuing Commands and inspiring greatness in others by their own brave deeds. By their presence, a Commander can transform an unorganized militia into a deadly force.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Orders|Fighter|phb|Commander|llfafs|3"
+					"subclassFeature": "Art of War|Fighter|phb|Commander|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "The Art of War|Fighter|phb|Commander|llfafs|3"
+					"subclassFeature": "Tactical Orders|Fighter|phb|Commander|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
 					"name": "Captains, Tacticians, & Warlords",
 					"entries": [
-						"De niche van de slagveldcommandant is er een die opvallend onvervuld is in 5e. De hier voorgestelde subklasse Commander is een poging om die leegte op te vullen met een niet-magisch karakter.",
-						"De Commander is een vechter die vanaf het front leidt. Als je een meer strategische leider zoekt die andere helden als wapen gebruikt, kijk dan eens naar de Tactician Discipline voor de Savant klasse."
+						"The battlefield commander is an archetype that is conspicuously absent in 5e. This Archetype, along with the Warlord Class attempts to fill that niche."
 					]
 				}
 			]
 		},
 		{
-			"name": "Orders",
+			"name": "Tactical Orders",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -400,10 +526,10 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Vanaf niveau 3 kun je, wanneer je tijdens je beurt de {@action Attack} actie uitvoert, een van je aanvallen vervangen door een Bevel uit de onderstaande lijst. Je kunt een Opdracht geven aan elk gewillig wezen binnen 30 meter dat je kan horen. Je kunt een aantal bevelen geven dat gelijk is aan 1 + je vaardigheidsbonus, en je krijgt alle gebruikte middelen terug als je een korte of lange rustpauze neemt.",
+				"When you take the {@action Attack} action on your turn, you can issue one of the Orders from the list below in place of one attack. You can issue an Order to a willing creature within 30 feet, other than yourself, that can hear and understand you:",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
@@ -414,24 +540,46 @@
 						},
 						{
 							"type": "entries",
-							"name": "Inspiring Order",
+							"name": "Defensive Order",
 							"entries": [
-								"Het doelwit krijgt tijdelijk raakpunten gelijk aan je vechtersniveau + je vaardigheidsbonus."
+								"The target of this Order can use its reaction to immediately take the {@action Dodge} action."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Maneuvering Order",
 							"entries": [
-								"Het doelwit kan zijn reactie gebruiken om tot zijn snelheid te bewegen zonder gelegenheidsaanvallen uit te lokken."
+								"The target of this Order can use its reaction to move up to its speed without provoking opportunity attacks."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Support Order",
+							"entries": [
+								"The target of this Order can use its reaction to immediately take the {@action Help}, {@action Hide}, {@action Search}, or {@action Use an Object} action."
 							]
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you take the Attack action on your turn"
+				},
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/environment/people/infantry-armored.webp"
 		},
 		{
-			"name": "The Art of War",
+			"name": "Art of War",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -440,11 +588,25 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Je hebt niet alleen de strategie van de oorlog maar ook die van de politiek bestudeerd. Op het 3e niveau krijg je vaardigheid in een van beide {@skill History}, {@skill Insight}, {@skill Investigation} of {@skill Persuasion}."
-			]
+				"You have spent time studying not only the strategy and tactics of war but also the theory of politics. You gain proficiency in one of the following skills: {@skill History}, {@skill Insight}, {@skill Investigation}, or {@skill Persuasion}. Moreover, whenever you make an ability check with that skill, you treat a d20 roll of 7 or lower as an 8."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"history",
+							"insight",
+							"investigation",
+							"persuasion"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/books/symbol-axe-gold-grey.webp"
 		},
 		{
-			"name": "Strategic Insights",
+			"name": "Strategic Command",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -453,8 +615,30 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Vanaf 7e niveau kun je midden in een gevecht inzicht krijgen in het slagveld. Telkens als je je Tweede Wind kenmerk gebruikt, krijg je alle gebruikte Orden terug."
-			]
+				"You rally your allies even as you fight. When you use {@classFeature Second Wind|Fighter||1}, you can choose three creatures within 30 feet that can hear you to regain hit points equal to your Fighter level."
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind"
+				},
+				"damage.parts": [
+					[
+						"@classes.fighter.levels",
+						"healing"
+					]
+				],
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 3,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/weapons/swords/sword-gold-holy.webp"
 		},
 		{
 			"name": "Heroic Surge",
@@ -466,8 +650,23 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Je actie inspireert je bondgenoten. Wanneer je Action Surge gebruikt, kun je vanaf je 10e niveau één wezen binnen 30 voet kiezen dat je kan horen. Als reactie kan dat wezen tot zijn volledige bewegingssnelheid bewegen zonder gelegenheidsaanvallen uit te lokken. Aan het einde van zijn beweging kan het wezen een enkele wapenaanval uitvoeren als onderdeel van dezelfde reactie."
-			]
+				"Your action inspires your allies. When you use {@classFeature Action Surge|Fighter||2}, you can choose one creature within 30 feet that can hear you. As a reaction, it can move up to its speed without provoking opportunity attacks. At the end of this movement, it can make a single weapon attack as part of the same reaction."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you use Action Surge"
+				},
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/skills/movement/arrow-upward-blue.webp"
 		},
 		{
 			"name": "Invigorating Orders",
@@ -479,8 +678,9 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Vanaf 15e niveau inspireren je bevelen grootsheid in degenen die naast je vechten. Als je een bevel aan een wezen geeft, heeft het voordeel bij de eerste aanval, vaardigheidscontrole of reddingsworp die het binnen een minuut doet."
-			]
+				"Your orders inspire greatness in those who fight alongside you. Whenever you issue an {@subclassFeature Tactical Orders|Fighter||Commander|llfafs|3||Order} to a creature, it has advantage on the first weapon or spell attack roll that it makes within the next minute."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-black-gray.webp"
 		},
 		{
 			"name": "Legendary Commander",
@@ -492,8 +692,9 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Je vermogen om anderen te inspireren en bondgenoten de strijd in te leiden doet niet onder voor de grote veroveraars en commandanten uit de legende. Vanaf 18e niveau kan je Heroic Surge invloed hebben op twee wezens naar keuze binnen 30 voet die je kunnen zien of horen."
-			]
+				"Your ability to inspire others and lead allies into battle rivals the great conquerors and commanders of legend. When you use {@classFeature Action Surge|Fighter||2}, your {@subclassFeature Heroic Surge|Fighter||Commander|llfafs|10} can affect up to two creatures of your choice within 30 feet that can hear you."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-gold.webp"
 		},
 		{
 			"name": "Crusader",
@@ -504,21 +705,21 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Veel krijgers zweren eden aan de goden van strijd en oorlog, maar niet allen zijn gezegend met de goddelijke kracht van paladijnen of geestelijken. Zij die voor de goden vechten zonder hun uitdrukkelijke zegen staan bekend als kruisvaarders. Deze ijveraars staan als voorvechters van goddelijke doelen, hun vurige geloof voedt hun strijdwoede.",
-				"Kruisvaarders dienen vele goden en doelen, maar ze hebben allemaal één ding gemeen: hun fanatieke toewijding aan wat zij geloven dat goed is. Hun geloof is gesmeed in het vuur van toewijding, en een toegewijde kruisvaarder zal vaak eerder breken dan buigen.",
+				"Many warriors swear Oaths to gods of battle and war, but not all are blessed with the divine abilities of Paladins or Clerics. Those who fight for the gods without their explicit blessing are known as Crusaders. These zealots stand as champions of divine causes, their fervent belief fueling their battle fury.",
+				"Crusaders serve many gods and causes, but they all have one thing in common; fanatical devotion to what they believe is right. Their belief is forged in the fires of devotion, and a Crusader will snap rather than bend.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Crusader's Ire|Fighter|phb|Crusader|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Faithful Disciple|Fighter|phb|Crusader|llfafs|3"
+					"subclassFeature": "Fanatical Disciple|Fighter|phb|Crusader|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
-					"name": "Anti-Magic Zealots",
+					"name": "Optional Rule: Oathbreaker Paladins",
 					"entries": [
-						"Hoewel alle geloven kruisvaarders hebben, staan deze fanatieke strijders meestal in dienst van goden of doelen die magie als onnatuurlijk beschouwen. Deze fanatiekelingen verachten magiërs en vormen meedogenloze magiejagers en inquisiteurs."
+						"Should a Paladin break or forsake their Oath in your game, the Crusader Archetype here can be used to represent a Paladin who has lost their divine power."
 					]
 				}
 			]
@@ -533,19 +734,32 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Je kunt je vijanden markeren als het doelwit van een goddelijk oordeel. Vanaf het 3e niveau kun je een bonusactie gebruiken om een wezen binnen 30 meter te markeren als het doelwit van je kruisvaarderswoede, waardoor je de volgende voordelen tegen dat wezen krijgt:",
+				"You mark your foes for divine judgment. As a bonus action, you can Mark a creature within 60 feet as the target of your Crusader's Ire, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"Eenmaal per beurt wanneer je een wezen mist met een wapenaanval, kun je onmiddellijk een andere wapenaanval doen tegen dat wezen met hetzelfde wapen.",
-						"Je kunt tijdens je beurt een bonusactie gebruiken om tot je volledige bewegingssnelheid naar het gemarkeerde wezen toe te bewegen."
+						"When the creature is within your reach and casts a spell or makes an attack against a creature other than you, you can use your reaction to make an opportunity attack.",
+						"When the creature forces you to make a saving throw, you can roll a {@dice d6}, and add the result to your saving throw."
 					]
 				},
-				"Je merkteken duurt 1 minuut, of tot het wezen wordt gedood. Als je een wezen eenmaal hebt gemerkt, moet je een korte of lange rustpauze inlassen voordat je een ander wezen met deze eigenschap kunt merken."
-			]
+				"Your Mark lasts for 1 minute, or until the Marked creature is slain. Once you Mark a creature in this way you must finish a short or long rest before you can Mark another creature as the target of your Crusader's Ire."
+			],
+			"foundrySystem": {
+				"activation.condition": "",
+				"range": {
+					"value": 60,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/skills/targeting/target-glowing-yellow.webp"
 		},
 		{
-			"name": "Faithful Disciple",
+			"name": "Fanatical Disciple",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -554,21 +768,14 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Je hebt je leven gewijd aan je doel en er alles over geleerd. Op 3de niveau krijg je vaardigheid in de {@skill Religion skill}. Telkens als je een intelligentiecontrole ({@skill Religion}) uitvoert in verband met de god, goddelijkheid of goddelijke zaak die je dient, kun je het dubbele van je vaardigheidsbonus toevoegen aan je worp."
-			]
-		},
-		{
-			"name": "Mantle of Faith",
-			"source": "llfafs",
-			"className": "Fighter",
-			"classSource": "phb",
-			"subclassShortName": "Crusader",
-			"subclassSource": "llfafs",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"De woede die je koestert tegen je goddelijke vijanden stelt je in staat schadelijke effecten af te weren. Vanaf 7e niveau, wanneer een wezen dat is gemarkeerd als het doelwit van je Ire je dwingt een reddingsworp te doen, rol je een {@dice d6} en voeg je dit toe aan je worp."
-			]
+				"You gain proficiency in {@skill Religion}, and whenever you make an Intelligence ({@skill Religion}) check related to the god or cause you serve you add double your proficiency bonus to your roll."
+			],
+			"skillProficiencies": [
+				{
+					"religion": true
+				}
+			],
+			"foundryImg": "icons/sundries/books/book-symbol-cross-blue.webp"
 		},
 		{
 			"name": "Renewed Fervor",
@@ -580,8 +787,20 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Ook op 7e niveau geeft je geloof je uitbarstingen van goddelijke vurigheid midden in de strijd. Telkens als je Second Wind gebruikt, krijg je ook het gebruik van je Crusader's Ire kenmerk terug."
-			]
+				"Your fanaticism grants you bursts of fervor in battle. When you use {@classFeature Second Wind|Fighter||1} you regain the use of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3}.",
+				"In addition, when you Mark a creature as the target of your Crusader's Ire, you can move up to 30 feet toward it as part of the same bonus action without expending your movement."
+			],
+			"consumes": {
+				"name": "Crusader's Ire",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind"
+				}
+			},
+			"foundryImg": "icons/magic/control/buff-strength-muscle-damage-orange.webp"
 		},
 		{
 			"name": "Zealous Fury",
@@ -593,8 +812,16 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Vanaf je 10e niveau laat je overtuiging je door wonden vechten die minder gelovigen zouden doden. Als je tot 0 hitpoints wordt gereduceerd, maar niet direct wordt gedood, kun je in plaats daarvan tot 1 hitpoint zakken. Als je deze eigenschap eenmaal hebt gebruikt, moet je een korte of lange rustpauze inlassen voordat je het opnieuw kunt doen."
-			]
+				"Your conviction allows you to survive blows that would slay those of lesser faith. When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 hit point instead, instantly making one weapon attack against your attacker.",
+				"Once you use this feature you must finish a short or long rest before you can use it again. If you have no uses left, you can use it again, but you instantly gain a level of exhaustion."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you are reduced to 0 Hit Points but not killed outright"
+				}
+			},
+			"foundryImg": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp"
 		},
 		{
 			"name": "Righteous Judgement",
@@ -606,12 +833,19 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je kunt goddelijke toorn afroepen over degenen die tegen je zaak zijn. Vanaf 15e niveau, wanneer je het doelwit van je kruisvaarder's Ire raakt met een wapenaanval, kun je het merkteken op dat doelwit beëindigen om je aanval in een kritieke treffer te veranderen.",
-				"Als de resulterende critical hit het wezen tot 0 hit points reduceert, krijg je het gebruik van je Crusader's Ire eigenschap terug."
-			]
+				"You are the arbiter of divine wrath. When you hit the target of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3} with a weapon attack, you can end the Mark to have your attack to deal maximum damage instead of rolling.",
+				"If the attack reduces the target to 0 hit points you instantly regain the use of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3}."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit the target of Crusader's Ire with a weapon attack"
+				}
+			},
+			"foundryImg": "icons/skills/targeting/target-strike-gray.webp"
 		},
 		{
-			"name": "Divine Rebuke",
+			"name": "Legendary Crusader",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -620,8 +854,188 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Vanaf 18e niveau, wanneer het doelwit van je Kruisvaarder's Ire je aanvalt, kun je je reactie gebruiken om een wapenaanval op hem uit te voeren. Als je deze actie gebruikt nadat zijn aanval je raakt, wordt je wapenaanval gedaan met voordeel."
+				"When the target of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3} target's you with an attack, you can use your reaction to make a single weapon attack against that creature. If you use this reaction after the attack hits you, your weapon attack is made with advantage."
+			],
+			"foundrySystem": {
+				"cost": 1,
+				"type": "reaction",
+				"condition": "When the target of Crusader's Ire targets you with an attack"
+			},
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-white-blue.webp"
+		},
+		{
+			"name": "Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"entries": [
+				"While most warriors hone their craft in organized schools of war or combat units, some mastered their combat skill in the wild. Known colloquially as Drifters, these solitary warriors can be found wandering from town to town, making a living hunting bounties - whether they be man, beast, or monster.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Wayward Soul|Fighter|phb|Drifter|llfafs|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Wrangler|Fighter|phb|Drifter|llfafs|3"
+				}
 			]
+		},
+		{
+			"name": "Wayward Soul",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You have spent many days and nights scratching a living out in the wild. You gain proficiency in {@skill Perception} or {@skill Survival}, and when you make a check with either of these skills, you can treat a d20 roll of 7 or lower as an 8.",
+				"You have also learned the language of the criminal world. You can identify, read, and speak in {@language Thieves' Cant}."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"perception",
+							"survival"
+						]
+					}
+				}
+			],
+			"languageProficiencies": [
+				{
+					"thieves' cant": true
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/cave-entrance-mountain-blue.webp"
+		},
+		{
+			"name": "Wrangler",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You are especially adept at bringing your quarries in alive, though you have no qualms if they force you to take more extreme measures. As a bonus action on your turn, you can Mark a creature that you can see within 30 feet as your Quarry, granting you the following benefits:",
+				{
+					"type": "list",
+					"items": [
+						"When you make a Strength ({@skill Athletics}) check to {@action shove} or {@action grapple} your Quarry, you have advantage on your roll.",
+						"As a reaction when your Quarry misses you with a melee attack, you can force it to make a Dexterity saving throw (Save DC = 8 + your proficiency bonus + your Wisdom modifier). On a failed save, you can choose to knock it {@condition prone} or to {@action grapple} the creature (if you have a free hand).",
+						"You have advantage on any Wisdom ({@skill Survival}) or Wisdom ({@skill Perception}) checks you make to track your Quarry."
+					]
+				},
+				"The creature remains your Quarry indefinitely, but this Mark ends early if your Quarry is {@quickref Hiding|PHB|2|0|Hidden} from you, you are {@condition incapacitated}, or you Mark another creature as your Quarry.",
+				"Once you Mark a creature as your Quarry you must finish a short or long rest before you can Mark another creature."
+			],
+			"foundrySystem": {
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creautre"
+				},
+				"uses.max": "@scale.drifter.wrangler"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-mark-rough-pink.webp"
+		},
+		{
+			"name": "Hair-Trigger",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"You can add your proficiency bonus to initiative rolls, and when you roll initiative and are not surprised, you can use your reaction to mark a creature as your Quarry."
+			],
+			"foundrySystem": {
+				"activation.condition": "When you roll initiative and are not surprised"
+			},
+			"foundryImg": "icons/magic/perception/eye-ringed-glow-angry-red.webp"
+		},
+		{
+			"name": "Tenacious Pursuit",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"Once you have a foe in your sights it is rare that they escape your grasp. Once per turn when you make a weapon attack against your Quarry, you roll your damage dice twice and use the higher result.",
+				"Also, if you start your turn more then 30 feet away from your Quarry, you can take the {@action Dash} action as a bonus action on that turn. However, you must use the extra movement to end your turn closer to your Quarry then when you began."
+			],
+			"foundryImg": "icons/skills/movement/figure-running-gray.webp"
+		},
+		{
+			"name": "Deadly Hunter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You are ruthless in combat against your chosen foes. Your weapon attacks against your Quarry score a critical hit on a roll of 19 or 20 on the {@dice d20}.",
+				"Also, you can use {@subclassFeature Wrangler|Fighter||Drifter|llfafs|3} to Mark a creature as your Quarry up to three times, and you regain all expended uses of this feature when you finish a short or long rest."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryFlags": {
+				"babonus.bonuses.Z2bJnwUnjC20vL7u": {
+					"id": "Z2bJnwUnjC20vL7u",
+					"name": "Deadly Hunter",
+					"type": "attack",
+					"bonuses.criticalRange": 1,
+					"filters.targetEffects": [
+						"target"
+					]
+				}
+			},
+			"foundryImg": "icons/skills/melee/strike-blade-knife-blue-red.webp"
+		},
+		{
+			"name": "Legendary Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"You are an unquestioned masterful hunter of creatures, both mortal and immortal. You gain the benefits listed below:",
+				{
+					"type": "list",
+					"items": [
+						"When you mark a creature as your Quarry, the Mark only ends if you mark another creature, or your Quarry is slain.",
+						"When you force your Quarry to make a saving throw, you can end the Mark to cause it to automatically fail.",
+						"You always know the direction of your Quarry so long as you are both on the same plane of existence."
+					]
+				}
+			],
+			"foundryImg": "icons/magic/control/debuff-energy-hold-blue-yellow.webp"
 		},
 		{
 			"name": "Guardian",
@@ -653,18 +1067,18 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Vanaf 3de niveau, zolang je een {@item shield|phb} hanteert, kun je een bonusactie gebruiken tijdens je beurt om een Guardian Stance aan te nemen. Deze houding duurt onbeperkt en eindigt vroegtijdig als je onbekwaam bent, je je schild afdoet, of als je hem als vrije actie beëindigt. In deze houding krijg je de volgende eigenschappen:",
+				"So long as you are wielding a {@item shield|phb}, you can use a bonus action to enter a Guardian Stance that lasts indefinitely. It ends if you are {@condition incapacitated}, you doff your shield, or you end it as a free action. It grants you the benefits below:",
 				{
 					"type": "list",
 					"items": [
-						"Je basis bewegingssnelheid wordt verminderd met 10 voet.",
-						"Wezens van jouw keuze binnen 5 voet die een schild dragen, krijgen een +1 bonus op hun pantserklasse.",
-						"Als reactie, wanneer een wezen binnen 5 voet van u wordt geraakt door een aanval, kunt u het doelwit van de aanval worden en de schade van de aanval op u nemen als deze u zou raken.",
-						"Als bonusactie kun je een aanval met je schild doen. Je wordt beschouwd als bedreven in deze aanval, en als je hem raakt, geeft je schildaanval een vernietigende schade gelijk aan {@dice 1d4} + je Strength modifier."
+						"Your speed is reduced by 10 feet.",
+						"Creatures of your choice within 5 feet of you gain a +1 bonus to their Armor Class.",
+						"As a reaction, when a creature within 5 feet of you is hit by an attack, you can become the target of that attack, taking the damage if the attack would hit you.",
+						"You can make a {@action Shove} attack as a bonus action."
 					]
-				},
-				"Je kunt deze eigenschap een aantal keren gebruiken dat gelijk is aan je grondwetswijziging (minimaal één keer), en je krijgt alle gebruikte functies terug als je een korte of lange rustpauze neemt."
-			]
+				}
+			],
+			"foundryImg": "icons/skills/melee/shield-block-gray-orange.webp"
 		},
 		{
 			"name": "Warrior Smith",
@@ -676,10 +1090,16 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Je krijgt de vaardigheden om je wapens en wapenrusting te onderhouden, zodat je je bondgenoten beter kunt verdedigen. Ook op 3de niveau krijg je vaardigheid met {@item leatherworker's tools|phb} en {@item smith's tools|phb}.",
-				"Aan het einde van een lange rusttijd kun je een van beide gereedschappen gebruiken om een schild of een harnas dat je aanraakt te versterken. Het voorwerp geeft de drager ervan een extra +1 bonus op de pantserklasse.",
-				"Deze pantserklassebonus duurt tot het einde van je volgende lange rust, waarna de pantserklasse weer normaal wordt."
-			]
+				"You gain the skills to maintain your arms and armor so that you may defend your allies to the best of your ability. You gain proficiency in {@item leatherworker's tools|phb|leatherworker's} and {@item smith's tools|phb}.",
+				"During a long rest, you can spend 1 hour using either set of tools to reinforce one shield or a set of armor you touch. This object grants its wearer a special +1 bonus to its Armor Class until the end of your next long rest."
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true,
+					"smith's tools": true
+				}
+			],
+			"foundryImg": "icons/tools/smithing/hammer-maul-steel-grey.webp"
 		},
 		{
 			"name": "Rallying Wind",
@@ -691,8 +1111,26 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Vanaf 7e niveau inspireert jouw aanwezigheid in de strijd je bondgenoten om hun positie te behouden tegen alle verwachtingen in. Als je Tweede Wind gebruikt in je Voogdijschap, krijgen wezens van jouw keuze binnen het bereik van de eigenschappen van je Voogdijschap tijdelijke trefpunten gelijk aan je vechtersniveau."
-			]
+				"You inspire your allies to hold their position against all odds. When you use {@classFeature Second Wind|Fighter||1} while in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}, creatures of your choice within 5 feet of you that can see or hear you gain temporary hit points equal to your Fighter level."
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind while in your Guardian Stance"
+				},
+				"damage.parts": [
+					[
+						"@classes.fighter.levels",
+						"temphp"
+					]
+				],
+				"range": {
+					"value": 5,
+					"units": "ft"
+				}
+			},
+			"foundryImg": "icons/magic/life/cross-explosion-burst-green.webp"
 		},
 		{
 			"name": "Stalwart Defender",
@@ -704,20 +1142,21 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Je bent het sterkst onder je bondgenoten. Bij het bereiken van het 10e niveau in deze klasse, krijg je de volgende voordelen:",
+				"You are strongest when standing side by side, and shield by shield, with your allies. You gain the following benefits:",
 				{
 					"type": "list",
 					"items": [
-						"Je krijgt een +1 bonus op je pantserklasse voor elk vriendelijk wezen binnen 5 voet van je dat een schild hanteert.",
-						"Je kunt niet tegen je wil verplaatst worden terwijl je bij bewustzijn bent.",
-						"Zowel jij als vriendelijke wezens binnen 5 meter van je hebben voordeel op de reddingsworpen Kracht en Grondwet.",
-						"Als je initiatief gooit, kun je onmiddellijk je Guardian Stance aannemen zonder gebruik te maken van de functie, zolang je niet onbekwaam of verrast bent."
+						"You gain a +1 bonus to your Armor Class for each friendly creature within 5 feet of you that is not {@condition incapacitated}.",
+						"You cannot be moved against your will or knocked prone while you are in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}.",
+						"Both you, and friendly creatures within 5 feet of you, have advantage on Strength and Constitution saving throws while you are in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}.",
+						"When you roll initiative you can immediately enter your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3} as long as you are not surprised."
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/equipment/shield/buckler-iron-cross-gray.webp"
 		},
 		{
-			"name": "Improved Guardian Stance",
+			"name": "Improved Stance",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -726,11 +1165,12 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Op 15e niveau verbeter je je verdedigingstechniek om degenen die naast je staan beter te verdedigen. Als je de Voogdij houding aanneemt, geef je vriendelijke wezens binnen 5 meter van je de voordelen van halve dekking, in plaats van de +1 Pantserklasse bonus."
-			]
+				"You improve your defensive technique to better defend those who stand beside you. When you are in Guardian Stance, you grant creatures of your choice within 5 feet the benefits of {@quickref Cover|PHB|3|0|half cover}, in place of the +1 Armor Class bonus."
+			],
+			"foundryImg": "icons/skills/melee/shield-block-gray-yellow.webp"
 		},
 		{
-			"name": "Unshakable Bastion",
+			"name": "Legendary Guardian",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -739,8 +1179,9 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Je bent een meester onder de beschermers. Vanaf je 18e niveau kunnen je Guardian Stance en Stalwart Defender eigenschappen invloed hebben op wezens van jouw keuze binnen 10 meter van je."
-			]
+				"You are a master Guardian and a near-supernatural shield to defend the weak. The range of all your Guardian features increase to include any creature of your choice within 15 feet."
+			],
+			"foundryImg": "icons/equipment/shield/heater-crystal-blue.webp"
 		},
 		{
 			"name": "Guerrilla",
@@ -754,11 +1195,11 @@
 				"Ongeacht de missie zal een Guerrilla deze met uiterste perfectie uitvoeren. Soms worden ze commando's genoemd. Deze krijgers worden gekenmerkt door hun vastberadenheid en aanpassingsvermogen. Of het nu gaat om ruw terrein, gemene monsters, vijandelijke soldaten of krachtige tovenaars, niets minder dan de dood zal de wilskracht van een Guerrilla-strijder doen wankelen bij het nastreven van zijn doel.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Adaptable Superiority|Fighter|phb|Guerrilla|llfafs|3"
+					"subclassFeature": "Survivalist|Fighter|phb|Guerrilla|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Survivalist|Fighter|phb|Guerrilla|llfafs|3"
+					"subclassFeature": "Adaptable Superiority|Fighter|phb|Guerrilla|llfafs|3"
 				}
 			]
 		},
@@ -772,15 +1213,16 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Je hebt getraind om een speciale selectie manoeuvres te gebruiken in de strijd. Vanaf het 3e niveau krijg je de volgende eigenschappen:",
+				"You have trained to utilize a special selection of Maneuvers, similar to a Battle Master. You gain the following features",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Maneuvers",
 							"entries": [
-								"Je leert drie Manoeuvres naar keuze van de Battle Master. Je kunt slechts één manoeuvre per aanval gebruiken. Op het 7e, 10e en 15e niveau van deze klasse leer je nog een manoeuvre naar keuze."
+								"You learn three {@filter Maneuvers|optionalfeatures|feature type=mv:b} of your choice from those available to the Battle Master. You can use only one Maneuver per attack. You learn another Maneuver of your choice at 7th, 10th, and 15th level in this class."
 							]
 						},
 						{
@@ -814,7 +1256,26 @@
 						}
 					]
 				}
-			]
+			],
+			"resources": [
+				{
+					"name": "Superiority Dice",
+					"type": "dicePool",
+					"count": "floor((<$level$> + 30) / 8)",
+					"number": 1,
+					"faces": 6,
+					"recharge": "restShort"
+				}
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/movement/pinwheel-turning-blue.webp"
 		},
 		{
 			"name": "Survivalist",
@@ -826,9 +1287,49 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Op het 3e niveau krijg je vaardigheid in twee van de volgende vaardigheden naar keuze: {@skill Athletics}, {@skill Perception}, {@skill Stealth}, of {@skill Survival}.",
-				"Op 7e niveau kies je een van de vaardigheidsprofielen die je met deze eigenschap hebt verworven. Je kunt je vaardigheidsbonus verdubbelen bij elke vaardigheidscontrole die de gekozen vaardigheid gebruikt."
-			]
+				"You are an expert at overcoming natural obstacles. You gain proficiency in two skills of your choice from the following list: {@skill Athletics}, {@skill Perception}, {@skill Stealth}, or {@skill Survival}.",
+				"When you reach 7th level, you choose two skills from the list above. If you are not proficient in a chosen skill you gain proficiency. If you are already proficient in a chosen skill you can add double your proficiency bonus to any ability check that you make with that skill."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 2,
+						"from": [
+							"athletics",
+							"perception",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/terrain-rocky-ground.webp"
+		},
+		{
+			"name": "Survivalist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Guerrilla",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"entries": [
+				"Choose two skills from the following list: {@skill Athletics}, {@skill Perception}, {@skill Stealth}, or {@skill Survival}. If you are not proficient in a chosen skill you gain proficiency. If you are already proficient in a chosen skill you can add double your proficiency bonus to any ability check that you make with that skill."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 2,
+						"from": [
+							"athletics",
+							"perception",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/terrain-rocky-ground.webp"
 		},
 		{
 			"name": "By Land or Sea",
@@ -840,27 +1341,29 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Je bent getraind om te slagen in elke omgeving. Op 7e niveau, en nogmaals op 15e niveau krijg je een van de onderstaande eigenschappen:",
+				"You have trained to succeed in any environment. At 7th level, and again at 15th level you gain one of the following features:",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Alpine Combatant",
 							"entries": [
-								"Je spant je in voor een gevecht op grote hoogte. Je krijgt een klimsnelheid gelijk aan je bewegingssnelheid, en als reactie kun je valschade verminderen met een hoeveelheid gelijk aan je vechtersniveau."
+								"You have trained for battle at great heights. You gain a climbing speed equal to your walking speed, and when you fall, you can use your reaction to reduce any falling damage by an amount equal to your fighter level."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Marine Combatant",
 							"entries": [
-								"Je bereidt je voor op amfibische gevechten. Je krijgt een zwemsnelheid gelijk aan je bewegingssnelheid, en je kunt je adem tot 1 uur onder water inhouden."
+								"You prepare for amphibious combat. You gain a swimming speed equal to your walking speed, and you can hold your breath for up to 1 hour underwater."
 							]
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/environment/wilderness/island.webp"
 		},
 		{
 			"name": "Adaptable Fighting Style",
@@ -872,8 +1375,17 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Je kunt je vechtstijl veranderen om je vijanden beter tegen te werken. Vanaf je 10e niveau kun je na een lange rust je vechtstijl vervangen door een andere vechtstijl naar keuze uit de lijst in de beschrijving van de vechtersklasse."
-			]
+				"You can adapt your style of fighting to better counter your enemies. When you finish a long rest, you can replace one {@filter Fighting Style|optionalfeatures|feature type=fs:f} you know with another Style of your choice."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/silhouette-grow-shrink-tan.webp"
 		},
 		{
 			"name": "Unwavering",
@@ -885,19 +1397,24 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je kunt door elke ontbering heen volharden om de taak te volbrengen. Vanaf 15e niveau krijg je de volgende extra voordelen als je je eigenschap Tweede Wind gebruikt:",
+				"You are remarkably hardy, even compared to other Fighters. When you use {@classFeature Second Wind|Fighter||1} you gain the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"Je krijgt één van je gebruikte Superiority Dice terug.",
 						"Je uitputtingsniveau, indien aanwezig, wordt verminderd met 1.",
-						"Je kunt je vaardigheidsbonus verdubbelen bij de volgende vaardigheidscontrole op basis van kracht, vingervlugheid of grondwet, of bij de reddingsworp die je in de volgende minuut doet."
+						"You gain a bonus to the next Strength, Dexterity, or Constitution ability check or saving throw you make within the next minute equal to your Superiority Die."
 					]
 				}
-			]
+			],
+			"consumes": {
+				"name": "Superiority Dice",
+				"amount": -1
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-yellow.webp"
 		},
 		{
-			"name": "Elite Guerrilla",
+			"name": "Legendary Guerrilla",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -906,8 +1423,30 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Vanaf je 18e niveau is er niets dat tussen jou en je doelen kan staan als je tijd hebt om je voor te bereiden. Wanneer je een korte of lange rustpauze beëindigt, kun je een Manoeuvre die je kent vervangen door een andere naar keuze, en een Vechtstijl die je kent door een andere Vechtstijl naar keuze."
-			]
+				"There is nothing that can stand between you and your goals should you have time to prepare. You can use your {@subclassFeature Adaptable Fighting Style|Fighter||Guerrilla|llfafs|10} feature at the end of each short or long rest.",
+				"Moreover, when you roll initiative and are not surprised, you gain one of the following benefits of your choice:",
+				{
+					"type": "list",
+					"items": [
+						"You gain temporary hit points equal to your level.",
+						"You can instantly move up to your walking speed."
+					]
+				}
+			],
+			"foundrySystem": {
+				"actionType": "util",
+				"activation": {
+					"type": "special",
+					"condition": "When you roll initiative and are not surprised"
+				},
+				"damage.parts": [
+					[
+						"@details.level",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/environment/traps/spike-skull-white-brown.webp"
 		},
 		{
 			"name": "Marksman",
@@ -918,7 +1457,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Terwijl alle vechters leren een boog te trekken en speren te werpen, wijden degenen die trainen als scherpschutters zich aan het beheersen van alle soorten afstandswapens, en zij zijn altijd op zoek naar verbetering van hun nauwkeurigheid en precisie. Vaak wordt hun dodelijke vaardigheid ondersteund door een onmiskenbare branie en onwankelbaar vertrouwen. Vertrouwend op hun aangeboren talenten en hun kenmerkende moed, zijn er weinig uitdagingen die een echte scherpschutter niet kan overwinnen.",
+				"While all Fighters learn to draw a bow or hurl a javelin, those trained as Marksmen dedicate their lives to mastering ranged weapons of all types. Often, their deadly skills are backed up with an unmistakable swagger and unshakable confidence. Relying on their innate talents and signature grit, there are few challenges a true Marksman cannot overcome.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Elite Training|Fighter|phb|Marksman|llfafs|3"
@@ -931,8 +1470,14 @@
 					"type": "insetReadaloud",
 					"name": "Gunpowder & Firearms",
 					"entries": [
-						"Als uw spel de optionele regels voor vuurwapens uit hoofdstuk 9 van de Dungeon Master's Guide gebruikt, en uw scherpschutter is blootgesteld aan de innerlijke werking en bediening van dergelijke wapens, bent u vaardig met alle eenvoudige en martiale vuurwapens."
+						"If your game uses the optional rules for {@book firearms|DMG|9|firearms} from Chapter 9 of the Dungeon Master's Guide, and your Marksman has been exposed to the inner workings and operation of such weapons, you are proficient with all simple and martial firearms."
 					]
+				}
+			],
+			"weaponProficiencies": [
+				{},
+				{
+					"firearms": true
 				}
 			]
 		},
@@ -946,9 +1491,15 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Wanneer je dit Archetype aanneemt op 3de niveau, verbetert je gespecialiseerde training je reactietijden. Wanneer je een vaardigheidscontrole of reddingsworp doet, kun je een {@dice d6} gooien en dit toevoegen aan het resultaat van je worp. Je kunt deze eigenschap gebruiken nadat je hebt gegooid, maar voordat je weet of je slaagt of niet.",
+				"Your specialized Marksman training has enhanced your reaction times. When you make a Dexterity ability check or saving throw, you can roll a {@dice d6} and add it to your roll. You can use this feature after you roll, but before you know if your roll is a success or failure.",
 				"Je kunt jezelf deze bonus een aantal keren toekennen, gelijk aan je vaardigheidsmodificator (minimaal één keer), en je krijgt alle verbruikte functies terug als je een korte of lange rustpauze neemt."
-			]
+			],
+			"foundrySystem": {
+				"uses": {
+					"max": "max(1, @abilities.dex.mod)",
+					"per": "sr"
+				}
+			}
 		},
 		{
 			"name": "Steady Aim",
@@ -960,12 +1511,12 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Je kunt je lichaam tot rust brengen om met dodelijke precisie te schieten. Vanaf niveau 3 kun je, als je tijdens je beurt niet hebt bewogen, je bonusactie gebruiken voor Steady Aim, waardoor je de volgende voordelen krijgt tot het einde van je huidige beurt:",
+				"You can quiet your body so as to fire with deadly accuracy. If you start your turn and are not {@quickref surprise|phb|3|0|surprised} or {@condition incapacitated}, you can choose to Focus, which applies the features listed below until the end of your current turn:",
 				{
 					"type": "list",
 					"items": [
-						"Je bewegingssnelheid is verminderd tot 0 voet.",
-						"Totdat je een wezen raakt met een afstandswapenaanval, heb je voordeel op alle afstandswapenaanvalsrollen.",
+						"Your speed is reduced to 0 feet.",
+						"You have advantage on attack rolls with ranged weapons until you hit a target with a ranged weapon attack.",
 						"Wanneer je een 1 of 2 gooit op een dobbelsteen voor een aanval die je doet met een afstandswapen, mag je de dobbelsteen opnieuw gooien. Je moet deze nieuwe worp gebruiken, zelfs als de nieuwe worp een 1 of een 2 is."
 					]
 				}
@@ -981,7 +1532,7 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Je ervaring als scherpschutter heeft je getraind om snel op gevaar te reageren. Vanaf 7e niveau kun je je vaardigheidsbonus toevoegen aan je initiatiefrollen.",
+				"Your reflexes are almost supernaturally fast. You add your proficiency bonus to your Initiative rolls while conscious.",
 				"Je hebt ook geleerd om zelfs de kleinste zwakke plekken in de verdediging van je vijand te herkennen en uit te buiten. Je aanvallen met afstandswapens negeren weerstand tegen doordringende schade."
 			]
 		},
@@ -995,7 +1546,7 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Vanaf je 10e niveau, wanneer je Second Wind gebruikt, verhoogt je snelheid met 10 voet, en toevalsaanvallen tegen jou worden met nadeel uitgevoerd tot het einde van je huidige beurt."
+				"When you use {@classFeature Second Wind|Fighter||1}, your walking speed increases by 10 feet, and any opportunity attacks against you are made at disadvantage until the end of your current turn."
 			]
 		},
 		{
@@ -1008,12 +1559,12 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je maakt zelfs onmogelijke schoten met gemak. Vanaf 15e niveau negeer je het nadeel van het grote bereik van je wapen.",
-				"Bovendien kun je eenmaal per beurt, wanneer je voordeel hebt bij een aanval met een afstandswapen, afzien van voordeel en één extra aanval met een afstandswapen doen tegen hetzelfde doelwit."
+				"You make even impossible shots with ease. Your normal and long range for your ranged weapon attacks increases by a number of feet equal to 10 times your Fighter level.",
+				"In addition, once per turn, when you have advantage on a ranged weapon attack, you can forgo advantage and make one additional ranged weapon attack against that creature."
 			]
 		},
 		{
-			"name": "Deadeye",
+			"name": "Legendary Marksman",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1022,8 +1573,115 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Je schietvaardigheid is bovennatuurlijk nauwkeurig. Vanaf je 18e niveau, als je Steady Aim gebruikt, duren de voordelen 1 minuut, en heb je voordeel op alle aanvallen met afgestelde wapens voor de duur. Dit effect eindigt alleen vroegtijdig als je meer dan 10 voet in één beurt beweegt, of als je onbekwaam bent.",
-				"Ook wanneer je je Elite Training eigenschap gebruikt, krijg je een bonus op die vaardigheidscontrole of reddingsworp gelijk aan {@dice 2d6}."
+				"Your marksmanship is supernatural in its precision. When you use {@subclassFeature Steady Aim|Fighter||Marksman|llfafs|3||Focus}, the benefits last for 1 minute, and you have advantage on all ranged weapon attacks for the duration. This effect only ends early if you move more than 10 feet in one turn, or you are {@condition incapacitated}.",
+				"Also, when you use your {@subclassFeature Elite Training|Fighter||Marksman|llfafs|3} feature, you gain a bonus to that ability check or saving throw equal to {@dice 2d6}."
+			]
+		},
+		{
+			"name": "Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"entries": [
+				"While some Fighters train in military academies or schools of war, others learn to fight in remote dojos. Generally known as Martial Artists, these elite Fighters hone their bodies into deadly weapons. Whether masters of hand-to-hand combat or street fighters, these warriors are peak physical specimens.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Iron Physique|Fighter|phb|Martial Artist|llfafs|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Martial Arts|Fighter|phb|Martial Artist|llfafs|3"
+				}
+			]
+		},
+		{
+			"name": "Iron Physique",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You have learned to take a hit better than most and prefer to absorb blows rather than dodge. You can use your Constitution modifier, in place of your Dexterity, when calculating your Armor Class in light and medium armor.",
+				"Moreover, if you are not wearing any armor or wielding a shield, your Armor Class is equal to 10 + your Dexterity modifier + your Constitution modifier."
+			]
+		},
+		{
+			"name": "Martial Arts",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Your body itself is a deadly weapon. You gain proficiency with improvised weapons, and whenever you make an improvised weapon attack or an unarmed strike you gain these benefits:",
+				{
+					"type": "list",
+					"items": [
+						"You can roll a {@dice d6} in place of the damage die for that attack if the normal damage die was not already higher.",
+						"You can use your Dexterity, in place of your Strength, for your attack and damage rolls.",
+						"When you take the {@action Attack} action on your turn and make only improvised weapon attacks or unarmed strikes, you can make a {@action Shove} or {@action Grapple} attack as a bonus action."
+					]
+				}
+			]
+		},
+		{
+			"name": "Counter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"You have learned to exploit every opening your foe gives you. When a creature that you can see within your reach misses you with an attack, you can use your reaction to make one unarmed strike, improvised weapon, {@action Shove}, or {@action Grapple} attack against your attacker. When you do so, you have advantage on the attack roll or Strength ({@skill Athletics}) check."
+			]
+		},
+		{
+			"name": "Evasive Footwork",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"You have trained to evade your foes' strikes in combat. When you take the {@action Attack} action on your turn and make at least one unarmed strike, you can take the {@action Disengage} or {@action Dash} action in place of one of your attacks on that turn."
+			]
+		},
+		{
+			"name": "Unbreakable",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You have learned to take hits that would be deadly to weaker heroes. When a creature you can see hits you with an attack that would drop you to 0 hit points, but not kill you outright, you can expend one of your Hit Dice to drop to 1 hit point."
+			]
+		},
+		{
+			"name": "Legendary Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"Your fists have become weapons of legend. When you score a critical hit against a target with an unarmed strike, and the target has 50 hit points or fewer, you can choose to instantly reduce it to 0 hit points. Once you use this feature you must finish a short or long rest before you can use it again."
 			]
 		},
 		{
@@ -1035,7 +1693,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Sinds het begin van de beschaving hebben dieren samengewerkt met stervelingen. De meest opvallende van deze gedomesticeerde dieren is de hond. De eerste jagers werkten samen met deze trouwe dieren, en deelden voedsel en vuur. Sommige jagers nemen deze mantel nog steeds over en trainen trouwe honden om aan hun zijde op avontuur te gaan.",
+				"Since the dawn of civilization, beasts have worked alongside mortals. Most notable of these domesticated animals is the dog. The earliest hunters worked in tandem with these loyal beasts, sharing food and fire. Some Fighters still take up this mantle and train Loyal Hounds to adventure by their side.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Loyal Hound|Fighter|phb|Master of Hounds|llfafs|3"
@@ -1043,6 +1701,14 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Packleader|Fighter|phb|Master of Hounds|llfafs|3"
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Loyal Hounds & other Canines",
+					"entries": [
+						"Depending on your table and game setting, there are many creatures that could be a Loyal Hound.",
+						"In most mundane settings, your Loyal Hound is most likely going to be a dog, wolf, or similar four-legged canine creature. In a fantastical game, any quadruped beast or monstrosity could be trained as a Loyal Hound. Talk to your DM about options!"
+					]
 				}
 			]
 		},
@@ -1056,9 +1722,9 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Wanneer je dit Archetype op 3de niveau aanneemt, voltooi je de training van een Loyale {@creature Hound|llfafs} die aan je zijde op avontuur gaat. Je {@creature Hound|llfafs} is vriendelijk voor jou en je bondgenoten en gehoorzaamt je bevelen. Het gebruikt het Loyal Hound statblok op deze pagina, dat op verschillende plaatsen je vaardigheidsbonus (PB) gebruikt.",
-				"In het gevecht handelt de hond tijdens jouw beurt. Hij kan zelf bewegen en zijn reactie gebruiken, maar hij voert alleen de {@action Dodge} actie uit, tenzij je een bonusactie gebruikt om hem te bevelen een actie uit zijn statistiekblok uit te voeren, of een andere actie. Wanneer u de {@action Attack} actie uitvoert, kunt u uw hond bevelen de {@action Attack} actie uit te voeren in plaats van een van uw aanvallen. Als je onbekwaam bent, kan je hond elke actie uitvoeren die hij kiest.",
-				"Als je hond op 0 hit points komt, moet hij zijn dood redden zoals een speler dat zou doen. Als je Trouwe Hond sterft, kun je met je speciale vaardigheden een hond vinden en die trainen om je Trouwe Hond te worden tijdens een lange rustperiode."
+				"You have completed the training of a Loyal Hound. Your Hound is friendly to you and obeys commands. It uses the {@creature Loyal Hound|llfafs} stat block, that uses your proficiency bonus (PB) in several places.",
+				"In combat, your Hound acts during your turn. It can move and use its reaction on its own, but it only takes the {@action Dodge} action unless you use your bonus action to command it to take an action from its stat block, or another action. When you take the {@action Attack} action, you can command your Hound to take the Attack action in place of one of your attacks. If you are {@condition incapacitated}, your Loyal Hound can act on its own to defend you.",
+				"If your Hound is reduced to 0 hit points, it makes death saving throws like a player character would. If your Hound dies, your skills allow you to find a canine-like creature and train it as a Loyal Hound over the course of a long rest, at which point, that creature uses the Loyal Hound stat block."
 			]
 		},
 		{
@@ -1071,7 +1737,12 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Op 3de niveau krijg je vaardigheid in {@skill Animal Handling}, en verdubbel je je vaardigheidsbonus bij alle {@skill Animal Handling} controles die je doet in verband met honden of hondachtigen."
+				"You gain proficiency in {@skill Animal Handling}, and add double your proficiency bonus to any Wisdom ({@skill Animal Handling}) checks related to dogs, canines, or other similar creatures."
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true
+				}
 			]
 		},
 		{
@@ -1084,7 +1755,8 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Vanaf niveau 7 negeren de bijt- en maulaanvallen van je Loyal Hound de weerstand tegen doordringende en snijdende schade. Ook hebben middelgrote en kleinere wezens nadeel bij de Sterkte reddingsacties van je hond."
+				"Your Hound has been infused with a portion of your own fighting spirit. Your Hound's Bite and Maul attacks ignore resistance to nonmagical piercing and slashing damage.",
+				"In addition, any creature that is at least one size smaller than your Hound has disadvantage on its Strength saving throw to resist your Loyal Hound's grapple."
 			]
 		},
 		{
@@ -1097,8 +1769,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Je hond staat tegenover elke vijand met jou aan zijn zijde. Vanaf 10e niveau heeft je Hound voordeel op elke reddingsworp die hij maakt zolang hij binnen 30 meter van je is.",
-				"Bovendien, als je je Tweede Wind gebruikt, krijgt je Trouwe Hond weer hit points gelijk aan {@dice 1d10} + je vechtersniveau."
+				"You can face any foe so long as your Hound is by your side. Your Hound has advantage on any saving throw it is forced to make so long as it is within 30 feet and can see or hear you.",
+				"Also, whenever you use {@classFeature Second Wind|Fighter||1}, your Loyal Hound also regains hit points equal to {@dice #$prompt_number:min=1,title=Enter your Fighter level,default=10$#|1d10 + your Fighter level}."
 			]
 		},
 		{
@@ -1111,7 +1783,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Jouw aanwezigheid inspireert tot wilde woede. Vanaf 15e niveau kan je Loyal Hound twee natuurlijke wapenaanvallen uitvoeren als onderdeel van die actie."
+				"Your commands inspire wild fury. Whenever you command your Loyal Hound to take the {@action Attack} action, it can make two Maul attacks, or one Maul attack and one Bite attack."
 			]
 		},
 		{
@@ -1124,30 +1796,31 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Je Hound is een legendarisch beest. Vanaf 18e niveau, wanneer je Action Surge gebruikt, krijgt je Hound ook een extra actie."
+				"Thanks to your training, your Hound has come to rival the great beasts of legend. When you use {@classFeature Action Surge|Fighter||2}, your Hound also gains one extra action on that turn.",
+				"Moreover, your Loyal Hound's Strength and Dexterity scores each become 18, thereby increasing the bonus to hit and damage of both its Bite and Maul attacks by +2 each."
 			]
 		},
 		{
-			"name": "Pact Warrior",
+			"name": "Witch Knight",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
 				"Zij die het duistere pad van de Pactstrijder bewandelen, worden gedreven door een overweldigend verlangen om het grote kwaad van de wereld te vernietigen. Wie bijzonder toegewijd is, wie bereid is alles op te geven, wordt vaak benaderd door Eldritch Powers, wezens van buitenaardse kracht. Deze weldoeners bieden macht in ruil voor een fractie van de ziel van de krijger of onvoorwaardelijke trouw.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Pact Magic|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Sanguine Offering|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Sanguine Offering|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Pact Magic|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Eldritch Power|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Eldritch Power|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
@@ -1163,43 +1836,43 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Op het 3e niveau kun je dankzij je overeenkomst met je patroon spreuken uitspreken, net als een tovenaar.",
+				"The bargain you have struck with your Patron has granted you the ability to cast spells, much like a Warlock does.",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Cantrips",
 							"entries": [
-								"Je leert een cantrip naar keuze uit de toverspreukenlijst. Bij het bereiken van het 10e niveau in deze klasse leer je een extra warlockcantrip naar keuze."
+								"You learn one cantrip of your choice from the Warlock spell list. Upon reaching 10th level in this class you learn one additional Warlock cantrip of your choice."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spell Slots",
 							"entries": [
-								"De Pactstrijder spreukentabel laat zien hoeveel spreukgleuven je hebt, en het niveau van die spreukgleuven. Al je spell slots van deze eigenschap hebben hetzelfde niveau. Om een van je toverspreuken van 1e niveau of hoger uit te spreken, moet je een spreukslot uitgeven. Je krijgt alle gebruikte slots terug als je een korte of lange rustpauze neemt."
+								"The Witch Knight Spellcasting table shows how many spell slots you have, and the level of those spell slots. All of your spell slots from this feature are the same level. To cast one of your Warlock spells of 1st-level or higher, you must expend a spell slot. You regain all expended spell slots when you finish a short or long rest."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spells Known of 1st-Level and Higher",
 							"entries": [
-								"Je leert twee 1e-level spreuken naar keuze uit de tovenaarsspreukenlijst. In de kolom Bekende spreuken van de tabel Pactstrijder Spellcasting staat wanneer je meer tovenaarsspreuken van 1e niveau of hoger leert. Een spreuk die je kiest moet een niveau hebben dat niet hoger is dan wat in de kolom Slotniveau van de tabel voor jouw niveau staat.",
-								"Als je bijvoorbeeld 7e niveau bereikt, leer je een nieuwe tovenaarsspreuk naar keuze, die 1e of 2e niveau kan zijn.",
-								"Als je een niveau in deze klasse krijgt, kun je een van de tovenaarsspreuken die je kent kiezen en vervangen door een andere spreuk naar keuze uit de tovenaarsspreukenlijst, die ook van een niveau moet zijn waarvoor je spreukenslots hebt."
+								"You learn two 1st-level spells of your choice from the Warlock spell list. The Spells Known column of the Witch Knight Spellcasting table shows when you learn more Warlock spells of 1st-level or higher. A spell you choose must be of a level no higher than what's shown in the table's Slot Level column for your level.",
+								"When you gain a level, you can choose a Warlock spell you know and replace it with another spell from the Warlock spell list, which must be of a level for which you have spell slots."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spellcasting Ability",
 							"entries": [
-								"Charisma is je spreukvaardigheid voor je warlockspreuken. Je gebruikt je Charisma wanneer een spreuk verwijst naar je spreukvaardigheid, bij het bepalen van de saving throw DC en bij het maken van een aanvalsrol.",
+								"Charisma is your spellcasting ability for your Warlock spells. You use your Charisma whenever a spell refers to your spellcasting ability, when setting the saving throw DC, and when making a spell attack roll.",
 								{
 									"type": "abilityDc",
 									"name": "Spell",
@@ -1225,12 +1898,12 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Vanaf het 3e niveau kun je je eigen vitaliteit opofferen aan je Eldritch Power voor meer krijgskracht. Eenmaal per beurt, wanneer je een wezen raakt met een melee wapenaanval, kun je een van je vechters Hit Dice gebruiken als onderdeel van de aanval om extra {@dice 2d6} necrotische schade aan het doelwit toe te brengen, naast de normale schade van je wapen."
+				"Once per turn, when you hit a creature with a melee weapon attack, you can expend one of your fighter Hit Dice as part of the attack to deal an additional {@damage 2d6} necrotic damage to the target, in addition to the normal damage of your weapon."
 			]
 		},
 		{
@@ -1238,15 +1911,21 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
+				"{@note Notice: In the 2.2.0 update for Fighter Archetypes & Fighting Styles, the Eldritch Power feature is not present, but is listed as a feature the subclass gains at 3rd level. The below is the description of Eldritch Power from version 2.1.0, when the subclass was called Pact Warrior.}",
 				"Als je dit Archetype op het 3e niveau aanneemt, krijg je kleine veldritmische vaardigheden die de bron van je kracht weerspiegelen. Werk samen met je GM om de bron van je kracht te bepalen. Is het een buitenwereldse beschermheer die beschikbaar is voor tovenaars? Heb je een cataclysmische gebeurtenis overleefd waardoor je vreemde krachten kreeg?",
 				"Je krijgt een vaardigheid naar keuze, en je leert een cantrip naar keuze uit een willekeurige klasse-spreukenlijst. Deze cantrip telt niet mee voor je totaal aantal bekende cantrips.",
 				"Vaak, en naar goeddunken van je GM, moet de vaardigheid en cantrip die je via dit vermogen verkrijgt de aard van de Eldritch Power weerspiegelen die je je arcane vaardigheden heeft verleend.",
 				"Bijvoorbeeld, een Pactstrijder wiens Eldritch Power een krachtige duivel is, krijgt kleine duivelse vaardigheden. Hij kan vaardigheid krijgen in {@skill Deception} en de {@spell vicious mockery} cantrip leren om de dubbelzinnige aard van zijn patroon te evenaren."
+			],
+			"skillProficiencies": [
+				{
+					"any": 1
+				}
 			]
 		},
 		{
@@ -1254,13 +1933,12 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Vanaf 7e niveau kun je gebruik maken van de kracht die je hebt gekregen om door barsten in de werkelijkheid te glippen. Als je Tweede Wind gebruikt, kun je tot 60 voet teleporteren naar een onbezette ruimte die je kunt zien. Als je binnen 5 voet van een wezen verschijnt, kun je onmiddellijk een wapenaanval op dat wezen uitvoeren.",
-				"Als je deze eigenschap niet meer kunt gebruiken, gebruik je één van je Pact Magic-spreuken om hem opnieuw te gebruiken."
+				"You can use Eldritch power to slip through cracks in reality. When you use {@classFeature Second Wind|Fighter||1}, you can teleport up to 60 feet to an unoccupied space you can see. If you appear within 5 feet of a creature, you can make one weapon attack against it."
 			]
 		},
 		{
@@ -1268,26 +1946,26 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"De veldmagie in je bloed sijpelt in je wapenaanvallen en ondermijnt de weerstand tegen spreuken. Vanaf 10e niveau, als je een wezen raakt met een wapenaanval, heeft dat wezen nadeel bij de volgende reddingsworp die het doet tegen een spreuk die je voor het einde van je volgende beurt uitspreekt."
+				"The Eldritch magic within your blood seeps into your weapon strikes. When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes against a spell you cast before the end of your next turn."
 			]
 		},
 		{
-			"name": "Improved Sanguine Offering",
+			"name": "Greater Offering",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je kunt je eigen vitaliteit herstellen door anderen pijn te doen. Vanaf 15e niveau, wanneer je een wapenaanval bekrachtigt met je Sanguine Offer, krijg je tijdelijk punten die gelijk zijn aan de extra necrotische schade die aan het wezen wordt toegebracht.",
-				"Tijdelijke hitpoints van deze vaardigheid duren een minuut, of totdat je tijdelijke hitpoints krijgt van een andere bron."
+				"You can restore your own vitality by inflicting pain on others. When you use {@subclassFeature Sanguine Offering|Fighter||Witch Knight|llfafs|3}, you gain temporary hit points equal to the necrotic damage dealt to the creature.",
+				"Temporary hit points you gain from this feature last for 1 minute, or until you gain temporary hit points again."
 			]
 		},
 		{
@@ -1295,21 +1973,13 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Als je 18e niveau bereikt, kun je de dood van je vijanden aanbieden aan je Eldritch Power in ruil voor verbeterde vaardigheden. Als reactie wanneer een wezen binnen 30 voet van je sterft, krijg je een van de volgende voordelen naar keuze:",
-				{
-					"type": "list",
-					"items": [
-						"Je hebt voordeel bij elke wapenaanval die je doet voor het einde van je volgende beurt.",
-						"Je krijgt {@dice 1d4} + 1 gebruikte Hit Dice terug.",
-						"Je krijgt één Pact Magic spreukslot terug."
-					]
-				},
-				"U kunt dit vermogen een aantal keren gebruiken dat gelijk is aan uw Charisma-modificatie (minimaal één keer), en u krijgt alle verbruikte functies terug wanneer u een lange rustperiode beëindigt."
+				"You can offer the death of your foes to your Eldritch Power for enhanced abilities. As a reaction when a creature dies within 30 feet of you, you can regain one of your expended Pact Magic spell slots, or {@dice 1d4} of your expended Hit Dice.",
+				"Zodra u deze functie gebruikt, moet u een korte of lange rustpauze inlassen voordat u hem opnieuw kunt gebruiken."
 			]
 		},
 		{
@@ -1321,10 +1991,10 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Elke succesvolle avonturier kent de waarde van teamwerk, maar niemand hecht er meer waarde aan dan de zogenaamde kwartiermakers. Deze ondersteunende krijgers streven ernaar om hun bondgenoten te helpen hun volledige potentieel te bereiken. Door voortdurend de behoeften van hun metgezellen boven die van henzelf te stellen, houden kwartiermakers hun team in topconditie met een vers rantsoen en een helpende hand.",
+				"Every successful adventurer comes to know the importance of teamwork, but none value it more than the Fighters known as Quartermasters. Rather than improve their own individual abilities, these supportive warriors work to help companions reach their potential. Always putting the needs of their allies first, they keep their team in top condition with fresh Rations.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Quartermaster Training|Fighter|phb|Quartermaster|llfafs|3"
+					"subclassFeature": "Down to Earth|Fighter|phb|Quartermaster|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -1341,7 +2011,7 @@
 			]
 		},
 		{
-			"name": "Quartermaster Training",
+			"name": "Down to Earth",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1350,7 +2020,18 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Op 3de niveau krijg je vaardigheid met {@item cook's utensils|phb}, landvoertuigen en in de {@skill Animal Handling} vaardigheid. Als je al bedreven bent in een van deze vaardigheden, kun je je vaardigheidsbonus verdubbelen bij elke controle die dat gereedschap of die vaardigheid gebruikt."
+				"You have mastered the skills to provide. You gain proficiency with {@item cook's utensils|phb}, land vehicles, and in {@skill Animal Handling}. Moreover, when you make an ability check that uses one of these proficiencies, you treat a d20 roll of 7 or lower as an 8."
+			],
+			"toolProficiencies": [
+				{
+					"cook's utensils": true,
+					"vehicles (land)": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true
+				}
 			]
 		},
 		{
@@ -1363,8 +2044,8 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Je hebt geleerd een heleboel Rantsoenen te bereiden die je bondgenoten in topconditie houden. Vanaf niveau 3 maak je aan het einde van elke lange rustperiode een aantal Rantsoenen klaar dat gelijk is aan je grondwetswijziging (minimaal 1 Rantsoen) uit de optionele kwartiermakers Rantsoenen. Je kunt elk Rantsoen bereiden zolang je aan de voorwaarden ervan voldoet. Niet opgegeten Rantsoenen bederven en worden inert aan het einde van je volgende lange rust.",
-				"Een wezen kan een rantsoen eten of als bonusactie een rantsoen geven aan een gewillig of bewusteloos wezen binnen een afstand van 5 voet. Het eten van een rantsoen beëindigt alle huidige rantsoeneffecten op dat wezen."
+				"You are able to prepare potent morsels of food that keep your allies in peak condition. At the end of each long rest, you can prepare a number of these Rations equal to your Constitution modifier (minimum of 1) from {@filter the list at end of this subclass|optionalfeatures|feature type=qr}.",
+				"As a bonus action, you can eat a prepared Ration, or feed a Ration to a creature within 5 feet. Consuming a Ration ends any current Ration effects on that creature. Any Rations you have prepared become inert at the end of your next long rest."
 			]
 		},
 		{
@@ -1380,6 +2061,7 @@
 				"Je zorgt ervoor dat je bondgenoten de voorraden en steun hebben die ze nodig hebben om te gedijen. Vanaf 7e niveau kun je elk van de onderstaande speciale acties als bonusactie uitvoeren tijdens je beurt:",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
@@ -1392,7 +2074,7 @@
 							"type": "entries",
 							"name": "Arm",
 							"entries": [
-								"Je geeft een wapen, voorwerp of munitie die je bij je draagt aan een wezen binnen een afstand van 5 voet. Het wezen kan dan het gegeven voorwerp uitrusten en één voorwerp opbergen als vrije actie."
+								" You give a weapon, item, or any ammunition you are carrying to a creature within 5 feet. The creature can then equip the given item, and stow one item as a free action."
 							]
 						},
 						{
@@ -1406,7 +2088,7 @@
 							"type": "entries",
 							"name": "Wrangle",
 							"entries": [
-								"Je maakt een Wisdom ({@skill Animal Handling}) of een {@item land vehicles|phb} controle om een rijdier of kar die je berijdt onder controle te houden."
+								"You make a Wisdom ({@skill Animal Handling}) or a land vehicles check to control a mount or cart you are riding."
 							]
 						}
 					]
@@ -1414,7 +2096,7 @@
 			]
 		},
 		{
-			"name": "Improved Rations",
+			"name": "Quick Ration",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1423,8 +2105,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Je hebt zowel de kracht als het bereidingsproces van je Rantsoenen verbeterd. Vanaf je 10e niveau maak je aan het eind van elke korte of lange rust een aantal rantsoenen klaar dat gelijk is aan je grondwetswijziging (minimaal 1 rantsoen). Deze Rantsoenen bederven echter aan het eind van je volgende korte of lange rust.",
-				"Bovendien wordt de duur van rantsoeneffecten die 1 minuut duren, verlengd tot 1 uur."
+				"You have greatly improved the speed at which you prepare Rations. You can use a bonus action on your turn to create a Ration of your choice, eating it or feeding it to a creature within 5 feet of you as part of that same bonus action. Any Rations created in this way expire after 1 minute.",
+				"You can create a Quick Ration a number of times equal to your Constitution modifier (minimum of once), and you regain all expended uses when you finish a long rest."
 			]
 		},
 		{
@@ -1437,7 +2119,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je staat altijd klaar om je metgezellen te ondersteunen. Vanaf 15e niveau, als je initiatief gooit en geen rantsoenen meer hebt, kun je één rantsoen naar keuze bereiden."
+				"You are always ready to support your companions with a Ration. If you have no Rations remaining when you roll for initiative, you can prepare one Quick Ration of your choice."
 			]
 		},
 		{
@@ -1450,8 +2132,11 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Je werk met het testen en experimenteren met nieuwe wonderlijke rantsoenformules heeft je lichaam gehard en je maag gehard. Bij het bereiken van het 18e niveau stijgen je grondwetscore en maximum grondwetscore beide met 2, en ben je immuun voor de {@condition poisoned} aandoening.",
-				"Bovendien ben je altijd onder invloed van een Rantsoen naar keuze met een duur van minstens 1 minuut. Het hoeft geen Rantsoen te zijn dat je hebt bereid, en je kunt het effect van het Rantsoen veranderen aan het eind van elke korte of lange rustperiode."
+				"Your experiments with Rations have toughened your body. Your Constitution score, and maximum Constitution score, increase by 2, and you are immune to the {@condition poisoned} condition.",
+				"In addition, you are always under the effects of one Ration of your choice with a duration of at least 1 minute. You can change the Ration effect at the end of each short or long rest."
+			],
+			"conditionImmune": [
+				"poisoned"
 			]
 		},
 		{
@@ -1463,7 +2148,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Zwaardvechter, klingmeester, zwaardheilige; deskundige krijgers die hun leven wijden aan de kunst van het oorlogvoeren hebben door de geschiedenis heen vele namen gehad. Een zwaardvechter trekt alleen zijn wapen als hij bereid is te doden, en slaat zijn vijand alleen neer als dat nodig is. Ze zijn altijd op zoek naar verbetering van hun techniek en beheersen steeds indrukwekkender krijgskunst.",
+				"Swordsage, blade master, sword saints; expert warriors who dedicate their lives to the art of battle have had many names throughout history. Only drawing their weapon when they are prepared to kill, a Swordsage will only slay another creature when necessary. A master Swordsage will only ever take one apprentice, teaching everything they know to a single warrior.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Student of the Blade|Fighter|phb|Swordsage|llfafs|3"
@@ -1471,6 +2156,13 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Battle Trance|Fighter|phb|Swordsage|llfafs|3"
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Superiority, Maneuvers, & Exploits",
+					"entries": [
+						"The Swordsage Archetype presented here grants a Fighter some Maneuvers from the Battle Master. If you think the entire Fighter class should be able to use such martial combat techniques, check out the Alternate Fighter Class and its Martial Exploits!"
+					]
 				}
 			]
 		},
@@ -1484,24 +2176,24 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Tijdens je studie van het zwaard heb je je andere vaardigheden naast het zwaardvechten eigen gemaakt. Op het 3e niveau krijg je vaardigheid in ofwel {@skill Acrobatics}, {@skill Insight}, {@skill Intimidation}, of {@skill Performance}.",
+				"In your study of the sword you have mastered other skills adjacent to swordplay. You gain proficiency in your choice of {@skill Acrobatics}, {@skill Insight}, {@skill Intimidation}, or {@skill Performance}.",
 				"Je leert ook speciale manoeuvres te gebruiken om je vechtkunst in de strijd te verbeteren. Je krijgt de volgende eigenschappen:",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Maneuvers",
 							"entries": [
-								"Je leert drie Manoeuvres naar keuze van de Battle Master. Je kunt slechts één manoeuvre per aanval gebruiken. Op het 7e, 10e en 15e niveau van deze klasse leer je nog een manoeuvre naar keuze."
+								"You learn three {@filter Maneuvers|optionalfeatures|feature type=mv:b} of your choice from those available to the Battle Master. You can use only one Maneuver per attack. You learn another Maneuver of your choice at 7th, 10th, and 15th level in this class."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Superiority Dice",
 							"entries": [
-								"Je hebt vier Superioriteitsdobbelstenen, die voor jou {@dice d6}s zijn. Om een van de manoeuvres die je kent te gebruiken, moet je een Superioriteitsdobbelsteen gebruiken als onderdeel van je aanval. Je krijgt alle uitgegeven Superioriteitsdobbelstenen terug als je een korte of lange rustpauze neemt. Je krijgt een extra Superioriteitsdobbelsteen op je 10e niveau en nog een Superioriteitsdobbelsteen op je 18e niveau (voor een totaal van 6)."
+								"You have four Superiority Dice, which are {@dice d6}s for you. To use one of the Maneuvers you know, you must expend a Superiority Die as part of your attack. You regain all expended Superiority Dice when you finish a short or long rest. You gain a fifth Superiority Die at 10th level and a final sixth Superiority Die 18th level."
 							]
 						},
 						{
@@ -1521,6 +2213,29 @@
 						}
 					]
 				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"acrobatics",
+							"insight",
+							"intimidation",
+							"performance"
+						]
+					}
+				}
+			],
+			"resources": [
+				{
+					"name": "Superiority Dice",
+					"type": "dicePool",
+					"count": "floor((<$level$> + 30) / 8)",
+					"number": 1,
+					"faces": 6,
+					"recharge": "restShort"
+				}
 			]
 		},
 		{
@@ -1533,19 +2248,17 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Als Zwaardvechter kun je je geest vrijmaken van alle afleidingen en je alleen op het gevecht concentreren. Als je dit Archetype op het 3e niveau aanneemt, leer je de gevechtstrance van een Zwaardvechter aan te nemen. Het geeft je verbeterde vaardigheden, mits je geen zwaar pantser draagt of een schild of zwaar wapen hanteert.",
-				"Als bonusactie kun je een Superioriteitsdobbelsteen gebruiken om in trance te raken, wat je de volgende voordelen oplevert:",
+				"So long as you are not wearing heavy armor or a shield, you can use a bonus action to enter a Battle Trance. Your Battle Trance grants you the benefits below for 1 minute:",
 				{
 					"type": "list",
 					"items": [
-						"Je bewegingssnelheid neemt toe met 10 voet.",
-						"Je krijgt een bonus op je pantserklasse gelijk aan de helft van je vaardigheidsbonus (naar beneden afgerond).",
-						"Je hebt voordeel bij controles op kracht ({@skill Athletics}).",
-						"Als je eenmaal per beurt een Superioriteitsdobbelsteen gooit voor een manoeuvre, mag je twee keer gooien en de hoogste worp nemen.",
-						"Als reactie wanneer je gedwongen wordt een reddingsworp te doen, kun je een Superioriteitsdobbelsteen gebruiken en deze toevoegen aan je worp."
+						"You can take the {@action Dash} action as a bonus action",
+						"You gain a +1 bonus to your Armor Class.",
+						"You have advantage on Dexterity ({@skill Acrobatics}) checks.",
+						"Once per turn when you use a Maneuver, you can roll your Superiority Die twice and use the result of your choice."
 					]
 				},
-				"Je Battle Trance duurt 1 minuut. Hij eindigt vroegtijdig als je uitgeschakeld bent, als je een schild, een zwaar harnas of een zwaar wapen aantrekt, of als je ervoor kiest hem te beëindigen als bonusactie."
+				"Your Battle Trance ends early if you are {@condition incapacitated}, or you don a shield or heavy armor. Once you enter a Battle Trance you must finish a short or long rest before you can do so again. If you have no uses left, you can expend one of your Superiority Die to enter a Battle Trance again."
 			]
 		},
 		{
@@ -1558,11 +2271,16 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Je hebt je reflexen aangescherpt in het nastreven van martiale perfectie. Op 7e niveau krijg je vaardigheid in reddingsworpen en kun je je vaardigheidsbonus toevoegen aan initiatiefrollen."
+				"You have honed your reflexes to a point in pursuit of martial perfection. You gain proficiency in Dexterity saving throws, and you add your proficiency bonus to your initiative rolls."
+			],
+			"savingThrowProficiencies": [
+				{
+					"dex": true
+				}
 			]
 		},
 		{
-			"name": "Improved Battle Trance",
+			"name": "Masterful Trance",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1571,20 +2289,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Je beheerst de gevechtstrance van de Zwaardvechter. Vanaf je 10e niveau kun je, als je initiatief gooit, je gevechtstrance ingaan zonder een Superioriteitsdobbelsteen uit te geven."
-			]
-		},
-		{
-			"name": "Technical Mastery",
-			"source": "llfafs",
-			"className": "Fighter",
-			"classSource": "phb",
-			"subclassShortName": "Swordsage",
-			"subclassSource": "llfafs",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"Vanaf 15e niveau word je een wervelwind van dodelijk staal als je in Battle Trance bent. Eenmaal per beurt, terwijl je in Battle Trance bent, kun je een Maneuver gebruiken die je kent, waarbij je een {@dice d6} gooit in plaats van een van je Superiority Dice uit te geven."
+				"You have mastered the Battle Trance of the Swordsage. When you roll initiative, so long as you are not surprised, you can enter a {@subclassFeature Battle Trance|Fighter||Swordsage|llfafs|3} without expending any resources.",
+				"Moreover, while you are in your Battle Trance, the bonus to your Armor Class increases by 1, for a total bonus of +2."
 			]
 		},
 		{
@@ -1594,10 +2300,23 @@
 			"classSource": "phb",
 			"subclassShortName": "Swordsage",
 			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You become a whirlwind of deadly steel while in your Battle Trance. Once per turn while you are in a Battle Trance, you can use any Maneuver that you know, rolling a {@dice d6} in place of expending one of your Superiority Dice."
+			]
+		},
+		{
+			"name": "Legendary Swordsage (d8)",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Swordsage",
+			"subclassSource": "llfafs",
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Als je 18e niveau bereikt, worden je Superioriteitsdobbelstenen {@dice d8}, en kun je een {@dice d8} gooien voor je vaardigheid Technisch meesterschap."
+				"When you reach 18th level in this class the once per turn {@dice d6} from the {@subclassFeature Legendary Swordsage|Fighter||Swordsage|llfafs|15} feature becomes a {@dice d8}."
 			]
 		},
 		{
@@ -1609,10 +2328,10 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"De vechters die bekend staan als Tinker Knights zoeken een onorthodoxe vorm van vechtkunst. In plaats van vechttechnieken te beheersen, proberen zij hun fysieke vaardigheden te vergroten met mechanische uitvindingen en innovatieve wapens. Hoewel ze het grootste deel van hun tijd doorbrengen met theoretiseren, knutselen en experimenteren met nieuwe schema's, zijn Tinker Knights en hun inventieve arsenalen een kracht om rekening mee te houden op het slagveld.",
+				"The Fighters known as Tinker Knights seek an unorthodox form of martial skill. Rather than master martial techniques they look to augment their physical ability with mechanical inventions and innovative weaponry. Though they spend most of their time theorizing, tinkering, and experimenting with new Schematics, Tinker Knights and their inventive arsenals are a force to be reckoned with when they take to the field.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Bonus Proficiencies|Fighter|phb|Tinker Knight|llfafs|3"
+					"subclassFeature": "Analytical Mind|Fighter|phb|Tinker Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -1622,13 +2341,13 @@
 					"type": "insetReadaloud",
 					"name": "Tinker Knight's In Your Setting",
 					"entries": [
-						"Tinker Knights zijn een vreemd soort strijders die meer waarde hechten aan hersens dan aan spierkracht. Hoewel de beschrijvende tekst hier metalen tandwielen en veren beschrijft, kunnen zij net zo goed hun wonderlijke uitvindingen maken met hout, stenen, kristallen, botten, stokken en schubben."
+						"Tinker Knights are strange warriors who value brain over brawn. While the abilities here describe metal gears and springs, a Tinker Knight can just as easily modify gear with crystals, bones, sticks, and scales."
 					]
 				}
 			]
 		},
 		{
-			"name": "Bonus Proficiencies",
+			"name": "Analytical Mind",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1637,7 +2356,24 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Wanneer je dit Archetype aanneemt op 3de niveau, krijg je de vaardigheid om je uitvindingen te onderhouden. Je krijgt vaardigheid met {@item tinker's tools|phb} en {@item smith's tools|phb}. Als je deze gereedschappen al beheerst, krijg je vaardigheid in een andere set gereedschappen naar keuze."
+				"You gain proficiency with {@item tinker's tools|phb} and {@item smith's tools|phb}. If you are already proficient with these tools, you instead gain proficiency with another set of tools of your choice."
+			],
+			"toolProficiencies": [
+				{
+					"tinker's tools": true,
+					"smith's tools": true
+				},
+				{
+					"tinker's tools": true,
+					"any": 1
+				},
+				{
+					"any": 1,
+					"smith's tools": true
+				},
+				{
+					"any": 2
+				}
 			]
 		},
 		{
@@ -1652,11 +2388,11 @@
 			"entries": [
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
-						"Je hebt een kakofonie van vreemde aanpassingen voor wapens en pantsers bedacht, bekend als Schema's. Op het 3e niveau leer je twee schema's naar keuze van de Tinker Knight Schematics Optionele eigenschappen. Wanneer je een niveau stijgt, kun je een schema dat je kent vervangen door een ander naar keuze.",
+						"You have designed a cacophony of unique modifications for weapons and armor, known as {@filter Schematics|optionalfeatures|feature type=ts}. You know two Schematics of your choice from the list at the end of this subclass. When you gain a Fighter level, you can replace one Schematic you know with another of your choice.",
 						"Naarmate je niveaus in deze klasse bereikt, groeit je aantal bekende schema's; op 7e niveau (3), 10e niveau (4) en 15e niveau (5).",
-						"Aan het einde van elke lange rust kun je een aantal voorwerpen aanraken dat gelijk is aan je aantal Bekende Schema's en pas je elk voorwerp aan met de eigenschappen van één Schema. Deze eigenschappen blijven bestaan tot het einde van je volgende lange rust. Een voorwerp kan maar door één Schema tegelijk worden aangepast, en het moet voldoen aan de vereisten in de beschrijving van het Schema.",
+						"At the end of each long rest, you can touch a number of objects equal to your number of Schematics Known and you modify each object with the features of one Schematic. These features last until the end of your next long rest. Each object can only be modified by one Schematic at a time, and it must meet the requirements in the Schematic description.",
 						{
 							"type": "entries",
 							"name": "Saving Throws",
@@ -1685,8 +2421,14 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Je vaardigheden wedijveren met de beste vernieuwers. Vanaf 7e niveau wordt je vaardigheidsbonus verdubbeld voor elke vaardigheidscontrole die je uitvoert met {@item tinker's tools|phb} of {@item smith's tools|phb}.",
-				"Bovendien tellen voorwerpen die door je Schema's zijn aangepast als magisch voor het overwinnen van weerstanden en immuniteiten, en kun je je Schema's toepassen op magische wapens en pantsers."
+				"Your proficiency bonus is doubled for any ability check that uses your proficiency with {@item tinker's tools|phb} or {@item smith's tools|phb}.",
+				"In addition, items modified by your Schematics count as magical for overcoming resistances and immunities, and you can apply Schematics to magic weapons and armor."
+			],
+			"expertise": [
+				{
+					"tinker's tools": true,
+					"smith's tools": true
+				}
 			]
 		},
 		{
@@ -1699,7 +2441,7 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Je aanpassingen werken samen. Vanaf je 10e niveau kun je twee schema's toepassen op één voorwerp, zolang het voorwerp voldoet aan de voorwaarden voor beide schema's."
+				"Your modifications can work in tandem with each other. You can apply two Schematics to one object, so long as the object meets the prerequisites for both Schematics."
 			]
 		},
 		{
@@ -1712,7 +2454,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je inventieve arsenaal kan zich aanpassen aan de uitdagingen. Vanaf 15e niveau kun je na een korte rustperiode een Schema overbrengen van het ene voorwerp naar het andere, mits het nieuwe voorwerp aan de voorwaarden voldoet. Als een Schema een beperkt aantal ladingen heeft, blijft het aantal verbruikte ladingen hetzelfde wanneer het wordt overgezet.",
+				"Your inventive arsenal can adjust to meet the challenges at hand. At the end of a short rest, you can transfer a Schematic from one object to another, so long as the new object meets the prerequisites. If a Schematic has a limited amount of charges, the number of expended charges remains the same.",
 				"Bovendien kunt u tot drie Schema's toepassen op één object, zolang het voldoet aan alle Schema-voorwaarden."
 			]
 		},
@@ -1726,14 +2468,14 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Je innovaties hebben wonderlijke effecten. Vanaf 18e niveau krijgt een door een Schema aangepast wapen een +1 bonus op aanvals- en schaderollen voor elk toegepast Schema, en een door een Schema aangepast harnas krijgt een +1 bonus op pantserklasse voor elk toegepast Schema.",
+				"Weapons modified by your Schematics gain a +1 bonus to its attack and damage rolls for each Schematic applied to it, and any set of armor modified by a Schematic gains a +1 bonus to its Armor Class for each of your Schematics applied to it.",
 				"Wapens en pantsers die door uw Schema's zijn aangepast, kunnen geen grotere bonus dan +3 krijgen, ongeacht eventuele bonussen die het voorwerp had voordat u uw Schema's toepaste."
 			]
 		}
 	],
 	"monster": [
 		{
-			"name": "Hound",
+			"name": "Loyal Hound",
 			"source": "llfafs",
 			"size": [
 				"M"
@@ -1765,9 +2507,9 @@
 			"languages": [
 				"understands the languages that you speak"
 			],
-			"pbNote": "equals the Fighter's bonus",
+			"pbNote": "equals your bonus",
 			"damageTags": [
-				"N",
+				"P",
 				"S"
 			],
 			"trait": [
@@ -1788,13 +2530,13 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit +2+PB|+2+PB} te raken, bereik 5ft., één doel, {@h} {@damage 1d6+2+PB|1d6+2+PB} doordringende schade. Bij een treffer moet het doelwit slagen in een Sterkte reddingsworp (DC is gelijk aan 10 + PB) of {@condition grappled}. De hond kan slechts één wezen tegelijk grijpen."
+						"{@atk mw} {@hit +2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|+2+PB} to hit, reach 5ft., one target, {@h} {@damage 1d6+2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|1d6+2+PB} piercing damage. On hit, the target must succeed on a Strength Saving throw (DC equals 10 + PB) or be {@condition grappled}. The Hound can only grapple one creature at a time."
 					]
 				},
 				{
 					"name": "Maul",
 					"entries": [
-						"{@atk mw} {@hit +2+PB|+2 + PB} te raken, bereik 5ft., één doel, {@h} {@damage 1d8+2+PB|1d8+2+PB} schade door snijden."
+						"{@atk mw} {@hit +2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|+2+PB} to hit, reach 5ft., one target, {@h} {@damage 1d8+2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|1d8+2+PB} slashing damage."
 					]
 				}
 			],
@@ -1803,33 +2545,11 @@
 			],
 			"traitTags": [
 				"Keen Senses"
-			]
+			],
+			"summonedByClass": "Fighter"
 		}
 	],
 	"optionalfeature": [
-		{
-			"name": "Arcane Warrior",
-			"source": "llfafs",
-			"featureType": [
-				"FS:M"
-			],
-			"additionalSpells": [
-				{
-					"ability": "int",
-					"known": {
-						"_": [
-							{
-								"choose": "level=0|class=wizard",
-								"count": 2
-							}
-						]
-					}
-				}
-			],
-			"entries": [
-				"Je leert {@filter two wizard cantrips of your choice|spells|level=0|class=Wizard}. Ze tellen voor jou als toverspreuken, en Intelligentie is je spreukvaardigheid ervoor. Wanneer je een level in deze klasse krijgt, kun je een van deze cantrips vervangen door een andere tovenaarscantrip."
-			]
-		},
 		{
 			"name": "Berserkergang",
 			"source": "llfafs",
@@ -1838,44 +2558,55 @@
 				"FS:P"
 			],
 			"entries": [
-				"Je vecht met roekeloze overgave in de strijd. Eenmaal per beurt kun je jezelf voordeel geven op een enkele aanval. Als je deze voordeelaanval doet, wordt je pantserklasse met 2 verminderd tot het begin van je volgende beurt."
+				"You fight with reckless abandon in battle. Once per turn, you can grant yourself advantage on a single melee weapon attack roll. Once you take this advantaged attack, your Armor Class is reduced by 2 until the beginning of your next turn."
 			]
 		},
 		{
-			"name": "Classical SwordPlay",
+			"name": "Classical Swordplay",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:M",
-				"FS:P",
-				"FS:W"
+				"FS:P"
 			],
 			"entries": [
-				"Als je een fijn wapen hanteert en geen andere wapens, krijg je een +1 bonus op zowel je aanvalsrollen als je pantserklasse zolang je geen zwaar pantser of schild gebruikt."
-			]
-		},
-		{
-			"name": "Defensive Fighting",
-			"source": "llfafs",
-			"featureType": [
-				"FS:M"
+				"While wielding a finesse weapon and no other weapons, you gain a +1 bonus to your attack rolls and a +1 to your Armor Class so long as you are not using heavy armor or a shield."
 			],
-			"entries": [
-				"Zolang je een pantser draagt of een schild hanteert, krijg je een +1 bonus voor je pantserklasse."
-			]
+			"foundryEffects": [
+				{
+					"name": "Classical Swordplay",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.bonuses.rwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/skills/melee/sword-twirl-orange.webp"
 		},
 		{
 			"name": "Dual Wielding",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:R",
-				"FS:W",
-				"FS:M"
+				"FS:R"
 			],
 			"entries": [
-				"Wanneer je de aanvalsactie uitvoert terwijl je met twee wapens vecht, kun je één extra aanval uitvoeren met je buitenhandse wapen als onderdeel van je actie in plaats van je bonusactie, waarbij je vaardigheidsmodificator wordt toegevoegd aan de schade van deze aanval."
-			]
+				"When you take the {@action Attack} action while two-weapon fighting, you can make a single additional attack with your off-hand weapon as part of your action instead of your bonus action, adding your ability modifier to the damage of this attack."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-daggers-orange.webp"
 		},
 		{
 			"name": "Featherweight Fighting",
@@ -1885,7 +2616,20 @@
 				"FS:R"
 			],
 			"entries": [
-				"Als je alleen lichte wapens hanteert, neemt je bewegingssnelheid toe met 10 voet en krijg je een +2 bonus op je schaderollen, zolang je geen middelzwaar of zwaar pantser draagt of een schild hanteert."
+				"While you are wielding only light weapons, and nothing else, your speed increases by 10 feet. You also gain a +1 bonus to damage rolls with light weapons, so long as you are not wearing medium or heavy armor, or wielding a shield."
+			],
+			"foundryEffects": [
+				{
+					"name": "Speed Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1896,7 +2640,25 @@
 				"FS:P"
 			],
 			"entries": [
-				"Je gebruikt je gewicht en dat van je wapen om verwoestende klappen uit te delen. Als je een zwaar wapen hanteert, krijg je een +2 bonus op schade en heb je voordeel op krachttoetsen van {@skill Athletics}."
+				"You can use your weight, and the weight of your weapon, to land devastating blows. While you are wielding a heavy weapon, you gain a +2 bonus to damage rolls and you have advantage on Strength ({@skill Athletics}) checks made to {@action Shove}."
+			],
+			"foundryEffects": [
+				{
+					"name": "Damage Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						},
+						{
+							"key": "system.bonuses.rwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1906,7 +2668,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"Je krijgt vaardigheid met geïmproviseerde wapens. Eenmaal per beurt, wanneer je raakt met een geïmproviseerd wapen, kun je twee keer met de dobbelsteen gooien en de hoogste worp nemen. Als je dit doet, wordt het geïmproviseerde wapen vernietigd en kan het niet meer worden gebruikt voor verdere aanvallen. Deze eigenschap kan niet worden gebruikt om magische voorwerpen te vernietigen."
+				"You gain proficiency with improvised weapons. Once per turn, when you hit with a non-magical improvised weapon attack, you can roll the damage die twice and take the higher roll. When you do so, the improvised weapon is destroyed and cannot be used for further attacks."
 			]
 		},
 		{
@@ -1917,7 +2679,25 @@
 				"FS:R"
 			],
 			"entries": [
-				"Als je geen middelzwaar of zwaar pantser draagt of een schild gebruikt, heb je een zwemsnelheid die gelijk is aan je bewegingssnelheid, en krijg je een +1 bonus voor je pantserklasse."
+				"When you are not wearing medium or heavy armor, or using a shield, you have a swimming speed equal to your walking speed, and you gain a +1 bonus to your Armor Class."
+			],
+			"foundryEffects": [
+				{
+					"name": "Mariner",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1928,8 +2708,37 @@
 				"FS:R"
 			],
 			"entries": [
-				"Als je een afstandsaanval doet op een wezen dat zich op minder dan 2 meter van je bevindt, heb je geen nadeel bij de aanvalswals.",
-				"Als je een afstandsaanval doet op een wezen binnen een straal van 5 meter, kun je een bonusactie gebruiken om het wezen te raken met je afstandswapen."
+				"Having a hostile creature within 5 feet of you doesn't impose disadvantage on your ranged weapon attacks, so long as you are attacking a creature within 5 feet.",
+				"When you make a ranged weapon attack against a creature within 5 feet, you can use your bonus action to make a melee attack against it with your ranged weapon. On hit, you deal bludgeoning damage equal to {@damage 1d4} + your Strength modifier."
+			]
+		},
+		{
+			"name": "Mountaineer",
+			"source": "llfafs",
+			"featureType": [
+				"FS:F",
+				"FS:R"
+			],
+			"entries": [
+				"When you are not wearing medium or heavy armor, or using a shield, you have a climbing speed equal to your walking speed, and you gain a +1 bonus to your Armor Class."
+			],
+			"foundryEffects": [
+				{
+					"name": "Mountaineer",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1940,8 +2749,22 @@
 				"FS:P"
 			],
 			"entries": [
-				"Eenmaal per beurt, wanneer je een groot of kleiner wezen raakt met een melee aanval terwijl je zit, kun je het dwingen een Sterkte reddingsworp te doen (DC = 8 + je vaardigheidsbonus + je Sterkte modifier). Bij falen wordt het geslagen {@condition prone}."
-			]
+				"While riding a trained mount, both you and your mount gain a +1 bonus to your Armor Class, and you can use a bonus action to command it to take one action from its stat block."
+			],
+			"foundryEffects": [
+				{
+					"name": "AC Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/creatures/horse-tan.webp"
 		},
 		{
 			"name": "Pit Fighting",
@@ -1950,7 +2773,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"Je hebt getraind om te vechten met wapens die typisch zijn voor gladiatoren, wat je de volgende voordelen biedt:",
+				"You have trained to fight with weapons typically associated with gladiators, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
@@ -1969,20 +2792,62 @@
 				"FS:P"
 			],
 			"entries": [
-				"Je krijgt vaardigheid met {@item shield|phb} s als een martial melee wapen. Bij een treffer deel je {@dice 2d4} vernietigende schade uit. Als je een {@item shield|phb} hanteert en niets anders, krijg je een +1 bonus op zowel je schaderollen met {@item shield|phb} aanvallen, als op je pantserklasse."
-			]
+				"You gain proficiency with {@item shield|phb}s as a martial melee weapon, and on hit, your shield deals {@damage 2d4} bludgeoning damage. If you are wielding a {@item shield|phb} and nothing else, you gain a +1 bonus to your shield attack damage rolls and to your Armor Class."
+			],
+			"foundrySystem": {
+				"actionType": "mwak",
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"2d4",
+						"bludgeoning"
+					]
+				]
+			},
+			"foundryEffects": [
+				{
+					"name": "Shield Warrior",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/skills/melee/shield-block-bash-yellow.webp"
 		},
 		{
 			"name": "Standard Bearer",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:P",
-				"FS:W"
+				"FS:P"
 			],
 			"entries": [
-				"Wanneer een wezen binnen 5 voet van je een aanval doet op een wezen dat je kunt zien, kun je hem als reactie voordeel geven op zijn aanvalswals. Je moet een vaandel, vlag of standaard in je hand hebben om deze reactie te gebruiken."
-			]
+				"When a creature within 5 feet of you makes an attack against a creature that you can see, you can grant it advantage on its attack roll as a reaction. You must be carrying a banner, flag, or standard in your hand to use this reaction."
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "reaction"
+				},
+				"range": {
+					"value": 5,
+					"units": "ft"
+				}
+			},
+			"foundryImg": "icons/sundries/flags/banner-sword-blue.webp"
 		},
 		{
 			"name": "Strongbow",
@@ -2001,13 +2866,42 @@
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:M",
 				"FS:P",
-				"FS:R",
-				"FS:W"
+				"FS:R"
 			],
 			"entries": [
-				"Terwijl je een enkel veelzijdig wapen hanteert en geen {@item shield|phb}, kun je kiezen of je je wapen één- of tweehandig hanteert tot het begin van je volgende beurt. Met één hand krijg je een +1 bonus op aanvalsrollen en op je pantserklasse. Als je het tweehandig hanteert, krijg je een +2 bonus op je schaderollen."
+				"While wielding a single versatile weapon and no shield, you can choose to wield your weapon one or two-handed until the start of your next turn. When wielding it one-handed you gain a +1 bonus to attack rolls and to your Armor Class. Wielding it two-handed you gain a +2 bonus to your damage rolls."
+			],
+			"foundryEffects": [
+				{
+					"name": "Versatile Fighting (One-Handed)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				},
+				{
+					"name": "Versatile Fighting (Two-Handed)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
 			]
 		},
 		{
@@ -2017,7 +2911,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"Wanneer je tijdens je beurt de {@action Attack} actie uitvoert, kun je als bonusactie tijdens die beurt proberen {@action grapple} of {@action shove} een wezen te verslepen, zolang je daarvoor een vrije hand hebt. Ook kun je {@condition grappled} wezens verslepen tot je volledige bewegingssnelheid."
+				"When you take the {@action Attack} action on your turn, you can attempt to {@action grapple} or {@action shove} a creature as a bonus action on that turn, so long as you have a free hand to do so. Also, you can drag {@condition grappled} creatures up to your full speed."
 			]
 		},
 		{
@@ -2061,7 +2955,7 @@
 			],
 			"entries": [
 				"Na consumptie krijgt het wezen weer hit points gelijk aan {@dice 1d10} + uw grondwetswijziging (minimaal +1).",
-				"Vanaf het 10e niveau herstelt dit rantsoen een extra {@dice 1d10} aan hitpoints, en alle hitpoints die ze terugkrijgen die hun hitpointmaximum overschrijden worden tijdelijke hitpoints."
+				"At 10th level, this Ration restores an additional {@dice 1d10} hit points, and any hit points they regain that exceed their hit point maximum become temporary hit points."
 			]
 		},
 		{
@@ -2082,8 +2976,8 @@
 				}
 			],
 			"entries": [
-				"Bij consumptie beëindigt het wezen een van de volgende aandoeningen die hem momenteel treffen: {@condition blinded}, {@condition deafened}, {@condition poisoned}, of ze verminderen hun uitputtingsniveau met 1.",
-				"Vanaf het 10e niveau kan dit Rantsoen ook de {@condition charmed}, {@condition frightened}, {@condition paralyzed} en {@condition stunned} aandoeningen genezen."
+				"Upon consumption, the creature ends one of the following conditions currently affecting it: {@condition blinded|phb|blindness}, {@condition deafened|phb|deafness}, {@condition poisoned}, or it can reduce its {@condition exhaustion} level by 1.",
+				"At 10th level, this Ration can also cure a creature of the {@condition charmed}, {@condition frightened}, {@condition paralyzed}, or {@condition stunned} condition."
 			]
 		},
 		{
@@ -2105,7 +2999,7 @@
 			],
 			"entries": [
 				"Dit rantsoen moet worden geconsumeerd als onderdeel van een korte rustperiode. Na consumptie heeft het wezen een voordeel op de worp voor elke Hit Dice die het tijdens die korte rust wil besteden.",
-				"Vanaf het 10e niveau stelt het consumeren van dit rantsoen het wezen in staat om elke Hit Dice die het tijdens de korte rust gebruikt te behandelen als het maximaal mogelijke resultaat in plaats van te rollen."
+				"At 10th level, consuming this Ration allows the creature to treat any Hit Dice it expends during the short rest as the maximum possible result instead of rolling."
 			]
 		},
 		{
@@ -2148,8 +3042,30 @@
 				}
 			],
 			"entries": [
-				"Na consumptie krijgt het wezen weerstand tegen ofwel stomp-, ofwel steek-, ofwel steekschade (naar keuze).",
-				"Vanaf het 10e niveau geeft het consumeren van dit rantsoen weerstand tegen schade door stoten, steken en snijden."
+				"Upon consumption, the creature gains resistance to either bludgeoning, piercing, or slashing damage (its choice).",
+				"At 10th level consuming this Ration grants the creature resistance to bludgeoning, piercing, and slashing damage."
+			]
+		},
+		{
+			"name": "Engorging Ration",
+			"source": "llfafs",
+			"featureType": [
+				"QR"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 7,
+						"class": {
+							"name": "Fighter"
+						}
+					},
+					"other": "Duration, 1 minute"
+				}
+			],
+			"entries": [
+				"Upon consumption, the creature grows by one size category, for example, from Medium to Large. While the creature's size is increased in this way, its reach increases by 5 feet, it has advantage on Strength checks and saving throws, and any melee weapon attacks it makes deal a bonus {@damage 1d4} damage.",
+				"At 10th level the duration of the effect becomes 1 hour."
 			]
 		},
 		{
@@ -2171,7 +3087,7 @@
 			],
 			"entries": [
 				"Bij consumptie kiest het wezen Intelligentie, Wijsheid of Charisma. Voor de duur kan het wezen uw grondwetswijziging (minimaal +1) toevoegen aan elke vaardigheidscontrole of reddingsworp voor de gekozen vaardigheidsscore.",
-				"Op 10e niveau neemt de duur van het effect toe tot 1 uur."
+				"At 10th level the duration of the effect becomes 1 hour."
 			]
 		},
 		{
@@ -2192,8 +3108,8 @@
 				}
 			],
 			"entries": [
-				"Bij consumptie krijgt het wezen weerstand tegen zuur, koude, vuur, gif, bliksem of donderschade (naar keuze).",
-				"Op 10e niveau neemt de duur van het effect toe tot 1 uur, en het wezen kan kiezen uit kracht, necrotische, psychische of stralingsschade naast de andere soorten schade."
+				"Upon consumption, the creature gains resistance to acid, cold, fire, poison, lightning, or thunder damage (its choice).",
+				"At 10th level the duration of the effect becomes 1 hour, and the creature can choose force, necrotic, psychic, or radiant damage in addition to the other damage types."
 			]
 		},
 		{
@@ -2214,7 +3130,8 @@
 				}
 			],
 			"entries": [
-				"Bij consumptie krijgt het wezen immuniteit voor een van de volgende aandoeningen (naar keuze): {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition poisoned}, {@condition paralyzed}, of {@condition stunned}."
+				"Upon consumption, the creature gains immunity to one of the following conditions (its choice): {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition poisoned}, {@condition paralyzed}, or {@condition stunned}.",
+				"At 15th level, this Ration grants a creature immunity to two of the conditions from the list above (its choice)."
 			]
 		},
 		{
@@ -2235,7 +3152,8 @@
 				}
 			],
 			"entries": [
-				"Bij consumptie valt het wezen niet bewusteloos als het tot 0 hitpoints is gereduceerd. Maar het maakt nog steeds dood reddende worpen als normaal, en sterft bij drie falen."
+				"Upon consumption, the creature is guarded from the effects of death. Should it fall to 0 hit points within the next hour, it does not fall {@condition unconscious}. However, it still makes death saving throws as normal, dying upon failing three.",
+				"After a creature eats this Ration, it must finish a long rest before it can gain the benefits of any other Ration."
 			]
 		},
 		{
@@ -2256,8 +3174,8 @@
 				}
 			],
 			"entries": [
-				"Na consumptie krijgt het wezen onmiddellijk de voordelen van een korte rustperiode, inclusief de mogelijkheid om onmiddellijk Hit Dice uit te geven als onderdeel van de actie die het gebruikte om het rantsoen te consumeren.",
-				"Aan het einde van zijn huidige beurt krijgt het wezen 1 niveau uitputting. Een wezen dat dit rantsoen consumeert, kan de voordelen van een ander rantsoen niet krijgen totdat het een lange rustperiode heeft voltooid."
+				"Upon consumption, the creature gains all the benefits of a short rest, including the ability to expend its Hit Dice as part of consuming the Ration. At the end of its current turn, the creature gains 1 level of {@condition exhaustion}.",
+				"After a creature eats this Ration, it must finish a long rest before it can gain the benefits of any other Ration."
 			]
 		},
 		{
@@ -2267,30 +3185,30 @@
 				"TS"
 			],
 			"entries": [
-				"Je verandert de metallurgische samenstelling van een voorwerp, waardoor het lichter wordt. De drager of drager van een voorwerp dat door dit schema is aangepast, heeft zijn bewegingssnelheid met 10 voet verhoogd.",
+				"You modify the metallurgic makeup of an item, making it significantly lighter. The bearer of an object modified by this Schematic has its walking speed increased by 10 feet.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Heavy Armor",
 							"entries": [
-								"Bij toepassing negeert de drager alle vereisten inzake sterkte die het harnas kan hebben, of elke straf die het harnas kan opleggen voor zijn vaardigheidscontroles."
+								"The wearer ignores penalties to Dexterity ({@skill Stealth}) checks or Strength requirements of this armor."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Light Armor",
 							"entries": [
-								"Bij toepassing kan de drager tot 100 voet van zijn valafstand aftrekken bij het berekenen van valschade en kan hij zich horizontaal 2 voet verplaatsen voor elke 1 voet die hij valt."
+								"The wearer can subtract up to 100 feet from their fall distance when calculating fall damage and can move horizontally 2 feet for every 1 foot they fall."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"Bij toepassing wordt een zwaar wapen een normaal gewicht, en een normaal wapen een licht wapen."
+								"Any weapon with either the heavy and/or two-handed properties loses those properties, and any non-heavy weapon gains both the light and finesse properties."
 							]
 						}
 					]
@@ -2304,23 +3222,23 @@
 				"TS"
 			],
 			"entries": [
-				"Je past een voorwerp aan om te profiteren van je krijgs- en onderzoeksinstincten. De drager of drager van een door dit schema aangepast voorwerp krijgt vaardigheid in {@skill Investigation} en kan zijn vaardigheidsbonus verdubbelen bij alle intelligentiecontroles die hij maakt.",
+				"You modify an item to enhance your investigative instincts. The bearer of an object modified by this Schematic gains proficiency in {@skill Investigation} and adds double its proficiency bonus to any Intelligence ({@skill Investigation}) checks they make.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"Indien toegepast, kan de drager zijn intelligentie gebruiken in plaats van handigheid, bij het berekenen van zijn pantserklasse."
+								"The wearer can use its Intelligence in place of Dexterity when calculating their Armor Class in this armor."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"Indien toegepast, kan de drager zijn intelligentie gebruiken in plaats van kracht of vaardigheid voor aanvals- en schadeproeven met dit wapen."
+								"The wielder uses its Intelligence, in place of Strength, for attack and damage rolls with this weapon."
 							]
 						}
 					]
@@ -2334,13 +3252,27 @@
 				"TS"
 			],
 			"entries": [
-				"Je doordrenkt een voorwerp met een bron van stralingsenergie. De drager of drager van een voorwerp dat door dit schema is aangepast, kan een bonusactie gebruiken om het voorwerp helder licht te laten uitstralen in een straal van 15 voet, en zwak licht 15 voet verder. Hij kan het licht als bonusactie tijdens zijn beurt doven.",
+				"You imbue an item with radiant energy. The bearer of an object modified by this Schematic can use a bonus action to cause the object to emit (or extinguish) bright light in a 15-foot radius, and dim light 15 feet beyond that.",
 				{
-					"type": "entries",
-					"name": "Armor or Weapon",
-					"entries": [
-						"Als reactie wanneer je geraakt wordt door een aanval (pantser), of een wezen raakt met een aanval (wapen), kun je het wezen dwingen een reddingsworp te doen. Bij falen is het {@condition blinded} voor 1 minuut uitgeschakeld. Aan het eind van elke beurt kan het de reddingsworp herhalen, waarbij het effect eindigt bij succes.",
-						"Als je deze reactie eenmaal hebt gebruikt, moet je een korte of lange rustpauze inlassen voordat je hem opnieuw kunt gebruiken."
+					"type": "list",
+					"style": "list-hang",
+					"items": [
+						{
+							"type": "entries",
+							"name": "Armor",
+							"entries": [
+								"As a reaction when the wearer is hit by an attack, it can force the attacker to make a Constitution saving throw. On a failed save, it is {@condition blinded} for 1 minute. It can repeat the save at the end of each turn, ending the effect on a success.",
+								"Once the wearer uses this reaction, it must finish a short or long rest before it can use the reaction again."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Weapon",
+							"entries": [
+								"When the wielder hit a creature with this weapon, it can force it to make a Constitution saving throw. On a failure, it is {@condition blinded} for 1 minute. It can repeat its save at the end of each turn, ending the effect on a success.",
+								"Once the wielder uses this reaction, it must finish a short or long rest before it can use this reaction again."
+							]
+						}
 					]
 				}
 			]
@@ -2352,24 +3284,24 @@
 				"TS"
 			],
 			"entries": [
-				"Je wijzigt een voorwerp zodat het elastische eigenschappen heeft. De drager of drager van een door dit schema aangepast voorwerp kan zijn reactie gebruiken om je intelligentiemodificatie (minimaal +1) toe te voegen aan zijn pantserklasse tegen één aanval.",
+				"You modify an item so that it has elastic properties. The wearer or wielder of an object modified by this Schematic can use its reaction to add your Intelligence modifier (minimum of +1) to its Armor Class against one attack.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"Als een reactie wanneer de drager van dit pantser wordt geraakt door een aanval, kan hij de schade verminderen met een bedrag gelijk aan {@dice 1d12} + uw intelligentie modifier. Als de schade wordt gereduceerd tot 0, krijgt de aanvaller de volledige schade van de aanval alsof hij het oorspronkelijke doelwit was geweest.",
-								"Zodra u deze functie gebruikt, moet u een korte of lange rustpauze inlassen voordat u hem opnieuw kunt gebruiken."
+								"As a reaction when the wearer of this armor is hit by an attack, it can reduce the damage by an amount equal to {@dice 1d12} + your Intelligence modifier. If the damage is reduced to 0, the attacker takes the full damage of the attack as if they had been the original target.",
+								"Once the wearer uses this reaction it must finish a short or long rest before it can use this reaction again."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Non-Heavy Weapon",
 							"entries": [
-								"Bij toepassing krijgt het wapen de eigenschap Geworpen met een bereik van 20 voet. Na een aanval met dit wapen keert het onmiddellijk terug naar de drager."
+								"The weapon gains the Thrown property with a range of 20 feet. After making an attack with this weapon, it instantly returns to the wielder's hand."
 							]
 						}
 					]
@@ -2393,30 +3325,30 @@
 				}
 			],
 			"entries": [
-				"Je past een voorwerp aan met uurwerkmechanismen die de fysieke vaardigheid verbeteren en de reflexen aanscherpen. De drager of drager van een door dit schema aangepast voorwerp krijgt een bonus op zijn initiatief gelijk aan je intelligentiemodificator (minimaal +1).",
+				"You modify an object with clockwork mechanics that improve physical ability and sharpens reflexes. The wearer or wielder of an object modified by this Schematic gains a bonus to its initiative equal to your Intelligence modifier (minimum of +1).",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Heavy Armor",
 							"entries": [
-								"Indien toegepast, kan de drager zijn intelligentie gebruiken in plaats van zijn sterkte, voor elke vaardigheidscontrole of reddingsslag die hij maakt."
+								"The wearer can use your Intelligence score, in place of its Strength, for any Strength-based ability checks or Strength saving throws it makes."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Light Armor",
 							"entries": [
-								"Indien toegepast, kan de drager zijn intelligentie gebruiken in plaats van zijn behendigheid voor elke vaardigheidscontrole of reddingsslag die hij maakt."
+								"The wearer can use your Intelligence score, in place of its Dexterity, for any Dexterity-based ability checks or Dexterity saving throws it makes."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"Telkens wanneer de drager een 1 of 2 gooit voor een schadeworp met dit wapen, kan hij ervoor kiezen de dobbelsteen opnieuw te gooien, maar je moet het nieuwe resultaat gebruiken, zelfs als het een 1 of 2 is."
+								"When the wielder rolls a 1 or 2 for a damage roll with this weapon, it can choose to re-roll the die, but it must use the new result of the roll, even if it is a 1 or 2."
 							]
 						}
 					]
@@ -2440,28 +3372,76 @@
 				}
 			],
 			"entries": [
-				"Je verandert de metallurgische samenstelling van dit voorwerp om het veel veerkrachtiger te maken. De drager of drager van een door dit schema aangepast voorwerp heeft voordeel bij reddingsacties om weerstand te bieden tegen {@condition grappled} of verplaatsing tegen zijn wil.",
+				"You modify the metallurgical makeup of this item to make it more resilient. The wearer or wielder of an object modified by this Schematic has advantage on saving throws to resist being {@condition grappled} or moved against its will.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"Wanneer dit pantser is aangebracht, biedt het weerstand tegen niet-magische slag-, stoot- en steekschade."
+								"This armor grants resistance to nonmagical bludgeoning, piercing, and slashing damage."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"Wanneer dit wapen wordt gebruikt, geeft het bonusschade gelijk aan je intelligentieaanpassing (minimaal 1) + je vechtersniveau wanneer je een kritische treffer scoort."
+								"This weapon deals bonus damage equal to your Intelligence modifier (minimum of 1) + your Fighter level whenever the wielder scores a critical hit with this weapon."
 							]
 						}
 					]
 				}
 			]
+		},
+		{
+			"name": "Alpine Combatant",
+			"source": "llfafs",
+			"featureType": [
+				"GC"
+			],
+			"entries": [
+				"You have trained for battle at great heights. You gain a climbing speed equal to your walking speed, and when you fall, you can use your reaction to reduce any falling damage by an amount equal to your fighter level."
+			],
+			"foundryEffects": [
+				{
+					"name": "Alpine Combatant",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/camp-improvised.webp"
+		},
+		{
+			"name": "Marine Combatant",
+			"source": "llfafs",
+			"featureType": [
+				"GC"
+			],
+			"entries": [
+				"You prepare for amphibious combat. You gain a swimming speed equal to your walking speed, and you can hold your breath for up to 1 hour underwater."
+			],
+			"foundryEffects": [
+				{
+					"name": "Marine Combatant",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/settlement/ship.webp"
 		}
 	],
 	"variantrule": [
@@ -2470,7 +3450,207 @@
 			"source": "llfafs",
 			"ruleType": "VO",
 			"entries": [
-				"Sommige vechtstijlen, vooral die hier, zijn specifiek van toepassing. Overweeg om vechters in je spel toe te staan hun vechtstijl opnieuw te trainen gedurende een paar lange rustperiodes om zich aan te passen aan de komende uitdagingen."
+				"Some Fighting Styles, especially those here, are specific in application. Consider allowing Fighters in your game to re-train their Fighting Style over a few long rests to adjust to the challenges ahead."
+			]
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Drifter",
+			"source": "llfafs",
+			"name": "Hair-Trigger",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Guardian",
+			"source": "llfafs",
+			"name": "Guardian Stance",
+			"level": 3,
+			"effects": [
+				{
+					"name": "AC Bonus",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Marksman",
+			"source": "llfafs",
+			"name": "Cunning Shot",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Martial Artist",
+			"source": "llfafs",
+			"name": "Iron Physique",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Iron Physique (Unarmored)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "10 + @abilities.dex.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				},
+				{
+					"name": "Iron Physique (Light Armor)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "@attributes.ac.armor + max(@abilities.dex.mod, @abilities.con.mod)"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				},
+				{
+					"name": "Iron Physique (Medium Armor)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "@attributes.ac.armor + min(2, max(@abilities.dex.mod, @abilities.con.mod))"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Quartermaster",
+			"source": "llfafs",
+			"name": "Iron Stomach",
+			"level": 18,
+			"effects": [
+				{
+					"name": "Constitution Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.con.value",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Swordsage",
+			"source": "llfafs",
+			"name": "Battle Trance",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Battle Trance",
+					"disabled": true,
+					"transfer": true,
+					"duration": {
+						"seconds": 60
+					},
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": "@scale.swordsage.battle-trance-ac"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Swordsage",
+			"source": "llfafs",
+			"name": "Heightened Reflexes",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
 			]
 		}
 	]
