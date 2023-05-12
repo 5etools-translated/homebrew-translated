@@ -1,32 +1,31 @@
 {
-	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/5etools-utils/master/schema/brew-fast/homebrew.json",
 	"_meta": {
 		"sources": [
 			{
 				"json": "llfafs",
 				"abbreviation": "LLFAFS",
-				"full": "LaserLLama's Fighter Archetypes & Fighting Styles",
+				"full": "LaserLlama's Fighter Archetypes & Fighting Styles",
 				"authors": [
 					"laserllama"
 				],
 				"convertedBy": [
-					"JoeyJoestar"
+					"JoeyJoestar",
+					"hakr14"
 				],
-				"version": "2.1.0",
+				"version": "2.2.0",
 				"color": "4287f5",
 				"url": "https://www.gmbinder.com/share/-M0i_wbRAX8qAz1OIjbF",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.7"
 			}
 		],
 		"dateAdded": 1652153430,
-		"dateLastModified": 1678748267,
+		"dateLastModified": 1683601714,
 		"optionalFeatureTypes": {
-			"FS:M": "Fighting Style; Magus",
-			"FS:W": "Fighting Style; Warlord",
+			"GC": "Guerrilla Combatancy",
 			"QR": "Quartermaster Rations",
 			"TS": "Tinker Knight Schematics"
 		},
-		"_dateLastModifiedHash": "43eb5e4c72"
+		"_dateLastModifiedHash": "7ad32ec261"
 	},
 	"subclass": [
 		{
@@ -37,7 +36,7 @@
 			"shortName": "Commander",
 			"subclassFeatures": [
 				"Commander|Fighter|phb|Commander|llfafs|3",
-				"Strategic Insights|Fighter|phb|Commander|llfafs|7",
+				"Strategic Command|Fighter|phb|Commander|llfafs|7",
 				"Heroic Surge|Fighter|phb|Commander|llfafs|10",
 				"Invigorating Orders|Fighter|phb|Commander|llfafs|15",
 				"Legendary Commander|Fighter|phb|Commander|llfafs|18"
@@ -51,11 +50,42 @@
 			"shortName": "Crusader",
 			"subclassFeatures": [
 				"Crusader|Fighter|phb|Crusader|llfafs|3",
-				"Mantle of Faith|Fighter|phb|Crusader|llfafs|7",
 				"Renewed Fervor|Fighter|phb|Crusader|llfafs|7",
 				"Zealous Fury|Fighter|phb|Crusader|llfafs|10",
 				"Righteous Judgement|Fighter|phb|Crusader|llfafs|15",
-				"Divine Rebuke|Fighter|phb|Crusader|llfafs|18"
+				"Legendary Crusader|Fighter|phb|Crusader|llfafs|18"
+			]
+		},
+		{
+			"name": "Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"shortName": "Drifter",
+			"subclassFeatures": [
+				"Drifter|Fighter|phb|Drifter|llfafs|3",
+				"Hair-Trigger|Fighter|phb|Drifter|llfafs|7",
+				"Tenacious Pursuit|Fighter|phb|Drifter|llfafs|10",
+				"Deadly Hunter|Fighter|phb|Drifter|llfafs|15",
+				"Legendary Drifter|Fighter|phb|Drifter|llfafs|18"
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Wrangler",
+					"configuration": {
+						"identifier": "wrangler",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -68,8 +98,8 @@
 				"Guardian|Fighter|phb|Guardian|llfafs|3",
 				"Rallying Wind|Fighter|phb|Guardian|llfafs|7",
 				"Stalwart Defender|Fighter|phb|Guardian|llfafs|10",
-				"Improved Guardian Stance|Fighter|phb|Guardian|llfafs|15",
-				"Unshakable Bastion|Fighter|phb|Guardian|llfafs|18"
+				"Improved Stance|Fighter|phb|Guardian|llfafs|15",
+				"Legendary Guardian|Fighter|phb|Guardian|llfafs|18"
 			]
 		},
 		{
@@ -83,7 +113,31 @@
 				"By Land or Sea|Fighter|phb|Guerrilla|llfafs|7",
 				"Adaptable Fighting Style|Fighter|phb|Guerrilla|llfafs|10",
 				"Unwavering|Fighter|phb|Guerrilla|llfafs|15",
-				"Elite Guerrilla|Fighter|phb|Guerrilla|llfafs|18"
+				"Legendary Guerrilla|Fighter|phb|Guerrilla|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Adaptable Superiority",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"3": 3,
+						"7": 4,
+						"10": 5,
+						"15": 6
+					}
+				},
+				{
+					"name": "By Land or Sea",
+					"featureType": [
+						"GC"
+					],
+					"progression": {
+						"7": 1,
+						"15": 2
+					}
+				}
 			]
 		},
 		{
@@ -97,7 +151,21 @@
 				"Cunning Shot|Fighter|phb|Marksman|llfafs|7",
 				"Reposition|Fighter|phb|Marksman|llfafs|10",
 				"Reliable Shot|Fighter|phb|Marksman|llfafs|15",
-				"Deadeye|Fighter|phb|Marksman|llfafs|18"
+				"Legendary Marksman|Fighter|phb|Marksman|llfafs|18"
+			]
+		},
+		{
+			"name": "Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"shortName": "Martial Artist",
+			"subclassFeatures": [
+				"Martial Artist|Fighter|phb|Martial Artist|llfafs|3",
+				"Counter|Fighter|phb|Martial Artist|llfafs|7",
+				"Evasive Footwork|Fighter|phb|Martial Artist|llfafs|10",
+				"Unbreakable|Fighter|phb|Martial Artist|llfafs|15",
+				"Legendary Martial Artist|Fighter|phb|Martial Artist|llfafs|18"
 			]
 		},
 		{
@@ -115,17 +183,17 @@
 			]
 		},
 		{
-			"name": "Pact Warrior",
+			"name": "Witch Knight",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"shortName": "Pact Warrior",
+			"shortName": "Witch Knight",
 			"subclassFeatures": [
-				"Pact Warrior|Fighter|phb|Pact Warrior|llfafs|3",
-				"Otherworldly Step|Fighter|phb|Pact Warrior|llfafs|7",
-				"Enchanted Strikes|Fighter|phb|Pact Warrior|llfafs|10",
-				"Improved Sanguine Offering|Fighter|phb|Pact Warrior|llfafs|15",
-				"Profane Sacrifice|Fighter|phb|Pact Warrior|llfafs|18"
+				"Witch Knight|Fighter|phb|Witch Knight|llfafs|3",
+				"Otherworldly Step|Fighter|phb|Witch Knight|llfafs|7",
+				"Enchanted Strikes|Fighter|phb|Witch Knight|llfafs|10",
+				"Greater Offering|Fighter|phb|Witch Knight|llfafs|15",
+				"Profane Sacrifice|Fighter|phb|Witch Knight|llfafs|18"
 			],
 			"casterProgression": "pact",
 			"spellcastingAbility": "cha",
@@ -133,6 +201,19 @@
 				{
 					"className": "Warlock",
 					"classSource": "phb"
+				}
+			],
+			"additionalSpells": [
+				{
+					"ability": "cha",
+					"known": {
+						"3": [
+							{
+								"choose": "level=0",
+								"count": 1
+							}
+						]
+					}
 				}
 			],
 			"cantripProgression": [
@@ -327,7 +408,7 @@
 			"subclassFeatures": [
 				"Quartermaster|Fighter|phb|Quartermaster|llfafs|3",
 				"Dependable|Fighter|phb|Quartermaster|llfafs|7",
-				"Improved Rations|Fighter|phb|Quartermaster|llfafs|10",
+				"Quick Ration|Fighter|phb|Quartermaster|llfafs|10",
 				"Ever Ready|Fighter|phb|Quartermaster|llfafs|15",
 				"Iron Stomach|Fighter|phb|Quartermaster|llfafs|18"
 			]
@@ -341,9 +422,41 @@
 			"subclassFeatures": [
 				"Swordsage|Fighter|phb|Swordsage|llfafs|3",
 				"Heightened Reflexes|Fighter|phb|Swordsage|llfafs|7",
-				"Improved Battle Trance|Fighter|phb|Swordsage|llfafs|10",
-				"Technical Mastery|Fighter|phb|Swordsage|llfafs|15",
-				"Legendary Swordsage|Fighter|phb|Swordsage|llfafs|18"
+				"Masterful Trance|Fighter|phb|Swordsage|llfafs|10",
+				"Legendary Swordsage|Fighter|phb|Swordsage|llfafs|15",
+				"Legendary Swordsage (d8)|Fighter|phb|Swordsage|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Student of the Blade",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"3": 3,
+						"7": 4,
+						"10": 5,
+						"15": 6
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Battle Trance",
+					"configuration": {
+						"identifier": "battle-trance-ac",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"10": {
+								"value": 2
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -358,6 +471,20 @@
 				"Mechanical Synergy|Fighter|phb|Tinker Knight|llfafs|10",
 				"Flexible Innovation|Fighter|phb|Tinker Knight|llfafs|15",
 				"Masterwork Inventions|Fighter|phb|Tinker Knight|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Inventive Arsenal",
+					"featureType": [
+						"TS"
+					],
+					"progression": {
+						"3": 2,
+						"7": 3,
+						"10": 4,
+						"15": 5
+					}
+				}
 			]
 		}
 	],
@@ -371,27 +498,26 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"并非所有的战士在战斗中都只依靠自己，有些人利用他们对战场战术的了解来指挥他们的盟友。指挥官是在前线领导士兵的战士，他们发布命令，并通过自己的勇敢事迹激发他人的伟大精神。通过他们的存在，指挥官可以将一个没有组织的民兵变成一支致命的战斗力量。",
+				"Not all Fighters rely solely on themselves in battle, some use their knowledge of battlefield tactics to command their allies. Commanders are warriors who lead their soldiers from the front, issuing Commands and inspiring greatness in others by their own brave deeds. By their presence, a Commander can transform an unorganized militia into a deadly force.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Orders|Fighter|phb|Commander|llfafs|3"
+					"subclassFeature": "Art of War|Fighter|phb|Commander|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "The Art of War|Fighter|phb|Commander|llfafs|3"
+					"subclassFeature": "Tactical Orders|Fighter|phb|Commander|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
 					"name": "Captains, Tacticians, & Warlords",
 					"entries": [
-						"战场指挥官的位置在5e中明显没有得到满足。这里介绍的指挥官子类试图用一个非魔法角色的选择来填补这一空白。",
-						"指挥官是一个从正面领导的战士。如果你正在寻找一个更有战略意义的领导者，把其他英雄作为他们的武器，那么请查看野人级的战术师修炼。"
+						"The battlefield commander is an archetype that is conspicuously absent in 5e. This Archetype, along with the Warlord Class attempts to fill that niche."
 					]
 				}
 			]
 		},
 		{
-			"name": "Orders",
+			"name": "Tactical Orders",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -400,10 +526,10 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"从第三级开始，当你在你的回合中采取{@action Attack}行动时，你可以用以下列表中的命令代替你的一次攻击。你可以向30英尺内任何愿意听到你的生物发出命令。你可以发出的命令数量等于1+你的熟练度加成，当你完成短时或长时休息时，你会恢复所有消耗的使用。",
+				"When you take the {@action Attack} action on your turn, you can issue one of the Orders from the list below in place of one attack. You can issue an Order to a willing creature within 30 feet, other than yourself, that can hear and understand you:",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
@@ -414,24 +540,46 @@
 						},
 						{
 							"type": "entries",
-							"name": "Inspiring Order",
+							"name": "Defensive Order",
 							"entries": [
-								"目标获得相当于你的战士等级+你的熟练度加成的临时打击点数。"
+								"The target of this Order can use its reaction to immediately take the {@action Dodge} action."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Maneuvering Order",
 							"entries": [
-								"目标可以使用它的反应来移动到它的速度而不引起机会攻击。"
+								"The target of this Order can use its reaction to move up to its speed without provoking opportunity attacks."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Support Order",
+							"entries": [
+								"The target of this Order can use its reaction to immediately take the {@action Help}, {@action Hide}, {@action Search}, or {@action Use an Object} action."
 							]
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you take the Attack action on your turn"
+				},
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/environment/people/infantry-armored.webp"
 		},
 		{
-			"name": "The Art of War",
+			"name": "Art of War",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -440,11 +588,25 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"你不仅花时间研究战争的策略，也研究政治的策略。在3级时，你获得了对（%0%）、（%1%）、（%2%）或（%3%）的熟练度。"
-			]
+				"You have spent time studying not only the strategy and tactics of war but also the theory of politics. You gain proficiency in one of the following skills: {@skill History}, {@skill Insight}, {@skill Investigation}, or {@skill Persuasion}. Moreover, whenever you make an ability check with that skill, you treat a d20 roll of 7 or lower as an 8."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"history",
+							"insight",
+							"investigation",
+							"persuasion"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/books/symbol-axe-gold-grey.webp"
 		},
 		{
-			"name": "Strategic Insights",
+			"name": "Strategic Command",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -453,8 +615,30 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"从第七级开始，你可以在战斗中获得突发的战场洞察力。每当你使用你的 \"第二风 \"功能时，你会重新获得你的命令的所有已消耗的使用权。"
-			]
+				"You rally your allies even as you fight. When you use {@classFeature Second Wind|Fighter||1}, you can choose three creatures within 30 feet that can hear you to regain hit points equal to your Fighter level."
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind"
+				},
+				"damage.parts": [
+					[
+						"@classes.fighter.levels",
+						"healing"
+					]
+				],
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 3,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/weapons/swords/sword-gold-holy.webp"
 		},
 		{
 			"name": "Heroic Surge",
@@ -466,8 +650,23 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"你的行动激发了你的盟友。从10级开始，当你使用行动突进时，你可以在30英尺内选择一个能听到你的生物。作为反应，该生物可以在不引起机会攻击的情况下移动到其全部移动速度。在其移动结束时，该生物可以作为同一反应的一部分进行一次武器攻击。"
-			]
+				"Your action inspires your allies. When you use {@classFeature Action Surge|Fighter||2}, you can choose one creature within 30 feet that can hear you. As a reaction, it can move up to its speed without provoking opportunity attacks. At the end of this movement, it can make a single weapon attack as part of the same reaction."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you use Action Surge"
+				},
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/skills/movement/arrow-upward-blue.webp"
 		},
 		{
 			"name": "Invigorating Orders",
@@ -479,8 +678,9 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"从15级开始，你的命令可以激发那些与你并肩作战的人的伟大精神。当你向一个生物发出命令时，它在接下来的一分钟内所做的第一个攻击卷、能力检查或蓄力投掷都有优势。"
-			]
+				"Your orders inspire greatness in those who fight alongside you. Whenever you issue an {@subclassFeature Tactical Orders|Fighter||Commander|llfafs|3||Order} to a creature, it has advantage on the first weapon or spell attack roll that it makes within the next minute."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-black-gray.webp"
 		},
 		{
 			"name": "Legendary Commander",
@@ -492,8 +692,9 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"你激励他人和带领盟友作战的能力可以与传说中的伟大征服者和指挥官相媲美。从18级开始，你的英雄突击可以影响30英尺内你选择的两个能看到或听到你的生物。"
-			]
+				"Your ability to inspire others and lead allies into battle rivals the great conquerors and commanders of legend. When you use {@classFeature Action Surge|Fighter||2}, your {@subclassFeature Heroic Surge|Fighter||Commander|llfafs|10} can affect up to two creatures of your choice within 30 feet that can hear you."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-gold.webp"
 		},
 		{
 			"name": "Crusader",
@@ -504,21 +705,21 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"许多战士向战斗和战争之神宣誓，但并不是所有的人都受到圣骑士或牧师的神圣力量的祝福。那些没有得到神明明确祝福而为之战斗的人被称为十字军战士。这些狂热者是神圣事业的拥护者，他们狂热的信仰助长了他们的战斗怒火。",
-				"十字军为许多神和事业服务，但他们都有一个共同点；他们对他们认为正确的事情的狂热奉献。他们的信念是在奉献的烈火中锻造出来的，一个专心致志的十字军战士往往宁折不弯。",
+				"Many warriors swear Oaths to gods of battle and war, but not all are blessed with the divine abilities of Paladins or Clerics. Those who fight for the gods without their explicit blessing are known as Crusaders. These zealots stand as champions of divine causes, their fervent belief fueling their battle fury.",
+				"Crusaders serve many gods and causes, but they all have one thing in common; fanatical devotion to what they believe is right. Their belief is forged in the fires of devotion, and a Crusader will snap rather than bend.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Crusader's Ire|Fighter|phb|Crusader|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Faithful Disciple|Fighter|phb|Crusader|llfafs|3"
+					"subclassFeature": "Fanatical Disciple|Fighter|phb|Crusader|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
-					"name": "Anti-Magic Zealots",
+					"name": "Optional Rule: Oathbreaker Paladins",
 					"entries": [
-						"虽然所有的信仰都有可以被认为是十字军的人，但这些狂热的战士最常出现在为神灵或视魔法为非自然的事业服务中。这些狂热者鄙视施法者，成为无情的法师猎人和审问者。"
+						"Should a Paladin break or forsake their Oath in your game, the Crusader Archetype here can be used to represent a Paladin who has lost their divine power."
 					]
 				}
 			]
@@ -533,19 +734,32 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"你可以将你的敌人标记为神圣审判的目标。从3级开始，你可以使用一个额外的行动，将30英尺内的生物标记为你的十字军之爱的目标，赋予你对该生物的以下好处。",
+				"You mark your foes for divine judgment. As a bonus action, you can Mark a creature within 60 feet as the target of your Crusader's Ire, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"每回合一次，当你用武器攻击错过该生物时，你可以立即用同一武器对该生物进行另一次武器攻击。",
-						"你可以在你的回合中使用一个额外行动，以你的全部移动速度向被标记的生物移动。"
+						"When the creature is within your reach and casts a spell or makes an attack against a creature other than you, you can use your reaction to make an opportunity attack.",
+						"When the creature forces you to make a saving throw, you can roll a {@dice d6}, and add the result to your saving throw."
 					]
 				},
-				"你的标记会持续1分钟，或者直到该生物被杀死。一旦你标记了一个生物，你必须完成一个短暂或长时间的休息，然后才能用这个特性标记另一个生物。"
-			]
+				"Your Mark lasts for 1 minute, or until the Marked creature is slain. Once you Mark a creature in this way you must finish a short or long rest before you can Mark another creature as the target of your Crusader's Ire."
+			],
+			"foundrySystem": {
+				"activation.condition": "",
+				"range": {
+					"value": 60,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/skills/targeting/target-glowing-yellow.webp"
 		},
 		{
-			"name": "Faithful Disciple",
+			"name": "Fanatical Disciple",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -554,21 +768,14 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"你将自己的生命献给了你的事业，尽你所能地学习它。在3级时，你获得了对（%0%）的熟练度。每当你进行与你所服务的神、神性或神性事业有关的智力检查时，你可以在你的检查中加入双倍的熟练度奖励。"
-			]
-		},
-		{
-			"name": "Mantle of Faith",
-			"source": "llfafs",
-			"className": "Fighter",
-			"classSource": "phb",
-			"subclassShortName": "Crusader",
-			"subclassSource": "llfafs",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"你对你神圣指定的敌人所怀有的怒火使你能够摆脱有害的影响。从第七级开始，当一个被标记为你的爱尔的目标的生物强迫你做一个拯救动作时，你会掷出一个{@dice d6}并把它加到你的掷物中。"
-			]
+				"You gain proficiency in {@skill Religion}, and whenever you make an Intelligence ({@skill Religion}) check related to the god or cause you serve you add double your proficiency bonus to your roll."
+			],
+			"skillProficiencies": [
+				{
+					"religion": true
+				}
+			],
+			"foundryImg": "icons/sundries/books/book-symbol-cross-blue.webp"
 		},
 		{
 			"name": "Renewed Fervor",
@@ -580,8 +787,20 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"同样在7级时，你的信仰会在战斗中给予你阵阵神圣的狂热。每当你使用 \"第二风 \"时，你也会重新获得 \"十字军的爱 \"的使用权。"
-			]
+				"Your fanaticism grants you bursts of fervor in battle. When you use {@classFeature Second Wind|Fighter||1} you regain the use of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3}.",
+				"In addition, when you Mark a creature as the target of your Crusader's Ire, you can move up to 30 feet toward it as part of the same bonus action without expending your movement."
+			],
+			"consumes": {
+				"name": "Crusader's Ire",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind"
+				}
+			},
+			"foundryImg": "icons/magic/control/buff-strength-muscle-damage-orange.webp"
 		},
 		{
 			"name": "Zealous Fury",
@@ -593,8 +812,16 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"从10级开始，你的信念使你能在那些会杀死较低信仰的人的伤口中战斗。当你的生命值降到0但没有被彻底杀死时，你可以降到1生命值。一旦你使用这个功能，你必须完成一个短期或长期的休息才能再次这样做。"
-			]
+				"Your conviction allows you to survive blows that would slay those of lesser faith. When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 hit point instead, instantly making one weapon attack against your attacker.",
+				"Once you use this feature you must finish a short or long rest before you can use it again. If you have no uses left, you can use it again, but you instantly gain a level of exhaustion."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you are reduced to 0 Hit Points but not killed outright"
+				}
+			},
+			"foundryImg": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp"
 		},
 		{
 			"name": "Righteous Judgement",
@@ -606,12 +833,19 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你可以对那些反对你的事业的人发出神圣的愤怒。从15级开始，当你用武器攻击击中你的十字军之爱的目标时，你可以结束该目标上的标记，将你的攻击变成关键一击。",
-				"如果所造成的关键一击将生物减少到0命中率，你就能重新使用你的十字军的爱的特征。"
-			]
+				"You are the arbiter of divine wrath. When you hit the target of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3} with a weapon attack, you can end the Mark to have your attack to deal maximum damage instead of rolling.",
+				"If the attack reduces the target to 0 hit points you instantly regain the use of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3}."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit the target of Crusader's Ire with a weapon attack"
+				}
+			},
+			"foundryImg": "icons/skills/targeting/target-strike-gray.webp"
 		},
 		{
-			"name": "Divine Rebuke",
+			"name": "Legendary Crusader",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -620,8 +854,188 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"从18级开始，当你的十字军爱雷的目标以你为攻击对象时，你可以使用你的反应对其进行一次武器攻击。如果你在它的攻击击中你之后使用这个动作，你的武器攻击是以优势进行的。"
+				"When the target of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3} target's you with an attack, you can use your reaction to make a single weapon attack against that creature. If you use this reaction after the attack hits you, your weapon attack is made with advantage."
+			],
+			"foundrySystem": {
+				"cost": 1,
+				"type": "reaction",
+				"condition": "When the target of Crusader's Ire targets you with an attack"
+			},
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-white-blue.webp"
+		},
+		{
+			"name": "Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"entries": [
+				"While most warriors hone their craft in organized schools of war or combat units, some mastered their combat skill in the wild. Known colloquially as Drifters, these solitary warriors can be found wandering from town to town, making a living hunting bounties - whether they be man, beast, or monster.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Wayward Soul|Fighter|phb|Drifter|llfafs|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Wrangler|Fighter|phb|Drifter|llfafs|3"
+				}
 			]
+		},
+		{
+			"name": "Wayward Soul",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You have spent many days and nights scratching a living out in the wild. You gain proficiency in {@skill Perception} or {@skill Survival}, and when you make a check with either of these skills, you can treat a d20 roll of 7 or lower as an 8.",
+				"You have also learned the language of the criminal world. You can identify, read, and speak in {@language Thieves' Cant}."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"perception",
+							"survival"
+						]
+					}
+				}
+			],
+			"languageProficiencies": [
+				{
+					"thieves' cant": true
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/cave-entrance-mountain-blue.webp"
+		},
+		{
+			"name": "Wrangler",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You are especially adept at bringing your quarries in alive, though you have no qualms if they force you to take more extreme measures. As a bonus action on your turn, you can Mark a creature that you can see within 30 feet as your Quarry, granting you the following benefits:",
+				{
+					"type": "list",
+					"items": [
+						"When you make a Strength ({@skill Athletics}) check to {@action shove} or {@action grapple} your Quarry, you have advantage on your roll.",
+						"As a reaction when your Quarry misses you with a melee attack, you can force it to make a Dexterity saving throw (Save DC = 8 + your proficiency bonus + your Wisdom modifier). On a failed save, you can choose to knock it {@condition prone} or to {@action grapple} the creature (if you have a free hand).",
+						"You have advantage on any Wisdom ({@skill Survival}) or Wisdom ({@skill Perception}) checks you make to track your Quarry."
+					]
+				},
+				"The creature remains your Quarry indefinitely, but this Mark ends early if your Quarry is {@quickref Hiding|PHB|2|0|Hidden} from you, you are {@condition incapacitated}, or you Mark another creature as your Quarry.",
+				"Once you Mark a creature as your Quarry you must finish a short or long rest before you can Mark another creature."
+			],
+			"foundrySystem": {
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creautre"
+				},
+				"uses.max": "@scale.drifter.wrangler"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-mark-rough-pink.webp"
+		},
+		{
+			"name": "Hair-Trigger",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"You can add your proficiency bonus to initiative rolls, and when you roll initiative and are not surprised, you can use your reaction to mark a creature as your Quarry."
+			],
+			"foundrySystem": {
+				"activation.condition": "When you roll initiative and are not surprised"
+			},
+			"foundryImg": "icons/magic/perception/eye-ringed-glow-angry-red.webp"
+		},
+		{
+			"name": "Tenacious Pursuit",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"Once you have a foe in your sights it is rare that they escape your grasp. Once per turn when you make a weapon attack against your Quarry, you roll your damage dice twice and use the higher result.",
+				"Also, if you start your turn more then 30 feet away from your Quarry, you can take the {@action Dash} action as a bonus action on that turn. However, you must use the extra movement to end your turn closer to your Quarry then when you began."
+			],
+			"foundryImg": "icons/skills/movement/figure-running-gray.webp"
+		},
+		{
+			"name": "Deadly Hunter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You are ruthless in combat against your chosen foes. Your weapon attacks against your Quarry score a critical hit on a roll of 19 or 20 on the {@dice d20}.",
+				"Also, you can use {@subclassFeature Wrangler|Fighter||Drifter|llfafs|3} to Mark a creature as your Quarry up to three times, and you regain all expended uses of this feature when you finish a short or long rest."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryFlags": {
+				"babonus.bonuses.Z2bJnwUnjC20vL7u": {
+					"id": "Z2bJnwUnjC20vL7u",
+					"name": "Deadly Hunter",
+					"type": "attack",
+					"bonuses.criticalRange": 1,
+					"filters.targetEffects": [
+						"target"
+					]
+				}
+			},
+			"foundryImg": "icons/skills/melee/strike-blade-knife-blue-red.webp"
+		},
+		{
+			"name": "Legendary Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"You are an unquestioned masterful hunter of creatures, both mortal and immortal. You gain the benefits listed below:",
+				{
+					"type": "list",
+					"items": [
+						"When you mark a creature as your Quarry, the Mark only ends if you mark another creature, or your Quarry is slain.",
+						"When you force your Quarry to make a saving throw, you can end the Mark to cause it to automatically fail.",
+						"You always know the direction of your Quarry so long as you are both on the same plane of existence."
+					]
+				}
+			],
+			"foundryImg": "icons/magic/control/debuff-energy-hold-blue-yellow.webp"
 		},
 		{
 			"name": "Guardian",
@@ -653,18 +1067,18 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"从第三级开始，只要你挥舞着（%0%），你就可以在你的回合中使用一个额外的动作进入一个守护姿态。这个姿态持续时间不确定，如果你丧失能力，你脱下你的盾牌，或者你以自由行动结束它，则提前结束。在这个姿态下，你会获得以下特征。",
+				"So long as you are wielding a {@item shield|phb}, you can use a bonus action to enter a Guardian Stance that lasts indefinitely. It ends if you are {@condition incapacitated}, you doff your shield, or you end it as a free action. It grants you the benefits below:",
 				{
 					"type": "list",
 					"items": [
-						"你的基本移动速度减少10英尺。",
-						"你选择的5英尺范围内的生物，如果挥舞着盾牌，就会获得他们的装甲等级+1的奖励。",
-						"作为反应，当你周围5英尺内的生物被攻击击中时，你可以成为该攻击的目标，如果该攻击会击中你，你会承受该攻击的伤害。",
-						"作为一个额外动作，你可以用你的盾牌进行一次近战武器攻击。你被认为精通这种攻击，一旦命中，你的盾牌攻击会造成相当于{@dice 1d4}+你力量修正值的打击性伤害。"
+						"Your speed is reduced by 10 feet.",
+						"Creatures of your choice within 5 feet of you gain a +1 bonus to their Armor Class.",
+						"As a reaction, when a creature within 5 feet of you is hit by an attack, you can become the target of that attack, taking the damage if the attack would hit you.",
+						"You can make a {@action Shove} attack as a bonus action."
 					]
-				},
-				"你可以使用这个功能的次数等于你的体质修改器（最少一次），当你完成一个短时或长时的休息时，你会恢复所有已消耗的使用。"
-			]
+				}
+			],
+			"foundryImg": "icons/skills/melee/shield-block-gray-orange.webp"
 		},
 		{
 			"name": "Warrior Smith",
@@ -676,10 +1090,16 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"你获得了维护你的武器和盔甲的技能，以便你可以更好地保护你的盟友。同样在第三级，你获得了对（%0%）和（%1%）的熟练度。",
-				"在长期休息结束时，你可以使用任何一套工具来强化你所接触的盾牌或一套盔甲。该物品给予其穿戴者额外的+1护甲等级奖励。",
-				"这种护甲等级的奖励一直持续到你下一次长休结束，此时它的护甲等级会恢复到正常。"
-			]
+				"You gain the skills to maintain your arms and armor so that you may defend your allies to the best of your ability. You gain proficiency in {@item leatherworker's tools|phb|leatherworker's} and {@item smith's tools|phb}.",
+				"During a long rest, you can spend 1 hour using either set of tools to reinforce one shield or a set of armor you touch. This object grants its wearer a special +1 bonus to its Armor Class until the end of your next long rest."
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true,
+					"smith's tools": true
+				}
+			],
+			"foundryImg": "icons/tools/smithing/hammer-maul-steel-grey.webp"
 		},
 		{
 			"name": "Rallying Wind",
@@ -691,8 +1111,26 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"从第7级开始，你在战斗中的存在会激励你的盟友不畏艰险，坚守阵地。当你在守护者姿态下使用第二风时，在你的姿态特征范围内你选择的生物会获得与你的战士等级相等的临时命中率。"
-			]
+				"You inspire your allies to hold their position against all odds. When you use {@classFeature Second Wind|Fighter||1} while in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}, creatures of your choice within 5 feet of you that can see or hear you gain temporary hit points equal to your Fighter level."
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind while in your Guardian Stance"
+				},
+				"damage.parts": [
+					[
+						"@classes.fighter.levels",
+						"temphp"
+					]
+				],
+				"range": {
+					"value": 5,
+					"units": "ft"
+				}
+			},
+			"foundryImg": "icons/magic/life/cross-explosion-burst-green.webp"
 		},
 		{
 			"name": "Stalwart Defender",
@@ -704,20 +1142,21 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"在你的盟友中，你是最强大的。在达到这个等级的10级时，你会获得以下好处。",
+				"You are strongest when standing side by side, and shield by shield, with your allies. You gain the following benefits:",
 				{
 					"type": "list",
 					"items": [
-						"在你周围5英尺范围内，每一个挥舞着盾牌的友好生物，你的护甲等级都会获得+1的奖励。",
-						"在有意识的情况下，你不能违背自己的意愿被移动。",
-						"你和你周围5英尺内的友好生物，在力量和体质方面都有优势。",
-						"当你掷出主动权时，只要你没有丧失能力或受到惊吓，你就可以立即进入你的守护姿态，而不需要耗费一次使用功能。"
+						"You gain a +1 bonus to your Armor Class for each friendly creature within 5 feet of you that is not {@condition incapacitated}.",
+						"You cannot be moved against your will or knocked prone while you are in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}.",
+						"Both you, and friendly creatures within 5 feet of you, have advantage on Strength and Constitution saving throws while you are in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}.",
+						"When you roll initiative you can immediately enter your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3} as long as you are not surprised."
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/equipment/shield/buckler-iron-cross-gray.webp"
 		},
 		{
-			"name": "Improved Guardian Stance",
+			"name": "Improved Stance",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -726,11 +1165,12 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"15级时，你改进了你的防御技术，以更好地保护那些站在你身边的人。当你处于守护者姿态时，你会给予你5英尺范围内的友好生物一半掩护的好处，以代替+1护甲等级的奖励。"
-			]
+				"You improve your defensive technique to better defend those who stand beside you. When you are in Guardian Stance, you grant creatures of your choice within 5 feet the benefits of {@quickref Cover|PHB|3|0|half cover}, in place of the +1 Armor Class bonus."
+			],
+			"foundryImg": "icons/skills/melee/shield-block-gray-yellow.webp"
 		},
 		{
-			"name": "Unshakable Bastion",
+			"name": "Legendary Guardian",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -739,8 +1179,9 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"你是守护者中的大师。从18级开始，你的守护者姿态和坚守者特征可以影响到你身边10英尺内你选择的生物。"
-			]
+				"You are a master Guardian and a near-supernatural shield to defend the weak. The range of all your Guardian features increase to include any creature of your choice within 15 feet."
+			],
+			"foundryImg": "icons/equipment/shield/heater-crystal-blue.webp"
 		},
 		{
 			"name": "Guerrilla",
@@ -754,11 +1195,11 @@
 				"无论什么任务，游击队员都会以最完美的方式执行。有时也被称为突击队，这些战士的特点是决心和适应性强。无论是恶劣的地形、凶恶的怪物、敌人的士兵，还是强大的施法者，没有什么能让游击队战士的意志力在追求他们的目标时动摇。",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Adaptable Superiority|Fighter|phb|Guerrilla|llfafs|3"
+					"subclassFeature": "Survivalist|Fighter|phb|Guerrilla|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Survivalist|Fighter|phb|Guerrilla|llfafs|3"
+					"subclassFeature": "Adaptable Superiority|Fighter|phb|Guerrilla|llfafs|3"
 				}
 			]
 		},
@@ -772,15 +1213,16 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"你已经训练好了在战斗中使用一种特殊的机动性选择。从3级开始，你获得以下特征。",
+				"You have trained to utilize a special selection of Maneuvers, similar to a Battle Master. You gain the following features",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Maneuvers",
 							"entries": [
-								"你从战斗大师可用的动作中选择三个动作进行学习。你每次攻击只能使用一个动作。在这个等级的第7、10和15级时，你会学习另一种你所选择的演习。"
+								"You learn three {@filter Maneuvers|optionalfeatures|feature type=mv:b} of your choice from those available to the Battle Master. You can use only one Maneuver per attack. You learn another Maneuver of your choice at 7th, 10th, and 15th level in this class."
 							]
 						},
 						{
@@ -814,7 +1256,26 @@
 						}
 					]
 				}
-			]
+			],
+			"resources": [
+				{
+					"name": "Superiority Dice",
+					"type": "dicePool",
+					"count": "floor((<$level$> + 30) / 8)",
+					"number": 1,
+					"faces": 6,
+					"recharge": "restShort"
+				}
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/movement/pinwheel-turning-blue.webp"
 		},
 		{
 			"name": "Survivalist",
@@ -826,9 +1287,49 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"三级时，你获得以下两个技能的熟练度：{@skill Athletics}、{@skill Perception}、{@skill Stealth}或{@skill Survival}，由你选择。",
-				"在第7级时，选择你从这个特征中获得的一个技能熟练度。你可以在任何使用所选技能熟练度的能力检查中加入双倍的熟练度加成。"
-			]
+				"You are an expert at overcoming natural obstacles. You gain proficiency in two skills of your choice from the following list: {@skill Athletics}, {@skill Perception}, {@skill Stealth}, or {@skill Survival}.",
+				"When you reach 7th level, you choose two skills from the list above. If you are not proficient in a chosen skill you gain proficiency. If you are already proficient in a chosen skill you can add double your proficiency bonus to any ability check that you make with that skill."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 2,
+						"from": [
+							"athletics",
+							"perception",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/terrain-rocky-ground.webp"
+		},
+		{
+			"name": "Survivalist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Guerrilla",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"entries": [
+				"Choose two skills from the following list: {@skill Athletics}, {@skill Perception}, {@skill Stealth}, or {@skill Survival}. If you are not proficient in a chosen skill you gain proficiency. If you are already proficient in a chosen skill you can add double your proficiency bonus to any ability check that you make with that skill."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 2,
+						"from": [
+							"athletics",
+							"perception",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/terrain-rocky-ground.webp"
 		},
 		{
 			"name": "By Land or Sea",
@@ -840,27 +1341,29 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"你被训练成在任何环境下都能成功。在7级时，以及在15级时，你会获得以下特征之一。",
+				"You have trained to succeed in any environment. At 7th level, and again at 15th level you gain one of the following features:",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Alpine Combatant",
 							"entries": [
-								"你为在高处的战斗准备好自己。你获得与你的移动速度相等的攀爬速度，作为反应，你可以减少你受到的任何坠落伤害，其数量与你的战士等级相等。"
+								"You have trained for battle at great heights. You gain a climbing speed equal to your walking speed, and when you fall, you can use your reaction to reduce any falling damage by an amount equal to your fighter level."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Marine Combatant",
 							"entries": [
-								"你为水陆两栖作战做准备。你获得与你的移动速度相等的游泳速度，你可以在水下憋气长达1小时。"
+								"You prepare for amphibious combat. You gain a swimming speed equal to your walking speed, and you can hold your breath for up to 1 hour underwater."
 							]
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/environment/wilderness/island.webp"
 		},
 		{
 			"name": "Adaptable Fighting Style",
@@ -872,8 +1375,17 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"你可以改变你的战斗风格以更好地对付你的敌人。从10级开始，当你完成一次长时间的休息后，你可以从战士等级描述的列表中选择另一种战斗风格来替换你的战斗风格。"
-			]
+				"You can adapt your style of fighting to better counter your enemies. When you finish a long rest, you can replace one {@filter Fighting Style|optionalfeatures|feature type=fs:f} you know with another Style of your choice."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/silhouette-grow-shrink-tan.webp"
 		},
 		{
 			"name": "Unwavering",
@@ -885,19 +1397,24 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你可以在任何艰难困苦中坚持不懈地完成手头的任务。从15级开始，当你使用 \"第二风 \"功能时，你会获得以下额外的好处。",
+				"You are remarkably hardy, even compared to other Fighters. When you use {@classFeature Second Wind|Fighter||1} you gain the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"你重新获得你所消耗的一个优势骰子。",
 						"你的疲惫程度，如果有的话，会减少1。",
-						"你可以将你的熟练度加成双倍于你在下一分钟内进行的基于力量、灵巧或宪法的能力检查或蓄力。"
+						"You gain a bonus to the next Strength, Dexterity, or Constitution ability check or saving throw you make within the next minute equal to your Superiority Die."
 					]
 				}
-			]
+			],
+			"consumes": {
+				"name": "Superiority Dice",
+				"amount": -1
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-yellow.webp"
 		},
 		{
-			"name": "Elite Guerrilla",
+			"name": "Legendary Guerrilla",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -906,8 +1423,30 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"从18级开始，如果你有时间准备，没有什么可以阻挡你和你的目标。当你完成一个短期或长期的休息时，你可以用你选择的另一个动作代替你知道的一个动作，用你选择的另一个格斗术代替你知道的一个格斗术。"
-			]
+				"There is nothing that can stand between you and your goals should you have time to prepare. You can use your {@subclassFeature Adaptable Fighting Style|Fighter||Guerrilla|llfafs|10} feature at the end of each short or long rest.",
+				"Moreover, when you roll initiative and are not surprised, you gain one of the following benefits of your choice:",
+				{
+					"type": "list",
+					"items": [
+						"You gain temporary hit points equal to your level.",
+						"You can instantly move up to your walking speed."
+					]
+				}
+			],
+			"foundrySystem": {
+				"actionType": "util",
+				"activation": {
+					"type": "special",
+					"condition": "When you roll initiative and are not surprised"
+				},
+				"damage.parts": [
+					[
+						"@details.level",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/environment/traps/spike-skull-white-brown.webp"
 		},
 		{
 			"name": "Marksman",
@@ -918,7 +1457,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"虽然所有的战士都学会了拉弓和投掷标枪，但那些训练成神射手的人致力于成为所有类型的远程武器的大师，他们一直在寻求提高他们的准确性和精确性。通常情况下，他们的致命技能是以一种明确无误的豪迈和不可动摇的自信为支撑的。依靠他们与生俱来的天赋和标志性的勇气，很少有真正的枪手不能克服的挑战。",
+				"While all Fighters learn to draw a bow or hurl a javelin, those trained as Marksmen dedicate their lives to mastering ranged weapons of all types. Often, their deadly skills are backed up with an unmistakable swagger and unshakable confidence. Relying on their innate talents and signature grit, there are few challenges a true Marksman cannot overcome.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Elite Training|Fighter|phb|Marksman|llfafs|3"
@@ -931,8 +1470,14 @@
 					"type": "insetReadaloud",
 					"name": "Gunpowder & Firearms",
 					"entries": [
-						"如果你的游戏使用了《地下城主指南》第9章中关于枪械的可选规则，并且你的神枪手已经接触到了这些武器的内部结构和操作，那么你就能熟练掌握所有简单和武术的枪械。"
+						"If your game uses the optional rules for {@book firearms|DMG|9|firearms} from Chapter 9 of the Dungeon Master's Guide, and your Marksman has been exposed to the inner workings and operation of such weapons, you are proficient with all simple and martial firearms."
 					]
+				}
+			],
+			"weaponProficiencies": [
+				{},
+				{
+					"firearms": true
 				}
 			]
 		},
@@ -946,9 +1491,15 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"当你在3级的时候采用这个原型，你的专门训练增强了你的反应速度。每当你进行灵巧能力检查或蓄力投掷时，你可以掷出一个（%0%），并把它加到你掷出的结果上。你可以在掷骰子之后，但在你知道你是成功还是失败之前使用这个功能。",
+				"Your specialized Marksman training has enhanced your reaction times. When you make a Dexterity ability check or saving throw, you can roll a {@dice d6} and add it to your roll. You can use this feature after you roll, but before you know if your roll is a success or failure.",
 				"你可以给予自己这个奖励，次数等于你的灵巧修正值（最少一次），当你完成短时或长时休息时，你会恢复所有消耗的使用。"
-			]
+			],
+			"foundrySystem": {
+				"uses": {
+					"max": "max(1, @abilities.dex.mod)",
+					"per": "sr"
+				}
+			}
 		},
 		{
 			"name": "Steady Aim",
@@ -960,12 +1511,12 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"你可以让你的身体安静下来，从而以致命的精度射击。从第三级开始，如果你在你的回合中没有移动，你可以使用你的额外行动来稳定瞄准，给予你以下好处，直到你当前回合结束。",
+				"You can quiet your body so as to fire with deadly accuracy. If you start your turn and are not {@quickref surprise|phb|3|0|surprised} or {@condition incapacitated}, you can choose to Focus, which applies the features listed below until the end of your current turn:",
 				{
 					"type": "list",
 					"items": [
-						"你的移动速度降低到0英尺。",
-						"在你用远程武器攻击击中一个生物之前，你在所有的远程武器攻击卷上都有优势。",
+						"Your speed is reduced to 0 feet.",
+						"You have advantage on attack rolls with ranged weapons until you hit a target with a ranged weapon attack.",
 						"当你用远程武器进行攻击时，你在伤害模子上掷出1或2，你可以重新掷出模子。你必须使用这个新卷，即使新卷是1或2。"
 					]
 				}
@@ -981,7 +1532,7 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"你作为神枪手的经验已经训练了你对危险的瞬间反应。从7级开始，你可以将你的熟练度加到你的主动权卷上。",
+				"Your reflexes are almost supernaturally fast. You add your proficiency bonus to your Initiative rolls while conscious.",
 				"你还学会了识别和利用敌人防御中最微小的薄弱点。你用远程武器的攻击无视对穿刺伤害的抵抗。"
 			]
 		},
@@ -995,7 +1546,7 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"从10级开始，当你使用 \"第二风 \"时，你的速度会增加10英尺，并且在你当前回合结束前，对你的机会攻击会以劣势进行。"
+				"When you use {@classFeature Second Wind|Fighter||1}, your walking speed increases by 10 feet, and any opportunity attacks against you are made at disadvantage until the end of your current turn."
 			]
 		},
 		{
@@ -1008,12 +1559,12 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你甚至可以轻松地完成不可能的射击。从15级开始，你可以无视你的武器的远距离的不利因素。",
-				"此外，每回合一次，当你在一次远程武器攻击中拥有优势时，你可以放弃优势，对同一目标进行一次额外的远程武器攻击。"
+				"You make even impossible shots with ease. Your normal and long range for your ranged weapon attacks increases by a number of feet equal to 10 times your Fighter level.",
+				"In addition, once per turn, when you have advantage on a ranged weapon attack, you can forgo advantage and make one additional ranged weapon attack against that creature."
 			]
 		},
 		{
-			"name": "Deadeye",
+			"name": "Legendary Marksman",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1022,8 +1573,115 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"你的枪法是超自然的精确。从18级开始，当你使用 \"稳定瞄准 \"时，你的好处会持续1分钟，并且在持续时间内你对所有的远程武器攻击都有优势。只有当你在一个回合内移动超过10英尺，或者你失去能力时，这个效果才会提前结束。",
-				"此外，当你使用你的精英训练功能时，你会获得一个对该能力检查或救赎的奖励，相当于（%0%）。"
+				"Your marksmanship is supernatural in its precision. When you use {@subclassFeature Steady Aim|Fighter||Marksman|llfafs|3||Focus}, the benefits last for 1 minute, and you have advantage on all ranged weapon attacks for the duration. This effect only ends early if you move more than 10 feet in one turn, or you are {@condition incapacitated}.",
+				"Also, when you use your {@subclassFeature Elite Training|Fighter||Marksman|llfafs|3} feature, you gain a bonus to that ability check or saving throw equal to {@dice 2d6}."
+			]
+		},
+		{
+			"name": "Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"entries": [
+				"While some Fighters train in military academies or schools of war, others learn to fight in remote dojos. Generally known as Martial Artists, these elite Fighters hone their bodies into deadly weapons. Whether masters of hand-to-hand combat or street fighters, these warriors are peak physical specimens.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Iron Physique|Fighter|phb|Martial Artist|llfafs|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Martial Arts|Fighter|phb|Martial Artist|llfafs|3"
+				}
+			]
+		},
+		{
+			"name": "Iron Physique",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You have learned to take a hit better than most and prefer to absorb blows rather than dodge. You can use your Constitution modifier, in place of your Dexterity, when calculating your Armor Class in light and medium armor.",
+				"Moreover, if you are not wearing any armor or wielding a shield, your Armor Class is equal to 10 + your Dexterity modifier + your Constitution modifier."
+			]
+		},
+		{
+			"name": "Martial Arts",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Your body itself is a deadly weapon. You gain proficiency with improvised weapons, and whenever you make an improvised weapon attack or an unarmed strike you gain these benefits:",
+				{
+					"type": "list",
+					"items": [
+						"You can roll a {@dice d6} in place of the damage die for that attack if the normal damage die was not already higher.",
+						"You can use your Dexterity, in place of your Strength, for your attack and damage rolls.",
+						"When you take the {@action Attack} action on your turn and make only improvised weapon attacks or unarmed strikes, you can make a {@action Shove} or {@action Grapple} attack as a bonus action."
+					]
+				}
+			]
+		},
+		{
+			"name": "Counter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"You have learned to exploit every opening your foe gives you. When a creature that you can see within your reach misses you with an attack, you can use your reaction to make one unarmed strike, improvised weapon, {@action Shove}, or {@action Grapple} attack against your attacker. When you do so, you have advantage on the attack roll or Strength ({@skill Athletics}) check."
+			]
+		},
+		{
+			"name": "Evasive Footwork",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"You have trained to evade your foes' strikes in combat. When you take the {@action Attack} action on your turn and make at least one unarmed strike, you can take the {@action Disengage} or {@action Dash} action in place of one of your attacks on that turn."
+			]
+		},
+		{
+			"name": "Unbreakable",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You have learned to take hits that would be deadly to weaker heroes. When a creature you can see hits you with an attack that would drop you to 0 hit points, but not kill you outright, you can expend one of your Hit Dice to drop to 1 hit point."
+			]
+		},
+		{
+			"name": "Legendary Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"Your fists have become weapons of legend. When you score a critical hit against a target with an unarmed strike, and the target has 50 hit points or fewer, you can choose to instantly reduce it to 0 hit points. Once you use this feature you must finish a short or long rest before you can use it again."
 			]
 		},
 		{
@@ -1035,7 +1693,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"自人类文明诞生以来，野兽就与凡人一起工作。这些被驯化的动物中最引人注目的是狗。最早的猎人与这些忠诚的野兽协同工作，分享食物和火。一些战士仍然继承了这个衣钵，训练忠诚的猎犬在他们身边冒险。",
+				"Since the dawn of civilization, beasts have worked alongside mortals. Most notable of these domesticated animals is the dog. The earliest hunters worked in tandem with these loyal beasts, sharing food and fire. Some Fighters still take up this mantle and train Loyal Hounds to adventure by their side.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Loyal Hound|Fighter|phb|Master of Hounds|llfafs|3"
@@ -1043,6 +1701,14 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Packleader|Fighter|phb|Master of Hounds|llfafs|3"
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Loyal Hounds & other Canines",
+					"entries": [
+						"Depending on your table and game setting, there are many creatures that could be a Loyal Hound.",
+						"In most mundane settings, your Loyal Hound is most likely going to be a dog, wolf, or similar four-legged canine creature. In a fantastical game, any quadruped beast or monstrosity could be trained as a Loyal Hound. Talk to your DM about options!"
+					]
 				}
 			]
 		},
@@ -1056,9 +1722,9 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"当你在3级时采用这个原型，你完成了对一个忠诚的（%0%）的训练，它将在你身边冒险。你的（%1%）对你和你的盟友很友好，并服从你的命令。它使用本页的忠诚猎犬状态块，在多个地方使用你的熟练度奖励（PB）。",
-				"在战斗中，猎犬在你的回合中行动。它可以自己移动和使用反应，但它只采取{@action Dodge}的行动，除非你使用一个额外的行动来命令它采取其状态块中的一个行动，或其他行动。当你采取（1%）行动时，你可以命令你的猎犬采取（2%）行动来代替你的一次攻击。如果你丧失了能力，你的猎犬可以采取它选择的任何行动。",
-				"如果你的猎犬的命中率下降到0，它就会像玩家角色那样进行死亡拯救。如果你的忠诚猎犬死了，你的特殊技能可以让你找到一只犬，并在长时间的休息过程中训练它成为你的忠诚猎犬。"
+				"You have completed the training of a Loyal Hound. Your Hound is friendly to you and obeys commands. It uses the {@creature Loyal Hound|llfafs} stat block, that uses your proficiency bonus (PB) in several places.",
+				"In combat, your Hound acts during your turn. It can move and use its reaction on its own, but it only takes the {@action Dodge} action unless you use your bonus action to command it to take an action from its stat block, or another action. When you take the {@action Attack} action, you can command your Hound to take the Attack action in place of one of your attacks. If you are {@condition incapacitated}, your Loyal Hound can act on its own to defend you.",
+				"If your Hound is reduced to 0 hit points, it makes death saving throws like a player character would. If your Hound dies, your skills allow you to find a canine-like creature and train it as a Loyal Hound over the course of a long rest, at which point, that creature uses the Loyal Hound stat block."
 			]
 		},
 		{
@@ -1071,7 +1737,12 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"三级时，你获得对（%0%）的熟练度，你对任何与狗或犬类生物有关的（%1%）检查都会增加双倍的熟练度奖励。"
+				"You gain proficiency in {@skill Animal Handling}, and add double your proficiency bonus to any Wisdom ({@skill Animal Handling}) checks related to dogs, canines, or other similar creatures."
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true
+				}
 			]
 		},
 		{
@@ -1084,7 +1755,8 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"从7级开始，你的忠诚猎犬的咬合和猛击攻击无视对穿刺和切割伤害的抵抗。此外，中等和较小的生物在抵抗你的猎犬的抓捕时，在力量救赎上有劣势。"
+				"Your Hound has been infused with a portion of your own fighting spirit. Your Hound's Bite and Maul attacks ignore resistance to nonmagical piercing and slashing damage.",
+				"In addition, any creature that is at least one size smaller than your Hound has disadvantage on its Strength saving throw to resist your Loyal Hound's grapple."
 			]
 		},
 		{
@@ -1097,8 +1769,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"你的猎犬将面对任何有你在身边的敌人。从10级开始，只要他们在你的30英尺范围内，你的猎犬在他们所做的任何拯救动作上都有优势。",
-				"此外，当你使用你的第二风时，你的忠诚猎犬会恢复相当于（%0%）+你的战士等级的命中率。"
+				"You can face any foe so long as your Hound is by your side. Your Hound has advantage on any saving throw it is forced to make so long as it is within 30 feet and can see or hear you.",
+				"Also, whenever you use {@classFeature Second Wind|Fighter||1}, your Loyal Hound also regains hit points equal to {@dice #$prompt_number:min=1,title=Enter your Fighter level,default=10$#|1d10 + your Fighter level}."
 			]
 		},
 		{
@@ -1111,7 +1783,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你的存在激发了狂野的怒火。从15级开始，当你命令你的忠诚猎犬采取（%0%）行动时，它可以进行两次自然武器攻击作为该行动的一部分。"
+				"Your commands inspire wild fury. Whenever you command your Loyal Hound to take the {@action Attack} action, it can make two Maul attacks, or one Maul attack and one Bite attack."
 			]
 		},
 		{
@@ -1124,30 +1796,31 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"你的猎犬是一只传说中的野兽。从18级开始，当你使用行动突进时，你的猎犬也会获得一个额外的行动。"
+				"Thanks to your training, your Hound has come to rival the great beasts of legend. When you use {@classFeature Action Surge|Fighter||2}, your Hound also gains one extra action on that turn.",
+				"Moreover, your Loyal Hound's Strength and Dexterity scores each become 18, thereby increasing the bonus to hit and damage of both its Bite and Maul attacks by +2 each."
 			]
 		},
 		{
-			"name": "Pact Warrior",
+			"name": "Witch Knight",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
 				"那些走在契约战士的黑暗道路上的人，被一种压倒性的欲望所驱使，想要摧毁世界上的大恶势力。那些特别专注的人，那些愿意放弃任何东西的人，往往会被超凡力量所接近，这些超凡力量的存在。这些恩人提供权力，以换取战士的一小部分灵魂或不容置疑的效忠。",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Pact Magic|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Sanguine Offering|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Sanguine Offering|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Pact Magic|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Eldritch Power|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Eldritch Power|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
@@ -1163,43 +1836,43 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"在3级时，你与你的守护神达成的交易允许你施展法术，就像术士一样。",
+				"The bargain you have struck with your Patron has granted you the ability to cast spells, much like a Warlock does.",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Cantrips",
 							"entries": [
-								"你从术士法术列表中学习一个你选择的咒语。当你的等级达到10级时，你会额外学习一个你选择的术士咒语。"
+								"You learn one cantrip of your choice from the Warlock spell list. Upon reaching 10th level in this class you learn one additional Warlock cantrip of your choice."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spell Slots",
 							"entries": [
-								"契约战士法术表显示你有多少个法术槽，以及这些法术槽的等级。你所有来自该功能的法术槽都是同一级别的。要施展你的一个1级或更高等级的术士法术，你必须消耗一个法术槽。当你完成短时或长时休息时，你会重新获得所有消耗的法术槽。"
+								"The Witch Knight Spellcasting table shows how many spell slots you have, and the level of those spell slots. All of your spell slots from this feature are the same level. To cast one of your Warlock spells of 1st-level or higher, you must expend a spell slot. You regain all expended spell slots when you finish a short or long rest."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spells Known of 1st-Level and Higher",
 							"entries": [
-								"你从术士法术列表中选择学习两个一级法术。契约战士法术表的 \"已知法术 \"栏会显示你何时学习更多1级或更高的术士法术。你选择的法术的等级必须不高于表格中你的等级的插槽等级一栏所显示的。",
-								"例如，当你达到7级时，你会学习一个你选择的新的术士法术，可以是1级或2级。",
-								"当你在这个等级中获得一个级别时，你可以从你所知道的术士法术中选择一个，并用你在术士法术列表中选择的另一个法术来代替它，这个法术也必须是你有法术槽的级别。"
+								"You learn two 1st-level spells of your choice from the Warlock spell list. The Spells Known column of the Witch Knight Spellcasting table shows when you learn more Warlock spells of 1st-level or higher. A spell you choose must be of a level no higher than what's shown in the table's Slot Level column for your level.",
+								"When you gain a level, you can choose a Warlock spell you know and replace it with another spell from the Warlock spell list, which must be of a level for which you have spell slots."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spellcasting Ability",
 							"entries": [
-								"魅力是你的术士法术的施法能力。每当法术提到你的法术能力时，你都会使用你的魅力，在设置蓄力DC时，以及在进行法术攻击卷时。",
+								"Charisma is your spellcasting ability for your Warlock spells. You use your Charisma whenever a spell refers to your spellcasting ability, when setting the saving throw DC, and when making a spell attack roll.",
 								{
 									"type": "abilityDc",
 									"name": "Spell",
@@ -1225,12 +1898,12 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"从3级开始，你可以牺牲自己的生命力来换取你的长生之力，以增加武术的效力。每回合一次，当你用近战武器攻击击中一个生物时，你可以消耗你的一个斗士命中率作为攻击的一部分，对目标造成额外的（%0%）坏死伤害，此外还有你的武器的正常伤害。"
+				"Once per turn, when you hit a creature with a melee weapon attack, you can expend one of your fighter Hit Dice as part of the attack to deal an additional {@damage 2d6} necrotic damage to the target, in addition to the normal damage of your weapon."
 			]
 		},
 		{
@@ -1238,15 +1911,21 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
+				"{@note Notice: In the 2.2.0 update for Fighter Archetypes & Fighting Styles, the Eldritch Power feature is not present, but is listed as a feature the subclass gains at 3rd level. The below is the description of Eldritch Power from version 2.1.0, when the subclass was called Pact Warrior.}",
 				"当你在3级时采用这个原型时，你会获得反映你力量来源的次要长生能力。与你的GM一起确定你力量的来源。是术士们可以使用的异世界守护神吗？你是否在一次灾难性的奥术事件中幸存下来，从而获得了奇怪的力量？",
 				"你获得一个你选择的熟练度，并且你从任何等级的法术列表中学习一个你选择的咒语。这个咒语不计入你已知的咒语总数。",
 				"通常情况下，由你的GM决定，你通过这个能力获得的熟练度和咒语应该反映出赋予你奥术能力的长生者力量的性质。",
 				"例如，一个契约战士的长生力量是一个强大的恶魔，他将获得小恶魔的能力。他们可以获得对（%0%）的熟练度，并学习（%1%）的咒语，以配合他们的守护者的阴险本质。"
+			],
+			"skillProficiencies": [
+				{
+					"any": 1
+				}
 			]
 		},
 		{
@@ -1254,13 +1933,12 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"从第七级开始，你可以利用赋予你的力量，从现实的裂缝中溜走。当你使用 \"第二风 \"时，你可以传送到一个你能看到的无人空间，最远可达60英尺。如果你出现在一个生物的5英尺内，你可以立即对该生物进行一次武器攻击。",
-				"如果你没有剩余的该功能的使用次数，你要消耗你的一个契约魔法的法术槽来再次使用它。"
+				"You can use Eldritch power to slip through cracks in reality. When you use {@classFeature Second Wind|Fighter||1}, you can teleport up to 60 feet to an unoccupied space you can see. If you appear within 5 feet of a creature, you can make one weapon attack against it."
 			]
 		},
 		{
@@ -1268,26 +1946,26 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"你血液中的长生魔法渗入你的武器攻击，削弱了对法术的抵抗力。从10级开始，当你用武器攻击击中一个生物时，该生物在下一回合结束前对你施放的法术进行的下一次蓄力攻击中处于劣势。"
+				"The Eldritch magic within your blood seeps into your weapon strikes. When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes against a spell you cast before the end of your next turn."
 			]
 		},
 		{
-			"name": "Improved Sanguine Offering",
+			"name": "Greater Offering",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你可以通过给他人造成痛苦来恢复自己的生命力。从15级开始，当你用你的Sanguine Offering赋予武器攻击力时，你会获得相当于对生物造成的额外坏死伤害的临时打击点数。",
-				"来自这个能力的临时命中率会持续一分钟，或者直到你从其他来源获得临时命中率。"
+				"You can restore your own vitality by inflicting pain on others. When you use {@subclassFeature Sanguine Offering|Fighter||Witch Knight|llfafs|3}, you gain temporary hit points equal to the necrotic damage dealt to the creature.",
+				"Temporary hit points you gain from this feature last for 1 minute, or until you gain temporary hit points again."
 			]
 		},
 		{
@@ -1295,21 +1973,13 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"在达到18级时，你可以将你的敌人的死亡提供给你的长生者力量，以换取增强的能力。当一个生物在你30英尺范围内死亡时，作为一种反应，你会获得你所选择的以下好处之一。",
-				{
-					"type": "list",
-					"items": [
-						"你在下一回合结束前进行的任何武器攻击都有优势。",
-						"你恢复了{@dice 1d4}+1个消耗的命中率。",
-						"你重新获得一个已消耗的契约魔法的法术槽。"
-					]
-				},
-				"你可以使用这个能力的次数等于你的魅力修改器（最少一次），当你完成长时间休息时，你会恢复所有消耗的使用。"
+				"You can offer the death of your foes to your Eldritch Power for enhanced abilities. As a reaction when a creature dies within 30 feet of you, you can regain one of your expended Pact Magic spell slots, or {@dice 1d4} of your expended Hit Dice.",
+				"一旦你使用这个功能，你必须完成一个短期或长期的休息，才能再次使用它。"
 			]
 		},
 		{
@@ -1321,10 +1991,10 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"每个成功的冒险家都知道团队合作的价值，但没有人比那些被称为 \"四分卫 \"的人更重视它。这些支持性的战士努力帮助他们的盟友发挥他们的全部潜力。他们总是把同伴的需要放在自己的需要之前，用新鲜的口粮和援助之手使他们的团队保持最佳状态。",
+				"Every successful adventurer comes to know the importance of teamwork, but none value it more than the Fighters known as Quartermasters. Rather than improve their own individual abilities, these supportive warriors work to help companions reach their potential. Always putting the needs of their allies first, they keep their team in top condition with fresh Rations.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Quartermaster Training|Fighter|phb|Quartermaster|llfafs|3"
+					"subclassFeature": "Down to Earth|Fighter|phb|Quartermaster|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -1341,7 +2011,7 @@
 			]
 		},
 		{
-			"name": "Quartermaster Training",
+			"name": "Down to Earth",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1350,7 +2020,18 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"在3级时，你获得对（%0%）、陆上交通工具和（%1%）技能的熟练度。如果你已经精通这些技能中的任何一项，你可以在任何使用该工具或技能的检查中加入双倍的熟练度奖励。"
+				"You have mastered the skills to provide. You gain proficiency with {@item cook's utensils|phb}, land vehicles, and in {@skill Animal Handling}. Moreover, when you make an ability check that uses one of these proficiencies, you treat a d20 roll of 7 or lower as an 8."
+			],
+			"toolProficiencies": [
+				{
+					"cook's utensils": true,
+					"vehicles (land)": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true
+				}
 			]
 		},
 		{
@@ -1363,8 +2044,8 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"你已经学会了准备一系列的口粮，使你的盟友处于最佳状态。从第3级开始，在每次长距离休息结束时，你都会从军需官口粮的可选功能中准备相当于你体质修饰值的口粮（最少1份口粮）。你可以准备任何口粮，只要你满足其先决条件。任何未吃完的口粮都会变质，并在你的下一次长休结束时变成惰性。",
-				"一个生物可以吃一个口粮，或者把口粮喂给5英尺内自愿或无意识的生物作为一个额外的动作。吃下口粮会结束当前对该生物的任何口粮效果。"
+				"You are able to prepare potent morsels of food that keep your allies in peak condition. At the end of each long rest, you can prepare a number of these Rations equal to your Constitution modifier (minimum of 1) from {@filter the list at end of this subclass|optionalfeatures|feature type=qr}.",
+				"As a bonus action, you can eat a prepared Ration, or feed a Ration to a creature within 5 feet. Consuming a Ration ends any current Ration effects on that creature. Any Rations you have prepared become inert at the end of your next long rest."
 			]
 		},
 		{
@@ -1380,6 +2061,7 @@
 				"你确保你的盟友有他们所需的补给和支持，以使他们茁壮成长。从7级开始，你可以在你的回合中采取以下任何一种特殊行动作为奖励行动。",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
@@ -1392,7 +2074,7 @@
 							"type": "entries",
 							"name": "Arm",
 							"entries": [
-								"你将你携带的武器、物品或任何弹药给5英尺内的生物。然后该生物可以装备所给的物品，并以自由行动的方式收起一件物品。"
+								" You give a weapon, item, or any ammunition you are carrying to a creature within 5 feet. The creature can then equip the given item, and stow one item as a free action."
 							]
 						},
 						{
@@ -1406,7 +2088,7 @@
 							"type": "entries",
 							"name": "Wrangle",
 							"entries": [
-								"你用智慧({@skill Animal Handling})或{@item land vehicles|phb}检查来控制你所骑的坐骑或车。"
+								"You make a Wisdom ({@skill Animal Handling}) or a land vehicles check to control a mount or cart you are riding."
 							]
 						}
 					]
@@ -1414,7 +2096,7 @@
 			]
 		},
 		{
-			"name": "Improved Rations",
+			"name": "Quick Ration",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1423,8 +2105,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"你已经改善了你的口粮的效力和创造过程。从10级开始，你可以在每次短时或长时休息结束时准备相当于你体质修正值的口粮（最少1份）。然而，这些口粮会在你下一次短时或长时休息结束时变质。",
-				"此外，任何持续1分钟的口粮效果，其持续时间都增加到1小时。"
+				"You have greatly improved the speed at which you prepare Rations. You can use a bonus action on your turn to create a Ration of your choice, eating it or feeding it to a creature within 5 feet of you as part of that same bonus action. Any Rations created in this way expire after 1 minute.",
+				"You can create a Quick Ration a number of times equal to your Constitution modifier (minimum of once), and you regain all expended uses when you finish a long rest."
 			]
 		},
 		{
@@ -1437,7 +2119,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你随时准备支持你的同伴。从15级开始，当你掷出主动权并且没有剩余的口粮时，你可以准备一份你选择的口粮。"
+				"You are always ready to support your companions with a Ration. If you have no Rations remaining when you roll for initiative, you can prepare one Quick Ration of your choice."
 			]
 		},
 		{
@@ -1450,8 +2132,11 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"你在测试和实验新的奇妙口粮配方方面的工作，使你的身体更加强壮，胃部更加坚硬。在达到18级时，你的体质得分和最大体质得分，都增加了2分，并且你对{@condition poisoned}的状况免疫。",
-				"此外，你总是处于你选择的一种持续时间至少为1分钟的口粮的影响之下。它不需要是你准备的口粮，而且你可以在每次短期或长期休息结束时改变口粮效果。"
+				"Your experiments with Rations have toughened your body. Your Constitution score, and maximum Constitution score, increase by 2, and you are immune to the {@condition poisoned} condition.",
+				"In addition, you are always under the effects of one Ration of your choice with a duration of at least 1 minute. You can change the Ration effect at the end of each short or long rest."
+			],
+			"conditionImmune": [
+				"poisoned"
 			]
 		},
 		{
@@ -1463,7 +2148,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"剑客，刀客，剑圣；将自己的生命奉献给战争艺术的专家战士在历史上有很多名字。剑客只有在准备杀人时才会拔出武器，只有在必要时才会击倒他们的敌人。他们一直在寻求改善他们的技术，掌握更多令人印象深刻的武术技能。",
+				"Swordsage, blade master, sword saints; expert warriors who dedicate their lives to the art of battle have had many names throughout history. Only drawing their weapon when they are prepared to kill, a Swordsage will only slay another creature when necessary. A master Swordsage will only ever take one apprentice, teaching everything they know to a single warrior.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Student of the Blade|Fighter|phb|Swordsage|llfafs|3"
@@ -1471,6 +2156,13 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Battle Trance|Fighter|phb|Swordsage|llfafs|3"
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Superiority, Maneuvers, & Exploits",
+					"entries": [
+						"The Swordsage Archetype presented here grants a Fighter some Maneuvers from the Battle Master. If you think the entire Fighter class should be able to use such martial combat techniques, check out the Alternate Fighter Class and its Martial Exploits!"
+					]
 				}
 			]
 		},
@@ -1484,24 +2176,24 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"在你对剑的研究中，你已经掌握了与剑术相邻的其他技能。在第三级时，你获得了对（%0%）、（%1%）、（%2%）或（%3%）的熟练度。",
+				"In your study of the sword you have mastered other skills adjacent to swordplay. You gain proficiency in your choice of {@skill Acrobatics}, {@skill Insight}, {@skill Intimidation}, or {@skill Performance}.",
 				"你还学会了利用特殊的动作来提高你在战斗中的武术技能。你获得以下特征。",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Maneuvers",
 							"entries": [
-								"你从战斗大师可用的动作中选择三个动作进行学习。你每次攻击只能使用一个动作。在这个等级的第7、10和15级时，你会学习另一种你所选择的演习。"
+								"You learn three {@filter Maneuvers|optionalfeatures|feature type=mv:b} of your choice from those available to the Battle Master. You can use only one Maneuver per attack. You learn another Maneuver of your choice at 7th, 10th, and 15th level in this class."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Superiority Dice",
 							"entries": [
-								"你有四个优势骰子，它们对你来说是（%0%）。要使用你所知道的一个动作，你必须消耗一个优势骰子作为你攻击的一部分。当你完成短期或长期休息时，你会重新获得所有消耗的优势骰子。你在10级时获得一个额外的优越性骰子，在18级时获得另一个优越性骰子（总共6个）。"
+								"You have four Superiority Dice, which are {@dice d6}s for you. To use one of the Maneuvers you know, you must expend a Superiority Die as part of your attack. You regain all expended Superiority Dice when you finish a short or long rest. You gain a fifth Superiority Die at 10th level and a final sixth Superiority Die 18th level."
 							]
 						},
 						{
@@ -1521,6 +2213,29 @@
 						}
 					]
 				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"acrobatics",
+							"insight",
+							"intimidation",
+							"performance"
+						]
+					}
+				}
+			],
+			"resources": [
+				{
+					"name": "Superiority Dice",
+					"type": "dicePool",
+					"count": "floor((<$level$> + 30) / 8)",
+					"number": 1,
+					"faces": 6,
+					"recharge": "restShort"
+				}
 			]
 		},
 		{
@@ -1533,19 +2248,17 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"作为一名剑士，你可以清除你脑中的所有杂念，只专注于战斗。当你在3级采用这个原型时，你学会了进入剑士的战斗恍惚。只要你不穿重甲、不挥舞盾牌或重武器，它就会赋予你更多的能力。",
-				"作为一个额外的行动，你可以消耗一个优势模子来进入战斗恍惚状态，给予你以下好处。",
+				"So long as you are not wearing heavy armor or a shield, you can use a bonus action to enter a Battle Trance. Your Battle Trance grants you the benefits below for 1 minute:",
 				{
 					"type": "list",
 					"items": [
-						"你的移动速度增加10英尺。",
-						"你获得相当于你熟练度加成一半的装甲等级加成（向下取整）。",
-						"你在力量({@skill Athletics})检查上有优势。",
-						"每回合一次，当你为一项机动行动掷出优势骰子时，你可以掷两次，取较高的骰子。",
-						"当你被迫做拯救动作时，作为一种反应，你可以消耗一个优势模子并把它加到你的投掷中。"
+						"You can take the {@action Dash} action as a bonus action",
+						"You gain a +1 bonus to your Armor Class.",
+						"You have advantage on Dexterity ({@skill Acrobatics}) checks.",
+						"Once per turn when you use a Maneuver, you can roll your Superiority Die twice and use the result of your choice."
 					]
 				},
-				"你的战斗恍惚持续1分钟。如果你失去能力，如果你穿上盾牌、重甲或重武器，或者你选择以额外行动结束它，它就会提前结束。"
+				"Your Battle Trance ends early if you are {@condition incapacitated}, or you don a shield or heavy armor. Once you enter a Battle Trance you must finish a short or long rest before you can do so again. If you have no uses left, you can expend one of your Superiority Die to enter a Battle Trance again."
 			]
 		},
 		{
@@ -1558,11 +2271,16 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"你为了追求完美的武术而磨练自己的反应能力。在第7级时，你获得了对灵巧救赎的熟练度，并且你可以在主动性卷轴上加上你的熟练度奖励。"
+				"You have honed your reflexes to a point in pursuit of martial perfection. You gain proficiency in Dexterity saving throws, and you add your proficiency bonus to your initiative rolls."
+			],
+			"savingThrowProficiencies": [
+				{
+					"dex": true
+				}
 			]
 		},
 		{
-			"name": "Improved Battle Trance",
+			"name": "Masterful Trance",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1571,20 +2289,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"你已经掌握了剑士的战斗恍惚。从10级开始，当你掷出主动权时，你可以进入你的战斗恍惚状态，而不需要消耗一个优势模具。"
-			]
-		},
-		{
-			"name": "Technical Mastery",
-			"source": "llfafs",
-			"className": "Fighter",
-			"classSource": "phb",
-			"subclassShortName": "Swordsage",
-			"subclassSource": "llfafs",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"从15级开始，你在战斗幻觉中会变成一股致命的钢铁旋风。每回合一次，当你处于战斗幻觉中时，你可以使用你所知道的一个动作，滚动一个{@dice d6}来代替你的一个优势骰子的消耗。"
+				"You have mastered the Battle Trance of the Swordsage. When you roll initiative, so long as you are not surprised, you can enter a {@subclassFeature Battle Trance|Fighter||Swordsage|llfafs|3} without expending any resources.",
+				"Moreover, while you are in your Battle Trance, the bonus to your Armor Class increases by 1, for a total bonus of +2."
 			]
 		},
 		{
@@ -1594,10 +2300,23 @@
 			"classSource": "phb",
 			"subclassShortName": "Swordsage",
 			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You become a whirlwind of deadly steel while in your Battle Trance. Once per turn while you are in a Battle Trance, you can use any Maneuver that you know, rolling a {@dice d6} in place of expending one of your Superiority Dice."
+			]
+		},
+		{
+			"name": "Legendary Swordsage (d8)",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Swordsage",
+			"subclassSource": "llfafs",
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"在达到18级时，你的优势骰子变成{@dice d8}s，你可以为你的技术掌握能力掷出{@dice d8}。"
+				"When you reach 18th level in this class the once per turn {@dice d6} from the {@subclassFeature Legendary Swordsage|Fighter||Swordsage|llfafs|15} feature becomes a {@dice d8}."
 			]
 		},
 		{
@@ -1609,10 +2328,10 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"被称为工匠骑士的战士们寻求一种非正统的武术技能形式。他们不掌握武术技巧，而是希望通过机械发明和创新武器来增强他们的身体能力。虽然他们把大部分时间花在理论研究、修补和实验新的方案上，但工匠骑士和他们创造性的武器库在战场上是一股不可忽视的力量。",
+				"The Fighters known as Tinker Knights seek an unorthodox form of martial skill. Rather than master martial techniques they look to augment their physical ability with mechanical inventions and innovative weaponry. Though they spend most of their time theorizing, tinkering, and experimenting with new Schematics, Tinker Knights and their inventive arsenals are a force to be reckoned with when they take to the field.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Bonus Proficiencies|Fighter|phb|Tinker Knight|llfafs|3"
+					"subclassFeature": "Analytical Mind|Fighter|phb|Tinker Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -1622,13 +2341,13 @@
 					"type": "insetReadaloud",
 					"name": "Tinker Knight's In Your Setting",
 					"entries": [
-						"工匠骑士是一种奇怪的战士，他们重视头脑而不是体力。虽然这里的描述文字描述的是金属齿轮和弹簧，但他们也可以很容易地用木材、岩石、水晶、骨头、棍子和鳞片创造出他们奇妙的发明。"
+						"Tinker Knights are strange warriors who value brain over brawn. While the abilities here describe metal gears and springs, a Tinker Knight can just as easily modify gear with crystals, bones, sticks, and scales."
 					]
 				}
 			]
 		},
 		{
-			"name": "Bonus Proficiencies",
+			"name": "Analytical Mind",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1637,7 +2356,24 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"当你在3级时采用此原型，你获得了维护你的发明的技能。你获得对（%0%）和（%1%）的熟练度。如果你已经精通这些工具，你将获得对另一套你选择的工具的精通。"
+				"You gain proficiency with {@item tinker's tools|phb} and {@item smith's tools|phb}. If you are already proficient with these tools, you instead gain proficiency with another set of tools of your choice."
+			],
+			"toolProficiencies": [
+				{
+					"tinker's tools": true,
+					"smith's tools": true
+				},
+				{
+					"tinker's tools": true,
+					"any": 1
+				},
+				{
+					"any": 1,
+					"smith's tools": true
+				},
+				{
+					"any": 2
+				}
 			]
 		},
 		{
@@ -1652,11 +2388,11 @@
 			"entries": [
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
-						"你为武器和盔甲想出了很多奇怪的修改方法，被称为 \"方案\"。在3级时，你可以从工匠骑士方案中选择两个方案，并学习其可选功能。当你获得一个等级时，你可以用你所选择的另一种方法来替换你所知道的一种原理。",
+						"You have designed a cacophony of unique modifications for weapons and armor, known as {@filter Schematics|optionalfeatures|feature type=ts}. You know two Schematics of your choice from the list at the end of this subclass. When you gain a Fighter level, you can replace one Schematic you know with another of your choice.",
 						"当你在这个等级中获得的等级越高，你所知道的图式的数量就越多；在第7级（3），第10级（4），第15级（5）。",
-						"在每次长休结束时，你可以触摸与你已知的谋略数相等的物体，并以一个谋略的特性来修改每个物体。这些特性会持续到你下一次长休结束时。一个物体一次只能被一个图式修改，而且必须符合图式描述中的要求。",
+						"At the end of each long rest, you can touch a number of objects equal to your number of Schematics Known and you modify each object with the features of one Schematic. These features last until the end of your next long rest. Each object can only be modified by one Schematic at a time, and it must meet the requirements in the Schematic description.",
 						{
 							"type": "entries",
 							"name": "Saving Throws",
@@ -1685,8 +2421,14 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"你的技能可以与最好的创新者相媲美。从第7级开始，你的熟练度奖励在任何使用你的熟练度为（%0%）或（%1%）的能力检查中都会翻倍。",
-				"此外，被你的 \"谋略 \"修改过的物品在克服抵抗力和免疫力时也算作魔法物品，而且你可以将你的 \"谋略 \"应用于魔法武器和盔甲。"
+				"Your proficiency bonus is doubled for any ability check that uses your proficiency with {@item tinker's tools|phb} or {@item smith's tools|phb}.",
+				"In addition, items modified by your Schematics count as magical for overcoming resistances and immunities, and you can apply Schematics to magic weapons and armor."
+			],
+			"expertise": [
+				{
+					"tinker's tools": true,
+					"smith's tools": true
+				}
 			]
 		},
 		{
@@ -1699,7 +2441,7 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"你的修饰是串联起来的。从10级开始，你可以在一个物体上应用两个图腾，只要该物体满足两个图腾的先决条件。"
+				"Your modifications can work in tandem with each other. You can apply two Schematics to one object, so long as the object meets the prerequisites for both Schematics."
 			]
 		},
 		{
@@ -1712,7 +2454,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你的创造性武器库可以调整，以满足手头的挑战。从15级开始，在短暂的休息结束后，你可以将一个示意图从一个物体转移到另一个物体上，只要新物体符合前提条件。如果一个示意图的电荷量有限，转移时消耗的电荷量保持不变。",
+				"Your inventive arsenal can adjust to meet the challenges at hand. At the end of a short rest, you can transfer a Schematic from one object to another, so long as the new object meets the prerequisites. If a Schematic has a limited amount of charges, the number of expended charges remains the same.",
 				"此外，你最多可以在一个物体上应用三个示意图，只要它符合所有示意图的前提条件。"
 			]
 		},
@@ -1726,14 +2468,14 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"你的创新在其效果上是奇妙的。从18级开始，经 \"原理 \"改造的武器每应用一个 \"原理\"，其攻击和伤害卷就会获得+1的加成，而经 \"原理 \"改造的盔甲每应用一个 \"原理\"，其护甲等级就会获得+1的加成。",
+				"Weapons modified by your Schematics gain a +1 bonus to its attack and damage rolls for each Schematic applied to it, and any set of armor modified by a Schematic gains a +1 bonus to its Armor Class for each of your Schematics applied to it.",
 				"被你的谋略修改过的武器和盔甲不能获得大于+3的奖励，无论该物品在应用你的谋略之前有什么奖励。"
 			]
 		}
 	],
 	"monster": [
 		{
-			"name": "Hound",
+			"name": "Loyal Hound",
 			"source": "llfafs",
 			"size": [
 				"M"
@@ -1765,9 +2507,9 @@
 			"languages": [
 				"understands the languages that you speak"
 			],
-			"pbNote": "equals the Fighter's bonus",
+			"pbNote": "equals your bonus",
 			"damageTags": [
-				"N",
+				"P",
 				"S"
 			],
 			"trait": [
@@ -1788,13 +2530,13 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit +2+PB|+2+PB}击中，达到5英尺，一个目标，{@h} {@damage 1d6+2+PB|1d6+2+PB}穿刺伤害。一旦命中，目标必须成功地进行力量投掷（DC等于10+PB）或被（%4%）。猎犬每次只能抓取一个生物。"
+						"{@atk mw} {@hit +2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|+2+PB} to hit, reach 5ft., one target, {@h} {@damage 1d6+2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|1d6+2+PB} piercing damage. On hit, the target must succeed on a Strength Saving throw (DC equals 10 + PB) or be {@condition grappled}. The Hound can only grapple one creature at a time."
 					]
 				},
 				{
 					"name": "Maul",
 					"entries": [
-						"{@atk mw} {@hit +2+PB|+2 + PB}击中，达到5英尺，一个目标，{@h} {@damage 1d8+2+PB|1d8+2+PB}砍伤。"
+						"{@atk mw} {@hit +2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|+2+PB} to hit, reach 5ft., one target, {@h} {@damage 1d8+2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|1d8+2+PB} slashing damage."
 					]
 				}
 			],
@@ -1803,33 +2545,11 @@
 			],
 			"traitTags": [
 				"Keen Senses"
-			]
+			],
+			"summonedByClass": "Fighter"
 		}
 	],
 	"optionalfeature": [
-		{
-			"name": "Arcane Warrior",
-			"source": "llfafs",
-			"featureType": [
-				"FS:M"
-			],
-			"additionalSpells": [
-				{
-					"ability": "int",
-					"known": {
-						"_": [
-							{
-								"choose": "level=0|class=wizard",
-								"count": 2
-							}
-						]
-					}
-				}
-			],
-			"entries": [
-				"你学会了（%0%）。它们对你来说算作魔法师的咒语，而智力是你对它们的施法能力。当你在这个等级中获得一个等级时，你可以用另一个魔法师的咒语来代替这些咒语中的一个。"
-			]
-		},
 		{
 			"name": "Berserkergang",
 			"source": "llfafs",
@@ -1838,44 +2558,55 @@
 				"FS:P"
 			],
 			"entries": [
-				"你在战斗中不顾一切地战斗。每回合一次，你可以在一次攻击卷上给予自己优势。一旦你采取这种优势攻击，你的护甲等级就会减少2，直到你下一回合开始。"
+				"You fight with reckless abandon in battle. Once per turn, you can grant yourself advantage on a single melee weapon attack roll. Once you take this advantaged attack, your Armor Class is reduced by 2 until the beginning of your next turn."
 			]
 		},
 		{
-			"name": "Classical SwordPlay",
+			"name": "Classical Swordplay",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:M",
-				"FS:P",
-				"FS:W"
+				"FS:P"
 			],
 			"entries": [
-				"在挥舞精巧的武器而不使用其他武器时，只要你不使用重甲或盾牌，你的攻击卷和护甲等级都会获得+1的奖励。"
-			]
-		},
-		{
-			"name": "Defensive Fighting",
-			"source": "llfafs",
-			"featureType": [
-				"FS:M"
+				"While wielding a finesse weapon and no other weapons, you gain a +1 bonus to your attack rolls and a +1 to your Armor Class so long as you are not using heavy armor or a shield."
 			],
-			"entries": [
-				"只要你穿着盔甲或挥舞着盾牌，你就会获得盔甲等级+1的奖励。"
-			]
+			"foundryEffects": [
+				{
+					"name": "Classical Swordplay",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.bonuses.rwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/skills/melee/sword-twirl-orange.webp"
 		},
 		{
 			"name": "Dual Wielding",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:R",
-				"FS:W",
-				"FS:M"
+				"FS:R"
 			],
 			"entries": [
-				"当你在双武器战斗中采取攻击行动时，你可以用你的非手武器进行一次额外的攻击，作为你行动的一部分，而不是你的额外行动，在这次攻击的伤害上加上你的能力修改器。"
-			]
+				"When you take the {@action Attack} action while two-weapon fighting, you can make a single additional attack with your off-hand weapon as part of your action instead of your bonus action, adding your ability modifier to the damage of this attack."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-daggers-orange.webp"
 		},
 		{
 			"name": "Featherweight Fighting",
@@ -1885,7 +2616,20 @@
 				"FS:R"
 			],
 			"entries": [
-				"当你只挥舞轻型武器时，你的移动速度增加10英尺，并且你的伤害卷获得+2的加成，只要你没有穿戴中型盔甲、重型盔甲或挥舞盾牌。"
+				"While you are wielding only light weapons, and nothing else, your speed increases by 10 feet. You also gain a +1 bonus to damage rolls with light weapons, so long as you are not wearing medium or heavy armor, or wielding a shield."
+			],
+			"foundryEffects": [
+				{
+					"name": "Speed Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1896,7 +2640,25 @@
 				"FS:P"
 			],
 			"entries": [
-				"你利用你的体重和你的武器来进行破坏性的打击。当你挥舞重武器时，你在伤害卷上获得+2的奖励，并且你在力量（（%0%））的检查上有优势，以（%1%）。"
+				"You can use your weight, and the weight of your weapon, to land devastating blows. While you are wielding a heavy weapon, you gain a +2 bonus to damage rolls and you have advantage on Strength ({@skill Athletics}) checks made to {@action Shove}."
+			],
+			"foundryEffects": [
+				{
+					"name": "Damage Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						},
+						{
+							"key": "system.bonuses.rwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1906,7 +2668,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"你获得对简易武器的熟练度。每回合一次，当你用简易武器攻击时，你可以掷两次伤害骰子，取较高的骰子。当你这样做时，简易武器会被摧毁，并且不能用于进一步的攻击。此功能不能用于摧毁魔法物品。"
+				"You gain proficiency with improvised weapons. Once per turn, when you hit with a non-magical improvised weapon attack, you can roll the damage die twice and take the higher roll. When you do so, the improvised weapon is destroyed and cannot be used for further attacks."
 			]
 		},
 		{
@@ -1917,7 +2679,25 @@
 				"FS:R"
 			],
 			"entries": [
-				"当你没有穿戴中型或重型盔甲，或使用盾牌时，你的游泳速度等于你的移动速度，并获得你的盔甲等级+1的奖励。"
+				"When you are not wearing medium or heavy armor, or using a shield, you have a swimming speed equal to your walking speed, and you gain a +1 bonus to your Armor Class."
+			],
+			"foundryEffects": [
+				{
+					"name": "Mariner",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1928,8 +2708,37 @@
 				"FS:R"
 			],
 			"entries": [
-				"当你以5英尺内的生物为目标进行远程攻击时，你在攻击卷上没有劣势。",
-				"如果你对5英尺范围内的生物进行远程攻击，你可以使用一个额外动作，用你的远程武器攻击该生物，击中后造成{@dice 1d4}破坏性伤害。"
+				"Having a hostile creature within 5 feet of you doesn't impose disadvantage on your ranged weapon attacks, so long as you are attacking a creature within 5 feet.",
+				"When you make a ranged weapon attack against a creature within 5 feet, you can use your bonus action to make a melee attack against it with your ranged weapon. On hit, you deal bludgeoning damage equal to {@damage 1d4} + your Strength modifier."
+			]
+		},
+		{
+			"name": "Mountaineer",
+			"source": "llfafs",
+			"featureType": [
+				"FS:F",
+				"FS:R"
+			],
+			"entries": [
+				"When you are not wearing medium or heavy armor, or using a shield, you have a climbing speed equal to your walking speed, and you gain a +1 bonus to your Armor Class."
+			],
+			"foundryEffects": [
+				{
+					"name": "Mountaineer",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1940,8 +2749,22 @@
 				"FS:P"
 			],
 			"entries": [
-				"每回合一次，当你在骑马时用近战攻击击中一个大型或小型生物时，你可以强迫它做一个力量救赎动作（DC=8+你的熟练度加成+你的力量修正值）。如果失败，它将被击倒（%0%）。"
-			]
+				"While riding a trained mount, both you and your mount gain a +1 bonus to your Armor Class, and you can use a bonus action to command it to take one action from its stat block."
+			],
+			"foundryEffects": [
+				{
+					"name": "AC Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/creatures/horse-tan.webp"
 		},
 		{
 			"name": "Pit Fighting",
@@ -1950,7 +2773,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"你已经训练过使用通常与角斗士有关的武器作战，赋予你以下好处。",
+				"You have trained to fight with weapons typically associated with gladiators, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
@@ -1969,20 +2792,62 @@
 				"FS:P"
 			],
 			"entries": [
-				"你获得熟练使用{@item shield|phb}s作为武术近战武器。一旦命中，你会造成{@dice 2d4}的重击伤害。如果你使用{@item shield|phb}而不使用其他武器，你在使用{@item shield|phb}攻击时的伤害卷和你的护甲等级上都获得+1的加成。"
-			]
+				"You gain proficiency with {@item shield|phb}s as a martial melee weapon, and on hit, your shield deals {@damage 2d4} bludgeoning damage. If you are wielding a {@item shield|phb} and nothing else, you gain a +1 bonus to your shield attack damage rolls and to your Armor Class."
+			],
+			"foundrySystem": {
+				"actionType": "mwak",
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"2d4",
+						"bludgeoning"
+					]
+				]
+			},
+			"foundryEffects": [
+				{
+					"name": "Shield Warrior",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/skills/melee/shield-block-bash-yellow.webp"
 		},
 		{
 			"name": "Standard Bearer",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:P",
-				"FS:W"
+				"FS:P"
 			],
 			"entries": [
-				"当你周围5英尺内的生物对你能看到的生物进行攻击时，你可以在他们的攻击卷上给予他们优势作为反应。你必须手里拿着旗帜、旗子或标准才能使用这个反应。"
-			]
+				"When a creature within 5 feet of you makes an attack against a creature that you can see, you can grant it advantage on its attack roll as a reaction. You must be carrying a banner, flag, or standard in your hand to use this reaction."
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "reaction"
+				},
+				"range": {
+					"value": 5,
+					"units": "ft"
+				}
+			},
+			"foundryImg": "icons/sundries/flags/banner-sword-blue.webp"
 		},
 		{
 			"name": "Strongbow",
@@ -2001,13 +2866,42 @@
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:M",
 				"FS:P",
-				"FS:R",
-				"FS:W"
+				"FS:R"
 			],
 			"entries": [
-				"在挥舞单一通用武器且没有（%0%）时，你可以选择单手或双手挥舞你的武器，直到你下一回合开始。单手挥舞时，你的攻击卷和装甲等级获得+1的奖励。双手挥舞时，你的伤害卷获得+2的奖励。"
+				"While wielding a single versatile weapon and no shield, you can choose to wield your weapon one or two-handed until the start of your next turn. When wielding it one-handed you gain a +1 bonus to attack rolls and to your Armor Class. Wielding it two-handed you gain a +2 bonus to your damage rolls."
+			],
+			"foundryEffects": [
+				{
+					"name": "Versatile Fighting (One-Handed)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				},
+				{
+					"name": "Versatile Fighting (Two-Handed)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
 			]
 		},
 		{
@@ -2017,7 +2911,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"当你在你的回合中采取{@action Attack}行动时，你可以在该回合中尝试{@action grapple}或{@action shove}一个生物作为额外行动，只要你有一只自由的手可以这样做。此外，你可以拖动（%3%）的生物，达到你的全部移动速度。"
+				"When you take the {@action Attack} action on your turn, you can attempt to {@action grapple} or {@action shove} a creature as a bonus action on that turn, so long as you have a free hand to do so. Also, you can drag {@condition grappled} creatures up to your full speed."
 			]
 		},
 		{
@@ -2061,7 +2955,7 @@
 			],
 			"entries": [
 				"消耗后，该生物恢复的命中率等于（%0%）+你的宪法修改器（最低+1）。",
-				"从10级开始，这个口粮可以恢复额外的{@dice 1d10}命中率，而且他们恢复的命中率如果超过他们的命中率上限，就会变成临时命中率。"
+				"At 10th level, this Ration restores an additional {@dice 1d10} hit points, and any hit points they regain that exceed their hit point maximum become temporary hit points."
 			]
 		},
 		{
@@ -2082,8 +2976,8 @@
 				}
 			],
 			"entries": [
-				"消耗后，该生物会结束目前影响它的下列状况之一：{@condition blinded}、{@condition deafened}、{@condition poisoned}，或者他们的疲惫等级降低1。",
-				"从10级开始，这个口粮也可以治疗{@condition charmed}、{@condition frightened}、{@condition paralyzed}和{@condition stunned}的状况。"
+				"Upon consumption, the creature ends one of the following conditions currently affecting it: {@condition blinded|phb|blindness}, {@condition deafened|phb|deafness}, {@condition poisoned}, or it can reduce its {@condition exhaustion} level by 1.",
+				"At 10th level, this Ration can also cure a creature of the {@condition charmed}, {@condition frightened}, {@condition paralyzed}, or {@condition stunned} condition."
 			]
 		},
 		{
@@ -2105,7 +2999,7 @@
 			],
 			"entries": [
 				"这个口粮必须作为短暂休息的一部分来消耗。消耗后，该生物在短时休息期间选择消耗的任何命中率骰子上获得优势。",
-				"从10级开始，消耗这种口粮可以让生物在短暂的休息中把他们消耗的任何命中率当作最大可能的结果，而不是滚动。"
+				"At 10th level, consuming this Ration allows the creature to treat any Hit Dice it expends during the short rest as the maximum possible result instead of rolling."
 			]
 		},
 		{
@@ -2148,8 +3042,30 @@
 				}
 			],
 			"entries": [
-				"消耗后，该生物获得对重击、穿刺或切割伤害的抗性（他们自己选择）。",
-				"从10级开始，消耗此口粮可获得对击打、穿刺和切割伤害的抵抗。"
+				"Upon consumption, the creature gains resistance to either bludgeoning, piercing, or slashing damage (its choice).",
+				"At 10th level consuming this Ration grants the creature resistance to bludgeoning, piercing, and slashing damage."
+			]
+		},
+		{
+			"name": "Engorging Ration",
+			"source": "llfafs",
+			"featureType": [
+				"QR"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 7,
+						"class": {
+							"name": "Fighter"
+						}
+					},
+					"other": "Duration, 1 minute"
+				}
+			],
+			"entries": [
+				"Upon consumption, the creature grows by one size category, for example, from Medium to Large. While the creature's size is increased in this way, its reach increases by 5 feet, it has advantage on Strength checks and saving throws, and any melee weapon attacks it makes deal a bonus {@damage 1d4} damage.",
+				"At 10th level the duration of the effect becomes 1 hour."
 			]
 		},
 		{
@@ -2171,7 +3087,7 @@
 			],
 			"entries": [
 				"消耗后，该生物选择智力、智慧或魅力。在持续时间内，该生物可以将你的体质修正值（最低+1）加到任何能力检查或所选能力分数的蓄力动作上。",
-				"在10级时，该效果的持续时间增加到1小时。"
+				"At 10th level the duration of the effect becomes 1 hour."
 			]
 		},
 		{
@@ -2192,8 +3108,8 @@
 				}
 			],
 			"entries": [
-				"消耗后，该生物获得对酸、冷、火、毒、闪电或雷电伤害的抗性（他们选择）。",
-				"在10级时，该效果的持续时间增加到1小时，并且该生物可以在其他伤害类型之外选择力量、坏死、精神或辐射伤害。"
+				"Upon consumption, the creature gains resistance to acid, cold, fire, poison, lightning, or thunder damage (its choice).",
+				"At 10th level the duration of the effect becomes 1 hour, and the creature can choose force, necrotic, psychic, or radiant damage in addition to the other damage types."
 			]
 		},
 		{
@@ -2214,7 +3130,8 @@
 				}
 			],
 			"entries": [
-				"消耗后，该生物获得对以下条件之一的免疫力（他们选择）。{@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition poisoned}, {@condition paralyzed}, 或 {@condition stunned}。"
+				"Upon consumption, the creature gains immunity to one of the following conditions (its choice): {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition poisoned}, {@condition paralyzed}, or {@condition stunned}.",
+				"At 15th level, this Ration grants a creature immunity to two of the conditions from the list above (its choice)."
 			]
 		},
 		{
@@ -2235,7 +3152,8 @@
 				}
 			],
 			"entries": [
-				"消耗后，生物在减少到0命中率时不会陷入昏迷。然而，它仍然会像普通人一样进行死亡拯救，如果失败三次就会死亡。"
+				"Upon consumption, the creature is guarded from the effects of death. Should it fall to 0 hit points within the next hour, it does not fall {@condition unconscious}. However, it still makes death saving throws as normal, dying upon failing three.",
+				"After a creature eats this Ration, it must finish a long rest before it can gain the benefits of any other Ration."
 			]
 		},
 		{
@@ -2256,8 +3174,8 @@
 				}
 			],
 			"entries": [
-				"食用后，该生物立即获得短暂休息的好处，包括立即消耗命中率的能力，作为他们用来消耗口粮的行动的一部分。",
-				"在他们当前回合结束时，该生物获得1级疲惫。消耗此口粮的生物在完成长时间休息之前不能获得另一个口粮的好处。"
+				"Upon consumption, the creature gains all the benefits of a short rest, including the ability to expend its Hit Dice as part of consuming the Ration. At the end of its current turn, the creature gains 1 level of {@condition exhaustion}.",
+				"After a creature eats this Ration, it must finish a long rest before it can gain the benefits of any other Ration."
 			]
 		},
 		{
@@ -2267,30 +3185,30 @@
 				"TS"
 			],
 			"entries": [
-				"你修改一件物品的冶金构成，使其更轻。经此示意图修改的物品的佩戴者或持有者的移动速度增加10英尺。",
+				"You modify the metallurgic makeup of an item, making it significantly lighter. The bearer of an object modified by this Schematic has its walking speed increased by 10 feet.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Heavy Armor",
 							"entries": [
-								"当应用时，穿戴者无视盔甲可能有的任何力量要求，或它可能对他们的灵巧（（%0%））检查造成的任何惩罚。"
+								"The wearer ignores penalties to Dexterity ({@skill Stealth}) checks or Strength requirements of this armor."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Light Armor",
 							"entries": [
-								"应用后，佩戴者在计算坠落伤害时，可以从他们的坠落距离中减去最多100英尺，并且每坠落1英尺可以水平移动2英尺。"
+								"The wearer can subtract up to 100 feet from their fall distance when calculating fall damage and can move horizontally 2 feet for every 1 foot they fall."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"当应用时，重型武器变成正常重量，而普通武器变成轻型武器。"
+								"Any weapon with either the heavy and/or two-handed properties loses those properties, and any non-heavy weapon gains both the light and finesse properties."
 							]
 						}
 					]
@@ -2304,23 +3222,23 @@
 				"TS"
 			],
 			"entries": [
-				"你修改一件物品，以利用你的武术和调查本能的优势。经此示意图改造的物品的佩戴者或持有者获得对（%0%）的熟练度，他们可以在他们进行的任何智力（{@skill Investigation}）检查中加入双倍的熟练度奖励。",
+				"You modify an item to enhance your investigative instincts. The bearer of an object modified by this Schematic gains proficiency in {@skill Investigation} and adds double its proficiency bonus to any Intelligence ({@skill Investigation}) checks they make.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"当应用时，佩戴者在计算他们的装甲等级时，可以用他们的智力来代替灵巧。"
+								"The wearer can use its Intelligence in place of Dexterity when calculating their Armor Class in this armor."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"当应用时，持枪者可以使用他们的智力修饰，以代替力量或灵巧，用于攻击和伤害卷。"
+								"The wielder uses its Intelligence, in place of Strength, for attack and damage rolls with this weapon."
 							]
 						}
 					]
@@ -2334,13 +3252,27 @@
 				"TS"
 			],
 			"entries": [
-				"你给一件物品注入辐射能量源。经此示意图修饰的物品的佩戴者或持有者可以使用一个额外动作，使该物品在半径15英尺的范围内发出亮光，并在15英尺以外发出暗光。他们可以在自己的回合中以额外行动的方式熄灭光线。",
+				"You imbue an item with radiant energy. The bearer of an object modified by this Schematic can use a bonus action to cause the object to emit (or extinguish) bright light in a 15-foot radius, and dim light 15 feet beyond that.",
 				{
-					"type": "entries",
-					"name": "Armor or Weapon",
-					"entries": [
-						"当你被攻击（盔甲）击中，或被攻击（武器）击中一个生物时，作为反应，你可以强迫该生物做一个宪法救赎动作。如果失败，它将在1分钟内受到（%0%）的伤害。它可以在每个回合结束时重复救赎，成功时结束该效果。",
-						"一旦你使用这个反应，你必须完成一个短期或长期的休息才能再次使用它。"
+					"type": "list",
+					"style": "list-hang",
+					"items": [
+						{
+							"type": "entries",
+							"name": "Armor",
+							"entries": [
+								"As a reaction when the wearer is hit by an attack, it can force the attacker to make a Constitution saving throw. On a failed save, it is {@condition blinded} for 1 minute. It can repeat the save at the end of each turn, ending the effect on a success.",
+								"Once the wearer uses this reaction, it must finish a short or long rest before it can use the reaction again."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Weapon",
+							"entries": [
+								"When the wielder hit a creature with this weapon, it can force it to make a Constitution saving throw. On a failure, it is {@condition blinded} for 1 minute. It can repeat its save at the end of each turn, ending the effect on a success.",
+								"Once the wielder uses this reaction, it must finish a short or long rest before it can use this reaction again."
+							]
+						}
 					]
 				}
 			]
@@ -2352,24 +3284,24 @@
 				"TS"
 			],
 			"entries": [
-				"你修改一件物品，使其具有弹性特性。被此示意图改造过的物品的穿戴者或持有者可以用他们的反应将你的智力修饰值（最小值+1）加到他们的护甲等级上，以对抗一次攻击。",
+				"You modify an item so that it has elastic properties. The wearer or wielder of an object modified by this Schematic can use its reaction to add your Intelligence modifier (minimum of +1) to its Armor Class against one attack.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"作为反应，当穿戴此盔甲的人被攻击击中时，他们可以减少相当于{@dice 1d12}+你智力修饰的伤害。如果伤害被降低到0，攻击者将承受攻击的全部伤害，就像他们是原始目标一样。",
-								"一旦你使用这个功能，你必须完成一个短期或长期的休息，才能再次使用它。"
+								"As a reaction when the wearer of this armor is hit by an attack, it can reduce the damage by an amount equal to {@dice 1d12} + your Intelligence modifier. If the damage is reduced to 0, the attacker takes the full damage of the attack as if they had been the original target.",
+								"Once the wearer uses this reaction it must finish a short or long rest before it can use this reaction again."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Non-Heavy Weapon",
 							"entries": [
-								"当应用时，该武器获得投掷属性，范围为20英尺。用此武器进行攻击后，它立即回到持枪者手中。"
+								"The weapon gains the Thrown property with a range of 20 feet. After making an attack with this weapon, it instantly returns to the wielder's hand."
 							]
 						}
 					]
@@ -2393,30 +3325,30 @@
 				}
 			],
 			"entries": [
-				"你用发条机械原理改造一个物体，以提高体能和锐化反应能力。经此原理改造的物体的穿戴者或持有者会获得相当于你智力修饰值的主动性奖励（最小值为+1）。",
+				"You modify an object with clockwork mechanics that improve physical ability and sharpens reflexes. The wearer or wielder of an object modified by this Schematic gains a bonus to its initiative equal to your Intelligence modifier (minimum of +1).",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Heavy Armor",
 							"entries": [
-								"当应用时，穿戴者可以使用你的智力得分，以代替力量，用于任何力量能力检查或蓄力。"
+								"The wearer can use your Intelligence score, in place of its Strength, for any Strength-based ability checks or Strength saving throws it makes."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Light Armor",
 							"entries": [
-								"当应用时，穿戴者可以使用你的智力得分，代替灵巧，用于任何灵巧能力的检查或蓄力攻击。"
+								"The wearer can use your Intelligence score, in place of its Dexterity, for any Dexterity-based ability checks or Dexterity saving throws it makes."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"当应用时，任何时候持枪者用此武器掷出1或2的伤害卷，他们可以选择重新掷骰，但你必须使用新的结果，即使它是1或2。"
+								"When the wielder rolls a 1 or 2 for a damage roll with this weapon, it can choose to re-roll the die, but it must use the new result of the roll, even if it is a 1 or 2."
 							]
 						}
 					]
@@ -2440,28 +3372,76 @@
 				}
 			],
 			"entries": [
-				"你修改了这个物品的冶金结构，使其更有弹性。佩戴者或持有经此示意图修改过的物品的人在抵抗被（%0%）或违背自己意愿的移动时，在拯救动作上有优势。",
+				"You modify the metallurgical makeup of this item to make it more resilient. The wearer or wielder of an object modified by this Schematic has advantage on saving throws to resist being {@condition grappled} or moved against its will.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"当应用时，该盔甲对非魔法的击打、穿刺和切割伤害具有抵抗力。"
+								"This armor grants resistance to nonmagical bludgeoning, piercing, and slashing damage."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"当应用时，此武器造成的额外伤害等于你的智力修饰值（最小值为1）+你的战士等级，当你取得关键打击时。"
+								"This weapon deals bonus damage equal to your Intelligence modifier (minimum of 1) + your Fighter level whenever the wielder scores a critical hit with this weapon."
 							]
 						}
 					]
 				}
 			]
+		},
+		{
+			"name": "Alpine Combatant",
+			"source": "llfafs",
+			"featureType": [
+				"GC"
+			],
+			"entries": [
+				"You have trained for battle at great heights. You gain a climbing speed equal to your walking speed, and when you fall, you can use your reaction to reduce any falling damage by an amount equal to your fighter level."
+			],
+			"foundryEffects": [
+				{
+					"name": "Alpine Combatant",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/camp-improvised.webp"
+		},
+		{
+			"name": "Marine Combatant",
+			"source": "llfafs",
+			"featureType": [
+				"GC"
+			],
+			"entries": [
+				"You prepare for amphibious combat. You gain a swimming speed equal to your walking speed, and you can hold your breath for up to 1 hour underwater."
+			],
+			"foundryEffects": [
+				{
+					"name": "Marine Combatant",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/settlement/ship.webp"
 		}
 	],
 	"variantrule": [
@@ -2470,7 +3450,207 @@
 			"source": "llfafs",
 			"ruleType": "VO",
 			"entries": [
-				"一些格斗风格，特别是这里的格斗风格，在应用上是特殊的。考虑让你的游戏中的战士在几个长时间的休息中重新训练他们的战斗风格，以适应未来的挑战。"
+				"Some Fighting Styles, especially those here, are specific in application. Consider allowing Fighters in your game to re-train their Fighting Style over a few long rests to adjust to the challenges ahead."
+			]
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Drifter",
+			"source": "llfafs",
+			"name": "Hair-Trigger",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Guardian",
+			"source": "llfafs",
+			"name": "Guardian Stance",
+			"level": 3,
+			"effects": [
+				{
+					"name": "AC Bonus",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Marksman",
+			"source": "llfafs",
+			"name": "Cunning Shot",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Martial Artist",
+			"source": "llfafs",
+			"name": "Iron Physique",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Iron Physique (Unarmored)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "10 + @abilities.dex.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				},
+				{
+					"name": "Iron Physique (Light Armor)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "@attributes.ac.armor + max(@abilities.dex.mod, @abilities.con.mod)"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				},
+				{
+					"name": "Iron Physique (Medium Armor)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "@attributes.ac.armor + min(2, max(@abilities.dex.mod, @abilities.con.mod))"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Quartermaster",
+			"source": "llfafs",
+			"name": "Iron Stomach",
+			"level": 18,
+			"effects": [
+				{
+					"name": "Constitution Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.con.value",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Swordsage",
+			"source": "llfafs",
+			"name": "Battle Trance",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Battle Trance",
+					"disabled": true,
+					"transfer": true,
+					"duration": {
+						"seconds": 60
+					},
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": "@scale.swordsage.battle-trance-ac"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Swordsage",
+			"source": "llfafs",
+			"name": "Heightened Reflexes",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
 			]
 		}
 	]
