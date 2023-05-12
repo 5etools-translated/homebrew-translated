@@ -1,32 +1,31 @@
 {
-	"$schema": "https://raw.githubusercontent.com/TheGiddyLimit/5etools-utils/master/schema/brew-fast/homebrew.json",
 	"_meta": {
 		"sources": [
 			{
 				"json": "llfafs",
 				"abbreviation": "LLFAFS",
-				"full": "LaserLLama's Fighter Archetypes & Fighting Styles",
+				"full": "LaserLlama's Fighter Archetypes & Fighting Styles",
 				"authors": [
 					"laserllama"
 				],
 				"convertedBy": [
-					"JoeyJoestar"
+					"JoeyJoestar",
+					"hakr14"
 				],
-				"version": "2.1.0",
+				"version": "2.2.0",
 				"color": "4287f5",
 				"url": "https://www.gmbinder.com/share/-M0i_wbRAX8qAz1OIjbF",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.7"
 			}
 		],
 		"dateAdded": 1652153430,
-		"dateLastModified": 1678748267,
+		"dateLastModified": 1683601714,
 		"optionalFeatureTypes": {
-			"FS:M": "Fighting Style; Magus",
-			"FS:W": "Fighting Style; Warlord",
+			"GC": "Guerrilla Combatancy",
 			"QR": "Quartermaster Rations",
 			"TS": "Tinker Knight Schematics"
 		},
-		"_dateLastModifiedHash": "43eb5e4c72"
+		"_dateLastModifiedHash": "7ad32ec261"
 	},
 	"subclass": [
 		{
@@ -37,7 +36,7 @@
 			"shortName": "Commander",
 			"subclassFeatures": [
 				"Commander|Fighter|phb|Commander|llfafs|3",
-				"Strategic Insights|Fighter|phb|Commander|llfafs|7",
+				"Strategic Command|Fighter|phb|Commander|llfafs|7",
 				"Heroic Surge|Fighter|phb|Commander|llfafs|10",
 				"Invigorating Orders|Fighter|phb|Commander|llfafs|15",
 				"Legendary Commander|Fighter|phb|Commander|llfafs|18"
@@ -51,11 +50,42 @@
 			"shortName": "Crusader",
 			"subclassFeatures": [
 				"Crusader|Fighter|phb|Crusader|llfafs|3",
-				"Mantle of Faith|Fighter|phb|Crusader|llfafs|7",
 				"Renewed Fervor|Fighter|phb|Crusader|llfafs|7",
 				"Zealous Fury|Fighter|phb|Crusader|llfafs|10",
 				"Righteous Judgement|Fighter|phb|Crusader|llfafs|15",
-				"Divine Rebuke|Fighter|phb|Crusader|llfafs|18"
+				"Legendary Crusader|Fighter|phb|Crusader|llfafs|18"
+			]
+		},
+		{
+			"name": "Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"shortName": "Drifter",
+			"subclassFeatures": [
+				"Drifter|Fighter|phb|Drifter|llfafs|3",
+				"Hair-Trigger|Fighter|phb|Drifter|llfafs|7",
+				"Tenacious Pursuit|Fighter|phb|Drifter|llfafs|10",
+				"Deadly Hunter|Fighter|phb|Drifter|llfafs|15",
+				"Legendary Drifter|Fighter|phb|Drifter|llfafs|18"
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Wrangler",
+					"configuration": {
+						"identifier": "wrangler",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -68,8 +98,8 @@
 				"Guardian|Fighter|phb|Guardian|llfafs|3",
 				"Rallying Wind|Fighter|phb|Guardian|llfafs|7",
 				"Stalwart Defender|Fighter|phb|Guardian|llfafs|10",
-				"Improved Guardian Stance|Fighter|phb|Guardian|llfafs|15",
-				"Unshakable Bastion|Fighter|phb|Guardian|llfafs|18"
+				"Improved Stance|Fighter|phb|Guardian|llfafs|15",
+				"Legendary Guardian|Fighter|phb|Guardian|llfafs|18"
 			]
 		},
 		{
@@ -83,7 +113,31 @@
 				"By Land or Sea|Fighter|phb|Guerrilla|llfafs|7",
 				"Adaptable Fighting Style|Fighter|phb|Guerrilla|llfafs|10",
 				"Unwavering|Fighter|phb|Guerrilla|llfafs|15",
-				"Elite Guerrilla|Fighter|phb|Guerrilla|llfafs|18"
+				"Legendary Guerrilla|Fighter|phb|Guerrilla|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Adaptable Superiority",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"3": 3,
+						"7": 4,
+						"10": 5,
+						"15": 6
+					}
+				},
+				{
+					"name": "By Land or Sea",
+					"featureType": [
+						"GC"
+					],
+					"progression": {
+						"7": 1,
+						"15": 2
+					}
+				}
 			]
 		},
 		{
@@ -97,7 +151,21 @@
 				"Cunning Shot|Fighter|phb|Marksman|llfafs|7",
 				"Reposition|Fighter|phb|Marksman|llfafs|10",
 				"Reliable Shot|Fighter|phb|Marksman|llfafs|15",
-				"Deadeye|Fighter|phb|Marksman|llfafs|18"
+				"Legendary Marksman|Fighter|phb|Marksman|llfafs|18"
+			]
+		},
+		{
+			"name": "Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"shortName": "Martial Artist",
+			"subclassFeatures": [
+				"Martial Artist|Fighter|phb|Martial Artist|llfafs|3",
+				"Counter|Fighter|phb|Martial Artist|llfafs|7",
+				"Evasive Footwork|Fighter|phb|Martial Artist|llfafs|10",
+				"Unbreakable|Fighter|phb|Martial Artist|llfafs|15",
+				"Legendary Martial Artist|Fighter|phb|Martial Artist|llfafs|18"
 			]
 		},
 		{
@@ -115,17 +183,17 @@
 			]
 		},
 		{
-			"name": "Pact Warrior",
+			"name": "Witch Knight",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"shortName": "Pact Warrior",
+			"shortName": "Witch Knight",
 			"subclassFeatures": [
-				"Pact Warrior|Fighter|phb|Pact Warrior|llfafs|3",
-				"Otherworldly Step|Fighter|phb|Pact Warrior|llfafs|7",
-				"Enchanted Strikes|Fighter|phb|Pact Warrior|llfafs|10",
-				"Improved Sanguine Offering|Fighter|phb|Pact Warrior|llfafs|15",
-				"Profane Sacrifice|Fighter|phb|Pact Warrior|llfafs|18"
+				"Witch Knight|Fighter|phb|Witch Knight|llfafs|3",
+				"Otherworldly Step|Fighter|phb|Witch Knight|llfafs|7",
+				"Enchanted Strikes|Fighter|phb|Witch Knight|llfafs|10",
+				"Greater Offering|Fighter|phb|Witch Knight|llfafs|15",
+				"Profane Sacrifice|Fighter|phb|Witch Knight|llfafs|18"
 			],
 			"casterProgression": "pact",
 			"spellcastingAbility": "cha",
@@ -133,6 +201,19 @@
 				{
 					"className": "Warlock",
 					"classSource": "phb"
+				}
+			],
+			"additionalSpells": [
+				{
+					"ability": "cha",
+					"known": {
+						"3": [
+							{
+								"choose": "level=0",
+								"count": 1
+							}
+						]
+					}
 				}
 			],
 			"cantripProgression": [
@@ -327,7 +408,7 @@
 			"subclassFeatures": [
 				"Quartermaster|Fighter|phb|Quartermaster|llfafs|3",
 				"Dependable|Fighter|phb|Quartermaster|llfafs|7",
-				"Improved Rations|Fighter|phb|Quartermaster|llfafs|10",
+				"Quick Ration|Fighter|phb|Quartermaster|llfafs|10",
 				"Ever Ready|Fighter|phb|Quartermaster|llfafs|15",
 				"Iron Stomach|Fighter|phb|Quartermaster|llfafs|18"
 			]
@@ -341,9 +422,41 @@
 			"subclassFeatures": [
 				"Swordsage|Fighter|phb|Swordsage|llfafs|3",
 				"Heightened Reflexes|Fighter|phb|Swordsage|llfafs|7",
-				"Improved Battle Trance|Fighter|phb|Swordsage|llfafs|10",
-				"Technical Mastery|Fighter|phb|Swordsage|llfafs|15",
-				"Legendary Swordsage|Fighter|phb|Swordsage|llfafs|18"
+				"Masterful Trance|Fighter|phb|Swordsage|llfafs|10",
+				"Legendary Swordsage|Fighter|phb|Swordsage|llfafs|15",
+				"Legendary Swordsage (d8)|Fighter|phb|Swordsage|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Student of the Blade",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"3": 3,
+						"7": 4,
+						"10": 5,
+						"15": 6
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Battle Trance",
+					"configuration": {
+						"identifier": "battle-trance-ac",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"10": {
+								"value": 2
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -358,6 +471,20 @@
 				"Mechanical Synergy|Fighter|phb|Tinker Knight|llfafs|10",
 				"Flexible Innovation|Fighter|phb|Tinker Knight|llfafs|15",
 				"Masterwork Inventions|Fighter|phb|Tinker Knight|llfafs|18"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Inventive Arsenal",
+					"featureType": [
+						"TS"
+					],
+					"progression": {
+						"3": 2,
+						"7": 3,
+						"10": 4,
+						"15": 5
+					}
+				}
 			]
 		}
 	],
@@ -371,27 +498,26 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Alla kämpar förlitar sig inte enbart på sig själva i strid, vissa använder sin kunskap om taktik på slagfältet för att leda sina allierade. Befälhavare är krigare som leder sina soldater från fronten, ger order och inspirerar andra till storhet genom sina egna modiga gärningar. Genom sin närvaro kan en befälhavare förvandla en oorganiserad milis till en dödlig stridsstyrka.",
+				"Not all Fighters rely solely on themselves in battle, some use their knowledge of battlefield tactics to command their allies. Commanders are warriors who lead their soldiers from the front, issuing Commands and inspiring greatness in others by their own brave deeds. By their presence, a Commander can transform an unorganized militia into a deadly force.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Orders|Fighter|phb|Commander|llfafs|3"
+					"subclassFeature": "Art of War|Fighter|phb|Commander|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "The Art of War|Fighter|phb|Commander|llfafs|3"
+					"subclassFeature": "Tactical Orders|Fighter|phb|Commander|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
 					"name": "Captains, Tacticians, & Warlords",
 					"entries": [
-						"Nischen för befälhavare på slagfältet är en nisch som är uppenbart outvecklad i 5e. Underklassen Commander som presenteras här är ett försök att fylla detta tomrum med ett icke-magiskt karaktärsalternativ.",
-						"Befälhavaren är en kämpe som leder från fronten. Om du letar efter en mer strategisk ledare som använder andra hjältar som sina vapen kan du kolla in disciplinen Tactician Discipline för Savant Class."
+						"The battlefield commander is an archetype that is conspicuously absent in 5e. This Archetype, along with the Warlord Class attempts to fill that niche."
 					]
 				}
 			]
 		},
 		{
-			"name": "Orders",
+			"name": "Tactical Orders",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -400,10 +526,10 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Från och med 3:e nivån kan du, när du gör {@action Attack}-åtgärden på din tur, ersätta en av dina attacker med en order från listan nedan. Du kan utfärda en Order till alla villiga varelser inom 30 fot som kan höra dig. Du kan utfärda ett antal Order som är lika med 1 + din kompetensbonus, och du återfår alla förbrukade användningar när du avslutar en kort eller lång vila.",
+				"When you take the {@action Attack} action on your turn, you can issue one of the Orders from the list below in place of one attack. You can issue an Order to a willing creature within 30 feet, other than yourself, that can hear and understand you:",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
@@ -414,24 +540,46 @@
 						},
 						{
 							"type": "entries",
-							"name": "Inspiring Order",
+							"name": "Defensive Order",
 							"entries": [
-								"Målet får tillfälliga träffpoäng som är lika med din fighternivå + din kompetensbonus."
+								"The target of this Order can use its reaction to immediately take the {@action Dodge} action."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Maneuvering Order",
 							"entries": [
-								"Målet kan använda sin reaktion för att flytta sig upp till sin hastighet utan att provocera fram tillfälliga attacker."
+								"The target of this Order can use its reaction to move up to its speed without provoking opportunity attacks."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Support Order",
+							"entries": [
+								"The target of this Order can use its reaction to immediately take the {@action Help}, {@action Hide}, {@action Search}, or {@action Use an Object} action."
 							]
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you take the Attack action on your turn"
+				},
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/environment/people/infantry-armored.webp"
 		},
 		{
-			"name": "The Art of War",
+			"name": "Art of War",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -440,11 +588,25 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Du har ägnat tid åt att studera inte bara krigsstrategier utan även politiska strategier. På 3:e nivån får du färdighet i ditt val av antingen {@skill History}, {@skill Insight}, {@skill Investigation} eller {@skill Persuasion}."
-			]
+				"You have spent time studying not only the strategy and tactics of war but also the theory of politics. You gain proficiency in one of the following skills: {@skill History}, {@skill Insight}, {@skill Investigation}, or {@skill Persuasion}. Moreover, whenever you make an ability check with that skill, you treat a d20 roll of 7 or lower as an 8."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"history",
+							"insight",
+							"investigation",
+							"persuasion"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/books/symbol-axe-gold-grey.webp"
 		},
 		{
-			"name": "Strategic Insights",
+			"name": "Strategic Command",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -453,8 +615,30 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Från och med 7:e nivån kan du få en snabb insikt om slagfältet mitt i striden. När du använder din Second Wind-funktion får du tillbaka alla förbrukade användningar av dina Orders."
-			]
+				"You rally your allies even as you fight. When you use {@classFeature Second Wind|Fighter||1}, you can choose three creatures within 30 feet that can hear you to regain hit points equal to your Fighter level."
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind"
+				},
+				"damage.parts": [
+					[
+						"@classes.fighter.levels",
+						"healing"
+					]
+				],
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 3,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/weapons/swords/sword-gold-holy.webp"
 		},
 		{
 			"name": "Heroic Surge",
@@ -466,8 +650,23 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Ditt agerande inspirerar dina allierade. Från och med 10:e nivån kan du när du använder Action Surge välja en varelse inom 30 fot som kan höra dig. Som en reaktion kan den varelsen röra sig upp till sin fulla rörelsehastighet utan att provocera fram opportunitetsattacker. I slutet av sin rörelse kan varelsen göra en enda vapenattack som en del av samma reaktion."
-			]
+				"Your action inspires your allies. When you use {@classFeature Action Surge|Fighter||2}, you can choose one creature within 30 feet that can hear you. As a reaction, it can move up to its speed without provoking opportunity attacks. At the end of this movement, it can make a single weapon attack as part of the same reaction."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you use Action Surge"
+				},
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/skills/movement/arrow-upward-blue.webp"
 		},
 		{
 			"name": "Invigorating Orders",
@@ -479,8 +678,9 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Från och med 15:e nivån inspirerar dina order till storhet hos dem som kämpar tillsammans med dig. När du ger en order till en varelse har den fördel på den första attackkastet, förmågekontrollen eller räddningskastet den gör inom den närmaste minuten."
-			]
+				"Your orders inspire greatness in those who fight alongside you. Whenever you issue an {@subclassFeature Tactical Orders|Fighter||Commander|llfafs|3||Order} to a creature, it has advantage on the first weapon or spell attack roll that it makes within the next minute."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-black-gray.webp"
 		},
 		{
 			"name": "Legendary Commander",
@@ -492,8 +692,9 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Din förmåga att inspirera andra och leda allierade i strid kan mäta dig med de stora erövrarna och befälhavarna i legenderna. Från och med 18:e nivån kan din Heroic Surge påverka två valfria varelser inom 30 fot som kan se eller höra dig."
-			]
+				"Your ability to inspire others and lead allies into battle rivals the great conquerors and commanders of legend. When you use {@classFeature Action Surge|Fighter||2}, your {@subclassFeature Heroic Surge|Fighter||Commander|llfafs|10} can affect up to two creatures of your choice within 30 feet that can hear you."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-gold.webp"
 		},
 		{
 			"name": "Crusader",
@@ -504,21 +705,21 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Många krigare svär eden till stridens och krigets gudar, men alla är inte välsignade med paladinernas eller prästernas gudomliga kraft. De som kämpar för gudarna utan deras uttryckliga välsignelse är kända som korsfarare. Dessa fanatiker står som förkämpar för gudomliga orsaker, och deras glödande tro ger bränsle åt deras kampvilja.",
-				"Korsfarare tjänar många gudar och syften, men de har alla en sak gemensamt: deras fanatiska hängivenhet till det de tror är rätt. Deras tro är smidd i hängivenhetens eldar, och en hängiven korsfarare kommer ofta att knäcka snarare än att böja sig.",
+				"Many warriors swear Oaths to gods of battle and war, but not all are blessed with the divine abilities of Paladins or Clerics. Those who fight for the gods without their explicit blessing are known as Crusaders. These zealots stand as champions of divine causes, their fervent belief fueling their battle fury.",
+				"Crusaders serve many gods and causes, but they all have one thing in common; fanatical devotion to what they believe is right. Their belief is forged in the fires of devotion, and a Crusader will snap rather than bend.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Crusader's Ire|Fighter|phb|Crusader|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Faithful Disciple|Fighter|phb|Crusader|llfafs|3"
+					"subclassFeature": "Fanatical Disciple|Fighter|phb|Crusader|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
-					"name": "Anti-Magic Zealots",
+					"name": "Optional Rule: Oathbreaker Paladins",
 					"entries": [
-						"Även om alla trosriktningar har personer som kan betraktas som korsfarare, uppstår dessa fanatiska krigare oftast i gudars tjänst eller för orsaker som betraktar magi som onaturlig. Dessa fanatiker föraktar trollkarlar och utgör hänsynslösa magikerjägare och inkvisitorer."
+						"Should a Paladin break or forsake their Oath in your game, the Crusader Archetype here can be used to represent a Paladin who has lost their divine power."
 					]
 				}
 			]
@@ -533,19 +734,32 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Du kan markera dina fiender som mål för den gudomliga domen. Från och med 3:e nivån kan du använda en bonusåtgärd för att markera en varelse inom 30 fot som målet för din Crusader's Ire, vilket ger dig följande fördelar mot den varelsen:",
+				"You mark your foes for divine judgment. As a bonus action, you can Mark a creature within 60 feet as the target of your Crusader's Ire, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"En gång per tur när du missar varelsen med en vapenattack kan du omedelbart göra en ny vapenattack mot den varelsen med samma vapen.",
-						"Du kan använda en bonusåtgärd på din tur för att röra dig upp till din fulla rörelsehastighet mot den markerade varelsen."
+						"When the creature is within your reach and casts a spell or makes an attack against a creature other than you, you can use your reaction to make an opportunity attack.",
+						"When the creature forces you to make a saving throw, you can roll a {@dice d6}, and add the result to your saving throw."
 					]
 				},
-				"Ditt märke varar i 1 minut, eller tills varelsen dödas. När du har markerat en varelse måste du avsluta en kort eller lång vila innan du kan markera en annan varelse med denna egenskap."
-			]
+				"Your Mark lasts for 1 minute, or until the Marked creature is slain. Once you Mark a creature in this way you must finish a short or long rest before you can Mark another creature as the target of your Crusader's Ire."
+			],
+			"foundrySystem": {
+				"activation.condition": "",
+				"range": {
+					"value": 60,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creature"
+				}
+			},
+			"foundryImg": "icons/skills/targeting/target-glowing-yellow.webp"
 		},
 		{
-			"name": "Faithful Disciple",
+			"name": "Fanatical Disciple",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -554,21 +768,14 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Du har ägnat ditt liv åt din sak och lärt dig allt du kan om den. På 3:e nivån får du färdighet i {@skill Religion skill}. När du gör en intelligenskontroll ({@skill Religion}) relaterad till den gud, gudomlighet eller gudomliga sak du tjänar kan du lägga till dubbla din kompetensbonus till din rulle."
-			]
-		},
-		{
-			"name": "Mantle of Faith",
-			"source": "llfafs",
-			"className": "Fighter",
-			"classSource": "phb",
-			"subclassShortName": "Crusader",
-			"subclassSource": "llfafs",
-			"level": 7,
-			"header": 2,
-			"entries": [
-				"Det raseri som du bär på mot dina gudomligt utsedda fiender gör att du kan avvärja skadliga effekter. Från och med 7:e nivån, när en varelse som är markerad som måltavla för din Ire tvingar dig att göra ett räddningskast, kastar du en {@dice d6} och lägger till den till ditt kast."
-			]
+				"You gain proficiency in {@skill Religion}, and whenever you make an Intelligence ({@skill Religion}) check related to the god or cause you serve you add double your proficiency bonus to your roll."
+			],
+			"skillProficiencies": [
+				{
+					"religion": true
+				}
+			],
+			"foundryImg": "icons/sundries/books/book-symbol-cross-blue.webp"
 		},
 		{
 			"name": "Renewed Fervor",
@@ -580,8 +787,20 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"På 7:e nivån ger din tro dig också en gudomlig glöd mitt i striden. När du använder Second Wind återfår du också användningen av din egenskap Crusader's Ire."
-			]
+				"Your fanaticism grants you bursts of fervor in battle. When you use {@classFeature Second Wind|Fighter||1} you regain the use of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3}.",
+				"In addition, when you Mark a creature as the target of your Crusader's Ire, you can move up to 30 feet toward it as part of the same bonus action without expending your movement."
+			],
+			"consumes": {
+				"name": "Crusader's Ire",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind"
+				}
+			},
+			"foundryImg": "icons/magic/control/buff-strength-muscle-damage-orange.webp"
 		},
 		{
 			"name": "Zealous Fury",
@@ -593,8 +812,16 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Från och med 10:e nivån kan du med din övertygelse kämpa mot sår som skulle döda de mindre troende. När du reduceras till 0 träffpunkter men inte dödas direkt kan du istället sjunka till 1 träffpunkt. När du använt denna egenskap måste du avsluta en kort eller lång vila innan du kan göra det igen."
-			]
+				"Your conviction allows you to survive blows that would slay those of lesser faith. When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 hit point instead, instantly making one weapon attack against your attacker.",
+				"Once you use this feature you must finish a short or long rest before you can use it again. If you have no uses left, you can use it again, but you instantly gain a level of exhaustion."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you are reduced to 0 Hit Points but not killed outright"
+				}
+			},
+			"foundryImg": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp"
 		},
 		{
 			"name": "Righteous Judgement",
@@ -606,12 +833,19 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Du kan kalla på gudomlig vrede mot dem som står emot din sak. Från och med 15:e nivån, när du träffar målet för din Crusader's Ire med en vapenattack, kan du avsluta märket på det målet för att göra din attack till en kritisk träff.",
-				"Om den kritiska träffen reducerar varelsen till 0 träffpoäng får du åter användning av din egenskap Crusader's Ire."
-			]
+				"You are the arbiter of divine wrath. When you hit the target of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3} with a weapon attack, you can end the Mark to have your attack to deal maximum damage instead of rolling.",
+				"If the attack reduces the target to 0 hit points you instantly regain the use of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3}."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit the target of Crusader's Ire with a weapon attack"
+				}
+			},
+			"foundryImg": "icons/skills/targeting/target-strike-gray.webp"
 		},
 		{
-			"name": "Divine Rebuke",
+			"name": "Legendary Crusader",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -620,8 +854,188 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Från och med 18:e nivån kan du använda din reaktion för att göra en vapenattack mot dig när målet för din Crusader's Ire attackerar dig med en attack, och du kan använda din reaktion för att göra en vapenattack mot dem. Om du använder denna åtgärd efter att dess attack har träffat dig görs din vapenattack med fördel."
+				"When the target of {@subclassFeature Crusader's Ire|Fighter||Crusader|llfafs|3} target's you with an attack, you can use your reaction to make a single weapon attack against that creature. If you use this reaction after the attack hits you, your weapon attack is made with advantage."
+			],
+			"foundrySystem": {
+				"cost": 1,
+				"type": "reaction",
+				"condition": "When the target of Crusader's Ire targets you with an attack"
+			},
+			"foundryImg": "icons/skills/melee/weapons-crossed-swords-white-blue.webp"
+		},
+		{
+			"name": "Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"entries": [
+				"While most warriors hone their craft in organized schools of war or combat units, some mastered their combat skill in the wild. Known colloquially as Drifters, these solitary warriors can be found wandering from town to town, making a living hunting bounties - whether they be man, beast, or monster.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Wayward Soul|Fighter|phb|Drifter|llfafs|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Wrangler|Fighter|phb|Drifter|llfafs|3"
+				}
 			]
+		},
+		{
+			"name": "Wayward Soul",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You have spent many days and nights scratching a living out in the wild. You gain proficiency in {@skill Perception} or {@skill Survival}, and when you make a check with either of these skills, you can treat a d20 roll of 7 or lower as an 8.",
+				"You have also learned the language of the criminal world. You can identify, read, and speak in {@language Thieves' Cant}."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"perception",
+							"survival"
+						]
+					}
+				}
+			],
+			"languageProficiencies": [
+				{
+					"thieves' cant": true
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/cave-entrance-mountain-blue.webp"
+		},
+		{
+			"name": "Wrangler",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You are especially adept at bringing your quarries in alive, though you have no qualms if they force you to take more extreme measures. As a bonus action on your turn, you can Mark a creature that you can see within 30 feet as your Quarry, granting you the following benefits:",
+				{
+					"type": "list",
+					"items": [
+						"When you make a Strength ({@skill Athletics}) check to {@action shove} or {@action grapple} your Quarry, you have advantage on your roll.",
+						"As a reaction when your Quarry misses you with a melee attack, you can force it to make a Dexterity saving throw (Save DC = 8 + your proficiency bonus + your Wisdom modifier). On a failed save, you can choose to knock it {@condition prone} or to {@action grapple} the creature (if you have a free hand).",
+						"You have advantage on any Wisdom ({@skill Survival}) or Wisdom ({@skill Perception}) checks you make to track your Quarry."
+					]
+				},
+				"The creature remains your Quarry indefinitely, but this Mark ends early if your Quarry is {@quickref Hiding|PHB|2|0|Hidden} from you, you are {@condition incapacitated}, or you Mark another creature as your Quarry.",
+				"Once you Mark a creature as your Quarry you must finish a short or long rest before you can Mark another creature."
+			],
+			"foundrySystem": {
+				"range": {
+					"value": 30,
+					"units": "ft"
+				},
+				"target": {
+					"value": 1,
+					"type": "creautre"
+				},
+				"uses.max": "@scale.drifter.wrangler"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-mark-rough-pink.webp"
+		},
+		{
+			"name": "Hair-Trigger",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"You can add your proficiency bonus to initiative rolls, and when you roll initiative and are not surprised, you can use your reaction to mark a creature as your Quarry."
+			],
+			"foundrySystem": {
+				"activation.condition": "When you roll initiative and are not surprised"
+			},
+			"foundryImg": "icons/magic/perception/eye-ringed-glow-angry-red.webp"
+		},
+		{
+			"name": "Tenacious Pursuit",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"Once you have a foe in your sights it is rare that they escape your grasp. Once per turn when you make a weapon attack against your Quarry, you roll your damage dice twice and use the higher result.",
+				"Also, if you start your turn more then 30 feet away from your Quarry, you can take the {@action Dash} action as a bonus action on that turn. However, you must use the extra movement to end your turn closer to your Quarry then when you began."
+			],
+			"foundryImg": "icons/skills/movement/figure-running-gray.webp"
+		},
+		{
+			"name": "Deadly Hunter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You are ruthless in combat against your chosen foes. Your weapon attacks against your Quarry score a critical hit on a roll of 19 or 20 on the {@dice d20}.",
+				"Also, you can use {@subclassFeature Wrangler|Fighter||Drifter|llfafs|3} to Mark a creature as your Quarry up to three times, and you regain all expended uses of this feature when you finish a short or long rest."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryFlags": {
+				"babonus.bonuses.Z2bJnwUnjC20vL7u": {
+					"id": "Z2bJnwUnjC20vL7u",
+					"name": "Deadly Hunter",
+					"type": "attack",
+					"bonuses.criticalRange": 1,
+					"filters.targetEffects": [
+						"target"
+					]
+				}
+			},
+			"foundryImg": "icons/skills/melee/strike-blade-knife-blue-red.webp"
+		},
+		{
+			"name": "Legendary Drifter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Drifter",
+			"subclassSource": "llfafs",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"You are an unquestioned masterful hunter of creatures, both mortal and immortal. You gain the benefits listed below:",
+				{
+					"type": "list",
+					"items": [
+						"When you mark a creature as your Quarry, the Mark only ends if you mark another creature, or your Quarry is slain.",
+						"When you force your Quarry to make a saving throw, you can end the Mark to cause it to automatically fail.",
+						"You always know the direction of your Quarry so long as you are both on the same plane of existence."
+					]
+				}
+			],
+			"foundryImg": "icons/magic/control/debuff-energy-hold-blue-yellow.webp"
 		},
 		{
 			"name": "Guardian",
@@ -653,18 +1067,18 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Från och med 3:e nivån kan du, så länge du använder en {@item shield|phb}, använda en bonusåtgärd på din tur för att gå in i Guardian Stance. Denna hållning varar på obestämd tid och upphör i förtid om du blir oförmögen, om du tar av dig skölden eller om du avslutar den som en fri handling. När du befinner dig i denna hållning får du följande egenskaper:",
+				"So long as you are wielding a {@item shield|phb}, you can use a bonus action to enter a Guardian Stance that lasts indefinitely. It ends if you are {@condition incapacitated}, you doff your shield, or you end it as a free action. It grants you the benefits below:",
 				{
 					"type": "list",
 					"items": [
-						"Din rörelsehastighet minskas med 10 fot.",
-						"Varelser som du väljer inom 1,5 meter och som bär en sköld får en +1 bonus på sin rustningsklass.",
-						"När en varelse inom 1,5 meter från dig träffas av en attack kan du som en reaktion bli målet för attacken och ta skadan av attacken om den skulle träffa dig.",
-						"Som en bonusåtgärd kan du göra en närstridsattack med din sköld. Du anses vara duktig på den här attacken, och vid träff ger din sköldattack en slående skada som är lika med {@dice 1d4} + din styrka-modifierare."
+						"Your speed is reduced by 10 feet.",
+						"Creatures of your choice within 5 feet of you gain a +1 bonus to their Armor Class.",
+						"As a reaction, when a creature within 5 feet of you is hit by an attack, you can become the target of that attack, taking the damage if the attack would hit you.",
+						"You can make a {@action Shove} attack as a bonus action."
 					]
-				},
-				"Du kan använda den här funktionen ett antal gånger som är lika med din konstitutionsmodifierare (minst en gång), och du återfår alla förbrukade användningar när du avslutar en kort eller lång vila."
-			]
+				}
+			],
+			"foundryImg": "icons/skills/melee/shield-block-gray-orange.webp"
 		},
 		{
 			"name": "Warrior Smith",
@@ -676,10 +1090,16 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Du får färdigheter för att underhålla dina vapen och rustningar så att du bättre kan försvara dina allierade. På 3:e nivån får du dessutom färdigheter i {@item leatherworker's tools|phb} och {@item smith's tools|phb}.",
-				"I slutet av en lång vila kan du använda en av verktygen för att förstärka en sköld eller en rustning som du rör vid. Föremålet ger sin bärare en extra +1 bonus till rustningsklass.",
-				"Denna Armor Class-bonus varar fram till slutet av din nästa långa vila, då dess Armor Class återgår till normal nivå."
-			]
+				"You gain the skills to maintain your arms and armor so that you may defend your allies to the best of your ability. You gain proficiency in {@item leatherworker's tools|phb|leatherworker's} and {@item smith's tools|phb}.",
+				"During a long rest, you can spend 1 hour using either set of tools to reinforce one shield or a set of armor you touch. This object grants its wearer a special +1 bonus to its Armor Class until the end of your next long rest."
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true,
+					"smith's tools": true
+				}
+			],
+			"foundryImg": "icons/tools/smithing/hammer-maul-steel-grey.webp"
 		},
 		{
 			"name": "Rallying Wind",
@@ -691,8 +1111,26 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Från och med 7:e nivån inspirerar din närvaro i strid dina allierade att hålla sin position mot alla odds. När du använder Second Wind när du är i din Guardian Stance får varelser som du väljer inom räckvidden för din Stances egenskaper tillfälliga träffpoäng lika med din fighternivå."
-			]
+				"You inspire your allies to hold their position against all odds. When you use {@classFeature Second Wind|Fighter||1} while in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}, creatures of your choice within 5 feet of you that can see or hear you gain temporary hit points equal to your Fighter level."
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you use Second Wind while in your Guardian Stance"
+				},
+				"damage.parts": [
+					[
+						"@classes.fighter.levels",
+						"temphp"
+					]
+				],
+				"range": {
+					"value": 5,
+					"units": "ft"
+				}
+			},
+			"foundryImg": "icons/magic/life/cross-explosion-burst-green.webp"
 		},
 		{
 			"name": "Stalwart Defender",
@@ -704,20 +1142,21 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Du är starkast bland dina allierade. När du når 10:e nivån i den här klassen får du följande fördelar:",
+				"You are strongest when standing side by side, and shield by shield, with your allies. You gain the following benefits:",
 				{
 					"type": "list",
 					"items": [
-						"Du får en +1 bonus på din rustningsklass för varje vänskapligt sinnad varelse inom 1,5 meter från dig som använder en sköld.",
-						"Du kan inte förflyttas mot din vilja när du är vid medvetande.",
-						"Både du och vänskapliga varelser inom en radie av 1,5 meter från dig har fördel på räddningskast för styrka och konstitution.",
-						"När du kastar initiativ kan du omedelbart gå in i din Guardian Stance utan att använda funktionen, så länge du inte är oförmögen eller överraskad."
+						"You gain a +1 bonus to your Armor Class for each friendly creature within 5 feet of you that is not {@condition incapacitated}.",
+						"You cannot be moved against your will or knocked prone while you are in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}.",
+						"Both you, and friendly creatures within 5 feet of you, have advantage on Strength and Constitution saving throws while you are in your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3}.",
+						"When you roll initiative you can immediately enter your {@subclassFeature Guardian Stance|Fighter||Guardian|llfafs|3} as long as you are not surprised."
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/equipment/shield/buckler-iron-cross-gray.webp"
 		},
 		{
-			"name": "Improved Guardian Stance",
+			"name": "Improved Stance",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -726,11 +1165,12 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"På 15:e nivån förbättrar du din försvarsteknik för att bättre kunna försvara dem som står vid din sida. När du är i din Guardian Stance ger du vänskapliga varelser inom en radie på 1,5 meter av dig fördelarna med halvt skydd, i stället för +1 Armor Class-bonus."
-			]
+				"You improve your defensive technique to better defend those who stand beside you. When you are in Guardian Stance, you grant creatures of your choice within 5 feet the benefits of {@quickref Cover|PHB|3|0|half cover}, in place of the +1 Armor Class bonus."
+			],
+			"foundryImg": "icons/skills/melee/shield-block-gray-yellow.webp"
 		},
 		{
-			"name": "Unshakable Bastion",
+			"name": "Legendary Guardian",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -739,8 +1179,9 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Du är en mästare bland väktare. Från och med 18:e nivån kan dina egenskaper Guardian Stance och Stalwart Defender påverka varelser av ditt val inom tre meter från dig."
-			]
+				"You are a master Guardian and a near-supernatural shield to defend the weak. The range of all your Guardian features increase to include any creature of your choice within 15 feet."
+			],
+			"foundryImg": "icons/equipment/shield/heater-crystal-blue.webp"
 		},
 		{
 			"name": "Guerrilla",
@@ -754,11 +1195,11 @@
 				"Oavsett vilket uppdrag det handlar om, kommer en guerilla att utföra det med yttersta perfektion. Dessa krigare, som ibland kallas kommandosoldater, kännetecknas av sin beslutsamhet och anpassningsförmåga. Oavsett om det är hård terräng, elaka monster, fientliga soldater eller kraftfulla trollkarlar, så är det inget annat än döden som kan få en guerillakrigares viljestyrka att vackla i jakten på sina mål.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Adaptable Superiority|Fighter|phb|Guerrilla|llfafs|3"
+					"subclassFeature": "Survivalist|Fighter|phb|Guerrilla|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Survivalist|Fighter|phb|Guerrilla|llfafs|3"
+					"subclassFeature": "Adaptable Superiority|Fighter|phb|Guerrilla|llfafs|3"
 				}
 			]
 		},
@@ -772,15 +1213,16 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Du har tränats för att använda ett särskilt urval av manövrer i strid. Från och med 3:e nivån får du följande egenskaper:",
+				"You have trained to utilize a special selection of Maneuvers, similar to a Battle Master. You gain the following features",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Maneuvers",
 							"entries": [
-								"Du lär dig tre valfria manövrer från de som är tillgängliga för stridsmästaren. Du kan bara använda en manöver per attack. Du lär dig ytterligare en Manöver av ditt val på 7:e, 10:e och 15:e nivån i den här klassen."
+								"You learn three {@filter Maneuvers|optionalfeatures|feature type=mv:b} of your choice from those available to the Battle Master. You can use only one Maneuver per attack. You learn another Maneuver of your choice at 7th, 10th, and 15th level in this class."
 							]
 						},
 						{
@@ -814,7 +1256,26 @@
 						}
 					]
 				}
-			]
+			],
+			"resources": [
+				{
+					"name": "Superiority Dice",
+					"type": "dicePool",
+					"count": "floor((<$level$> + 30) / 8)",
+					"number": 1,
+					"faces": 6,
+					"recharge": "restShort"
+				}
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/movement/pinwheel-turning-blue.webp"
 		},
 		{
 			"name": "Survivalist",
@@ -826,9 +1287,49 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"På 3:e nivån får du färdigheter i två av följande färdigheter som du väljer: {@skill Athletics}, {@skill Perception}, {@skill Stealth} eller {@skill Survival}.",
-				"På 7:e nivån kan du välja en av de färdighetskompetenser som du har fått genom denna egenskap. Du kan lägga till dubbla din färdighetsbonus till varje förmågekontroll som använder den valda färdighetsprofilen."
-			]
+				"You are an expert at overcoming natural obstacles. You gain proficiency in two skills of your choice from the following list: {@skill Athletics}, {@skill Perception}, {@skill Stealth}, or {@skill Survival}.",
+				"When you reach 7th level, you choose two skills from the list above. If you are not proficient in a chosen skill you gain proficiency. If you are already proficient in a chosen skill you can add double your proficiency bonus to any ability check that you make with that skill."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 2,
+						"from": [
+							"athletics",
+							"perception",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/terrain-rocky-ground.webp"
+		},
+		{
+			"name": "Survivalist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Guerrilla",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"entries": [
+				"Choose two skills from the following list: {@skill Athletics}, {@skill Perception}, {@skill Stealth}, or {@skill Survival}. If you are not proficient in a chosen skill you gain proficiency. If you are already proficient in a chosen skill you can add double your proficiency bonus to any ability check that you make with that skill."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 2,
+						"from": [
+							"athletics",
+							"perception",
+							"stealth",
+							"survival"
+						]
+					}
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/terrain-rocky-ground.webp"
 		},
 		{
 			"name": "By Land or Sea",
@@ -840,27 +1341,29 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Du är utbildad för att lyckas i alla miljöer. På 7:e nivån och på 15:e nivån får du en av nedanstående egenskaper:",
+				"You have trained to succeed in any environment. At 7th level, and again at 15th level you gain one of the following features:",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Alpine Combatant",
 							"entries": [
-								"Du stålsätter dig för strid på stora höjder. Du får en klättringshastighet som är lika stor som din rörelsehastighet, och som en reaktion kan du minska fallskador som du tar med ett belopp som är lika stort som din fighternivå."
+								"You have trained for battle at great heights. You gain a climbing speed equal to your walking speed, and when you fall, you can use your reaction to reduce any falling damage by an amount equal to your fighter level."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Marine Combatant",
 							"entries": [
-								"Du förbereder dig för amfibiekrig. Du får en simhastighet som är lika stor som din rörelsehastighet, och du kan hålla andan i upp till 1 timme under vatten."
+								"You prepare for amphibious combat. You gain a swimming speed equal to your walking speed, and you can hold your breath for up to 1 hour underwater."
 							]
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/environment/wilderness/island.webp"
 		},
 		{
 			"name": "Adaptable Fighting Style",
@@ -872,8 +1375,17 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Du kan ändra din kampstil för att bättre kunna bemöta dina fiender. Från och med 10:e nivån kan du, när du avslutar en lång vila, byta ut din kampstil mot en annan kampstil som du själv väljer från listan i klassbeskrivningen för fighterklassen."
-			]
+				"You can adapt your style of fighting to better counter your enemies. When you finish a long rest, you can replace one {@filter Fighting Style|optionalfeatures|feature type=fs:f} you know with another Style of your choice."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/silhouette-grow-shrink-tan.webp"
 		},
 		{
 			"name": "Unwavering",
@@ -885,19 +1397,24 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Du kan hålla ut genom alla svårigheter för att slutföra din uppgift. Från och med 15:e nivån får du följande ytterligare fördelar när du använder din egenskap Second Wind:",
+				"You are remarkably hardy, even compared to other Fighters. When you use {@classFeature Second Wind|Fighter||1} you gain the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"Du återfår en av dina förbrukade Superiority Dice.",
 						"Din eventuella utmattningsnivå minskas med 1.",
-						"Du kan lägga till dubbelt så mycket som din kompetensbonus till nästa styrke-, dexteritets- eller konstitutionsbaserade förmågekontroll eller räddningskast som du gör inom den närmaste minuten."
+						"You gain a bonus to the next Strength, Dexterity, or Constitution ability check or saving throw you make within the next minute equal to your Superiority Die."
 					]
 				}
-			]
+			],
+			"consumes": {
+				"name": "Superiority Dice",
+				"amount": -1
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-yellow.webp"
 		},
 		{
-			"name": "Elite Guerrilla",
+			"name": "Legendary Guerrilla",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -906,8 +1423,30 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Om du börjar på 18:e nivån finns det inget som kan hindra dig från att nå dina mål om du har tid att förbereda dig. När du avslutar en kort eller lång vila kan du ersätta en Manöver du kan med en annan av ditt val, och en Kampstil du kan med en annan Kampstil av ditt val."
-			]
+				"There is nothing that can stand between you and your goals should you have time to prepare. You can use your {@subclassFeature Adaptable Fighting Style|Fighter||Guerrilla|llfafs|10} feature at the end of each short or long rest.",
+				"Moreover, when you roll initiative and are not surprised, you gain one of the following benefits of your choice:",
+				{
+					"type": "list",
+					"items": [
+						"You gain temporary hit points equal to your level.",
+						"You can instantly move up to your walking speed."
+					]
+				}
+			],
+			"foundrySystem": {
+				"actionType": "util",
+				"activation": {
+					"type": "special",
+					"condition": "When you roll initiative and are not surprised"
+				},
+				"damage.parts": [
+					[
+						"@details.level",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/environment/traps/spike-skull-white-brown.webp"
 		},
 		{
 			"name": "Marksman",
@@ -918,7 +1457,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Alla kämpar lär sig att dra en båge och kasta spjut, men de som utbildar sig till Marksmen är mästare på alla typer av distansvapen, och de försöker alltid förbättra sin noggrannhet och precision. Ofta backas deras dödliga skicklighet upp av en omisskännlig svada och ett orubbligt självförtroende. Det finns få utmaningar som en sann Marksman inte kan klara av att övervinna, eftersom han eller hon förlitar sig på sina medfödda talanger och sin karaktäristiska grymhet.",
+				"While all Fighters learn to draw a bow or hurl a javelin, those trained as Marksmen dedicate their lives to mastering ranged weapons of all types. Often, their deadly skills are backed up with an unmistakable swagger and unshakable confidence. Relying on their innate talents and signature grit, there are few challenges a true Marksman cannot overcome.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Elite Training|Fighter|phb|Marksman|llfafs|3"
@@ -931,8 +1470,14 @@
 					"type": "insetReadaloud",
 					"name": "Gunpowder & Firearms",
 					"entries": [
-						"Om ditt spel använder de valfria reglerna för skjutvapen från kapitel 9 i Dungeon Master's Guide, och din Marksman har blivit utsatt för sådana vapens inre arbete och funktion, är du skicklig på alla enkla och martialiska skjutvapen."
+						"If your game uses the optional rules for {@book firearms|DMG|9|firearms} from Chapter 9 of the Dungeon Master's Guide, and your Marksman has been exposed to the inner workings and operation of such weapons, you are proficient with all simple and martial firearms."
 					]
+				}
+			],
+			"weaponProficiencies": [
+				{},
+				{
+					"firearms": true
 				}
 			]
 		},
@@ -946,9 +1491,15 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"När du antar den här arketypen på 3:e nivån förbättrar din specialiserade träning din reaktionsförmåga. Varje gång du gör en test av din Dexterity-förmåga eller ett räddningskast kan du kasta en {@dice d6} och lägga till den till resultatet av ditt kast. Du kan använda den här egenskapen efter att du kastat, men innan du vet om du lyckas eller misslyckas.",
+				"Your specialized Marksman training has enhanced your reaction times. When you make a Dexterity ability check or saving throw, you can roll a {@dice d6} and add it to your roll. You can use this feature after you roll, but before you know if your roll is a success or failure.",
 				"Du kan ge dig själv den här bonusen ett antal gånger som är lika med din Dexterity-modifierare (minst en gång), och du återfår alla förbrukade användningar när du avslutar en kort eller lång vila."
-			]
+			],
+			"foundrySystem": {
+				"uses": {
+					"max": "max(1, @abilities.dex.mod)",
+					"per": "sr"
+				}
+			}
 		},
 		{
 			"name": "Steady Aim",
@@ -960,12 +1511,12 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Du kan lugna din kropp så att du kan skjuta med dödlig precision. Från och med 3:e nivån kan du, om du inte har rört dig under din tur, använda din bonusåtgärd till Steady Aim, vilket ger dig följande fördelar fram till slutet av din aktuella tur:",
+				"You can quiet your body so as to fire with deadly accuracy. If you start your turn and are not {@quickref surprise|phb|3|0|surprised} or {@condition incapacitated}, you can choose to Focus, which applies the features listed below until the end of your current turn:",
 				{
 					"type": "list",
 					"items": [
-						"Din rörelsehastighet minskas till 0 fot.",
-						"Tills du träffar en varelse med en distansvapenattack har du fördel på alla kast med distansvapenattacker.",
+						"Your speed is reduced to 0 feet.",
+						"You have advantage on attack rolls with ranged weapons until you hit a target with a ranged weapon attack.",
 						"När du slår en 1 eller 2 på en skadetärning för en attack som du gör med ett distansvapen kan du kasta om tärningen. Du måste använda denna nya rulle, även om den nya rullen är en 1 eller en 2."
 					]
 				}
@@ -981,7 +1532,7 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Din erfarenhet som Marksman har tränat dig att reagera på faror på ett ögonblick. Från och med 7:e nivån kan du lägga till din kompetensbonus till dina initiativkast.",
+				"Your reflexes are almost supernaturally fast. You add your proficiency bonus to your Initiative rolls while conscious.",
 				"Du har också lärt dig att identifiera och utnyttja även de minsta svaga punkterna i fiendens försvar. Dina attacker med distansvapen ignorerar motstånd mot genomträngande skador."
 			]
 		},
@@ -995,7 +1546,7 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Från och med 10:e nivån, när du använder Second Wind, ökar din hastighet med 10 fot, och tillfälliga attacker mot dig görs med nackdel fram till slutet av din aktuella tur."
+				"When you use {@classFeature Second Wind|Fighter||1}, your walking speed increases by 10 feet, and any opportunity attacks against you are made at disadvantage until the end of your current turn."
 			]
 		},
 		{
@@ -1008,12 +1559,12 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Du klarar även omöjliga skott med lätthet. Från och med 15:e nivån ignorerar du nackdelar från ditt vapens långa räckvidd.",
-				"Dessutom kan du en gång per tur, när du har fördel på en distansvapenattack, avstå från fördel och göra ytterligare en distansvapenattack mot samma mål."
+				"You make even impossible shots with ease. Your normal and long range for your ranged weapon attacks increases by a number of feet equal to 10 times your Fighter level.",
+				"In addition, once per turn, when you have advantage on a ranged weapon attack, you can forgo advantage and make one additional ranged weapon attack against that creature."
 			]
 		},
 		{
-			"name": "Deadeye",
+			"name": "Legendary Marksman",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1022,8 +1573,115 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Din skicklighet är övernaturlig i sin precision. Med början på 18:e nivån, när du använder Steady Aim varar fördelarna i 1 minut, och du har fördel på alla distansvapenattacker under hela tiden. Denna effekt upphör endast i förtid om du rör dig mer än 10 fot på en tur, eller om du blir oförmögen.",
-				"När du använder din egenskap Elitträning får du dessutom en bonus på den förmågekontrollen eller räddningskastet som är lika med {@dice 2d6}."
+				"Your marksmanship is supernatural in its precision. When you use {@subclassFeature Steady Aim|Fighter||Marksman|llfafs|3||Focus}, the benefits last for 1 minute, and you have advantage on all ranged weapon attacks for the duration. This effect only ends early if you move more than 10 feet in one turn, or you are {@condition incapacitated}.",
+				"Also, when you use your {@subclassFeature Elite Training|Fighter||Marksman|llfafs|3} feature, you gain a bonus to that ability check or saving throw equal to {@dice 2d6}."
+			]
+		},
+		{
+			"name": "Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"entries": [
+				"While some Fighters train in military academies or schools of war, others learn to fight in remote dojos. Generally known as Martial Artists, these elite Fighters hone their bodies into deadly weapons. Whether masters of hand-to-hand combat or street fighters, these warriors are peak physical specimens.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Iron Physique|Fighter|phb|Martial Artist|llfafs|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Martial Arts|Fighter|phb|Martial Artist|llfafs|3"
+				}
+			]
+		},
+		{
+			"name": "Iron Physique",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"You have learned to take a hit better than most and prefer to absorb blows rather than dodge. You can use your Constitution modifier, in place of your Dexterity, when calculating your Armor Class in light and medium armor.",
+				"Moreover, if you are not wearing any armor or wielding a shield, your Armor Class is equal to 10 + your Dexterity modifier + your Constitution modifier."
+			]
+		},
+		{
+			"name": "Martial Arts",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Your body itself is a deadly weapon. You gain proficiency with improvised weapons, and whenever you make an improvised weapon attack or an unarmed strike you gain these benefits:",
+				{
+					"type": "list",
+					"items": [
+						"You can roll a {@dice d6} in place of the damage die for that attack if the normal damage die was not already higher.",
+						"You can use your Dexterity, in place of your Strength, for your attack and damage rolls.",
+						"When you take the {@action Attack} action on your turn and make only improvised weapon attacks or unarmed strikes, you can make a {@action Shove} or {@action Grapple} attack as a bonus action."
+					]
+				}
+			]
+		},
+		{
+			"name": "Counter",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 7,
+			"header": 2,
+			"entries": [
+				"You have learned to exploit every opening your foe gives you. When a creature that you can see within your reach misses you with an attack, you can use your reaction to make one unarmed strike, improvised weapon, {@action Shove}, or {@action Grapple} attack against your attacker. When you do so, you have advantage on the attack roll or Strength ({@skill Athletics}) check."
+			]
+		},
+		{
+			"name": "Evasive Footwork",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 10,
+			"header": 2,
+			"entries": [
+				"You have trained to evade your foes' strikes in combat. When you take the {@action Attack} action on your turn and make at least one unarmed strike, you can take the {@action Disengage} or {@action Dash} action in place of one of your attacks on that turn."
+			]
+		},
+		{
+			"name": "Unbreakable",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You have learned to take hits that would be deadly to weaker heroes. When a creature you can see hits you with an attack that would drop you to 0 hit points, but not kill you outright, you can expend one of your Hit Dice to drop to 1 hit point."
+			]
+		},
+		{
+			"name": "Legendary Martial Artist",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Martial Artist",
+			"subclassSource": "llfafs",
+			"level": 18,
+			"header": 2,
+			"entries": [
+				"Your fists have become weapons of legend. When you score a critical hit against a target with an unarmed strike, and the target has 50 hit points or fewer, you can choose to instantly reduce it to 0 hit points. Once you use this feature you must finish a short or long rest before you can use it again."
 			]
 		},
 		{
@@ -1035,7 +1693,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Sedan civilisationens början har djur arbetat tillsammans med dödliga människor. Det mest anmärkningsvärda av dessa domesticerade djur är hunden. De tidigaste jägarna arbetade tillsammans med dessa lojala djur och delade mat och eld. Vissa jägare tar fortfarande upp denna mantel och tränar lojala hundar för att ge sig ut på äventyr vid sin sida.",
+				"Since the dawn of civilization, beasts have worked alongside mortals. Most notable of these domesticated animals is the dog. The earliest hunters worked in tandem with these loyal beasts, sharing food and fire. Some Fighters still take up this mantle and train Loyal Hounds to adventure by their side.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Loyal Hound|Fighter|phb|Master of Hounds|llfafs|3"
@@ -1043,6 +1701,14 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Packleader|Fighter|phb|Master of Hounds|llfafs|3"
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Loyal Hounds & other Canines",
+					"entries": [
+						"Depending on your table and game setting, there are many creatures that could be a Loyal Hound.",
+						"In most mundane settings, your Loyal Hound is most likely going to be a dog, wolf, or similar four-legged canine creature. In a fantastical game, any quadruped beast or monstrosity could be trained as a Loyal Hound. Talk to your DM about options!"
+					]
 				}
 			]
 		},
@@ -1056,9 +1722,9 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"När du antar den här arketypen på 3:e nivån avslutar du träningen av en lojal {@creature Hound|llfafs} som kommer att vara på äventyr vid din sida. Din {@creature Hound|llfafs} är vänlig mot dig och dina allierade och lyder dina kommandon. Den använder Loyal Hound-statusblocket på den här sidan, som använder din kompetensbonus (PB) på flera ställen.",
-				"I strid agerar Hound under din tur. Den kan förflytta sig och använda sin reaktion på egen hand, men den utför endast {@action Dodge} handling om du inte använder en bonushandling för att beordra den att utföra en handling från sitt statblock, eller en annan handling. När du utför {@action Attack}-handlingen kan du beordra din Hound att utföra {@action Attack}-handlingen i stället för en av dina attacker. Om du är oförmögen kan din Hound utföra vilken åtgärd som helst.",
-				"Om din Hound faller till 0 träffpoäng gör den räddningskast för att rädda döden som en spelarfigur skulle göra. Om din Loyal Hound dör kan du med dina specialkunskaper hitta en hund och träna den till att bli din Loyal Hound under en lång vila."
+				"You have completed the training of a Loyal Hound. Your Hound is friendly to you and obeys commands. It uses the {@creature Loyal Hound|llfafs} stat block, that uses your proficiency bonus (PB) in several places.",
+				"In combat, your Hound acts during your turn. It can move and use its reaction on its own, but it only takes the {@action Dodge} action unless you use your bonus action to command it to take an action from its stat block, or another action. When you take the {@action Attack} action, you can command your Hound to take the Attack action in place of one of your attacks. If you are {@condition incapacitated}, your Loyal Hound can act on its own to defend you.",
+				"If your Hound is reduced to 0 hit points, it makes death saving throws like a player character would. If your Hound dies, your skills allow you to find a canine-like creature and train it as a Loyal Hound over the course of a long rest, at which point, that creature uses the Loyal Hound stat block."
 			]
 		},
 		{
@@ -1071,7 +1737,12 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"På 3:e nivån får du färdighet i {@skill Animal Handling}, och du lägger till dubbla din färdighetsbonus till alla {@skill Animal Handling} kontroller du gör relaterade till hundar eller hundvarelser."
+				"You gain proficiency in {@skill Animal Handling}, and add double your proficiency bonus to any Wisdom ({@skill Animal Handling}) checks related to dogs, canines, or other similar creatures."
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true
+				}
 			]
 		},
 		{
@@ -1084,7 +1755,8 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Från och med 7:e nivån ignorerar din Loyal Hound's Bite och Maul attacker motstånd mot piercing och slashing damage. Dessutom har medelstora och mindre varelser nackdel på styrkebesparingskast för att stå emot din hunds gripande."
+				"Your Hound has been infused with a portion of your own fighting spirit. Your Hound's Bite and Maul attacks ignore resistance to nonmagical piercing and slashing damage.",
+				"In addition, any creature that is at least one size smaller than your Hound has disadvantage on its Strength saving throw to resist your Loyal Hound's grapple."
 			]
 		},
 		{
@@ -1097,8 +1769,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Din hund kommer att möta alla fiender med dig vid sin sida. Från och med 10:e nivån har din Hound fördel på alla räddningskast som de gör så länge de befinner sig inom 30 fot från dig.",
-				"När du använder din Second Wind får din Loyal Hound dessutom tillbaka träffpoäng motsvarande {@dice 1d10} + din Fighter-nivå."
+				"You can face any foe so long as your Hound is by your side. Your Hound has advantage on any saving throw it is forced to make so long as it is within 30 feet and can see or hear you.",
+				"Also, whenever you use {@classFeature Second Wind|Fighter||1}, your Loyal Hound also regains hit points equal to {@dice #$prompt_number:min=1,title=Enter your Fighter level,default=10$#|1d10 + your Fighter level}."
 			]
 		},
 		{
@@ -1111,7 +1783,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Din närvaro väcker ett vilt raseri. Från och med 15:e nivån, när du beordrar din Loyal Hound att utföra {@action Attack} åtgärden, kan den göra två naturliga vapenattacker som en del av den åtgärden."
+				"Your commands inspire wild fury. Whenever you command your Loyal Hound to take the {@action Attack} action, it can make two Maul attacks, or one Maul attack and one Bite attack."
 			]
 		},
 		{
@@ -1124,30 +1796,31 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Din hund är en legend. Från och med 18:e nivån, när du använder Action Surge, får din Hound också en extra handling."
+				"Thanks to your training, your Hound has come to rival the great beasts of legend. When you use {@classFeature Action Surge|Fighter||2}, your Hound also gains one extra action on that turn.",
+				"Moreover, your Loyal Hound's Strength and Dexterity scores each become 18, thereby increasing the bonus to hit and damage of both its Bite and Maul attacks by +2 each."
 			]
 		},
 		{
-			"name": "Pact Warrior",
+			"name": "Witch Knight",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
 				"De som vandrar på paktens krigares mörka väg drivs av en överväldigande önskan att förstöra världens stora onda ting. De som är särskilt hängivna, de som är villiga att ge upp allt, blir ofta kontaktade av Eldritch Powers, varelser med utomvärldslig makt. Dessa välgörare erbjuder makt i utbyte mot en bråkdel av krigarens själ eller en obetingad trohet.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Pact Magic|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Sanguine Offering|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Sanguine Offering|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Pact Magic|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Eldritch Power|Fighter|phb|Pact Warrior|llfafs|3"
+					"subclassFeature": "Eldritch Power|Fighter|phb|Witch Knight|llfafs|3"
 				},
 				{
 					"type": "insetReadaloud",
@@ -1163,43 +1836,43 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"På nivå 3 kan du genom den överenskommelse du gjort med din beskyddare kasta trollformler, precis som en trollkarl gör.",
+				"The bargain you have struck with your Patron has granted you the ability to cast spells, much like a Warlock does.",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Cantrips",
 							"entries": [
-								"Du lär dig ett valfritt cantrip från trollkarlens spellista. När du når 10:e nivån i den här klassen lär du dig ytterligare en warlock cantrip av ditt val."
+								"You learn one cantrip of your choice from the Warlock spell list. Upon reaching 10th level in this class you learn one additional Warlock cantrip of your choice."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spell Slots",
 							"entries": [
-								"Tabellen Pact Warrior Spellcasting visar hur många spell slots du har, och nivån på dessa spell slots. Alla dina trollformelplatser från den här funktionen har samma nivå. För att kasta en av dina trollkarlsbesvärjelser på 1:a nivån eller högre måste du förbruka en trollformelplats. Du återfår alla förbrukade spell slots när du avslutar en kort eller lång vila."
+								"The Witch Knight Spellcasting table shows how many spell slots you have, and the level of those spell slots. All of your spell slots from this feature are the same level. To cast one of your Warlock spells of 1st-level or higher, you must expend a spell slot. You regain all expended spell slots when you finish a short or long rest."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spells Known of 1st-Level and Higher",
 							"entries": [
-								"Du lär dig två trollformler på 1:a nivån som du väljer från listan över trollkarlens trollformler. Kolumnen Spells Known i tabellen Pact Warrior Spellcasting visar när du lär dig fler trollkarlsbesvärjelser på 1:a nivån eller högre. En trollformel du väljer måste vara av en nivå som inte är högre än vad som visas i tabellens kolumn Slot Level för din nivå.",
-								"När du till exempel når 7:e nivån lär du dig en ny trollkarlsbesvärjelse som du själv väljer, som kan vara på 1:a eller 2:a nivån.",
-								"När du får en nivå i den här klassen kan du välja en av de trollkarlsbesvärjelser du känner till och ersätta den med en annan besvärjelse som du själv väljer från listan över trollkarlsbesvärjelser, som också måste vara av en nivå som du har besvärjelseplatser för."
+								"You learn two 1st-level spells of your choice from the Warlock spell list. The Spells Known column of the Witch Knight Spellcasting table shows when you learn more Warlock spells of 1st-level or higher. A spell you choose must be of a level no higher than what's shown in the table's Slot Level column for your level.",
+								"When you gain a level, you can choose a Warlock spell you know and replace it with another spell from the Warlock spell list, which must be of a level for which you have spell slots."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Spellcasting Ability",
 							"entries": [
-								"Charisma är din förmåga att kasta trollformler för dina trollkarlsbesvärjelser. Du använder din Charisma när en trollformel hänvisar till din trollformelförmåga, när du fastställer DC för räddningskast och när du gör en trollformelattackrulle.",
+								"Charisma is your spellcasting ability for your Warlock spells. You use your Charisma whenever a spell refers to your spellcasting ability, when setting the saving throw DC, and when making a spell attack roll.",
 								{
 									"type": "abilityDc",
 									"name": "Spell",
@@ -1225,12 +1898,12 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Från och med 3:e nivån kan du offra din egen livskraft till din Eldritch Power för att öka din krigiska styrka. En gång per tur, när du träffar en varelse med en närstridsvapenattack, kan du använda en av dina kämpar-Tärningar som en del av attacken för att tillfoga ytterligare {@dice 2d6} nekrotisk skada till målet, utöver den normala skadan från ditt vapen."
+				"Once per turn, when you hit a creature with a melee weapon attack, you can expend one of your fighter Hit Dice as part of the attack to deal an additional {@damage 2d6} necrotic damage to the target, in addition to the normal damage of your weapon."
 			]
 		},
 		{
@@ -1238,15 +1911,21 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 3,
 			"header": 2,
 			"entries": [
+				"{@note Notice: In the 2.2.0 update for Fighter Archetypes & Fighting Styles, the Eldritch Power feature is not present, but is listed as a feature the subclass gains at 3rd level. The below is the description of Eldritch Power from version 2.1.0, when the subclass was called Pact Warrior.}",
 				"När du antar den här arketypen på 3:e nivån får du mindre eldritchförmågor som återspeglar källan till din kraft. Samarbeta med din GM för att bestämma källan till din kraft. Är det en annan världslig beskyddare som är tillgänglig för trollkarlar? Har du överlevt en kataklysmisk arkan händelse som lämnade dig med märkliga krafter?",
 				"Du får en valfri färdighet och lär dig en valfri trollformel från en av klassens spellistor. Denna cantrip räknas inte mot ditt totala antal Cantrips Known.",
 				"Ofta, och efter GM:s gottfinnande, bör de färdigheter och cantrip som du får genom den här förmågan återspegla karaktären hos den Eldritch Power som gav dig dina arkana förmågor.",
 				"Till exempel skulle en Pact Warrior vars Eldritch Power är en mäktig djävul få mindre djävulska förmågor. De kan få färdighet i {@skill Deception} och lära sig {@spell vicious mockery} cantrip för att matcha sin beskyddares dubbelspelande natur."
+			],
+			"skillProficiencies": [
+				{
+					"any": 1
+				}
 			]
 		},
 		{
@@ -1254,13 +1933,12 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Från och med 7:e nivån kan du använda dig av den kraft du fått för att smita genom sprickor i verkligheten. När du använder Second Wind kan du teleportera dig upp till 60 fot till ett obebott utrymme som du kan se. Om du dyker upp inom 5 fot från en varelse kan du omedelbart göra en vapenattack mot den varelsen.",
-				"Om du inte har någon användning av denna funktion kvar, måste du använda en av dina Pact Magic spell slots för att använda den igen."
+				"You can use Eldritch power to slip through cracks in reality. When you use {@classFeature Second Wind|Fighter||1}, you can teleport up to 60 feet to an unoccupied space you can see. If you appear within 5 feet of a creature, you can make one weapon attack against it."
 			]
 		},
 		{
@@ -1268,26 +1946,26 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Den eldritchiska magin i ditt blod sipprar in i dina vapenslag och minskar motståndskraften mot trollformler. Från och med 10:e nivån, när du träffar en varelse med en vapenattack, har den varelsen nackdel på nästa räddningskast den gör mot en besvärjelse du kastar före slutet av din nästa tur."
+				"The Eldritch magic within your blood seeps into your weapon strikes. When you hit a creature with a weapon attack, that creature has disadvantage on the next saving throw it makes against a spell you cast before the end of your next turn."
 			]
 		},
 		{
-			"name": "Improved Sanguine Offering",
+			"name": "Greater Offering",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Du kan återställa din egen livskraft genom att orsaka smärta hos andra. Från och med 15:e nivån, när du förstärker en vapenattack med din Sanguine Offering, får du tillfälliga träffpoäng som är lika med den extra nekrotiska skadan som drabbar varelsen.",
-				"Temporära träffpoäng från den här förmågan varar i en minut, eller tills du får tillfälliga träffpoäng från en annan källa."
+				"You can restore your own vitality by inflicting pain on others. When you use {@subclassFeature Sanguine Offering|Fighter||Witch Knight|llfafs|3}, you gain temporary hit points equal to the necrotic damage dealt to the creature.",
+				"Temporary hit points you gain from this feature last for 1 minute, or until you gain temporary hit points again."
 			]
 		},
 		{
@@ -1295,21 +1973,13 @@
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
-			"subclassShortName": "Pact Warrior",
+			"subclassShortName": "Witch Knight",
 			"subclassSource": "llfafs",
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"När du når 18:e nivån kan du erbjuda dina fienders död till din Eldritch Power i utbyte mot förbättrade förmågor. Som en reaktion när en varelse dör inom 30 fot från dig får du en av följande förmåner som du väljer:",
-				{
-					"type": "list",
-					"items": [
-						"Du har fördel på alla vapenattacker som du gör före slutet av din nästa vändning.",
-						"Du återfår {@dice 1d4} + 1 förbrukad träffar tärning.",
-						"Du återfår en förbrukad Pact Magic-spellplats."
-					]
-				},
-				"Du kan använda den här förmågan ett antal gånger som är lika med din Charisma-modifierare (minst en gång), och du återfår alla förbrukade användningar när du avslutar en lång vila."
+				"You can offer the death of your foes to your Eldritch Power for enhanced abilities. As a reaction when a creature dies within 30 feet of you, you can regain one of your expended Pact Magic spell slots, or {@dice 1d4} of your expended Hit Dice.",
+				"När du har använt den här funktionen måste du vila en kort eller lång stund innan du kan använda den igen."
 			]
 		},
 		{
@@ -1321,10 +1991,10 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Alla framgångsrika äventyrare känner till värdet av lagarbete, men ingen värdesätter det mer än de som kallas Quartermasters. Dessa stödjande krigare strävar efter att hjälpa sina allierade att nå sin fulla potential. Quartermasters sätter ständigt sina följeslagares behov före sina egna och håller sitt lag i toppform med en färsk Ration och en hjälpande hand.",
+				"Every successful adventurer comes to know the importance of teamwork, but none value it more than the Fighters known as Quartermasters. Rather than improve their own individual abilities, these supportive warriors work to help companions reach their potential. Always putting the needs of their allies first, they keep their team in top condition with fresh Rations.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Quartermaster Training|Fighter|phb|Quartermaster|llfafs|3"
+					"subclassFeature": "Down to Earth|Fighter|phb|Quartermaster|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -1341,7 +2011,7 @@
 			]
 		},
 		{
-			"name": "Quartermaster Training",
+			"name": "Down to Earth",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1350,7 +2020,18 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"På 3:e nivån får du färdighet i {@item cook's utensils|phb}, landfordon och i {@skill Animal Handling}. Om du redan är skicklig i någon av dessa färdigheter kan du lägga till dubbla din färdighetsbonus till varje kontroll som använder det verktyget eller den färdigheten."
+				"You have mastered the skills to provide. You gain proficiency with {@item cook's utensils|phb}, land vehicles, and in {@skill Animal Handling}. Moreover, when you make an ability check that uses one of these proficiencies, you treat a d20 roll of 7 or lower as an 8."
+			],
+			"toolProficiencies": [
+				{
+					"cook's utensils": true,
+					"vehicles (land)": true
+				}
+			],
+			"skillProficiencies": [
+				{
+					"animal handling": true
+				}
 			]
 		},
 		{
@@ -1363,8 +2044,8 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Du har lärt dig att tillreda en mängd ransoner som håller dina allierade i toppform. Från och med 3:e nivån förbereder du i slutet av varje lång vila ett antal Rationer som är lika med din konstitutionsmodifierare (minst 1 Ration) från Quartermaster Rations Optional Features. Du kan förbereda vilken Ration som helst så länge du uppfyller dess förutsättningar. Alla oätna Rationer förstörs och blir inaktiva i slutet av din nästa långa vila.",
-				"En varelse kan äta en ranson eller mata en ranson till en villig eller medvetslös varelse inom 1,5 meter som en bonusåtgärd. Att äta en Ration avslutar alla pågående Ration-effekter på den varelsen."
+				"You are able to prepare potent morsels of food that keep your allies in peak condition. At the end of each long rest, you can prepare a number of these Rations equal to your Constitution modifier (minimum of 1) from {@filter the list at end of this subclass|optionalfeatures|feature type=qr}.",
+				"As a bonus action, you can eat a prepared Ration, or feed a Ration to a creature within 5 feet. Consuming a Ration ends any current Ration effects on that creature. Any Rations you have prepared become inert at the end of your next long rest."
 			]
 		},
 		{
@@ -1380,6 +2061,7 @@
 				"Du ser till att dina allierade har de förnödenheter och det stöd som de behöver för att klara sig. Från och med 7:e nivån kan du ta någon av de särskilda åtgärderna nedan som en bonusåtgärd på din tur:",
 				{
 					"type": "list",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
@@ -1392,7 +2074,7 @@
 							"type": "entries",
 							"name": "Arm",
 							"entries": [
-								"Du ger ett vapen, föremål eller ammunition som du bär till en varelse inom en radie av 1,5 meter. Varelsen kan sedan utrusta det givna föremålet och stuva ett föremål som en fri handling."
+								" You give a weapon, item, or any ammunition you are carrying to a creature within 5 feet. The creature can then equip the given item, and stow one item as a free action."
 							]
 						},
 						{
@@ -1406,7 +2088,7 @@
 							"type": "entries",
 							"name": "Wrangle",
 							"entries": [
-								"Du gör en Visdomskontroll ({@skill Animal Handling}) eller en {@item land vehicles|phb} kontroll för att kontrollera en häst eller vagn som du rider på."
+								"You make a Wisdom ({@skill Animal Handling}) or a land vehicles check to control a mount or cart you are riding."
 							]
 						}
 					]
@@ -1414,7 +2096,7 @@
 			]
 		},
 		{
-			"name": "Improved Rations",
+			"name": "Quick Ration",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1423,8 +2105,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Du har förbättrat både styrkan och skapandet av dina ransoner. Från och med 10:e nivån förbereder du ett antal ransoner som är lika med din konstitutionsmodifierare (minst 1 ranson) i slutet av varje kort eller lång vila. Dessa Rationer förstörs dock i slutet av din nästa korta eller långa vila.",
-				"Dessutom ökar alla Rationseffekter som varar i 1 minut sin varaktighet till 1 timme."
+				"You have greatly improved the speed at which you prepare Rations. You can use a bonus action on your turn to create a Ration of your choice, eating it or feeding it to a creature within 5 feet of you as part of that same bonus action. Any Rations created in this way expire after 1 minute.",
+				"You can create a Quick Ration a number of times equal to your Constitution modifier (minimum of once), and you regain all expended uses when you finish a long rest."
 			]
 		},
 		{
@@ -1437,7 +2119,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Du är alltid redo att stödja dina kamrater. Från och med 15:e nivån, när du kastar initiativ och inte har några Rationer kvar, kan du förbereda en enda Ration av ditt val."
+				"You are always ready to support your companions with a Ration. If you have no Rations remaining when you roll for initiative, you can prepare one Quick Ration of your choice."
 			]
 		},
 		{
@@ -1450,8 +2132,11 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Ditt arbete med att testa och experimentera med nya fantastiska Ration-formler har gjort din kropp hårdare och din mage hårdare. När du når 18:e nivån ökar din konstitutionsnivå och din maximala konstitutionsnivå båda med 2 och du är immun mot {@condition poisoned}.",
-				"Dessutom är du alltid påverkad av en valfri Ration med en varaktighet på minst 1 minut. Det behöver inte vara en Ration som du förberett, och du kan ändra Rationseffekten i slutet av varje kort eller lång vila."
+				"Your experiments with Rations have toughened your body. Your Constitution score, and maximum Constitution score, increase by 2, and you are immune to the {@condition poisoned} condition.",
+				"In addition, you are always under the effects of one Ration of your choice with a duration of at least 1 minute. You can change the Ration effect at the end of each short or long rest."
+			],
+			"conditionImmune": [
+				"poisoned"
 			]
 		},
 		{
@@ -1463,7 +2148,7 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"Svärdsägaren, klingans mästare, svärdshelgonet - expertkrigare som ägnar sina liv åt krigskonsten har haft många namn genom historien. En Swordsage drar sitt vapen endast när de är beredda att döda och slår ner sin fiende endast när det är nödvändigt. De försöker alltid förbättra sin teknik och behärska allt mer imponerande martialiska färdigheter.",
+				"Swordsage, blade master, sword saints; expert warriors who dedicate their lives to the art of battle have had many names throughout history. Only drawing their weapon when they are prepared to kill, a Swordsage will only slay another creature when necessary. A master Swordsage will only ever take one apprentice, teaching everything they know to a single warrior.",
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Student of the Blade|Fighter|phb|Swordsage|llfafs|3"
@@ -1471,6 +2156,13 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Battle Trance|Fighter|phb|Swordsage|llfafs|3"
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Superiority, Maneuvers, & Exploits",
+					"entries": [
+						"The Swordsage Archetype presented here grants a Fighter some Maneuvers from the Battle Master. If you think the entire Fighter class should be able to use such martial combat techniques, check out the Alternate Fighter Class and its Martial Exploits!"
+					]
 				}
 			]
 		},
@@ -1484,24 +2176,24 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Under din studie av svärdet har du lärt dig andra färdigheter som är knutna till svärdspelet. På 3:e nivån får du färdighet i antingen {@skill Acrobatics}, {@skill Insight}, {@skill Intimidation} eller {@skill Performance}.",
+				"In your study of the sword you have mastered other skills adjacent to swordplay. You gain proficiency in your choice of {@skill Acrobatics}, {@skill Insight}, {@skill Intimidation}, or {@skill Performance}.",
 				"Du lär dig också att använda speciella manövrer för att förbättra din kampförmåga i strid. Du får följande egenskaper:",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Maneuvers",
 							"entries": [
-								"Du lär dig tre valfria manövrer från de som är tillgängliga för stridsmästaren. Du kan bara använda en manöver per attack. Du lär dig ytterligare en Manöver av ditt val på 7:e, 10:e och 15:e nivån i den här klassen."
+								"You learn three {@filter Maneuvers|optionalfeatures|feature type=mv:b} of your choice from those available to the Battle Master. You can use only one Maneuver per attack. You learn another Maneuver of your choice at 7th, 10th, and 15th level in this class."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Superiority Dice",
 							"entries": [
-								"Du har fyra överlägsenhetstärningar, som är {@dice d6} för dig. För att använda en av de manövrer som du kan måste du använda en överlägsenhetstärning som en del av din attack. Du återfår alla förbrukade Superiority Dice när du avslutar en kort eller lång vila. Du får ytterligare en överlägsenhetstjocklek på 10:e nivån och ytterligare en överlägsenhetstjocklek på 18:e nivån (för totalt 6)."
+								"You have four Superiority Dice, which are {@dice d6}s for you. To use one of the Maneuvers you know, you must expend a Superiority Die as part of your attack. You regain all expended Superiority Dice when you finish a short or long rest. You gain a fifth Superiority Die at 10th level and a final sixth Superiority Die 18th level."
 							]
 						},
 						{
@@ -1521,6 +2213,29 @@
 						}
 					]
 				}
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"from": [
+							"acrobatics",
+							"insight",
+							"intimidation",
+							"performance"
+						]
+					}
+				}
+			],
+			"resources": [
+				{
+					"name": "Superiority Dice",
+					"type": "dicePool",
+					"count": "floor((<$level$> + 30) / 8)",
+					"number": 1,
+					"faces": 6,
+					"recharge": "restShort"
+				}
 			]
 		},
 		{
@@ -1533,19 +2248,17 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Som Swordsage kan du rensa ditt sinne från alla distraktioner och bara fokusera på strid. När du antar den här arketypen på 3:e nivån lär du dig att gå in i Battle Trance of a Swordsage. Den ger dig förbättrade förmågor, förutsatt att du inte bär en tung rustning eller svingar en sköld eller ett tungt vapen.",
-				"Som en bonusåtgärd kan du använda en Superiority Die för att gå in i en Battle Trance, vilket ger dig följande fördelar:",
+				"So long as you are not wearing heavy armor or a shield, you can use a bonus action to enter a Battle Trance. Your Battle Trance grants you the benefits below for 1 minute:",
 				{
 					"type": "list",
 					"items": [
-						"Din rörelsehastighet ökar med 10 fot.",
-						"Du får en bonus på din rustningsklass som är lika med halva din kompetensbonus (avrundat nedåt).",
-						"Du har fördel på styrkekontroller ({@skill Athletics}).",
-						"När du kastar en överlägsenhetstjocklek för en manöver kan du en gång per spelomgång kasta två gånger och ta den högsta tärningen.",
-						"Som en reaktion när du tvingas göra ett räddningskast kan du använda en Superiority Die och lägga till den till ditt kast."
+						"You can take the {@action Dash} action as a bonus action",
+						"You gain a +1 bonus to your Armor Class.",
+						"You have advantage on Dexterity ({@skill Acrobatics}) checks.",
+						"Once per turn when you use a Maneuver, you can roll your Superiority Die twice and use the result of your choice."
 					]
 				},
-				"Din Battle Trance varar i 1 minut. Den avslutas tidigt om du är oförmögen att ta hand om dig, om du tar på dig en sköld, tung rustning eller ett tungt vapen, eller om du väljer att avsluta den som en bonusåtgärd."
+				"Your Battle Trance ends early if you are {@condition incapacitated}, or you don a shield or heavy armor. Once you enter a Battle Trance you must finish a short or long rest before you can do so again. If you have no uses left, you can expend one of your Superiority Die to enter a Battle Trance again."
 			]
 		},
 		{
@@ -1558,11 +2271,16 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Du har finslipat dina reflexer i jakten på martialisk perfektion. På 7:e nivån får du färdighet i Dexterity saving throws och du kan lägga till din färdighetsbonus till initiativrullningar."
+				"You have honed your reflexes to a point in pursuit of martial perfection. You gain proficiency in Dexterity saving throws, and you add your proficiency bonus to your initiative rolls."
+			],
+			"savingThrowProficiencies": [
+				{
+					"dex": true
+				}
 			]
 		},
 		{
-			"name": "Improved Battle Trance",
+			"name": "Masterful Trance",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1571,20 +2289,8 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Du har behärskat svärdshållarens stridstrance. Från och med 10:e nivån kan du, när du kastar initiativ, gå in i din Battle Trance utan att använda en Superiority Die."
-			]
-		},
-		{
-			"name": "Technical Mastery",
-			"source": "llfafs",
-			"className": "Fighter",
-			"classSource": "phb",
-			"subclassShortName": "Swordsage",
-			"subclassSource": "llfafs",
-			"level": 15,
-			"header": 2,
-			"entries": [
-				"Från och med 15:e nivån blir du en virvelvind av dödligt stål när du är i din Battle Trance. En gång per tur, medan du är i din Battle Trance, kan du använda en manöver som du känner till, genom att kasta en {@dice d6} i stället för att använda en av dina Superiority Dice."
+				"You have mastered the Battle Trance of the Swordsage. When you roll initiative, so long as you are not surprised, you can enter a {@subclassFeature Battle Trance|Fighter||Swordsage|llfafs|3} without expending any resources.",
+				"Moreover, while you are in your Battle Trance, the bonus to your Armor Class increases by 1, for a total bonus of +2."
 			]
 		},
 		{
@@ -1594,10 +2300,23 @@
 			"classSource": "phb",
 			"subclassShortName": "Swordsage",
 			"subclassSource": "llfafs",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"You become a whirlwind of deadly steel while in your Battle Trance. Once per turn while you are in a Battle Trance, you can use any Maneuver that you know, rolling a {@dice d6} in place of expending one of your Superiority Dice."
+			]
+		},
+		{
+			"name": "Legendary Swordsage (d8)",
+			"source": "llfafs",
+			"className": "Fighter",
+			"classSource": "phb",
+			"subclassShortName": "Swordsage",
+			"subclassSource": "llfafs",
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"När du når 18:e nivån blir dina Superiority Dice {@dice d8}s, och du kan kasta en {@dice d8} för din förmåga Technical Mastery."
+				"When you reach 18th level in this class the once per turn {@dice d6} from the {@subclassFeature Legendary Swordsage|Fighter||Swordsage|llfafs|15} feature becomes a {@dice d8}."
 			]
 		},
 		{
@@ -1609,10 +2328,10 @@
 			"subclassSource": "llfafs",
 			"level": 3,
 			"entries": [
-				"De kämpar som kallas Tinker Knights söker en oortodox form av krigisk skicklighet. Istället för att behärska kamptekniker försöker de öka sin fysiska förmåga med mekaniska uppfinningar och innovativa vapen. Även om de tillbringar den mesta av sin tid med att teoretisera, pyssla och experimentera med nya scheman, är Tinker Knights och deras uppfinningsrika arsenal en kraft att räkna med på slagfältet.",
+				"The Fighters known as Tinker Knights seek an unorthodox form of martial skill. Rather than master martial techniques they look to augment their physical ability with mechanical inventions and innovative weaponry. Though they spend most of their time theorizing, tinkering, and experimenting with new Schematics, Tinker Knights and their inventive arsenals are a force to be reckoned with when they take to the field.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Bonus Proficiencies|Fighter|phb|Tinker Knight|llfafs|3"
+					"subclassFeature": "Analytical Mind|Fighter|phb|Tinker Knight|llfafs|3"
 				},
 				{
 					"type": "refSubclassFeature",
@@ -1622,13 +2341,13 @@
 					"type": "insetReadaloud",
 					"name": "Tinker Knight's In Your Setting",
 					"entries": [
-						"Tinker Knights är en märklig typ av krigare som värderar hjärnor högre än muskler. Även om den beskrivande texten här beskriver kugghjul och fjädrar av metall kan de lika gärna skapa sina underbara uppfinningar med trä, stenar, kristaller, ben, pinnar och fjäll."
+						"Tinker Knights are strange warriors who value brain over brawn. While the abilities here describe metal gears and springs, a Tinker Knight can just as easily modify gear with crystals, bones, sticks, and scales."
 					]
 				}
 			]
 		},
 		{
-			"name": "Bonus Proficiencies",
+			"name": "Analytical Mind",
 			"source": "llfafs",
 			"className": "Fighter",
 			"classSource": "phb",
@@ -1637,7 +2356,24 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"När du antar denna arketyp på 3:e nivån får du färdigheten att upprätthålla dina uppfinningar. Du får färdighet i {@item tinker's tools|phb} och {@item smith's tools|phb}. Om du redan är duktig på dessa verktyg, får du kompetens med en annan uppsättning verktyg som du väljer."
+				"You gain proficiency with {@item tinker's tools|phb} and {@item smith's tools|phb}. If you are already proficient with these tools, you instead gain proficiency with another set of tools of your choice."
+			],
+			"toolProficiencies": [
+				{
+					"tinker's tools": true,
+					"smith's tools": true
+				},
+				{
+					"tinker's tools": true,
+					"any": 1
+				},
+				{
+					"any": 1,
+					"smith's tools": true
+				},
+				{
+					"any": 2
+				}
 			]
 		},
 		{
@@ -1652,11 +2388,11 @@
 			"entries": [
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
-						"Du har kommit på en kakofoni av märkliga modifieringar av vapen och rustningar, så kallade Schematics. På 3:e nivån lär du dig två Schematics av ditt val från Tinker Knight Schematics Optional Features. När du får en nivå kan du ersätta en Schematic som du känner till med en annan som du själv väljer.",
+						"You have designed a cacophony of unique modifications for weapons and armor, known as {@filter Schematics|optionalfeatures|feature type=ts}. You know two Schematics of your choice from the list at the end of this subclass. When you gain a Fighter level, you can replace one Schematic you know with another of your choice.",
 						"När du får högre nivåer i den här klassen ökar antalet kända Schematics; på 7:e nivån (3), 10:e nivån (4) och 15:e nivån (5).",
-						"I slutet av varje lång vila kan du röra vid ett antal föremål som är lika stort som ditt antal kända Schematics och du modifierar varje föremål med egenskaperna hos en Schematic. Dessa egenskaper varar till slutet av din nästa långa vila. Ett föremål kan endast modifieras av en Schematic åt gången, och det måste uppfylla kraven i Schematics beskrivning.",
+						"At the end of each long rest, you can touch a number of objects equal to your number of Schematics Known and you modify each object with the features of one Schematic. These features last until the end of your next long rest. Each object can only be modified by one Schematic at a time, and it must meet the requirements in the Schematic description.",
 						{
 							"type": "entries",
 							"name": "Saving Throws",
@@ -1685,8 +2421,14 @@
 			"level": 7,
 			"header": 2,
 			"entries": [
-				"Dina färdigheter konkurrerar med de bästa innovatörerna. Från och med 7:e nivån fördubblas din färdighetsbonus för varje förmågekontroll du gör som använder din färdighet med {@item tinker's tools|phb} eller {@item smith's tools|phb}.",
-				"Dessutom räknas föremål som modifierats av dina scheman som magiska för att övervinna motstånd och immunitet, och du kan använda dina scheman på magiska vapen och rustningar."
+				"Your proficiency bonus is doubled for any ability check that uses your proficiency with {@item tinker's tools|phb} or {@item smith's tools|phb}.",
+				"In addition, items modified by your Schematics count as magical for overcoming resistances and immunities, and you can apply Schematics to magic weapons and armor."
+			],
+			"expertise": [
+				{
+					"tinker's tools": true,
+					"smith's tools": true
+				}
 			]
 		},
 		{
@@ -1699,7 +2441,7 @@
 			"level": 10,
 			"header": 2,
 			"entries": [
-				"Era ändringar fungerar parallellt. Från och med 10:e nivån kan du tillämpa två Schematics på ett objekt, så länge objektet uppfyller förutsättningarna för båda Schematics."
+				"Your modifications can work in tandem with each other. You can apply two Schematics to one object, so long as the object meets the prerequisites for both Schematics."
 			]
 		},
 		{
@@ -1712,7 +2454,7 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Din uppfinningsrika arsenal kan anpassas för att möta de aktuella utmaningarna. Från och med 15:e nivån kan du efter en kort vila överföra en Schematic från ett objekt till ett annat, så länge det nya objektet uppfyller förutsättningarna. Om en Schematic har ett begränsat antal laddningar förblir antalet förbrukade laddningar detsamma när den överförs.",
+				"Your inventive arsenal can adjust to meet the challenges at hand. At the end of a short rest, you can transfer a Schematic from one object to another, so long as the new object meets the prerequisites. If a Schematic has a limited amount of charges, the number of expended charges remains the same.",
 				"Dessutom kan du tillämpa upp till tre scheman på ett objekt, så länge det uppfyller alla förutsättningarna för scheman."
 			]
 		},
@@ -1726,14 +2468,14 @@
 			"level": 18,
 			"header": 2,
 			"entries": [
-				"Era innovationer har fantastiska effekter. Från och med 18:e nivån får ett vapen som modifierats av en Schematic en +1 bonus på attack- och skadekast för varje Schematic som appliceras på det, och en rustning som modifierats av en Schematic får en +1 bonus på Armor Class för varje Schematic som appliceras på den.",
+				"Weapons modified by your Schematics gain a +1 bonus to its attack and damage rolls for each Schematic applied to it, and any set of armor modified by a Schematic gains a +1 bonus to its Armor Class for each of your Schematics applied to it.",
 				"Vapen och rustningar som modifierats av dina Schematics kan inte få en högre bonus än +3, oavsett vilka bonusar föremålet kan ha haft innan du använde dina Schematics."
 			]
 		}
 	],
 	"monster": [
 		{
-			"name": "Hound",
+			"name": "Loyal Hound",
 			"source": "llfafs",
 			"size": [
 				"M"
@@ -1765,9 +2507,9 @@
 			"languages": [
 				"understands the languages that you speak"
 			],
-			"pbNote": "equals the Fighter's bonus",
+			"pbNote": "equals your bonus",
 			"damageTags": [
-				"N",
+				"P",
 				"S"
 			],
 			"trait": [
@@ -1788,13 +2530,13 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"{@atk mw} {@hit +2+PB|+2+PB} för att träffa, räckvidd 1,5 meter, ett mål, {@h} {@damage 1d6+2+PB|1d6+2+PB} genomträngande skada. Vid träff måste målet lyckas med ett räddningskast för styrka (DC är lika med 10 + PB) eller bli {@condition grappled}. Hunden kan bara gripa tag i en varelse åt gången."
+						"{@atk mw} {@hit +2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|+2+PB} to hit, reach 5ft., one target, {@h} {@damage 1d6+2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|1d6+2+PB} piercing damage. On hit, the target must succeed on a Strength Saving throw (DC equals 10 + PB) or be {@condition grappled}. The Hound can only grapple one creature at a time."
 					]
 				},
 				{
 					"name": "Maul",
 					"entries": [
-						"{@atk mw} {@hit +2+PB|+2 + PB} för att träffa, räckvidd 1,5 meter, ett mål, {@h} {@damage 1d8+2+PB|1d8+2+PB} snittskada."
+						"{@atk mw} {@hit +2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|+2+PB} to hit, reach 5ft., one target, {@h} {@damage 1d8+2+#$prompt_number:min=1,title=Enter your Proficiency Bonus,default=2$#|1d8+2+PB} slashing damage."
 					]
 				}
 			],
@@ -1803,33 +2545,11 @@
 			],
 			"traitTags": [
 				"Keen Senses"
-			]
+			],
+			"summonedByClass": "Fighter"
 		}
 	],
 	"optionalfeature": [
-		{
-			"name": "Arcane Warrior",
-			"source": "llfafs",
-			"featureType": [
-				"FS:M"
-			],
-			"additionalSpells": [
-				{
-					"ability": "int",
-					"known": {
-						"_": [
-							{
-								"choose": "level=0|class=wizard",
-								"count": 2
-							}
-						]
-					}
-				}
-			],
-			"entries": [
-				"Du lär dig {@filter two wizard cantrips of your choice|spells|level=0|class=Wizard}. De räknas som magiska trollformler för dig, och Intelligence är din trollformleringsförmåga för dem. När du får en nivå i den här klassen kan du ersätta en av dessa cantrips med en annan wizard cantrip."
-			]
-		},
 		{
 			"name": "Berserkergang",
 			"source": "llfafs",
@@ -1838,44 +2558,55 @@
 				"FS:P"
 			],
 			"entries": [
-				"Du kämpar med hänsynslös övergivenhet i strid. En gång per tur kan du ge dig själv en fördel på en enda anfallsrulle. När du tar denna fördelaktiga attack reduceras din rustningsklass med 2 fram till början av din nästa tur."
+				"You fight with reckless abandon in battle. Once per turn, you can grant yourself advantage on a single melee weapon attack roll. Once you take this advantaged attack, your Armor Class is reduced by 2 until the beginning of your next turn."
 			]
 		},
 		{
-			"name": "Classical SwordPlay",
+			"name": "Classical Swordplay",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:M",
-				"FS:P",
-				"FS:W"
+				"FS:P"
 			],
 			"entries": [
-				"När du använder ett finessvapen och inga andra vapen får du en bonus på +1 på både dina anfallsrullar och din rustningsklass så länge du inte använder en tung rustning eller en sköld."
-			]
-		},
-		{
-			"name": "Defensive Fighting",
-			"source": "llfafs",
-			"featureType": [
-				"FS:M"
+				"While wielding a finesse weapon and no other weapons, you gain a +1 bonus to your attack rolls and a +1 to your Armor Class so long as you are not using heavy armor or a shield."
 			],
-			"entries": [
-				"Så länge du bär en rustning eller använder en sköld får du +1 bonus på din rustningsklass."
-			]
+			"foundryEffects": [
+				{
+					"name": "Classical Swordplay",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.bonuses.rwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/skills/melee/sword-twirl-orange.webp"
 		},
 		{
 			"name": "Dual Wielding",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:R",
-				"FS:W",
-				"FS:M"
+				"FS:R"
 			],
 			"entries": [
-				"När du utför attackeringsåtgärden när du kämpar med två vapen kan du göra en enda extra attack med ditt vapen utan hand som en del av din aktion istället för din bonusåtgärd, och lägga till din förmågemodifierare till skadan av denna attack."
-			]
+				"When you take the {@action Attack} action while two-weapon fighting, you can make a single additional attack with your off-hand weapon as part of your action instead of your bonus action, adding your ability modifier to the damage of this attack."
+			],
+			"foundryImg": "icons/skills/melee/weapons-crossed-daggers-orange.webp"
 		},
 		{
 			"name": "Featherweight Fighting",
@@ -1885,7 +2616,20 @@
 				"FS:R"
 			],
 			"entries": [
-				"När du endast använder lätta vapen ökar din rörelsehastighet med 10 fot och du får en +2-bonus på dina skaderullar, så länge du inte bär medium rustning, tung rustning eller använder en sköld."
+				"While you are wielding only light weapons, and nothing else, your speed increases by 10 feet. You also gain a +1 bonus to damage rolls with light weapons, so long as you are not wearing medium or heavy armor, or wielding a shield."
+			],
+			"foundryEffects": [
+				{
+					"name": "Speed Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1896,7 +2640,25 @@
 				"FS:P"
 			],
 			"entries": [
-				"Du använder din vikt, och vapnets vikt, för att få förödande slag. När du använder ett tungt vapen får du +2 i bonus på skaderullar och du har fördel på styrkekontroller ({@skill Athletics}) som görs till {@action Shove}."
+				"You can use your weight, and the weight of your weapon, to land devastating blows. While you are wielding a heavy weapon, you gain a +2 bonus to damage rolls and you have advantage on Strength ({@skill Athletics}) checks made to {@action Shove}."
+			],
+			"foundryEffects": [
+				{
+					"name": "Damage Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						},
+						{
+							"key": "system.bonuses.rwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1906,7 +2668,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"Du får färdighet med improviserade vapen. En gång per tur, när du träffar med en improviserad vapenattack, kan du kasta skadetärningen två gånger och ta den högre tärningen. När du gör detta förstörs det improviserade vapnet och kan inte användas för ytterligare attacker. Den här egenskapen kan inte användas för att förstöra magiska föremål."
+				"You gain proficiency with improvised weapons. Once per turn, when you hit with a non-magical improvised weapon attack, you can roll the damage die twice and take the higher roll. When you do so, the improvised weapon is destroyed and cannot be used for further attacks."
 			]
 		},
 		{
@@ -1917,7 +2679,25 @@
 				"FS:R"
 			],
 			"entries": [
-				"När du inte bär en medium eller tung rustning eller använder en sköld har du en simhastighet som är lika stor som din rörelsehastighet och du får en bonus på din rustningsklass på +1."
+				"When you are not wearing medium or heavy armor, or using a shield, you have a swimming speed equal to your walking speed, and you gain a +1 bonus to your Armor Class."
+			],
+			"foundryEffects": [
+				{
+					"name": "Mariner",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1928,8 +2708,37 @@
 				"FS:R"
 			],
 			"entries": [
-				"När du gör en distansattack som riktar sig mot en varelse inom en radie av 1,5 meter från dig har du inte nackdel på attackkastet.",
-				"Om du gör en distansattack mot en varelse inom 1,5 meter kan du använda en bonusåtgärd för att träffa varelsen med ditt distansvapen, vilket ger {@dice 1d4} dödande skada vid träff."
+				"Having a hostile creature within 5 feet of you doesn't impose disadvantage on your ranged weapon attacks, so long as you are attacking a creature within 5 feet.",
+				"When you make a ranged weapon attack against a creature within 5 feet, you can use your bonus action to make a melee attack against it with your ranged weapon. On hit, you deal bludgeoning damage equal to {@damage 1d4} + your Strength modifier."
+			]
+		},
+		{
+			"name": "Mountaineer",
+			"source": "llfafs",
+			"featureType": [
+				"FS:F",
+				"FS:R"
+			],
+			"entries": [
+				"When you are not wearing medium or heavy armor, or using a shield, you have a climbing speed equal to your walking speed, and you gain a +1 bonus to your Armor Class."
+			],
+			"foundryEffects": [
+				{
+					"name": "Mountaineer",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -1940,8 +2749,22 @@
 				"FS:P"
 			],
 			"entries": [
-				"En gång per tur, när du träffar en stor eller mindre varelse med en närstridsattack när du är beriden, kan du tvinga den att göra ett räddningskast för styrka (DC = 8 + din kompetensbonus + din styrka-modifierare). Vid ett misslyckande slås den omkull {@condition prone}."
-			]
+				"While riding a trained mount, both you and your mount gain a +1 bonus to your Armor Class, and you can use a bonus action to command it to take one action from its stat block."
+			],
+			"foundryEffects": [
+				{
+					"name": "AC Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/creatures/horse-tan.webp"
 		},
 		{
 			"name": "Pit Fighting",
@@ -1950,7 +2773,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"Du har tränat på att slåss med vapen som vanligtvis förknippas med gladiatorer, vilket ger dig följande fördelar:",
+				"You have trained to fight with weapons typically associated with gladiators, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
@@ -1969,20 +2792,62 @@
 				"FS:P"
 			],
 			"entries": [
-				"Du får färdighet med {@item shield|phb}s som ett martialiskt närstridsvapen. Vid träff ger du {@dice 2d4} blåslagningsskada. Om du använder en {@item shield|phb} och inget annat får du en +1 bonus på både dina skaderullar med {@item shield|phb} attacker och på din rustningsklass."
-			]
+				"You gain proficiency with {@item shield|phb}s as a martial melee weapon, and on hit, your shield deals {@damage 2d4} bludgeoning damage. If you are wielding a {@item shield|phb} and nothing else, you gain a +1 bonus to your shield attack damage rolls and to your Armor Class."
+			],
+			"foundrySystem": {
+				"actionType": "mwak",
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"2d4",
+						"bludgeoning"
+					]
+				]
+			},
+			"foundryEffects": [
+				{
+					"name": "Shield Warrior",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/skills/melee/shield-block-bash-yellow.webp"
 		},
 		{
 			"name": "Standard Bearer",
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:P",
-				"FS:W"
+				"FS:P"
 			],
 			"entries": [
-				"När en varelse inom 1,5 meter från dig gör en attack mot en varelse som du kan se kan du ge dem en fördel på deras attackkast som en reaktion. Du måste bära en banner, flagga eller standard i handen för att kunna använda denna reaktion."
-			]
+				"When a creature within 5 feet of you makes an attack against a creature that you can see, you can grant it advantage on its attack roll as a reaction. You must be carrying a banner, flag, or standard in your hand to use this reaction."
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "reaction"
+				},
+				"range": {
+					"value": 5,
+					"units": "ft"
+				}
+			},
+			"foundryImg": "icons/sundries/flags/banner-sword-blue.webp"
 		},
 		{
 			"name": "Strongbow",
@@ -2001,13 +2866,42 @@
 			"source": "llfafs",
 			"featureType": [
 				"FS:F",
-				"FS:M",
 				"FS:P",
-				"FS:R",
-				"FS:W"
+				"FS:R"
 			],
 			"entries": [
-				"När du använder ett enda mångsidigt vapen och ingen {@item shield|phb}, kan du välja att använda vapnet med en eller två händer fram till början av din nästa tur. När du svingar det enhandigt får du en +1 bonus på attackkast och på din rustningsklass. När du använder det med två händer får du en +2 bonus på dina skaderullar."
+				"While wielding a single versatile weapon and no shield, you can choose to wield your weapon one or two-handed until the start of your next turn. When wielding it one-handed you gain a +1 bonus to attack rolls and to your Armor Class. Wielding it two-handed you gain a +2 bonus to your damage rolls."
+			],
+			"foundryEffects": [
+				{
+					"name": "Versatile Fighting (One-Handed)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.attack",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				},
+				{
+					"name": "Versatile Fighting (Two-Handed)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.bonuses.mwak.damage",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
 			]
 		},
 		{
@@ -2017,7 +2911,7 @@
 				"FS:F"
 			],
 			"entries": [
-				"När du gör {@action Attack}-åtgärden på din tur kan du försöka att {@action grapple} eller {@action shove} en varelse som en bonusåtgärd på den turen, så länge du har en fri hand för att göra det. Dessutom kan du dra {@condition grappled} varelser upp till din fulla rörelsehastighet."
+				"When you take the {@action Attack} action on your turn, you can attempt to {@action grapple} or {@action shove} a creature as a bonus action on that turn, so long as you have a free hand to do so. Also, you can drag {@condition grappled} creatures up to your full speed."
 			]
 		},
 		{
@@ -2061,7 +2955,7 @@
 			],
 			"entries": [
 				"Vid förtäring återfår varelsen träffpoäng motsvarande {@dice 1d10} + din konstitutionsmodifierare (minst +1).",
-				"Från och med 10:e nivån återställer denna Ration ytterligare {@dice 1d10} träffpoäng, och alla träffpoäng som de återfår och som överstiger deras maximala träffpoäng blir tillfälliga träffpoäng."
+				"At 10th level, this Ration restores an additional {@dice 1d10} hit points, and any hit points they regain that exceed their hit point maximum become temporary hit points."
 			]
 		},
 		{
@@ -2082,8 +2976,8 @@
 				}
 			],
 			"entries": [
-				"Vid konsumtion avslutar varelsen ett av följande tillstånd som för närvarande påverkar den: {@condition blinded}, {@condition deafened}, {@condition poisoned}, eller så sänker den sin utmattningsnivå med 1.",
-				"Från och med den 10:e nivån kan denna Ration även bota {@condition charmed}, {@condition frightened}, {@condition paralyzed} och {@condition stunned}."
+				"Upon consumption, the creature ends one of the following conditions currently affecting it: {@condition blinded|phb|blindness}, {@condition deafened|phb|deafness}, {@condition poisoned}, or it can reduce its {@condition exhaustion} level by 1.",
+				"At 10th level, this Ration can also cure a creature of the {@condition charmed}, {@condition frightened}, {@condition paralyzed}, or {@condition stunned} condition."
 			]
 		},
 		{
@@ -2105,7 +2999,7 @@
 			],
 			"entries": [
 				"Denna ranson måste intas som en del av en kort vila. Vid förtäring får varelsen fördel på kastet för alla Hit Dice de väljer att använda under den korta vilan.",
-				"Från och med 10:e nivån kan en varelse som äter denna Ration behandla alla Hit Dice de använder under den korta vilan som deras högsta möjliga resultat istället för att rulla."
+				"At 10th level, consuming this Ration allows the creature to treat any Hit Dice it expends during the short rest as the maximum possible result instead of rolling."
 			]
 		},
 		{
@@ -2148,8 +3042,30 @@
 				}
 			],
 			"entries": [
-				"Vid förtäring får varelsen motståndskraft mot antingen dödande, genomträngande eller slående skada (valfritt).",
-				"Från och med den 10:e nivån ger denna Ration motståndskraft mot dödande, genomträngande och slående skador."
+				"Upon consumption, the creature gains resistance to either bludgeoning, piercing, or slashing damage (its choice).",
+				"At 10th level consuming this Ration grants the creature resistance to bludgeoning, piercing, and slashing damage."
+			]
+		},
+		{
+			"name": "Engorging Ration",
+			"source": "llfafs",
+			"featureType": [
+				"QR"
+			],
+			"prerequisite": [
+				{
+					"level": {
+						"level": 7,
+						"class": {
+							"name": "Fighter"
+						}
+					},
+					"other": "Duration, 1 minute"
+				}
+			],
+			"entries": [
+				"Upon consumption, the creature grows by one size category, for example, from Medium to Large. While the creature's size is increased in this way, its reach increases by 5 feet, it has advantage on Strength checks and saving throws, and any melee weapon attacks it makes deal a bonus {@damage 1d4} damage.",
+				"At 10th level the duration of the effect becomes 1 hour."
 			]
 		},
 		{
@@ -2171,7 +3087,7 @@
 			],
 			"entries": [
 				"Vid konsumtion väljer varelsen antingen intelligens, visdom eller karisma. Under hela tiden kan varelsen lägga till din konstitutionsmodifierare (minst +1) till alla förmågekontroller eller räddningskast för den valda förmågespoängen.",
-				"På 10:e nivån ökar effekten till 1 timme."
+				"At 10th level the duration of the effect becomes 1 hour."
 			]
 		},
 		{
@@ -2192,8 +3108,8 @@
 				}
 			],
 			"entries": [
-				"Vid konsumtion får varelsen motståndskraft mot syra, kyla, eld, gift, blixtar eller åska (valfritt).",
-				"På 10:e nivån ökar effektens varaktighet till 1 timme, och varelsen kan välja mellan kraft, nekrotisk, psykisk eller strålande skada utöver de andra skadetyperna."
+				"Upon consumption, the creature gains resistance to acid, cold, fire, poison, lightning, or thunder damage (its choice).",
+				"At 10th level the duration of the effect becomes 1 hour, and the creature can choose force, necrotic, psychic, or radiant damage in addition to the other damage types."
 			]
 		},
 		{
@@ -2214,7 +3130,8 @@
 				}
 			],
 			"entries": [
-				"Vid konsumtion får varelsen immunitet mot ett av följande tillstånd (valfritt): {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition poisoned}, {@condition paralyzed} eller {@condition stunned}."
+				"Upon consumption, the creature gains immunity to one of the following conditions (its choice): {@condition blinded}, {@condition charmed}, {@condition deafened}, {@condition frightened}, {@condition poisoned}, {@condition paralyzed}, or {@condition stunned}.",
+				"At 15th level, this Ration grants a creature immunity to two of the conditions from the list above (its choice)."
 			]
 		},
 		{
@@ -2235,7 +3152,8 @@
 				}
 			],
 			"entries": [
-				"Vid konsumtion blir varelsen inte medvetslös när den har 0 träffpunkter. Den gör dock fortfarande dödsbesparingskast som vanligt, och dör om den misslyckas tre gånger."
+				"Upon consumption, the creature is guarded from the effects of death. Should it fall to 0 hit points within the next hour, it does not fall {@condition unconscious}. However, it still makes death saving throws as normal, dying upon failing three.",
+				"After a creature eats this Ration, it must finish a long rest before it can gain the benefits of any other Ration."
 			]
 		},
 		{
@@ -2256,8 +3174,8 @@
 				}
 			],
 			"entries": [
-				"Vid förtäring får varelsen omedelbart fördelarna av en kort vila, inklusive förmågan att omedelbart spendera Hit Dice som en del av den handling de använde för att konsumera Ration.",
-				"I slutet av sin tur får varelsen 1 nivå av utmattning. En varelse som konsumerar denna Ration kan inte få fördelarna av en annan ranson förrän den avslutar en lång vila."
+				"Upon consumption, the creature gains all the benefits of a short rest, including the ability to expend its Hit Dice as part of consuming the Ration. At the end of its current turn, the creature gains 1 level of {@condition exhaustion}.",
+				"After a creature eats this Ration, it must finish a long rest before it can gain the benefits of any other Ration."
 			]
 		},
 		{
@@ -2267,30 +3185,30 @@
 				"TS"
 			],
 			"entries": [
-				"Du ändrar ett föremåls metallurgiska sammansättning och gör det lättare. Bäraren eller innehavaren av ett föremål som modifierats av denna Schematic får sin rörelsehastighet ökad med 10 fot.",
+				"You modify the metallurgic makeup of an item, making it significantly lighter. The bearer of an object modified by this Schematic has its walking speed increased by 10 feet.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Heavy Armor",
 							"entries": [
-								"När den används ignorerar bäraren alla krav på styrka som rustningen kan ha, eller alla straff som den kan ge på deras Dexterity ({@skill Stealth})-kontroller."
+								"The wearer ignores penalties to Dexterity ({@skill Stealth}) checks or Strength requirements of this armor."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Light Armor",
 							"entries": [
-								"När den används kan bäraren subtrahera upp till 100 fot från sitt fallavstånd vid beräkning av fallskador och kan förflytta sig horisontellt 2 fot för varje 1 fot de faller."
+								"The wearer can subtract up to 100 feet from their fall distance when calculating fall damage and can move horizontally 2 feet for every 1 foot they fall."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"När den tillämpas blir ett tungt vapen normalviktigt och ett normalt vapen blir ett lätt vapen."
+								"Any weapon with either the heavy and/or two-handed properties loses those properties, and any non-heavy weapon gains both the light and finesse properties."
 							]
 						}
 					]
@@ -2304,23 +3222,23 @@
 				"TS"
 			],
 			"entries": [
-				"Du ändrar ett föremål för att dra nytta av dina krigiska och undersökande instinkter. Bäraren eller innehavaren av ett föremål som modifierats med denna Schematic får färdighet i {@skill Investigation} och kan lägga till dubbla sin färdighetsbonus till alla intelligens ({@skill Investigation}) kontroller de gör.",
+				"You modify an item to enhance your investigative instincts. The bearer of an object modified by this Schematic gains proficiency in {@skill Investigation} and adds double its proficiency bonus to any Intelligence ({@skill Investigation}) checks they make.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"När den tillämpas kan bäraren använda sin intelligens i stället för smidighet när han eller hon beräknar sin rustningsklass."
+								"The wearer can use its Intelligence in place of Dexterity when calculating their Armor Class in this armor."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"När den tillämpas kan han/hon använda sin intelligensmodifierare, i stället för styrka eller smidighet, för attack- och skaderullar med det här vapnet."
+								"The wielder uses its Intelligence, in place of Strength, for attack and damage rolls with this weapon."
 							]
 						}
 					]
@@ -2334,13 +3252,27 @@
 				"TS"
 			],
 			"entries": [
-				"Du ger ett föremål en källa till strålande energi. Bäraren eller innehavaren av ett föremål som modifierats av denna Schematic kan använda en bonusåtgärd för att få föremålet att sända ut starkt ljus i en radie på 15 fot, och svagt ljus 15 fot bortom den. De kan släcka ljuset som en bonushandling på sin tur.",
+				"You imbue an item with radiant energy. The bearer of an object modified by this Schematic can use a bonus action to cause the object to emit (or extinguish) bright light in a 15-foot radius, and dim light 15 feet beyond that.",
 				{
-					"type": "entries",
-					"name": "Armor or Weapon",
-					"entries": [
-						"Som en reaktion när du träffas av en attack (rustning), eller när du träffar en varelse med en attack (vapen), kan du tvinga varelsen att göra ett räddningskast för konstitutionen. Vid ett misslyckande är den {@condition blinded} i 1 minut. Den kan upprepa räddningsförsöket i slutet av varje tur, vilket avslutar effekten vid en framgång.",
-						"När du har använt den här reaktionen måste du vila en kort eller lång stund innan du kan använda den igen."
+					"type": "list",
+					"style": "list-hang",
+					"items": [
+						{
+							"type": "entries",
+							"name": "Armor",
+							"entries": [
+								"As a reaction when the wearer is hit by an attack, it can force the attacker to make a Constitution saving throw. On a failed save, it is {@condition blinded} for 1 minute. It can repeat the save at the end of each turn, ending the effect on a success.",
+								"Once the wearer uses this reaction, it must finish a short or long rest before it can use the reaction again."
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Weapon",
+							"entries": [
+								"When the wielder hit a creature with this weapon, it can force it to make a Constitution saving throw. On a failure, it is {@condition blinded} for 1 minute. It can repeat its save at the end of each turn, ending the effect on a success.",
+								"Once the wielder uses this reaction, it must finish a short or long rest before it can use this reaction again."
+							]
+						}
 					]
 				}
 			]
@@ -2352,24 +3284,24 @@
 				"TS"
 			],
 			"entries": [
-				"Du ändrar ett föremål så att det får elastiska egenskaper. Bäraren eller innehavaren av ett föremål som modifierats med denna Schematic kan använda sin reaktion för att lägga till din intelligensmodifierare (minst +1) till sin rustningsklass mot en attack.",
+				"You modify an item so that it has elastic properties. The wearer or wielder of an object modified by this Schematic can use its reaction to add your Intelligence modifier (minimum of +1) to its Armor Class against one attack.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"Som en reaktion när bäraren av den här rustningen träffas av en attack kan han/hon minska skadan med ett belopp som motsvarar {@dice 1d12} + din intelligensmodifierare. Om skadan reduceras till 0 tar angriparen hela skadan av attacken som om de hade varit det ursprungliga målet.",
-								"När du har använt den här funktionen måste du vila en kort eller lång stund innan du kan använda den igen."
+								"As a reaction when the wearer of this armor is hit by an attack, it can reduce the damage by an amount equal to {@dice 1d12} + your Intelligence modifier. If the damage is reduced to 0, the attacker takes the full damage of the attack as if they had been the original target.",
+								"Once the wearer uses this reaction it must finish a short or long rest before it can use this reaction again."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Non-Heavy Weapon",
 							"entries": [
-								"När den används får vapnet egenskapen kastad med en räckvidd på 6 meter. Efter att ha gjort en attack med detta vapen återvänder det omedelbart till innehavaren."
+								"The weapon gains the Thrown property with a range of 20 feet. After making an attack with this weapon, it instantly returns to the wielder's hand."
 							]
 						}
 					]
@@ -2393,30 +3325,30 @@
 				}
 			],
 			"entries": [
-				"Du ändrar ett föremål med mekanik som förbättrar den fysiska förmågan och skärper reflexerna. Bäraren eller innehavaren av ett föremål som modifierats av denna Schematic får en bonus på sitt initiativ som är lika med din intelligensmodifierare (minst +1).",
+				"You modify an object with clockwork mechanics that improve physical ability and sharpens reflexes. The wearer or wielder of an object modified by this Schematic gains a bonus to its initiative equal to your Intelligence modifier (minimum of +1).",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Heavy Armor",
 							"entries": [
-								"När den används kan bäraren använda din intelligenspoäng, i stället för styrka, för alla styrkeförmågekontroller eller räddningskast som han/hon gör."
+								"The wearer can use your Intelligence score, in place of its Strength, for any Strength-based ability checks or Strength saving throws it makes."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Light Armor",
 							"entries": [
-								"När den används kan bäraren använda din intelligenspoäng, i stället för Dexterity, för alla Dexterity-färdighetskontroller eller räddningskast som han/hon gör."
+								"The wearer can use your Intelligence score, in place of its Dexterity, for any Dexterity-based ability checks or Dexterity saving throws it makes."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"När den tillämpas kan den som använder det här vapnet välja att kasta om tärningen närhelst han eller hon kastar en 1 eller 2 för en skaderulle med det här vapnet, men du måste använda det nya resultatet, även om det är en 1 eller en 2."
+								"When the wielder rolls a 1 or 2 for a damage roll with this weapon, it can choose to re-roll the die, but it must use the new result of the roll, even if it is a 1 or 2."
 							]
 						}
 					]
@@ -2440,28 +3372,76 @@
 				}
 			],
 			"entries": [
-				"Du ändrar den metallurgiska sammansättningen av detta föremål för att göra det mycket mer motståndskraftigt. Bäraren eller innehavaren av ett föremål som modifierats av denna Schematic har fördel på räddningskast för att motstå att bli {@condition grappled} eller förflyttas mot sin vilja.",
+				"You modify the metallurgical makeup of this item to make it more resilient. The wearer or wielder of an object modified by this Schematic has advantage on saving throws to resist being {@condition grappled} or moved against its will.",
 				{
 					"type": "list",
-					"style": "list-no-bullets",
+					"style": "list-hang",
 					"items": [
 						{
 							"type": "entries",
 							"name": "Armor",
 							"entries": [
-								"När den används ger den här rustningen motstånd mot icke-magisk slående, genomträngande och skärande skada."
+								"This armor grants resistance to nonmagical bludgeoning, piercing, and slashing damage."
 							]
 						},
 						{
 							"type": "entries",
 							"name": "Weapon",
 							"entries": [
-								"När det används ger det här vapnet bonusskador lika med din intelligensmodifierare (minst 1) + din fighternivå när du får en kritisk träff."
+								"This weapon deals bonus damage equal to your Intelligence modifier (minimum of 1) + your Fighter level whenever the wielder scores a critical hit with this weapon."
 							]
 						}
 					]
 				}
 			]
+		},
+		{
+			"name": "Alpine Combatant",
+			"source": "llfafs",
+			"featureType": [
+				"GC"
+			],
+			"entries": [
+				"You have trained for battle at great heights. You gain a climbing speed equal to your walking speed, and when you fall, you can use your reaction to reduce any falling damage by an amount equal to your fighter level."
+			],
+			"foundryEffects": [
+				{
+					"name": "Alpine Combatant",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/wilderness/camp-improvised.webp"
+		},
+		{
+			"name": "Marine Combatant",
+			"source": "llfafs",
+			"featureType": [
+				"GC"
+			],
+			"entries": [
+				"You prepare for amphibious combat. You gain a swimming speed equal to your walking speed, and you can hold your breath for up to 1 hour underwater."
+			],
+			"foundryEffects": [
+				{
+					"name": "Marine Combatant",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/environment/settlement/ship.webp"
 		}
 	],
 	"variantrule": [
@@ -2470,7 +3450,207 @@
 			"source": "llfafs",
 			"ruleType": "VO",
 			"entries": [
-				"Vissa Fighting Styles, särskilt de här, är specifika när det gäller tillämpningen. Överväg att låta kämparna i ditt spel träna om sin kampstil under några långa viloperioder för att anpassa sig till de utmaningar som väntar."
+				"Some Fighting Styles, especially those here, are specific in application. Consider allowing Fighters in your game to re-train their Fighting Style over a few long rests to adjust to the challenges ahead."
+			]
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Drifter",
+			"source": "llfafs",
+			"name": "Hair-Trigger",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Guardian",
+			"source": "llfafs",
+			"name": "Guardian Stance",
+			"level": 3,
+			"effects": [
+				{
+					"name": "AC Bonus",
+					"disabled": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Marksman",
+			"source": "llfafs",
+			"name": "Cunning Shot",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Martial Artist",
+			"source": "llfafs",
+			"name": "Iron Physique",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Iron Physique (Unarmored)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "10 + @abilities.dex.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				},
+				{
+					"name": "Iron Physique (Light Armor)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "@attributes.ac.armor + max(@abilities.dex.mod, @abilities.con.mod)"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				},
+				{
+					"name": "Iron Physique (Medium Armor)",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "@attributes.ac.armor + min(2, max(@abilities.dex.mod, @abilities.con.mod))"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "formula"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Quartermaster",
+			"source": "llfafs",
+			"name": "Iron Stomach",
+			"level": 18,
+			"effects": [
+				{
+					"name": "Constitution Increase",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.con.value",
+							"mode": "ADD",
+							"value": 2
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Swordsage",
+			"source": "llfafs",
+			"name": "Battle Trance",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Battle Trance",
+					"disabled": true,
+					"transfer": true,
+					"duration": {
+						"seconds": 60
+					},
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": "@scale.swordsage.battle-trance-ac"
+						}
+					]
+				}
+			]
+		},
+		{
+			"classSource": "PHB",
+			"className": "Fighter",
+			"subclassSource": "llfafs",
+			"subclassShortName": "Swordsage",
+			"source": "llfafs",
+			"name": "Heightened Reflexes",
+			"level": 7,
+			"effects": [
+				{
+					"name": "Initiative Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.init.bonus",
+							"mode": "ADD",
+							"value": "@prof"
+						}
+					]
+				}
 			]
 		}
 	]
