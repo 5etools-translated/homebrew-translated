@@ -3,24 +3,29 @@
 		"sources": [
 			{
 				"json": "llasio",
-				"abbreviation": "ll:as&io",
+				"abbreviation": "LL:AS&IO",
 				"full": "LaserLlama's Artificer Specialties & Infusion Options",
 				"authors": [
 					"laserLlama"
 				],
 				"convertedBy": [
 					"JoeyJoestar",
-					"Bowsori#7981"
+					"Bowsori#7981",
+					"hakr14"
 				],
 				"version": "2.1.0",
 				"color": "d4601e",
 				"url": "https://www.gmbinder.com/share/-M0ctsc5kAuUAYc57apB",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.8"
 			}
 		],
+		"optionalFeatureTypes": {
+			"LL:CT": "Chimeric Trait",
+			"LL:MAW": "Musical Apparatus Weaponization"
+		},
 		"dateAdded": 1549715846,
-		"dateLastModified": 1664312670,
-		"_dateLastModifiedHash": "bb965f68bd"
+		"dateLastModified": 1685407377,
+		"_dateLastModifiedHash": "6c5d5172dd"
 	},
 	"subclass": [
 		{
@@ -60,7 +65,32 @@
 				"Extra Attack|Artificer|TCE|Aeronaut|llasio|5",
 				"Aerial Maneuvers|Artificer|TCE|Aeronaut|llasio|9",
 				"Master Aeronaut|Artificer|TCE|Aeronaut|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Flying Speed",
+					"configuration": {
+						"identifier": "flying-speed",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 15
+							},
+							"5": {
+								"value": 20
+							},
+							"9": {
+								"value": 30
+							},
+							"15": {
+								"value": 60
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue-grey.webp"
 		},
 		{
 			"name": "Archivist",
@@ -99,7 +129,36 @@
 				"Acute Overload|Artificer|TCE|Archivist|llasio|5",
 				"Improved Consciousness|Artificer|TCE|Archivist|llasio|9",
 				"Master Archivist|Artificer|TCE|Archivist|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Information Overload Damage",
+					"configuration": {
+						"identifier": "information-overload",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-sealed-brown-red.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -139,7 +198,20 @@
 				"Extra Attack|Artificer|TCE|Biomancer|llasio|5",
 				"Strange Evolution|Artificer|TCE|Biomancer|llasio|9",
 				"Master Biomancer|Artificer|TCE|Biomancer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Strange Evolution",
+					"featureType": [
+						"LL:CT"
+					],
+					"progression": {
+						"9": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/biological/organ-heart-pink.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -170,6 +242,15 @@
 							"hold monster",
 							"modify memory"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"time stop"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -178,7 +259,8 @@
 				"Stolen Moments|Artificer|TCE|Chronothief|llasio|5|",
 				"Empowered Chronomancy|Artificer|TCE|Chronothief|llasio|9",
 				"Master Chronothief|Artificer|TCE|Chronothief|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/watch.webp"
 		},
 		{
 			"name": "Composer",
@@ -217,7 +299,66 @@
 				"Thunderous Note|Artificer|TCE|Composer|llasio|5",
 				"Resonant Frequency|Artificer|TCE|Composer|llasio|9",
 				"Master Composer|Artificer|TCE|Composer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Musical Apparatus",
+					"featureType": [
+						"LL:MAW"
+					],
+					"progression": {
+						"3": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Raucous Blast Damage",
+					"configuration": {
+						"identifier": "raucous-blast",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				},
+				{
+					"type": "ScaleValue",
+					"title": "Resonant Frequency Damage",
+					"configuration": {
+						"identifier": "resonant-frequency",
+						"type": "dice",
+						"scale": {
+							"9": {
+								"n": 2,
+								"die": 8
+							},
+							"15": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-symbol-rune-tan.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -256,7 +397,8 @@
 				"Extra Attack|Artificer|TCE|Dungeoneer|llasio|5",
 				"Arcane Improvisation|Artificer|TCE|Dungeoneer|llasio|9",
 				"Master Dungeoneer|Artificer|TCE|Dungeoneer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/environment/traps/saw-steel-grey.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -295,7 +437,29 @@
 				"Extra Attack|Artificer|TCE|Forgewright|llasio|5",
 				"Arcane Smite|Artificer|TCE|Forgewright|llasio|9",
 				"Master Forgewright|Artificer|TCE|Forgewright|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Arcane Armament Damage Bonus",
+					"configuration": {
+						"identifier": "arcane-armament",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"9": {
+								"value": 2
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/tools/smithing/crucible-round.webp"
 		},
 		{
 			"name": "Machinist",
@@ -335,7 +499,8 @@
 				"Automated Army|Artificer|TCE|Machinist|llasio|5",
 				"Efficient Production|Artificer|TCE|Machinist|llasio|9",
 				"Master Machinist|Artificer|TCE|Machinist|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/coil-tesla-large.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -366,6 +531,15 @@
 							"dominate person",
 							"hold monster"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"Otto's Irresistible Dance"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -374,7 +548,58 @@
 				"Strange Strikes|Artificer|TCE|Puppeteer|llasio|5",
 				"Nimble Fingers|Artificer|TCE|Puppeteer|llasio|9",
 				"Master Puppeteer|Artificer|TCE|Puppeteer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/magic/control/voodoo-doll-pain-damage-purple.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"shortName": "Alternate Alchemist",
+			"additionalSpells": [
+				{
+					"known": {
+						"3": [
+							"healing word",
+							"inflict wounds"
+						],
+						"5": [
+							"acid arrow",
+							"flaming sphere"
+						],
+						"9": [
+							"gaseous form",
+							"mass healing word"
+						],
+						"13": [
+							"blight",
+							"death ward"
+						],
+						"17": [
+							"cloudkill",
+							"reincarnate"
+						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1e": [
+									"greater restoration",
+									"heal"
+								]
+							}
+						}
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Alternate Alchemist|Artificer|TCE|Alternate Alchemist|llasio|3",
+				"Alchemical Savant|Artificer|TCE|Alternate Alchemist|llasio|5",
+				"Restorative Reagents|Artificer|TCE|Alternate Alchemist|llasio|9",
+				"Master Alchemist|Artificer|TCE|Alternate Alchemist|llasio|15"
+			],
+			"foundryImg": "icons/consumables/potions/potion-faceted-corked-blue.webp"
 		}
 	],
 	"subclassFeature": [
@@ -443,7 +668,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"woodcarver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/hand/saw-steel-grey.webp"
 		},
 		{
 			"name": "Flying Machine",
@@ -460,13 +694,14 @@
 					"items": [
 						"它可以被你作为施法的重点。",
 						"它是为你量身定做的，可以穿在轻型盔甲外面。",
-						"当你坠落时，如果没有丧失能力，你在计算坠落伤害时最多可以减去100英尺，并且每坠落1英尺可以水平移动2英尺。",
+						"When you fall, and aren't {@condition incapacitated}, you subtract up to 100 feet from your fall when calculating falling damage, and can move 2 feet horizontally every 1 foot you fall.",
 						"你获得15英尺的飞行速度，这个速度会随着你在这个等级的提升而增加；在5级（20英尺），9级（30英尺），最后在15级（60英尺）。",
 						"当你在离地至少5英尺的地方进行武器攻击时，你可以使用你的智力，而不是力量或灵巧，来进行攻击和伤害卷。"
 					]
 				},
 				"你一次只能拥有一台飞行器，创造另一台飞行器会导致另一台飞行器失修。"
-			]
+			],
+			"foundryImg": "icons/creatures/birds/raptor-hawk-flying.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -493,7 +728,8 @@
 			"entries": [
 				"从9级开始，当你佩戴飞行器时，你可以在你的回合中采取{@action Dash}的行动作为额外行动。",
 				"此外，当你装备了你的飞行器时，你的灵巧能力检查和拯救动作获得相当于你的智力修饰的奖励（最小为+1）。"
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wings-birdlike-blue.webp"
 		},
 		{
 			"name": "Master Aeronaut",
@@ -506,7 +742,8 @@
 			"header": 2,
 			"entries": [
 				"你已经成为了一个航空器制造的大师。从15级开始，当你穿着你的飞行器时，如果你受到一个允许你进行灵巧救赎的效果，只受到一半的伤害，如果你成功了，你反而不会受到伤害，如果你失败了，只受到一半伤害。"
-			]
+			],
+			"foundryImg": "icons/creatures/birds/songbird-yellow-flying.webp"
 		},
 		{
 			"name": "Archivist",
@@ -530,7 +767,7 @@
 			]
 		},
 		{
-			"name": "Tools of the trade",
+			"name": "Tools of the Trade",
 			"source": "llasio",
 			"className": "Artificer",
 			"classSource": "TCE",
@@ -573,7 +810,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"calligrapher's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/scribal/pen-steel-grey-brown.webp"
 		},
 		{
 			"name": "Artificial Mind",
@@ -644,7 +890,56 @@
 						]
 					]
 				}
-			]
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"animal handling",
+							"insight",
+							"perception",
+							"survival"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"deception",
+							"intimidation",
+							"performance",
+							"persuasion"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						],
+						"count": 2
+					}
+				}
+			],
+			"foundrySystem": {
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"@scale.archivist.information-overload",
+						"psychic"
+					]
+				],
+				"save": {
+					"ability": "int",
+					"scaling": "spell"
+				}
+			},
+			"foundryImg": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp"
 		},
 		{
 			"name": "Acute Overload",
@@ -658,7 +953,21 @@
 			"entries": [
 				"从第五级开始，你可以消耗一个法术槽来增加信息过载的精神伤害。一级法术槽的伤害增加{@dice 2d8}，比一级法术等级高的每一级都增加{@dice 1d8}。",
 				"另外，当你用你的人工心智作为施法重点造成精神伤害时，你获得一个相当于你智力修饰的伤害卷的奖励（最低为+1）。"
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Expend a spell slot"
+				},
+				"damage.parts": [
+					[
+						"2d8",
+						""
+					]
+				],
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-bars-yellow.webp"
 		},
 		{
 			"name": "Improved Consciousness",
@@ -671,7 +980,8 @@
 			"header": 2,
 			"entries": [
 				"你的人工心智的认知能力足够强大，可以帮助你施法。从第9级开始，当你被迫进行宪法救赎以保持对一个法术的专注时，你会获得一个相当于你智力修饰值的奖励。"
-			]
+			],
+			"foundryImg": "icons/magic/perception/eye-tendrils-web-purple.webp"
 		},
 		{
 			"name": "Master Archivist",
@@ -684,7 +994,14 @@
 			"header": 2,
 			"entries": [
 				"你是一个档案学大师。从15级开始，你可以在你的行动中转化为纯粹的信息，并传送到一个你能看到的60英尺内的无人空间，或者一个带有你的工匠灌输之一的生物或物体5英尺内的无人空间。"
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				}
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-teal.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -751,7 +1068,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/leather/leather-buckle-steel-tan.webp"
 		},
 		{
 			"name": "Aberrant Chimera",
@@ -801,7 +1127,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "Whenever you cast Find Familiar"
+				}
+			},
+			"foundryImg": "icons/commodities/biological/pustules-red.webp"
 		},
 		{
 			"name": "Augmented Flesh",
@@ -822,7 +1156,8 @@
 						"作为一个额外的行动，你可以消耗一个法术槽来给予自己相当于该法术槽等级5倍的临时命中率+你的智力修正值。这些临时命中率会加到你与异端奇美拉合并后的任何临时命中率上。"
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/skills/wounds/injury-stapled-flesh-tan.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -847,9 +1182,10 @@
 			"level": 9,
 			"header": 2,
 			"entries": [
-				"你用奇怪的魔法增强了自己的生理机能。9级时，你的移动速度增加10英尺，并永久获得你选择的一个嵌合体特质。",
+				"你用奇怪的魔法增强了自己的生理结构。在9级时，你的移动速度增加了10英尺，并且你永久地获得了一个你选择的嵌合体特性。",
 				"当你的等级达到15级时，你会获得第二个你选择的永久性嵌合体特质（总共有两个）。"
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wolf-heads-swirl-purple.webp"
 		},
 		{
 			"name": "Master Biomancer",
@@ -864,7 +1200,21 @@
 			"entries": [
 				"你已经成为生物法师中的大师。从15级开始，当你用生物法术瞄准一个生物时，你可以给予一个单一目标（额外的）临时命中率，相当于你的工匠等级。",
 				"此外，当与你的奇美拉合并时，你可以抵抗击打、穿刺和砍击伤害。"
-			]
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you target a creature with a Biomancer Spell"
+				},
+				"damage.parts": [
+					[
+						"@classes.artificer.levels",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/biological/organ-heart-red.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -938,7 +1288,16 @@
 						"如果你的桌子上使用了《荒野猎人指南》中的杜纳曼斯魔法，那么计时盗贼可以选择使用与时间有关的杜纳曼斯法术，以取代上面的计时盗贼法术列表。"
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"jeweler's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/gems/gem-rough-rose-teal.webp"
 		},
 		{
 			"name": "Chronometer",
@@ -956,8 +1315,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -989,7 +1346,18 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Action or Reaction"
+				},
+				"uses": {
+					"max": "2 * @abilities.int.mod",
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/stopwatch.webp"
 		},
 		{
 			"name": "Stolen Moments",
@@ -1001,9 +1369,21 @@
 			"level": 5,
 			"header": 2,
 			"entries": [
-				"你已经改进了你的计时器，所以你可以真正地将时间保存到以后的时刻。从第5级开始，当你成功地用法术或Chronothief的能力麻痹、眩晕或将一个生物的移动速度降低到0时，你的Chronometer会重新获得一个已消耗的电量。",
+				"You have improved your Chronometer so that you can literally save moments in time for later. Beginning at 5th level, when you successfully {@condition paralyzed|phb|paralyze}, {@condition stunned|phb|stun}, or reduce a creature's movement speed to 0 with a spell or Chronothief ability, your Chronometer regains one of its expended charges.",
 				"此外，你的任何需要行动才能使用的天文台能力，也可以在你的回合中作为额外行动使用。"
-			]
+			],
+			"consumes": {
+				"name": "Chronometer",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "When you successfully paralyze, stun, or reduce a creature's movement speed to 0 with a spell or Chronothief ability"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/dial-meter-gauge-blue.webp"
 		},
 		{
 			"name": "Empowered Chronomancy",
@@ -1033,7 +1413,7 @@
 							"type": "entries",
 							"name": "Decelerate",
 							"entries": [
-								"你可以花一个额外的费用来加倍减少移动速度。如果这个功能将目标的速度降低到0，它必须在宪法规定的救赎中成功，否则会被击晕，直到下一回合结束。"
+								"You can spend an additional charge to double the movement speed reduction. If this feature reduces a target's speed to 0, it must succeed on a Constitution saving throw or be {@condition stunned} until the end of its next turn."
 							]
 						},
 						{
@@ -1052,7 +1432,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/movement/abstract-ribbons-red-orange.webp"
 		},
 		{
 			"name": "Master Chronothief",
@@ -1064,9 +1445,10 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你被认为是计时术领域的大师。从15级开始，你可以让你的计时器超载，消耗所有剩余的电量，来施展时间停止。",
+				"你被认为是测时术领域的大师。从15级开始，你可以让你的计时器超载，消耗任何剩余的电量，来施展（%0%）。",
 				"一旦你以这种方式施展时间停止，你必须完成长时间的休息才能再次施展。"
-			]
+			],
+			"foundryImg": "icons/magic/time/clock-spinning-gold-pink.webp"
 		},
 		{
 			"name": "Composer",
@@ -1134,7 +1516,18 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true,
+					"musical instrument": true
+				},
+				{
+					"anyArtisans": 1,
+					"musical instrument": true
+				}
+			],
+			"foundryImg": "icons/tools/instruments/lute-gold-brown.webp"
 		},
 		{
 			"name": "Musical Apparatus",
@@ -1152,8 +1545,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -1171,7 +1562,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				},
+				"damage.parts": []
+			},
+			"foundryImg": "icons/commodities/tech/pipe-exhaust.webp"
 		},
 		{
 			"name": "Thunderous Note",
@@ -1185,7 +1584,14 @@
 			"entries": [
 				"从5级开始，当你用音乐装置攻击击中一个生物时，你可以消耗一个法术槽，用雷鸣般的声音将大型或小型目标击退。一级法术槽的生物被击退10英尺，比一级法术等级高的每一级再击退10英尺。",
 				"另外，每当你造成雷霆伤害时，你会在你的伤害卷上加上你的智力修饰（最少+1）。"
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a creature with a Musical Apparatus attack"
+				}
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
 		},
 		{
 			"name": "Resonant Frequency",
@@ -1199,7 +1605,21 @@
 			"entries": [
 				"从9级开始，你可以使用一个动作来演奏一个音符，使10英尺范围内的目标与无法察觉的音乐产生共鸣，持续1小时。下次该生物被近战攻击击中时，攻击者必须在宪法规定的蓄力动作上获得成功，否则会受到{@dice 2d8}的雷霆伤害，并且在下一回合开始前无法做出反应。",
 				"你可以使用这个功能的次数与你的智力修饰值相等（最少一次），当你完成一个长时间的休息时，你会恢复所有消耗的使用。"
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"@scale.composer.resonant-frequency",
+						"thunder"
+					]
+				],
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/commodities/tech/antenna-powered-purple.webp"
 		},
 		{
 			"name": "Master Composer",
@@ -1222,7 +1642,14 @@
 						"共振频率的伤害变成了（%0%）。"
 					]
 				}
-			]
+			],
+			"immune": [
+				"thunder"
+			],
+			"conditionImmune": [
+				"deafened"
+			],
+			"foundryImg": "icons/tools/instruments/harp-yellow-teal.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -1254,7 +1681,7 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"当你在3级成为地下城专家时，你获得对（%0%）和（%1%）的熟练度。如果你已经精通（%2%）或（%3%），你将获得对另一套（%4%）的熟练度。",
+				"When you become a Dungeoneer Specialist at 3rd level, you gain proficiency with {@item carpenter's tools|phb} and {@item smith's tools|phb}. If you already proficient in {@item carpenter's tools|phb} or {@item smith's tools}, you gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
 				"你也获得了对简易武器的熟练度。当你进行即兴武器攻击时，你可以用你的智力代替力量或灵巧来进行攻击和伤害卷，而且你进行的任何即兴武器攻击的伤害模子都会变成D8，如果它本来就比较低的话。",
 				{
 					"type": "table",
@@ -1289,8 +1716,26 @@
 							"{@spell passwall}, {@spell wall of stone}"
 						]
 					]
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Improvised Weapons in 5e",
+					"entries": [
+						"简易武器包括任何可以用一只或两只手挥舞的物体；比如一个破瓶子、一条桌腿、一个捕熊器或一个死的哥布林。",
+						"通常情况下，简易武器类似于实际的武器，应该被当作实际的武器来对待。例如，一个桌腿可以被认为类似于（%0%），并且在击中后会造成1d4重击伤害。一个简易投掷武器的正常范围是20英尺，远距离是60英尺。"
+					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"carpenter's tools": true,
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 2
+				}
+			],
+			"foundryImg": "icons/tools/hand/chisel-steel-brown.webp"
 		},
 		{
 			"name": "Dungeoncraft",
@@ -1342,7 +1787,11 @@
 						]
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/weapons/thrown/bomb-spiked-purple.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1369,7 +1818,16 @@
 			"entries": [
 				"从9级开始，你的即兴武器攻击和地下城物品被认为是有魔力的，以克服对非魔力攻击的抵抗和免疫。",
 				"此外，你可以在每一次长时休息时，在不提供材料成分的情况下，施展你的地下城主法术之一。"
-			]
+			],
+			"foundrySystem": {
+				"activation.type": "special",
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/magic/symbols/arrowhead-green.webp"
 		},
 		{
 			"name": "Master Dungeoneer",
@@ -1382,16 +1840,9 @@
 			"header": 2,
 			"entries": [
 				"你已经成为一个地牢工程大师。从15级开始，生物对你的地牢术物品和地牢术法术的蓄力攻击有劣势。",
-				"此外，你还学会了施放{@spell passwall}和{@spell wall of stone}这两种法术的仪式版本。以这种方式施放它们需要1小时，不消耗一个法术槽，而且在仪式施放结束后，所创造的结构会成为永久性的。",
-				{
-					"type": "insetReadaloud",
-					"name": "Improvised Weapons in 5e",
-					"entries": [
-						"简易武器包括任何可以用一只或两只手挥舞的物体；比如一个破瓶子、一条桌腿、一个捕熊器或一个死的哥布林。",
-						"通常情况下，简易武器类似于实际的武器，应该被当作实际的武器来对待。例如，一个桌腿可以被认为类似于（%0%），并且在击中后会造成1d4重击伤害。一个简易投掷武器的正常范围是20英尺，远距离是60英尺。"
-					]
-				}
-			]
+				"此外，你还学会了施放{@spell passwall}和{@spell wall of stone}这两种法术的仪式版本。以这种方式施放它们需要1小时，不消耗一个法术槽，而且在仪式施放结束后，所创造的结构会成为永久性的。"
+			],
+			"foundryImg": "icons/environment/traps/trap-jaw-steel.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -1459,7 +1910,21 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"martial": true
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Arcane Armament",
@@ -1483,7 +1948,8 @@
 					]
 				},
 				"你的奥术武器只能由你自己使用。对第二件武器进行附魔会使第一件武器上的魔法被驱散。"
-			]
+			],
+			"foundryImg": "icons/magic/symbols/runes-etched-steel-blade.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1514,11 +1980,20 @@
 					"items": [
 						"目标受到额外的（%0%）武力伤害。你可以消耗一个法术槽来增加这个伤害。你所消耗的法术槽每一级的伤害增加{@dice 1d6}。",
 						"你获得与你的工匠等级相等的临时打击点数。",
-						"你可以强迫目标做一个力量储蓄动作。如果拯救失败，他们会被击倒在地。"
+						"You can force the target to make a Strength saving throw. On a failed save they are knocked {@condition prone}."
 					]
 				},
 				"你可以使用这个能力的次数等于你的智力修饰值（最少一次），当你完成一个长时间的休息时，你会恢复所有消耗的使用。"
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a target with your Arcane Armament"
+				},
+				"uses.max": "max(1, @abilities.int.mod)",
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/skills/melee/sword-engraved-glow-purple.webp"
 		},
 		{
 			"name": "Master Forgewright",
@@ -1532,7 +2007,8 @@
 			"entries": [
 				"你已经成为锻造师中的大师。从15级开始，你可以将你的奥术军备中的力量扩展到你的盟友。作为一个行动，在30英尺范围内选择与你智力修饰值相等的武器数量（最少1个）。在接下来的一分钟内，这些武器在命中后会造成额外的（%0%）武力伤害。",
 				"你可以在每个长时间的休息中使用这个功能一次，除非你花费一个3级或更高级别的法术槽来再次使用它。"
-			]
+			],
+			"foundryImg": "icons/skills/melee/swords-triple-orange.webp"
 		},
 		{
 			"name": "Machinist",
@@ -1599,7 +2075,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Automatons",
@@ -1612,7 +2097,7 @@
 			"header": 2,
 			"entries": [
 				"三级时，你学会制作自动机。在每次长休结束时，你可以用你的（%0%）魔法在5英尺内无人的地方创造一个小型自动机。一旦你创造了一个自动机，你就不能再这样做了，直到你完成一个长时间的休息，或者直到你花费一个1级或更高的法术槽来创造另一个。你一次只能有一个自动机，创造第二个自动机会导致第一个自动机崩溃。",
-				"自动机是一种神奇的构造物，它的装甲等级等于12+你的智力修正值，命中率等于你的工匠等级+你的智力修正值。当他们进行能力检查或蓄力投掷时，它的能力值为10（+0）。如果对它施以修补术，它将重新获得（%0%）的命中率。如果它的命中率降至0或在1小时后消失。",
+				"Automatons are magical constructs with an Armor Class equal to 12 + your Intelligence modifier, and hit points equal to your artificer level + your Intelligence modifier. When they make an ability check or a saving throw, its ability scores are 10 (+0). If {@spell mending} is cast on it, it regains {@dice 2d6} hit points. It disappears if it is reduced to 0 hit points or after 1 hour.",
 				"当你创造你的自动机时，你决定它是哪种类型，从下表中的选项中选择。作为你回合中的一个额外行动，如果你在60英尺范围内，你可以激活自动机。作为该奖励动作的一部分，你可以指挥自动机走到一个无人的空间，最多可以走25英尺。",
 				{
 					"type": "table",
@@ -1648,7 +2133,8 @@
 						]
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/commodities/tech/transmission.webp"
 		},
 		{
 			"name": "Arcane Conduit",
@@ -1662,7 +2148,15 @@
 			"entries": [
 				"从5级开始，你学会了通过你的自动机引导魔法。当你施展工匠法术时，只要你在它的60英尺范围内，你可以选择让法术从一个自动机上发出，而不是你自己。",
 				"当你以这种方式施法时，你会掷出一个（%0%），并将掷出的数字加入到法术的一个伤害或治疗卷中。"
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you cast an artificer spell"
+				},
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/commodities/tech/bulb-vacuum.webp"
 		},
 		{
 			"name": "Automated Army",
@@ -1675,7 +2169,14 @@
 			"header": 2,
 			"entries": [
 				"你可以更有效地创造和控制自动机。从5级开始，你可以同时控制最多两个自动机，在每次长时间休息结束后，你可以创造两个你选择的自动机，而不需要消耗一个法术槽。你可以用一个额外的动作来激活所有的自动人偶。"
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				}
+			},
+			"foundryImg": "icons/commodities/tech/cog-brass.webp"
 		},
 		{
 			"name": "Efficient Production",
@@ -1688,7 +2189,8 @@
 			"header": 2,
 			"entries": [
 				"从9级开始，当你消耗一个工匠法术槽来创造一个自动机时，你创造的自动机数量与消耗的法术槽等级相等。你不能使用此功能来超过你的最大自动机数量。"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/levers-colored.webp"
 		},
 		{
 			"name": "Master Machinist",
@@ -1702,7 +2204,8 @@
 			"entries": [
 				"你已经成为机械师中的大师。从15级开始，你可以同时控制三个自动机，在长时间休息结束后，你可以创造三个你选择的自动机，而不需要消耗一个法术槽。",
 				"另外，当你被迫做一个拯救动作或被攻击击中时，你可以用你的反应与你60英尺内的一个自动人交换位置。然后，该自动人偶将成为攻击或蓄力的目标。"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/tube-chamber-lightning.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -1769,7 +2272,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"weaver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/equipment/back/cloak-hooded-pink.webp"
 		},
 		{
 			"name": "Marionette Strings",
@@ -1818,7 +2330,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-large-teal.webp"
 		},
 		{
 			"name": "Strange Strikes",
@@ -1832,7 +2345,18 @@
 			"entries": [
 				"你通过你的绳索所施加的控制程度会增加。从5级开始，当连接到你的木偶线的生物进行攻击时，你可以用你的反应来使它们进行一次额外的攻击。",
 				"此外，当你的绳索上的生物用近战攻击击中一个生物时，你可以消耗一个法术槽来增强他们的攻击力。他们的攻击对1级法术槽造成额外的（%0%）力量伤害，对1级以上的每一个法术槽等级造成额外的（%1%）力量伤害。"
-			]
+			],
+			"foundrySystem": {
+				"activation.condition": "When the creature attached to your Marionette Strings makes an attack",
+				"damage.parts": [
+					[
+						"2d6",
+						"force"
+					]
+				],
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-teal-blue.webp"
 		},
 		{
 			"name": "Nimble Fingers",
@@ -1846,7 +2370,8 @@
 			"entries": [
 				"你控制和放大他人能力的能力得到了提高。从9级开始，你可以在同一时间让两个生物附着在不同的木偶线上。你必须有一只自由的手来控制这些生物中的每一个。这两个生物可以相隔任何距离，只要它们各自保持在你的绳索范围内。",
 				"此外，你的木偶线的长度，以及你的 \"傀儡师 \"能力的范围，变成60英尺。"
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-spiral-teal.webp"
 		},
 		{
 			"name": "Master Puppeteer",
@@ -1858,9 +2383,224 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"你已经成为傀儡术士中的大师。从15级开始，你可以在你的回合中使用一个动作来施展（%0%）的法术，而不需要消耗一个法术槽，也不需要你的注意力。你在同一时间只能有一次这个法术的活动实例。当一个生物做出抵抗该法术的蓄力动作时，你可以消耗你的提线木偶的一次使用来施加不利条件。",
-				"一旦你以这种方式施放（%0%），你必须完成一个长时间的休息才能再次施放，或者消耗你的木偶之弦能力来再次使用这个能力。"
+				"You have become a master amongst Puppeteer artificers. Starting at 15th level, you can use an action on your turn to cast the {@spell Otto's Irresistible Dance|phb|Irresistable Dance} spell, without expending a spell slot, or requiring your concentration. You can only have once instance of this spell active at a time. When a creature makes a saving throw to resist the spell, you can expend a use of your Marionette Strings to impose disadvantage.",
+				"Once you cast {@spell Otto's Irresistible Dance|phb|Irresistable Dance} in this way, you must finish a long rest before you can do so again, or expend a use of your Marionette Strings ability to use this ability again."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-levitate-teal-blue.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"entries": [
+				"炼金术是一门微妙的艺术，把成分的比例调得太离谱，其效果可能是灾难性的。那些研究神秘药水和饮料的人被称为炼金术士。他们是结合异国试剂以产生各种材料和效果的专家。从可以在瞬间修复伤口的愈合剂，到接触到明火就会爆炸的粘稠物。只要精心准备，再加上一点运气，炼金术士是赋予生命和吸走生命的大师。",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Tools of the Trade|Artificer|TCE|Alternate Alchemist|llasio|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Alchemical Elixirs|Artificer|TCE|Alternate Alchemist|llasio|3"
+				}
 			]
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"At 3rd level, you gain proficiency with {@item alchemist's supplies|phb}. If you are already proficient with {@item alchemist's supplies|phb}, you instead gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
+				{
+					"type": "table",
+					"caption": "Alternate Alchemist",
+					"colLabels": [
+						"Artificer Level",
+						"Spell"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-left"
+					],
+					"rows": [
+						[
+							"3rd",
+							"{@spell healing word}, {@spell inflict wounds}"
+						],
+						[
+							"5th",
+							"{@spell acid arrow}, {@spell flaming sphere}"
+						],
+						[
+							"9th",
+							"{@spell gaseous form}, {@spell mass healing word}"
+						],
+						[
+							"13th",
+							"{@spell blight}, {@spell death ward}"
+						],
+						[
+							"17th",
+							"{@spell cloudkill}, {@spell reincarnate}"
+						]
+					]
+				}
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/cooking/mortar-herbs-yellow.webp"
+		},
+		{
+			"name": "Alchemical Elixirs",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"从3级开始，在每次长休结束时，你可以用你的炼金术士的补给品在你触摸的空瓶中生产一种药水。在创造时，你从下表中选择灵药的效果，其中一些包括你的熟练度奖励（PB）。当有人喝下灵药时，灵药的效果就会被触发。作为一个额外的动作，一个生物可以喝下灵药或将它施用于5英尺内的生物。一个生物在同一时间只能受到一种药水的影响，喝下另一种药水会立即结束任何其他药水的效果。",
+				"你通过此功能创造的任何灵药都会持续到它被消耗掉，或者到你下一次长时休息结束。",
+				"作为你回合中的一个行动，你可以消耗一个一级或更高级的法术槽，在你触摸的空瓶中制造一种药水。你可以在同一动作中使用该药水。",
+				"在这个等级的某些级别，你可以在长时间休息结束后制造更多的灵药：在6级（两个），15级（三个）。",
+				{
+					"type": "table",
+					"caption": "Alchemical Elixirs",
+					"colLabels": [
+						"Elixir",
+						"Effect"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-center"
+					],
+					"rows": [
+						[
+							"{@b Alteration}",
+							"饮酒者就像被{@spell alter self}的法术改造了一样。他们决定法术的效果，持续10分钟。"
+						],
+						[
+							"{@b Boldness}",
+							"饮酒者可以在1分钟内对他们所做的任何攻击卷和蓄力投掷增加（%0%）。"
+						],
+						[
+							"{@b Flight}",
+							"饮酒者获得相当于5倍于你PB的飞行速度，持续10分钟。"
+						],
+						[
+							"{@b Healing}",
+							"The drinker regains a number of hit points equal to PB(d4) + your Intelligence Modifier."
+						],
+						[
+							"{@b Resilience}",
+							"饮酒者在10分钟内获得相当于你PB一半的护甲等级奖励。"
+						],
+						[
+							"{@b Swiftness}",
+							"饮酒者的速度会增加等于5倍你的PB的英尺数，持续1小时。"
+						]
+					]
+				}
+			],
+			"foundryImg": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp"
+		},
+		{
+			"name": "Alchemical Savant",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 5,
+			"header": 2,
+			"entries": [
+				"从5级开始，当你施展一个造成酸、火、坏死或毒伤害，或恢复命中率的工匠法术时，你会获得一个相当于你智力修饰的伤害或治疗卷的加成（最低为+1）。"
+			],
+			"foundryImg": "icons/consumables/potions/potion-jar-corked-labeled-red.webp"
+		},
+		{
+			"name": "Restorative Reagents",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 9,
+			"header": 2,
+			"entries": [
+				"从9级开始，每当一个生物喝下你的灵药，除了灵药的效果外，他们还能获得相当于{@dice 2d6}+你智力修饰的临时命中率。",
+				"Also, you can cast {@spell lesser restoration} without expending a spell slot, even if you don't have it prepared, provided you use your alchemist's supplies as the spellcasting focus.",
+				"你可以用这种方式施放{@spell lesser restoration}，次数等于你的智力修正值（最少一次），当你完成长时间休息时，你会恢复所有消耗的使用。"
+			],
+			"foundrySystem": {
+				"activation.condition": "Whenever a creature drinks one of your Elixirs",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				},
+				"damage.parts": [
+					[
+						"2d6 + @abilities.int.mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/consumables/potions/potion-round-corked-glowing-green.webp"
+		},
+		{
+			"name": "Master Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"你已经成为炼金术士中的大师。在达到15级时，你获得对酸和毒伤害的抗性，以及对（%0%）条件的免疫。",
+				"In addition, you can cast both {@spell greater restoration} and {@spell heal} without expending a spell slot, without preparing the spell, and without providing the material component, provided you use your alchemist's supplies as the spellcasting focus.",
+				"你可以用这个功能施展这些法术一次，你必须在完成长时间的休息后才能再次施展。"
+			],
+			"resist": [
+				"acid",
+				"poison"
+			],
+			"conditionImmune": [
+				"poisoned"
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-yellow-glow.webp"
 		}
 	],
 	"optionalfeature": [
@@ -1873,13 +2613,14 @@
 			"prerequisite": [
 				{
 					"item": [
-						"A set of {@item artisan's tools|phb} (requires attunement)"
+						"A set of artisan's tools (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"持枪者被认为精通这套神奇的工具，作为一个动作，他们可以将这套工具转化为他们选择的另一套（%0%）的工具。"
-			]
+			],
+			"foundryImg": "icons/tools/fasteners/screw-flat-steel-grey.webp"
 		},
 		{
 			"name": "Arcane Implement",
@@ -1896,7 +2637,8 @@
 			],
 			"entries": [
 				"这一小段木头被注入了你所选择的一个工匠咒语。作为一个动作，一个生物可以产生被灌注的咒语，使用你的法术修改器来施展该咒语。"
-			]
+			],
+			"foundryImg": "icons/commodities/wood/bark-grey.webp"
 		},
 		{
 			"name": "Arm Launcher",
@@ -1912,8 +2654,9 @@
 				}
 			],
 			"entries": [
-				"这个微小的魔法发射器可以装载一个微小的物体（例如：滚珠轴承、一小瓶酸、炼金术士的火或圣水）。作为一个额外的动作，佩戴者可以激活发射器并对20英尺内的目标进行一次远程攻击。发射器可以作为一个动作重新装载。"
-			]
+				"This tiny magical launcher can be loaded with a Tiny object (for example: {@item ball bearings (bag of 1,000)|phb|ball bearings}, a {@item acid (vial)|phb|vial of acid}, {@item alchemist's fire (flask)|phb|alchemist's fire}, or {@item holy water (flask)|phb|holy water}). As a bonus action the wearer can activate the launcher and make a ranged attack at a target within 20 feet. The launcher can be reloaded as an action."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-leather-teal-orange.webp"
 		},
 		{
 			"name": "Enhanced Instrument",
@@ -1931,7 +2674,8 @@
 			"entries": [
 				"这个乐器已经被人为地增强了魔力。持琴者被认为精通此琴，并可将其作为施法重点。每当他们使用这个乐器进行能力检查时，他们会获得相当于你智力修饰值的奖励（最小值为+1）。",
 				"在10级的时候，这个魔法仪器会给法术攻击卷带来+1的奖励。这个奖励在14级时增加到+2。"
-			]
+			],
+			"foundryImg": "icons/tools/instruments/bell-gold.webp"
 		},
 		{
 			"name": "Featherweight Belt",
@@ -1949,7 +2693,8 @@
 			"entries": [
 				"佩戴后，这条魔法腰带可以将使用者的体重减少到十分之一，而不会降低其身体能力。",
 				"在10级时，它可以将佩戴者的体重减少到他们的百分之一，而不会降低他们的身体能力。"
-			]
+			],
+			"foundryImg": "icons/equipment/waist/belt-coiled-leather-steel.webp"
 		},
 		{
 			"name": "Featherweight Weapon",
@@ -1967,7 +2712,8 @@
 			"entries": [
 				"该魔法武器不再具有重型或双手的属性（你在灌注时选择）。",
 				"在10级的时候，这个武器给予攻击和伤害卷的+1奖励。在14级时，该奖励变为+2。"
-			]
+			],
+			"foundryImg": "icons/skills/melee/sword-winged-holy-orange.webp"
 		},
 		{
 			"name": "Goggles of Clearsight",
@@ -1983,9 +2729,10 @@
 				}
 			],
 			"entries": [
-				"当佩戴这种护目镜时，佩戴者可以看清轻度遮蔽的区域，而在智慧（（%0%））的检查上没有劣势。此外，佩戴者不再受到阳光敏感特质的负面影响，而且他们在抵抗失明的拯救动作上有优势。",
+				"While wearing these goggles, the wearer can see through lightly obscured areas without disadvantage on Wisdom ({@skill Perception}) checks. In addition, the wearer no longer suffers the negative effects from the {@i Sunlight Sensitivity} trait, and they have advantage on saving throws to resist being {@condition blinded}.",
 				"这个奖励在10级（+2）和14级（+3）时增加。"
-			]
+			],
+			"foundryImg": "icons/equipment/head/goggles-leather-grey.webp"
 		},
 		{
 			"name": "Power Whip",
@@ -2003,7 +2750,8 @@
 			"entries": [
 				"这个魔法武器对使用它的攻击和伤害卷给予+1的奖励，它的伤害模子增加到（%0%）。",
 				"这个奖励在10级（+2）和14级（+3）时增加。"
-			]
+			],
+			"foundryImg": "icons/weapons/misc/whip-red-yellow.webp"
 		},
 		{
 			"name": "Immovable Boots",
@@ -2027,7 +2775,8 @@
 			"entries": [
 				"当使用者站在一个平面上时，他们可以使用一个动作来激活靴子，神奇地将使用者固定在原地。在你使用动作停用靴子之前，你不会移动，即使你违背了地心引力。",
 				"一个生物可以使用一个行动来进行DC 30的力量检查，成功的话可以将你的靴子从表面分开。"
-			]
+			],
+			"foundryImg": "icons/equipment/feet/boots-armored-steel.webp"
 		},
 		{
 			"name": "Light Blade",
@@ -2044,14 +2793,15 @@
 						}
 					},
 					"item": [
-						"A sword hilt or wand (requires attunement"
+						"A sword hilt or wand (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"当握住该物品时，施法者可以使用一个额外的动作，使一把纯正的光芒之刃从物品的末端弹出，或消失。当刀刃存在时，这个魔法物品是一个具有精巧属性的简单武器。发光的刀刃在半径15英尺的范围内发出亮光，在另外15英尺的范围内发出暗光。这些光是太阳光。",
 				"持枪者使用此武器的攻击和伤害卷获得+1的加成，命中后会造成{@dice 1d8}的辐射伤害。亡灵会受到额外的（%1%）辐射伤害。15级时，攻击和伤害卷的奖励变为+2。"
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-broad-serrated-blue.webp"
 		},
 		{
 			"name": "Repulsion Gauntlets",
@@ -2075,7 +2825,8 @@
 			"entries": [
 				"这些神奇的铠甲有4个电荷。当穿戴者用非武装攻击击中一个生物时，他们可以消耗一个电荷并强迫目标做一个力量储蓄动作。如果挽救失败，该生物会被击退15英尺。在黎明时分，铠甲会重新获得所有消耗的能量。",
 				"在9级的时候，这个魔法武器给攻击和伤害卷带来+1的奖励。15级时该奖励增加到+2。"
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-steel-grey.webp"
 		},
 		{
 			"name": "Skyfall Harness",
@@ -2098,7 +2849,8 @@
 			],
 			"entries": [
 				"这种魔法背带会自动调整大小以适合佩戴者，可以穿在衣服或轻甲上。它在你的四肢之间有像翅膀一样的鳍，可以减缓你的坠落或让你滑行。当你坠落时，如果没有丧失能力，在计算坠落伤害时，你最多可以减去100英尺，并且每坠落1英尺可以水平移动2英尺。"
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-leather-stitched.webp"
 		},
 		{
 			"name": "War Gauntlet",
@@ -2121,7 +2873,8 @@
 			],
 			"entries": [
 				"你可以在铠甲上附加缺乏重型或双手属性的武术武器，或者盾牌。佩戴者将获得对所附物品的熟练度，并且在该灌注激活时，不能将其从铠甲中移除。"
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-red-gold.webp"
 		},
 		{
 			"name": "Chameleon Armor",
@@ -2144,7 +2897,8 @@
 			],
 			"entries": [
 				"这个盔甲有4个电荷。当穿着这件魔法盔甲时，穿戴者可以使用一个动作来消耗电荷，并施放以下一个法术，只针对自己：{@spell invisibility} (2个电荷)或{@spell greater invisibility} (4个电荷)。该盔甲每天在黎明时分恢复所有消耗的能量。"
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-gold.webp"
 		},
 		{
 			"name": "Collar of Taming",
@@ -2167,8 +2921,9 @@
 			],
 			"entries": [
 				"这个项圈的魔力甚至可以驯服最野性的动物。你，也只有你，可以控制任何戴着这个项圈的野兽，就好像它是一只训练有素的坐骑。这个项圈对智力分数高于你的野兽不起作用。",
-				"15级时，这个魔法项圈可以让你控制任何智力值在5分以下的怪兽。"
-			]
+				"At 15th level, this magic collar allows you to control any {@filter monstrosity with an Intelligence score of 5 or lower|bestiary|type=monstrosity|Intelligence=[0;5]}."
+			],
+			"foundryImg": "icons/equipment/neck/torc-ball-captive.webp"
 		},
 		{
 			"name": "Elemental Weapon",
@@ -2192,7 +2947,8 @@
 			"entries": [
 				"你为武器注入元素能量。灌注后，选择一个命令词和以下伤害类型之一：酸、冷、火、毒或雷电。作为一个额外的动作，持枪者可以说出命令语，并使元素能量从武器中迸发出来，直到再次说出命令语。一旦命中，武器会造成额外的（%0%）元素伤害。",
 				"额外的伤害在14级时变成{@dice 1d6}。"
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp"
 		},
 		{
 			"name": "Metamorphosis Armor",
@@ -2215,7 +2971,8 @@
 			],
 			"entries": [
 				"这套魔法盔甲有4次充电。作为一个行动，穿戴者可以消耗一个电荷来施放{@spell enlarge/reduce}的法术，只针对自己，不需要消耗法术槽或需要集中注意力。用盔甲重新施展该法术会结束该效果。该盔甲在黎明时分恢复所有的费用。"
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-steel-blue-gold.webp"
 		},
 		{
 			"name": "Ring of the Elements",
@@ -2240,7 +2997,8 @@
 				"在注入这个魔法戒指时，你可以选择以下伤害类型之一：酸、冷、火、毒、雷电、或雷霆。",
 				"当佩戴者施放一个造成你所选择的伤害类型的法术时，他们可以激活这个戒指，对该法术的一个目标造成最大伤害，而不是滚动。",
 				"一旦这个戒指被激活，它就不能再次使用，直到佩戴者完成一个短期或长期的休息。"
-			]
+			],
+			"foundryImg": "icons/equipment/finger/ring-band-gold-purple.webp"
 		},
 		{
 			"name": "Vampiric Weapon",
@@ -2264,7 +3022,8 @@
 			"entries": [
 				"你为一件武器附魔，以消耗敌人的生命。当施法者用此武器取得关键一击时，只要目标不是构筑物或不死生物，就会受到额外的（%0%）坏死伤害。持枪者会获得与所受额外坏死伤害相等的临时命中率。",
 				"当你达到14级时，该灌注的额外坏死伤害增加到（%0%）。"
-			]
+			],
+			"foundryImg": "icons/skills/melee/blade-tip-chipped-blood-red.webp"
 		},
 		{
 			"name": "Helm of Mind Shielding",
@@ -2286,8 +3045,9 @@
 				}
 			],
 			"entries": [
-				"戴上这个魔法头盔的人对精神伤害有抵抗力，对被魅惑和被惊吓的情况免疫，以及任何允许另一个生物读取他们的想法或与他们进行心灵感应的魔法。"
-			]
+				"The wearer of this magic helm is resistant to psychic damage, immune to the {@condition charmed} and {@condition frightened} conditions, and any magic that allows another creature to read their thoughts or telepathically communicate with them."
+			],
+			"foundryImg": "icons/equipment/head/helm-norman-black-gilded.webp"
 		},
 		{
 			"name": "Masterwork Homunculus",
@@ -2308,7 +3068,8 @@
 			"entries": [
 				"你已经发现了创造生命的秘密。你学会了（%0%）的法术。它对你来说算作一个工匠法术，但不计入你已知的法术数量。只要你有可用的材料组件，你可以在不耗费法术槽的情况下施展（%%1%）。",
 				"如果你在孵化期的任何时候用另一个输液器代替这个输液器，那么这个咒语立即失效。"
-			]
+			],
+			"foundryImg": "icons/skills/wounds/blood-cells-vessel-blue.webp"
 		},
 		{
 			"name": "Mystic Armament",
@@ -2331,7 +3092,8 @@
 			],
 			"entries": [
 				"此物品有4个电荷。在挥舞这个魔法武器的时候，使用者可以使用他们的行动来施展{@spell steel wind strike|xge}的法术，以注入的武器作为施法的焦点，而不需要消耗一个法术槽。该武器在长时间休息结束后会恢复所有消耗的电荷。"
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Mystic Shot",
@@ -2355,6 +3117,225 @@
 			"entries": [
 				"当挥舞这个魔法武器时，使用者可以使用他们的行动来施展（%0%），以注入的武器作为施法重点，而不需要消耗一个法术槽。",
 				"一旦激活，施法者必须完成一个短期或长期的休息，才能再次用此武器施展（%0%）。"
+			],
+			"foundryImg": "icons/skills/ranged/arrow-flying-white-blue.webp"
+		},
+		{
+			"name": "Amphibious Physiology",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"融合时，该生物可以呼吸空气和水，并获得30英尺的游泳速度。"
+			],
+			"foundryEffects": [
+				{
+					"name": "Swimming Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": 30
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/creatures/amphibians/treefrog-underneath-teal.webp"
+		},
+		{
+			"name": "Resilient Hide",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"当合并后没有穿戴任何盔甲或使用盾牌时，该生物的盔甲等级等于10+你的智力修饰+他们的体质修饰。"
+			],
+			"foundryEffects": [
+				{
+					"name": "Unarmored AC",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "CUSTOM",
+							"value": "10 + @abilities.int.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "custom"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/leather/scales-blue.webp"
+		},
+		{
+			"name": "Vestigial Limb",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"融合时，该生物会长出一个额外的肢体，与他们自己的肢体相似。它有5英尺的距离，可以举起与你智力分值相等的磅数。该肢体不能使用武器或盾牌，也不能做任何需要手动精确的事情。"
+			],
+			"foundryImg": "icons/commodities/biological/hand-gnarled-green.webp"
+		},
+		{
+			"name": "Raucous Blast",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus can assault creatures with a blast of sound. As an action, make a spell attack against a creature within 60 feet that can hear you. On hit, the creature takes {@damage 1d8} thunder damage and is deafened until the start of your next turn. The damage increases by {@dice 1d8} at 5th level ({@damage 2d8}), and again at 11th level ({@damage 3d8}), and 17th level ({@damage 4d8})."
+			],
+			"foundrySystem": {
+				"actionType": "rsak",
+				"damage.parts": [
+					[
+						"@scale.composer.raucous-blast",
+						"thunder"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/sonic/projectile-sound-rings-wave.webp"
+		},
+		{
+			"name": "Ringing Strike",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus is a simple weapon with the versatile property, and it deals {@damage 1d8} ({@damage 1d10}) bludgeoning damage on hit. You are considered proficient with it, and you can use your Intelligence, in place of Strength, for attack and damage rolls. In addition, you can cast the {@spell booming blade|tce} cantrip as long as your Apparatus is the material component."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"booming blade|tce"
+						]
+					}
+				}
+			],
+			"foundrySystem": {
+				"ability": "int",
+				"actionType": "mwak",
+				"damage.parts": [
+					[
+						"1d8",
+						"bludgeoning"
+					]
+				],
+				"versatile": "1d10"
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"name": "Flying Machine",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Flying Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "UPGRADE",
+							"value": "@scale.aeronaut.flying-speed"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Aerial Maneuvers",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Dexterity Check & Save Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.dex.bonuses.check",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Augmented Flesh",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 5,
+			"effects": [
+				{
+					"name": "Merged Bonus",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.str.value",
+							"mode": "UPGRADE",
+							"value": "@abilities.int.value"
+						},
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk",
+							"priority": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Strange Evolution",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Movement Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		}
 	]
