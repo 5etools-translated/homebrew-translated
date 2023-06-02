@@ -3,24 +3,29 @@
 		"sources": [
 			{
 				"json": "llasio",
-				"abbreviation": "ll:as&io",
+				"abbreviation": "LL:AS&IO",
 				"full": "LaserLlama's Artificer Specialties & Infusion Options",
 				"authors": [
 					"laserLlama"
 				],
 				"convertedBy": [
 					"JoeyJoestar",
-					"Bowsori#7981"
+					"Bowsori#7981",
+					"hakr14"
 				],
 				"version": "2.1.0",
 				"color": "d4601e",
 				"url": "https://www.gmbinder.com/share/-M0ctsc5kAuUAYc57apB",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.8"
 			}
 		],
+		"optionalFeatureTypes": {
+			"LL:CT": "Chimeric Trait",
+			"LL:MAW": "Musical Apparatus Weaponization"
+		},
 		"dateAdded": 1549715846,
-		"dateLastModified": 1664312670,
-		"_dateLastModifiedHash": "bb965f68bd"
+		"dateLastModified": 1685407377,
+		"_dateLastModifiedHash": "6c5d5172dd"
 	},
 	"subclass": [
 		{
@@ -60,7 +65,32 @@
 				"Extra Attack|Artificer|TCE|Aeronaut|llasio|5",
 				"Aerial Maneuvers|Artificer|TCE|Aeronaut|llasio|9",
 				"Master Aeronaut|Artificer|TCE|Aeronaut|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Flying Speed",
+					"configuration": {
+						"identifier": "flying-speed",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 15
+							},
+							"5": {
+								"value": 20
+							},
+							"9": {
+								"value": 30
+							},
+							"15": {
+								"value": 60
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue-grey.webp"
 		},
 		{
 			"name": "Archivist",
@@ -99,7 +129,36 @@
 				"Acute Overload|Artificer|TCE|Archivist|llasio|5",
 				"Improved Consciousness|Artificer|TCE|Archivist|llasio|9",
 				"Master Archivist|Artificer|TCE|Archivist|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Information Overload Damage",
+					"configuration": {
+						"identifier": "information-overload",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-sealed-brown-red.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -139,7 +198,20 @@
 				"Extra Attack|Artificer|TCE|Biomancer|llasio|5",
 				"Strange Evolution|Artificer|TCE|Biomancer|llasio|9",
 				"Master Biomancer|Artificer|TCE|Biomancer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Strange Evolution",
+					"featureType": [
+						"LL:CT"
+					],
+					"progression": {
+						"9": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/biological/organ-heart-pink.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -170,6 +242,15 @@
 							"hold monster",
 							"modify memory"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"time stop"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -178,7 +259,8 @@
 				"Stolen Moments|Artificer|TCE|Chronothief|llasio|5|",
 				"Empowered Chronomancy|Artificer|TCE|Chronothief|llasio|9",
 				"Master Chronothief|Artificer|TCE|Chronothief|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/watch.webp"
 		},
 		{
 			"name": "Composer",
@@ -217,7 +299,66 @@
 				"Thunderous Note|Artificer|TCE|Composer|llasio|5",
 				"Resonant Frequency|Artificer|TCE|Composer|llasio|9",
 				"Master Composer|Artificer|TCE|Composer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Musical Apparatus",
+					"featureType": [
+						"LL:MAW"
+					],
+					"progression": {
+						"3": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Raucous Blast Damage",
+					"configuration": {
+						"identifier": "raucous-blast",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				},
+				{
+					"type": "ScaleValue",
+					"title": "Resonant Frequency Damage",
+					"configuration": {
+						"identifier": "resonant-frequency",
+						"type": "dice",
+						"scale": {
+							"9": {
+								"n": 2,
+								"die": 8
+							},
+							"15": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-symbol-rune-tan.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -256,7 +397,8 @@
 				"Extra Attack|Artificer|TCE|Dungeoneer|llasio|5",
 				"Arcane Improvisation|Artificer|TCE|Dungeoneer|llasio|9",
 				"Master Dungeoneer|Artificer|TCE|Dungeoneer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/environment/traps/saw-steel-grey.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -295,7 +437,29 @@
 				"Extra Attack|Artificer|TCE|Forgewright|llasio|5",
 				"Arcane Smite|Artificer|TCE|Forgewright|llasio|9",
 				"Master Forgewright|Artificer|TCE|Forgewright|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Arcane Armament Damage Bonus",
+					"configuration": {
+						"identifier": "arcane-armament",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"9": {
+								"value": 2
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/tools/smithing/crucible-round.webp"
 		},
 		{
 			"name": "Machinist",
@@ -335,7 +499,8 @@
 				"Automated Army|Artificer|TCE|Machinist|llasio|5",
 				"Efficient Production|Artificer|TCE|Machinist|llasio|9",
 				"Master Machinist|Artificer|TCE|Machinist|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/coil-tesla-large.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -366,6 +531,15 @@
 							"dominate person",
 							"hold monster"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"Otto's Irresistible Dance"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -374,7 +548,58 @@
 				"Strange Strikes|Artificer|TCE|Puppeteer|llasio|5",
 				"Nimble Fingers|Artificer|TCE|Puppeteer|llasio|9",
 				"Master Puppeteer|Artificer|TCE|Puppeteer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/magic/control/voodoo-doll-pain-damage-purple.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"shortName": "Alternate Alchemist",
+			"additionalSpells": [
+				{
+					"known": {
+						"3": [
+							"healing word",
+							"inflict wounds"
+						],
+						"5": [
+							"acid arrow",
+							"flaming sphere"
+						],
+						"9": [
+							"gaseous form",
+							"mass healing word"
+						],
+						"13": [
+							"blight",
+							"death ward"
+						],
+						"17": [
+							"cloudkill",
+							"reincarnate"
+						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1e": [
+									"greater restoration",
+									"heal"
+								]
+							}
+						}
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Alternate Alchemist|Artificer|TCE|Alternate Alchemist|llasio|3",
+				"Alchemical Savant|Artificer|TCE|Alternate Alchemist|llasio|5",
+				"Restorative Reagents|Artificer|TCE|Alternate Alchemist|llasio|9",
+				"Master Alchemist|Artificer|TCE|Alternate Alchemist|llasio|15"
+			],
+			"foundryImg": "icons/consumables/potions/potion-faceted-corked-blue.webp"
 		}
 	],
 	"subclassFeature": [
@@ -443,7 +668,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"woodcarver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/hand/saw-steel-grey.webp"
 		},
 		{
 			"name": "Flying Machine",
@@ -460,13 +694,14 @@
 					"items": [
 						"Du kan använda den som ett fokus för trollkonster.",
 						"Den är byggd för att passa dig och kan bäras över en lätt rustning.",
-						"När du faller, och inte är oförmögen att ta skada, drar du av upp till 100 fot från ditt fall när du beräknar fallskador, och du kan röra dig 2 fot horisontellt för varje fot du faller.",
+						"When you fall, and aren't {@condition incapacitated}, you subtract up to 100 feet from your fall when calculating falling damage, and can move 2 feet horizontally every 1 foot you fall.",
 						"Du får en flyghastighet på 15 fot, som ökar när du får fler nivåer i den här klassen; på 5:e nivån (20 fot), 9:e nivån (30 fot) och slutligen på 15:e nivån (60 fot).",
 						"När du gör en vapenattack när du befinner dig minst 1,5 meter från marken kan du använda din intelligens, i stället för styrka eller smidighet, för attacken och skadan."
 					]
 				},
 				"Du kan bara ha en flygande maskin åt gången, och om du skapar en ny maskin kommer den andra att förfalla."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/raptor-hawk-flying.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -493,7 +728,8 @@
 			"entries": [
 				"Från och med 9:e nivån kan du, när du bär din flygmaskin, utföra {@action Dash} som en bonusåtgärd på din tur.",
 				"När du är utrustad med din flygande maskin får du dessutom en bonus på dina Dexterity-färdighetskontroller och räddningskast som är lika med din intelligensmodifierare (minst +1)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wings-birdlike-blue.webp"
 		},
 		{
 			"name": "Master Aeronaut",
@@ -506,7 +742,8 @@
 			"header": 2,
 			"entries": [
 				"Du har blivit en mästare i aeronautkonst. Från och med 15:e nivån, när du bär din flygande maskin och du utsätts för en effekt som gör att du kan göra ett räddningskast i Dexterity för att bara ta halva skadan, tar du istället ingen skada om du lyckas, och bara halva skadan om du misslyckas."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/songbird-yellow-flying.webp"
 		},
 		{
 			"name": "Archivist",
@@ -530,7 +767,7 @@
 			]
 		},
 		{
-			"name": "Tools of the trade",
+			"name": "Tools of the Trade",
 			"source": "llasio",
 			"className": "Artificer",
 			"classSource": "TCE",
@@ -573,7 +810,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"calligrapher's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/scribal/pen-steel-grey-brown.webp"
 		},
 		{
 			"name": "Artificial Mind",
@@ -644,7 +890,56 @@
 						]
 					]
 				}
-			]
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"animal handling",
+							"insight",
+							"perception",
+							"survival"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"deception",
+							"intimidation",
+							"performance",
+							"persuasion"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						],
+						"count": 2
+					}
+				}
+			],
+			"foundrySystem": {
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"@scale.archivist.information-overload",
+						"psychic"
+					]
+				],
+				"save": {
+					"ability": "int",
+					"scaling": "spell"
+				}
+			},
+			"foundryImg": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp"
 		},
 		{
 			"name": "Acute Overload",
@@ -658,7 +953,21 @@
 			"entries": [
 				"Från och med 5:e nivån kan du använda en trollformelplats för att öka den psykiska skadan av Information Overload. Skadan ökar med {@dice 2d8} för en trollformelplats på 1:a nivån, och ytterligare {@dice 1d8} för varje trollformelnivå högre än 1:a nivån.",
 				"När du orsakar psykisk skada med ditt artificiella sinne som fokus för trollformlering får du dessutom en bonus på skaderollen som är lika stor som din intelligensmodifierare (minst +1)."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Expend a spell slot"
+				},
+				"damage.parts": [
+					[
+						"2d8",
+						""
+					]
+				],
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-bars-yellow.webp"
 		},
 		{
 			"name": "Improved Consciousness",
@@ -671,7 +980,8 @@
 			"header": 2,
 			"entries": [
 				"De kognitiva förmågorna i ditt Artificial Mind är tillräckligt kraftfulla för att hjälpa dig med dina trollkonster. Från och med 9:e nivån, när du tvingas göra ett räddningskast i konstitutionen för att behålla koncentrationen på en trollformel, får du en bonus på ditt kast som är lika med din intelligensmodifierare (minst +1)."
-			]
+			],
+			"foundryImg": "icons/magic/perception/eye-tendrils-web-purple.webp"
 		},
 		{
 			"name": "Master Archivist",
@@ -684,7 +994,14 @@
 			"header": 2,
 			"entries": [
 				"Du är en mästare på arkivistiska konstgrepp. Från och med 15:e nivån kan du som en handling på din förvandla dig till ren information och teleportera dig till ett obebott utrymme som du kan se inom 60 fot, eller ett obebott utrymme inom 5 fot från en varelse eller ett föremål som bär en av dina artificer Infusions."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				}
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-teal.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -751,7 +1068,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/leather/leather-buckle-steel-tan.webp"
 		},
 		{
 			"name": "Aberrant Chimera",
@@ -801,7 +1127,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "Whenever you cast Find Familiar"
+				}
+			},
+			"foundryImg": "icons/commodities/biological/pustules-red.webp"
 		},
 		{
 			"name": "Augmented Flesh",
@@ -822,7 +1156,8 @@
 						"Som en bonusåtgärd kan du använda en trollformelplats för att ge dig själv tillfälliga träffpoäng som är lika med fem gånger nivån på trollformelplatsen + din intelligensmodifierare. Dessa tillfälliga träffpoäng läggs till alla tillfälliga träffpoäng du har från sammanslagningen med din Aberrant Chimera."
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/skills/wounds/injury-stapled-flesh-tan.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -847,9 +1182,10 @@
 			"level": 9,
 			"header": 2,
 			"entries": [
-				"Du har förbättrat din egen fysiologi med märklig magi.På 9:e nivån ökar din rörelsehastighet med 10 fot och du får permanent en Chimeric Trait som du själv väljer.",
+				"Du har förstärkt din egen fysiologi med märklig magi. På 9:e nivån ökar din rörelsehastighet med 10 fot, och du får permanent en Chimeric Trait som du väljer.",
 				"När du når 15:e nivån i den här klassen får du en andra permanent Chimeric Trait som du väljer (totalt två)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wolf-heads-swirl-purple.webp"
 		},
 		{
 			"name": "Master Biomancer",
@@ -864,7 +1200,21 @@
 			"entries": [
 				"Du har blivit en mästare bland Biomancer-konstnärer. Från och med 15:e nivån kan du, när du riktar en varelse med en Biomancer Spell, ge en enda måltavla (ytterligare) tillfälliga träffpoäng lika med din artificernivå.",
 				"När du är förenad med din Chimera är du dessutom motståndskraftig mot slagskador, genomträngande skador och snittskador."
-			]
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you target a creature with a Biomancer Spell"
+				},
+				"damage.parts": [
+					[
+						"@classes.artificer.levels",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/biological/organ-heart-red.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -938,7 +1288,16 @@
 						"Om ditt bord använder Dunamancy magi som finns i Explorer's Guide to Wildemount, kan en Chronothief välja att använda tidsrelaterade Dunamancy trollformler i stället för listan över Chronothief Spells ovan."
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"jeweler's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/gems/gem-rough-rose-teal.webp"
 		},
 		{
 			"name": "Chronometer",
@@ -956,8 +1315,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -989,7 +1346,18 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Action or Reaction"
+				},
+				"uses": {
+					"max": "2 * @abilities.int.mod",
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/stopwatch.webp"
 		},
 		{
 			"name": "Stolen Moments",
@@ -1001,9 +1369,21 @@
 			"level": 5,
 			"header": 2,
 			"entries": [
-				"Du har förbättrat din kronometer så att du bokstavligen kan spara ögonblick i tiden för senare. Från och med 5:e nivån, när du lyckas paralysera, bedöva eller minska en varelses rörelsehastighet till 0 med en besvärjelse eller Chronothief-förmåga, får din Chronometer tillbaka en av sina förbrukade laddningar.",
+				"You have improved your Chronometer so that you can literally save moments in time for later. Beginning at 5th level, when you successfully {@condition paralyzed|phb|paralyze}, {@condition stunned|phb|stun}, or reduce a creature's movement speed to 0 with a spell or Chronothief ability, your Chronometer regains one of its expended charges.",
 				"Alla dina Chronometerförmågor som kräver en handling för att användas kan också användas som en bonushandling på din tur."
-			]
+			],
+			"consumes": {
+				"name": "Chronometer",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "When you successfully paralyze, stun, or reduce a creature's movement speed to 0 with a spell or Chronothief ability"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/dial-meter-gauge-blue.webp"
 		},
 		{
 			"name": "Empowered Chronomancy",
@@ -1033,7 +1413,7 @@
 							"type": "entries",
 							"name": "Decelerate",
 							"entries": [
-								"Du kan spendera en extra kostnad för att fördubbla minskningen av rörelsehastigheten. Om den här egenskapen minskar ett måls hastighet till 0 måste det lyckas med ett räddningskast i konstitutionen eller bli bedövad fram till slutet av nästa tur."
+								"You can spend an additional charge to double the movement speed reduction. If this feature reduces a target's speed to 0, it must succeed on a Constitution saving throw or be {@condition stunned} until the end of its next turn."
 							]
 						},
 						{
@@ -1052,7 +1432,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/movement/abstract-ribbons-red-orange.webp"
 		},
 		{
 			"name": "Master Chronothief",
@@ -1064,9 +1445,10 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Du anses vara en mästare inom området kronomantik. Från och med 15:e nivån kan du överbelasta din Chronometer och använda alla återstående laddningar för att kasta tidsstopp.",
+				"Du anses vara en mästare inom området kronomantik. Från och med 15:e nivån kan du överbelasta din Chronometer och använda alla återstående laddningar för att kasta {@spell time stop}.",
 				"När du har kastat tidsstopp på detta sätt måste du avsluta en lång vila innan du kan göra det igen."
-			]
+			],
+			"foundryImg": "icons/magic/time/clock-spinning-gold-pink.webp"
 		},
 		{
 			"name": "Composer",
@@ -1134,7 +1516,18 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true,
+					"musical instrument": true
+				},
+				{
+					"anyArtisans": 1,
+					"musical instrument": true
+				}
+			],
+			"foundryImg": "icons/tools/instruments/lute-gold-brown.webp"
 		},
 		{
 			"name": "Musical Apparatus",
@@ -1152,8 +1545,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -1171,7 +1562,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				},
+				"damage.parts": []
+			},
+			"foundryImg": "icons/commodities/tech/pipe-exhaust.webp"
 		},
 		{
 			"name": "Thunderous Note",
@@ -1185,7 +1584,14 @@
 			"entries": [
 				"Från och med 5:e nivån kan du, när du träffar en varelse med en Musical Apparatus-attack, använda en trollformelplats för att slå tillbaka stora eller mindre mål med en dundrande ljudstöt. Varelsen slås tillbaka 10 fot för en trollformelplats på 1:a nivån, och ytterligare 10 fot för varje trollformelnivå högre än 1:a nivån.",
 				"När du orsakar åskskskador lägger du dessutom till din intelligensmodifiering (minst +1) till din skaderoll."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a creature with a Musical Apparatus attack"
+				}
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
 		},
 		{
 			"name": "Resonant Frequency",
@@ -1199,7 +1605,21 @@
 			"entries": [
 				"Från och med 9:e nivån kan du använda en handling för att spela en ton som får en måltavla inom tre meter att resonera med odetekterbar musik i en timme. Nästa gång den varelsen träffas av en närkampsattack måste angriparen lyckas med ett räddningskast i konstitutionen eller ta {@dice 2d8} åskskskada och inte kunna ta reaktioner förrän i början av sin nästa tur.",
 				"Du kan använda den här egenskapen ett antal gånger som är lika med din intelligensmodifierare (minst en gång), och du återfår alla förbrukade användningar när du avslutar en lång vila."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"@scale.composer.resonant-frequency",
+						"thunder"
+					]
+				],
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/commodities/tech/antenna-powered-purple.webp"
 		},
 		{
 			"name": "Master Composer",
@@ -1222,7 +1642,14 @@
 						"Skadan på Resonansfrekvensen blir {@dice 4d8}."
 					]
 				}
-			]
+			],
+			"immune": [
+				"thunder"
+			],
+			"conditionImmune": [
+				"deafened"
+			],
+			"foundryImg": "icons/tools/instruments/harp-yellow-teal.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -1254,7 +1681,7 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"När du blir en Dungeoneer Specialist på 3:e nivån får du färdigheter i {@item carpenters tools|phb} och {@item smith's tools|phb}. Om du redan är skicklig i {@item carpenter's tools|phb} eller {@item smith's tools} får du färdighet i ytterligare en uppsättning {@item artisan's tools|phb} av ditt val.",
+				"When you become a Dungeoneer Specialist at 3rd level, you gain proficiency with {@item carpenter's tools|phb} and {@item smith's tools|phb}. If you already proficient in {@item carpenter's tools|phb} or {@item smith's tools}, you gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
 				"Du får också färdighet med improviserade vapen. När du gör en improviserad vapenattack kan du använda din intelligens, i stället för styrka eller smidighet, för attack- och skaderollen, och skadetärningen för alla improviserade vapenattacker du gör blir en d8 om den skulle vara lägre.",
 				{
 					"type": "table",
@@ -1289,8 +1716,26 @@
 							"{@spell passwall}, {@spell wall of stone}"
 						]
 					]
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Improvised Weapons in 5e",
+					"entries": [
+						"Improviserade vapen inkluderar alla föremål som du kan använda med en eller två händer, t.ex. en trasig flaska, ett bordsben, en björnfälla eller en död trollkarl.",
+						"Ofta liknar ett improviserat vapen ett riktigt vapen och bör behandlas som ett sådant. Till exempel kan ett bordsben anses likna ett {@item club|phb} och skulle ge 1d4 slagskador vid träff. Ett improviserat kastat vapen har en normal räckvidd på 20 fot och en lång räckvidd på 60 fot."
+					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"carpenter's tools": true,
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 2
+				}
+			],
+			"foundryImg": "icons/tools/hand/chisel-steel-brown.webp"
 		},
 		{
 			"name": "Dungeoncraft",
@@ -1342,7 +1787,11 @@
 						]
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/weapons/thrown/bomb-spiked-purple.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1369,7 +1818,16 @@
 			"entries": [
 				"Från och med 9:e nivån betraktas dina improviserade vapenattacker och Dungeoncraft Objects som magiska för att övervinna motstånd och immunitet mot icke-magiska attacker.",
 				"Du kan också kasta en av dina Dungeoneer Spells utan att tillhandahålla materialkomponenten en gång per lång vila."
-			]
+			],
+			"foundrySystem": {
+				"activation.type": "special",
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/magic/symbols/arrowhead-green.webp"
 		},
 		{
 			"name": "Master Dungeoneer",
@@ -1382,16 +1840,9 @@
 			"header": 2,
 			"entries": [
 				"Du har blivit en mästare i Dungeoneering. Från och med 15:e nivån har varelser nackdel på räddningskast för dina Dungeoncraft Objects och Dungeoneer trollformler.",
-				"Dessutom lär du dig att kasta en rituell version av både {@spell passwall} och {@spell wall of stone} trollformlerna. Att kasta dem på det här sättet tar 1 timme, förbrukar inte en trollformelplats, och den skapade strukturen blir permanent i slutet av ritualkastningen.",
-				{
-					"type": "insetReadaloud",
-					"name": "Improvised Weapons in 5e",
-					"entries": [
-						"Improviserade vapen inkluderar alla föremål som du kan använda med en eller två händer, t.ex. en trasig flaska, ett bordsben, en björnfälla eller en död trollkarl.",
-						"Ofta liknar ett improviserat vapen ett riktigt vapen och bör behandlas som ett sådant. Till exempel kan ett bordsben anses likna ett {@item club|phb} och skulle ge 1d4 slagskador vid träff. Ett improviserat kastat vapen har en normal räckvidd på 20 fot och en lång räckvidd på 60 fot."
-					]
-				}
-			]
+				"Dessutom lär du dig att kasta en rituell version av både {@spell passwall} och {@spell wall of stone} trollformlerna. Att kasta dem på det här sättet tar 1 timme, förbrukar inte en trollformelplats, och den skapade strukturen blir permanent i slutet av ritualkastningen."
+			],
+			"foundryImg": "icons/environment/traps/trap-jaw-steel.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -1459,7 +1910,21 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"martial": true
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Arcane Armament",
@@ -1483,7 +1948,8 @@
 					]
 				},
 				"Din Arcane Armament kan endast användas av dig. Att förtrolla ett andra vapen gör att den magi som genomsyrade det första vapnet försvinner."
-			]
+			],
+			"foundryImg": "icons/magic/symbols/runes-etched-steel-blade.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1514,11 +1980,20 @@
 					"items": [
 						"Målet tar extra {@dice 2d6} kraftskada. Du kan använda en trollformelplats för att öka denna skada. Skadan ökar med {@dice 1d6} per nivå på den spelledningsplats du använder.",
 						"Du får tillfälliga träffpoäng som är lika med din artificernivå.",
-						"Du kan tvinga målet att göra ett räddningskast för styrka. Vid ett misslyckat räddningsförsök slås de omkull."
+						"You can force the target to make a Strength saving throw. On a failed save they are knocked {@condition prone}."
 					]
 				},
 				"Du kan använda den här förmågan lika många gånger som din intelligensmodifierare (minst en gång), och du återfår alla förbrukade användningar när du avslutar en lång vila."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a target with your Arcane Armament"
+				},
+				"uses.max": "max(1, @abilities.int.mod)",
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/skills/melee/sword-engraved-glow-purple.webp"
 		},
 		{
 			"name": "Master Forgewright",
@@ -1532,7 +2007,8 @@
 			"entries": [
 				"Du har blivit en mästare bland Forgewright-konstnärer. Från och med 15:e nivån kan du utvidga kraften i din Arcane Armament till dina allierade. Som en handling väljer du ett antal vapen som är lika med din intelligensmodifierare (minst 1) inom 30 fot. Under nästa minut ger dessa vapen ytterligare {@dice 1d6} kraftskada vid träff.",
 				"Du kan använda den här egenskapen en gång per lång vila, om du inte spenderar en trollformel på 3:e nivån eller högre för att använda den igen."
-			]
+			],
+			"foundryImg": "icons/skills/melee/swords-triple-orange.webp"
 		},
 		{
 			"name": "Machinist",
@@ -1599,7 +2075,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Automatons",
@@ -1612,7 +2097,7 @@
 			"header": 2,
 			"entries": [
 				"På 3:e nivån lär du dig att tillverka Automatons. I slutet av varje lång vila använder du din {@item smith's tools|phb} för att magiskt skapa en liten automat i ett obebott utrymme inom en halvmeter. När du väl har skapat en Automaton kan du inte göra det igen förrän du avslutar en lång vila eller tills du använder en trollformelplats på 1:a nivån eller högre för att skapa en annan. Du kan ha en Automaton åt gången, att skapa en andra får den första att falla sönder.",
-				"Automatoner är magiska konstruktioner med en rustningsklass som är lika med 12 + din intelligensmodifierare och träffpunkter som är lika med din artificernivå + din intelligensmodifierare. När de gör en förmågekontroll eller ett räddningskast är dess förmågaspoäng 10 (+0). Om läkning kastas på den återfår den {@dice 2d6} träffpunkter. Den försvinner om den reduceras till 0 träffpoäng eller efter 1 timme.",
+				"Automatons are magical constructs with an Armor Class equal to 12 + your Intelligence modifier, and hit points equal to your artificer level + your Intelligence modifier. When they make an ability check or a saving throw, its ability scores are 10 (+0). If {@spell mending} is cast on it, it regains {@dice 2d6} hit points. It disappears if it is reduced to 0 hit points or after 1 hour.",
 				"När du skapar din Automaton bestämmer du vilken typ den ska vara, genom att välja mellan alternativen i tabellen nedan. Som en bonusåtgärd på din tur kan du aktivera automaten om du befinner dig inom 60 fot. Som en del av den bonusåtgärden kan du beordra Automaton att gå upp till 25 fot till ett obebott utrymme.",
 				{
 					"type": "table",
@@ -1648,7 +2133,8 @@
 						]
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/commodities/tech/transmission.webp"
 		},
 		{
 			"name": "Arcane Conduit",
@@ -1661,8 +2147,16 @@
 			"header": 2,
 			"entries": [
 				"Från och med femte nivån lär du dig att kanalisera magi genom dina Automatons. När du kastar en artificer-besvärjelse kan du välja att besvärjelsen ska utgå från en Automaton istället för dig själv så länge du befinner dig inom 60 fot från den.",
-				"När du kastar en besvärjelse på det här sättet kastar du en {@dice 1d8} och lägger till antalet som kastats till en skade- eller läkningsrunda för besvärjelsen."
-			]
+				"När du kastar en besvärjelse på det här sättet kastar du en {@dice d8} och lägger till antalet som kastats till en skade- eller läkningsrunda för besvärjelsen."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you cast an artificer spell"
+				},
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/commodities/tech/bulb-vacuum.webp"
 		},
 		{
 			"name": "Automated Army",
@@ -1675,7 +2169,14 @@
 			"header": 2,
 			"entries": [
 				"Du kan skapa och styra Automatons ännu effektivare. Från och med 5:e nivån kan du kontrollera upp till två Automatons samtidigt, och i slutet av varje lång vila kan du skapa två Automatons av ditt val utan att använda en spell slot. Du kan aktivera alla Automatons som en bonushandling."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				}
+			},
+			"foundryImg": "icons/commodities/tech/cog-brass.webp"
 		},
 		{
 			"name": "Efficient Production",
@@ -1688,7 +2189,8 @@
 			"header": 2,
 			"entries": [
 				"Från och med 9:e nivån, när du använder en artificer spell slot för att skapa en Automaton, skapar du ett antal Automatons som är lika stort som nivån på den spelled slot du använt. Du kan inte använda denna egenskap för att överskrida ditt maximala antal Automatons."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/levers-colored.webp"
 		},
 		{
 			"name": "Master Machinist",
@@ -1702,7 +2204,8 @@
 			"entries": [
 				"Du har blivit en mästare bland maskinister. Från och med 15:e nivån kan du kontrollera upp till tre Automatons samtidigt, och i slutet av en lång vila kan du skapa tre Automatons av ditt val utan att använda en spell slot.",
 				"När du tvingas göra ett räddningskast eller träffas av en attack kan du använda din reaktion för att byta plats med en av dina Automatons inom 60 fot. Automatonen blir då målet för attacken eller räddningskastet."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/tube-chamber-lightning.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -1769,7 +2272,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"weaver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/equipment/back/cloak-hooded-pink.webp"
 		},
 		{
 			"name": "Marionette Strings",
@@ -1818,7 +2330,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-large-teal.webp"
 		},
 		{
 			"name": "Strange Strikes",
@@ -1832,7 +2345,18 @@
 			"entries": [
 				"Graden av kontroll som du utövar genom dina strängar ökar. Från och med 5:e nivån kan du använda din reaktion för att få dem att göra ytterligare en attack när den varelse som är kopplad till dina Marionettsträngar gör en attack.",
 				"När en varelse som är kopplad till dina strängar träffar en varelse med en närstridsattack kan du dessutom använda en trollformelplats för att förstärka deras attack. Deras slag ger ytterligare {@dice 2d6} kraftskada för en trollformelplats på 1:a nivån, och ytterligare {@dice 1d6} kraftskada för varje trollformelplatsnivå över 1:a nivån."
-			]
+			],
+			"foundrySystem": {
+				"activation.condition": "When the creature attached to your Marionette Strings makes an attack",
+				"damage.parts": [
+					[
+						"2d6",
+						"force"
+					]
+				],
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-teal-blue.webp"
 		},
 		{
 			"name": "Nimble Fingers",
@@ -1846,7 +2370,8 @@
 			"entries": [
 				"Din förmåga att kontrollera och förstärka andras förmågor har ökat. Från och med 9:e nivån kan du ha två varelser kopplade till separata Marionettsträngar samtidigt. Du måste ha en fri hand för att kontrollera var och en av dessa varelser. De två varelserna kan vara på vilket avstånd som helst från varandra, så länge de var och en för sig håller sig inom räckvidden för dina strängar.",
 				"Dessutom blir längden på dina Marionettsträngar och räckvidden för dina Puppeteer-förmågor 60 fot."
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-spiral-teal.webp"
 		},
 		{
 			"name": "Master Puppeteer",
@@ -1858,9 +2383,224 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Du har blivit en mästare bland marionettkonstnärer. Från och med 15:e nivån kan du använda en handling på din tur för att kasta {@spell Otto's Irresistible Dance} besvärjelsen, utan att använda en spell slot, eller kräva din koncentration. Du kan bara ha en instans av denna besvärjelse aktiv åt gången. När en varelse gör ett räddningskast för att motstå förtrollningen kan du använda en användning av dina Marionette Strings för att införa nackdel.",
-				"När du har kastat {@spell Otto's Irresistible Dance} på det här sättet måste du avsluta en lång vila innan du kan göra det igen, eller använda din förmåga Marionette Strings för att använda den här förmågan igen."
+				"You have become a master amongst Puppeteer artificers. Starting at 15th level, you can use an action on your turn to cast the {@spell Otto's Irresistible Dance|phb|Irresistable Dance} spell, without expending a spell slot, or requiring your concentration. You can only have once instance of this spell active at a time. When a creature makes a saving throw to resist the spell, you can expend a use of your Marionette Strings to impose disadvantage.",
+				"Once you cast {@spell Otto's Irresistible Dance|phb|Irresistable Dance} in this way, you must finish a long rest before you can do so again, or expend a use of your Marionette Strings ability to use this ability again."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-levitate-teal-blue.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"entries": [
+				"Alkemi är en känslig konst, om förhållandet mellan ingredienserna ändras för mycket kan effekterna bli katastrofala. De som studerar magin i arkaiska drycker och bryggerier kallas alkemister. De är experter på att kombinera exotiska reagenser för att producera en mängd olika material och effekter. Från helande drycker som kan läka ett sår på några ögonblick, till klibbig gegga som exploderar när den kommer i kontakt med öppen eld. Med noggranna förberedelser och lite tur är alkemister mästare på att både ge liv och ta bort det.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Tools of the Trade|Artificer|TCE|Alternate Alchemist|llasio|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Alchemical Elixirs|Artificer|TCE|Alternate Alchemist|llasio|3"
+				}
 			]
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"At 3rd level, you gain proficiency with {@item alchemist's supplies|phb}. If you are already proficient with {@item alchemist's supplies|phb}, you instead gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
+				{
+					"type": "table",
+					"caption": "Alternate Alchemist",
+					"colLabels": [
+						"Artificer Level",
+						"Spell"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-left"
+					],
+					"rows": [
+						[
+							"3rd",
+							"{@spell healing word}, {@spell inflict wounds}"
+						],
+						[
+							"5th",
+							"{@spell acid arrow}, {@spell flaming sphere}"
+						],
+						[
+							"9th",
+							"{@spell gaseous form}, {@spell mass healing word}"
+						],
+						[
+							"13th",
+							"{@spell blight}, {@spell death ward}"
+						],
+						[
+							"17th",
+							"{@spell cloudkill}, {@spell reincarnate}"
+						]
+					]
+				}
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/cooking/mortar-herbs-yellow.webp"
+		},
+		{
+			"name": "Alchemical Elixirs",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Från och med 3:e nivån kan du i slutet av varje lång vila använda dina alkemistförnödenheter för att framställa ett Elixir i en tom flaska som du rör vid. Vid skapandet väljer du Elixirets effekt från tabellen nedan, varav vissa inkluderar din kompetensbonus (PB). Effekten av ett Elixir utlöses när någon dricker Elixiret. Som en bonushandling kan en varelse dricka Elixiret eller ge det till en varelse inom en radie av 5 fot. En varelse kan bara vara under effekten av ett Elixir åt gången, och att dricka ett annat avslutar omedelbart alla andra Elixir-effekter.",
+				"Elixir som du skapar med hjälp av den här funktionen håller tills det förbrukas, eller till slutet av nästa långa vila.",
+				"Som en handling på din tur kan du använda en trollformel på 1:a nivån eller högre för att skapa ett Elixir i en tom flaska som du rör vid. Du kan använda Elixiret som en del av samma handling.",
+				"På vissa nivåer i den här klassen kan du göra fler Elixirer i slutet av en lång vila: på 6:e nivån (två) och på 15:e nivån (tre).",
+				{
+					"type": "table",
+					"caption": "Alchemical Elixirs",
+					"colLabels": [
+						"Elixir",
+						"Effect"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-center"
+					],
+					"rows": [
+						[
+							"{@b Alteration}",
+							"Drickaren förvandlas som om han eller hon hade fått en {@spell alter self} besvärjelse. De bestämmer effekten av förtrollningen, som varar i 10 minuter."
+						],
+						[
+							"{@b Boldness}",
+							"Drickaren kan lägga till {@dice 1d4} till alla attackkast och räddningskast som han/hon gör i 1 minut."
+						],
+						[
+							"{@b Flight}",
+							"Drickaren får en flyghastighet som är lika med 5 gånger din PB i fot i 10 minuter."
+						],
+						[
+							"{@b Healing}",
+							"The drinker regains a number of hit points equal to PB(d4) + your Intelligence Modifier."
+						],
+						[
+							"{@b Resilience}",
+							"Den som dricker får en bonus på sin rustningsklass som är lika med halva din PB i 10 minuter."
+						],
+						[
+							"{@b Swiftness}",
+							"Drickarens hastighet ökar med ett antal fot som är lika med 5 gånger din PB i 1 timme."
+						]
+					]
+				}
+			],
+			"foundryImg": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp"
+		},
+		{
+			"name": "Alchemical Savant",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 5,
+			"header": 2,
+			"entries": [
+				"Från och med 5:e nivån får du, när du kastar en artificer-besvärjelse som ger syra-, eld-, nekrotisk eller giftskada, eller återställer träffpunkter, en bonus på skadan eller läkningen som är lika stor som din intelligensmodifierare (minst +1)."
+			],
+			"foundryImg": "icons/consumables/potions/potion-jar-corked-labeled-red.webp"
+		},
+		{
+			"name": "Restorative Reagents",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 9,
+			"header": 2,
+			"entries": [
+				"Från och med 9:e nivån, när en varelse dricker ett av dina Elixir, får den tillfälliga träffpoäng som är lika med {@dice 2d6} + din intelligensmodifierare, utöver Elixirets effekt.",
+				"Also, you can cast {@spell lesser restoration} without expending a spell slot, even if you don't have it prepared, provided you use your alchemist's supplies as the spellcasting focus.",
+				"Du kan kasta {@spell lesser restoration} på detta sätt ett antal gånger som är lika med din intelligensmodifierare (minst en gång), och du återfår alla förbrukade användningar när du avslutar en lång vila."
+			],
+			"foundrySystem": {
+				"activation.condition": "Whenever a creature drinks one of your Elixirs",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				},
+				"damage.parts": [
+					[
+						"2d6 + @abilities.int.mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/consumables/potions/potion-round-corked-glowing-green.webp"
+		},
+		{
+			"name": "Master Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"Du har blivit en mästare bland alkemister. När du når 15:e nivån får du resistens mot syra- och giftskador och immunitet mot {@condition poisoned}.",
+				"In addition, you can cast both {@spell greater restoration} and {@spell heal} without expending a spell slot, without preparing the spell, and without providing the material component, provided you use your alchemist's supplies as the spellcasting focus.",
+				"Du kan kasta var och en av dessa trollformler en gång med den här funktionen, och du måste avsluta en lång vila innan du kan göra det igen."
+			],
+			"resist": [
+				"acid",
+				"poison"
+			],
+			"conditionImmune": [
+				"poisoned"
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-yellow-glow.webp"
 		}
 	],
 	"optionalfeature": [
@@ -1873,13 +2613,14 @@
 			"prerequisite": [
 				{
 					"item": [
-						"A set of {@item artisan's tools|phb} (requires attunement)"
+						"A set of artisan's tools (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"Den som använder den anses vara skicklig med denna magiska uppsättning verktyg, och som en handling kan han/hon förvandla denna uppsättning verktyg till en annan uppsättning {@item artisan's tools|phb} av sitt eget val."
-			]
+			],
+			"foundryImg": "icons/tools/fasteners/screw-flat-steel-grey.webp"
 		},
 		{
 			"name": "Arcane Implement",
@@ -1896,7 +2637,8 @@
 			],
 			"entries": [
 				"Den här lilla träbiten är fylld med ett valfritt konsthantrip. Som en handling kan en varelse framställa den genomsyrade trollformeln och använda din trollformleringsmodifierare för att kasta trollformeln."
-			]
+			],
+			"foundryImg": "icons/commodities/wood/bark-grey.webp"
 		},
 		{
 			"name": "Arm Launcher",
@@ -1912,8 +2654,9 @@
 				}
 			],
 			"entries": [
-				"Den här lilla magiska raketen kan laddas med ett litet föremål (t.ex. kullager, en syraflaska, alkemisteld eller vigvatten). Som en bonushandling kan bäraren aktivera avfyraren och göra en distansattack mot ett mål inom sex meter. Avfyraren kan laddas om som en handling."
-			]
+				"This tiny magical launcher can be loaded with a Tiny object (for example: {@item ball bearings (bag of 1,000)|phb|ball bearings}, a {@item acid (vial)|phb|vial of acid}, {@item alchemist's fire (flask)|phb|alchemist's fire}, or {@item holy water (flask)|phb|holy water}). As a bonus action the wearer can activate the launcher and make a ranged attack at a target within 20 feet. The launcher can be reloaded as an action."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-leather-teal-orange.webp"
 		},
 		{
 			"name": "Enhanced Instrument",
@@ -1931,7 +2674,8 @@
 			"entries": [
 				"Detta instrument har genom konstgjord konstgjordhet fått en magisk förstärkning. Innehavaren anses vara skicklig med detta instrument och kan använda det som ett fokus för trollformlering. Närhelst de gör en förmågekontroll med hjälp av det här instrumentet får de en bonus på kastet som är lika med din intelligensmodifierare (minst +1).",
 				"På 10:e nivån ger det här magiska instrumentet en +1 bonus på trollformelattacker. Denna bonus ökar till +2 på 14:e nivån."
-			]
+			],
+			"foundryImg": "icons/tools/instruments/bell-gold.webp"
 		},
 		{
 			"name": "Featherweight Belt",
@@ -1949,7 +2693,8 @@
 			"entries": [
 				"När det magiska bältet bärs minskar användaren till en tiondel av sin vikt utan att minska sina fysiska förmågor.",
 				"På 10:e nivån reducerar den bäraren till en hundradel av sin vikt utan att minska sina fysiska förmågor."
-			]
+			],
+			"foundryImg": "icons/equipment/waist/belt-coiled-leather-steel.webp"
 		},
 		{
 			"name": "Featherweight Weapon",
@@ -1967,7 +2712,8 @@
 			"entries": [
 				"Det här magiska vapnet har inte längre egenskapen tungt eller tvåhandigt (ditt val vid infusionen).",
 				"På 10:e nivån ger det här vapnet en +1 bonus på attack- och skaderullar. Denna bonus blir +2 på 14:e nivån."
-			]
+			],
+			"foundryImg": "icons/skills/melee/sword-winged-holy-orange.webp"
 		},
 		{
 			"name": "Goggles of Clearsight",
@@ -1983,9 +2729,10 @@
 				}
 			],
 			"entries": [
-				"När du bär dessa glasögon kan du se genom lätt skymda områden utan nackdel på visdomskontroller ({@skill Perception}). Dessutom drabbas bäraren inte längre av de negativa effekterna av egenskapen Sunlight Sensitivity, och han/hon har fördel på räddningskast för att motstå att bli förblindad.",
+				"While wearing these goggles, the wearer can see through lightly obscured areas without disadvantage on Wisdom ({@skill Perception}) checks. In addition, the wearer no longer suffers the negative effects from the {@i Sunlight Sensitivity} trait, and they have advantage on saving throws to resist being {@condition blinded}.",
 				"Denna bonus ökar på 10:e nivån (+2) och 14:e nivån (+3)."
-			]
+			],
+			"foundryImg": "icons/equipment/head/goggles-leather-grey.webp"
 		},
 		{
 			"name": "Power Whip",
@@ -2003,7 +2750,8 @@
 			"entries": [
 				"Det här magiska vapnet ger en +1 bonus på attack- och skaderullar som görs med det, och dess skadedubbning ökar till {@dice 1d8}.",
 				"Denna bonus ökar på 10:e nivån (+2) och 14:e nivån (+3)."
-			]
+			],
+			"foundryImg": "icons/weapons/misc/whip-red-yellow.webp"
 		},
 		{
 			"name": "Immovable Boots",
@@ -2027,7 +2775,8 @@
 			"entries": [
 				"När användaren står på en plan yta kan han/hon använda en åtgärd för att aktivera stövlarna, som på magisk väg håller användaren på plats. Tills du använder en handling för att avaktivera stövlarna rör du dig inte, även om du trotsar gravitationen.",
 				"En varelse kan använda en handling för att göra en styrkaskontroll på DC 30. Om du lyckas separerar du dina stövlar från ytan."
-			]
+			],
+			"foundryImg": "icons/equipment/feet/boots-armored-steel.webp"
 		},
 		{
 			"name": "Light Blade",
@@ -2044,14 +2793,15 @@
 						}
 					},
 					"item": [
-						"A sword hilt or wand (requires attunement"
+						"A sword hilt or wand (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"Medan han eller hon håller i föremålet kan han eller hon använda en bonusåtgärd för att få ett blad av ren strålglans att uppstå eller försvinna från föremålets ände. Medan bladet existerar är detta magiska föremål ett enkelt vapen med egenskapen finess. Det lysande bladet avger starkt ljus i en radie på 15 fot och dämpat ljus i ytterligare 15 fot. Ljuset är solljus.",
 				"Användaren får en +1 bonus på attacker och skaderullar med detta vapen, som ger {@dice 1d8} strålningsskada vid träff. Odöda tar ytterligare {@dice 1d8} strålningsskada. Bonusen på anfalls- och skaderullar blir +2 på 15:e nivån."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-broad-serrated-blue.webp"
 		},
 		{
 			"name": "Repulsion Gauntlets",
@@ -2075,7 +2825,8 @@
 			"entries": [
 				"Dessa magiska handskar har 4 laddningar. När bäraren träffar en varelse med ett obeväpnat slag kan han använda 1 laddning och tvinga målet att göra ett räddningskast för styrka. Vid ett misslyckat räddningsförsök slås varelsen tillbaka 15 fot. Handskarna återfår alla förbrukade laddningar i gryningen.",
 				"På 9:e nivån ger det här magiska vapnet en +1 bonus på attack- och skaderullar. Denna bonus ökar till +2 på 15:e nivån."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-steel-grey.webp"
 		},
 		{
 			"name": "Skyfall Harness",
@@ -2098,7 +2849,8 @@
 			],
 			"entries": [
 				"Den här magiska selen anpassar sig automatiskt efter bäraren och kan bäras över kläder eller lätt rustning. Den har vingliknande fenor mellan dina lemmar som kan bromsa ditt fall eller låta dig glida. När du faller, och inte är oförmögen, drar du av upp till 100 fot från ditt fall när du beräknar fallskador, och kan förflytta dig 2 fot horisontellt för varje 1 fot du faller."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-leather-stitched.webp"
 		},
 		{
 			"name": "War Gauntlet",
@@ -2121,7 +2873,8 @@
 			],
 			"entries": [
 				"Du fäster antingen ett kampvapen som saknar egenskaperna tung eller tvåhandig, eller en sköld på handsken. Bäraren får färdighet med det bifogade föremålet, och det kan inte tas bort från handsken medan den här infusionen är aktiv."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-red-gold.webp"
 		},
 		{
 			"name": "Chameleon Armor",
@@ -2144,7 +2897,8 @@
 			],
 			"entries": [
 				"Denna rustning har 4 laddningar. När bär denna magiska rustning kan bäraren använda en handling för att använda laddningar och kasta en av följande trollformler, riktade endast mot sig själv: {@spell invisibility} (2 laddningar) eller {@spell greater invisibility} (4 laddningar). Denna rustning återfår alla förbrukade laddningar dagligen i gryningen."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-gold.webp"
 		},
 		{
 			"name": "Collar of Taming",
@@ -2167,8 +2921,9 @@
 			],
 			"entries": [
 				"Magin i detta halsband kan tämja även de vildaste djuren. Du, och bara du, kan kontrollera varje djur som bär detta halsband som om det vore en tränad häst. Det här halsbandet fungerar inte på djur med en högre intelligenspoäng än din egen.",
-				"På 15:e nivån kan du med denna magiska krage kontrollera alla monster med en intelligenspoäng på 5 eller lägre."
-			]
+				"At 15th level, this magic collar allows you to control any {@filter monstrosity with an Intelligence score of 5 or lower|bestiary|type=monstrosity|Intelligence=[0;5]}."
+			],
+			"foundryImg": "icons/equipment/neck/torc-ball-captive.webp"
 		},
 		{
 			"name": "Elemental Weapon",
@@ -2192,7 +2947,8 @@
 			"entries": [
 				"Du ger ett vapen elementär energi. Vid infusionen väljer du ett kommandovord och en av följande skadetyper: syra, kyla, eld, gift eller blixtnedslag. Som en bonusåtgärd kan han/hon tala kommandotordet och få elementär energi att brista ut från vapnet tills kommandotordet talas ut igen. Vid träff ger vapnet ytterligare {@dice 1d4} av elementarskadan.",
 				"Den extra skadan blir {@dice 1d6} på 14:e nivån."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp"
 		},
 		{
 			"name": "Metamorphosis Armor",
@@ -2215,7 +2971,8 @@
 			],
 			"entries": [
 				"Denna magiska rustning har 4 laddningar. Som en handling kan bäraren använda en laddning för att kasta en {@spell enlarge/reduce} besvärjelse som endast riktar sig till honom själv, utan att använda en spell slot eller kräva koncentration. Att återskapa förtrollningen med rustningen avslutar effekten. Denna rustning återfår alla laddningar i gryningen."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-steel-blue-gold.webp"
 		},
 		{
 			"name": "Ring of the Elements",
@@ -2240,7 +2997,8 @@
 				"När du använder den här magiska ringen väljer du en av följande skadetyper: syra, kyla, eld, gift, blixt eller åska.",
 				"När bäraren kastar en besvärjelse som ger den skadetyp som du valt kan han/hon aktivera den här ringen för att ge maximal skada till ett av besvärjelsens mål i stället för att rulla.",
 				"När ringen är aktiverad kan den inte användas igen förrän bäraren har vilat en kort eller lång stund."
-			]
+			],
+			"foundryImg": "icons/equipment/finger/ring-band-gold-purple.webp"
 		},
 		{
 			"name": "Vampiric Weapon",
@@ -2264,7 +3022,8 @@
 			"entries": [
 				"Du förtrollar ett vapen så att det kan dra liv från fiender. När han eller hon får en kritisk träff med det här vapnet tar målet ytterligare {@dice 2d6} nekrotisk skada, så länge som målet inte är en konstruktion eller odöd. Hjälmaren får tillfälliga träffpoäng som är lika med den extra nekrotiska skadan.",
 				"När du når 14:e nivån ökar den ytterligare nekrotiska skadan från den här infusionen till {@dice 4d6}."
-			]
+			],
+			"foundryImg": "icons/skills/melee/blade-tip-chipped-blood-red.webp"
 		},
 		{
 			"name": "Helm of Mind Shielding",
@@ -2286,8 +3045,9 @@
 				}
 			],
 			"entries": [
-				"Bäraren av den här magiska hjälmen är motståndskraftig mot psykisk skada, immun mot charmerade och skrämda tillstånd och all magi som tillåter en annan varelse att läsa deras tankar eller kommunicera telepatiskt med dem."
-			]
+				"The wearer of this magic helm is resistant to psychic damage, immune to the {@condition charmed} and {@condition frightened} conditions, and any magic that allows another creature to read their thoughts or telepathically communicate with them."
+			],
+			"foundryImg": "icons/equipment/head/helm-norman-black-gilded.webp"
 		},
 		{
 			"name": "Masterwork Homunculus",
@@ -2308,7 +3068,8 @@
 			"entries": [
 				"Du har upptäckt hemligheterna bakom skapandet av liv. Du har lärt dig {@spell clone} trollformeln. Den räknas som en artificer spell för dig, men den räknas inte mot ditt antal Spells Known. Du kan kasta {@spell clone} utan att använda en trollformelplats så länge du har de materiella komponenterna tillgängliga.",
 				"Om du ersätter den här infusionen med en annan när som helst under inkubationsperioden misslyckas besvärjelsen omedelbart."
-			]
+			],
+			"foundryImg": "icons/skills/wounds/blood-cells-vessel-blue.webp"
 		},
 		{
 			"name": "Mystic Armament",
@@ -2331,7 +3092,8 @@
 			],
 			"entries": [
 				"Denna artikel har 4 avgifter. När användaren använder det här magiska vapnet kan han/hon använda sin handling för att kasta {@spell steel wind strike|xge} besvärjelsen, med det genomsyrade vapnet som fokus för besvärjelsen, utan att behöva använda en spell slot. Vapnet återfår alla förbrukade laddningar i slutet av en lång vila."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Mystic Shot",
@@ -2355,6 +3117,225 @@
 			"entries": [
 				"När användaren använder det här magiska vapnet kan han/hon använda sin handling för att kasta {@spell swift quiver}, med det infunderade vapnet som fokus för trollformeln, utan att behöva använda en trollformelplats.",
 				"När den är aktiverad måste den som använder vapnet avsluta en kort eller lång vila innan han/hon kan kasta {@spell swift quiver} med det här vapnet igen."
+			],
+			"foundryImg": "icons/skills/ranged/arrow-flying-white-blue.webp"
+		},
+		{
+			"name": "Amphibious Physiology",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"När den är sammansvetsad kan varelsen andas både luft och vatten och får en simhastighet på 30 fot."
+			],
+			"foundryEffects": [
+				{
+					"name": "Swimming Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": 30
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/creatures/amphibians/treefrog-underneath-teal.webp"
+		},
+		{
+			"name": "Resilient Hide",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"När den är sammansmält och inte bär någon rustning eller använder en sköld är varelsens rustningsklass lika med 10 + din intelligensmodifierare + deras konstitutionsmodifierare."
+			],
+			"foundryEffects": [
+				{
+					"name": "Unarmored AC",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "CUSTOM",
+							"value": "10 + @abilities.int.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "custom"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/leather/scales-blue.webp"
+		},
+		{
+			"name": "Vestigial Limb",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Medan den är sammansmält växer en ytterligare lem som liknar den egna lemmen. Den har en räckvidd på 1,5 meter och kan lyfta ett antal pund som är lika med din intelligenspoäng. Extremiteten kan inte använda vapen eller sköldar och kan inte heller göra något som kräver manuell precision."
+			],
+			"foundryImg": "icons/commodities/biological/hand-gnarled-green.webp"
+		},
+		{
+			"name": "Raucous Blast",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus can assault creatures with a blast of sound. As an action, make a spell attack against a creature within 60 feet that can hear you. On hit, the creature takes {@damage 1d8} thunder damage and is deafened until the start of your next turn. The damage increases by {@dice 1d8} at 5th level ({@damage 2d8}), and again at 11th level ({@damage 3d8}), and 17th level ({@damage 4d8})."
+			],
+			"foundrySystem": {
+				"actionType": "rsak",
+				"damage.parts": [
+					[
+						"@scale.composer.raucous-blast",
+						"thunder"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/sonic/projectile-sound-rings-wave.webp"
+		},
+		{
+			"name": "Ringing Strike",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus is a simple weapon with the versatile property, and it deals {@damage 1d8} ({@damage 1d10}) bludgeoning damage on hit. You are considered proficient with it, and you can use your Intelligence, in place of Strength, for attack and damage rolls. In addition, you can cast the {@spell booming blade|tce} cantrip as long as your Apparatus is the material component."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"booming blade|tce"
+						]
+					}
+				}
+			],
+			"foundrySystem": {
+				"ability": "int",
+				"actionType": "mwak",
+				"damage.parts": [
+					[
+						"1d8",
+						"bludgeoning"
+					]
+				],
+				"versatile": "1d10"
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"name": "Flying Machine",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Flying Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "UPGRADE",
+							"value": "@scale.aeronaut.flying-speed"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Aerial Maneuvers",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Dexterity Check & Save Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.dex.bonuses.check",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Augmented Flesh",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 5,
+			"effects": [
+				{
+					"name": "Merged Bonus",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.str.value",
+							"mode": "UPGRADE",
+							"value": "@abilities.int.value"
+						},
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk",
+							"priority": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Strange Evolution",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Movement Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		}
 	]
