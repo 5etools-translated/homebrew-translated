@@ -3,24 +3,29 @@
 		"sources": [
 			{
 				"json": "llasio",
-				"abbreviation": "ll:as&io",
+				"abbreviation": "LL:AS&IO",
 				"full": "LaserLlama's Artificer Specialties & Infusion Options",
 				"authors": [
 					"laserLlama"
 				],
 				"convertedBy": [
 					"JoeyJoestar",
-					"Bowsori#7981"
+					"Bowsori#7981",
+					"hakr14"
 				],
 				"version": "2.1.0",
 				"color": "d4601e",
 				"url": "https://www.gmbinder.com/share/-M0ctsc5kAuUAYc57apB",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.8"
 			}
 		],
+		"optionalFeatureTypes": {
+			"LL:CT": "Chimeric Trait",
+			"LL:MAW": "Musical Apparatus Weaponization"
+		},
 		"dateAdded": 1549715846,
-		"dateLastModified": 1664312670,
-		"_dateLastModifiedHash": "bb965f68bd"
+		"dateLastModified": 1685407377,
+		"_dateLastModifiedHash": "6c5d5172dd"
 	},
 	"subclass": [
 		{
@@ -60,7 +65,32 @@
 				"Extra Attack|Artificer|TCE|Aeronaut|llasio|5",
 				"Aerial Maneuvers|Artificer|TCE|Aeronaut|llasio|9",
 				"Master Aeronaut|Artificer|TCE|Aeronaut|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Flying Speed",
+					"configuration": {
+						"identifier": "flying-speed",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 15
+							},
+							"5": {
+								"value": 20
+							},
+							"9": {
+								"value": 30
+							},
+							"15": {
+								"value": 60
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue-grey.webp"
 		},
 		{
 			"name": "Archivist",
@@ -99,7 +129,36 @@
 				"Acute Overload|Artificer|TCE|Archivist|llasio|5",
 				"Improved Consciousness|Artificer|TCE|Archivist|llasio|9",
 				"Master Archivist|Artificer|TCE|Archivist|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Information Overload Damage",
+					"configuration": {
+						"identifier": "information-overload",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-sealed-brown-red.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -139,7 +198,20 @@
 				"Extra Attack|Artificer|TCE|Biomancer|llasio|5",
 				"Strange Evolution|Artificer|TCE|Biomancer|llasio|9",
 				"Master Biomancer|Artificer|TCE|Biomancer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Strange Evolution",
+					"featureType": [
+						"LL:CT"
+					],
+					"progression": {
+						"9": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/biological/organ-heart-pink.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -170,6 +242,15 @@
 							"hold monster",
 							"modify memory"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"time stop"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -178,7 +259,8 @@
 				"Stolen Moments|Artificer|TCE|Chronothief|llasio|5|",
 				"Empowered Chronomancy|Artificer|TCE|Chronothief|llasio|9",
 				"Master Chronothief|Artificer|TCE|Chronothief|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/watch.webp"
 		},
 		{
 			"name": "Composer",
@@ -217,7 +299,66 @@
 				"Thunderous Note|Artificer|TCE|Composer|llasio|5",
 				"Resonant Frequency|Artificer|TCE|Composer|llasio|9",
 				"Master Composer|Artificer|TCE|Composer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Musical Apparatus",
+					"featureType": [
+						"LL:MAW"
+					],
+					"progression": {
+						"3": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Raucous Blast Damage",
+					"configuration": {
+						"identifier": "raucous-blast",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				},
+				{
+					"type": "ScaleValue",
+					"title": "Resonant Frequency Damage",
+					"configuration": {
+						"identifier": "resonant-frequency",
+						"type": "dice",
+						"scale": {
+							"9": {
+								"n": 2,
+								"die": 8
+							},
+							"15": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-symbol-rune-tan.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -256,7 +397,8 @@
 				"Extra Attack|Artificer|TCE|Dungeoneer|llasio|5",
 				"Arcane Improvisation|Artificer|TCE|Dungeoneer|llasio|9",
 				"Master Dungeoneer|Artificer|TCE|Dungeoneer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/environment/traps/saw-steel-grey.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -295,7 +437,29 @@
 				"Extra Attack|Artificer|TCE|Forgewright|llasio|5",
 				"Arcane Smite|Artificer|TCE|Forgewright|llasio|9",
 				"Master Forgewright|Artificer|TCE|Forgewright|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Arcane Armament Damage Bonus",
+					"configuration": {
+						"identifier": "arcane-armament",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"9": {
+								"value": 2
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/tools/smithing/crucible-round.webp"
 		},
 		{
 			"name": "Machinist",
@@ -335,7 +499,8 @@
 				"Automated Army|Artificer|TCE|Machinist|llasio|5",
 				"Efficient Production|Artificer|TCE|Machinist|llasio|9",
 				"Master Machinist|Artificer|TCE|Machinist|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/coil-tesla-large.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -366,6 +531,15 @@
 							"dominate person",
 							"hold monster"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"Otto's Irresistible Dance"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -374,7 +548,58 @@
 				"Strange Strikes|Artificer|TCE|Puppeteer|llasio|5",
 				"Nimble Fingers|Artificer|TCE|Puppeteer|llasio|9",
 				"Master Puppeteer|Artificer|TCE|Puppeteer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/magic/control/voodoo-doll-pain-damage-purple.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"shortName": "Alternate Alchemist",
+			"additionalSpells": [
+				{
+					"known": {
+						"3": [
+							"healing word",
+							"inflict wounds"
+						],
+						"5": [
+							"acid arrow",
+							"flaming sphere"
+						],
+						"9": [
+							"gaseous form",
+							"mass healing word"
+						],
+						"13": [
+							"blight",
+							"death ward"
+						],
+						"17": [
+							"cloudkill",
+							"reincarnate"
+						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1e": [
+									"greater restoration",
+									"heal"
+								]
+							}
+						}
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Alternate Alchemist|Artificer|TCE|Alternate Alchemist|llasio|3",
+				"Alchemical Savant|Artificer|TCE|Alternate Alchemist|llasio|5",
+				"Restorative Reagents|Artificer|TCE|Alternate Alchemist|llasio|9",
+				"Master Alchemist|Artificer|TCE|Alternate Alchemist|llasio|15"
+			],
+			"foundryImg": "icons/consumables/potions/potion-faceted-corked-blue.webp"
 		}
 	],
 	"subclassFeature": [
@@ -443,7 +668,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"woodcarver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/hand/saw-steel-grey.webp"
 		},
 		{
 			"name": "Flying Machine",
@@ -460,13 +694,14 @@
 					"items": [
 						"Он может быть использован вами в качестве фокуса заклинания.",
 						"Она изготовлена по вашим размерам, и ее можно носить поверх легкой брони.",
-						"Когда вы падаете и не теряете сознание, вы вычитаете до 100 футов от вашего падения при расчете урона от падения и можете перемещаться на 2 фута по горизонтали за каждый 1 фут вашего падения.",
+						"When you fall, and aren't {@condition incapacitated}, you subtract up to 100 feet from your fall when calculating falling damage, and can move 2 feet horizontally every 1 foot you fall.",
 						"Вы получаете скорость полета в 15 футов, которая увеличивается по мере получения уровней в этом классе: на 5-м уровне (20 футов), на 9-м уровне (30 футов) и, наконец, на 15-м уровне (60 футов).",
 						"Когда вы атакуете оружием, находясь на высоте не менее 5 футов от земли, вы можете использовать свой интеллект вместо силы или ловкости для бросков атаки и урона."
 					]
 				},
 				"Одновременно можно иметь только одну Летающую машину, и создание другой приводит к тому, что другая приходит в негодность."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/raptor-hawk-flying.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -493,7 +728,8 @@
 			"entries": [
 				"Начиная с 9-го уровня, когда вы носите свой летательный аппарат, вы можете совершить действие {@action Dash} в качестве бонусного действия в свой ход.",
 				"Кроме того, пока у вас есть летательный аппарат, вы получаете бонус к проверкам способностей на ловкость и броскам спасения, равный вашему модификатору интеллекта (минимум +1)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wings-birdlike-blue.webp"
 		},
 		{
 			"name": "Master Aeronaut",
@@ -506,7 +742,8 @@
 			"header": 2,
 			"entries": [
 				"Вы стали мастером искусности аэронавтов. Начиная с 15-го уровня, когда вы носите свой летательный аппарат и подвергаетесь эффекту, который позволяет вам сделать бросок на ловкость, чтобы получить только половину урона, вы не получаете никакого урона в случае успеха и только половину урона в случае неудачи."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/songbird-yellow-flying.webp"
 		},
 		{
 			"name": "Archivist",
@@ -530,7 +767,7 @@
 			]
 		},
 		{
-			"name": "Tools of the trade",
+			"name": "Tools of the Trade",
 			"source": "llasio",
 			"className": "Artificer",
 			"classSource": "TCE",
@@ -573,7 +810,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"calligrapher's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/scribal/pen-steel-grey-brown.webp"
 		},
 		{
 			"name": "Artificial Mind",
@@ -644,7 +890,56 @@
 						]
 					]
 				}
-			]
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"animal handling",
+							"insight",
+							"perception",
+							"survival"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"deception",
+							"intimidation",
+							"performance",
+							"persuasion"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						],
+						"count": 2
+					}
+				}
+			],
+			"foundrySystem": {
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"@scale.archivist.information-overload",
+						"psychic"
+					]
+				],
+				"save": {
+					"ability": "int",
+					"scaling": "spell"
+				}
+			},
+			"foundryImg": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp"
 		},
 		{
 			"name": "Acute Overload",
@@ -658,7 +953,21 @@
 			"entries": [
 				"Начиная с 5-го уровня, вы можете потратить слот заклинания, чтобы увеличить психический урон от Информационной перегрузки. Урон увеличивается на {@dice 2d8} за слот заклинания 1-го уровня и еще на {@dice 1d8} за каждый уровень заклинания выше 1-го.",
 				"Кроме того, когда вы наносите психический урон, используя искусственный разум как фокус заклинания, вы получаете бонус к броску урона, равный вашему модификатору интеллекта (минимум +1)."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Expend a spell slot"
+				},
+				"damage.parts": [
+					[
+						"2d8",
+						""
+					]
+				],
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-bars-yellow.webp"
 		},
 		{
 			"name": "Improved Consciousness",
@@ -671,7 +980,8 @@
 			"header": 2,
 			"entries": [
 				"Когнитивные способности вашего искусственного разума достаточно мощны, чтобы помочь вам в колдовстве. Начиная с 9-го уровня, когда вам приходится делать бросок на спасбросок по Конституции, чтобы сохранить концентрацию на заклинании, вы получаете бонус к броску, равный вашему модификатору интеллекта (минимум +1)."
-			]
+			],
+			"foundryImg": "icons/magic/perception/eye-tendrils-web-purple.webp"
 		},
 		{
 			"name": "Master Archivist",
@@ -684,7 +994,14 @@
 			"header": 2,
 			"entries": [
 				"Вы - мастер архивистского искусства. Начиная с 15-го уровня, вы можете одним из своих действий превратиться в чистую информацию и телепортироваться в незанятое пространство, которое вы можете видеть в радиусе 60 футов, или в незанятое пространство в радиусе 5 футов от существа или предмета, несущего одну из ваших искусных инфузий."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				}
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-teal.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -751,7 +1068,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/leather/leather-buckle-steel-tan.webp"
 		},
 		{
 			"name": "Aberrant Chimera",
@@ -801,7 +1127,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "Whenever you cast Find Familiar"
+				}
+			},
+			"foundryImg": "icons/commodities/biological/pustules-red.webp"
 		},
 		{
 			"name": "Augmented Flesh",
@@ -822,7 +1156,8 @@
 						"В качестве бонусного действия вы можете потратить слот заклинания, чтобы наделить себя временными хит-пойнтами, равными пятикратному уровню слота заклинания + ваш модификатор интеллекта. Эти временные хит-пойнты добавляются к тем временным хит-пойнтам, которые вы получили в результате слияния с аберрантской химерой."
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/skills/wounds/injury-stapled-flesh-tan.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -847,9 +1182,10 @@
 			"level": 9,
 			"header": 2,
 			"entries": [
-				"На 9-м уровне ваша скорость передвижения увеличивается на 10 футов, и вы постоянно получаете одну химерическую черту по вашему выбору.",
+				"Вы усовершенствовали свою физиологию с помощью странной магии. На 9-м уровне ваша скорость передвижения увеличивается на 10 футов, и вы постоянно получаете одну химерную черту на выбор.",
 				"Когда вы достигаете 15-го уровня в этом классе, вы получаете вторую постоянную химерную черту по вашему выбору (всего две)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wolf-heads-swirl-purple.webp"
 		},
 		{
 			"name": "Master Biomancer",
@@ -864,7 +1200,21 @@
 			"entries": [
 				"Вы стали мастером среди биомантов-искусников. Начиная с 15-го уровня, когда вы нацеливаетесь на существо с помощью заклинания биоманта, вы можете дать одной цели (дополнительно) временные очки попадания, равные вашему уровню искусника.",
 				"Кроме того, слившись с химерой, вы становитесь устойчивы к колющему, пронзительному и косому урону."
-			]
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you target a creature with a Biomancer Spell"
+				},
+				"damage.parts": [
+					[
+						"@classes.artificer.levels",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/biological/organ-heart-red.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -938,7 +1288,16 @@
 						"Если ваша таблица использует магию Дунамантии, найденную в Explorer's Guide to Wildemount, Хронотиф может использовать заклинания Дунамантии, связанные со временем, вместо приведенного выше списка заклинаний Хронотифа."
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"jeweler's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/gems/gem-rough-rose-teal.webp"
 		},
 		{
 			"name": "Chronometer",
@@ -956,8 +1315,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -989,7 +1346,18 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Action or Reaction"
+				},
+				"uses": {
+					"max": "2 * @abilities.int.mod",
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/stopwatch.webp"
 		},
 		{
 			"name": "Stolen Moments",
@@ -1001,9 +1369,21 @@
 			"level": 5,
 			"header": 2,
 			"entries": [
-				"Вы улучшили свой Хронометр так, что можете буквально сохранять моменты времени на потом. Начиная с 5-го уровня, когда вы успешно парализуете, оглушаете или снижаете скорость передвижения существа до 0 с помощью заклинания или способности Chronothief, ваш Хронометр восстанавливает один из потраченных зарядов.",
+				"You have improved your Chronometer so that you can literally save moments in time for later. Beginning at 5th level, when you successfully {@condition paralyzed|phb|paralyze}, {@condition stunned|phb|stun}, or reduce a creature's movement speed to 0 with a spell or Chronothief ability, your Chronometer regains one of its expended charges.",
 				"Кроме того, все ваши способности Хронометра, для использования которых требуется действие, также могут быть использованы как бонусное действие в ваш ход."
-			]
+			],
+			"consumes": {
+				"name": "Chronometer",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "When you successfully paralyze, stun, or reduce a creature's movement speed to 0 with a spell or Chronothief ability"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/dial-meter-gauge-blue.webp"
 		},
 		{
 			"name": "Empowered Chronomancy",
@@ -1033,7 +1413,7 @@
 							"type": "entries",
 							"name": "Decelerate",
 							"entries": [
-								"Вы можете потратить дополнительный заряд, чтобы удвоить снижение скорости передвижения. Если эта способность снижает скорость движения цели до 0, она должна успешно выполнить бросок на спасение по Конституции или быть оглушенной до конца своего следующего хода."
+								"You can spend an additional charge to double the movement speed reduction. If this feature reduces a target's speed to 0, it must succeed on a Constitution saving throw or be {@condition stunned} until the end of its next turn."
 							]
 						},
 						{
@@ -1052,7 +1432,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/movement/abstract-ribbons-red-orange.webp"
 		},
 		{
 			"name": "Master Chronothief",
@@ -1064,9 +1445,10 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Вы считаетесь мастером в области хрономантии. Начиная с 15-го уровня, вы можете перегружать свой хронометр, расходуя оставшиеся заряды, чтобы остановить время.",
+				"Вы считаетесь мастером в области хрономантии. Начиная с 15-го уровня, вы можете перегружать свой хронометр, расходуя оставшиеся заряды, чтобы кастовать {@spell time stop}.",
 				"После того, как вы использовали остановку времени таким образом, вы должны завершить длительный отдых, прежде чем сможете сделать это снова."
-			]
+			],
+			"foundryImg": "icons/magic/time/clock-spinning-gold-pink.webp"
 		},
 		{
 			"name": "Composer",
@@ -1134,7 +1516,18 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true,
+					"musical instrument": true
+				},
+				{
+					"anyArtisans": 1,
+					"musical instrument": true
+				}
+			],
+			"foundryImg": "icons/tools/instruments/lute-gold-brown.webp"
 		},
 		{
 			"name": "Musical Apparatus",
@@ -1152,8 +1545,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -1171,7 +1562,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				},
+				"damage.parts": []
+			},
+			"foundryImg": "icons/commodities/tech/pipe-exhaust.webp"
 		},
 		{
 			"name": "Thunderous Note",
@@ -1185,7 +1584,14 @@
 			"entries": [
 				"Начиная с 5-го уровня, когда вы поражаете существо атакой \"Музыкальный аппарат\", вы можете потратить слот заклинания, чтобы отбросить крупную или более мелкую цель назад громовым взрывом звука. Существо отбрасывается на 10 футов назад за слот заклинания 1-го уровня и еще на 10 футов за каждый уровень заклинания выше 1-го.",
 				"Кроме того, каждый раз, когда вы наносите урон громом, вы добавляете свой модификатор интеллекта (минимум +1) к броску урона."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a creature with a Musical Apparatus attack"
+				}
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
 		},
 		{
 			"name": "Resonant Frequency",
@@ -1199,7 +1605,21 @@
 			"entries": [
 				"Начиная с 9-го уровня, вы можете использовать действие, чтобы сыграть ноту, которая заставит цель в радиусе 10 футов резонировать с неразличимой музыкой в течение 1 часа. В следующий раз, когда это существо будет поражено атакой в ближнем бою, атакующий должен преуспеть в броске на спасение по Конституции или получить {@dice 2d8} урона громом и не иметь возможности реагировать до начала своего следующего хода.",
 				"Вы можете использовать эту способность несколько раз, равное вашему модификатору интеллекта (минимум один раз), и вы восстанавливаете все израсходованные способности, когда заканчиваете длительный отдых."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"@scale.composer.resonant-frequency",
+						"thunder"
+					]
+				],
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/commodities/tech/antenna-powered-purple.webp"
 		},
 		{
 			"name": "Master Composer",
@@ -1222,7 +1642,14 @@
 						"Урон от Резонансной частоты становится {@dice 4d8}."
 					]
 				}
-			]
+			],
+			"immune": [
+				"thunder"
+			],
+			"conditionImmune": [
+				"deafened"
+			],
+			"foundryImg": "icons/tools/instruments/harp-yellow-teal.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -1254,7 +1681,7 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Когда вы становитесь специалистом по подземельям на 3-м уровне, вы получаете навыки владения {@item carpenters tools|phb} и {@item smith's tools|phb}. Если вы уже владеете навыками {@item carpenter's tools|phb} или {@item smith's tools}, вы получаете навык еще одного набора {@item artisan's tools|phb} по вашему выбору.",
+				"When you become a Dungeoneer Specialist at 3rd level, you gain proficiency with {@item carpenter's tools|phb} and {@item smith's tools|phb}. If you already proficient in {@item carpenter's tools|phb} or {@item smith's tools}, you gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
 				"Вы также получаете навык владения импровизированным оружием. Когда вы атакуете самодельным оружием, вы можете использовать свой интеллект вместо силы или ловкости для бросков атаки и урона, а кубик урона для любых атак самодельным оружием становится равным d8, если он был бы меньше.",
 				{
 					"type": "table",
@@ -1289,8 +1716,26 @@
 							"{@spell passwall}, {@spell wall of stone}"
 						]
 					]
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Improvised Weapons in 5e",
+					"entries": [
+						"Самодельное оружие - это любой предмет, которым можно орудовать одной или двумя руками, например, разбитая бутылка, ножка стола, медвежий капкан или мертвый гоблин.",
+						"Часто самодельное оружие похоже на настоящее оружие и должно рассматриваться как таковое. Например, ножка стола может считаться похожей на {@item club|phb} и при попадании наносит 1d4 урона от удара. Импровизированное метательное оружие имеет обычную дальность 20 футов и дальнюю дальность 60 футов."
+					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"carpenter's tools": true,
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 2
+				}
+			],
+			"foundryImg": "icons/tools/hand/chisel-steel-brown.webp"
 		},
 		{
 			"name": "Dungeoncraft",
@@ -1342,7 +1787,11 @@
 						]
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/weapons/thrown/bomb-spiked-purple.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1369,7 +1818,16 @@
 			"entries": [
 				"Начиная с 9-го уровня, ваши атаки самодельным оружием и предметами подземелья считаются магическими для преодоления сопротивления и иммунитета к немагическим атакам.",
 				"Кроме того, вы можете произнести одно из своих заклинаний Dungeoneer без материального компонента один раз за долгий отдых."
-			]
+			],
+			"foundrySystem": {
+				"activation.type": "special",
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/magic/symbols/arrowhead-green.webp"
 		},
 		{
 			"name": "Master Dungeoneer",
@@ -1382,16 +1840,9 @@
 			"header": 2,
 			"entries": [
 				"Вы стали мастером Dungeoneering. Начиная с 15-го уровня, существа имеют недостаток при бросках спасбросков для ваших предметов Dungeoncraft и заклинаний Dungeoneer.",
-				"Кроме того, вы научитесь создавать ритуальную версию заклинаний {@spell passwall} и {@spell wall of stone}. Такое заклинание длится 1 час, не расходует слот заклинаний, а созданная структура становится постоянной по окончании ритуала.",
-				{
-					"type": "insetReadaloud",
-					"name": "Improvised Weapons in 5e",
-					"entries": [
-						"Самодельное оружие - это любой предмет, которым можно орудовать одной или двумя руками, например, разбитая бутылка, ножка стола, медвежий капкан или мертвый гоблин.",
-						"Часто самодельное оружие похоже на настоящее оружие и должно рассматриваться как таковое. Например, ножка стола может считаться похожей на {@item club|phb} и при попадании наносит 1d4 урона от удара. Импровизированное метательное оружие имеет обычную дальность 20 футов и дальнюю дальность 60 футов."
-					]
-				}
-			]
+				"Кроме того, вы научитесь создавать ритуальную версию заклинаний {@spell passwall} и {@spell wall of stone}. Такое заклинание длится 1 час, не расходует слот заклинаний, а созданная структура становится постоянной по окончании ритуала."
+			],
+			"foundryImg": "icons/environment/traps/trap-jaw-steel.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -1459,7 +1910,21 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"martial": true
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Arcane Armament",
@@ -1483,7 +1948,8 @@
 					]
 				},
 				"Ваше арканное оружие можете использовать только вы. При зачаровании второго оружия магия, которой было напитано первое, рассеивается."
-			]
+			],
+			"foundryImg": "icons/magic/symbols/runes-etched-steel-blade.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1514,11 +1980,20 @@
 					"items": [
 						"Цель получает дополнительный {@dice 2d6} урон от силы. Вы можете потратить слот заклинания, чтобы увеличить этот урон. Урон увеличивается на {@dice 1d6} за уровень расходуемого слота заклинания.",
 						"Вы получаете временные хит-пойнты, равные вашему уровню искусника.",
-						"Вы можете заставить цель сделать бросок на спасение силы. При неудачном спасброске они падают в обморок."
+						"You can force the target to make a Strength saving throw. On a failed save they are knocked {@condition prone}."
 					]
 				},
 				"Вы можете использовать эту способность количество раз, равное вашему модификатору интеллекта (минимум один раз), и вы восстанавливаете все израсходованные способности, когда заканчиваете длительный отдых."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a target with your Arcane Armament"
+				},
+				"uses.max": "max(1, @abilities.int.mod)",
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/skills/melee/sword-engraved-glow-purple.webp"
 		},
 		{
 			"name": "Master Forgewright",
@@ -1532,7 +2007,8 @@
 			"entries": [
 				"Вы стали мастером среди ремесленников Форгвайта. Начиная с 15-го уровня, вы можете распространять силу своего Arcane Armament на своих союзников. В качестве действия выберите количество оружия, равное вашему модификатору интеллекта (минимум 1) в радиусе 30 футов. В течение следующей минуты это оружие наносит дополнительный {@dice 1d6} урон силой при попадании.",
 				"Вы можете использовать эту способность один раз за долгий отдых, если не потратите слот заклинания 3-го уровня или выше, чтобы использовать ее снова."
-			]
+			],
+			"foundryImg": "icons/skills/melee/swords-triple-orange.webp"
 		},
 		{
 			"name": "Machinist",
@@ -1599,7 +2075,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Automatons",
@@ -1612,7 +2097,7 @@
 			"header": 2,
 			"entries": [
 				"На 3-м уровне вы научитесь создавать Автоматы. В конце каждого долгого отдыха вы используете свой {@item smith's tools|phb}, чтобы магически создать небольшой автомат в незанятом пространстве в радиусе 5 футов. Создав автомат, вы не сможете сделать это снова, пока не закончите длительный отдых или пока не потратите слот заклинания 1-го уровня или выше на создание другого автомата. Одновременно вы можете иметь один Автомат, создание второго приводит к разрушению первого.",
-				"Автоматы - магические существа с классом брони, равным 12 + ваш модификатор интеллекта, и хит-пойнтами, равными вашему уровню искусника + ваш модификатор интеллекта. Когда они делают проверку способностей или бросок спасения, их показатели способностей равны 10 (+0). Если на него наложено заклинание \"Починка\", он восстанавливает {@dice 2d6} хит-пойнтов. Он исчезает, если его хит-пойнты уменьшаются до 0 или через 1 час.",
+				"Automatons are magical constructs with an Armor Class equal to 12 + your Intelligence modifier, and hit points equal to your artificer level + your Intelligence modifier. When they make an ability check or a saving throw, its ability scores are 10 (+0). If {@spell mending} is cast on it, it regains {@dice 2d6} hit points. It disappears if it is reduced to 0 hit points or after 1 hour.",
 				"Когда вы создаете свой Автомат, вы решаете, к какому типу он относится, выбирая один из вариантов в таблице ниже. В качестве бонусного действия в свой ход вы можете активировать Автомат, если вы находитесь в пределах 60 футов. В рамках этого бонусного действия вы можете направить Автомат на расстояние до 25 футов в незанятое пространство.",
 				{
 					"type": "table",
@@ -1648,7 +2133,8 @@
 						]
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/commodities/tech/transmission.webp"
 		},
 		{
 			"name": "Arcane Conduit",
@@ -1661,8 +2147,16 @@
 			"header": 2,
 			"entries": [
 				"Начиная с 5-го уровня, вы научились передавать магию через своих Автоматов. Когда вы произносите заклинание искусника, вы можете выбрать, чтобы заклинание исходило от Автомата, а не от вас, если вы находитесь в пределах 60 футов от него.",
-				"Когда вы произносите заклинание таким образом, вы бросаете {@dice 1d8} и добавляете число бросков к одному урону или исцелению заклинания."
-			]
+				"Когда вы произносите заклинание таким образом, вы бросаете {@dice d8} и добавляете число бросков к одному урону или исцелению заклинания."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you cast an artificer spell"
+				},
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/commodities/tech/bulb-vacuum.webp"
 		},
 		{
 			"name": "Automated Army",
@@ -1675,7 +2169,14 @@
 			"header": 2,
 			"entries": [
 				"Вы можете создавать и управлять Автоматами еще более эффективно. Начиная с 5-го уровня, вы можете контролировать до двух Автоматов одновременно, а в конце каждого длительного отдыха вы можете создать двух Автоматов по своему выбору, не тратя слот заклинания. Вы можете активировать всех Автоматов как одно бонусное действие."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				}
+			},
+			"foundryImg": "icons/commodities/tech/cog-brass.webp"
 		},
 		{
 			"name": "Efficient Production",
@@ -1688,7 +2189,8 @@
 			"header": 2,
 			"entries": [
 				"Начиная с 9-го уровня, когда вы тратите слот заклинания искусника на создание Автомата, вы создаете количество Автоматов, равное уровню потраченного слота заклинания. Вы не можете использовать эту способность, чтобы превысить максимальное количество Автоматов."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/levers-colored.webp"
 		},
 		{
 			"name": "Master Machinist",
@@ -1702,7 +2204,8 @@
 			"entries": [
 				"Вы стали мастером среди искусников-машинистов. Начиная с 15-го уровня, вы можете контролировать до трех Автоматов одновременно, а в конце длительного отдыха вы создаете трех Автоматов по своему выбору, не тратя слот заклинания.",
 				"Кроме того, когда вам приходится делать бросок спасброска или вы попадаете под атаку, вы можете использовать свою реакцию, чтобы поменяться местами с одним из своих Автоматов в радиусе 60 футов. После этого автомат становится целью атаки или броска спасброска."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/tube-chamber-lightning.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -1769,7 +2272,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"weaver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/equipment/back/cloak-hooded-pink.webp"
 		},
 		{
 			"name": "Marionette Strings",
@@ -1818,7 +2330,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-large-teal.webp"
 		},
 		{
 			"name": "Strange Strikes",
@@ -1832,7 +2345,18 @@
 			"entries": [
 				"Степень контроля, который вы осуществляете с помощью своих струн, возрастает. Начиная с 5-го уровня, когда существо, привязанное к вашим нитям марионетки, совершает атаку, вы можете использовать свою реакцию, чтобы заставить его совершить одну дополнительную атаку.",
 				"Кроме того, когда существо, привязанное к вашим струнам, бьет существо атакой ближнего боя, вы можете потратить слот заклинания, чтобы усилить его удар. Их удар наносит дополнительный {@dice 2d6} урон силой за слот заклинания 1-го уровня и дополнительный {@dice 1d6} урон силой за каждый слот заклинания уровня выше 1-го."
-			]
+			],
+			"foundrySystem": {
+				"activation.condition": "When the creature attached to your Marionette Strings makes an attack",
+				"damage.parts": [
+					[
+						"2d6",
+						"force"
+					]
+				],
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-teal-blue.webp"
 		},
 		{
 			"name": "Nimble Fingers",
@@ -1846,7 +2370,8 @@
 			"entries": [
 				"Ваша способность контролировать и усиливать способности других людей возросла. Начиная с 9-го уровня, вы можете одновременно управлять двумя существами, привязанными к отдельным нитям марионеток. Для управления каждым из этих существ у вас должна быть свободная рука. Эти два существа могут находиться на любом расстоянии друг от друга, пока каждое из них по отдельности остается в зоне действия ваших струн.",
 				"Кроме того, длина ваших нитей марионетки и радиус действия ваших способностей кукловода становится равным 60 футам."
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-spiral-teal.webp"
 		},
 		{
 			"name": "Master Puppeteer",
@@ -1858,9 +2383,224 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Вы стали мастером среди искусников-кукловодов. Начиная с 15-го уровня, вы можете использовать действие в свой ход, чтобы произнести заклинание {@spell Otto's Irresistible Dance}, не расходуя слот заклинания и не требуя концентрации. Одновременно у вас может быть активен только один экземпляр этого заклинания. Когда существо делает бросок на спасбросок, чтобы противостоять заклинанию, вы можете потратить использование ваших струн марионетки, чтобы наложить недостаток.",
-				"После того как вы разыграли {@spell Otto's Irresistible Dance} таким образом, вы должны завершить длительный отдых, прежде чем сможете сделать это снова, или потратить использование способности Marionette Strings, чтобы использовать эту способность снова."
+				"You have become a master amongst Puppeteer artificers. Starting at 15th level, you can use an action on your turn to cast the {@spell Otto's Irresistible Dance|phb|Irresistable Dance} spell, without expending a spell slot, or requiring your concentration. You can only have once instance of this spell active at a time. When a creature makes a saving throw to resist the spell, you can expend a use of your Marionette Strings to impose disadvantage.",
+				"Once you cast {@spell Otto's Irresistible Dance|phb|Irresistable Dance} in this way, you must finish a long rest before you can do so again, or expend a use of your Marionette Strings ability to use this ability again."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-levitate-teal-blue.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"entries": [
+				"Алхимия - это тонкое искусство, если слишком сильно нарушить соотношение ингредиентов, последствия могут быть катастрофическими. Тех, кто изучает магию арканных зелий и варок, называют алхимиками. Они - эксперты в комбинировании экзотических реагентов для получения различных материалов и эффектов. От исцеляющих порошков, способных в мгновение ока залечить рану, до липкой слизи, которая взрывается при контакте с открытым огнем. При тщательной подготовке и некоторой удаче алхимики - мастера как дарить жизнь, так и отнимать ее.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Tools of the Trade|Artificer|TCE|Alternate Alchemist|llasio|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Alchemical Elixirs|Artificer|TCE|Alternate Alchemist|llasio|3"
+				}
 			]
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"At 3rd level, you gain proficiency with {@item alchemist's supplies|phb}. If you are already proficient with {@item alchemist's supplies|phb}, you instead gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
+				{
+					"type": "table",
+					"caption": "Alternate Alchemist",
+					"colLabels": [
+						"Artificer Level",
+						"Spell"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-left"
+					],
+					"rows": [
+						[
+							"3rd",
+							"{@spell healing word}, {@spell inflict wounds}"
+						],
+						[
+							"5th",
+							"{@spell acid arrow}, {@spell flaming sphere}"
+						],
+						[
+							"9th",
+							"{@spell gaseous form}, {@spell mass healing word}"
+						],
+						[
+							"13th",
+							"{@spell blight}, {@spell death ward}"
+						],
+						[
+							"17th",
+							"{@spell cloudkill}, {@spell reincarnate}"
+						]
+					]
+				}
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/cooking/mortar-herbs-yellow.webp"
+		},
+		{
+			"name": "Alchemical Elixirs",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Начиная с 3-го уровня, в конце каждого длительного отдыха вы можете использовать свои алхимические припасы для создания эликсира в пустой колбе, к которой вы прикасаетесь. При создании вы выбираете эффект эликсира из приведенной ниже таблицы, некоторые из них включают ваш бонус к мастерству (PB). Эффект эликсира срабатывает, когда кто-то выпивает эликсир. В качестве бонусного действия существо может выпить эликсир или дать его существу в радиусе 5 футов. Одновременно существо может находиться под действием только одного эликсира, и выпивание другого немедленно прекращает действие любого другого эликсира.",
+				"Любой эликсир, созданный с помощью этой способности, действует до тех пор, пока он не будет израсходован, или до конца вашего следующего длительного отдыха.",
+				"В свой ход вы можете потратить слот заклинания 1-го уровня или выше, чтобы создать эликсир в пустой колбе, к которой вы прикасаетесь. Вы можете использовать эликсир в рамках того же действия.",
+				"На определенных уровнях этого класса вы можете делать больше эликсиров в конце долгого отдыха: на 6-м уровне (два), а на 15-м уровне (три).",
+				{
+					"type": "table",
+					"caption": "Alchemical Elixirs",
+					"colLabels": [
+						"Elixir",
+						"Effect"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-center"
+					],
+					"rows": [
+						[
+							"{@b Alteration}",
+							"Пьющий трансформируется, как если бы он произнес заклинание {@spell alter self}. Они определяют эффект заклинания, который длится 10 минут."
+						],
+						[
+							"{@b Boldness}",
+							"Пьющий может добавить {@dice 1d4} к любым броскам атаки и броскам спасения, которые он делает в течение 1 минуты."
+						],
+						[
+							"{@b Flight}",
+							"Пьющий приобретает скорость полета, равную 5-кратному вашему PB в футах, на 10 минут."
+						],
+						[
+							"{@b Healing}",
+							"The drinker regains a number of hit points equal to PB(d4) + your Intelligence Modifier."
+						],
+						[
+							"{@b Resilience}",
+							"Выпивший получает бонус к классу брони, равный половине вашего PB, на 10 минут."
+						],
+						[
+							"{@b Swiftness}",
+							"Скорость передвижения пьющего увеличивается на количество футов, равное 5-кратному значению вашего PB, на 1 час."
+						]
+					]
+				}
+			],
+			"foundryImg": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp"
+		},
+		{
+			"name": "Alchemical Savant",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 5,
+			"header": 2,
+			"entries": [
+				"Начиная с 5-го уровня, когда вы произносите заклинание мага, наносящее кислотный, огненный, некротический или ядовитый урон или восстанавливающее хит-пойнты, вы получаете бонус к урону или исцелению, равный вашему модификатору интеллекта (минимум +1)."
+			],
+			"foundryImg": "icons/consumables/potions/potion-jar-corked-labeled-red.webp"
+		},
+		{
+			"name": "Restorative Reagents",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 9,
+			"header": 2,
+			"entries": [
+				"Начиная с 9-го уровня, когда существо выпивает один из ваших эликсиров, оно получает временные очки попадания, равные {@dice 2d6} + ваш модификатор интеллекта, в дополнение к эффекту эликсира.",
+				"Also, you can cast {@spell lesser restoration} without expending a spell slot, even if you don't have it prepared, provided you use your alchemist's supplies as the spellcasting focus.",
+				"Вы можете использовать {@spell lesser restoration} таким образом количество раз, равное вашему модификатору интеллекта (минимум один раз), и вы восстанавливаете все использованные заклинания, когда завершаете длительный отдых."
+			],
+			"foundrySystem": {
+				"activation.condition": "Whenever a creature drinks one of your Elixirs",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				},
+				"damage.parts": [
+					[
+						"2d6 + @abilities.int.mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/consumables/potions/potion-round-corked-glowing-green.webp"
+		},
+		{
+			"name": "Master Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"Вы стали мастером среди алхимиков-ремесленников. По достижении 15-го уровня вы получаете устойчивость к повреждениям кислотой и ядом, а также иммунитет к состоянию {@condition poisoned}.",
+				"In addition, you can cast both {@spell greater restoration} and {@spell heal} without expending a spell slot, without preparing the spell, and without providing the material component, provided you use your alchemist's supplies as the spellcasting focus.",
+				"С помощью этой способности вы можете произнести каждое из этих заклинаний один раз, и перед тем, как сделать это снова, вы должны завершить длительный отдых."
+			],
+			"resist": [
+				"acid",
+				"poison"
+			],
+			"conditionImmune": [
+				"poisoned"
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-yellow-glow.webp"
 		}
 	],
 	"optionalfeature": [
@@ -1873,13 +2613,14 @@
 			"prerequisite": [
 				{
 					"item": [
-						"A set of {@item artisan's tools|phb} (requires attunement)"
+						"A set of artisan's tools (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"Владелец считается знатоком этого магического набора инструментов, и в качестве действия он может превратить этот набор инструментов в другой набор {@item artisan's tools|phb} по своему выбору."
-			]
+			],
+			"foundryImg": "icons/tools/fasteners/screw-flat-steel-grey.webp"
 		},
 		{
 			"name": "Arcane Implement",
@@ -1896,7 +2637,8 @@
 			],
 			"entries": [
 				"Эта маленькая деревяшка пропитана выбранным вами заклинанием. В качестве действия существо может произнести это заклинание, используя свой модификатор заклинания для произнесения заклинания."
-			]
+			],
+			"foundryImg": "icons/commodities/wood/bark-grey.webp"
 		},
 		{
 			"name": "Arm Launcher",
@@ -1912,8 +2654,9 @@
 				}
 			],
 			"entries": [
-				"В эту крошечную магическую пусковую установку можно зарядить МАЛЕНЬКИЙ предмет (например, шарикоподшипник, пузырек с кислотой, алхимический огонь или святую воду). В качестве бонусного действия владелец может активировать пусковую установку и атаковать цель в радиусе 20 футов. Пусковая установка может быть перезаряжена как действие."
-			]
+				"This tiny magical launcher can be loaded with a Tiny object (for example: {@item ball bearings (bag of 1,000)|phb|ball bearings}, a {@item acid (vial)|phb|vial of acid}, {@item alchemist's fire (flask)|phb|alchemist's fire}, or {@item holy water (flask)|phb|holy water}). As a bonus action the wearer can activate the launcher and make a ranged attack at a target within 20 feet. The launcher can be reloaded as an action."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-leather-teal-orange.webp"
 		},
 		{
 			"name": "Enhanced Instrument",
@@ -1931,7 +2674,8 @@
 			"entries": [
 				"Этот инструмент был магически усилен искусством. Владелец считается знатоком этого инструмента и может использовать его как фокус заклинания. При проверке способностей с помощью этого инструмента владелец получает бонус к броску, равный вашему модификатору интеллекта (минимум +1).",
 				"На 10-м уровне этот магический инструмент дает бонус +1 к броскам атаки заклинаниями. На 14-м уровне этот бонус увеличивается до +2."
-			]
+			],
+			"foundryImg": "icons/tools/instruments/bell-gold.webp"
 		},
 		{
 			"name": "Featherweight Belt",
@@ -1949,7 +2693,8 @@
 			"entries": [
 				"При ношении этот магический пояс уменьшает вес пользователя до одной десятой от его веса, не снижая его физических возможностей.",
 				"На 10-м уровне он уменьшает вес владельца до одной сотой от его веса, не снижая его физических способностей."
-			]
+			],
+			"foundryImg": "icons/equipment/waist/belt-coiled-leather-steel.webp"
 		},
 		{
 			"name": "Featherweight Weapon",
@@ -1967,7 +2712,8 @@
 			"entries": [
 				"Это волшебное оружие больше не имеет свойства тяжелого или двуручного (по вашему выбору при вливании).",
 				"На 10-м уровне это оружие дает бонус +1 к броскам атаки и урона. На 14-м уровне этот бонус становится +2."
-			]
+			],
+			"foundryImg": "icons/skills/melee/sword-winged-holy-orange.webp"
 		},
 		{
 			"name": "Goggles of Clearsight",
@@ -1983,9 +2729,10 @@
 				}
 			],
 			"entries": [
-				"Надев эти очки, владелец может видеть сквозь слегка затемненные участки без недостатков при проверке мудрости ({@skill Perception}). Кроме того, владелец больше не страдает от негативных эффектов черты \"Чувствительность к солнечному свету\" и имеет преимущество при бросках на спасение от ослепления.",
+				"While wearing these goggles, the wearer can see through lightly obscured areas without disadvantage on Wisdom ({@skill Perception}) checks. In addition, the wearer no longer suffers the negative effects from the {@i Sunlight Sensitivity} trait, and they have advantage on saving throws to resist being {@condition blinded}.",
 				"Этот бонус увеличивается на 10-м (+2) и 14-м (+3) уровнях."
-			]
+			],
+			"foundryImg": "icons/equipment/head/goggles-leather-grey.webp"
 		},
 		{
 			"name": "Power Whip",
@@ -2003,7 +2750,8 @@
 			"entries": [
 				"Это магическое оружие дает бонус +1 к броскам атаки и урона, сделанным с его помощью, а его кубик урона увеличивается на {@dice 1d8}.",
 				"Этот бонус увеличивается на 10-м (+2) и 14-м (+3) уровнях."
-			]
+			],
+			"foundryImg": "icons/weapons/misc/whip-red-yellow.webp"
 		},
 		{
 			"name": "Immovable Boots",
@@ -2027,7 +2775,8 @@
 			"entries": [
 				"Когда пользователь стоит на ровной поверхности, он может использовать действие, чтобы активировать сапоги, магически фиксирующие пользователя на месте. Пока вы не выполните действие, чтобы деактивировать сапоги, вы не будете двигаться, даже если бросите вызов гравитации.",
 				"Существо может использовать действие, чтобы сделать проверку силы DC 30, при успехе отделяя ваши ботинки от поверхности."
-			]
+			],
+			"foundryImg": "icons/equipment/feet/boots-armored-steel.webp"
 		},
 		{
 			"name": "Light Blade",
@@ -2044,14 +2793,15 @@
 						}
 					},
 					"item": [
-						"A sword hilt or wand (requires attunement"
+						"A sword hilt or wand (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"Взяв предмет в руки, владелец может использовать бонусное действие, чтобы заставить клинок чистого сияния появиться или исчезнуть с конца предмета. Пока лезвие существует, этот магический предмет является простым оружием со свойством изящества. Светящийся клинок излучает яркий свет в радиусе 15 футов и тусклый свет еще на 15 футов. Свет - это солнечный свет.",
 				"Владелец получает бонус +1 к броскам атаки и урона, сделанным этим оружием, которое наносит {@dice 1d8} лучевого урона при попадании. Нежить получает дополнительный {@dice 1d8} лучевой урон. На 15-м уровне бонус к атаке и броскам на урон становится +2."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-broad-serrated-blue.webp"
 		},
 		{
 			"name": "Repulsion Gauntlets",
@@ -2075,7 +2825,8 @@
 			"entries": [
 				"Эти магические перчатки имеют 4 заряда. Когда владелец бьет существо безоружным ударом, он может потратить 1 заряд и заставить цель сделать бросок на спасение силы. При неудачном броске существо отбрасывается на 15 футов назад. На рассвете перчатки восстанавливают все потраченные заряды.",
 				"На 9-м уровне это магическое оружие дает бонус +1 к броскам атаки и урона. На 15-м уровне этот бонус увеличивается до +2."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-steel-grey.webp"
 		},
 		{
 			"name": "Skyfall Harness",
@@ -2098,7 +2849,8 @@
 			],
 			"entries": [
 				"Эта магическая сбруя автоматически подгоняется по размеру владельца и может надеваться поверх одежды или легких доспехов. Между конечностями у него есть похожие на крылья плавники, которые могут замедлить падение или позволить вам скользить. Когда вы падаете и не теряете сознание, при расчете урона от падения вычитается до 100 футов от вашего падения, и вы можете перемещаться на 2 фута по горизонтали за каждый 1 фут падения."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-leather-stitched.webp"
 		},
 		{
 			"name": "War Gauntlet",
@@ -2121,7 +2873,8 @@
 			],
 			"entries": [
 				"Вы прикрепляете к перчатке боевое оружие, не обладающее свойствами тяжелого или двуручного, или щит. Носитель получает навык владения прикрепленным предметом, и его нельзя снять с перчатки, пока действует это вливание."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-red-gold.webp"
 		},
 		{
 			"name": "Chameleon Armor",
@@ -2144,7 +2897,8 @@
 			],
 			"entries": [
 				"Эта броня имеет 4 заряда. Носящий эти магические доспехи может использовать действие, чтобы потратить заряд и произнести одно из следующих заклинаний, направленных только на себя: {@spell invisibility} (2 заряда) или {@spell greater invisibility} (4 заряда). Эти доспехи восстанавливают все израсходованные заряды ежедневно на рассвете."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-gold.webp"
 		},
 		{
 			"name": "Collar of Taming",
@@ -2167,8 +2921,9 @@
 			],
 			"entries": [
 				"Магия этого ошейника способна приручить даже самых диких животных. Вы, и только вы, можете управлять любым зверем, носящим этот ошейник, как будто это обученная лошадь. Этот ошейник не действует на зверей с показателем интеллекта выше вашего собственного.",
-				"На 15-м уровне этот магический ошейник позволяет вам управлять любым чудовищем с показателем интеллекта 5 или ниже."
-			]
+				"At 15th level, this magic collar allows you to control any {@filter monstrosity with an Intelligence score of 5 or lower|bestiary|type=monstrosity|Intelligence=[0;5]}."
+			],
+			"foundryImg": "icons/equipment/neck/torc-ball-captive.webp"
 		},
 		{
 			"name": "Elemental Weapon",
@@ -2192,7 +2947,8 @@
 			"entries": [
 				"Вы наполняете оружие элементальной энергией. После вливания выберите командное слово и один из следующих типов повреждений: кислота, холод, огонь, яд или молния. В качестве бонусного действия владелец может произнести командное слово и заставить элементальную энергию вырываться из оружия, пока командное слово не будет произнесено снова. При попадании оружие наносит дополнительный {@dice 1d4} элементальный урон.",
 				"На 14-м уровне дополнительный урон становится {@dice 1d6}."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp"
 		},
 		{
 			"name": "Metamorphosis Armor",
@@ -2215,7 +2971,8 @@
 			],
 			"entries": [
 				"Этот магический доспех имеет 4 заряда. В качестве действия владелец может потратить заряд, чтобы произнести заклинание {@spell enlarge/reduce}, направленное только на себя, не расходуя слот заклинания и не требуя концентрации. Повторное применение заклинания с доспехами прекращает эффект. Доспехи восстанавливают все заряды на рассвете."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-steel-blue-gold.webp"
 		},
 		{
 			"name": "Ring of the Elements",
@@ -2240,7 +2997,8 @@
 				"При использовании этого магического кольца вы выбираете один из следующих типов повреждений: кислота, холод, огонь, яд, молния или гром.",
 				"Когда владелец накладывает заклинание, наносящее выбранный вами тип урона, он может активировать это кольцо, чтобы нанести максимальный урон одной цели заклинания вместо броска.",
 				"После активации кольца его нельзя использовать снова, пока владелец не завершит короткий или длительный отдых."
-			]
+			],
+			"foundryImg": "icons/equipment/finger/ring-band-gold-purple.webp"
 		},
 		{
 			"name": "Vampiric Weapon",
@@ -2264,7 +3022,8 @@
 			"entries": [
 				"Вы зачаровываете оружие на высасывание жизни из врагов. Когда владелец наносит критическое попадание этим оружием, цель получает дополнительный {@dice 2d6} некротический урон, если цель не является конструктом или нежитью. Владелец получает временные хит-пойнты, равные дополнительному некротическому урону.",
 				"Когда вы достигаете 14-го уровня, дополнительный некротический урон от этой инфузии увеличивается до {@dice 4d6}."
-			]
+			],
+			"foundryImg": "icons/skills/melee/blade-tip-chipped-blood-red.webp"
 		},
 		{
 			"name": "Helm of Mind Shielding",
@@ -2286,8 +3045,9 @@
 				}
 			],
 			"entries": [
-				"Носитель этого магического шлема устойчив к психическим повреждениям, невосприимчив к состояниям очарования и испуга, а также к любой магии, позволяющей другому существу читать его мысли или телепатически общаться с ним."
-			]
+				"The wearer of this magic helm is resistant to psychic damage, immune to the {@condition charmed} and {@condition frightened} conditions, and any magic that allows another creature to read their thoughts or telepathically communicate with them."
+			],
+			"foundryImg": "icons/equipment/head/helm-norman-black-gilded.webp"
 		},
 		{
 			"name": "Masterwork Homunculus",
@@ -2308,7 +3068,8 @@
 			"entries": [
 				"Вы открыли секреты создания жизни. Вы изучаете заклинание {@spell clone}. Оно считается для вас заклинанием ремесленника, но не учитывается в вашем количестве известных заклинаний. Вы можете произносить {@spell clone}, не тратя слот заклинания, пока у вас есть в наличии материальные компоненты.",
 				"Если в любой момент инкубационного периода вы замените эту инфузию на другую, заклинание немедленно разрушится."
-			]
+			],
+			"foundryImg": "icons/skills/wounds/blood-cells-vessel-blue.webp"
 		},
 		{
 			"name": "Mystic Armament",
@@ -2331,7 +3092,8 @@
 			],
 			"entries": [
 				"Этот предмет имеет 4 заряда. Когда пользователь владеет этим магическим оружием, он может использовать свое действие, чтобы произнести заклинание {@spell steel wind strike|xge}, используя зараженное оружие в качестве фокуса заклинания, не тратя слот заклинания. Оружие восстанавливает все израсходованные заряды в конце долгого отдыха."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Mystic Shot",
@@ -2355,6 +3117,225 @@
 			"entries": [
 				"Когда пользователь владеет этим магическим оружием, он может использовать свое действие для заклинания {@spell swift quiver}, используя зараженное оружие как фокус заклинания, не тратя слот заклинания.",
 				"После активации владелец должен завершить короткий или длительный отдых, прежде чем он сможет снова использовать {@spell swift quiver} с помощью этого оружия."
+			],
+			"foundryImg": "icons/skills/ranged/arrow-flying-white-blue.webp"
+		},
+		{
+			"name": "Amphibious Physiology",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Во время слияния существо может дышать как воздухом, так и водой и приобретает скорость плавания в 30 футов."
+			],
+			"foundryEffects": [
+				{
+					"name": "Swimming Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": 30
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/creatures/amphibians/treefrog-underneath-teal.webp"
+		},
+		{
+			"name": "Resilient Hide",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Когда существо слито воедино и не носит доспехов и не использует щит, его класс брони равен 10 + ваш модификатор интеллекта + его модификатор конституции."
+			],
+			"foundryEffects": [
+				{
+					"name": "Unarmored AC",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "CUSTOM",
+							"value": "10 + @abilities.int.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "custom"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/leather/scales-blue.webp"
+		},
+		{
+			"name": "Vestigial Limb",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Во время слияния у существа вырастает дополнительная конечность, напоминающая его собственные конечности. Ее радиус действия составляет 5 футов, и она может поднимать количество фунтов, равное вашему показателю интеллекта. Конечность не может использовать оружие или щиты и не может делать ничего, что требует ручной точности."
+			],
+			"foundryImg": "icons/commodities/biological/hand-gnarled-green.webp"
+		},
+		{
+			"name": "Raucous Blast",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus can assault creatures with a blast of sound. As an action, make a spell attack against a creature within 60 feet that can hear you. On hit, the creature takes {@damage 1d8} thunder damage and is deafened until the start of your next turn. The damage increases by {@dice 1d8} at 5th level ({@damage 2d8}), and again at 11th level ({@damage 3d8}), and 17th level ({@damage 4d8})."
+			],
+			"foundrySystem": {
+				"actionType": "rsak",
+				"damage.parts": [
+					[
+						"@scale.composer.raucous-blast",
+						"thunder"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/sonic/projectile-sound-rings-wave.webp"
+		},
+		{
+			"name": "Ringing Strike",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus is a simple weapon with the versatile property, and it deals {@damage 1d8} ({@damage 1d10}) bludgeoning damage on hit. You are considered proficient with it, and you can use your Intelligence, in place of Strength, for attack and damage rolls. In addition, you can cast the {@spell booming blade|tce} cantrip as long as your Apparatus is the material component."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"booming blade|tce"
+						]
+					}
+				}
+			],
+			"foundrySystem": {
+				"ability": "int",
+				"actionType": "mwak",
+				"damage.parts": [
+					[
+						"1d8",
+						"bludgeoning"
+					]
+				],
+				"versatile": "1d10"
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"name": "Flying Machine",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Flying Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "UPGRADE",
+							"value": "@scale.aeronaut.flying-speed"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Aerial Maneuvers",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Dexterity Check & Save Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.dex.bonuses.check",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Augmented Flesh",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 5,
+			"effects": [
+				{
+					"name": "Merged Bonus",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.str.value",
+							"mode": "UPGRADE",
+							"value": "@abilities.int.value"
+						},
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk",
+							"priority": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Strange Evolution",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Movement Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		}
 	]
