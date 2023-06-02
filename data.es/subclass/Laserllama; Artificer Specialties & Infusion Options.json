@@ -3,24 +3,29 @@
 		"sources": [
 			{
 				"json": "llasio",
-				"abbreviation": "ll:as&io",
+				"abbreviation": "LL:AS&IO",
 				"full": "LaserLlama's Artificer Specialties & Infusion Options",
 				"authors": [
 					"laserLlama"
 				],
 				"convertedBy": [
 					"JoeyJoestar",
-					"Bowsori#7981"
+					"Bowsori#7981",
+					"hakr14"
 				],
 				"version": "2.1.0",
 				"color": "d4601e",
 				"url": "https://www.gmbinder.com/share/-M0ctsc5kAuUAYc57apB",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.8"
 			}
 		],
+		"optionalFeatureTypes": {
+			"LL:CT": "Chimeric Trait",
+			"LL:MAW": "Musical Apparatus Weaponization"
+		},
 		"dateAdded": 1549715846,
-		"dateLastModified": 1664312670,
-		"_dateLastModifiedHash": "bb965f68bd"
+		"dateLastModified": 1685407377,
+		"_dateLastModifiedHash": "6c5d5172dd"
 	},
 	"subclass": [
 		{
@@ -60,7 +65,32 @@
 				"Extra Attack|Artificer|TCE|Aeronaut|llasio|5",
 				"Aerial Maneuvers|Artificer|TCE|Aeronaut|llasio|9",
 				"Master Aeronaut|Artificer|TCE|Aeronaut|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Flying Speed",
+					"configuration": {
+						"identifier": "flying-speed",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 15
+							},
+							"5": {
+								"value": 20
+							},
+							"9": {
+								"value": 30
+							},
+							"15": {
+								"value": 60
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue-grey.webp"
 		},
 		{
 			"name": "Archivist",
@@ -99,7 +129,36 @@
 				"Acute Overload|Artificer|TCE|Archivist|llasio|5",
 				"Improved Consciousness|Artificer|TCE|Archivist|llasio|9",
 				"Master Archivist|Artificer|TCE|Archivist|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Information Overload Damage",
+					"configuration": {
+						"identifier": "information-overload",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-sealed-brown-red.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -139,7 +198,20 @@
 				"Extra Attack|Artificer|TCE|Biomancer|llasio|5",
 				"Strange Evolution|Artificer|TCE|Biomancer|llasio|9",
 				"Master Biomancer|Artificer|TCE|Biomancer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Strange Evolution",
+					"featureType": [
+						"LL:CT"
+					],
+					"progression": {
+						"9": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/biological/organ-heart-pink.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -170,6 +242,15 @@
 							"hold monster",
 							"modify memory"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"time stop"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -178,7 +259,8 @@
 				"Stolen Moments|Artificer|TCE|Chronothief|llasio|5|",
 				"Empowered Chronomancy|Artificer|TCE|Chronothief|llasio|9",
 				"Master Chronothief|Artificer|TCE|Chronothief|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/watch.webp"
 		},
 		{
 			"name": "Composer",
@@ -217,7 +299,66 @@
 				"Thunderous Note|Artificer|TCE|Composer|llasio|5",
 				"Resonant Frequency|Artificer|TCE|Composer|llasio|9",
 				"Master Composer|Artificer|TCE|Composer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Musical Apparatus",
+					"featureType": [
+						"LL:MAW"
+					],
+					"progression": {
+						"3": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Raucous Blast Damage",
+					"configuration": {
+						"identifier": "raucous-blast",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				},
+				{
+					"type": "ScaleValue",
+					"title": "Resonant Frequency Damage",
+					"configuration": {
+						"identifier": "resonant-frequency",
+						"type": "dice",
+						"scale": {
+							"9": {
+								"n": 2,
+								"die": 8
+							},
+							"15": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-symbol-rune-tan.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -256,7 +397,8 @@
 				"Extra Attack|Artificer|TCE|Dungeoneer|llasio|5",
 				"Arcane Improvisation|Artificer|TCE|Dungeoneer|llasio|9",
 				"Master Dungeoneer|Artificer|TCE|Dungeoneer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/environment/traps/saw-steel-grey.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -295,7 +437,29 @@
 				"Extra Attack|Artificer|TCE|Forgewright|llasio|5",
 				"Arcane Smite|Artificer|TCE|Forgewright|llasio|9",
 				"Master Forgewright|Artificer|TCE|Forgewright|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Arcane Armament Damage Bonus",
+					"configuration": {
+						"identifier": "arcane-armament",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"9": {
+								"value": 2
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/tools/smithing/crucible-round.webp"
 		},
 		{
 			"name": "Machinist",
@@ -335,7 +499,8 @@
 				"Automated Army|Artificer|TCE|Machinist|llasio|5",
 				"Efficient Production|Artificer|TCE|Machinist|llasio|9",
 				"Master Machinist|Artificer|TCE|Machinist|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/coil-tesla-large.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -366,6 +531,15 @@
 							"dominate person",
 							"hold monster"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"Otto's Irresistible Dance"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -374,7 +548,58 @@
 				"Strange Strikes|Artificer|TCE|Puppeteer|llasio|5",
 				"Nimble Fingers|Artificer|TCE|Puppeteer|llasio|9",
 				"Master Puppeteer|Artificer|TCE|Puppeteer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/magic/control/voodoo-doll-pain-damage-purple.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"shortName": "Alternate Alchemist",
+			"additionalSpells": [
+				{
+					"known": {
+						"3": [
+							"healing word",
+							"inflict wounds"
+						],
+						"5": [
+							"acid arrow",
+							"flaming sphere"
+						],
+						"9": [
+							"gaseous form",
+							"mass healing word"
+						],
+						"13": [
+							"blight",
+							"death ward"
+						],
+						"17": [
+							"cloudkill",
+							"reincarnate"
+						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1e": [
+									"greater restoration",
+									"heal"
+								]
+							}
+						}
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Alternate Alchemist|Artificer|TCE|Alternate Alchemist|llasio|3",
+				"Alchemical Savant|Artificer|TCE|Alternate Alchemist|llasio|5",
+				"Restorative Reagents|Artificer|TCE|Alternate Alchemist|llasio|9",
+				"Master Alchemist|Artificer|TCE|Alternate Alchemist|llasio|15"
+			],
+			"foundryImg": "icons/consumables/potions/potion-faceted-corked-blue.webp"
 		}
 	],
 	"subclassFeature": [
@@ -443,7 +668,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"woodcarver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/hand/saw-steel-grey.webp"
 		},
 		{
 			"name": "Flying Machine",
@@ -460,13 +694,14 @@
 					"items": [
 						"Puede ser utilizado como un foco de hechizo por ti.",
 						"Está construido a su medida y puede llevarse sobre una armadura ligera.",
-						"Cuando caes, y no estás incapacitado, restas hasta 100 pies de tu caída cuando calculas el daño por caída, y puedes moverte 2 pies horizontalmente cada 1 pie que caigas.",
+						"When you fall, and aren't {@condition incapacitated}, you subtract up to 100 feet from your fall when calculating falling damage, and can move 2 feet horizontally every 1 foot you fall.",
 						"Obtienes una velocidad de vuelo de 15 pies, que aumenta a medida que ganas niveles en esta clase; a 5º nivel (20 pies), a 9º nivel (30 pies) y, finalmente, a 15º nivel (60 pies).",
 						"Cuando realizas un ataque con un arma mientras estás al menos a 1,5 metros del suelo, puedes utilizar tu Inteligencia, en lugar de tu Fuerza o Destreza, para las tiradas de ataque y daño."
 					]
 				},
 				"Sólo puedes tener una Máquina Voladora a la vez, y crear otra hace que la otra se estropee."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/raptor-hawk-flying.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -493,7 +728,8 @@
 			"entries": [
 				"A partir del 9º nivel, mientras lleves tu Máquina Voladora, puedes realizar la acción {@action Dash} como acción adicional en tu turno.",
 				"Además, mientras tengas tu máquina voladora equipada, ganas un bonificador a tus chequeos de habilidad de Destreza y tiradas de salvación igual a tu modificador de Inteligencia (mínimo de +1)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wings-birdlike-blue.webp"
 		},
 		{
 			"name": "Master Aeronaut",
@@ -506,7 +742,8 @@
 			"header": 2,
 			"entries": [
 				"Te has convertido en un maestro del artificio de los aeronautas. A partir del 15º nivel, mientras lleves tu Máquina Voladora y estés sometido a un efecto que te permita hacer una tirada de salvación de Destreza para recibir sólo la mitad del daño, no recibes ningún daño si tienes éxito, y sólo la mitad si fallas."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/songbird-yellow-flying.webp"
 		},
 		{
 			"name": "Archivist",
@@ -530,7 +767,7 @@
 			]
 		},
 		{
-			"name": "Tools of the trade",
+			"name": "Tools of the Trade",
 			"source": "llasio",
 			"className": "Artificer",
 			"classSource": "TCE",
@@ -573,7 +810,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"calligrapher's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/scribal/pen-steel-grey-brown.webp"
 		},
 		{
 			"name": "Artificial Mind",
@@ -644,7 +890,56 @@
 						]
 					]
 				}
-			]
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"animal handling",
+							"insight",
+							"perception",
+							"survival"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"deception",
+							"intimidation",
+							"performance",
+							"persuasion"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						],
+						"count": 2
+					}
+				}
+			],
+			"foundrySystem": {
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"@scale.archivist.information-overload",
+						"psychic"
+					]
+				],
+				"save": {
+					"ability": "int",
+					"scaling": "spell"
+				}
+			},
+			"foundryImg": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp"
 		},
 		{
 			"name": "Acute Overload",
@@ -658,7 +953,21 @@
 			"entries": [
 				"A partir del 5º nivel, puedes gastar una ranura de conjuro para aumentar el daño psíquico de la Sobrecarga de Información. El daño aumenta un {@dice 2d8} por una ranura de hechizo de 1er nivel, y un {@dice 1d8} adicional por cada nivel de hechizo superior al 1er nivel.",
 				"Además, cuando infliges daño psíquico utilizando tu Mente Artificial como foco de hechizo, ganas un bono a la tirada de daño igual a tu modificador de Inteligencia (mínimo de +1)."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Expend a spell slot"
+				},
+				"damage.parts": [
+					[
+						"2d8",
+						""
+					]
+				],
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-bars-yellow.webp"
 		},
 		{
 			"name": "Improved Consciousness",
@@ -671,7 +980,8 @@
 			"header": 2,
 			"entries": [
 				"Las capacidades cognitivas de tu Mente Artificial son lo suficientemente poderosas como para ayudar a tu lanzamiento de hechizos. A partir del 9º nivel, cuando te veas obligado a realizar una tirada de salvación de Constitución para mantener la concentración en un conjuro, ganas un bonificador a tu tirada igual a tu modificador de Inteligencia (mínimo de +1)."
-			]
+			],
+			"foundryImg": "icons/magic/perception/eye-tendrils-web-purple.webp"
 		},
 		{
 			"name": "Master Archivist",
@@ -684,7 +994,14 @@
 			"header": 2,
 			"entries": [
 				"Eres un maestro del artificio archivista. A partir del 15º nivel, puedes una acción de tu para transformarte en pura información y teletransportarte a un espacio desocupado que puedas ver en un radio de 60 pies, o a un espacio desocupado en un radio de 5 pies de una criatura u objeto que lleve una de tus infusiones de artífice."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				}
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-teal.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -751,7 +1068,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/leather/leather-buckle-steel-tan.webp"
 		},
 		{
 			"name": "Aberrant Chimera",
@@ -801,7 +1127,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "Whenever you cast Find Familiar"
+				}
+			},
+			"foundryImg": "icons/commodities/biological/pustules-red.webp"
 		},
 		{
 			"name": "Augmented Flesh",
@@ -822,7 +1156,8 @@
 						"Como acción de bonificación, puedes gastar una ranura de hechizo para concederte puntos de golpe temporales iguales a cinco veces el nivel de la ranura de hechizo + tu modificador de Inteligencia. Estos puntos de golpe temporales se añaden a los puntos de golpe temporales que tengas por haberte fusionado con tu Quimera Aberrante."
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/skills/wounds/injury-stapled-flesh-tan.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -847,9 +1182,10 @@
 			"level": 9,
 			"header": 2,
 			"entries": [
-				"A 9º nivel, tu velocidad de movimiento aumenta en 3 metros y obtienes permanentemente un rasgo quimérico a tu elección.",
+				"Has mejorado tu propia fisiología con magia extraña. A 9º nivel, tu velocidad de movimiento aumenta en 3 metros y obtienes permanentemente un rasgo quimérico de tu elección.",
 				"Cuando alcanzas el nivel 15 en esta clase, obtienes un segundo rasgo quimérico permanente a tu elección (para un total de dos)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wolf-heads-swirl-purple.webp"
 		},
 		{
 			"name": "Master Biomancer",
@@ -864,7 +1200,21 @@
 			"entries": [
 				"Te has convertido en un maestro entre los artífices biomanceros. A partir del 15º nivel, cuando apuntas a una criatura con un hechizo de biomancer, puedes conceder a un único objetivo (adicional) puntos de golpe temporales iguales a tu nivel de artífice.",
 				"Además, cuando te fusionas con tu Quimera, eres resistente al daño contundente, perforante y cortante."
-			]
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you target a creature with a Biomancer Spell"
+				},
+				"damage.parts": [
+					[
+						"@classes.artificer.levels",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/biological/organ-heart-red.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -938,7 +1288,16 @@
 						"Si tu mesa utiliza la magia de Dunamancia que se encuentra en la Guía del Explorador de Wildemount, un Ladrón de Cronos puede elegir utilizar hechizos de Dunamancia relacionados con el tiempo, en lugar de la lista de Hechizos de Ladrón de Cronos anterior."
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"jeweler's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/gems/gem-rough-rose-teal.webp"
 		},
 		{
 			"name": "Chronometer",
@@ -956,8 +1315,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -989,7 +1346,18 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Action or Reaction"
+				},
+				"uses": {
+					"max": "2 * @abilities.int.mod",
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/stopwatch.webp"
 		},
 		{
 			"name": "Stolen Moments",
@@ -1001,9 +1369,21 @@
 			"level": 5,
 			"header": 2,
 			"entries": [
-				"Has mejorado tu Cronómetro para poder guardar literalmente momentos en el tiempo para más adelante. A partir del 5º nivel, cuando consigues paralizar, aturdir o reducir a 0 la velocidad de movimiento de una criatura con un hechizo o habilidad de Cronotestador, tu Cronómetro recupera una de sus cargas gastadas.",
+				"You have improved your Chronometer so that you can literally save moments in time for later. Beginning at 5th level, when you successfully {@condition paralyzed|phb|paralyze}, {@condition stunned|phb|stun}, or reduce a creature's movement speed to 0 with a spell or Chronothief ability, your Chronometer regains one of its expended charges.",
 				"Además, cualquiera de tus habilidades de cronómetro que requieran una acción para ser utilizadas también pueden ser usadas como una acción extra en tu turno."
-			]
+			],
+			"consumes": {
+				"name": "Chronometer",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "When you successfully paralyze, stun, or reduce a creature's movement speed to 0 with a spell or Chronothief ability"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/dial-meter-gauge-blue.webp"
 		},
 		{
 			"name": "Empowered Chronomancy",
@@ -1033,7 +1413,7 @@
 							"type": "entries",
 							"name": "Decelerate",
 							"entries": [
-								"Puedes gastar una carga adicional para duplicar la reducción de la velocidad de movimiento. Si este rasgo reduce la velocidad de un objetivo a 0, debe tener éxito en una tirada de salvación de Constitución o quedar aturdido hasta el final de su siguiente turno."
+								"You can spend an additional charge to double the movement speed reduction. If this feature reduces a target's speed to 0, it must succeed on a Constitution saving throw or be {@condition stunned} until the end of its next turn."
 							]
 						},
 						{
@@ -1052,7 +1432,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/movement/abstract-ribbons-red-orange.webp"
 		},
 		{
 			"name": "Master Chronothief",
@@ -1064,9 +1445,10 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Se te considera un maestro en el campo de la Cronomancia. A partir del 15º nivel, puedes sobrecargar tu cronómetro, gastando las cargas que te queden, para lanzar una parada temporal.",
+				"Se te considera un maestro en el campo de la Cronomancia. A partir del 15º nivel, puedes sobrecargar tu cronómetro, gastando las cargas restantes, para lanzar {@spell time stop}.",
 				"Una vez que lanzas la parada de tiempo de esta manera, debes terminar un descanso largo antes de poder hacerlo de nuevo."
-			]
+			],
+			"foundryImg": "icons/magic/time/clock-spinning-gold-pink.webp"
 		},
 		{
 			"name": "Composer",
@@ -1134,7 +1516,18 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true,
+					"musical instrument": true
+				},
+				{
+					"anyArtisans": 1,
+					"musical instrument": true
+				}
+			],
+			"foundryImg": "icons/tools/instruments/lute-gold-brown.webp"
 		},
 		{
 			"name": "Musical Apparatus",
@@ -1152,8 +1545,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -1171,7 +1562,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				},
+				"damage.parts": []
+			},
+			"foundryImg": "icons/commodities/tech/pipe-exhaust.webp"
 		},
 		{
 			"name": "Thunderous Note",
@@ -1185,7 +1584,14 @@
 			"entries": [
 				"A partir del 5º nivel, cuando golpeas a una criatura con un ataque de Aparato musical, puedes gastar una ranura de conjuro para hacer retroceder a objetivos grandes o más pequeños con un estruendoso estallido de sonido. La criatura retrocede 3 metros por una ranura de conjuro de 1er nivel, y 3 metros adicionales por cada nivel de conjuro superior al 1er nivel.",
 				"Además, siempre que hagas daño de trueno, añades tu modificador de Inteligencia (mínimo de +1) a tu tirada de daño."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a creature with a Musical Apparatus attack"
+				}
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
 		},
 		{
 			"name": "Resonant Frequency",
@@ -1199,7 +1605,21 @@
 			"entries": [
 				"A partir del 9º nivel, puedes usar una acción para tocar una nota que hace que un objetivo en un radio de 3 metros resuene con una música indetectable durante 1 hora. La próxima vez que esa criatura sea golpeada por un ataque cuerpo a cuerpo, el atacante debe tener éxito en una tirada de salvación de Constitución o recibir {@dice 2d8} de daño por trueno y no poder reaccionar hasta el comienzo de su siguiente turno.",
 				"Puedes usar este rasgo un número de veces igual a tu modificador de Inteligencia (mínimo una vez), y recuperas todos los usos gastados cuando terminas un descanso largo."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"@scale.composer.resonant-frequency",
+						"thunder"
+					]
+				],
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/commodities/tech/antenna-powered-purple.webp"
 		},
 		{
 			"name": "Master Composer",
@@ -1222,7 +1642,14 @@
 						"El daño de la Frecuencia Resonante pasa a ser {@dice 4d8}."
 					]
 				}
-			]
+			],
+			"immune": [
+				"thunder"
+			],
+			"conditionImmune": [
+				"deafened"
+			],
+			"foundryImg": "icons/tools/instruments/harp-yellow-teal.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -1254,7 +1681,7 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Cuando te conviertes en un especialista en mazmorras a 3er nivel, ganas competencia con {@item carpenters tools|phb} y {@item smith's tools|phb}. Si ya eres competente en {@item carpenter's tools|phb} o {@item smith's tools}, ganas competencia con otro conjunto de {@item artisan's tools|phb} a tu elección.",
+				"When you become a Dungeoneer Specialist at 3rd level, you gain proficiency with {@item carpenter's tools|phb} and {@item smith's tools|phb}. If you already proficient in {@item carpenter's tools|phb} or {@item smith's tools}, you gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
 				"También adquieres competencia con armas improvisadas. Cuando realizas un ataque con un arma improvisada, puedes utilizar tu Inteligencia, en lugar de la Fuerza o la Destreza, para las tiradas de ataque y de daño, y el dado de daño de los ataques con armas improvisadas que realices se convierte en un d8 si fuera inferior.",
 				{
 					"type": "table",
@@ -1289,8 +1716,26 @@
 							"{@spell passwall}, {@spell wall of stone}"
 						]
 					]
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Improvised Weapons in 5e",
+					"entries": [
+						"Las armas improvisadas incluyen cualquier objeto que puedas manejar con una o dos manos; como una botella rota, una pata de mesa, una trampa para osos o un Goblin muerto.",
+						"A menudo, un Arma Improvisada es similar a un arma real y debe ser tratada como tal. Por ejemplo, una pata de mesa podría considerarse similar a un {@item club|phb} e infligiría 1d4 de daño contundente al impactar. Un arma arrojada improvisada tiene un alcance normal de 20 pies y un alcance largo de 60 pies."
+					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"carpenter's tools": true,
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 2
+				}
+			],
+			"foundryImg": "icons/tools/hand/chisel-steel-brown.webp"
 		},
 		{
 			"name": "Dungeoncraft",
@@ -1342,7 +1787,11 @@
 						]
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/weapons/thrown/bomb-spiked-purple.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1369,7 +1818,16 @@
 			"entries": [
 				"A partir del 9º nivel, tus ataques con armas improvisadas y objetos de mazmorra se consideran mágicos para superar la resistencia y la inmunidad a los ataques no mágicos.",
 				"Además, puedes lanzar uno de tus hechizos de Dungeoneer sin proporcionar el componente material una vez por descanso largo."
-			]
+			],
+			"foundrySystem": {
+				"activation.type": "special",
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/magic/symbols/arrowhead-green.webp"
 		},
 		{
 			"name": "Master Dungeoneer",
@@ -1382,16 +1840,9 @@
 			"header": 2,
 			"entries": [
 				"Te has convertido en un maestro de la Mazmorra. A partir del 15º nivel, las criaturas tienen desventaja en las tiradas de salvación de tus objetos de Mazmorreo y hechizos de Mazmorreo.",
-				"Además, aprendes a lanzar una versión ritual de los hechizos {@spell passwall} y {@spell wall of stone}. Lanzarlos de esta manera lleva 1 hora, no consume una ranura de hechizo y la estructura creada se vuelve permanente al final del lanzamiento ritual.",
-				{
-					"type": "insetReadaloud",
-					"name": "Improvised Weapons in 5e",
-					"entries": [
-						"Las armas improvisadas incluyen cualquier objeto que puedas manejar con una o dos manos; como una botella rota, una pata de mesa, una trampa para osos o un Goblin muerto.",
-						"A menudo, un Arma Improvisada es similar a un arma real y debe ser tratada como tal. Por ejemplo, una pata de mesa podría considerarse similar a un {@item club|phb} e infligiría 1d4 de daño contundente al impactar. Un arma arrojada improvisada tiene un alcance normal de 20 pies y un alcance largo de 60 pies."
-					]
-				}
-			]
+				"Además, aprendes a lanzar una versión ritual de los hechizos {@spell passwall} y {@spell wall of stone}. Lanzarlos de esta manera lleva 1 hora, no consume una ranura de hechizo y la estructura creada se vuelve permanente al final del lanzamiento ritual."
+			],
+			"foundryImg": "icons/environment/traps/trap-jaw-steel.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -1459,7 +1910,21 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"martial": true
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Arcane Armament",
@@ -1483,7 +1948,8 @@
 					]
 				},
 				"Tu armamento arcano sólo lo puedes utilizar tú. Encantar una segunda arma hace que la magia imbuida en la primera se disipe."
-			]
+			],
+			"foundryImg": "icons/magic/symbols/runes-etched-steel-blade.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1514,11 +1980,20 @@
 					"items": [
 						"El objetivo recibe un {@dice 2d6} de daño de fuerza adicional. Puedes gastar una ranura de hechizo para aumentar este daño. El daño aumenta un {@dice 1d6} por nivel de la ranura de hechizo que gastes.",
 						"Ganas puntos de golpe temporales iguales a tu nivel de artífice.",
-						"Puedes obligar al objetivo a realizar una tirada de salvación de Fuerza. Si fallas la tirada de salvación, el objetivo queda tendido."
+						"You can force the target to make a Strength saving throw. On a failed save they are knocked {@condition prone}."
 					]
 				},
 				"Puedes usar esta habilidad un número de veces igual a tu modificador de Inteligencia (mínimo una vez), y recuperas todos los usos gastados cuando terminas un descanso largo."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a target with your Arcane Armament"
+				},
+				"uses.max": "max(1, @abilities.int.mod)",
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/skills/melee/sword-engraved-glow-purple.webp"
 		},
 		{
 			"name": "Master Forgewright",
@@ -1532,7 +2007,8 @@
 			"entries": [
 				"Te has convertido en un maestro entre los artífices de Forgewright. A partir del 15º nivel, puedes extender el poder de tu Armamento Arcano a tus aliados. Como acción, elige un número de armas igual a tu modificador de Inteligencia (mínimo 1) en un radio de 30 pies. Durante el siguiente minuto estas armas infligen un {@dice 1d6} de daño de fuerza adicional al impactar.",
 				"Puedes usar esta característica una vez por descanso largo, a menos que gastes una ranura de hechizo de 3er nivel o superior para volver a usarla."
-			]
+			],
+			"foundryImg": "icons/skills/melee/swords-triple-orange.webp"
 		},
 		{
 			"name": "Machinist",
@@ -1599,7 +2075,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Automatons",
@@ -1612,7 +2097,7 @@
 			"header": 2,
 			"entries": [
 				"A 3er nivel, aprendes a fabricar autómatas. Al final de cada descanso largo, usas tu {@item smith's tools|phb} para crear mágicamente un Pequeño Autómata en un espacio desocupado dentro de 5 pies. Una vez que creas un autómata, no puedes volver a hacerlo hasta que termines un descanso largo o hasta que gastes una ranura de conjuro de 1er nivel o superior para crear otro. Puedes tener un Autómata a la vez, crear un segundo hace que el primero se deshaga.",
-				"Los autómatas son construcciones mágicas con una Clase de Armadura igual a 12 + tu modificador de Inteligencia, y puntos de vida iguales a tu nivel de artífice + tu modificador de Inteligencia. Cuando hacen un chequeo de habilidad o una tirada de salvación, sus puntuaciones de habilidad son 10 (+0). Si se le lanza un remedio, recupera {@dice 2d6} puntos de golpe. Desaparece si se reduce a 0 puntos de golpe o después de 1 hora.",
+				"Automatons are magical constructs with an Armor Class equal to 12 + your Intelligence modifier, and hit points equal to your artificer level + your Intelligence modifier. When they make an ability check or a saving throw, its ability scores are 10 (+0). If {@spell mending} is cast on it, it regains {@dice 2d6} hit points. It disappears if it is reduced to 0 hit points or after 1 hour.",
 				"Cuando creas tu Autómata, decides qué tipo es, eligiendo entre las opciones de la tabla siguiente. Como acción de bonificación en tu turno, puedes activar el Autómata si estás a menos de 60 pies. Como parte de esa acción de bonificación, puedes dirigir al Autómata para que camine hasta 25 pies a un espacio desocupado.",
 				{
 					"type": "table",
@@ -1648,7 +2133,8 @@
 						]
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/commodities/tech/transmission.webp"
 		},
 		{
 			"name": "Arcane Conduit",
@@ -1661,8 +2147,16 @@
 			"header": 2,
 			"entries": [
 				"A partir del 5º nivel, aprendes a canalizar la magia a través de tus Autómatas. Cuando lanzas un hechizo de artífice, puedes elegir que el hechizo se origine en un autómata, en lugar de en ti mismo siempre que estés a menos de 60 pies de él.",
-				"Cuando lanzas un hechizo de esta manera, tiras un {@dice 1d8}, y añades el número obtenido a una tirada de daño, o de curación, del hechizo."
-			]
+				"Cuando lanzas un hechizo de esta manera, tiras un {@dice d8}, y añades el número obtenido a una tirada de daño, o de curación, del hechizo."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you cast an artificer spell"
+				},
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/commodities/tech/bulb-vacuum.webp"
 		},
 		{
 			"name": "Automated Army",
@@ -1675,7 +2169,14 @@
 			"header": 2,
 			"entries": [
 				"Puedes crear y controlar Autómatas de forma aún más eficiente. A partir del 5º nivel, puedes controlar hasta dos autómatas a la vez, y al final de cada descanso largo puedes crear dos autómatas de tu elección, sin gastar una ranura de hechizo. Puedes activar todos los autómatas como una acción adicional."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				}
+			},
+			"foundryImg": "icons/commodities/tech/cog-brass.webp"
 		},
 		{
 			"name": "Efficient Production",
@@ -1688,7 +2189,8 @@
 			"header": 2,
 			"entries": [
 				"A partir del 9º nivel, cuando gastas un espacio de hechizo de artífice para crear un autómata, creas un número de autómatas igual al nivel del espacio de hechizo gastado. No puedes utilizar este rasgo para superar tu número máximo de autómatas."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/levers-colored.webp"
 		},
 		{
 			"name": "Master Machinist",
@@ -1702,7 +2204,8 @@
 			"entries": [
 				"Te has convertido en un maestro entre los artificieros maquinistas. A partir del 15º nivel, puedes controlar hasta tres autómatas a la vez, y al final de un descanso largo creas tres autómatas de tu elección, sin gastar una ranura de hechizo.",
 				"Además, cuando te veas obligado a realizar una tirada de salvación o seas alcanzado por un ataque, puedes utilizar tu reacción para cambiar de lugar con uno de tus autómatas en un radio de 60 pies. El autómata se convierte entonces en el objetivo del ataque o de la tirada de salvación."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/tube-chamber-lightning.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -1769,7 +2272,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"weaver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/equipment/back/cloak-hooded-pink.webp"
 		},
 		{
 			"name": "Marionette Strings",
@@ -1818,7 +2330,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-large-teal.webp"
 		},
 		{
 			"name": "Strange Strikes",
@@ -1832,7 +2345,18 @@
 			"entries": [
 				"El grado de control que ejerces a través de tus Cuerdas crece. A partir del 5º nivel, cuando la criatura unida a tus Cuerdas de Marioneta realiza un ataque, puedes usar tu reacción para hacer que realice un ataque adicional.",
 				"Además, cuando una criatura unida a tus Cuerdas golpea a una criatura con un ataque cuerpo a cuerpo, puedes gastar una ranura de hechizo para potenciar su golpe. Su golpe inflige un {@dice 2d6} de daño de fuerza adicional por una ranura de hechizo de primer nivel, y un {@dice 1d6} de daño de fuerza adicional por cada nivel de ranura de hechizo superior al primero."
-			]
+			],
+			"foundrySystem": {
+				"activation.condition": "When the creature attached to your Marionette Strings makes an attack",
+				"damage.parts": [
+					[
+						"2d6",
+						"force"
+					]
+				],
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-teal-blue.webp"
 		},
 		{
 			"name": "Nimble Fingers",
@@ -1846,7 +2370,8 @@
 			"entries": [
 				"Tu capacidad para controlar y amplificar las habilidades de otros ha aumentado. A partir del 9º nivel, puedes tener dos criaturas unidas a cuerdas de marionetas separadas a la vez. Debes tener una mano libre para controlar a cada una de estas criaturas. Las dos criaturas pueden estar a cualquier distancia, siempre que cada una permanezca individualmente dentro del alcance de tus Cuerdas.",
 				"Además, la longitud de tus Cuerdas de Marioneta, y el alcance de tus habilidades de Titiritero, pasa a ser de 60 pies."
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-spiral-teal.webp"
 		},
 		{
 			"name": "Master Puppeteer",
@@ -1858,9 +2383,224 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Te has convertido en un maestro entre los artífices de Titiriteros. A partir del 15º nivel, puedes utilizar una acción en tu turno para lanzar el hechizo {@spell Otto's Irresistible Dance}, sin gastar una ranura de hechizo, ni requerir tu concentración. Sólo puedes tener una instancia de este hechizo activa a la vez. Cuando una criatura hace una tirada de salvación para resistir el hechizo, puedes gastar un uso de tus Cuerdas de Marioneta para imponer la desventaja.",
-				"Una vez que lanzas {@spell Otto's Irresistible Dance} de esta manera, debes terminar un descanso largo antes de poder hacerlo de nuevo, o gastar un uso de tu habilidad Cuerdas de Marioneta para volver a usar esta habilidad."
+				"You have become a master amongst Puppeteer artificers. Starting at 15th level, you can use an action on your turn to cast the {@spell Otto's Irresistible Dance|phb|Irresistable Dance} spell, without expending a spell slot, or requiring your concentration. You can only have once instance of this spell active at a time. When a creature makes a saving throw to resist the spell, you can expend a use of your Marionette Strings to impose disadvantage.",
+				"Once you cast {@spell Otto's Irresistible Dance|phb|Irresistable Dance} in this way, you must finish a long rest before you can do so again, or expend a use of your Marionette Strings ability to use this ability again."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-levitate-teal-blue.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"entries": [
+				"La alquimia es un arte delicado, si la proporción de los ingredientes se desvía demasiado, los efectos pueden ser desastrosos. Los que estudian la magia de las pociones y brebajes arcanos se conocen como alquimistas. Son expertos en combinar reactivos exóticos para producir una gran variedad de materiales y efectos. Desde sequías curativas que pueden curar una herida en instantes, hasta una sustancia pegajosa que explota al entrar en contacto con una llama abierta. Con una cuidadosa preparación y un poco de suerte, los alquimistas son maestros tanto en dar vida como en quitarla.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Tools of the Trade|Artificer|TCE|Alternate Alchemist|llasio|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Alchemical Elixirs|Artificer|TCE|Alternate Alchemist|llasio|3"
+				}
 			]
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"At 3rd level, you gain proficiency with {@item alchemist's supplies|phb}. If you are already proficient with {@item alchemist's supplies|phb}, you instead gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
+				{
+					"type": "table",
+					"caption": "Alternate Alchemist",
+					"colLabels": [
+						"Artificer Level",
+						"Spell"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-left"
+					],
+					"rows": [
+						[
+							"3rd",
+							"{@spell healing word}, {@spell inflict wounds}"
+						],
+						[
+							"5th",
+							"{@spell acid arrow}, {@spell flaming sphere}"
+						],
+						[
+							"9th",
+							"{@spell gaseous form}, {@spell mass healing word}"
+						],
+						[
+							"13th",
+							"{@spell blight}, {@spell death ward}"
+						],
+						[
+							"17th",
+							"{@spell cloudkill}, {@spell reincarnate}"
+						]
+					]
+				}
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/cooking/mortar-herbs-yellow.webp"
+		},
+		{
+			"name": "Alchemical Elixirs",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"A partir del 3º nivel, al final de cada descanso largo, puedes usar tus suministros de alquimista para producir un Elixir en un frasco vacío que toques. Al crearlo, eliges el efecto del elixir de la siguiente tabla, algunos de los cuales incluyen tu bonificación de competencia (PB). El efecto de un Elixir se activa cuando alguien bebe el Elixir. Como acción de bonificación, una criatura puede beber el elixir o administrarlo a una criatura en un radio de 5 pies. Una criatura sólo puede estar bajo los efectos de un elixir a la vez, y beber otro acaba inmediatamente con cualquier otro efecto del elixir.",
+				"Cualquier elixir que crees mediante este rasgo dura hasta que se consuma, o hasta el final de tu siguiente descanso largo.",
+				"Como acción en tu turno, puedes gastar una ranura de hechizo de 1er nivel o superior para crear un Elixir en un frasco vacío que toques. Puedes usar el elixir como parte de la misma acción.",
+				"A ciertos niveles de esta clase, puedes hacer más Elixires al final de un descanso largo: a 6º nivel (dos), y a 15º nivel (tres).",
+				{
+					"type": "table",
+					"caption": "Alchemical Elixirs",
+					"colLabels": [
+						"Elixir",
+						"Effect"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-center"
+					],
+					"rows": [
+						[
+							"{@b Alteration}",
+							"El bebedor se transforma como por el hechizo {@spell alter self}. Ellos determinan el efecto del hechizo, que dura 10 minutos."
+						],
+						[
+							"{@b Boldness}",
+							"El bebedor puede sumar {@dice 1d4} a cualquier tirada de ataque y de salvación que realice durante 1 minuto."
+						],
+						[
+							"{@b Flight}",
+							"El bebedor gana una velocidad de vuelo igual a 5 veces su PB en pies durante 10 minutos."
+						],
+						[
+							"{@b Healing}",
+							"The drinker regains a number of hit points equal to PB(d4) + your Intelligence Modifier."
+						],
+						[
+							"{@b Resilience}",
+							"El bebedor gana un bono a su Clase de Armadura igual a la mitad de su PB durante 10 minutos."
+						],
+						[
+							"{@b Swiftness}",
+							"La velocidad del bebedor aumenta en un número de pies igual a 5 veces su PB durante 1 hora."
+						]
+					]
+				}
+			],
+			"foundryImg": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp"
+		},
+		{
+			"name": "Alchemical Savant",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 5,
+			"header": 2,
+			"entries": [
+				"A partir del 5º nivel, cuando lances un conjuro de artífice que inflija daño de ácido, fuego, necrótico o veneno, o que restaure puntos de golpe, ganas un bonificador a la tirada de daño, o de curación, igual a tu modificador de Inteligencia (mínimo de +1)."
+			],
+			"foundryImg": "icons/consumables/potions/potion-jar-corked-labeled-red.webp"
+		},
+		{
+			"name": "Restorative Reagents",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 9,
+			"header": 2,
+			"entries": [
+				"A partir del 9º nivel, cada vez que una criatura bebe uno de tus elixires, gana puntos de golpe temporales iguales a {@dice 2d6} + tu modificador de Inteligencia, además del efecto del elixir.",
+				"Also, you can cast {@spell lesser restoration} without expending a spell slot, even if you don't have it prepared, provided you use your alchemist's supplies as the spellcasting focus.",
+				"Puedes lanzar {@spell lesser restoration} de esta manera un número de veces igual a tu modificador de Inteligencia (mínimo una vez), y recuperas todos los usos gastados cuando terminas un descanso largo."
+			],
+			"foundrySystem": {
+				"activation.condition": "Whenever a creature drinks one of your Elixirs",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				},
+				"damage.parts": [
+					[
+						"2d6 + @abilities.int.mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/consumables/potions/potion-round-corked-glowing-green.webp"
+		},
+		{
+			"name": "Master Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"Te has convertido en un maestro entre los artífices de la alquimia. Al alcanzar el 15º nivel, obtienes resistencia al daño por ácido y veneno, e inmunidad a la condición {@condition poisoned}.",
+				"In addition, you can cast both {@spell greater restoration} and {@spell heal} without expending a spell slot, without preparing the spell, and without providing the material component, provided you use your alchemist's supplies as the spellcasting focus.",
+				"Puedes lanzar cada uno de estos hechizos una vez con esta característica, y debes terminar un descanso largo antes de poder hacerlo de nuevo."
+			],
+			"resist": [
+				"acid",
+				"poison"
+			],
+			"conditionImmune": [
+				"poisoned"
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-yellow-glow.webp"
 		}
 	],
 	"optionalfeature": [
@@ -1873,13 +2613,14 @@
 			"prerequisite": [
 				{
 					"item": [
-						"A set of {@item artisan's tools|phb} (requires attunement)"
+						"A set of artisan's tools (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"El portador se considera competente con este conjunto de herramientas mágicas, y como acción, puede transformar este conjunto de herramientas en otro conjunto de {@item artisan's tools|phb} de su elección."
-			]
+			],
+			"foundryImg": "icons/tools/fasteners/screw-flat-steel-grey.webp"
 		},
 		{
 			"name": "Arcane Implement",
@@ -1896,7 +2637,8 @@
 			],
 			"entries": [
 				"Este pequeño trozo de madera está imbuido con un cantrip de artífice de tu elección. Como acción, una criatura puede producir el cantrip imbuido, utilizando tu modificador de lanzamiento de conjuros para lanzar el hechizo."
-			]
+			],
+			"foundryImg": "icons/commodities/wood/bark-grey.webp"
 		},
 		{
 			"name": "Arm Launcher",
@@ -1912,8 +2654,9 @@
 				}
 			],
 			"entries": [
-				"Este diminuto lanzador mágico puede cargarse con un objeto diminuto (por ejemplo: rodamientos, un frasco de ácido, fuego de alquimista o agua bendita). Como acción adicional, el portador puede activar el lanzador y realizar un ataque a distancia contra un objetivo en un radio de 6 metros. El lanzador puede recargarse como acción."
-			]
+				"This tiny magical launcher can be loaded with a Tiny object (for example: {@item ball bearings (bag of 1,000)|phb|ball bearings}, a {@item acid (vial)|phb|vial of acid}, {@item alchemist's fire (flask)|phb|alchemist's fire}, or {@item holy water (flask)|phb|holy water}). As a bonus action the wearer can activate the launcher and make a ranged attack at a target within 20 feet. The launcher can be reloaded as an action."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-leather-teal-orange.webp"
 		},
 		{
 			"name": "Enhanced Instrument",
@@ -1931,7 +2674,8 @@
 			"entries": [
 				"Este instrumento ha sido mejorado mágicamente mediante un artificio. El portador se considera competente con este instrumento y puede utilizarlo como foco de hechizo. Siempre que haga un chequeo de habilidad usando este instrumento, gana un bono a la tirada igual a su modificador de Inteligencia (mínimo de +1).",
 				"A 10º nivel, este instrumento mágico otorga un bono de +1 a las tiradas de ataque de hechizos. Esta bonificación aumenta a +2 a 14º nivel."
-			]
+			],
+			"foundryImg": "icons/tools/instruments/bell-gold.webp"
 		},
 		{
 			"name": "Featherweight Belt",
@@ -1949,7 +2693,8 @@
 			"entries": [
 				"Cuando se lleva, este cinturón mágico reduce al usuario a una décima parte de su peso sin disminuir sus capacidades físicas.",
 				"A 10º nivel reduce al portador a una centésima parte de su peso sin disminuir sus capacidades físicas."
-			]
+			],
+			"foundryImg": "icons/equipment/waist/belt-coiled-leather-steel.webp"
 		},
 		{
 			"name": "Featherweight Weapon",
@@ -1967,7 +2712,8 @@
 			"entries": [
 				"Esta arma mágica ya no tiene la propiedad de pesada o de dos manos (a tu elección tras la infusión).",
 				"A 10º nivel esta arma otorga un bono de +1 a las tiradas de ataque y daño. Este bono se convierte en +2 a 14º nivel."
-			]
+			],
+			"foundryImg": "icons/skills/melee/sword-winged-holy-orange.webp"
 		},
 		{
 			"name": "Goggles of Clearsight",
@@ -1983,9 +2729,10 @@
 				}
 			],
 			"entries": [
-				"Mientras lleva estas gafas, el usuario puede ver a través de zonas ligeramente oscurecidas sin tener desventaja en los chequeos de Sabiduría ({@skill Perception}). Además, el portador ya no sufre los efectos negativos del rasgo Sensibilidad a la luz del sol, y tiene ventaja en las tiradas de salvación para resistir la ceguera.",
+				"While wearing these goggles, the wearer can see through lightly obscured areas without disadvantage on Wisdom ({@skill Perception}) checks. In addition, the wearer no longer suffers the negative effects from the {@i Sunlight Sensitivity} trait, and they have advantage on saving throws to resist being {@condition blinded}.",
 				"Este bono aumenta a 10º nivel (+2) y a 14º nivel (+3)."
-			]
+			],
+			"foundryImg": "icons/equipment/head/goggles-leather-grey.webp"
 		},
 		{
 			"name": "Power Whip",
@@ -2003,7 +2750,8 @@
 			"entries": [
 				"Esta arma mágica otorga una bonificación de +1 a las tiradas de ataque y daño realizadas con ella, y su dado de daño aumenta a {@dice 1d8}.",
 				"Este bono aumenta a 10º nivel (+2) y a 14º nivel (+3)."
-			]
+			],
+			"foundryImg": "icons/weapons/misc/whip-red-yellow.webp"
 		},
 		{
 			"name": "Immovable Boots",
@@ -2027,7 +2775,8 @@
 			"entries": [
 				"Cuando el usuario está de pie en una superficie plana, puede utilizar una acción para activar las botas, fijando mágicamente al usuario en su lugar. Hasta que no se utilice una acción para desactivar las botas, el usuario no se mueve, aunque esté desafiando la gravedad.",
 				"Una criatura puede usar una acción para hacer un chequeo de Fuerza DC 30, separando tus botas de la superficie con un éxito."
-			]
+			],
+			"foundryImg": "icons/equipment/feet/boots-armored-steel.webp"
 		},
 		{
 			"name": "Light Blade",
@@ -2044,14 +2793,15 @@
 						}
 					},
 					"item": [
-						"A sword hilt or wand (requires attunement"
+						"A sword hilt or wand (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"Mientras sujeta el objeto, el portador puede utilizar una acción de bonificación para hacer que una hoja de puro resplandor surja, o desaparezca, del extremo del objeto. Mientras la hoja existe, este objeto mágico es un arma simple con la propiedad de delicadeza. La hoja luminosa emite una luz brillante en un radio de 15 pies y una luz tenue en 15 pies adicionales. La luz es la luz del sol.",
 				"El portador obtiene una bonificación de +1 a las tiradas de ataque y daño realizadas con esta arma, que inflige un {@dice 1d8} de daño radiante al impactar. Los muertos vivientes reciben un {@dice 1d8} de daño radiante adicional. La bonificación a las tiradas de ataque y daño pasa a ser de +2 a 15º nivel."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-broad-serrated-blue.webp"
 		},
 		{
 			"name": "Repulsion Gauntlets",
@@ -2075,7 +2825,8 @@
 			"entries": [
 				"Estos guantes mágicos tienen 4 cargas. Cuando el portador golpea a una criatura con un golpe desarmado, puede gastar 1 carga y obligar al objetivo a realizar una tirada de salvación de Fuerza. Si falla la tirada de salvación, la criatura retrocede 15 pies. Los guantes recuperan todas las cargas gastadas al amanecer.",
 				"A 9º nivel, esta arma mágica otorga un bono de +1 a las tiradas de ataque y daño. Esta bonificación aumenta a +2 a 15º nivel."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-steel-grey.webp"
 		},
 		{
 			"name": "Skyfall Harness",
@@ -2098,7 +2849,8 @@
 			],
 			"entries": [
 				"Este arnés mágico se ajusta automáticamente al tamaño del usuario y puede llevarse sobre la ropa o la armadura ligera. Tiene aletas en forma de alas entre las extremidades que pueden ralentizar tu caída o permitirte planear. Cuando caes, y no estás incapacitado, restas hasta 100 pies de tu caída al calcular el daño por caída, y puedes moverte 2 pies horizontalmente cada 1 pie que caigas."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-leather-stitched.webp"
 		},
 		{
 			"name": "War Gauntlet",
@@ -2121,7 +2873,8 @@
 			],
 			"entries": [
 				"Acoplas al guantelete un arma marcial que carezca de las propiedades pesada o de dos manos, o un escudo. El portador gana competencia con el objeto acoplado y no puede retirarlo del guantelete mientras esta infusión esté activa."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-red-gold.webp"
 		},
 		{
 			"name": "Chameleon Armor",
@@ -2144,7 +2897,8 @@
 			],
 			"entries": [
 				"Esta armadura tiene 4 cargas. Mientras lleva esta armadura mágica, el portador puede usar una acción para gastar cargas y lanzar uno de los siguientes hechizos, apuntando sólo a sí mismo: {@spell invisibility} (2 cargas) o {@spell greater invisibility} (4 cargas). Esta armadura recupera todas las cargas gastadas diariamente al amanecer."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-gold.webp"
 		},
 		{
 			"name": "Collar of Taming",
@@ -2167,8 +2921,9 @@
 			],
 			"entries": [
 				"La magia de este collar puede domar incluso a los animales más salvajes. Tú, y sólo tú, puedes controlar a cualquier bestia que lleve este collar como si fuera una montura entrenada. Este collar no funciona con bestias con una puntuación de inteligencia superior a la tuya.",
-				"A 15º nivel, este collar mágico te permite controlar cualquier monstruosidad con una puntuación de Inteligencia de 5 o inferior."
-			]
+				"At 15th level, this magic collar allows you to control any {@filter monstrosity with an Intelligence score of 5 or lower|bestiary|type=monstrosity|Intelligence=[0;5]}."
+			],
+			"foundryImg": "icons/equipment/neck/torc-ball-captive.webp"
 		},
 		{
 			"name": "Elemental Weapon",
@@ -2192,7 +2947,8 @@
 			"entries": [
 				"Infundes un arma con energía elemental. Tras la infusión, elige una palabra de mando y uno de los siguientes tipos de daño: ácido, frío, fuego, veneno o rayo. Como acción adicional, el portador puede pronunciar la palabra de mando y hacer que la energía elemental brote del arma hasta que se vuelva a pronunciar la palabra de mando. Al impactar, el arma inflige un {@dice 1d4} adicional del daño elemental.",
 				"El daño adicional se convierte en {@dice 1d6} a nivel 14."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp"
 		},
 		{
 			"name": "Metamorphosis Armor",
@@ -2215,7 +2971,8 @@
 			],
 			"entries": [
 				"Esta armadura mágica tiene 4 cargas. Como acción, el portador puede gastar una carga para lanzar el hechizo {@spell enlarge/reduce}, apuntando sólo a sí mismo, sin gastar una ranura de hechizo ni requerir concentración. Volver a lanzar el hechizo con la armadura termina el efecto. Esta armadura recupera todas las cargas al amanecer."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-steel-blue-gold.webp"
 		},
 		{
 			"name": "Ring of the Elements",
@@ -2240,7 +2997,8 @@
 				"Al infundir este anillo mágico seleccionas uno de los siguientes tipos de daño: ácido, frío, fuego, veneno, rayo o trueno.",
 				"Cuando el portador lanza un hechizo que inflige el tipo de daño que ha seleccionado, puede activar este anillo para infligir el daño máximo a un objetivo del hechizo en lugar de rodar.",
 				"Una vez que se activa este anillo, no se puede volver a utilizar hasta que el portador complete un descanso corto o largo."
-			]
+			],
+			"foundryImg": "icons/equipment/finger/ring-band-gold-purple.webp"
 		},
 		{
 			"name": "Vampiric Weapon",
@@ -2264,7 +3022,8 @@
 			"entries": [
 				"Encantas un arma para drenar la vida de los enemigos. Cuando el portador consigue un golpe crítico con esta arma, el objetivo recibe un {@dice 2d6} de daño necrótico adicional, siempre que el objetivo no sea un constructo o un muerto viviente. El portador gana puntos de vida temporales iguales al daño necrótico adicional infligido.",
 				"Cuando alcanzas el nivel 14, el daño necrótico adicional de esta infusión aumenta a {@dice 4d6}."
-			]
+			],
+			"foundryImg": "icons/skills/melee/blade-tip-chipped-blood-red.webp"
 		},
 		{
 			"name": "Helm of Mind Shielding",
@@ -2286,8 +3045,9 @@
 				}
 			],
 			"entries": [
-				"El portador de este yelmo mágico es resistente al daño psíquico, inmune a las condiciones de encantamiento y miedo, y a cualquier magia que permita a otra criatura leer sus pensamientos o comunicarse telepáticamente con ella."
-			]
+				"The wearer of this magic helm is resistant to psychic damage, immune to the {@condition charmed} and {@condition frightened} conditions, and any magic that allows another creature to read their thoughts or telepathically communicate with them."
+			],
+			"foundryImg": "icons/equipment/head/helm-norman-black-gilded.webp"
 		},
 		{
 			"name": "Masterwork Homunculus",
@@ -2308,7 +3068,8 @@
 			"entries": [
 				"Has descubierto los secretos de la creación de la vida. Aprendes el hechizo {@spell clone}. Cuenta como un hechizo de artífice para ti, pero no cuenta contra tu número de Hechizos Conocidos. Puedes lanzar {@spell clone} sin gastar una ranura de hechizo siempre que tengas los componentes materiales disponibles.",
 				"Si sustituyes esta infusión por otra en cualquier momento del periodo de incubación, el hechizo falla inmediatamente."
-			]
+			],
+			"foundryImg": "icons/skills/wounds/blood-cells-vessel-blue.webp"
 		},
 		{
 			"name": "Mystic Armament",
@@ -2331,7 +3092,8 @@
 			],
 			"entries": [
 				"Este objeto tiene 4 cargas. Mientras se empuña esta arma mágica, el usuario puede utilizar su acción para lanzar el hechizo {@spell steel wind strike|xge}, utilizando el arma infundida como foco de lanzamiento, sin gastar una ranura de hechizo. El arma recupera todas las cargas gastadas al final de un descanso largo."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Mystic Shot",
@@ -2355,6 +3117,225 @@
 			"entries": [
 				"Mientras empuña esta arma mágica, el usuario puede utilizar su acción para lanzar {@spell swift quiver}, utilizando el arma infundida como foco de hechizo, sin gastar una ranura de hechizo.",
 				"Una vez activada, el portador debe terminar un descanso corto o largo antes de poder volver a lanzar {@spell swift quiver} con esta arma."
+			],
+			"foundryImg": "icons/skills/ranged/arrow-flying-white-blue.webp"
+		},
+		{
+			"name": "Amphibious Physiology",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Mientras está fusionada, la criatura puede respirar tanto aire como agua, y gana una velocidad de nado de 30 pies."
+			],
+			"foundryEffects": [
+				{
+					"name": "Swimming Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": 30
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/creatures/amphibians/treefrog-underneath-teal.webp"
+		},
+		{
+			"name": "Resilient Hide",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Mientras esté fusionado y no lleve ninguna armadura o use un escudo, la Clase de Armadura de la criatura es igual a 10 + tu modificador de Inteligencia + su modificador de Constitución."
+			],
+			"foundryEffects": [
+				{
+					"name": "Unarmored AC",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "CUSTOM",
+							"value": "10 + @abilities.int.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "custom"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/leather/scales-blue.webp"
+		},
+		{
+			"name": "Vestigial Limb",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Mientras está fusionada, a la criatura le crece una extremidad adicional que se asemeja a sus propias extremidades. Tiene un alcance de 5 pies, y puede levantar un número de libras igual a su puntuación de Inteligencia. El miembro no puede usar armas o escudos ni puede hacer nada que requiera precisión manual."
+			],
+			"foundryImg": "icons/commodities/biological/hand-gnarled-green.webp"
+		},
+		{
+			"name": "Raucous Blast",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus can assault creatures with a blast of sound. As an action, make a spell attack against a creature within 60 feet that can hear you. On hit, the creature takes {@damage 1d8} thunder damage and is deafened until the start of your next turn. The damage increases by {@dice 1d8} at 5th level ({@damage 2d8}), and again at 11th level ({@damage 3d8}), and 17th level ({@damage 4d8})."
+			],
+			"foundrySystem": {
+				"actionType": "rsak",
+				"damage.parts": [
+					[
+						"@scale.composer.raucous-blast",
+						"thunder"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/sonic/projectile-sound-rings-wave.webp"
+		},
+		{
+			"name": "Ringing Strike",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus is a simple weapon with the versatile property, and it deals {@damage 1d8} ({@damage 1d10}) bludgeoning damage on hit. You are considered proficient with it, and you can use your Intelligence, in place of Strength, for attack and damage rolls. In addition, you can cast the {@spell booming blade|tce} cantrip as long as your Apparatus is the material component."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"booming blade|tce"
+						]
+					}
+				}
+			],
+			"foundrySystem": {
+				"ability": "int",
+				"actionType": "mwak",
+				"damage.parts": [
+					[
+						"1d8",
+						"bludgeoning"
+					]
+				],
+				"versatile": "1d10"
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"name": "Flying Machine",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Flying Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "UPGRADE",
+							"value": "@scale.aeronaut.flying-speed"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Aerial Maneuvers",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Dexterity Check & Save Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.dex.bonuses.check",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Augmented Flesh",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 5,
+			"effects": [
+				{
+					"name": "Merged Bonus",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.str.value",
+							"mode": "UPGRADE",
+							"value": "@abilities.int.value"
+						},
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk",
+							"priority": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Strange Evolution",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Movement Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		}
 	]
