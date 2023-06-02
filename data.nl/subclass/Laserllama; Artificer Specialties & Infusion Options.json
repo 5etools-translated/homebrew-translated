@@ -3,24 +3,29 @@
 		"sources": [
 			{
 				"json": "llasio",
-				"abbreviation": "ll:as&io",
+				"abbreviation": "LL:AS&IO",
 				"full": "LaserLlama's Artificer Specialties & Infusion Options",
 				"authors": [
 					"laserLlama"
 				],
 				"convertedBy": [
 					"JoeyJoestar",
-					"Bowsori#7981"
+					"Bowsori#7981",
+					"hakr14"
 				],
 				"version": "2.1.0",
 				"color": "d4601e",
 				"url": "https://www.gmbinder.com/share/-M0ctsc5kAuUAYc57apB",
-				"targetSchema": "1.2"
+				"targetSchema": "1.10.8"
 			}
 		],
+		"optionalFeatureTypes": {
+			"LL:CT": "Chimeric Trait",
+			"LL:MAW": "Musical Apparatus Weaponization"
+		},
 		"dateAdded": 1549715846,
-		"dateLastModified": 1664312670,
-		"_dateLastModifiedHash": "bb965f68bd"
+		"dateLastModified": 1685407377,
+		"_dateLastModifiedHash": "6c5d5172dd"
 	},
 	"subclass": [
 		{
@@ -60,7 +65,32 @@
 				"Extra Attack|Artificer|TCE|Aeronaut|llasio|5",
 				"Aerial Maneuvers|Artificer|TCE|Aeronaut|llasio|9",
 				"Master Aeronaut|Artificer|TCE|Aeronaut|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Flying Speed",
+					"configuration": {
+						"identifier": "flying-speed",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 15
+							},
+							"5": {
+								"value": 20
+							},
+							"9": {
+								"value": 30
+							},
+							"15": {
+								"value": 60
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/materials/feather-blue-grey.webp"
 		},
 		{
 			"name": "Archivist",
@@ -99,7 +129,36 @@
 				"Acute Overload|Artificer|TCE|Archivist|llasio|5",
 				"Improved Consciousness|Artificer|TCE|Archivist|llasio|9",
 				"Master Archivist|Artificer|TCE|Archivist|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Information Overload Damage",
+					"configuration": {
+						"identifier": "information-overload",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-sealed-brown-red.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -139,7 +198,20 @@
 				"Extra Attack|Artificer|TCE|Biomancer|llasio|5",
 				"Strange Evolution|Artificer|TCE|Biomancer|llasio|9",
 				"Master Biomancer|Artificer|TCE|Biomancer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Strange Evolution",
+					"featureType": [
+						"LL:CT"
+					],
+					"progression": {
+						"9": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryImg": "icons/commodities/biological/organ-heart-pink.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -170,6 +242,15 @@
 							"hold monster",
 							"modify memory"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"time stop"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -178,7 +259,8 @@
 				"Stolen Moments|Artificer|TCE|Chronothief|llasio|5|",
 				"Empowered Chronomancy|Artificer|TCE|Chronothief|llasio|9",
 				"Master Chronothief|Artificer|TCE|Chronothief|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/watch.webp"
 		},
 		{
 			"name": "Composer",
@@ -217,7 +299,66 @@
 				"Thunderous Note|Artificer|TCE|Composer|llasio|5",
 				"Resonant Frequency|Artificer|TCE|Composer|llasio|9",
 				"Master Composer|Artificer|TCE|Composer|llasio|15"
-			]
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Musical Apparatus",
+					"featureType": [
+						"LL:MAW"
+					],
+					"progression": {
+						"3": 1,
+						"15": 2
+					}
+				}
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Raucous Blast Damage",
+					"configuration": {
+						"identifier": "raucous-blast",
+						"type": "dice",
+						"scale": {
+							"3": {
+								"n": 1,
+								"die": 8
+							},
+							"5": {
+								"n": 2,
+								"die": 8
+							},
+							"11": {
+								"n": 3,
+								"die": 8
+							},
+							"17": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				},
+				{
+					"type": "ScaleValue",
+					"title": "Resonant Frequency Damage",
+					"configuration": {
+						"identifier": "resonant-frequency",
+						"type": "dice",
+						"scale": {
+							"9": {
+								"n": 2,
+								"die": 8
+							},
+							"15": {
+								"n": 4,
+								"die": 8
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/sundries/documents/document-symbol-rune-tan.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -256,7 +397,8 @@
 				"Extra Attack|Artificer|TCE|Dungeoneer|llasio|5",
 				"Arcane Improvisation|Artificer|TCE|Dungeoneer|llasio|9",
 				"Master Dungeoneer|Artificer|TCE|Dungeoneer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/environment/traps/saw-steel-grey.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -295,7 +437,29 @@
 				"Extra Attack|Artificer|TCE|Forgewright|llasio|5",
 				"Arcane Smite|Artificer|TCE|Forgewright|llasio|9",
 				"Master Forgewright|Artificer|TCE|Forgewright|llasio|15"
-			]
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Arcane Armament Damage Bonus",
+					"configuration": {
+						"identifier": "arcane-armament",
+						"type": "number",
+						"scale": {
+							"3": {
+								"value": 1
+							},
+							"9": {
+								"value": 2
+							},
+							"15": {
+								"value": 3
+							}
+						}
+					}
+				}
+			],
+			"foundryImg": "icons/tools/smithing/crucible-round.webp"
 		},
 		{
 			"name": "Machinist",
@@ -335,7 +499,8 @@
 				"Automated Army|Artificer|TCE|Machinist|llasio|5",
 				"Efficient Production|Artificer|TCE|Machinist|llasio|9",
 				"Master Machinist|Artificer|TCE|Machinist|llasio|15"
-			]
+			],
+			"foundryImg": "icons/commodities/tech/coil-tesla-large.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -366,6 +531,15 @@
 							"dominate person",
 							"hold monster"
 						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1": [
+									"Otto's Irresistible Dance"
+								]
+							}
+						}
 					}
 				}
 			],
@@ -374,7 +548,58 @@
 				"Strange Strikes|Artificer|TCE|Puppeteer|llasio|5",
 				"Nimble Fingers|Artificer|TCE|Puppeteer|llasio|9",
 				"Master Puppeteer|Artificer|TCE|Puppeteer|llasio|15"
-			]
+			],
+			"foundryImg": "icons/magic/control/voodoo-doll-pain-damage-purple.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"shortName": "Alternate Alchemist",
+			"additionalSpells": [
+				{
+					"known": {
+						"3": [
+							"healing word",
+							"inflict wounds"
+						],
+						"5": [
+							"acid arrow",
+							"flaming sphere"
+						],
+						"9": [
+							"gaseous form",
+							"mass healing word"
+						],
+						"13": [
+							"blight",
+							"death ward"
+						],
+						"17": [
+							"cloudkill",
+							"reincarnate"
+						]
+					},
+					"innate": {
+						"15": {
+							"daily": {
+								"1e": [
+									"greater restoration",
+									"heal"
+								]
+							}
+						}
+					}
+				}
+			],
+			"subclassFeatures": [
+				"Alternate Alchemist|Artificer|TCE|Alternate Alchemist|llasio|3",
+				"Alchemical Savant|Artificer|TCE|Alternate Alchemist|llasio|5",
+				"Restorative Reagents|Artificer|TCE|Alternate Alchemist|llasio|9",
+				"Master Alchemist|Artificer|TCE|Alternate Alchemist|llasio|15"
+			],
+			"foundryImg": "icons/consumables/potions/potion-faceted-corked-blue.webp"
 		}
 	],
 	"subclassFeature": [
@@ -443,7 +668,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"woodcarver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/hand/saw-steel-grey.webp"
 		},
 		{
 			"name": "Flying Machine",
@@ -460,13 +694,14 @@
 					"items": [
 						"Het kan gebruikt worden als een spellcasting focus door jou.",
 						"Het is op maat gemaakt, en kan over een lichte bepantsering gedragen worden.",
-						"Als je valt en niet onbekwaam bent, trek je tot 100 voet van je val af bij het berekenen van valschade, en kun je 2 voet horizontaal bewegen voor elke 1 voet die je valt.",
+						"When you fall, and aren't {@condition incapacitated}, you subtract up to 100 feet from your fall when calculating falling damage, and can move 2 feet horizontally every 1 foot you fall.",
 						"Je krijgt een vliegsnelheid van 15 voet, die toeneemt naarmate je meer niveaus in deze klasse krijgt; op 5e niveau (20 voet), 9e niveau (30 voet), en uiteindelijk op 15e niveau (60 voet).",
 						"Wanneer je een wapenaanval doet terwijl je minstens 2 meter van de grond bent, kun je je Intelligentie gebruiken in plaats van Kracht of Behendigheid, voor de aanvals- en schade-rollen."
 					]
 				},
 				"Je kunt maar één vliegmachine tegelijk hebben, en als je er nog een maakt, raakt de andere in verval."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/raptor-hawk-flying.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -493,7 +728,8 @@
 			"entries": [
 				"Vanaf het 9e niveau kun je, terwijl je je vliegmachine draagt, de {@action Dash} actie als bonusactie uitvoeren tijdens je beurt.",
 				"Bovendien, terwijl u uw vliegende machine hebt uitgerust, krijgt u een bonus op uw Dexterity vaardigheidschecks en saving throws gelijk aan uw intelligentie modifier (minimum van +1)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wings-birdlike-blue.webp"
 		},
 		{
 			"name": "Master Aeronaut",
@@ -506,7 +742,8 @@
 			"header": 2,
 			"entries": [
 				"Je bent een meester in de kunstgrepen van de luchtvaart geworden. Vanaf het 15e niveau, als je je vliegmachine draagt en je wordt onderworpen aan een effect dat je toestaat om een Dexterity saving throw te doen om slechts de helft van de schade op te nemen, neem je in plaats daarvan geen schade op als je slaagt, en slechts de helft als je faalt."
-			]
+			],
+			"foundryImg": "icons/creatures/birds/songbird-yellow-flying.webp"
 		},
 		{
 			"name": "Archivist",
@@ -530,7 +767,7 @@
 			]
 		},
 		{
-			"name": "Tools of the trade",
+			"name": "Tools of the Trade",
 			"source": "llasio",
 			"className": "Artificer",
 			"classSource": "TCE",
@@ -573,7 +810,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"calligrapher's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/scribal/pen-steel-grey-brown.webp"
 		},
 		{
 			"name": "Artificial Mind",
@@ -644,7 +890,56 @@
 						]
 					]
 				}
-			]
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"animal handling",
+							"insight",
+							"perception",
+							"survival"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"deception",
+							"intimidation",
+							"performance",
+							"persuasion"
+						],
+						"count": 2
+					}
+				},
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						],
+						"count": 2
+					}
+				}
+			],
+			"foundrySystem": {
+				"actionType": "save",
+				"damage.parts": [
+					[
+						"@scale.archivist.information-overload",
+						"psychic"
+					]
+				],
+				"save": {
+					"ability": "int",
+					"scaling": "spell"
+				}
+			},
+			"foundryImg": "icons/skills/wounds/anatomy-organ-brain-pink-red.webp"
 		},
 		{
 			"name": "Acute Overload",
@@ -658,7 +953,21 @@
 			"entries": [
 				"Vanaf het 5e niveau kun je een spell slot gebruiken om de psychische schade van Information Overload te verhogen. De schade neemt toe met {@dice 2d8} voor een spreukengroef van het 1e niveau, en nog eens {@dice 1d8} voor elk spreukenniveau hoger dan het 1e niveau.",
 				"Als je psychische schade toebrengt door je Artificial Mind als een spellcasting focus te gebruiken, krijg je een bonus op de schade roll gelijk aan je Intelligence modifier (minimum van +1)."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Expend a spell slot"
+				},
+				"damage.parts": [
+					[
+						"2d8",
+						""
+					]
+				],
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/skills/targeting/crosshair-bars-yellow.webp"
 		},
 		{
 			"name": "Improved Consciousness",
@@ -671,7 +980,8 @@
 			"header": 2,
 			"entries": [
 				"De cognitieve capaciteiten van je Kunstmatige Geest zijn krachtig genoeg om je te helpen bij je spellcasting. Vanaf het 9e niveau, wanneer je gedwongen wordt om een grondwettelijke saving throw te doen om je concentratie op een spreuk te behouden, krijg je een bonus op je worp die gelijk is aan je intelligentie modifier (minimaal +1)."
-			]
+			],
+			"foundryImg": "icons/magic/perception/eye-tendrils-web-purple.webp"
 		},
 		{
 			"name": "Master Archivist",
@@ -684,7 +994,14 @@
 			"header": 2,
 			"entries": [
 				"Je bent een meester in Archivistische kunstgrepen. Vanaf het 15e niveau kun je een actie op je uitvoeren om te veranderen in pure informatie en teleporteren naar een onbezette ruimte die je kunt zien binnen 60 voet, of een onbezette ruimte binnen 5 voet van een wezen of voorwerp dat een van je Artificer Infusions draagt."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				}
+			},
+			"foundryImg": "icons/magic/movement/trail-streak-zigzag-teal.webp"
 		},
 		{
 			"name": "Biomancer",
@@ -751,7 +1068,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"leatherworker's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/leather/leather-buckle-steel-tan.webp"
 		},
 		{
 			"name": "Aberrant Chimera",
@@ -801,7 +1127,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "Whenever you cast Find Familiar"
+				}
+			},
+			"foundryImg": "icons/commodities/biological/pustules-red.webp"
 		},
 		{
 			"name": "Augmented Flesh",
@@ -822,7 +1156,8 @@
 						"Als een bonus actie kun je een spreukgleuf gebruiken om jezelf tijdelijke hit points toe te kennen gelijk aan vijf keer het niveau van de spreukgleuf + je intelligentie modifier. Deze tijdelijke hit points worden opgeteld bij de tijdelijke hit points die je hebt door het samensmelten met je Aberrant Chimera."
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/skills/wounds/injury-stapled-flesh-tan.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -847,9 +1182,10 @@
 			"level": 9,
 			"header": 2,
 			"entries": [
-				"Je hebt je eigen fysiologie verbeterd met vreemde magie. Op het 9e niveau verhoogt je bewegingssnelheid met 10 voet, en je krijgt permanent een Chimeric Trait naar keuze.",
+				"Je hebt je eigen fysiologie verbeterd met vreemde magie. Op het 9e niveau neemt je bewegingssnelheid met 10 voet toe, en je krijgt permanent een Chimerische eigenschap naar keuze.",
 				"Als je het 15e niveau in deze klasse bereikt, krijg je een tweede permanente Chimeric Trait naar keuze (voor een totaal van twee)."
-			]
+			],
+			"foundryImg": "icons/creatures/abilities/wolf-heads-swirl-purple.webp"
 		},
 		{
 			"name": "Master Biomancer",
@@ -864,7 +1200,21 @@
 			"entries": [
 				"Je bent een meester onder de Biomancer-kunstenaars geworden. Vanaf het 15e niveau kun je, als je een wezen met een Biomancer-spreuk tot doelwit maakt, een enkel doelwit (extra) tijdelijke hitpoints toekennen die gelijk zijn aan je artificer-niveau.",
 				"Bovendien, als je samengevoegd bent met je Chimera, ben je bestand tegen schade door stoten, doorboren en snijden."
-			]
+			],
+			"foundrySystem": {
+				"actionType": "heal",
+				"activation": {
+					"type": "special",
+					"condition": "When you target a creature with a Biomancer Spell"
+				},
+				"damage.parts": [
+					[
+						"@classes.artificer.levels",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/commodities/biological/organ-heart-red.webp"
 		},
 		{
 			"name": "Chronothief",
@@ -938,7 +1288,16 @@
 						"Als uw tabel de Dunamancy-magie uit de Explorer's Guide to Wildemount gebruikt, kan een Chronothief ervoor kiezen tijdgerelateerde Dunamancy-spreuken te gebruiken, in plaats van de bovenstaande lijst van Chronothief-spreuken."
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"jeweler's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/commodities/gems/gem-rough-rose-teal.webp"
 		},
 		{
 			"name": "Chronometer",
@@ -956,8 +1315,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -989,7 +1346,18 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "Action or Reaction"
+				},
+				"uses": {
+					"max": "2 * @abilities.int.mod",
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/stopwatch.webp"
 		},
 		{
 			"name": "Stolen Moments",
@@ -1001,9 +1369,21 @@
 			"level": 5,
 			"header": 2,
 			"entries": [
-				"Je hebt je Chronometer verbeterd zodat je letterlijk momenten in de tijd kunt bewaren voor later. Vanaf het 5de niveau, wanneer je met succes een wezen verlamt, verdooft of zijn bewegingssnelheid tot 0 reduceert met een spreuk of Chronothief-vaardigheid, krijgt je Chronometer één van zijn verbruikte ladingen terug.",
+				"You have improved your Chronometer so that you can literally save moments in time for later. Beginning at 5th level, when you successfully {@condition paralyzed|phb|paralyze}, {@condition stunned|phb|stun}, or reduce a creature's movement speed to 0 with a spell or Chronothief ability, your Chronometer regains one of its expended charges.",
 				"Bovendien kan elke vaardigheid van de Chronometer die een actie vereist om te gebruiken, ook als bonusactie gebruikt worden tijdens je beurt."
-			]
+			],
+			"consumes": {
+				"name": "Chronometer",
+				"amount": -1
+			},
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": "special",
+					"condition": "When you successfully paralyze, stun, or reduce a creature's movement speed to 0 with a spell or Chronothief ability"
+				}
+			},
+			"foundryImg": "icons/commodities/tech/dial-meter-gauge-blue.webp"
 		},
 		{
 			"name": "Empowered Chronomancy",
@@ -1033,7 +1413,7 @@
 							"type": "entries",
 							"name": "Decelerate",
 							"entries": [
-								"Je kunt een extra lading uitgeven om de vermindering van de bewegingssnelheid te verdubbelen. Als deze eigenschap de snelheid van een doelwit tot 0 reduceert, moet het slagen op een grondwettelijke reddingsworp of verdoofd worden tot het einde van zijn volgende beurt."
+								"You can spend an additional charge to double the movement speed reduction. If this feature reduces a target's speed to 0, it must succeed on a Constitution saving throw or be {@condition stunned} until the end of its next turn."
 							]
 						},
 						{
@@ -1052,7 +1432,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/movement/abstract-ribbons-red-orange.webp"
 		},
 		{
 			"name": "Master Chronothief",
@@ -1064,9 +1445,10 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je wordt beschouwd als een meester op het gebied van Chronomancy. Vanaf je 15e niveau kun je je Chronometer overladen en de resterende ladingen verbruiken om de tijd te stoppen.",
+				"Je wordt beschouwd als een meester op het gebied van Chronomancy. Vanaf het 15e niveau kun je je Chronometer overladen, waarbij je overgebleven ladingen verbruikt, om te casten {@spell time stop}.",
 				"Als je eenmaal op deze manier een tijdstop hebt uitgesproken, moet je een lange rustperiode inlassen voordat je het opnieuw kunt doen."
-			]
+			],
+			"foundryImg": "icons/magic/time/clock-spinning-gold-pink.webp"
 		},
 		{
 			"name": "Composer",
@@ -1134,7 +1516,18 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true,
+					"musical instrument": true
+				},
+				{
+					"anyArtisans": 1,
+					"musical instrument": true
+				}
+			],
+			"foundryImg": "icons/tools/instruments/lute-gold-brown.webp"
 		},
 		{
 			"name": "Musical Apparatus",
@@ -1152,8 +1545,6 @@
 				{
 					"type": "list",
 					"style": "list-no-bullets",
-					"columns": 0,
-					"name": "",
 					"items": [
 						{
 							"type": "entries",
@@ -1171,7 +1562,15 @@
 						}
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				},
+				"damage.parts": []
+			},
+			"foundryImg": "icons/commodities/tech/pipe-exhaust.webp"
 		},
 		{
 			"name": "Thunderous Note",
@@ -1185,7 +1584,14 @@
 			"entries": [
 				"Vanaf het 5e niveau kun je, als je een wezen raakt met een Muzikaal Toestel-aanval, een spreukgleuf gebruiken om grote of kleinere wezens achterover te slaan met een daverende geluidsbuls. Het schepsel wordt een halve meter teruggeworpen voor een spreuk van het 1e niveau, en nog eens een halve meter voor elk spreukniveau hoger dan het 1e niveau.",
 				"Telkens als je donderschade toebrengt, voeg je je intelligentiegetal (minimaal +1) toe aan je schadeworp."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a creature with a Musical Apparatus attack"
+				}
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
 		},
 		{
 			"name": "Resonant Frequency",
@@ -1199,7 +1605,21 @@
 			"entries": [
 				"Vanaf niveau 9 kun je een actie gebruiken om een noot te spelen die een doelwit binnen een straal van 10 meter 1 uur lang laat resoneren met ondetecteerbare muziek. De volgende keer dat dat wezen wordt geraakt door een mêlee aanval, moet de aanvaller slagen op een Constitution saving throw of {@dice 2d8} donderschade nemen en niet in staat zijn om te reageren tot het begin van hun volgende beurt.",
 				"Je mag deze eigenschap een aantal keren gebruiken gelijk aan je Intelligentie factor (minimum van één keer), en je krijgt alle gebruikte keren terug wanneer je een lange rustperiode beëindigt."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": 1,
+					"type": "action"
+				},
+				"damage.parts": [
+					[
+						"@scale.composer.resonant-frequency",
+						"thunder"
+					]
+				],
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/commodities/tech/antenna-powered-purple.webp"
 		},
 		{
 			"name": "Master Composer",
@@ -1222,7 +1642,14 @@
 						"De schade van Resonantiefrequentie wordt {@dice 4d8}."
 					]
 				}
-			]
+			],
+			"immune": [
+				"thunder"
+			],
+			"conditionImmune": [
+				"deafened"
+			],
+			"foundryImg": "icons/tools/instruments/harp-yellow-teal.webp"
 		},
 		{
 			"name": "Dungeoneer",
@@ -1254,7 +1681,7 @@
 			"level": 3,
 			"header": 2,
 			"entries": [
-				"Wanneer je een Dungeoneer Specialist wordt op 3de niveau, krijg je vaardigheid met {@item carpenters tools|phb} en {@item smith's tools|phb}. Als je al vaardig bent in {@item carpenter's tools|phb} of {@item smith's tools}, krijg je vaardigheid in een andere set {@item artisan's tools|phb} naar keuze.",
+				"When you become a Dungeoneer Specialist at 3rd level, you gain proficiency with {@item carpenter's tools|phb} and {@item smith's tools|phb}. If you already proficient in {@item carpenter's tools|phb} or {@item smith's tools}, you gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
 				"Je wordt ook vaardiger in het gebruik van geïmproviseerde wapens. Als je een aanval met een geïmproviseerd wapen uitvoert, kun je je intelligentie gebruiken in plaats van je kracht of je wendbaarheid voor de aanvals- en schadeopbrengst. De dobbelsteen voor de schade van een aanval met een geïmproviseerd wapen wordt een d8 als die lager zou zijn.",
 				{
 					"type": "table",
@@ -1289,8 +1716,26 @@
 							"{@spell passwall}, {@spell wall of stone}"
 						]
 					]
+				},
+				{
+					"type": "insetReadaloud",
+					"name": "Improvised Weapons in 5e",
+					"entries": [
+						"Geïmproviseerde wapens zijn alle voorwerpen die je met één of twee handen kunt hanteren, zoals een gebroken fles, een tafelpoot, een berenval of een dode Goblin.",
+						"Een geïmproviseerd wapen is vaak vergelijkbaar met een echt wapen en moet als zodanig worden behandeld. Bijvoorbeeld, een tafelpoot kan worden beschouwd als een {@item club|phb} en geeft 1d4 stompenschade bij treffer. Een geïmproviseerd geworpen wapen heeft een normaal bereik van 20 voet en een groot bereik van 60 voet."
+					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"carpenter's tools": true,
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 2
+				}
+			],
+			"foundryImg": "icons/tools/hand/chisel-steel-brown.webp"
 		},
 		{
 			"name": "Dungeoncraft",
@@ -1342,7 +1787,11 @@
 						]
 					]
 				}
-			]
+			],
+			"foundrySystem": {
+				"uses.max": "max(1, @abilities.int.mod)"
+			},
+			"foundryImg": "icons/weapons/thrown/bomb-spiked-purple.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1369,7 +1818,16 @@
 			"entries": [
 				"Vanaf het 9e niveau worden je geimproviseerde wapenaanvallen en Dungeoncraft Voorwerpen als magisch beschouwd om weerstand en immuniteit tegen niet-magische aanvallen te overwinnen.",
 				"Je kunt ook één van je Dungeoneer spreuken uitvoeren zonder de materiële component te leveren, één keer per lange rust."
-			]
+			],
+			"foundrySystem": {
+				"activation.type": "special",
+				"uses": {
+					"value": 1,
+					"max": 1,
+					"per": "lr"
+				}
+			},
+			"foundryImg": "icons/magic/symbols/arrowhead-green.webp"
 		},
 		{
 			"name": "Master Dungeoneer",
@@ -1382,16 +1840,9 @@
 			"header": 2,
 			"entries": [
 				"Je bent een meester in Kerkeraad. Vanaf 15e niveau, hebben wezens nadeel op de reddingsworpen voor je Dungeoncraft voorwerpen en Dungeoneer spreuken.",
-				"Bovendien leer je een rituele versie van zowel de {@spell passwall} als de {@spell wall of stone} spreuk uit te spreken. Het duurt 1 uur om ze op deze manier uit te spreken, er wordt geen spell slot voor gebruikt en de gemaakte structuur wordt permanent aan het einde van de rituele uitroep.",
-				{
-					"type": "insetReadaloud",
-					"name": "Improvised Weapons in 5e",
-					"entries": [
-						"Geïmproviseerde wapens zijn alle voorwerpen die je met één of twee handen kunt hanteren, zoals een gebroken fles, een tafelpoot, een berenval of een dode Goblin.",
-						"Een geïmproviseerd wapen is vaak vergelijkbaar met een echt wapen en moet als zodanig worden behandeld. Bijvoorbeeld, een tafelpoot kan worden beschouwd als een {@item club|phb} en geeft 1d4 stompenschade bij treffer. Een geïmproviseerd geworpen wapen heeft een normaal bereik van 20 voet en een groot bereik van 60 voet."
-					]
-				}
-			]
+				"Bovendien leer je een rituele versie van zowel de {@spell passwall} als de {@spell wall of stone} spreuk uit te spreken. Het duurt 1 uur om ze op deze manier uit te spreken, er wordt geen spell slot voor gebruikt en de gemaakte structuur wordt permanent aan het einde van de rituele uitroep."
+			],
+			"foundryImg": "icons/environment/traps/trap-jaw-steel.webp"
 		},
 		{
 			"name": "Forgewright",
@@ -1459,7 +1910,21 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"martial": true
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Arcane Armament",
@@ -1483,7 +1948,8 @@
 					]
 				},
 				"Je magische wapen is alleen voor jou bruikbaar. Het betoveren van een tweede wapen zorgt ervoor dat de magie die het eerste wapen betoverde, verdwijnt."
-			]
+			],
+			"foundryImg": "icons/magic/symbols/runes-etched-steel-blade.webp"
 		},
 		{
 			"name": "Extra Attack",
@@ -1514,11 +1980,20 @@
 					"items": [
 						"Het doelwit krijgt een extra {@dice 2d6} krachtschade. Je kunt een spreukengroef gebruiken om deze schade te verhogen. De schade neemt toe met {@dice 1d6} per niveau van het spellslot dat je gebruikt.",
 						"Je krijgt tijdelijke hit points gelijk aan je artificer level.",
-						"Je kunt het doelwit dwingen een krachtsparende worp te doen. Bij een mislukte worp liggen ze op de grond."
+						"You can force the target to make a Strength saving throw. On a failed save they are knocked {@condition prone}."
 					]
 				},
 				"Je kunt deze vaardigheid een aantal keren gebruiken gelijk aan je Intelligentie factor (minimaal één keer), en je krijgt alle verbruikte keren terug als je een lange rustperiode beëindigd hebt."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you hit a target with your Arcane Armament"
+				},
+				"uses.max": "max(1, @abilities.int.mod)",
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/skills/melee/sword-engraved-glow-purple.webp"
 		},
 		{
 			"name": "Master Forgewright",
@@ -1532,7 +2007,8 @@
 			"entries": [
 				"Je bent een meester onder de Forgewright artificers geworden. Vanaf level 15 kun je de kracht van je Arcane Armament uitbreiden naar je medestrijders. Als actie kies je een aantal wapens gelijk aan je intelligentiegetal (minimaal 1) binnen 30 meter. Voor de volgende minuut geven deze wapens een extra {@dice 1d6} krachtschade bij een treffer.",
 				"Je kunt deze eigenschap één keer per lange rust gebruiken, tenzij je een spreukengroef van 3de niveau of hoger uitgeeft om hem opnieuw te gebruiken."
-			]
+			],
+			"foundryImg": "icons/skills/melee/swords-triple-orange.webp"
 		},
 		{
 			"name": "Machinist",
@@ -1599,7 +2075,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"smith's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/skills/trades/smithing-tongs-metal-red.webp"
 		},
 		{
 			"name": "Automatons",
@@ -1612,7 +2097,7 @@
 			"header": 2,
 			"entries": [
 				"Op het 3e niveau leer je Automatons te maken. Aan het einde van elke lange rustperiode gebruik je je {@item smith's tools|phb} om op magische wijze een Kleine Automaat te maken in een onbezette ruimte binnen 5 meter. Als je eenmaal een Automaton hebt gemaakt, kun je dat niet meer doen tot je een lange rust hebt gehad of tot je een spreukslot van 1e niveau of hoger gebruikt om een andere te maken. Je kunt maar één Automaton tegelijk hebben, als je een tweede creëert valt de eerste uit elkaar.",
-				"Automatons zijn magische constructies met een Armor Class gelijk aan 12 + je Intelligence modifier, en hit points gelijk aan je artificer level + je Intelligence modifier. Als ze een ability check of een saving throw doen, zijn hun ability scores 10 (+0). Als je hem met Mending bewerkt, krijgt hij weer {@dice 2d6} hit points. Het verdwijnt als het is gereduceerd tot 0 hit points of na 1 uur.",
+				"Automatons are magical constructs with an Armor Class equal to 12 + your Intelligence modifier, and hit points equal to your artificer level + your Intelligence modifier. When they make an ability check or a saving throw, its ability scores are 10 (+0). If {@spell mending} is cast on it, it regains {@dice 2d6} hit points. It disappears if it is reduced to 0 hit points or after 1 hour.",
 				"Als je je automaat maakt, beslis je welk type het is, door te kiezen uit de opties in de onderstaande tabel. Als bonusactie tijdens je beurt kun je de Automaton activeren als je binnen 60 voet bent. Als onderdeel van die bonusactie kun je de automaat maximaal 25 voet laten lopen naar een onbezette ruimte.",
 				{
 					"type": "table",
@@ -1648,7 +2133,8 @@
 						]
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/commodities/tech/transmission.webp"
 		},
 		{
 			"name": "Arcane Conduit",
@@ -1661,8 +2147,16 @@
 			"header": 2,
 			"entries": [
 				"Vanaf het 5e niveau leer je magie te kanaliseren via je Automatons. Wanneer je een spreuk van een artificer uitspreekt, kun je ervoor kiezen dat de spreuk afkomstig is van een Automaton, in plaats van jezelf, zolang je binnen 60 voet van de Automaton bent.",
-				"Als je een spreuk op deze manier uitspreekt, rol je een {@dice 1d8}, en voeg je het gerolde getal toe aan een schade- of genezingsrol van de spreuk."
-			]
+				"Als je een spreuk op deze manier uitspreekt, rol je een {@dice d8}, en voeg je het gerolde getal toe aan een worp schade, of genezing, van de spreuk."
+			],
+			"foundrySystem": {
+				"activation": {
+					"type": "special",
+					"condition": "When you cast an artificer spell"
+				},
+				"formula": "1d8"
+			},
+			"foundryImg": "icons/commodities/tech/bulb-vacuum.webp"
 		},
 		{
 			"name": "Automated Army",
@@ -1675,7 +2169,14 @@
 			"header": 2,
 			"entries": [
 				"Je kunt Automatons nog efficiënter maken en besturen. Vanaf het 5e niveau kun je maximaal twee Automatons tegelijk besturen, en aan het eind van elke lange rust kun je twee Automatons naar keuze maken, zonder een spell slot te verbruiken. Je kunt alle Automatons activeren als één bonusactie."
-			]
+			],
+			"foundrySystem": {
+				"activation": {
+					"cost": "",
+					"type": ""
+				}
+			},
+			"foundryImg": "icons/commodities/tech/cog-brass.webp"
 		},
 		{
 			"name": "Efficient Production",
@@ -1688,7 +2189,8 @@
 			"header": 2,
 			"entries": [
 				"Vanaf het 9e niveau, als je een artificer spell slot gebruikt om een Automaton te creëren, creëer je een aantal Automatons gelijk aan het niveau van het gebruikte spell slot. Je kunt deze eigenschap niet gebruiken om je maximale aantal Automatons te overschrijden."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/levers-colored.webp"
 		},
 		{
 			"name": "Master Machinist",
@@ -1702,7 +2204,8 @@
 			"entries": [
 				"Je bent een meester onder de Machinisten geworden. Vanaf het 15e niveau kun je tot drie Automatons tegelijk besturen, en aan het eind van een lange rust creëer je drie Automatons naar keuze, zonder een spell slot uit te geven.",
 				"Ook, wanneer u gedwongen om een saving throw te maken of worden geraakt door een aanval, kunt u uw reactie gebruiken om van plaats te wisselen met een van uw Automatons binnen 60 voet. De Automaton wordt dan het doelwit van de aanval of de saving throw."
-			]
+			],
+			"foundryImg": "icons/commodities/tech/tube-chamber-lightning.webp"
 		},
 		{
 			"name": "Puppeteer",
@@ -1769,7 +2272,16 @@
 						]
 					]
 				}
-			]
+			],
+			"toolProficiencies": [
+				{
+					"weaver's tools": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/equipment/back/cloak-hooded-pink.webp"
 		},
 		{
 			"name": "Marionette Strings",
@@ -1818,7 +2330,8 @@
 						}
 					]
 				}
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-large-teal.webp"
 		},
 		{
 			"name": "Strange Strikes",
@@ -1832,7 +2345,18 @@
 			"entries": [
 				"De mate van controle die je uitoefent via je Strengen groeit. Vanaf het 5e niveau kun je, als het wezen dat aan je Marionettenkoorden vastzit een aanval doet, met je reactie ervoor zorgen dat hij een extra aanval doet.",
 				"Bovendien, als een wezen dat aan je Strings vastzit een wezen raakt met een mêlee aanval, kun je een spell slot gebruiken om zijn slag te versterken. Hun aanval veroorzaakt een extra {@dice 2d6} krachtschade voor een spell slot van het 1e niveau, en een extra {@dice 1d6} krachtschade voor elk spell slot niveau boven het 1e."
-			]
+			],
+			"foundrySystem": {
+				"activation.condition": "When the creature attached to your Marionette Strings makes an attack",
+				"damage.parts": [
+					[
+						"2d6",
+						"force"
+					]
+				],
+				"formula": "1d6"
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-teal-blue.webp"
 		},
 		{
 			"name": "Nimble Fingers",
@@ -1846,7 +2370,8 @@
 			"entries": [
 				"Je vermogen om de gaven van anderen te controleren en te versterken is toegenomen. Vanaf het negende niveau kun je twee wezens tegelijk aan verschillende marionettensnoeren hebben hangen. Je moet een vrije hand hebben om elk van deze wezens te besturen. De twee wezens kunnen zich op elke afstand van elkaar bevinden, zolang ze elk afzonderlijk maar binnen het bereik van je Strings blijven.",
 				"Bovendien wordt de lengte van je Marionettenkoorden, en het bereik van je Poppenspelervaardigheden, 60 voet."
-			]
+			],
+			"foundryImg": "icons/magic/control/energy-stream-link-spiral-teal.webp"
 		},
 		{
 			"name": "Master Puppeteer",
@@ -1858,9 +2383,224 @@
 			"level": 15,
 			"header": 2,
 			"entries": [
-				"Je bent een meester geworden onder de poppenspelers. Vanaf 15e niveau kun je tijdens je beurt een actie gebruiken om de {@spell Otto's Irresistible Dance} spreuk uit te spreken, zonder een spreukslot uit te geven of je concentratie te vragen. Je kunt slechts één exemplaar van deze spreuk tegelijk actief hebben. Als een wezen een reddingsworp doet om de spreuk te weerstaan, kun je een gebruik van je Marionettekoorden gebruiken om nadeel op te leggen.",
-				"Als je eenmaal {@spell Otto's Irresistible Dance} op deze manier hebt gegoten, moet je een lange rustperiode voltooien voordat je dit opnieuw kunt doen, of een gebruik van je Marionettenkoorden vaardigheid gebruiken om deze vaardigheid opnieuw te gebruiken."
+				"You have become a master amongst Puppeteer artificers. Starting at 15th level, you can use an action on your turn to cast the {@spell Otto's Irresistible Dance|phb|Irresistable Dance} spell, without expending a spell slot, or requiring your concentration. You can only have once instance of this spell active at a time. When a creature makes a saving throw to resist the spell, you can expend a use of your Marionette Strings to impose disadvantage.",
+				"Once you cast {@spell Otto's Irresistible Dance|phb|Irresistable Dance} in this way, you must finish a long rest before you can do so again, or expend a use of your Marionette Strings ability to use this ability again."
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/magic/control/debuff-energy-hold-levitate-teal-blue.webp"
+		},
+		{
+			"name": "Alternate Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"entries": [
+				"Alchemie is een delicate kunst; als de verhouding tussen de ingrediënten te ver uit de pas loopt, kan dat rampzalige gevolgen hebben. Degenen die de magie van arcane drankjes en brouwsels bestuderen, staan bekend als alchemisten. Zij zijn experts in het combineren van exotische reagentia om een verscheidenheid aan materialen en effecten te produceren. Van geneeskrachtige droesem die een wond in enkele ogenblikken kan genezen, tot kleverig goedje dat ontploft als het in contact komt met open vuur. Met zorgvuldige voorbereiding en een beetje geluk zijn alchemisten meesters in zowel het geven van leven als het weglekken ervan.",
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Tools of the Trade|Artificer|TCE|Alternate Alchemist|llasio|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Alchemical Elixirs|Artificer|TCE|Alternate Alchemist|llasio|3"
+				}
 			]
+		},
+		{
+			"name": "Tools of the Trade",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"At 3rd level, you gain proficiency with {@item alchemist's supplies|phb}. If you are already proficient with {@item alchemist's supplies|phb}, you instead gain proficiency with another set of {@item artisan's tools|phb} of your choice.",
+				{
+					"type": "table",
+					"caption": "Alternate Alchemist",
+					"colLabels": [
+						"Artificer Level",
+						"Spell"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-left"
+					],
+					"rows": [
+						[
+							"3rd",
+							"{@spell healing word}, {@spell inflict wounds}"
+						],
+						[
+							"5th",
+							"{@spell acid arrow}, {@spell flaming sphere}"
+						],
+						[
+							"9th",
+							"{@spell gaseous form}, {@spell mass healing word}"
+						],
+						[
+							"13th",
+							"{@spell blight}, {@spell death ward}"
+						],
+						[
+							"17th",
+							"{@spell cloudkill}, {@spell reincarnate}"
+						]
+					]
+				}
+			],
+			"toolProficiencies": [
+				{
+					"alchemist's supplies": true
+				},
+				{
+					"anyArtisans": 1
+				}
+			],
+			"foundryImg": "icons/tools/cooking/mortar-herbs-yellow.webp"
+		},
+		{
+			"name": "Alchemical Elixirs",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 3,
+			"header": 2,
+			"entries": [
+				"Vanaf het 3e niveau kun je aan het eind van elke lange rust een Elixer produceren in een lege fles die je aanraakt. Bij het aanmaken kies je het effect van het Elixer uit de onderstaande tabel, waarvan sommige je vaardigheidsbonus (PB) bevatten. Het effect van een Elixer wordt getriggerd als iemand het Elixer drinkt. Als bonusactie kan een wezen het Elixer drinken of het toedienen aan een wezen binnen 5 meter. Een wezen kan maar onder de effecten van één Elixir tegelijk zijn, en het drinken van een ander Elixir beëindigt onmiddellijk alle andere Elixir effecten.",
+				"Elk elixer dat je met deze functie aanmaakt, duurt tot het wordt verbruikt, of tot het einde van je volgende lange rust.",
+				"Als actie tijdens je beurt kun je een spreukengroef van het 1e niveau of hoger gebruiken om een Elixer te maken in een lege fles die je aanraakt. Je kunt het elixer als onderdeel van dezelfde actie gebruiken.",
+				"Op bepaalde niveaus in deze klasse kun je meer Elixirs maken aan het einde van een lange rust: op het 6e niveau (twee), en het 15e niveau (drie).",
+				{
+					"type": "table",
+					"caption": "Alchemical Elixirs",
+					"colLabels": [
+						"Elixir",
+						"Effect"
+					],
+					"colStyles": [
+						"col-4 text-center",
+						"col-8 text-center"
+					],
+					"rows": [
+						[
+							"{@b Alteration}",
+							"De drinker wordt getransformeerd als door de {@spell alter self} spreuk. Hij bepaalt zelf het effect van de betovering, die 10 minuten duurt."
+						],
+						[
+							"{@b Boldness}",
+							"De drinker kan {@dice 1d4} toevoegen aan alle aanvalsrollen en saving throws die hij maakt gedurende 1 minuut."
+						],
+						[
+							"{@b Flight}",
+							"De drinker krijgt een vliegsnelheid gelijk aan 5 keer je PB in voeten voor 10 minuten."
+						],
+						[
+							"{@b Healing}",
+							"The drinker regains a number of hit points equal to PB(d4) + your Intelligence Modifier."
+						],
+						[
+							"{@b Resilience}",
+							"De drinker krijgt een bonus op zijn Armor Class gelijk aan de helft van je PB voor 10 minuten."
+						],
+						[
+							"{@b Swiftness}",
+							"De snelheid van de drinker neemt toe met een aantal voet gelijk aan 5 keer je PB voor 1 uur."
+						]
+					]
+				}
+			],
+			"foundryImg": "icons/consumables/potions/potion-flask-corked-labeled-pink.webp"
+		},
+		{
+			"name": "Alchemical Savant",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 5,
+			"header": 2,
+			"entries": [
+				"Vanaf niveau 5 krijg je een bonus op de schade- of genezingsrol die gelijk is aan je intelligentiegetal (minimaal +1) als je een spreuk uitspreekt die zuur-, vuur-, necrotische of gifschade toebrengt, of die de hit points herstelt."
+			],
+			"foundryImg": "icons/consumables/potions/potion-jar-corked-labeled-red.webp"
+		},
+		{
+			"name": "Restorative Reagents",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 9,
+			"header": 2,
+			"entries": [
+				"Als een wezen een van je Elixirs drinkt, krijgt het vanaf niveau 9 tijdelijk een aantal hit points dat gelijk is aan {@dice 2d6} + je intelligentiegraad, naast het effect van het Elixir.",
+				"Also, you can cast {@spell lesser restoration} without expending a spell slot, even if you don't have it prepared, provided you use your alchemist's supplies as the spellcasting focus.",
+				"Je kunt {@spell lesser restoration} op deze manier een aantal keren gelijk aan je Intelligentie modifier uitroepen (minimum van één keer), en je krijgt alle verbruikte gebruiken weer terug als je een lange rustperiode beëindigt."
+			],
+			"foundrySystem": {
+				"activation.condition": "Whenever a creature drinks one of your Elixirs",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				},
+				"damage.parts": [
+					[
+						"2d6 + @abilities.int.mod",
+						"temphp"
+					]
+				]
+			},
+			"foundryImg": "icons/consumables/potions/potion-round-corked-glowing-green.webp"
+		},
+		{
+			"name": "Master Alchemist",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Alternate Alchemist",
+			"subclassSource": "llasio",
+			"level": 15,
+			"header": 2,
+			"entries": [
+				"Je bent een meester geworden onder de Alchemist artificers. Bij het bereiken van het 15e level, krijg je weerstand tegen zuur- en gifschade, en immuniteit voor de {@condition poisoned} conditie.",
+				"In addition, you can cast both {@spell greater restoration} and {@spell heal} without expending a spell slot, without preparing the spell, and without providing the material component, provided you use your alchemist's supplies as the spellcasting focus.",
+				"Je kunt elk van deze spreuken één keer uitspreken met deze eigenschap, en je moet een lange rust beëindigen voordat je dit weer kunt doen."
+			],
+			"resist": [
+				"acid",
+				"poison"
+			],
+			"conditionImmune": [
+				"poisoned"
+			],
+			"foundrySystem": {
+				"activation.type": "",
+				"uses": {
+					"value": "",
+					"max": "",
+					"per": ""
+				}
+			},
+			"foundryImg": "icons/consumables/potions/flask-corked-yellow-glow.webp"
 		}
 	],
 	"optionalfeature": [
@@ -1873,13 +2613,14 @@
 			"prerequisite": [
 				{
 					"item": [
-						"A set of {@item artisan's tools|phb} (requires attunement)"
+						"A set of artisan's tools (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"De bezitter wordt beschouwd als vaardig met deze magische set gereedschappen, en als actie kan hij deze set gereedschappen veranderen in een andere set {@item artisan's tools|phb} naar keuze."
-			]
+			],
+			"foundryImg": "icons/tools/fasteners/screw-flat-steel-grey.webp"
 		},
 		{
 			"name": "Arcane Implement",
@@ -1896,7 +2637,8 @@
 			],
 			"entries": [
 				"Dit kleine stukje hout is doordrenkt met een artificer cantrip van jouw keuze. Als een actie kan een wezen de bezweerde bezwering produceren, waarbij je je spellcasting modifier gebruikt om de spreuk uit te spreken."
-			]
+			],
+			"foundryImg": "icons/commodities/wood/bark-grey.webp"
 		},
 		{
 			"name": "Arm Launcher",
@@ -1912,8 +2654,9 @@
 				}
 			],
 			"entries": [
-				"Deze kleine magische draagraket kan worden geladen met een Tiny voorwerp (bijvoorbeeld: kogellagers, een flesje zuur, alchemistisch vuur, of heilig water). Als bonusactie kan de drager de draagraket activeren en een afstandsaanval doen op een doelwit binnen een straal van 20 meter. De draagraket kan als actie worden herladen."
-			]
+				"This tiny magical launcher can be loaded with a Tiny object (for example: {@item ball bearings (bag of 1,000)|phb|ball bearings}, a {@item acid (vial)|phb|vial of acid}, {@item alchemist's fire (flask)|phb|alchemist's fire}, or {@item holy water (flask)|phb|holy water}). As a bonus action the wearer can activate the launcher and make a ranged attack at a target within 20 feet. The launcher can be reloaded as an action."
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-leather-teal-orange.webp"
 		},
 		{
 			"name": "Enhanced Instrument",
@@ -1931,7 +2674,8 @@
 			"entries": [
 				"Dit instrument is magisch verbeterd door kunstgrepen. De bezitter wordt beschouwd als vaardig met dit instrument en kan het gebruiken als een spellcasting focus. Telkens wanneer hij een vaardigheidscontrole uitvoert met dit instrument, krijgt hij een bonus op de worp die gelijk is aan zijn intelligentiegraad (minimum van +1).",
 				"Op het 10e niveau geeft dit magische instrument een +1 bonus aan aanvalsrollen voor spreuken. Deze bonus stijgt tot +2 op 14e niveau."
-			]
+			],
+			"foundryImg": "icons/tools/instruments/bell-gold.webp"
 		},
 		{
 			"name": "Featherweight Belt",
@@ -1949,7 +2693,8 @@
 			"entries": [
 				"Wanneer deze magische gordel wordt gedragen, vermindert het gewicht van de gebruiker tot een tiende van zijn gewicht, zonder dat zijn fysieke vermogens afnemen.",
 				"Op het 10e niveau vermindert het de drager tot een honderdste van zijn gewicht zonder zijn fysieke capaciteiten te verminderen."
-			]
+			],
+			"foundryImg": "icons/equipment/waist/belt-coiled-leather-steel.webp"
 		},
 		{
 			"name": "Featherweight Weapon",
@@ -1967,7 +2712,8 @@
 			"entries": [
 				"Dit magische wapen heeft niet langer de eigenschap zwaar of tweehandig (uw keuze bij infusie).",
 				"Op het 10e niveau geeft dit wapen een +1 bonus op aanvals- en schadeworpen. Deze bonus wordt +2 op 14e niveau."
-			]
+			],
+			"foundryImg": "icons/skills/melee/sword-winged-holy-orange.webp"
 		},
 		{
 			"name": "Goggles of Clearsight",
@@ -1983,9 +2729,10 @@
 				}
 			],
 			"entries": [
-				"Als hij deze bril draagt, kan de drager door licht verduisterde gebieden kijken zonder nadeel op wijsheidcontroles. Bovendien heeft de drager niet langer last van de negatieve effecten van de eigenschap Zonlichtgevoeligheid, en heeft hij voordeel bij reddingsacties tegen verblinding.",
+				"While wearing these goggles, the wearer can see through lightly obscured areas without disadvantage on Wisdom ({@skill Perception}) checks. In addition, the wearer no longer suffers the negative effects from the {@i Sunlight Sensitivity} trait, and they have advantage on saving throws to resist being {@condition blinded}.",
 				"Deze bonus neemt toe op 10e niveau (+2) en 14e niveau (+3)."
-			]
+			],
+			"foundryImg": "icons/equipment/head/goggles-leather-grey.webp"
 		},
 		{
 			"name": "Power Whip",
@@ -2003,7 +2750,8 @@
 			"entries": [
 				"Dit magische wapen geeft een bonus van +1 aan aanvals- en schadeworpen die ermee gedaan worden, en de dobbelsteen van de schade neemt toe tot {@dice 1d8}.",
 				"Deze bonus neemt toe op 10e niveau (+2) en 14e niveau (+3)."
-			]
+			],
+			"foundryImg": "icons/weapons/misc/whip-red-yellow.webp"
 		},
 		{
 			"name": "Immovable Boots",
@@ -2027,7 +2775,8 @@
 			"entries": [
 				"Als de gebruiker op een vlakke ondergrond staat, kan hij een actie gebruiken om de laarzen te activeren, waardoor de gebruiker op magische wijze op zijn plaats wordt gefixeerd. Totdat je een actie gebruikt om de laarzen te deactiveren, beweeg je niet, zelfs niet als je de zwaartekracht trotseert.",
 				"Een schepsel kan een actie gebruiken om een DC 30 Strength check te doen, waarbij je laarzen van het oppervlak worden gescheiden als je slaagt."
-			]
+			],
+			"foundryImg": "icons/equipment/feet/boots-armored-steel.webp"
 		},
 		{
 			"name": "Light Blade",
@@ -2044,14 +2793,15 @@
 						}
 					},
 					"item": [
-						"A sword hilt or wand (requires attunement"
+						"A sword hilt or wand (requires attunement)"
 					]
 				}
 			],
 			"entries": [
 				"Terwijl hij het voorwerp vastpakt, kan de drager een bonusactie gebruiken om een lemmet van pure uitstraling te laten verschijnen of verdwijnen aan het uiteinde van het voorwerp. Zolang de kling bestaat, is dit magische voorwerp een eenvoudig wapen met de eigenschap finesse. Het lichtgevende lemmet straalt helder licht uit in een straal van 15 voet en zwak licht voor nog eens 15 voet. Het licht is zonlicht.",
 				"De drager krijgt een bonus van +1 op aanvals- en schadeworpen met dit wapen, dat {@dice 1d8} stralingsschade toebrengt bij een treffer. Ondoden ontvangen een extra {@dice 1d8} radiant damage. De bonus op aanvals- en schadeworpen wordt +2 op 15e niveau."
-			]
+			],
+			"foundryImg": "icons/weapons/swords/sword-broad-serrated-blue.webp"
 		},
 		{
 			"name": "Repulsion Gauntlets",
@@ -2075,7 +2825,8 @@
 			"entries": [
 				"Deze magische handschoenen hebben 4 ladingen. Wanneer de drager een wezen raakt met een ongewapende slag, kan hij 1 lading gebruiken en het doelwit dwingen een Sterkte-sparingsworp te doen. Als hij faalt, wordt het schepsel 15 voet teruggeworpen. De handschoenen krijgen alle verbruikte ladingen terug bij zonsopgang.",
 				"Op 9e niveau geeft dit magische wapen een +1 bonus op aanvals- en schadeworpen. Deze bonus stijgt tot +2 op 15e niveau."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-plate-steel-grey.webp"
 		},
 		{
 			"name": "Skyfall Harness",
@@ -2098,7 +2849,8 @@
 			],
 			"entries": [
 				"Dit magische harnas past zich automatisch aan de drager aan, en kan over kleding of lichte bepantsering worden gedragen. Het heeft vleugelachtige vinnen tussen je ledematen die je val kunnen vertragen of je kunnen laten glijden. Als je valt en niet uitgeschakeld bent, trek je tot 100 voet van je val af bij het berekenen van valschade, en kun je 2 voet horizontaal bewegen voor elke 1 voet die je valt."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-leather-stitched.webp"
 		},
 		{
 			"name": "War Gauntlet",
@@ -2121,7 +2873,8 @@
 			],
 			"entries": [
 				"Je bevestigt een gevechtswapen zonder de eigenschappen zwaar of tweehandig, of een schild aan de handschoen. De drager wordt vaardiger met het vastgemaakte voorwerp, en het kan niet van de handschoen worden verwijderd zolang deze Infusion actief is."
-			]
+			],
+			"foundryImg": "icons/equipment/hand/gauntlet-armored-red-gold.webp"
 		},
 		{
 			"name": "Chameleon Armor",
@@ -2144,7 +2897,8 @@
 			],
 			"entries": [
 				"Dit pantser heeft 4 ladingen. Terwijl hij dit magische pantser draagt kan de drager een actie gebruiken om ladingen te verbruiken en een van de volgende spreuken uit te spreken, die alleen op hemzelf gericht is: {@spell invisibility} (2 ladingen) of {@spell greater invisibility} (4 ladingen). Dit harnas krijgt alle verbruikte ladingen dagelijks terug bij zonsopgang."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-gold.webp"
 		},
 		{
 			"name": "Collar of Taming",
@@ -2167,8 +2921,9 @@
 			],
 			"entries": [
 				"De magie van deze halsband kan zelfs de wildste dieren temmen. Jij, en alleen jij, kunt elk beest met deze halsband beheersen alsof het een getraind rijdier is. Deze halsband werkt niet bij beesten met een intelligentie die hoger is dan die van jou.",
-				"Op 15e niveau kun je met deze magische halsband elk monster met een Intelligentiescore van 5 of lager beheersen."
-			]
+				"At 15th level, this magic collar allows you to control any {@filter monstrosity with an Intelligence score of 5 or lower|bestiary|type=monstrosity|Intelligence=[0;5]}."
+			],
+			"foundryImg": "icons/equipment/neck/torc-ball-captive.webp"
 		},
 		{
 			"name": "Elemental Weapon",
@@ -2192,7 +2947,8 @@
 			"entries": [
 				"Je doordrenkt een wapen met elementaire energie. Bij het infuseren kies je een commando woord en een van de volgende schade types: zuur, koud, vuur, vergif, of bliksem. Als bonusactie kan de bezitter het commando woord uitspreken en ervoor zorgen dat er elementaire energie uit het wapen barst totdat het commando woord weer wordt uitgesproken. Bij een treffer richt het wapen een extra {@dice 1d4} van de elementaire schade aan.",
 				"De extra schade wordt {@dice 1d6} op 14e niveau."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp"
 		},
 		{
 			"name": "Metamorphosis Armor",
@@ -2215,7 +2971,8 @@
 			],
 			"entries": [
 				"Dit magische harnas heeft 4 ladingen. Als actie kan de drager een lading gebruiken om een {@spell enlarge/reduce} spreuk uit te spreken, die alleen op hemzelf gericht is, zonder een spell slot te gebruiken of concentratie nodig te hebben. Als je de spreuk opnieuw uitspreekt met het harnas, eindigt het effect. Dit pantser krijgt alle ladingen terug bij zonsopgang."
-			]
+			],
+			"foundryImg": "icons/equipment/chest/breastplate-layered-steel-blue-gold.webp"
 		},
 		{
 			"name": "Ring of the Elements",
@@ -2240,7 +2997,8 @@
 				"Bij het gebruiken van deze magische ring kies je één van de volgende schade types: zuur, koud, vuur, vergif, bliksem, of donder.",
 				"Wanneer de drager een spreuk uitspreekt die het door jou gekozen type schade toebrengt, kan hij deze ring activeren om maximale schade toe te brengen aan één doelwit van de spreuk in plaats van te rollen.",
 				"Als deze ring eenmaal is geactiveerd, kan hij niet meer worden gebruikt totdat de drager een korte of lange rustperiode heeft voltooid."
-			]
+			],
+			"foundryImg": "icons/equipment/finger/ring-band-gold-purple.webp"
 		},
 		{
 			"name": "Vampiric Weapon",
@@ -2264,7 +3022,8 @@
 			"entries": [
 				"Je betovert een wapen om het leven uit vijanden te zuigen. Wanneer de bezitter een critical hit scoort met dit wapen, loopt het doelwit een extra {@dice 2d6} necrotische schade op, zolang het doelwit geen construct of undead is. De drager krijgt tijdelijk evenveel hit points als de extra necrotische schade.",
 				"Als je 14e level bereikt, neemt de extra necrotische schade van deze Infusion toe tot {@dice 4d6}."
-			]
+			],
+			"foundryImg": "icons/skills/melee/blade-tip-chipped-blood-red.webp"
 		},
 		{
 			"name": "Helm of Mind Shielding",
@@ -2286,8 +3045,9 @@
 				}
 			],
 			"entries": [
-				"De drager van deze magische helm is bestand tegen psychische schade, immuun voor de charmed en frightened condities, en elke vorm van magie die een ander wezen in staat stelt zijn gedachten te lezen of telepathisch met hem te communiceren."
-			]
+				"The wearer of this magic helm is resistant to psychic damage, immune to the {@condition charmed} and {@condition frightened} conditions, and any magic that allows another creature to read their thoughts or telepathically communicate with them."
+			],
+			"foundryImg": "icons/equipment/head/helm-norman-black-gilded.webp"
 		},
 		{
 			"name": "Masterwork Homunculus",
@@ -2308,7 +3068,8 @@
 			"entries": [
 				"Je hebt de geheimen van de schepping van het leven ontdekt. Je leert de {@spell clone} spreuk. Deze telt voor jou als een artificer spreuk, maar hij telt niet mee voor het aantal Spreuken dat je kent. Je kunt {@spell clone} uitspreken zonder een spell slot te gebruiken, zolang je de materiële componenten beschikbaar hebt.",
 				"Als je deze Infusie vervangt door een andere op enig moment tijdens de incubatieperiode, mislukt de spreuk onmiddellijk."
-			]
+			],
+			"foundryImg": "icons/skills/wounds/blood-cells-vessel-blue.webp"
 		},
 		{
 			"name": "Mystic Armament",
@@ -2331,7 +3092,8 @@
 			],
 			"entries": [
 				"Dit voorwerp heeft 4 ladingen. Terwijl hij dit magische wapen hanteert, kan de gebruiker zijn actie gebruiken om de spreuk {@spell steel wind strike|xge} uit te spreken, waarbij hij het geïnfuseerde wapen als toverspreuk gebruikt, zonder een spreukgleuf te gebruiken. Het wapen krijgt alle verbruikte ladingen terug aan het einde van een lange rust."
-			]
+			],
+			"foundryImg": "icons/skills/melee/strike-sword-dagger-runes-yellow.webp"
 		},
 		{
 			"name": "Mystic Shot",
@@ -2355,6 +3117,225 @@
 			"entries": [
 				"Terwijl hij dit magische wapen hanteert, kan de gebruiker zijn actie gebruiken om te gieten {@spell swift quiver}, met het geïnfuseerde wapen als de spellcasting focus, zonder een spell slot uit te geven.",
 				"Eenmaal geactiveerd, moet de drager een korte of lange rust beëindigen voordat hij weer {@spell swift quiver} met dit wapen kan werpen."
+			],
+			"foundryImg": "icons/skills/ranged/arrow-flying-white-blue.webp"
+		},
+		{
+			"name": "Amphibious Physiology",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Als het wezen is samengevoegd, kan het zowel lucht als water ademen, en krijgt het een zwemsnelheid van 30 voet."
+			],
+			"foundryEffects": [
+				{
+					"name": "Swimming Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.swim",
+							"mode": "UPGRADE",
+							"value": 30
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/creatures/amphibians/treefrog-underneath-teal.webp"
+		},
+		{
+			"name": "Resilient Hide",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Als het wezen is samengevoegd en geen pantser draagt of een schild gebruikt, is zijn Armor Class gelijk aan 10 + jouw Intelligentie + zijn Constitution."
+			],
+			"foundryEffects": [
+				{
+					"name": "Unarmored AC",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "CUSTOM",
+							"value": "10 + @abilities.int.mod + @abilities.con.mod"
+						},
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "custom"
+						}
+					]
+				}
+			],
+			"foundryImg": "icons/commodities/leather/scales-blue.webp"
+		},
+		{
+			"name": "Vestigial Limb",
+			"source": "llasio",
+			"featureType": [
+				"LL:CT"
+			],
+			"entries": [
+				"Als het wezen is samengevoegd, groeit het een extra ledemaat dat op zijn eigen ledematen lijkt. Het heeft een bereik van 5 voet en kan een aantal kilo's tillen dat gelijk is aan je intelligentiescore. De ledemaat kan geen wapens of schilden gebruiken, noch kan het iets doen dat handmatige precisie vereist."
+			],
+			"foundryImg": "icons/commodities/biological/hand-gnarled-green.webp"
+		},
+		{
+			"name": "Raucous Blast",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus can assault creatures with a blast of sound. As an action, make a spell attack against a creature within 60 feet that can hear you. On hit, the creature takes {@damage 1d8} thunder damage and is deafened until the start of your next turn. The damage increases by {@dice 1d8} at 5th level ({@damage 2d8}), and again at 11th level ({@damage 3d8}), and 17th level ({@damage 4d8})."
+			],
+			"foundrySystem": {
+				"actionType": "rsak",
+				"damage.parts": [
+					[
+						"@scale.composer.raucous-blast",
+						"thunder"
+					]
+				]
+			},
+			"foundryImg": "icons/magic/sonic/projectile-sound-rings-wave.webp"
+		},
+		{
+			"name": "Ringing Strike",
+			"source": "llasio",
+			"featureType": [
+				"LL:MAW"
+			],
+			"entries": [
+				"Your Apparatus is a simple weapon with the versatile property, and it deals {@damage 1d8} ({@damage 1d10}) bludgeoning damage on hit. You are considered proficient with it, and you can use your Intelligence, in place of Strength, for attack and damage rolls. In addition, you can cast the {@spell booming blade|tce} cantrip as long as your Apparatus is the material component."
+			],
+			"additionalSpells": [
+				{
+					"known": {
+						"_": [
+							"booming blade|tce"
+						]
+					}
+				}
+			],
+			"foundrySystem": {
+				"ability": "int",
+				"actionType": "mwak",
+				"damage.parts": [
+					[
+						"1d8",
+						"bludgeoning"
+					]
+				],
+				"versatile": "1d10"
+			},
+			"foundryImg": "icons/magic/sonic/bell-alarm-red-purple.webp"
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"name": "Flying Machine",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 3,
+			"effects": [
+				{
+					"name": "Flying Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.fly",
+							"mode": "UPGRADE",
+							"value": "@scale.aeronaut.flying-speed"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Aerial Maneuvers",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Aeronaut",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Dexterity Check & Save Bonus",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.dex.bonuses.check",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						},
+						{
+							"key": "system.abilities.dex.bonuses.save",
+							"mode": "ADD",
+							"value": "max(1, @abilities.int.mod)"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Augmented Flesh",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 5,
+			"effects": [
+				{
+					"name": "Merged Bonus",
+					"disabled": true,
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.abilities.str.value",
+							"mode": "UPGRADE",
+							"value": "@abilities.int.value"
+						},
+						{
+							"key": "system.attributes.movement.climb",
+							"mode": "UPGRADE",
+							"value": "@attributes.movement.walk",
+							"priority": 8
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Strange Evolution",
+			"source": "llasio",
+			"className": "Artificer",
+			"classSource": "TCE",
+			"subclassShortName": "Biomancer",
+			"subclassSource": "llasio",
+			"level": 9,
+			"effects": [
+				{
+					"name": "Movement Speed",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "ADD",
+							"value": 10
+						}
+					]
+				}
 			]
 		}
 	]
