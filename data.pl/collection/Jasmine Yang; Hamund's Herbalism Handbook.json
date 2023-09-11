@@ -20,18 +20,18 @@
 		],
 		"status": "ready",
 		"dateAdded": 1665431770,
-		"dateLastModified": 1668700856,
-		"_dateLastModifiedHash": "06fba59cbb"
+		"dateLastModified": 1694386526,
+		"_dateLastModifiedHash": "2553fb95e8"
 	},
 	"book": [
 		{
 			"name": "Hamund's Herbalism Handbook",
-			"source": "HHbH",
-			"author": "Jasmine Yang",
-			"group": "homebrew",
 			"id": "HHbH",
-			"published": "2022-09-03",
+			"source": "HHbH",
+			"group": "homebrew",
 			"coverUrl": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/HHH/HHbH/Cover.webp",
+			"published": "2022-09-03",
+			"author": "Jasmine Yang",
 			"contents": [
 				{
 					"name": "Cover Page, Credits & Changelog"
@@ -939,23 +939,33 @@
 	],
 	"feat": [
 		{
-			"name": "Tincture Master",
-			"source": "HHbH",
-			"page": 39,
-			"entries": [
-				"Osiągnąłeś mistrzostwo w destylacji ziół na {@variantrule tinctures|HHbH}, zmniejszając o połowę czas i koszty, jakie trzeba ponieść, aby go stworzyć."
-			]
-		},
-		{
 			"name": "Nature's Bounty",
 			"source": "HHbH",
 			"page": 39,
 			"entries": [
 				"Twoje dostrojenie do natury powoduje, że znajdujesz więcej ziół gdziekolwiek jesteś, prawie jakby sama natura próbowała Ci pomóc. Za każdym razem, gdy zbierasz zioło, wykonaj rzut na {@dice d20}. Na 20, zyskujesz dodatkową kopię zebranego właśnie zioła."
 			]
+		},
+		{
+			"name": "Tincture Master",
+			"source": "HHbH",
+			"page": 39,
+			"entries": [
+				"Osiągnąłeś mistrzostwo w destylacji ziół na {@variantrule tinctures|HHbH}, zmniejszając o połowę czas i koszty, jakie trzeba ponieść, aby go stworzyć."
+			]
 		}
 	],
 	"variantrule": [
+		{
+			"name": "Optional Rule: Herb Toxicity",
+			"source": "HHbH",
+			"page": 4,
+			"ruleType": "O",
+			"entries": [
+				"Ze względu na równowagę, zaleca się utrzymanie zasady, która pozwala postaci korzystać z efektów tylko jednego zioła na raz. Jednakże, jeśli DM chce, może zezwolić na korzystanie z wielu ziół, poprzez włączenie wady wysokiego ryzyka znanej jako {@b herb toxicity}.",
+				"Zgodnie z tą opcjonalną zasadą, za każdym razem, gdy stworzenie jest pod wpływem jednego zioła i próbuje użyć innego, musi wykonać rzut ratujący Konstytucję z DC równym 10 + 5 x liczba ziół, których próbowało użyć od ostatniego długiego odpoczynku. W przypadku sukcesu, używają zioła jak zwykle. W przypadku porażki, ich ciało odrzuca przeciążenie magicznymi wpływami na siebie, powodując zmarnowanie ziół, natychmiastowe zakończenie dobroczynnych efektów wszystkich ziół, które aktualnie na nich działają, a także utratę {@condition poisoned} przez stworzenie na jedną godzinę."
+			]
+		},
 		{
 			"name": "Optional Rule: Identifying Herbs",
 			"source": "HHbH",
@@ -965,16 +975,6 @@
 				"Dla uproszczenia, w standardowych zasadach zakłada się, że postacie zawsze są świadome tożsamości zebranego przez siebie zioła, w tym jego nazwy, wartości i efektu. Jednakże, jeśli DM chce dodać nieco więcej złożoności i wyzwania, może zechcieć zmusić graczy do identyfikowania także ziół.",
 				"Zgodnie z tą opcjonalną zasadą, za każdym razem gdy postać zbiera zioło, musi odnieść sukces w {@dc 15} kontroli Mądrości ({@skill Nature}), aby zidentyfikować zioło, które właśnie zebrała. W przypadku porażki, postać jest świadoma, że zioło jest niejasno użyteczne, ale nie zna jego nazwy, efektów ani sposobu użycia.",
 				"Przyjmuje się, że postać, która wybrała zioło, wie, które zioło wybrała."
-			]
-		},
-		{
-			"name": "Optional Rule: Herb Toxicity",
-			"source": "HHbH",
-			"page": 4,
-			"ruleType": "O",
-			"entries": [
-				"Ze względu na równowagę, zaleca się utrzymanie zasady, która pozwala postaci korzystać z efektów tylko jednego zioła na raz. Jednakże, jeśli DM chce, może zezwolić na korzystanie z wielu ziół, poprzez włączenie wady wysokiego ryzyka znanej jako {@b herb toxicity}.",
-				"Zgodnie z tą opcjonalną zasadą, za każdym razem, gdy stworzenie jest pod wpływem jednego zioła i próbuje użyć innego, musi wykonać rzut ratujący Konstytucję z DC równym 10 + 5 x liczba ziół, których próbowało użyć od ostatniego długiego odpoczynku. W przypadku sukcesu, używają zioła jak zwykle. W przypadku porażki, ich ciało odrzuca przeciążenie magicznymi wpływami na siebie, powodując zmarnowanie ziół, natychmiastowe zakończenie dobroczynnych efektów wszystkich ziół, które aktualnie na nich działają, a także utratę {@condition poisoned} przez stworzenie na jedną godzinę."
 			]
 		},
 		{
@@ -1007,6 +1007,8 @@
 	"spell": [
 		{
 			"name": "Cornucopia",
+			"source": "HHbH",
+			"page": 39,
 			"level": 5,
 			"school": "T",
 			"time": [
@@ -1021,6 +1023,11 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small pouch of loamy soil"
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1029,6 +1036,12 @@
 						"amount": 1
 					}
 				}
+			],
+			"meta": {
+				"ritual": true
+			},
+			"entries": [
+				"Kiedy rzucasz to zaklęcie, deklarujesz, że do 4 chętnych stworzeń, które widzisz w promieniu 30 stóp, łączy cię magiczna więź. Przez czas trwania zaklęcia, kiedy używasz zioła na sobie, jego efekty są powielane wśród wszystkich istot, które dzielą z tobą magiczną więź, tak długo jak znajdują się na tej samej płaszczyźnie istnienia."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1045,23 +1058,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Kiedy rzucasz to zaklęcie, deklarujesz, że do 4 chętnych stworzeń, które widzisz w promieniu 30 stóp, łączy cię magiczna więź. Przez czas trwania zaklęcia, kiedy używasz zioła na sobie, jego efekty są powielane wśród wszystkich istot, które dzielą z tobą magiczną więź, tak długo jak znajdują się na tej samej płaszczyźnie istnienia."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"meta": {
-				"ritual": true
-			},
-			"components": {
-				"v": true,
-				"s": true,
-				"m": "a small pouch of loamy soil"
 			}
 		},
 		{
 			"name": "Hamund's Herbal Hypodermic",
+			"source": "HHbH",
+			"page": 39,
 			"level": 2,
 			"school": "T",
 			"time": [
@@ -1076,6 +1078,10 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1084,6 +1090,16 @@
 						"amount": 10
 					}
 				}
+			],
+			"entries": [
+				"Kiedy rzucasz to zaklęcie, na czas jego trwania z twojego ramienia wyrasta wydrążona igła, która może być użyta jako naturalna broń finezyjna do wykonywania uderzeń bez broni zadających {@damage 1d4} + modyfikator Zręczności w obrażeniach.",
+				"Uderzenia tą igłą mogą być również wykorzystane do szybkiego dostarczenia trucizny lub zioła, którego nałożenie na broń normalnie zajęłoby znacznie więcej czasu. Jako działanie dodatkowe, możesz użyć igły do wchłonięcia trucizny lub ziół, które normalnie zostałyby użyte do pokrycia broni. Jeśli to zrobisz, igła zachowuje się tak, jakby była pokryta tą trucizną lub ziołem, ze wszystkimi korzyściami, jakie by to za sobą niosło."
+			],
+			"damageInflict": [
+				"piercing"
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1112,26 +1128,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Kiedy rzucasz to zaklęcie, na czas jego trwania z twojego ramienia wyrasta wydrążona igła, która może być użyta jako naturalna broń finezyjna do wykonywania uderzeń bez broni zadających {@damage 1d4} + modyfikator Zręczności w obrażeniach.",
-				"Uderzenia tą igłą mogą być również wykorzystane do szybkiego dostarczenia trucizny lub zioła, którego nałożenie na broń normalnie zajęłoby znacznie więcej czasu. Jako działanie dodatkowe, możesz użyć igły do wchłonięcia trucizny lub ziół, które normalnie zostałyby użyte do pokrycia broni. Jeśli to zrobisz, igła zachowuje się tak, jakby była pokryta tą trucizną lub ziołem, ze wszystkimi korzyściami, jakie by to za sobą niosło."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"components": {
-				"v": true,
-				"s": true
-			},
-			"damageInflict": [
-				"piercing"
-			],
-			"miscTags": [
-				"UBA"
-			]
+			}
 		},
 		{
 			"name": "Herbal Infusion",
+			"source": "HHbH",
+			"page": 40,
 			"level": 3,
 			"school": "T",
 			"time": [
@@ -1146,10 +1148,17 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"s": true,
+				"m": "one herb that the spell consumes"
+			},
 			"duration": [
 				{
 					"type": "instant"
 				}
+			],
+			"entries": [
+				"W magiczny sposób wyciągasz i wchłaniasz esencję zioła w swojej dłoni, co pozwala ci na natychmiastowe użycie zioła niezależnie od tego, ile czasu normalnie zajęłoby ci jego użycie. To zaklęcie może być użyte tylko na ziołach, które wpływają na twoje własne ciało."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1170,15 +1179,6 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"W magiczny sposób wyciągasz i wchłaniasz esencję zioła w swojej dłoni, co pozwala ci na natychmiastowe użycie zioła niezależnie od tego, ile czasu normalnie zajęłoby ci jego użycie. To zaklęcie może być użyte tylko na ziołach, które wpływają na twoje własne ciało."
-			],
-			"source": "HHbH",
-			"page": 40,
-			"components": {
-				"s": true,
-				"m": "one herb that the spell consumes"
 			}
 		}
 	],
@@ -1420,102 +1420,6 @@
 		}
 	],
 	"table": [
-		{
-			"name": "Herb's Relative Rarity Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"d100",
-				"Herb's Table Position",
-				"{@dice d100} roll"
-			],
-			"colStyles": [
-				"col-4 text-center",
-				"col-4 text-center",
-				"col-4 text-center"
-			],
-			"rows": [
-				[
-					"99\u2013100",
-					"2 or 16",
-					"99"
-				],
-				[
-					"96\u201398",
-					"3 or 15",
-					"96"
-				],
-				[
-					"91\u201395",
-					"4 or 14",
-					"91"
-				],
-				[
-					"85\u201390",
-					"5 or 13",
-					"85"
-				],
-				[
-					"77\u201384",
-					"6 or 12",
-					"77"
-				],
-				[
-					"68\u201376",
-					"7 or 11",
-					"68"
-				],
-				[
-					"57\u201367",
-					"8 or 10",
-					"57"
-				],
-				[
-					"44\u201356",
-					"9",
-					"44"
-				],
-				[
-					"1\u201343",
-					"Nie znaleziono ziół",
-					"1"
-				]
-			],
-			"footnotes": [
-				"{@note First column added to enable 5eTools style rollable table.}"
-			]
-		},
-		{
-			"name": "Foraging Herb Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
-				"Result"
-			],
-			"colStyles": [
-				"col-2 text-center",
-				"col-10 text-center"
-			],
-			"rows": [
-				[
-					"1\u20139",
-					"{@homebrew Character finds nothing.}"
-				],
-				[
-					"10\u201315",
-					"Postać znajduje wystarczającą ilość jedzenia, aby nakarmić Średniej wielkości stworzenie przez jeden dzień."
-				],
-				[
-					"16\u201320",
-					"Postać znajduje wspólne zioło. Rzuć na odpowiednią tabelę wspólnego zioła środowiska, aby określić wynik."
-				],
-				[
-					"21+",
-					"Postać znajduje rzadkie zioło. Rzuć na odpowiednią tabelę rzadkich ziół środowiska, aby określić wynik."
-				]
-			]
-		},
 		{
 			"name": "All Herbs A-Z Table",
 			"source": "HHbH",
@@ -2862,6 +2766,102 @@
 			]
 		},
 		{
+			"name": "Foraging Herb Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
+				"Result"
+			],
+			"colStyles": [
+				"col-2 text-center",
+				"col-10 text-center"
+			],
+			"rows": [
+				[
+					"1\u20139",
+					"{@homebrew Character finds nothing.}"
+				],
+				[
+					"10\u201315",
+					"Postać znajduje wystarczającą ilość jedzenia, aby nakarmić Średniej wielkości stworzenie przez jeden dzień."
+				],
+				[
+					"16\u201320",
+					"Postać znajduje wspólne zioło. Rzuć na odpowiednią tabelę wspólnego zioła środowiska, aby określić wynik."
+				],
+				[
+					"21+",
+					"Postać znajduje rzadkie zioło. Rzuć na odpowiednią tabelę rzadkich ziół środowiska, aby określić wynik."
+				]
+			]
+		},
+		{
+			"name": "Herb's Relative Rarity Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"d100",
+				"Herb's Table Position",
+				"{@dice d100} roll"
+			],
+			"colStyles": [
+				"col-4 text-center",
+				"col-4 text-center",
+				"col-4 text-center"
+			],
+			"rows": [
+				[
+					"99\u2013100",
+					"2 or 16",
+					"99"
+				],
+				[
+					"96\u201398",
+					"3 or 15",
+					"96"
+				],
+				[
+					"91\u201395",
+					"4 or 14",
+					"91"
+				],
+				[
+					"85\u201390",
+					"5 or 13",
+					"85"
+				],
+				[
+					"77\u201384",
+					"6 or 12",
+					"77"
+				],
+				[
+					"68\u201376",
+					"7 or 11",
+					"68"
+				],
+				[
+					"57\u201367",
+					"8 or 10",
+					"57"
+				],
+				[
+					"44\u201356",
+					"9",
+					"44"
+				],
+				[
+					"1\u201343",
+					"Nie znaleziono ziół",
+					"1"
+				]
+			],
+			"footnotes": [
+				"{@note First column added to enable 5eTools style rollable table.}"
+			]
+		},
+		{
 			"name": "Rare Arctic Herbs",
 			"source": "HHbH",
 			"page": 42,
@@ -3487,14 +3487,11 @@
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3529,21 +3526,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Aloyleaf",
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3559,21 +3556,21 @@
 						"To zioło zapewnia wystarczającą ilość liści do pokrycia {@dice 1d6} stóp kwadratowych. Te liście są tak twarde jak stal, ale są tak lekkie jak normalne liście i nigdy nie rozkładają się, chyba że zakopane pod ziemią."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ashfree Birch",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3589,21 +3586,21 @@
 						"Możesz poświęcić 10 minut na ułożenie arkuszy tej kory, które będziesz nosił pod swoją zbroją i ubraniami, izolując się od gorąca i ognia. Jeśli to zrobisz, za każdym razem, gdy otrzymasz obrażenia od ognia, to ziele wchłonie je zamiast ciebie. Zioło to może wchłonąć do 30 punktów obrażeń od ognia, zanim całkowicie się spali i stanie się bezużyteczne, a nadmiar obrażeń zostanie przeniesiony na ciebie. Możesz usunąć to zioło, spędzając 1 minutę na wydzieraniu go z ubrania."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Auril's Hair",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3619,21 +3616,21 @@
 						"Jako akcję, możesz wbić tę łodygę w ziemię. Jeśli to zrobisz, cała ziemia w promieniu 20 stóp od ciebie pokrywa się cienką warstwą lodu, powodując, że staje się ona {@quickref difficult terrain||3} przez następne 10 minut (lub połowę tego, jeśli robisz to w gorącym otoczeniu). Łodyga ta może być użyta w ten sposób do 3 razy, po czym traci całą zmagazynowaną energię zimna i staje się bezużyteczna."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Banshee Vine",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3661,21 +3658,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Barrier Coral",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3698,21 +3695,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk Tongues",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3728,21 +3725,21 @@
 						"To zioło można zastosować do jednej broni do walki wręcz lub do 10 sztuk amunicji, pokrywając je petryfikującym olejem na 10 minut. Stworzenie trafione tą bronią lub amunicją musi zaliczyć {@dc 12} rzut ratunkowy na Konstytucję, albo otrzyma jeden poziom następujących efektów, gdy zacznie zamieniać się w kamień. Prędkość ruchu dotkniętej istoty zmniejsza się o połowę. Dotknięte stworzenie jest {@condition restrained}. Dotknięte stworzenie jest {@condition petrified}, gdy zamienia się w kamień. Stworzenie może ponownie wykonać rzut ratunkowy na Konstytucję na koniec każdej swojej tury, zmniejszając poziom efektu o jeden w przypadku sukcesu. Zaklęcie {@spell greater restoration} lub podobna magia rzucona na dotkniętą istotę natychmiast usuwa wszystkie poziomy."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk's Appetiser",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3766,21 +3763,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bird Seed",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3797,21 +3794,21 @@
 						"To zioło ma {@dice 1d4} ładunków. Jako akcję, możesz użyć jednego ładunku, aby rozrzucić pewną liczbę nasion na ziemi, powodując ich zmianę w małe stado ptaków, które natychmiast odlatują. Ptaki te mają magiczną naturę i znikają po 1 minucie."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blighted Pollen",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3866,21 +3863,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blubber Bulb",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3896,21 +3893,21 @@
 						"Po użyciu tego zioła, jesteś pokryty grubą warstwą oleju przypominającego tran, który pozostaje przez 4 godziny. W tym czasie jesteś odporny na wszelkie obrażenia od zimna, ognia, trucizny i kwasu, które otrzymałbyś w wyniku dotknięcia celu lub trafienia go atakiem bronią do walki wręcz."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Boom Maize",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -3927,21 +3924,21 @@
 						"Pełna sakiewka tego ziela zawiera 6 ładunków. Jako akcję możesz wydać jeden lub więcej ładunków, aby rzucić garść ziaren w cel, który widzisz w promieniu 20 stóp od siebie. Cel musi wykonać {@dc 10} rzut ratunkowy na wytrzymałość, przy czym wartość DC wzrasta o 2 za każdy ładunek, który wydałeś. W przypadku porażki, cel zostaje odepchnięty na 5 stóp."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bramble Rice",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3958,21 +3955,21 @@
 						"To zioło ma {@dice 1d4} ładunków. Jako akcję możesz użyć szarży, aby rozrzucić woreczek z tym zielem na obszarze 5 stóp kwadratowych przed tobą. Każda istota, która wejdzie na ten obszar, musi wykonać rzut ratunkowy na {@dc 15} zręczność lub przestać się ruszać i otrzymać {@damage 1} obrażeń od przebicia. Dopóki stworzenie nie odzyska przynajmniej 1 punktu trafienia, jego prędkość chodzenia zmniejsza się o 10 stóp. Stworzenie poruszające się przez ten obszar z połową prędkości nie musi wykonywać rzutu ratunkowego."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Breeze Nuts",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4000,21 +3997,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Brighteye Carrots",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4030,21 +4027,21 @@
 						"Przez 8 godzin po zastosowaniu tego zioła zyskujesz {@sense darkvision} na zasięg 60 stóp, a twoje oczy rzucają przyćmione światło w promieniu 5 stóp."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bubblemelon",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4060,21 +4057,21 @@
 						"Jako działanie możesz zacząć żuć to zioło. Tak długo jak kontynuujesz żucie tego korzenia, nie musisz oddychać. Zioło to może być żute do 10 minut, co możesz zrobić za jednym razem lub w ciągu kilku sesji."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Buried Moonlight",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4097,21 +4094,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Candle Rose",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4127,21 +4124,21 @@
 						"To długie na stopę zioło może być używane w taki sam sposób jak zwykłe {@item candle|PHB}: przez 1 godzinę po zapaleniu rzuca jasne światło w promieniu 5 stóp i przyćmione światło na dodatkowe 5 stóp. Zapach i kolor tej róży zależy od twojej DM, ale zazwyczaj oba są dość przyjemne."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Chef's Trick",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4157,21 +4154,21 @@
 						"Jako akcja, możesz pokruszyć i posypać nim jadalny przedmiot, taki jak posiłek lub napój, jednocześnie myśląc o smaku. Smak ten może wahać się od czegoś niejasnego jak \"kwaśny\" do czegoś konkretnego jak \"pieczony kurczak przyprawiony oregano\". Jeśli to zrobisz, przedmiot będzie smakował jak smak, o którym myślałeś. Istota, która spożywa ten przedmiot może wykonać {@dc 20} sprawdzenie Mądrości ({@skill Perception}), aby zauważyć sztuczny aromat w nim zawarty."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cleric's Cane",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4187,21 +4184,21 @@
 						"W ramach używania tego zioła, możesz rzucić dowolną liczbę matryc trafień, które masz do dyspozycji, aby odzyskać punkty trafień, tak jak normalnie podczas krótkiego odpoczynku. Jeśli wyrzucisz 1 lub 2 na którejkolwiek z tych matryc, możesz ponownie przeliczyć wynik i musisz wziąć nową liczbę, nawet jeśli jest to 1 lub 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cold Brush",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4217,21 +4214,21 @@
 						"W ramach stosowania tego zioła, podczas jego przygotowywania należy natrzeć nim odsłoniętą skórę. Przez następne 4 godziny twoja skóra zmienia kolor na bladoniebieski i staje się lodowata w dotyku. Nie ma to wpływu na rzeczywistą temperaturę twojego ciała."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Compass Rose",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -4248,21 +4245,21 @@
 						"To liściaste zioło ma {@dice 1d6} ładunków. Jako akcję, możesz trzymać to zioło płasko na dłoni. Jeśli to zrobisz, zioło straci jeden ładunek i wypuści garść widocznych zarodników, które przemieszczają się wzdłuż ścieżki wiatru. Umiejętność ta działa nawet w zamkniętej przestrzeni, takiej jak budynek czy głęboka jaskinia, o ile z obszarem, w którym się znajdujesz, połączone jest jedno otwarte przejście prowadzące na zewnątrz."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Corpse Hands",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4278,21 +4275,21 @@
 						"To zioło może być zastosowane do jednej broni do walki wręcz lub do 10 sztuk amunicji. Broń, na której zastosowano to ziele, jest uważana za magiczną i zadaje dodatkowe {@damage 1d8} obrażenia nekrotyczne przy pierwszym udanym trafieniu w turze. Efekt ten utrzymuje się przez 1 godzinę."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Courter's Perfume",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4308,21 +4305,21 @@
 						"Przez 4 godziny po użyciu tego zioła, każda istota, która Cię powącha, odbiera Cię jak swój ulubiony zapach."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cracker Nut",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -4339,21 +4336,21 @@
 						"To ziele zawiera {@dice 1d8} ładunków, odpowiadających ilości zebranych orzechów. Jako akcję, możesz wydać ładunek, aby rzucić orzech w punkt, który widzisz w promieniu 30 stóp od siebie, powodując jego wybuch przy uderzeniu i tworząc głośny dźwięk pękania, który można usłyszeć w odległości do 100 stóp."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crackle Bark",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4369,21 +4366,21 @@
 						"To zioło może być zastosowane do jednej broni do walki wręcz lub do 10 sztuk amunicji. Broń, na której zastosowano to ziele, jest uważana za magiczną i zadaje dodatkowe {@damage 1d8} obrażenia od błyskawic przy pierwszym udanym trafieniu w turze. Efekt ten utrzymuje się przez 1 godzinę."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Creeper's Folly",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4399,21 +4396,21 @@
 						"Przez 4 godziny po użyciu tego zioła nie możesz być {@quickref Surprise|PHB|3|0|surprised} i wykonujesz wszystkie rolki inicjatywy z przewagą."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crystal Fruit",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4429,21 +4426,21 @@
 						"Możesz użyć swojej akcji, aby zjeść ten owoc. Jeśli to zrobisz, przez następne 10 minut twoje ciało staje się pokryte cienką warstwą lodu, która podnosi twoje AC do 15, jeśli wcześniej było niższe, ale twoja prędkość ruchu jest zmniejszona o połowę."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Deadwood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4459,21 +4456,21 @@
 						"Przez 8 godzin po użyciu tego zioła twoje emocje pozostają całkowicie spokojne i zmieniają się tylko wtedy, gdy zostaniesz poddany działaniu, które w magiczny sposób je zmieni."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Drowner's Reach",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4489,21 +4486,21 @@
 						"Gdy masz to ziele owinięte wokół wolnej ręki, masz przewagę we wszelkich {@action grapple} kontrolach wykonywanych tą ręką. Owinięcie i rozwinięcie tego ziela wokół wolnej ręki wymaga akcji. Po użyciu tego zioła w 5 udanych {@action grapple} testach, ulega ono zniszczeniu i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dryad's Secret",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4519,21 +4516,21 @@
 						"Po użyciu tego zioła przez następne 4 godziny wydzielasz przyjemny zapach, który powoduje, że osoby w twoim otoczeniu stają się otwarte na sugestie. W tym czasie masz przewagę na Charyzmie ({@skill Persuasion}) wykonanej w celu przekonania humanoidów do zaufania lub zaprzyjaźnienia się z tobą."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dwarf's Bane",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4549,21 +4546,21 @@
 						"Kiedy to zioło jest umieszczony w dowolnym trującym cieczy, wszystkie toksyny są wchłaniane przez zioło i że ciecz staje się nieszkodliwe i wody pitnej. Efekt ten rozciąga się na alkohol, który staje się bezalkoholowy po poddaniu go działaniu tego zioła. To zioło jest w stanie usunąć toksyny z maksymalnie 5 galonów cieczy, po czym staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Echo Wood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4579,21 +4576,21 @@
 						"To ziele może być zastosowane do jednej broni do walki wręcz lub do 10 sztuk amunicji. Broń, na którą nałożono to ziele, jest uważana za magiczną i zadaje dodatkowe {@damage 1d8} obrażenia od piorunów przy pierwszym udanym trafieniu w turze. Efekt ten utrzymuje się przez 1 godzinę."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Elven Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4609,21 +4606,21 @@
 						"Przez 4 godziny po użyciu tego zioła zyskujesz poczucie spokoju, które hamuje Twoją zdolność do przeżywania dużych skoków emocji. W tym czasie masz przewagę w każdej kontroli zdolności lub rzucie ratunkowym, aby oprzeć się wpływowi stanu {@condition frightened|PHB|fear}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Embergrass",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4639,7 +4636,10 @@
 						"Przez 1 godzinę po zastosowaniu tego zioła masz odporność na obrażenia od ognia i automatycznie udaje ci się każdy test umiejętności lub rzut ratunkowy wykonany w celu oparcia się efektom gorącej pogody."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everfrost Root",
@@ -4647,14 +4647,11 @@
 			"page": 12,
 			"type": "Herb",
 			"typeAlt": "SCF",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"focus": true,
 			"entries": [
 				{
@@ -4671,21 +4668,21 @@
 						"Możesz użyć tego ziela jako {@item arcane focus|PHB} podczas rzucania zaklęć. Gdy to zioło jest twoim {@item arcane focus|PHB}, za każdym razem, gdy wyrzucisz 1 lub 2 za obrażenia od zimna, które wynikają z rzuconego przez ciebie czaru, możesz ponownie rzucić kość i musisz użyć nowego rzutu, nawet jeśli nowy rzut to 1 lub 2."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everwort Root",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4701,21 +4698,21 @@
 						"Jako akcję, możesz wlać płyn znajdujący się w tym korzeniu do mikstury. Czas trwania efektu tego eliksiru zostaje podwojony na stałe."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fabric Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4750,21 +4747,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fairybed Reed",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4780,22 +4777,22 @@
 						"Możesz poświęcić 10 minut na zaaplikowanie sobie tego zioła, wbijając jego nasiona w zbroję i smarując stawy jego olejem. Jeśli to zrobisz, ignorujesz wszelkie minusy do kontroli Zręczności ({@skill Stealth}), które możesz mieć podczas noszenia swojego typu zbroi."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fanana",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
 			"charges": "{@dice 1d6}",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4811,21 +4808,21 @@
 						"To ziele ma {@dice 1d6} ładunków, a każdy z nich odpowiada jednemu z owoców ziela. Jako akcję, możesz wydać jeden lub więcej ładunków, aby rozerwać owoce, uwalniając nagromadzony w nich gaz i tworząc poryw wiatru o szerokości 5 stóp i długości równej 5-krotnej liczbie wydanych ładunków. Wiatr ten jest wystarczająco silny, by zdusić otwarty ogień i przewrócić małe przedmioty, ale nie na tyle, by powalić stworzenie {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fey's Fear",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4848,21 +4845,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiend's chilli",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4878,21 +4875,21 @@
 						"Przez 8 godzin po użyciu tego zioła, twoja skóra staje się jasnoczerwona i stale wydychasz parę."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiendsgate Wisteria",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4908,21 +4905,21 @@
 						"Jako część swojego ruchu, możesz rozrzucić płatki wisterii u swoich stóp podczas chodzenia. Worek tych płatków może tworzyć linię o długości do 30 stóp. Jeśli istota o typie stwora fiend próbuje przekroczyć linię płatków, musi wykonać {@dc 15} rzut ratujący mądrość. W przypadku porażki, ich prędkość jest zredukowana do 0 przez resztę tury."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fin Moss",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4938,21 +4935,21 @@
 						"Możesz poświęcić 10 minut na przyczepienie tych ziół do 1 broni do walki wręcz lub do 10 sztuk amunicji. Każda broń lub amunicja, do której przymocowano ten mech, cierpi na {@quickref Underwater Combat|PHB|3|0|no penalty when used underwater}. Te zioła mogą być przyczepione tylko do jednej broni lub zestawu amunicji - każda próba ich usunięcia niszczy je nie do użytku."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fire Flower",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4968,7 +4965,10 @@
 						"To zioło może być zastosowane do jednej broni do walki wręcz lub do 10 sztuk amunicji. Broń, na której zastosowano to ziele, jest uważana za magiczną i zadaje dodatkowe {@damage 1d8} obrażenia od ognia przy pierwszym udanym trafieniu w turze. Efekt ten utrzymuje się przez 1 godzinę."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Firemelon",
@@ -4976,15 +4976,12 @@
 			"page": 14,
 			"type": "Herb",
 			"typeAlt": "SCF",
-			"focus": true,
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
+			"focus": true,
 			"entries": [
 				{
 					"type": "entries",
@@ -5000,21 +4997,21 @@
 						"Możesz użyć tego ziela jako {@item arcane focus|PHB} podczas rzucania zaklęć. Gdy to zioło jest twoim {@item arcane focus|PHB}, za każdym razem, gdy wyrzucisz 1 lub 2 za obrażenia od ognia, które wynikają z rzuconego przez ciebie czaru, możesz ponownie rzucić kość i musisz użyć nowego rzutu, nawet jeśli nowy rzut to 1 lub 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fireplume Fennel",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5030,21 +5027,21 @@
 						"Jako akcję, możesz rzucić to ziele na miejsce w promieniu 20 stóp od ciebie, które widzisz. Po wylądowaniu zioło eksploduje, zmuszając wszystkie cele w promieniu 5 stóp od tego miejsca do wykonania rzutu obronnego na Zręczność lub zadania {@damage 2d6} obrażeń od ognia, lub połowy tych obrażeń w przypadku udanego ataku."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Flumph Fungi",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5060,21 +5057,21 @@
 						"Po użyciu tego zioła zyskujesz większą świadomość i empatię dla otaczających cię ludzi przez następne 4 godziny. W tym czasie masz przewagę w sprawdzaniu Mądrości ({@skill Insight}), aby określić stan emocjonalny humanoidów, z którymi wchodzisz w interakcję."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fool's Charm",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8+4}",
 			"entries": [
 				{
@@ -5091,21 +5088,21 @@
 						"To zioło zawiera {@dice 1d8+4} ładunków, z których każdy reprezentuje jeden z pozostałych liści na łodydze. Za każdym razem, gdy podczas trzymania tego ziela wypadnie 1 na sprawdzianie umiejętności, ataku lub rzucie ratunkowym, możesz wydać ładunek, aby ponownie rzucić kostką i użyć nowego wyniku. Po zużyciu wszystkich ładunków, zioło usycha i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Frozen Fuel",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5121,21 +5118,21 @@
 						"Możesz rzucić tym zielem jako atak z broni dystansowej w punkt w promieniu 20 stóp od ciebie, który widzisz, powodując pęknięcie cebulki tego ziela i zmuszając wszystkie stworzenia w promieniu 5 stóp od niego do wykonania rzutu ratującego zręczność {@dc 15}. W przypadku porażki, stworzenie zostaje pokryte lepką, łatwopalną żywicą, która czyni je podatnym na obrażenia od ognia. Istota pokryta tą żywicą lub istota sąsiadująca z nią może użyć swojej akcji, aby zetrzeć tę żywicę, co natychmiast kończy ten efekt."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fumbleweed",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5151,21 +5148,21 @@
 						"Następnym razem, gdy zostaniesz powalony {@condition prone} bezwiednie po użyciu tego zioła, możesz użyć swojej reakcji, aby nie zostać powalonym {@condition prone}. Po tym wydarzeniu zioło to pęka i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gargoyle's Lichen",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5181,21 +5178,21 @@
 						"Przez 8 godzin po użyciu tego zioła Twoja skóra przybiera twardy, szary wygląd przypominający kamień."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ghost Leaf",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5211,21 +5208,21 @@
 						"Przez następną godzinę, zawsze gdy się poruszasz, stajesz się bezcielesny, co pozwala ci poruszać się przez inne istoty i obiekty stałe jak przez {@quickref difficult terrain||3}, otrzymując {@damage 1d10} obrażeń od siły, jeśli zakończysz swój ruch wewnątrz obiektu stałego. Dodatkowo istoty z cechą {@i Incorporeal Movement} nie mogą przez ciebie przejść."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Giant's Silk",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5241,21 +5238,21 @@
 						"To ziele może być użyte zamiast 60 stóp liny. Podczas używania tej liny do pchania, ciągnięcia, podnoszenia lub wspinania się, wszystkie kontrole zdolności Siły wykonywane są z przewagą."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glacier Branch",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5283,21 +5280,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glide Weed",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5320,21 +5317,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gloom's Cloak",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5350,21 +5347,21 @@
 						"Przez następne 4 godziny po użyciu tego zioła zyskujesz odporność na obrażenia od promieniowania."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glowmoss",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5380,21 +5377,21 @@
 						"To zioło rzuca przyćmione światło w promieniu 5 stóp wokół siebie."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gluebell",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5417,21 +5414,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Pine",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5447,21 +5444,21 @@
 						"Jako akcję, możesz pokryć jedną broń do walki wręcz lub do 10 sztuk amunicji żywicą z tej rośliny. Przez następną godzinę, za każdym razem, gdy użyjesz tej broni do skutecznego trafienia istoty o typie smoka, ta istota musi wykonać {@dc 15} rzut ratujący Konstytucję. W przypadku porażki, wszystkie ataki wykonywane przeciwko tej istocie są wykonywane z przewagą do początku twojej następnej tury."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Truffle",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -5478,51 +5475,21 @@
 						"To zioło zawiera {@dice 1d6} ładunków. Możesz wydać jeden ładunek, aby użyć tego zioła, po czym twoja maksymalna liczba punktów trafień wzrasta o wartość równą podwójnemu poziomowi postaci i zyskujesz tyle samo punktów trafień. To zwiększenie trwa przez 4 godziny, po czym Twoje maksymalne punkty trafień wracają do normy."
 					]
 				}
-			]
-		},
-		{
-			"name": "Grounder Seed",
-			"source": "HHbH",
-			"page": 17,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
+			"lcn": "Forest",
 			"prep": "Yes",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Nasiona te, znajdujące się w strąkach odpornego krzewu, zawierają olej, który po wystawieniu na działanie powietrza wysycha i zamienia się w gumowy materiał. Podobieństwo do kauczuku rozciąga się na zdolności izolacyjne, a nasiona są poszukiwane jako naturalna ochrona przed stworzeniami władającymi śmiertelną mocą piorunów."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Zyskujesz odporność na obrażenia od piorunów na 4 godziny po użyciu tego zioła."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Grave Root",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5557,21 +5524,51 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Grounder Seed",
+			"source": "HHbH",
+			"page": 17,
+			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Nasiona te, znajdujące się w strąkach odpornego krzewu, zawierają olej, który po wystawieniu na działanie powietrza wysycha i zamienia się w gumowy materiał. Podobieństwo do kauczuku rozciąga się na zdolności izolacyjne, a nasiona są poszukiwane jako naturalna ochrona przed stworzeniami władającymi śmiertelną mocą piorunów."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Zyskujesz odporność na obrażenia od piorunów na 4 godziny po użyciu tego zioła."
+					]
+				}
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hag's Hair",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5587,21 +5584,21 @@
 						"Kiedy używasz tego zioła, stajesz się odporny na choroby przez następne 24 godziny, a wszelkie efekty chorobowe, na które jesteś obecnie narażony, mają zatrzymany postęp i objawy."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hamund's Hair",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5617,21 +5614,21 @@
 						"Możesz spędzić 3 godziny na nakładaniu tego ziela na zbroję, co polega na skręcaniu i wplataniu wytrzymałych, ale elastycznych nici w najsłabsze miejsca zbroi. Po tej godzinie zbroja na stałe daje premię +1 do AC podczas noszenia. Zioło to nie może być stosowane do zbroi, która ma już premię do AC lub do tarcz."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heartstopper Weed",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5654,21 +5651,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heaven's Chance",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5684,21 +5681,21 @@
 						"Kiedykolwiek wyrzucisz maksymalną wartość na kostce obrażeń, możesz ponownie rzucić tą kostką i dodać nowy wynik do całości zadanych obrażeń, powtarzając ten proces, jeśli ponownie wyrzucisz maksymalną wartość. Nie ma limitu, ile razy możesz to zrobić w jednym przypadku obrażeń."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hopping Bean",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5714,21 +5711,21 @@
 						"Jako akcję możesz otworzyć to zioło i wdychać zawarte w nim gazy. Jeśli to zrobisz, twoja odległość skoku zostaje potrojona na następną godzinę."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hunter's Mud",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5744,21 +5741,21 @@
 						"Przez 8 godzin po użyciu tego zioła nie wytwarzasz zapachu, a wszelkie zapachy, które próbują się do ciebie przyczepić, są natychmiast neutralizowane."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Mint",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5774,21 +5771,21 @@
 						"Przez 8 godzin po użyciu tego zioła twój oddech jest zawsze widoczny, pachnie jak orzeźwiająca mięta i jest na tyle zimny, że powoduje powstawanie szronu na przedmiotach, na które wydychasz."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Vine",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5804,21 +5801,21 @@
 						"Ten 10-stopowy odcinek winorośli pozostaje lodowato zimny niezależnie od temperatury otoczenia."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icestone Trunk",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -5835,21 +5832,21 @@
 						"W ramach używania tego zioła musisz naostrzyć jedną ostrą lub przeszywającą broń do walki wręcz albo do 10 sztuk przeszywającej lub przeszywającej amunicji. Przez następne 4 godziny ta broń lub amunicja jest uważana za magiczną i za każdym razem, gdy trafia w istotę, musi ona wykonać {@dc 17} rzut ratujący z Konstytucji, ponieważ mróz próbuje pokryć jej ciało. Stworzenia z odpornością lub immunitetem na obrażenia od zimna automatycznie wygrywają ten rzut. W przypadku nieudanego rzutu, prędkość poruszania się dotkniętej istoty spada o połowę, a wszystkie rzuty na zręczność są niekorzystne przez 1 minutę. Jeśli rzut ratujący nie powiedzie się o 5 lub więcej, stworzenie jest również {@condition restrained} i nie może podejmować reakcji, gdy mróz ogarnia jego ciało. Na koniec każdej tury stworzenia, może ono ponownie wykonać rzut ratujący, kończąc efekt w przypadku sukcesu. To zioło może być użyte do 6 razy, po czym jego magia zanika i staje się bezużyteczna."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icicle Moss",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5865,21 +5862,21 @@
 						"To zioło może być zastosowane do jednej broni do walki wręcz lub do 10 sztuk amunicji. Broń, na którą nałożono to ziele, jest uważana za magiczną i zadaje dodatkowe {@damage 1d8} obrażenia od zimna przy pierwszym udanym trafieniu w turze. Efekt ten utrzymuje się przez 1 godzinę."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Interrogator's Baton",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -5896,21 +5893,21 @@
 						"To zioło ma {@dice 1d4} ładunków. Jako akcję możesz wydać ładunek, aby natrzeć tym zielem jedną broń do walki wręcz lub do 10 sztuk amunicji, pokrywając je pasożytniczym śluzem. Przez następne dziesięć minut wszelkie obrażenia zadane przez powleczoną broń lub sztukę amunicji nie są uznawane za \"szkodliwe\" w celu zakończenia {@condition charmed} stanu u dotkniętego stworzenia. Gdy to zioło straci wszystkie ładunki, staje się wysuszone i jest uważane za bezwartościowe."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ironleaf Thicket",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5926,21 +5923,21 @@
 						"Przez 4 godziny po użyciu tego zioła masz premię +2 do AC, a także błyszczące, metaliczne, szare zabarwienie skóry."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jellyfish Vine",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5968,21 +5965,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jingle Berries",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -6006,21 +6003,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Keepsake Daisy",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6036,51 +6033,21 @@
 						"Jako akcję, możesz podzielić tę stokrotkę pionowo na pół. Istota trzymająca jedną połówkę stokrotki może użyć swojej akcji, aby się na niej skupić, natychmiast teleportując ją i wszystko, co trzyma i nosi, do najbliższej niezajętej przestrzeni drugiej połówki stokrotki. W tym momencie obie połówki rozpadają się w bezużyteczny pył. Zdolność ta może być użyta tylko wtedy, gdy obie połówki znajdują się na tej samej płaszczyźnie egzystencji; każda próba użycia jej w inny sposób skutkuje brakiem efektu."
 					]
 				}
-			]
-		},
-		{
-			"name": "Killer Tomato",
-			"source": "HHbH",
-			"page": 20,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
+			"lcn": "Forest",
 			"prep": "No",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Pomidor zabójca, zioło o hiperbolicznej nazwie, nie jest w rzeczywistości groźny - przynajmniej fizycznie. Mówi się, że został stworzony przez boga trickstera w przypływie wesołej wesołości. Jest w stanie wyczuć każdy zły żart, historię lub piosenkę, która jest wykonywana wokół niego, a następnie autonomicznie leci na sprawcę, aby zmienić jego twarz na czerwoną od soku pomidorowego. Choć w ostatecznym rozrachunku jest to nieszkodliwe, szkody emocjonalne, jakie może spowodować, spowodowały, że pomidor został zakazany w większości salonów muzycznych i tawern."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Jeśli jakaś istota nie zdoła sprawdzić Charyzmy ({@skill Performance}) w promieniu 30 stóp od tego ziela, to automatycznie leci ono bezpośrednio na nią i automatycznie rozpryskuje się na niej, niszcząc ją. Efekt ten uruchamia się także, jeśli zioło znajduje się na twojej osobie i uda ci się wykonać rzut ratujący przed skutkami zaklęcia {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} lub {@spell danse macabre|XGE} lub podobnej magii opartej na żartach, muzyce lub przedstawieniach, a zioło poleci na istotę, która rzuciła czar."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ki-Rin's Bounty",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6103,21 +6070,51 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Killer Tomato",
+			"source": "HHbH",
+			"page": 20,
+			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Pomidor zabójca, zioło o hiperbolicznej nazwie, nie jest w rzeczywistości groźny - przynajmniej fizycznie. Mówi się, że został stworzony przez boga trickstera w przypływie wesołej wesołości. Jest w stanie wyczuć każdy zły żart, historię lub piosenkę, która jest wykonywana wokół niego, a następnie autonomicznie leci na sprawcę, aby zmienić jego twarz na czerwoną od soku pomidorowego. Choć w ostatecznym rozrachunku jest to nieszkodliwe, szkody emocjonalne, jakie może spowodować, spowodowały, że pomidor został zakazany w większości salonów muzycznych i tawern."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Jeśli jakaś istota nie zdoła sprawdzić Charyzmy ({@skill Performance}) w promieniu 30 stóp od tego ziela, to automatycznie leci ono bezpośrednio na nią i automatycznie rozpryskuje się na niej, niszcząc ją. Efekt ten uruchamia się także, jeśli zioło znajduje się na twojej osobie i uda ci się wykonać rzut ratujący przed skutkami zaklęcia {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} lub {@spell danse macabre|XGE} lub podobnej magii opartej na żartach, muzyce lub przedstawieniach, a zioło poleci na istotę, która rzuciła czar."
+					]
+				}
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Knock Wood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6133,21 +6130,21 @@
 						"Podczas trzymania tego zioła w dłoni, jeśli jesteś zmuszony wykonać rzut na niekorzyść, możesz użyć swojej reakcji, aby uderzyć tym ziołem o coś twardego. Jeśli to zrobisz, wykonasz swój rzut jak zwykle, a nie z minusem. Raz użyte zioło traci swoją moc i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Kraken Kelp",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -6164,21 +6161,21 @@
 						"To zioło ma {@dice 1d8} ładunków, co odpowiada ilości nienaruszonych cebulek na jego długości. Aby użyć tego zioła, musisz zużyć 1 ładunek, otwierając żarówkę i nakładając na siebie jej atramentową miazgę. Przez godzinę po użyciu emitujesz chmurę ciemności o promieniu 10 stóp, przez którą tylko ty możesz widzieć. Wszystko, co znajduje się w obrębie chmury jest uważane za {@book heavily obscured|PHB|8|Vision and Light} dla każdej istoty poza tobą."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lich Lichen",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6194,21 +6191,21 @@
 						"Po użyciu tego zioła, wszystkie istoty z typem nieumarłego stworzenia mają minus na kontrole Mądrości ({@skill Perception}) wykonane, aby cię wykryć."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Liftwood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"recharge": "dawn",
 			"entries": [
 				{
@@ -6237,21 +6234,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lolth's Thorn",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6267,21 +6264,21 @@
 						"Tym zielem można władać jak {@item dagger|PHB}. Jeśli ten cierń trafi istotę cierpiącą na {@condition poisoned}, stan ten natychmiast się kończy, a cierń wypełnia się trucizną, którą ta istota była dotknięta. Przy następnym udanym trafieniu tym cierniem, trafiona istota cierpi na wszystkie efekty nałożone przez oryginalną truciznę; jeśli ta trucizna wymagała rzutu ratunkowego, DC jest ustawione na 15. Cierń może przenosić tylko jedną truciznę, a każda trucizna w nim zawarta staje się bezużyteczna po 24 godzinach od pierwszego wchłonięcia."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lotus of the Raven Queen",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6297,21 +6294,21 @@
 						"Przez następne 24 godziny po użyciu tego zioła, jeśli poniesiesz porażkę w rzucie ratunkowym na śmierć, możesz wydać 1 trafioną matrycę, aby zanegować tę porażkę. Musisz wydać 1 trafioną matrycę na każdą porażkę, którą chcesz zanegować, jeśli efekt spowodowałby utratę więcej niż 1 na raz."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lucidity Lavender",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6334,21 +6331,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Magic Mistletoe",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6364,21 +6361,21 @@
 						"W ramach przygotowania tego zioła, musisz pokryć jedną broń do walki wręcz lub do 10 sztuk amunicji sokiem z tej rośliny. Przez następne 4 godziny każda istota skutecznie trafiona tą bronią lub amunicją musi udać się na {@dc 18} rzut ratujący Konstytucję lub stać się {@condition poisoned} na następną minutę. Podczas {@condition poisoned} w ten sposób, stworzenie traci wszelkie posiadane odporności na obrażenia."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Maiden Moss",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6394,21 +6391,21 @@
 						"W ramach przygotowania tego zioła musisz wydać 1 fiolkę krwi z wybranego przez siebie stworzenia i użyć jej do stworzenia pasty z proszku zmielonego z zioła. Powstałą pastę można następnie nałożyć na jedną istotę o wielkości średniej lub mniejszej, albo na obwód obszaru mierzącego nie więcej niż 60 stóp. Przez następne 24 godziny każde stworzenie, które jest tego samego typu co krew dodana do pasty i które ma wynik Inteligencji 5 lub mniej, musi wykonać {@dc 15} rzut ratujący Mądrość za każdym razem, gdy próbuje poruszyć się w promieniu 5 stóp od stworzenia lub obszaru otoczonego pastą. W przypadku porażki, stworzenie to musi spędzić resztę swojego ruchu poruszając się jak najdalej od stworzenia lub obszaru otoczonego pastą, wybierając jak najbardziej bezpośrednią, bezpieczną drogę. Jeśli im się uda, mogą poruszać się jak chcą i są odporne na efekty tego zioła przez następne 24 godziny."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Marid's Tail",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6424,21 +6421,21 @@
 						"Możesz atakować tym zielem, traktując je jak {@item dagger|PHB}. Przy udanym trafieniu zioło wbija się w cel, a następnie pęka, zmuszając go do wykonania rzutu obronnego na wytrzymałość {@dc 15} lub odepchnięcia go na odległość 20 stóp, gdy z pękniętego zioła wyleje się silny strumień wody. Po użyciu tego zioła w ten sposób, zostaje ono zniszczone i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mariner's Friend",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6454,21 +6451,21 @@
 						"Przez 4 godziny po użyciu tego zioła, każdy płyn, który cię dotknie, natychmiast spływa z twojego ciała, ubrania i dobytku, pozostawiając cię całkowicie suchym."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mender's Mold",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6484,21 +6481,21 @@
 						"To zioło zawiera wystarczającą ilość pleśni, aby pokryć {@dice 1d6} stóp kwadratowych. Jeśli użyjesz tego zioła do przykrycia uszkodzonej dziury lub szwu w przedmiocie, zioło magicznie przylgnie do krawędzi uszkodzonego miejsca, a następnie trwale przekształci się w ciągu następnej godziny w ten sam materiał, który znajduje się na krawędziach, których dotyka. Na przykład, jeśli umieści się je nad dziurą w zniszczonej drewnianej podłodze, forma przekształci się w drewno. Forma po transformacji zachowuje swoje czarne zabarwienie i działa jako jednorodny kawałek materiału."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Merrow Trap",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d20}",
 			"entries": [
 				{
@@ -6515,21 +6512,21 @@
 						"To ziele zawiera {@dice 1d20} ładunków, a każdy ładunek odpowiada źdźbłu trawy morskiej. Możesz wydać 1 ładunek i poświęcić 1 minutę na przymocowanie źdźbła trawy morskiej do {@item crossbow bolt|PHB|bolt} lub {@item arrow|PHB}. Jeśli to zrobisz, ten bełt lub strzała cierpi na {@quickref Underwater Combat|PHB|3|0|no penalties associated with being used underwater}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mirage Melon",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6545,21 +6542,21 @@
 						"Możesz zjeść to zioło jako akcję. Przez następne 10 minut twój żołądek produkuje magiczny gaz, który powoduje, że bekasz na początku każdej swojej tury, przy czym każde beknięcie emituje świecący gaz, który przybiera formę małej iluzji wybranej przez ciebie po opuszczeniu ust. Przykładowe efekty iluzji to motyle lub nuty muzyczne. Iluzje te nie mają ani substancji, ani dźwięku, są w oczywisty sposób fałszywe i znikają na początku twojej następnej tury."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mordenkainen's Mint",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6575,21 +6572,21 @@
 						"Jako akcję dodatkową możesz zacząć żuć to ziele. Podczas żucia tego ziela masz przewagę w każdym rzucie ratującym Konstytucję, wykonywanym w celu utrzymania {@condition concentration} na zaklęciu. To zioło może być żute przez maksymalnie 10 minut, które muszą być wykonywane kolejno."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mortician's Cactus",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6605,21 +6602,21 @@
 						"Przez 4 godziny po użyciu tego zioła, masz okropny smak i zapach. Każda istota, która wykona przeciwko tobie atak polegający na ugryzieniu lub użyciu języka, robi to z minusem. Ponadto masz przewagę w każdym teście umiejętności lub rzucie ratunkowym, aby uniknąć połknięcia lub wyplucia z żołądka istoty."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mountain Heart Ginseng",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6635,21 +6632,21 @@
 						"Przez 8 godzin po użyciu tego zioła masz przewagę w rzutach ratujących Konstytucję."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mud Bane",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6666,21 +6663,21 @@
 						"To zioło zawiera {@dice 1d3} ładunków. Aby użyć tego ziela, musisz wydać jeden ładunek, aby pokryć jedną broń do walki wręcz lub do 10 sztuk amunicji toksyczną posoką. Przez następne 10 minut każda istota trafiona tą bronią lub amunicją musi wykonać rzut ratujący przed utratą {@dc 18} Konstytucji lub stać się {@condition poisoned} na 1 minutę. Jeśli rzut ratunkowy nie powiedzie się o 5 lub więcej, stworzenie to staje się również {@condition incapacitated}, gdyż ogarniają je gwałtowne drgawki. Na początku każdej swojej tury i za każdym razem, gdy otrzymają obrażenia, stworzenie może ponownie wykonać rzut ratunkowy. W przypadku sukcesu, nie są już {@condition incapacitated}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Musical Fruit",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6696,21 +6693,21 @@
 						"Możesz zjeść to zioło jako akcję. Przez następną godzinę masz przewagę w sprawdzaniu umiejętności Charyzmy ({@skill Performance}), aby śpiewać lub grać na instrumentach muzycznych."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nature's Curse",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6727,21 +6724,21 @@
 						"To zioło zawiera {@dice 1d3} ładunków. Aby użyć tego ziela, musisz wydać jeden ładunek, aby pokryć jedną broń do walki wręcz lub do 10 sztuk amunicji w jego toksycznych sokach. Przez następne 10 minut każda istota skutecznie trafiona tą bronią lub amunicją musi zaliczyć {@dc 18} rzut ratujący Konstytucję lub stać się {@condition poisoned} na 1 minutę. Podczas gdy {@condition poisoned} tak się dzieje, stworzenie jest targane potwornym bólem, przez co ma minusy do wszystkich rzutów ratunkowych, jego prędkość ruchu spada o połowę, a każde zaklęcie, na którym jest {@condition concentration|PHB|concentrating}, automatycznie kończy się na początku jego tury."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Needlecloud Cactus",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6757,21 +6754,21 @@
 						"W ramach przygotowania tego zioła umieszczasz jego segmenty w strategicznych miejscach wokół swojego ubrania i zbroi. Za każdym razem, gdy zostaniesz trafiony atakiem z broni do walki wręcz, możesz użyć swojej reakcji, aby wypuścić strumień ostrych igieł z ziół na swoim ciele, zmuszając wszystkie stworzenia w promieniu 5 stóp od ciebie do wykonania rzutu ratunkowego na {@dc 14} zręczność, otrzymując {@damage 1d6} obrażeń od przebicia w przypadku porażki lub połowę tych obrażeń w przypadku sukcesu. Po użyciu tej umiejętności 4 razy, zioło to wyczerpuje się i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nightflame Seed",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6794,21 +6791,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nofall Leaves",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6824,21 +6821,21 @@
 						"W ramach stosowania tego zioła należy natrzeć nim podeszwy butów lub stopy, jeśli chodzi się boso. Przez 8 godzin po użyciu tego zioła nie zapadasz się w głębokim śniegu."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nomad's Treasure",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6866,21 +6863,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Numbing Bush",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6896,21 +6893,21 @@
 						"Jako akcję możesz użyć tego ziela, nacierając nim ciało i rany. Przez następną godzinę, na początku każdej swojej tury, zyskujesz 8 tymczasowych punktów trafień, ale masz minusy w rzutach ratunkowych i sprawdzaniu zdolności Zręczności."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Odour Begonia",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6926,21 +6923,21 @@
 						"Przez 4 godziny po użyciu tego zioła nie ma się zmysłu węchu."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Oracle's Leaf",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6956,21 +6953,21 @@
 						"Przez 4 godziny po użyciu tego zioła zyskujesz niewielkie zdolności jasnowidzenia, które pomagają ci uniknąć niebezpieczeństwa. Kiedy jesteś celem ataku, możesz użyć swojej reakcji, by zmusić go do wykonania ataku z minusem."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Parrot Poppy",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7025,21 +7022,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peacekeeper's Lily",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7055,21 +7052,21 @@
 						"To zioło można zastosować do każdej przeszywającej lub tnącej broni do walki wręcz lub do 10 sztuk przeszywającej lub tnącej amunicji. Przez następną godzinę, za każdym razem gdy zadasz obrażenia stworzeniu za pomocą tej broni lub kawałka amunicji, stworzenie to musi odnieść sukces w rzucie ratunkowym na {@dc 15}Konstytucję lub zostać {@condition poisoned} do początku twojej następnej tury. Podczas gdy {@condition poisoned} w ten sposób, {@condition poisoned} stworzenie musi wykonać {@dc 15} rzut ratujący Mądrość za każdym razem, gdy próbuje wykonać akcję, która bezpośrednio doprowadziłaby do zadania obrażeń innemu stworzeniu. Jeśli im się nie powiedzie, muszą wybrać inną akcję, która nie prowadziłaby bezpośrednio do zadania obrażeń innej istocie lub zmarnować swoją akcję."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pearvoyance",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7085,21 +7082,21 @@
 						"Po użyciu tego zioła otrzymujesz krótką wizję przyszłości. Szczegóły tej wizji, w tym jej długość, odległość od teraźniejszości, a nawet to, czy jest prawdziwa, czy nie, zależy od twojego DM. Niezależnie od tego, w pełni wierzysz, że ta wizja jest prawdziwą i dokładną zapowiedzią tego, co ma nastąpić."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peony of Power",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7115,21 +7112,21 @@
 						"Jako akcję, możesz zgnieść to zioło w dłoni. Przez następne 10 minut, kiedykolwiek {@action cast a spell} wydasz slot na zaklęcie, uznaje się, że zostało ono rzucone przy użyciu slotu na zaklęcie, który jest o 1 poziom wyższy niż ten, którego faktycznie użyłeś."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pinecone of Cold",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7145,21 +7142,21 @@
 						"Jako akcję możesz rzucić tym szyszakiem na odległość do 20 stóp, powodując jego wybuch przy uderzeniu. Wszystkie stworzenia w promieniu 5 stóp od uderzenia muszą wykonać rzut ratujący przed utratą {@dc 15} Konstytucji, otrzymując {@damage 4d6} obrażeń od zimna w przypadku porażki lub połowę tych obrażeń w przypadku sukcesu."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Platinum Star",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7175,21 +7172,21 @@
 						"Po przygotowaniu, to zioło może być używane przez maksymalnie 6 stworzeń jednocześnie. Wszystkie stworzenia, które użyły tego zioła zyskują {@variantrule inspiration|PHB}, które utrzymuje się przez następne 8 godzin."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Polypad",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "unknown (magic)",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "unknown (magic)",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7205,21 +7202,21 @@
 						"Po użyciu tego ziela wyczarowujesz {@creature water elemental|MM} i {@creature earth elemental|MM} w niezajętych pomieszczeniach w promieniu 10 stóp od ciebie. Elementale znikają, gdy spadną do 0 punktów trafień lub po 4 godzinach, w zależności od tego, co nastąpi wcześniej. Elementale są przyjaźnie nastawione do ciebie i twoich towarzyszy i działają na rozkaz z własnej inicjatywy. Są posłuszne wszelkim słownym rozkazom, które im wydasz (nie wymaga to od ciebie żadnego działania). Jeśli nie wydasz elementalowi żadnych poleceń, broni się on przed wrogimi istotami, ale poza tym nie podejmuje żadnych działań."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Prepyrus",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7235,21 +7232,21 @@
 						"Podczas krótkiego odpoczynku możesz zapisać na tym zielu serię magicznych inkantacji, które zmienią Twoją listę przygotowanych zaklęć. Nadal jednak musisz poświęcić tyle samo czasu na przygotowanie każdego z zaklęć, ile zostało wymienione w twojej cesze klasowej. To zioło może być użyte tylko raz."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Purple Worm Bulb",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7275,21 +7272,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rageroot",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7305,21 +7302,21 @@
 						"Jako akcję możesz zjeść ten korzeń. Jeśli to zrobisz, stajesz się odporny na warunki {@condition stunned}, {@condition frightened|PHB|fear} i {@condition charmed} przez następne 10 minut, gdy wypełnia cię maniakalny szał."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Repellent Lemons",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7342,21 +7339,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rimemoss",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7372,21 +7369,21 @@
 						"Możesz poświęcić 10 minut na wyłożenie swoich ubrań mchem rimemoss. Jeśli to zrobisz, automatycznie udaje ci się każdy rzut ratujący Konstytucję, by oprzeć się negatywnym skutkom zimnego otoczenia i pogody."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rumble Cotton",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7402,21 +7399,21 @@
 						"Przez 4 godziny po użyciu tego zioła zyskujesz odporność na obrażenia od piorunów."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rush Chillis",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7432,21 +7429,21 @@
 						"Przez 1 godzinę po użyciu tego ziela możesz wykonać do 2 reakcji na rundę, które odzyskujesz na początku każdej swojej tury."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rustfern",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -7475,21 +7472,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sailor's Omen",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7505,21 +7502,21 @@
 						"Przez 8 godzin po użyciu tego zioła jesteś odporny na obrażenia od trucizny i stan {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandrain Flower",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 4,
 			"entries": [
 				{
@@ -7536,21 +7533,21 @@
 						"To zioło ma 4 ładunki. Jako akcję możesz owinąć korzenie tego zioła wokół jednej ze swoich wolnych dłoni. Gdy masz istotę {@condition grappled} na tej wolnej ręce, możesz wykorzystać swoje działanie bonusowe i 1 ładunek, aby zmusić ją do wykonania rzutu ratunkowego na {@dc 17} Konstytucję lub zostać {@condition stunned}, gdyż ziele gwałtownie odwadnia jej ciało. Konstrukty, nieumarli i wszystkie stworzenia, które nie mają naturalnie płynów w ciele, automatycznie odnoszą sukces w tym rzucie. Stworzenie {@condition stunned} może wykonać rzut ratujący przed Konstytucją ponownie na koniec każdej swojej tury, kończąc efekt na sobie w przypadku sukcesu. Gdy wszystkie ładunki zostaną zużyte na to ziele, pęka ono od żerowania na płynie i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandtrap Palm",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7566,21 +7563,21 @@
 						"Możesz poświęcić 1 minutę na owinięcie lub rozwinięcie swoich dłoni i stóp w to ziele. Gdy twoje ręce i stopy są owinięte tym zielem, nie odczuwasz kary do prędkości ruchu podczas poruszania się po piaszczystym terenie i masz przewagę we wspinaniu się na powierzchnie pokryte piaskiem."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Scholar's Brush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7603,21 +7600,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Seeds",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -7634,21 +7631,21 @@
 						"To zioło ma {@dice 1d6} ładunków. Jako akcję możesz wydać jeden ładunek, aby rozrzucić pewną liczbę nasion. Jeśli rozrzucisz je w zbiorniku wodnym, spowodują, że wszystkie żyjące w nim ryby morskie o inteligencji mniejszej niż 4 i znajdujące się w promieniu 100 stóp od nich, popłyną do nich najbardziej bezpośrednią drogą. Ryby nie próbują jeść tych nasion, ale są po prostu przyciągane do ich lokalizacji. Gdy znajdą się w wodzie przez 1 minutę, rozpuszczają się i stają się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Soap",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7671,21 +7668,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sentry Bush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7701,21 +7698,21 @@
 						"Po przygotowaniu tego zioła zyskujesz wszystkie korzyści płynące z 8-godzinnego snu (lub równoważnej formy uśpienia dla twojej rasy). Nadal musisz odpoczywać przez co najmniej 8 godzin, aby skorzystać z długiego odpoczynku."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sharpeye Twig",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7731,21 +7728,21 @@
 						"Możesz użyć swojej akcji bonusowej, aby zacząć żuć to zioło. Podczas żucia tego zioła ignorujesz wszelkie minusy nałożone przy próbie wykonania ataku bronią dystansową poza normalnym zasięgiem twojej broni. To zioło może być żute do jednej minuty, co można zrobić w całości na raz lub w kilku mniejszych odcinkach, zużywając za każdym razem minimum jedną turę przed zatrzymaniem (nie wymaga to żadnej akcji)."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shepherd's Soap",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7761,21 +7758,21 @@
 						"Po użyciu tego zioła, przez następne 4 godziny wydzielasz przyjemny zapach, który sprawia, że każde zwierzę w twoim otoczeniu instynktownie ci ufa. W tym czasie masz przewagę w sprawdzaniu Mądrości ({@skill Animal Handling}), aby porozumieć się z każdym zwierzęciem w promieniu 30 stóp od ciebie, które cię słyszy i czuje twój zapach."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shifter's Jasmine",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7791,21 +7788,21 @@
 						"Podczas przygotowywania tego zioła musisz wyobrazić sobie humanoidalną formę. Forma ta nie musi mieć tej samej rasy, płci, wymiarów czy wieku co twoja obecna, ale musi mieścić się w realistycznych granicach dla humanoida danej rasy (np. nie możesz wyobrazić sobie krasnoluda o wzroście 12 stóp lub elfa z czterema ramionami). Po użyciu zioła twoje ciało trwale zmienia się na postać, którą sobie wyobraziłeś. Twoje statystyki nie zmieniają się i zachowujesz wszystkie zdolności rasowe, które miałeś pierwotnie."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shunflower",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7821,21 +7818,21 @@
 						"Istota, która ma to zioło na swojej osobie ma minusy przy sprawdzaniu zdolności Charyzmy."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sigil's Mark",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7851,21 +7848,21 @@
 						"To zioło zawiera {@dice 1d6} nasion. Jako akcję możesz zgnieść nasiono i natrzeć się powstałym olejem, lub użyć nasiona do ataku z broni dystansowej przeciwko stworzeniu, które widzisz w promieniu 20 stóp od Ciebie, niszcząc je i uwalniając olej przy uderzeniu. Tak czy inaczej, istota pokryta tym olejem staje się izolowana od wiatrów losu przez następną godzinę. W tym czasie, gdy pokryta olejem istota wykonuje rzut z użyciem {@dice d20}, pomija go i zachowuje się tak, jakby rzuciła 10."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sillypad",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7920,21 +7917,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Silver Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7950,21 +7947,21 @@
 						"W ramach przygotowania tego zioła musisz zastosować je do broni do walki wręcz lub do 10 sztuk amunicji. Jeśli to zrobisz, przez następną godzinę ta broń lub amunicja jest uważana zarówno za magiczną, jak i wykonaną ze srebra dla celów pokonania odporności i immunitetu na ataki niemagiczną i nie-srebrną bronią."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Snakeskin Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7980,21 +7977,21 @@
 						"Jako akcję możesz zjeść to zioło. Przez następną godzinę twoja skóra nieustannie się łuszczy, pozostawiając za sobą piaskowy ślad, ale nie odczuwasz żadnych złych skutków. Pod koniec tej godziny twoja skóra staje się niezwykle gładka, jakbyś złuszczył całe swoje ciało."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soap Grass",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8010,21 +8007,21 @@
 						"Możesz poświęcić 10 minut na nacieranie się tym zielem. Jeśli to zrobisz, staniesz się czysty od wszelkiego brudu i błota."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soldier's Duty",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8040,21 +8037,21 @@
 						"Jako akcję możesz zgnieść to ziele przed nosem istoty w odległości 5 stóp od ciebie, która ma 0 punktów trafień, powodując, że odzyskuje ona 1 punkt trafienia."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soopa Mushroom",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8070,21 +8067,21 @@
 						"Jako akcję, możesz zjeść to zioło, powodując wzrost o jeden rozmiar większy niż normalnie; jeśli nie ma wystarczająco dużo miejsca, aby pomieścić twój nowy rozmiar, wracasz do normalnego rozmiaru, a to zioło zostaje zmarnowane. Działanie tego zioła trwa przez 4 godziny lub do momentu otrzymania obrażeń, w zależności od tego, co nastąpi wcześniej."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sork Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8100,21 +8097,21 @@
 						"Jako akcję, możesz umieścić ten korzeń w ustach i zacząć go żuć. Podczas żucia tego korzenia wydzielasz śliski śluz, który sprawia, że trudno cię złapać. Każda próba wytrzymałości wykonana na {@action grapple} ciebie jest wykonywana z minusem, ale nie otrzymujesz żadnych kar podczas przeciskania się w ciasnych miejscach. Ten korzeń może być żuty do 5 minut, co możesz zrobić za jednym razem lub w ciągu kilku sesji."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Spectrum Rose",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8137,21 +8134,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Speed Apple",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8167,21 +8164,21 @@
 						"Przez 4 godziny po zastosowaniu tego zioła twoja prędkość chodu wzrasta o 10 stóp i ignorujesz efekty {@quickref difficult terrain||3}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sporecaster",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8197,21 +8194,21 @@
 						"W ramach używania tego ziela, umieszczasz jego segmenty w określonych częściach ubrania i zbroi. Za każdym razem, gdy zostaniesz trafiony atakiem z broni do walki wręcz, wypuszczasz zarodniki w promieniu 5 stóp wokół siebie. Każda istota poza tobą, która znajdzie się w tym wybuchu, musi wykonać rzut ratujący Konstytucję {@dc 15}, a w przypadku porażki staje się {@condition poisoned} na 1 minutę. Po wypuszczeniu 4 wybuchów zarodników, segmenty grzybów w twoim ubraniu i zbroi stają się puste i efekt ten kończy się."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Squirtwort",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8227,21 +8224,21 @@
 						"To ziele zawiera {@dice 1d8} pąków. Jako akcję możesz rzucić jednym z tych pąków w punkt na ziemi w promieniu 30 stóp od ciebie, rozrywając go przy kontakcie. Po pęknięciu pąk wypuszcza fontannę śliskiego płynu, która pokrywa obszar 5 stóp kwadratowych wokół niego. Każde stworzenie, które wejdzie na ten obszar, musi wykonać rzut obronny na zręczność {@dc 12} lub upaść {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Steelwood Sap",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8266,21 +8263,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stenchblossom",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8296,21 +8293,21 @@
 						"Jako akcję, możesz spożyć to zioło, powodując wydzielanie wyniszczającego zapachu przez następne 10 minut. W tym czasie każda istota, która zakończy swoją turę w promieniu 5 stóp od ciebie i która może wyczuć zapach, musi wykonać {@dc 12} rzut ratujący Konstytucję. W przypadku porażki, stworzenie to wykonuje wszystkie ataki z minusem, a ataki przeciwko niemu mają przewagę, gdy się usycha. Efekt ten kończy się, jeśli stworzenie oddali się od ciebie na więcej niż 5 stóp lub straci zmysł węchu."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sticky Fig",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8326,21 +8323,21 @@
 						"Jako akcję możesz zjeść to ziele. Przez następną godzinę wytwarzasz lepki śluz, który przywiera do powierzchni, na której stoisz, dając ci przewagę w każdym rzucie ratunkowym lub sprawdzeniu umiejętności, by uniknąć poruszenia wbrew twojej woli, a także dając ci prędkość wspinaczki równą prędkości chodzenia."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stonecap Mushrooms",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8356,21 +8353,21 @@
 						"Przez 8 godzin po użyciu tego zioła wszelkie trafienia krytyczne zadane przeciwko tobie zamieniają się w normalne trafienia, a wszelkie dodatkowe efekty, które zostałyby wywołane przez to trafienie krytyczne, zostają zanegowane."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sungi",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8386,21 +8383,21 @@
 						"To zioło może być zastosowane do jednej broni do walki wręcz lub do 10 sztuk amunicji. Broń, na której zastosowano to ziele, jest uważana za magiczną i zadaje dodatkowe {@damage 1d8} obrażenia od promieniowania przy pierwszym udanym trafieniu w turze. Efekt ten utrzymuje się przez godzinę."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sylvan Bandage",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8416,21 +8413,21 @@
 						"Kiedy używasz tego zioła podczas krótkiego odpoczynku, odzyskujesz dowolną liczbę matryc trafień, które wydałeś na odzyskanie punktów trafień podczas tego odpoczynku."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tailor's Gamble",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8493,21 +8490,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Thaw Bud",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -8524,21 +8521,21 @@
 						"To ziele zawiera {@dice 1d6} ładunków, odpowiadających liczbie zebranych pąków. Jako akcję możesz użyć ładunku, aby zmiażdżyć jeden z tych pąków i rozetrzeć powstałą wydzielinę na kawałku lodu lub śniegu, powodując jego roztopienie. Jeden ładunek może roztopić płat o powierzchni do 5 stóp kwadratowych i grubości 1 cala."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Titan's Field",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8564,21 +8561,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tlincalli Thorn",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8594,21 +8591,21 @@
 						"Przez 4 godziny po przygotowaniu tego zioła zyskujesz premię +1 do AC, gdyż twoja skóra staje się wyjątkowo twarda i przypominająca łuski."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Toad Skin Shrub",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8624,21 +8621,21 @@
 						"Jako akcję możesz zjeść to ziele, co zmusza cię do wykonania rzutu ratunkowego na {@dc 15} Konstytucji lub stania się {@condition poisoned} na jedną godzinę. Niezależnie od wyniku, przez następną godzinę wydzielasz ze skóry toksyczny śluz, który zmusza każdą istotę, która cię dotknie lub która trafi cię atakiem z broni palnej, do wykonania rzutu ratującego przed utratą {@dc 15} Konstytucji lub stania się {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Touch Grass",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8654,21 +8651,21 @@
 						"Kiedy rzucasz {@action cast a spell} zaklęcie o zasięgu dotyku, możesz wybrać to zioło zamiast zwykłych celów zaklęcia. Jeśli to zrobisz, to zioło wchłania to zaklęcie, aby uwolnić je na następnym ważnym celu, którego dotknie. Jako akcję możesz rzucić tym zielem w cel znajdujący się w odległości 20 stóp od ciebie, traktując to jako atak bronią dystansową. Przy udanym trafieniu zioło nie zadaje obrażeń, ale zamiast tego uwalnia na cel zaklęcie, które w sobie przechowuje. Zioło to może wchłonąć tylko jedno zaklęcie na raz i może je przechowywać tylko przez 10 minut, po czym magia rozprasza się i zaklęcie zostaje zmarnowane. Tak czy inaczej, po uwolnieniu przechowywanego zaklęcia, zioło rozpada się i staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tracker's Leaf",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8691,21 +8688,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Treant Seed",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8721,21 +8718,21 @@
 						"Kiedy używasz tego zioła, zmieniasz się w {@creature treant|MM} {@homebrew |(as outlined in the Monster Manual)}, a cały twój ekwipunek wtapia się w twoją nową formę i jest niedostępny do użycia do czasu zakończenia tego efektu. Jeśli nie masz miejsca na rozwinięcie się w nową formę, transformacja natychmiast się odwraca, a zioło zostaje zmarnowane. Będąc {@creature treant|MM}, zachowujesz swoje wyrównanie, biegłość, wiedzę, zaklęcia i zdolności klasowe, ale wszystkie inne cechy zastępujesz cechami {@creature treant|MM}, w tym punkty trafień. Wracasz do normalnej postaci po 4 godzinach lub jeśli spadniesz do 0 punktów życia, wtedy natychmiast powracasz do normalnej postaci."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Troll's Snot",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8751,21 +8748,21 @@
 						"Przez 8 godzin po użyciu tego zioła twoje dłonie wydzielają lepką substancję, która daje ci przewagę w testach wytrzymałości ({@skill Athletics}) wykonywanych w celu wspięcia się lub {@action grapple} czegoś, a także nie można cię rozbroić z przedmiotu trzymanego w dłoni mimowolnie."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Twice-Blessed Clover",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8781,21 +8778,21 @@
 						"Jako akcję dodatkową możesz zgnieść tę koniczynę w dłoni. Jeśli to zrobisz, wszystkie ataki, kontrole zdolności i rzuty ratunkowe, które wykonasz do początku swojej następnej tury, będą wykonywane z przewagą. Po jednokrotnym użyciu zioło to staje się bezużyteczne."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Umbra Tongue",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8811,21 +8808,21 @@
 						"Przez 8 godzin po użyciu tego zioła zyskujesz 6 tymczasowych punktów trafień, ilekroć zaczynasz swoją turę w ciemności."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Vampire's Fang",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8842,21 +8839,21 @@
 						"To zioło ma {@dice 1d8} ładunków. Jako akcję możesz owinąć korzenie tego ziela wokół ramienia, pozostawiając jego kolczasty kwiat trzymany w wolnej ręce. Tak długo, jak to ziele jest owinięte wokół twojego ramienia, za każdym razem, gdy w promieniu 5 stóp od ciebie umrze istota, która ma w sobie krew, możesz wydać ładunek, aby wykorzystać swoją reakcję do wyssania krwi tej istoty, co daje ci tymczasowe punkty trafień równe jej wskaźnikowi wyzwania (minimum 1)."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Volo Tree",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8879,21 +8876,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Whisper Puff",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8910,21 +8907,21 @@
 						"To zioło ma {@dice 1d8} ładunków. Jako akcję dodatkową możesz użyć ładunku, aby wepchnąć jedną z cebulek tego ziela do ust. Jeśli to zrobisz, przy następnym {@action cast a spell}, który ma komponent słowny, nie wydajesz żadnego słyszalnego dźwięku."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Winterlight Bloom",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8940,21 +8937,21 @@
 						"Przez 4 godziny po użyciu tego zioła zyskujesz odporność na obrażenia od zimna."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Wizard's Friend",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8970,21 +8967,21 @@
 						"W ciągu godziny zioło to może zostać zmiażdżone i zmieszane, aby stworzyć głęboko purpurowy atrament, który może zostać użyty do wpisania zaklęć do księgi zaklęć czarodzieja. Kiedy używa się go w ten sposób, atrament zastępuje złote kawałki wymagane do wykonania napisu. Jedno zioło jest w stanie wytworzyć wystarczającą ilość atramentu, by zastąpić do 100 sztuk złota potrzebnych do napisania zaklęcia."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yell Pepper",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9019,21 +9016,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yeti Brush",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9049,7 +9046,10 @@
 						"Możesz poświęcić 1 minutę na owinięcie rąk i stóp w tę trawę. Jeśli to zrobisz, nie cierpisz na karę do prędkości ruchu podczas poruszania się po zaśnieżonym lub oblodzonym terenie i masz przewagę we wspinaniu się na powierzchnie pokryte lodem lub śniegiem."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		}
 	]
 }
