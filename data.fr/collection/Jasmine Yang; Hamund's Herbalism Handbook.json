@@ -20,18 +20,18 @@
 		],
 		"status": "ready",
 		"dateAdded": 1665431770,
-		"dateLastModified": 1668700856,
-		"_dateLastModifiedHash": "06fba59cbb"
+		"dateLastModified": 1694386526,
+		"_dateLastModifiedHash": "2553fb95e8"
 	},
 	"book": [
 		{
 			"name": "Hamund's Herbalism Handbook",
-			"source": "HHbH",
-			"author": "Jasmine Yang",
-			"group": "homebrew",
 			"id": "HHbH",
-			"published": "2022-09-03",
+			"source": "HHbH",
+			"group": "homebrew",
 			"coverUrl": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/HHH/HHbH/Cover.webp",
+			"published": "2022-09-03",
+			"author": "Jasmine Yang",
 			"contents": [
 				{
 					"name": "Cover Page, Credits & Changelog"
@@ -939,23 +939,33 @@
 	],
 	"feat": [
 		{
-			"name": "Tincture Master",
-			"source": "HHbH",
-			"page": 39,
-			"entries": [
-				"Vous avez atteint la maîtrise de la distillation des herbes en {@variantrule tinctures|HHbH}, ce qui réduit de moitié le temps et le coût nécessaires pour en créer une."
-			]
-		},
-		{
 			"name": "Nature's Bounty",
 			"source": "HHbH",
 			"page": 39,
 			"entries": [
 				"Votre accord avec la nature vous permet de trouver plus d'herbes partout où vous allez, presque comme si la nature elle-même essayait de vous aider. Chaque fois que vous récoltez une herbe, lancez un {@dice d20}. Sur un 20, vous gagnez un exemplaire supplémentaire de l'herbe que vous venez de cueillir."
 			]
+		},
+		{
+			"name": "Tincture Master",
+			"source": "HHbH",
+			"page": 39,
+			"entries": [
+				"Vous avez atteint la maîtrise de la distillation des herbes en {@variantrule tinctures|HHbH}, ce qui réduit de moitié le temps et le coût nécessaires pour en créer une."
+			]
 		}
 	],
 	"variantrule": [
+		{
+			"name": "Optional Rule: Herb Toxicity",
+			"source": "HHbH",
+			"page": 4,
+			"ruleType": "O",
+			"entries": [
+				"Pour des raisons d'équilibre, il est conseillé de maintenir la règle qui permet à un personnage de ne bénéficier des effets que d'une seule herbe à la fois. Cependant, si le MD le souhaite, il peut autoriser l'utilisation de plusieurs herbes à haut rendement, en incluant un inconvénient à haut risque appelé {@b herb toxicity}.",
+				"Selon cette règle optionnelle, lorsqu'une créature est sous l'effet d'une herbe et qu'elle tente d'en utiliser une autre sur elle-même, elle doit effectuer un jet de sauvegarde de Constitution avec un DC égal à 10 + 5 x le nombre d'herbes qu'elle a tenté d'utiliser depuis son dernier repos long. En cas de réussite, il utilise l'herbe normalement. En cas d'échec, son corps rejette la surcharge d'influences magiques qu'il subit, ce qui entraîne le gaspillage de l'herbe, la fin immédiate des effets bénéfiques de toutes les herbes qui l'affectent actuellement, et la disparition de {@condition poisoned} de la créature pendant une heure."
+			]
+		},
 		{
 			"name": "Optional Rule: Identifying Herbs",
 			"source": "HHbH",
@@ -965,16 +975,6 @@
 				"Pour des raisons de simplicité, il est supposé dans les règles standard que les personnages connaissent toujours l'identité de l'herbe qu'ils ont cueillie, y compris son nom, sa valeur et son effet. Cependant, si le MJ souhaite ajouter un peu plus de complexité et de défi, il peut obliger les joueurs à identifier les herbes également.",
 				"Selon cette règle optionnelle, lorsqu'un personnage butine une herbe, il doit réussir un test de Sagesse ({@dc 15}) afin d'identifier l'herbe qu'il vient de cueillir. En cas d'échec, le personnage sait seulement que l'herbe est vaguement utile, mais il ne connaît pas son nom, ses effets ou la façon de l'utiliser.",
 				"Un personnage qui a choisi de cueillir une herbe est supposé savoir quelle herbe il a cueillie."
-			]
-		},
-		{
-			"name": "Optional Rule: Herb Toxicity",
-			"source": "HHbH",
-			"page": 4,
-			"ruleType": "O",
-			"entries": [
-				"Pour des raisons d'équilibre, il est conseillé de maintenir la règle qui permet à un personnage de ne bénéficier des effets que d'une seule herbe à la fois. Cependant, si le MD le souhaite, il peut autoriser l'utilisation de plusieurs herbes à haut rendement, en incluant un inconvénient à haut risque appelé {@b herb toxicity}.",
-				"Selon cette règle optionnelle, lorsqu'une créature est sous l'effet d'une herbe et qu'elle tente d'en utiliser une autre sur elle-même, elle doit effectuer un jet de sauvegarde de Constitution avec un DC égal à 10 + 5 x le nombre d'herbes qu'elle a tenté d'utiliser depuis son dernier repos long. En cas de réussite, il utilise l'herbe normalement. En cas d'échec, son corps rejette la surcharge d'influences magiques qu'il subit, ce qui entraîne le gaspillage de l'herbe, la fin immédiate des effets bénéfiques de toutes les herbes qui l'affectent actuellement, et la disparition de {@condition poisoned} de la créature pendant une heure."
 			]
 		},
 		{
@@ -1007,6 +1007,8 @@
 	"spell": [
 		{
 			"name": "Cornucopia",
+			"source": "HHbH",
+			"page": 39,
 			"level": 5,
 			"school": "T",
 			"time": [
@@ -1021,6 +1023,11 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small pouch of loamy soil"
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1029,6 +1036,12 @@
 						"amount": 1
 					}
 				}
+			],
+			"meta": {
+				"ritual": true
+			},
+			"entries": [
+				"Lorsque vous lancez ce sort, vous déclarez jusqu'à 4 créatures consentantes que vous pouvez voir dans un rayon de 30 pieds pour partager un lien magique avec vous. Pour la durée du sort, chaque fois que vous utilisez une herbe sur vous-même, les effets de cette herbe sont dupliqués parmi toutes les créatures qui partagent un lien magique avec vous, tant qu'elles sont sur le même plan d'existence."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1045,23 +1058,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Lorsque vous lancez ce sort, vous déclarez jusqu'à 4 créatures consentantes que vous pouvez voir dans un rayon de 30 pieds pour partager un lien magique avec vous. Pour la durée du sort, chaque fois que vous utilisez une herbe sur vous-même, les effets de cette herbe sont dupliqués parmi toutes les créatures qui partagent un lien magique avec vous, tant qu'elles sont sur le même plan d'existence."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"meta": {
-				"ritual": true
-			},
-			"components": {
-				"v": true,
-				"s": true,
-				"m": "a small pouch of loamy soil"
 			}
 		},
 		{
 			"name": "Hamund's Herbal Hypodermic",
+			"source": "HHbH",
+			"page": 39,
 			"level": 2,
 			"school": "T",
 			"time": [
@@ -1076,6 +1078,10 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1084,6 +1090,16 @@
 						"amount": 10
 					}
 				}
+			],
+			"entries": [
+				"Lorsque vous lancez ce sort, vous faites pousser une aiguille creuse dans votre bras pendant la durée du sort. Cette aiguille peut être utilisée comme une arme fine naturelle pour effectuer des frappes à mains nues qui infligent {@damage 1d4} + modificateur de Dextérité en dégâts.",
+				"Les coups portés avec cette aiguille peuvent également être utilisés pour délivrer rapidement un poison ou une herbe qui prendrait normalement beaucoup plus de temps à appliquer sur une arme. Comme action bonus, vous pouvez utiliser l'aiguille pour absorber un poison ou une herbe qui serait normalement utilisé pour enduire une arme. Dans ce cas, l'aiguille agit comme si elle était enduite de ce poison ou de cette herbe, avec tous les avantages qui en découlent."
+			],
+			"damageInflict": [
+				"piercing"
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1112,26 +1128,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Lorsque vous lancez ce sort, vous faites pousser une aiguille creuse dans votre bras pendant la durée du sort. Cette aiguille peut être utilisée comme une arme fine naturelle pour effectuer des frappes à mains nues qui infligent {@damage 1d4} + modificateur de Dextérité en dégâts.",
-				"Les coups portés avec cette aiguille peuvent également être utilisés pour délivrer rapidement un poison ou une herbe qui prendrait normalement beaucoup plus de temps à appliquer sur une arme. Comme action bonus, vous pouvez utiliser l'aiguille pour absorber un poison ou une herbe qui serait normalement utilisé pour enduire une arme. Dans ce cas, l'aiguille agit comme si elle était enduite de ce poison ou de cette herbe, avec tous les avantages qui en découlent."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"components": {
-				"v": true,
-				"s": true
-			},
-			"damageInflict": [
-				"piercing"
-			],
-			"miscTags": [
-				"UBA"
-			]
+			}
 		},
 		{
 			"name": "Herbal Infusion",
+			"source": "HHbH",
+			"page": 40,
 			"level": 3,
 			"school": "T",
 			"time": [
@@ -1146,10 +1148,17 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"s": true,
+				"m": "one herb that the spell consumes"
+			},
 			"duration": [
 				{
 					"type": "instant"
 				}
+			],
+			"entries": [
+				"Vous extrayez et absorbez magiquement l'essence d'une herbe dans votre main, ce qui vous permet d'utiliser instantanément cette herbe, quel que soit le temps qu'il faudrait normalement pour l'utiliser. Ce sort ne peut être utilisé que pour les herbes qui affectent votre propre corps."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1170,15 +1179,6 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Vous extrayez et absorbez magiquement l'essence d'une herbe dans votre main, ce qui vous permet d'utiliser instantanément cette herbe, quel que soit le temps qu'il faudrait normalement pour l'utiliser. Ce sort ne peut être utilisé que pour les herbes qui affectent votre propre corps."
-			],
-			"source": "HHbH",
-			"page": 40,
-			"components": {
-				"s": true,
-				"m": "one herb that the spell consumes"
 			}
 		}
 	],
@@ -1420,102 +1420,6 @@
 		}
 	],
 	"table": [
-		{
-			"name": "Herb's Relative Rarity Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"d100",
-				"Herb's Table Position",
-				"{@dice d100} roll"
-			],
-			"colStyles": [
-				"col-4 text-center",
-				"col-4 text-center",
-				"col-4 text-center"
-			],
-			"rows": [
-				[
-					"99\u2013100",
-					"2 or 16",
-					"99"
-				],
-				[
-					"96\u201398",
-					"3 or 15",
-					"96"
-				],
-				[
-					"91\u201395",
-					"4 or 14",
-					"91"
-				],
-				[
-					"85\u201390",
-					"5 or 13",
-					"85"
-				],
-				[
-					"77\u201384",
-					"6 or 12",
-					"77"
-				],
-				[
-					"68\u201376",
-					"7 or 11",
-					"68"
-				],
-				[
-					"57\u201367",
-					"8 or 10",
-					"57"
-				],
-				[
-					"44\u201356",
-					"9",
-					"44"
-				],
-				[
-					"1\u201343",
-					"Herbe non trouvée",
-					"1"
-				]
-			],
-			"footnotes": [
-				"{@note First column added to enable 5eTools style rollable table.}"
-			]
-		},
-		{
-			"name": "Foraging Herb Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
-				"Result"
-			],
-			"colStyles": [
-				"col-2 text-center",
-				"col-10 text-center"
-			],
-			"rows": [
-				[
-					"1\u20139",
-					"{@homebrew Character finds nothing.}"
-				],
-				[
-					"10\u201315",
-					"Le personnage trouve assez de nourriture pour nourrir une créature de taille moyenne pendant un jour."
-				],
-				[
-					"16\u201320",
-					"Le personnage trouve une herbe commune. Lancez un dé sur la table des herbes communes de l'environnement approprié pour déterminer le résultat."
-				],
-				[
-					"21+",
-					"Le personnage trouve une herbe rare. Lancez un dé sur la table des herbes rares de l'environnement approprié pour déterminer le résultat."
-				]
-			]
-		},
 		{
 			"name": "All Herbs A-Z Table",
 			"source": "HHbH",
@@ -2862,6 +2766,102 @@
 			]
 		},
 		{
+			"name": "Foraging Herb Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
+				"Result"
+			],
+			"colStyles": [
+				"col-2 text-center",
+				"col-10 text-center"
+			],
+			"rows": [
+				[
+					"1\u20139",
+					"{@homebrew Character finds nothing.}"
+				],
+				[
+					"10\u201315",
+					"Le personnage trouve assez de nourriture pour nourrir une créature de taille moyenne pendant un jour."
+				],
+				[
+					"16\u201320",
+					"Le personnage trouve une herbe commune. Lancez un dé sur la table des herbes communes de l'environnement approprié pour déterminer le résultat."
+				],
+				[
+					"21+",
+					"Le personnage trouve une herbe rare. Lancez un dé sur la table des herbes rares de l'environnement approprié pour déterminer le résultat."
+				]
+			]
+		},
+		{
+			"name": "Herb's Relative Rarity Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"d100",
+				"Herb's Table Position",
+				"{@dice d100} roll"
+			],
+			"colStyles": [
+				"col-4 text-center",
+				"col-4 text-center",
+				"col-4 text-center"
+			],
+			"rows": [
+				[
+					"99\u2013100",
+					"2 or 16",
+					"99"
+				],
+				[
+					"96\u201398",
+					"3 or 15",
+					"96"
+				],
+				[
+					"91\u201395",
+					"4 or 14",
+					"91"
+				],
+				[
+					"85\u201390",
+					"5 or 13",
+					"85"
+				],
+				[
+					"77\u201384",
+					"6 or 12",
+					"77"
+				],
+				[
+					"68\u201376",
+					"7 or 11",
+					"68"
+				],
+				[
+					"57\u201367",
+					"8 or 10",
+					"57"
+				],
+				[
+					"44\u201356",
+					"9",
+					"44"
+				],
+				[
+					"1\u201343",
+					"Herbe non trouvée",
+					"1"
+				]
+			],
+			"footnotes": [
+				"{@note First column added to enable 5eTools style rollable table.}"
+			]
+		},
+		{
 			"name": "Rare Arctic Herbs",
 			"source": "HHbH",
 			"page": 42,
@@ -3487,14 +3487,11 @@
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3529,21 +3526,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Aloyleaf",
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3559,21 +3556,21 @@
 						"Cette herbe fournit suffisamment de feuilles pour couvrir {@dice 1d6} de pieds carrés. Ces feuilles sont aussi dures que l'acier, mais sont aussi légères que des feuilles normales et ne se décomposent jamais à moins d'être enterrées sous la terre."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ashfree Birch",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3589,21 +3586,21 @@
 						"Vous pouvez passer 10 minutes à placer des feuilles de cette écorce pour les porter sous votre armure et vos vêtements, vous isolant ainsi de la chaleur et du feu. Si vous faites cela, chaque fois que vous subissez des dégâts de feu, cette herbe absorbe ces dégâts à votre place. Cette herbe peut absorber jusqu'à 30 points de dégâts de feu avant de se consumer complètement et de devenir inutile, les dégâts excédentaires vous étant transférés à la place. Vous pouvez retirer cette herbe en passant 1 minute à la décoller de vos vêtements."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Auril's Hair",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3619,21 +3616,21 @@
 						"Comme action, vous pouvez planter cette tige dans le sol. Si vous faites cela, tout le sol dans un rayon de 6 mètres autour de vous se recouvre d'une fine couche de glace, ce qui le rend {@quickref difficult terrain||3} pendant les 10 prochaines minutes (ou la moitié si vous le faites dans un environnement chaud). Cette tige peut être utilisée de cette manière jusqu'à 3 fois, après quoi elle perd toute l'énergie froide stockée et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Banshee Vine",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3661,21 +3658,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Barrier Coral",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3698,21 +3695,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk Tongues",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3728,21 +3725,21 @@
 						"Cette herbe peut être appliquée à une arme de mêlée ou à un maximum de 10 munitions, les recouvrant d'une huile pétrifiante pendant 10 minutes. Une créature touchée par cette arme ou ces munitions doit réussir un jet de sauvegarde de Constitution {@dc 12}, ou gagner un niveau des effets suivants alors qu'elle commence à se transformer en pierre. La vitesse de déplacement de la créature affectée est réduite de moitié. La créature affectée est {@condition restrained}. La créature affectée est {@condition petrified} lorsqu'elle se transforme en pierre. La créature peut refaire le jet de sauvegarde de Constitution à la fin de chacun de ses tours, réduisant son niveau d'effet de un en cas de réussite. Un sort de {@spell greater restoration} ou une magie similaire lancé sur une créature affectée supprime instantanément tous les niveaux."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk's Appetiser",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3766,21 +3763,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bird Seed",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3797,21 +3794,21 @@
 						"Cette herbe a {@dice 1d4} de charges. En tant qu'action, vous pouvez utiliser une charge pour disperser un certain nombre de graines sur le sol, ce qui les transforme en une petite volée d'oiseaux qui s'envolent immédiatement. Ces oiseaux sont de nature magique et disparaissent après 1 minute."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blighted Pollen",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3866,21 +3863,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blubber Bulb",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3896,21 +3893,21 @@
 						"Après avoir utilisé cette herbe, vous êtes recouvert d'une épaisse couche d'huile semblable à du lard qui reste pendant 4 heures. Pendant ce temps, vous êtes immunisé contre les dégâts de froid, de feu, de poison ou d'acide que vous pourriez subir en touchant une cible ou en la frappant avec une arme de mêlée."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Boom Maize",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -3927,21 +3924,21 @@
 						"Un sachet plein de cette herbe contient 6 charges. En tant qu'action, vous pouvez dépenser une ou plusieurs charges pour lancer une poignée d'amandes sur une cible que vous pouvez voir dans un rayon de 20 pieds autour de vous. Cette cible doit effectuer un jet de sauvegarde de Force {@dc 10}, le DC augmentant de 2 pour chaque charge dépensée. En cas d'échec, la cible est repoussée de 5 pieds."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bramble Rice",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3958,21 +3955,21 @@
 						"Cette herbe possède {@dice 1d4} de charges. En tant qu'action, vous pouvez utiliser une charge pour disperser une poche de cette herbe dans une zone de 5 pieds carrés devant vous. Toute créature qui pénètre dans cette zone doit réussir un jet de sauvegarde de {@dc 15} de Dextérité ou cesser de se déplacer et subir {@damage 1} de dégâts perforants. Jusqu'à ce que la créature regagne au moins 1 point de vie, sa vitesse de marche est réduite de 10 pieds. Une créature se déplaçant à travers la zone à demi-vitesse n'a pas besoin de faire le jet de sauvegarde."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Breeze Nuts",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4000,21 +3997,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Brighteye Carrots",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4030,21 +4027,21 @@
 						"Pendant 8 heures après l'application de cette herbe, vous gagnez {@sense darkvision} jusqu'à une portée de 60 pieds, et vos yeux diffusent une faible lumière dans un rayon de 5 pieds."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bubblemelon",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4060,21 +4057,21 @@
 						"Comme action, vous pouvez commencer à mâcher cette herbe. Tant que vous continuez à mâcher cette racine, vous n'avez pas besoin de respirer. Vous pouvez mâcher cette herbe pendant 10 minutes au maximum, en une seule fois ou en plusieurs séances."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Buried Moonlight",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4097,21 +4094,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Candle Rose",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4127,21 +4124,21 @@
 						"Cette herbe d'un pied de long peut être utilisée de la même manière qu'une {@item candle|PHB} ordinaire : pendant 1 heure, lorsqu'elle est allumée, elle diffuse une lumière vive dans un rayon de 5 pieds et une lumière tamisée sur 5 pieds supplémentaires. Le parfum et la couleur de cette rose sont déterminés par votre DM, mais ils sont généralement tous deux assez agréables."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Chef's Trick",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4157,21 +4154,21 @@
 						"Comme action, vous pouvez l'émietter et le saupoudrer sur un élément comestible tel qu'un repas ou une boisson tout en pensant à une saveur. Cette saveur peut aller de quelque chose de vague comme \"aigre\" à quelque chose de spécifique comme \"un poulet rôti assaisonné à l'origan\". Si vous le faites, cet article aura le goût de la saveur à laquelle vous pensiez. Une créature qui consomme cet article peut faire un test de Sagesse ({@dc 20}) pour remarquer l'arôme artificiel qu'il contient."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cleric's Cane",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4187,21 +4184,21 @@
 						"Lorsque vous utilisez cette herbe, vous pouvez lancer n'importe quel nombre de dé de points de vie dont vous disposez pour regagner des points de vie comme vous le feriez normalement pendant un court repos. Si vous obtenez un 1 ou un 2 sur l'un de ces dés, vous pouvez relancer le résultat et devez prendre le nouveau chiffre, même s'il s'agit d'un 1 ou d'un 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cold Brush",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4217,21 +4214,21 @@
 						"Pour utiliser cette herbe, vous devez la frotter sur votre peau exposée pendant sa préparation. Pendant les 4 heures suivantes, votre peau prend une couleur bleu pâle et devient glacée au toucher. Cela n'a aucun impact sur la température réelle de votre corps."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Compass Rose",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -4248,21 +4245,21 @@
 						"Cette herbe feuillue a {@dice 1d6} de charges. Comme action, vous pouvez tenir cette herbe à plat sur votre paume. Si vous faites cela, l'herbe perd une charge et libère une bouffée de spores visibles qui voyagent le long de la trajectoire du vent. Cette capacité fonctionne même dans un espace clos comme un bâtiment ou une grotte profonde, tant qu'il existe un seul passage ouvert relié à la zone dans laquelle vous vous trouvez et menant à l'extérieur."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Corpse Hands",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4278,21 +4275,21 @@
 						"Cette herbe peut être appliquée à une arme de mêlée ou à un maximum de 10 munitions. Une arme à laquelle on a appliqué cette herbe est considérée comme magique et inflige des dégâts nécrotiques supplémentaires {@damage 1d8} lors de son premier coup réussi dans un tour. Cet effet dure 1 heure."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Courter's Perfume",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4308,21 +4305,21 @@
 						"Pendant 4 heures après l'utilisation de cette herbe, toute créature qui vous sent, perçoit votre odeur comme son parfum préféré."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cracker Nut",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -4339,21 +4336,21 @@
 						"Cette herbe contient {@dice 1d8} de charges, correspondant à la quantité de noix récoltées. En tant qu'action, vous pouvez dépenser une charge pour lancer une noix sur un point que vous pouvez voir dans un rayon de 30 pieds de vous, la faisant éclater à l'impact et créant un fort craquement qui peut être entendu jusqu'à 100 pieds de distance."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crackle Bark",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4369,21 +4366,21 @@
 						"Cette herbe peut être appliquée à une arme de mêlée ou à un maximum de 10 munitions. Une arme à laquelle on a appliqué cette herbe est considérée comme magique et inflige un {@damage 1d8} de dégâts de foudre supplémentaires lors de son premier coup réussi dans un tour. Cet effet dure 1 heure."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Creeper's Folly",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4399,21 +4396,21 @@
 						"Pendant 4 heures après avoir utilisé cette herbe, vous ne pouvez pas être {@quickref Surprise|PHB|3|0|surprised} et vous faites tous les jets d'initiative à l'avantage."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crystal Fruit",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4429,21 +4426,21 @@
 						"Vous pouvez utiliser votre action pour manger ce fruit. Si vous le faites, pendant les 10 minutes suivantes, votre corps est recouvert d'une fine couche de glace qui augmente votre CA à 15 si elle était inférieure à cela auparavant, mais votre vitesse de déplacement est réduite de moitié."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Deadwood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4459,21 +4456,21 @@
 						"Pendant 8 heures après l'utilisation de cette plante, vos émotions restent totalement calmes, et ne changent que si vous êtes soumis à un effet qui les modifierait magiquement."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Drowner's Reach",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4489,21 +4486,21 @@
 						"Tant que vous avez cette herbe enroulée autour d'une main libre, vous avez un avantage sur tous les contrôles {@action grapple} effectués avec cette main. Enrouler et dérouler cette herbe autour d'une main libre prend une action. Une fois que cette herbe a été utilisée pour 5 tests {@action grapple} réussis, elle se détériore et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dryad's Secret",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4519,21 +4516,21 @@
 						"Après avoir utilisé cette herbe, vous produisez une odeur agréable pendant les 4 heures suivantes, ce qui rend les personnes qui vous entourent ouvertes à toute suggestion. Pendant ce temps, vous avez un avantage sur le Charisme ({@skill Persuasion}) fait pour convaincre les humanoïdes de vous faire confiance ou de se lier d'amitié avec vous."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dwarf's Bane",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4549,21 +4546,21 @@
 						"Lorsque cette herbe est placée dans un liquide toxique, toutes les toxines sont absorbées par l'herbe et ce liquide devient de l'eau inoffensive et potable. Cet effet s'étend à l'alcool qui devient non alcoolisé s'il est soumis à cette herbe. Cette herbe est capable d'éliminer les toxines d'un maximum de 5 gallons de liquide, après quoi elle devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Echo Wood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4579,21 +4576,21 @@
 						"Cette herbe peut être appliquée à une arme de mêlée ou à un maximum de 10 munitions. Une arme à laquelle on a appliqué cette herbe est considérée comme magique et inflige un {@damage 1d8} de dégâts de tonnerre supplémentaires lors de son premier coup réussi dans un tour. Cet effet dure 1 heure."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Elven Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4609,21 +4606,21 @@
 						"Pendant les 4 heures suivant l'utilisation de cette herbe, vous obtenez un sentiment de calme qui inhibe votre capacité à ressentir de fortes pics d'émotions. Pendant ce temps, vous avez l'avantage sur tous les tests de capacité ou jets de sauvegarde pour résister à la condition {@condition frightened|PHB|fear}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Embergrass",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4639,7 +4636,10 @@
 						"Pendant 1 heure après l'application de cette herbe, vous avez une résistance aux dégâts du feu et vous réussissez automatiquement tout test de compétence ou jet de sauvegarde effectué pour résister aux effets du temps chaud."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everfrost Root",
@@ -4647,14 +4647,11 @@
 			"page": 12,
 			"type": "Herb",
 			"typeAlt": "SCF",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"focus": true,
 			"entries": [
 				{
@@ -4671,21 +4668,21 @@
 						"Vous pouvez utiliser cette herbe comme un {@item arcane focus|PHB} lorsque vous lancez vos sorts. Tant que cette herbe est votre {@item arcane focus|PHB}, chaque fois que vous obtenez un 1 ou un 2 pour les dégâts de froid résultant d'un sort que vous lancez, vous pouvez relancer le dé et devez utiliser le nouveau résultat, même si le nouveau résultat est un 1 ou un 2."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everwort Root",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4701,21 +4698,21 @@
 						"En tant qu'action, vous pouvez verser le liquide contenu dans cette racine dans une potion. Toute durée associée à l'effet de cette potion est doublée de façon permanente."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fabric Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4750,21 +4747,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fairybed Reed",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4780,22 +4777,22 @@
 						"Vous pouvez passer 10 minutes à vous appliquer cette herbe, en fourrant ses graines dans votre armure et en lubrifiant les articulations avec son huile. Si vous faites cela, vous ignorez tout désavantage aux tests de Dextérité ({@skill Stealth}) que vous pouvez avoir en portant votre type d'armure."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fanana",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
 			"charges": "{@dice 1d6}",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4811,21 +4808,21 @@
 						"Cette herbe possède {@dice 1d6} de charges, chaque charge correspondant à l'un des fruits de l'herbe. En tant qu'action, vous pouvez dépenser une ou plusieurs charges pour faire éclater les fruits, libérant le gaz refoulé à l'intérieur et créant une rafale de vent de 1,5 m de large et d'une longueur égale à 5 fois le nombre de charges dépensées. Ce vent est assez puissant pour éteindre des flammes nues et renverser de petits objets, mais pas assez pour assommer une créature {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fey's Fear",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4848,21 +4845,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiend's chilli",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4878,21 +4875,21 @@
 						"Pendant 8 heures après l'utilisation de cette plante, votre peau devient rouge vif et vous expirez constamment de la vapeur."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiendsgate Wisteria",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4908,21 +4905,21 @@
 						"Dans le cadre de votre mouvement, vous pouvez disperser des pétales de glycine à vos pieds lorsque vous marchez. Un sac de ces pétales peut former une ligne de jusqu'à 30 pieds de long. Si une créature de type démoniaque tente de traverser une ligne de pétales, elle doit réussir un jet de sauvegarde de Sagesse {@dc 15}. En cas d'échec, sa vitesse est réduite à 0 pour le reste de son tour."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fin Moss",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4938,21 +4935,21 @@
 						"Vous pouvez passer 10 minutes à attacher ces herbes à 1 arme de mêlée ou à un maximum de 10 munitions. Toute arme ou munition à laquelle cette mousse est attachée subit {@quickref Underwater Combat|PHB|3|0|no penalty when used underwater}. Ces herbes ne peuvent être attachées qu'à une seule arme ou un seul ensemble de munitions - toute tentative de les retirer les endommage au-delà de toute utilisation."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fire Flower",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4968,7 +4965,10 @@
 						"Cette herbe peut être appliquée à une arme de mêlée ou à un maximum de 10 munitions. Une arme à laquelle on a appliqué cette herbe est considérée comme magique et inflige des dégâts de feu supplémentaires {@damage 1d8} lors de son premier coup réussi dans un tour. Cet effet dure 1 heure."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Firemelon",
@@ -4976,15 +4976,12 @@
 			"page": 14,
 			"type": "Herb",
 			"typeAlt": "SCF",
-			"focus": true,
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
+			"focus": true,
 			"entries": [
 				{
 					"type": "entries",
@@ -5000,21 +4997,21 @@
 						"Vous pouvez utiliser cette herbe comme un {@item arcane focus|PHB} lorsque vous lancez vos sorts. Tant que cette herbe est votre {@item arcane focus|PHB}, chaque fois que vous obtenez un 1 ou un 2 pour les dégâts de feu résultant d'un sort que vous lancez, vous pouvez relancer le dé et devez utiliser le nouveau résultat, même si le nouveau résultat est un 1 ou un 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fireplume Fennel",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5030,21 +5027,21 @@
 						"En tant qu'action, vous pouvez lancer cette herbe vers un espace situé à 20 pieds de vous et que vous pouvez voir. À l'atterrissage, cette herbe explose, forçant toutes les cibles situées à moins de 1,5 m de cet espace à réussir un jet de sauvegarde de Dextérité {@dc 12} ou à subir {@damage 2d6} de dégâts de feu, ou la moitié en cas de sauvegarde réussie."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Flumph Fungi",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5060,21 +5057,21 @@
 						"Après avoir utilisé cette herbe, vous gagnez une plus grande conscience et empathie pour les personnes qui vous entourent pendant les 4 heures suivantes. Pendant cette période, vous avez un avantage sur les tests de Sagesse ({@skill Insight}) pour déterminer l'état émotionnel des humanoïdes avec lesquels vous interagissez."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fool's Charm",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8+4}",
 			"entries": [
 				{
@@ -5091,21 +5088,21 @@
 						"Cette herbe contient {@dice 1d8+4} de charges, chaque charge représentant une des feuilles restantes de la tige de cette herbe. Chaque fois que vous obtenez un 1 sur un test de capacité, un jet d'attaque ou un jet de sauvegarde alors que vous tenez cette herbe, vous pouvez dépenser une charge pour relancer le dé et utiliser le nouveau résultat. Une fois que toutes les charges ont été utilisées sur cette herbe, elle se fane et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Frozen Fuel",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5121,21 +5118,21 @@
 						"Vous pouvez lancer cette herbe comme une attaque d'arme à distance sur un point situé à 20 pieds de vous et que vous pouvez voir, ce qui fait éclater le bulbe de cette herbe et oblige toutes les créatures situées à moins de 1,5 mètre à effectuer un jet de sauvegarde de Dextérité {@dc 15}. En cas d'échec, la créature est recouverte d'une résine collante et inflammable qui la rend vulnérable aux dégâts de feu. Une créature couverte de cette résine ou une créature adjacente à elle peut utiliser son action pour essuyer cette résine, mettant fin à cet effet immédiatement."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fumbleweed",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5151,21 +5148,21 @@
 						"La prochaine fois que vous êtes frappé {@condition prone} involontairement après avoir utilisé cette herbe, vous pouvez utiliser votre réaction pour ne pas être frappé {@condition prone} à la place. Une fois que cela se produit, cette herbe se brise et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gargoyle's Lichen",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5181,21 +5178,21 @@
 						"Pendant 8 heures après l'utilisation de cette plante, votre peau prend un aspect dur et gris qui ressemble à de la pierre."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ghost Leaf",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5211,21 +5208,21 @@
 						"Pendant l'heure suivante, chaque fois que vous vous déplacez, vous devenez incorporel, ce qui vous permet de traverser d'autres créatures et des objets solides comme s'ils étaient {@quickref difficult terrain||3}, en subissant {@damage 1d10} de dégâts de force si vous terminez votre mouvement à l'intérieur d'un objet solide. De plus, les créatures dotées du trait {@i Incorporeal Movement} ne peuvent pas vous traverser."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Giant's Silk",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5241,21 +5238,21 @@
 						"Cette herbe peut être utilisée à la place de 60 pieds de corde. Vous effectuez tous les tests de capacité de Force avec un avantage lorsque vous utilisez cette corde pour pousser, tirer, soulever ou grimper."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glacier Branch",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5283,21 +5280,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glide Weed",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5320,21 +5317,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gloom's Cloak",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5350,21 +5347,21 @@
 						"Vous gagnez une résistance aux dégâts radiants pendant les 4 heures qui suivent l'utilisation de cette herbe."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glowmoss",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5380,21 +5377,21 @@
 						"Cette herbe diffuse une lumière faible dans un rayon de 5 pieds autour d'elle."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gluebell",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5417,21 +5414,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Pine",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5447,21 +5444,21 @@
 						"En tant qu'action, vous pouvez recouvrir une arme de mêlée ou jusqu'à 10 munitions avec la résine de cette plante. Pendant l'heure qui suit, chaque fois que vous utilisez cette arme pour toucher avec succès une créature de type dragon, celle-ci doit effectuer un jet de sauvegarde de Constitution {@dc 15}. En cas d'échec, toutes les attaques portées contre cette créature sont effectuées avec un avantage jusqu'au début de votre prochain tour."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Truffle",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -5478,51 +5475,21 @@
 						"Cette herbe contient {@dice 1d6} de charges. Vous pouvez dépenser une charge pour utiliser cette herbe, après quoi, votre maximum de points de vie augmente d'un montant égal au double de votre niveau de personnage, et vous gagnez le même nombre de points de vie. Cette augmentation dure 4 heures, après quoi, votre maximum de points de vie revient à la normale."
 					]
 				}
-			]
-		},
-		{
-			"name": "Grounder Seed",
-			"source": "HHbH",
-			"page": 17,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
+			"lcn": "Forest",
 			"prep": "Yes",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Trouvées à l'intérieur des cosses d'un arbuste rustique, ces graines contiennent une huile qui sèche en une matière caoutchouteuse peu après avoir été exposée à l'air. Sa ressemblance avec le caoutchouc s'étend en fait à ses capacités d'isolation, et la graine est recherchée comme protection naturelle contre les créatures qui manient le pouvoir mortel de la foudre."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Vous gagnez une résistance aux dégâts de foudre pendant 4 heures après avoir utilisé cette herbe."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Grave Root",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5557,21 +5524,51 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Grounder Seed",
+			"source": "HHbH",
+			"page": 17,
+			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Trouvées à l'intérieur des cosses d'un arbuste rustique, ces graines contiennent une huile qui sèche en une matière caoutchouteuse peu après avoir été exposée à l'air. Sa ressemblance avec le caoutchouc s'étend en fait à ses capacités d'isolation, et la graine est recherchée comme protection naturelle contre les créatures qui manient le pouvoir mortel de la foudre."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Vous gagnez une résistance aux dégâts de foudre pendant 4 heures après avoir utilisé cette herbe."
+					]
+				}
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hag's Hair",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5587,21 +5584,21 @@
 						"Lorsque vous utilisez cette herbe, vous devenez immunisé contre les maladies pour les 24 heures suivantes et tous les effets des maladies auxquelles vous êtes actuellement soumis voient leur progression et leurs symptômes stoppés."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hamund's Hair",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5617,21 +5614,21 @@
 						"Vous pouvez passer 3 heures à appliquer cette herbe sur une armure, ce qui implique de tordre et de tisser les brins durables mais flexibles dans les zones les plus faibles de cette armure. Après cette heure, l'armure confère en permanence un bonus de +1 à la CA lorsqu'elle est portée. Cette herbe ne peut pas être appliquée à une armure qui a déjà un bonus à la CA ou à des boucliers."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heartstopper Weed",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5654,21 +5651,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heaven's Chance",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5684,21 +5681,21 @@
 						"Chaque fois que vous obtenez la valeur maximale sur un dé de dégâts, vous pouvez relancer ce dé et ajouter le nouveau résultat au total des dégâts infligés, en répétant ce processus si vous obtenez à nouveau la valeur maximale. Il n'y a pas de limite au nombre de fois que vous pouvez faire cela sur un seul exemple de dégâts."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hopping Bean",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5714,21 +5711,21 @@
 						"Comme action, vous pouvez ouvrir cette herbe et inhaler les gaz qu'elle contient. Si vous faites cela, votre distance de saut est triplée pour l'heure suivante."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hunter's Mud",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5744,21 +5741,21 @@
 						"Pendant les 8 heures qui suivent l'utilisation de cette plante, vous ne dégagez aucune odeur, et toutes les odeurs qui tentent de s'accrocher à vous sont instantanément neutralisées."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Mint",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5774,21 +5771,21 @@
 						"Pendant les 8 heures qui suivent l'utilisation de cette herbe, votre haleine est toujours visible, sent la menthe rafraîchissante et est suffisamment froide pour provoquer la formation de givre sur les objets sur lesquels vous expirez."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Vine",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5804,21 +5801,21 @@
 						"Ce pied de vigne de 3 mètres de long reste glacé quelle que soit la température ambiante."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icestone Trunk",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -5835,21 +5832,21 @@
 						"Pour utiliser cette herbe, vous devez l'utiliser pour affûter une arme de mêlée tranchante ou perçante, ou jusqu'à 10 munitions tranchantes ou perçantes. Pendant les 4 heures suivantes, cette arme ou ces munitions sont considérées comme magiques, et chaque fois qu'elles touchent avec succès une créature, celle-ci doit effectuer un jet de sauvegarde de Constitution {@dc 17} car le givre tente de recouvrir son corps. Les créatures ayant une résistance ou une immunité aux dégâts du froid réussissent automatiquement ce jet de sauvegarde. En cas d'échec, la vitesse de déplacement de la créature affectée est réduite de moitié et tous ses jets de sauvegarde de Dextérité sont désavantagés pendant 1 minute. Si le jet de sauvegarde échoue par 5 ou plus, la créature est également {@condition restrained} et ne peut pas prendre de réactions alors que le gel envahit son corps. À la fin de chaque tour de la créature, elle peut refaire le jet de sauvegarde, mettant fin à l'effet en cas de réussite. Cette herbe peut être utilisée jusqu'à 6 fois, après quoi sa magie s'estompe et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icicle Moss",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5865,21 +5862,21 @@
 						"Cette herbe peut être appliquée à une arme de mêlée ou à un maximum de 10 munitions. Une arme à laquelle on a appliqué cette herbe est considérée comme magique et inflige un {@damage 1d8} de dégâts de froid supplémentaires lors de son premier coup réussi dans un tour. Cet effet dure 1 heure."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Interrogator's Baton",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -5896,21 +5893,21 @@
 						"Cette herbe a {@dice 1d4} de charges. En tant qu'action, vous pouvez dépenser une charge pour frotter cette herbe sur une arme de mêlée ou jusqu'à 10 munitions, l'enrobant d'une bave parasite. Pendant les dix minutes suivantes, tout dommage infligé par une arme ou une munition enduite n'est pas considéré comme \"nocif\" pour mettre fin à une condition {@condition charmed} sur une créature affligée. Lorsque cette herbe perd toutes ses charges, elle se dessèche et est considérée comme sans valeur."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ironleaf Thicket",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5926,21 +5923,21 @@
 						"Pendant 4 heures après avoir utilisé cette herbe, vous bénéficiez d'un bonus de +2 à la CA, ainsi que d'une coloration gris métallisé brillante de votre peau."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jellyfish Vine",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5968,21 +5965,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jingle Berries",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -6006,21 +6003,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Keepsake Daisy",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6036,51 +6033,21 @@
 						"Comme action, vous pouvez fendre cette marguerite verticalement en deux. Une créature tenant une moitié de la marguerite peut utiliser son action pour se concentrer sur elle, la téléportant instantanément, ainsi que tout ce qu'elle tient et porte, vers l'espace inoccupé le plus proche de l'autre moitié de la marguerite. À ce moment-là, les deux moitiés se désintègrent en poussière inutile. Cette capacité ne peut être utilisée que lorsque les deux moitiés se trouvent sur le même plan d'existence ; toute tentative de l'utiliser autrement est sans effet."
 					]
 				}
-			]
-		},
-		{
-			"name": "Killer Tomato",
-			"source": "HHbH",
-			"page": 20,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
+			"lcn": "Forest",
 			"prep": "No",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Herbe au nom hyperbolique, la tomate tueuse n'est pas réellement dangereuse, du moins physiquement. On dit qu'elle a été créée par un dieu farceur dans un accès d'impertinence joyeuse, cette herbe est capable de sentir chaque fois qu'une mauvaise blague, une histoire ou une chanson est jouée autour d'elle, puis de voler de façon autonome sur l'auteur de la blague pour rendre son visage rouge de jus de tomate. Bien que cela soit en fin de compte inoffensif, les dommages émotionnels que cela peut causer ont fait que la tomate a été bannie de la plupart des music-halls et des tavernes."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Si une créature échoue à un test de Charisme ({@skill Performance}) à moins de 30 pieds de cette herbe, elle vole automatiquement directement sur elle et l'éclabousse automatiquement, détruisant cette herbe. Cet effet se déclenche également si l'herbe est sur vous et que vous réussissez un jet de sauvegarde pour résister aux effets d'un sort de {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} ou {@spell danse macabre|XGE}, ou d'une magie similaire basée sur des blagues, de la musique ou des spectacles, l'herbe volant vers la créature qui a lancé le sort."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ki-Rin's Bounty",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6103,21 +6070,51 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Killer Tomato",
+			"source": "HHbH",
+			"page": 20,
+			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Herbe au nom hyperbolique, la tomate tueuse n'est pas réellement dangereuse, du moins physiquement. On dit qu'elle a été créée par un dieu farceur dans un accès d'impertinence joyeuse, cette herbe est capable de sentir chaque fois qu'une mauvaise blague, une histoire ou une chanson est jouée autour d'elle, puis de voler de façon autonome sur l'auteur de la blague pour rendre son visage rouge de jus de tomate. Bien que cela soit en fin de compte inoffensif, les dommages émotionnels que cela peut causer ont fait que la tomate a été bannie de la plupart des music-halls et des tavernes."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Si une créature échoue à un test de Charisme ({@skill Performance}) à moins de 30 pieds de cette herbe, elle vole automatiquement directement sur elle et l'éclabousse automatiquement, détruisant cette herbe. Cet effet se déclenche également si l'herbe est sur vous et que vous réussissez un jet de sauvegarde pour résister aux effets d'un sort de {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} ou {@spell danse macabre|XGE}, ou d'une magie similaire basée sur des blagues, de la musique ou des spectacles, l'herbe volant vers la créature qui a lancé le sort."
+					]
+				}
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Knock Wood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6133,21 +6130,21 @@
 						"Lorsque vous tenez cette herbe dans votre main, si vous êtes obligé de faire un jet avec un désavantage, vous pouvez utiliser votre réaction pour frapper cette herbe contre quelque chose de dur. Si vous faites cela, vous effectuez votre jet normalement au lieu de le faire avec un désavantage. Une fois que cette herbe a été utilisée une fois, elle perd tout pouvoir et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Kraken Kelp",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -6164,21 +6161,21 @@
 						"Cette herbe possède {@dice 1d8} de charges, correspondant à la quantité de bulbes intacts sur sa longueur. Pour utiliser cette herbe, vous devez dépenser 1 charge en faisant éclater l'ampoule et en appliquant son miasme d'encre sur vous-même. Pendant une heure après avoir été utilisé, vous émettez un nuage de ténèbres d'un rayon de 3 mètres que vous seul pouvez traverser. Tout ce qui se trouve dans le nuage est considéré comme {@book heavily obscured|PHB|8|Vision and Light} pour toute créature autre que vous."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lich Lichen",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6194,21 +6191,21 @@
 						"Après avoir utilisé cette herbe, toutes les créatures de type mort-vivant ont un désavantage aux tests de Sagesse ({@skill Perception}) effectués pour vous détecter."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Liftwood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"recharge": "dawn",
 			"entries": [
 				{
@@ -6237,21 +6234,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lolth's Thorn",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6267,21 +6264,21 @@
 						"Cette herbe peut être maniée comme un {@item dagger|PHB}. Si cette épine réussit à toucher une créature souffrant de la condition {@condition poisoned}, cette condition prend fin immédiatement, et cette épine est remplie du poison dont cette créature était affligée. Lors du prochain coup réussi avec cette épine, la créature touchée subit tous les effets imposés par le poison d'origine ; si ce poison nécessitait un jet de sauvegarde, le DC est fixé à 15. Cette épine ne peut transporter qu'un seul poison à la fois, et tout poison qu'elle contient est rendu inutile 24 heures après avoir été absorbé pour la première fois."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lotus of the Raven Queen",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6297,21 +6294,21 @@
 						"Pendant les 24 heures qui suivent l'utilisation de cette herbe, si vous subissez un échec au jet de sauvegarde contre la mort, vous pouvez dépenser 1 dé de vie pour annuler cet échec. Vous devez dépenser 1 dé de vie par échec que vous souhaitez annuler dans le cas où un effet vous ferait perdre plus d'un dé à la fois."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lucidity Lavender",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6334,21 +6331,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Magic Mistletoe",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6364,21 +6361,21 @@
 						"Dans le cadre de la préparation de cette herbe, vous devez recouvrir une arme de mêlée ou jusqu'à 10 munitions avec le jus de cette plante. Pendant les 4 heures suivantes, toute créature touchée par cette arme ou ces munitions doit réussir un jet de sauvegarde de Constitution {@dc 18} ou devenir {@condition poisoned} pendant la minute suivante. Pendant qu'elle est {@condition poisoned} de cette façon, une créature perd toute résistance aux dégâts qu'elle peut avoir."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Maiden Moss",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6394,21 +6391,21 @@
 						"Dans le cadre de la préparation de cette herbe, vous devez dépenser 1 fiole de sang d'une créature de votre choix et l'utiliser pour créer une pâte à partir de la poudre moulue de l'herbe. La pâte obtenue peut ensuite être appliquée soit sur une créature de taille moyenne ou plus petite, soit sur le périmètre d'une zone ne mesurant pas plus de 60 pieds. Pendant les 24 heures suivantes, toute créature du même type que le sang que vous avez ajouté à la pâte et dont le score d'Intelligence est inférieur ou égal à 5 doit effectuer un jet de sauvegarde de Sagesse {@dc 15} chaque fois qu'elle tente de se déplacer à moins de 1,5 mètre de la créature ou de la zone entourée par la pâte. En cas d'échec, cette créature doit passer le reste de son déplacement à s'éloigner le plus possible de la créature ou de la zone entourée de pâte, en empruntant le chemin le plus direct et le plus sûr possible. Si elle réussit, elle peut se déplacer comme elle le souhaite et elle est immunisée contre les effets de cette herbe pendant les 24 heures suivantes."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Marid's Tail",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6424,21 +6421,21 @@
 						"Vous pouvez effectuer des attaques d'arme avec cette herbe, en la traitant comme si elle était une {@item dagger|PHB}. En cas de succès, l'herbe se loge dans la cible et éclate, obligeant la cible à réussir un jet de sauvegarde de Force {@dc 15} ou à être repoussée de 6 mètres tandis qu'un puissant jet d'eau jaillit de l'herbe rompue. Une fois que cette herbe a été utilisée une fois de cette manière, elle est détruite et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mariner's Friend",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6454,21 +6451,21 @@
 						"Pendant 4 heures après l'utilisation de cette herbe, tout liquide qui vous touche s'écoule instantanément de votre corps, de vos vêtements et de vos biens, vous laissant complètement sec."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mender's Mold",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6484,21 +6481,21 @@
 						"Cette herbe contient suffisamment de moisissures pour couvrir {@dice 1d6} de pieds carrés. Si vous utilisez cette herbe pour couvrir un trou ou une couture cassée dans un objet, l'herbe adhérera magiquement aux bords de la zone cassée et se transformera de façon permanente au cours de l'heure suivante en un matériau identique à celui des bords qu'elle touche. Par exemple, si elle est placée sur un trou dans un plancher en bois cassé, la moisissure se transformera en bois. Le moule conserve sa couleur noire après la transformation et agit comme une pièce de matériau homogène."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Merrow Trap",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d20}",
 			"entries": [
 				{
@@ -6515,21 +6512,21 @@
 						"Cette herbe contient {@dice 1d20} de charges, chaque charge correspondant à un brin d'herbe marine. Vous pouvez dépenser 1 charge et passer 1 minute à attacher un brin d'herbe marine à un {@item crossbow bolt|PHB|bolt} ou {@item arrow|PHB}. Si vous faites cela, ce boulon ou cette flèche subit {@quickref Underwater Combat|PHB|3|0|no penalties associated with being used underwater}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mirage Melon",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6545,21 +6542,21 @@
 						"Vous pouvez manger cette herbe comme une action. Pendant les 10 minutes suivantes, votre estomac produit un gaz magique qui vous fait roter au début de chacun de vos tours, chaque rot émettant un gaz luminescent qui prend la forme d'une petite illusion de votre choix une fois qu'il quitte votre bouche. Des exemples d'effets illusoires incluent des papillons ou des notes de musique. Ces illusions n'ont ni substance ni son, sont manifestement fausses par nature et disparaissent au début de votre prochain tour."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mordenkainen's Mint",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6575,21 +6572,21 @@
 						"Comme action bonus, vous pouvez commencer à mâcher cette herbe. Pendant que vous mâchez cette herbe, vous avez l'avantage sur tous les jets de sauvegarde de Constitution effectués pour maintenir {@condition concentration} sur un sort. Cette herbe peut être mâchée pendant un maximum de 10 minutes, qui doivent être effectuées consécutivement."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mortician's Cactus",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6605,21 +6602,21 @@
 						"Pendant 4 heures après avoir utilisé cette herbe, vous avez un goût et une odeur terribles. Toute créature qui effectue une attaque contre vous impliquant de vous mordre ou d'utiliser sa langue sur vous, le fait à son désavantage. De plus, vous avez l'avantage sur tout test de capacité ou jet de sauvegarde effectué pour éviter d'être avalé ou d'être recraché par l'estomac d'une créature."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mountain Heart Ginseng",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6635,21 +6632,21 @@
 						"Vous avez l'avantage sur les jets de sauvegarde de la Constitution pendant 8 heures après avoir utilisé cette herbe."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mud Bane",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6666,21 +6663,21 @@
 						"Cette herbe contient {@dice 1d3} de charges. Pour utiliser cette herbe, vous devez dépenser une charge pour recouvrir une arme de mêlée ou jusqu'à 10 munitions d'une sève toxique. Pendant les 10 minutes suivantes, toute créature touchée par cette arme ou ces munitions doit réussir un jet de sauvegarde de Constitution {@dc 18} ou devenir {@condition poisoned} pendant 1 minute. Si le jet de sauvegarde échoue par 5 ou plus, la créature est également {@condition incapacitated} car elle est consumée par de violentes crises. Au début de chacun de ses tours et chaque fois qu'elle subit des dégâts, la créature peut refaire le jet de sauvegarde. En cas de réussite, elle n'est plus {@condition incapacitated}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Musical Fruit",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6696,21 +6693,21 @@
 						"Vous pouvez manger cette herbe comme une action. Pendant l'heure qui suit, vous avez l'avantage sur les tests d'aptitude au Charisme ({@skill Performance}) effectués pour chanter ou jouer d'un instrument de musique."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nature's Curse",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6727,21 +6724,21 @@
 						"Cette herbe contient {@dice 1d3} de charges. Pour utiliser cette herbe, vous devez dépenser une charge pour recouvrir une arme de mêlée ou jusqu'à 10 munitions de sa sève toxique. Pendant les 10 minutes suivantes, toute créature touchée avec succès par cette arme ou ces munitions doit réussir un jet de sauvegarde de Constitution {@dc 18} ou devenir {@condition poisoned} pendant 1 minute. Pendant qu'elle est {@condition poisoned} dans cet état, la créature est en proie à une douleur horrible, ce qui lui donne un désavantage à tous les jets de sauvegarde, sa vitesse de déplacement est réduite de moitié et tout sort sur lequel elle est {@condition concentration|PHB|concentrating} se termine automatiquement au début de son tour."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Needlecloud Cactus",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6757,21 +6754,21 @@
 						"Dans le cadre de la préparation de cette herbe, vous placez des segments de cette herbe à des endroits stratégiques autour de vos vêtements et de votre armure. Chaque fois que vous êtes touché par une attaque d'arme de mêlée, vous pouvez utiliser votre réaction pour libérer un jet d'aiguilles acérées provenant des herbes sur votre corps, forçant toutes les créatures dans un rayon de 1,5 m de vous à faire un jet de sauvegarde de {@dc 14} de Dextérité, subissant {@damage 1d6} de dégâts perforants en cas d'échec, ou la moitié en cas de réussite. Une fois que vous avez utilisé cette capacité 4 fois, cette herbe est à court d'aiguilles et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nightflame Seed",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6794,21 +6791,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nofall Leaves",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6824,21 +6821,21 @@
 						"Pour utiliser cette herbe, vous devez la frotter sur la semelle de vos chaussures, ou sur vos pieds si vous marchez pieds nus. Pendant 8 heures après avoir utilisé cette herbe, vous ne devez pas vous enfoncer dans la neige profonde."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nomad's Treasure",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6866,21 +6863,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Numbing Bush",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6896,21 +6893,21 @@
 						"Comme action, vous pouvez utiliser cette herbe en la frottant sur votre corps et vos blessures. Pendant l'heure qui suit, vous gagnez 8 points de vie temporaires au début de chacun de vos tours, mais vous avez un désavantage aux jets de sauvegarde et aux tests de capacité de Dextérité."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Odour Begonia",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6926,21 +6923,21 @@
 						"Pendant 4 heures après avoir utilisé cette herbe, vous n'avez plus d'odorat."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Oracle's Leaf",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6956,21 +6953,21 @@
 						"Pendant les 4 heures suivant l'utilisation de cette herbe, vous gagnez une clairvoyance mineure qui vous aide à éviter le danger. Chaque fois que vous êtes la cible d'une attaque, vous pouvez utiliser votre réaction pour forcer cette attaque à être effectuée avec un désavantage."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Parrot Poppy",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7025,21 +7022,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peacekeeper's Lily",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7055,21 +7052,21 @@
 						"Cette herbe peut être appliquée à toute arme de mêlée perforante ou tranchante ou à un maximum de 10 munitions perforantes ou tranchantes. Pendant l'heure qui suit, chaque fois que vous infligez des dégâts à une créature avec cette arme ou cette munition, cette dernière doit réussir un jet de sauvegarde de {@dc 15}Constitution ou être {@condition poisoned} jusqu'au début de votre prochain tour. Pendant qu'elle est {@condition poisoned} ainsi, la créature {@condition poisoned} doit réussir un jet de sauvegarde de Sagesse {@dc 15} chaque fois qu'elle tente d'effectuer une action qui conduirait directement une autre créature à subir des dégâts. Si elle échoue, elle doit choisir une autre action qui ne conduirait pas directement à ce qu'une autre créature subisse des dégâts ou gaspiller son action."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pearvoyance",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7085,21 +7082,21 @@
 						"Après avoir utilisé cette herbe, vous recevez une brève vision de l'avenir. Les détails de cette vision, y compris sa durée, sa distance par rapport au présent, et même si elle est vraie ou non, sont à la discrétion de votre DM. Quoi qu'il en soit, vous croyez fermement que cette vision est un présage vrai et précis des choses à venir."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peony of Power",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7115,21 +7112,21 @@
 						"En tant qu'action, vous pouvez écraser cette herbe dans votre main. Pendant les 10 minutes suivantes, chaque fois que vous {@action cast a spell} dépensez un emplacement de sort, il est considéré comme étant lancé en utilisant un emplacement de sort de 1 niveau supérieur à celui que vous avez réellement utilisé."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pinecone of Cold",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7145,21 +7142,21 @@
 						"Comme une action, vous pouvez lancer cette pomme de pin jusqu'à 20 pieds, la faisant exploser à l'impact. Toutes les créatures situées à moins de 1,5 m de l'impact doivent effectuer un jet de sauvegarde de Constitution {@dc 15}, subissant {@damage 4d6} de dégâts de froid en cas d'échec ou la moitié en cas de réussite."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Platinum Star",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7175,21 +7172,21 @@
 						"Une fois préparée, cette herbe peut être utilisée par un maximum de 6 créatures simultanément. Toutes les créatures qui ont utilisé cette herbe gagnent {@variantrule inspiration|PHB} qui dure pendant les 8 prochaines heures."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Polypad",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "unknown (magic)",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "unknown (magic)",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7205,21 +7202,21 @@
 						"Après avoir utilisé cette herbe, vous conjurez un {@creature water elemental|MM} et un {@creature earth elemental|MM} dans les espaces inoccupés à moins de 3 mètres de vous. Les élémentaires disparaissent lorsqu'ils tombent à 0 point de vie ou après 4 heures, selon la première éventualité. Les élémentaires sont amicaux envers vous et vos compagnons et agissent selon leurs propres ordres d'initiative. Ils obéissent à tout ordre verbal que vous leur donnez (aucune action de votre part n'est requise). Si vous ne donnez aucun ordre à un élémentaire, il se défend contre les créatures hostiles mais n'entreprend aucune autre action."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Prepyrus",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7235,21 +7232,21 @@
 						"Pendant un court repos, vous pouvez écrire une série d'incantations magiques sur cette herbe pour modifier votre liste de sorts préparés. Vous devez cependant consacrer le même temps à la préparation de chaque sort que celui indiqué dans votre caractéristique de classe. Cette herbe ne peut être utilisée qu'une seule fois."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Purple Worm Bulb",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7275,21 +7272,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rageroot",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7305,21 +7302,21 @@
 						"Comme action, vous pouvez manger cette racine. Si vous le faites, vous devenez immunisé contre les conditions {@condition stunned}, {@condition frightened|PHB|fear}, et {@condition charmed} pour les 10 prochaines minutes alors que vous êtes rempli d'une rage maniaque."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Repellent Lemons",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7342,21 +7339,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rimemoss",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7372,21 +7369,21 @@
 						"Vous pouvez passer 10 minutes à doubler vos vêtements de rimemoss. Si vous le faites, vous réussissez automatiquement tout jet de sauvegarde de Constitution pour résister aux effets négatifs des environnements et du temps froids."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rumble Cotton",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7402,21 +7399,21 @@
 						"Vous gagnez une résistance aux dégâts du tonnerre pendant 4 heures après avoir utilisé cette herbe."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rush Chillis",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7432,21 +7429,21 @@
 						"Pendant 1 heure après avoir utilisé cette herbe, vous pouvez effectuer jusqu'à 2 réactions par round que vous récupérez au début de chacun de vos tours."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rustfern",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -7475,21 +7472,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sailor's Omen",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7505,21 +7502,21 @@
 						"Pendant les 8 heures qui suivent l'utilisation de cette herbe, vous êtes immunisé contre les dégâts du poison et la condition {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandrain Flower",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 4,
 			"entries": [
 				{
@@ -7536,21 +7533,21 @@
 						"Cette herbe a 4 charges. En tant qu'action, vous pouvez enrouler les racines de cette herbe autour de l'une de vos mains libres. Tant qu'une créature {@condition grappled} a cette main libre, vous pouvez utiliser votre action bonus et 1 charge pour forcer cette créature à faire un jet de sauvegarde de Constitution {@dc 17} ou être {@condition stunned} pendant que l'herbe déshydrate rapidement son corps. Les constructions, les morts-vivants et toute créature qui n'a pas naturellement de liquide dans son corps réussissent automatiquement ce jet. Une créature {@condition stunned} peut refaire le jet de sauvegarde de Constitution à la fin de chacun de ses tours, mettant fin à l'effet sur elle-même en cas de réussite. Une fois que toutes les charges ont été utilisées sur cette herbe, elle éclate à force de se gorger de liquide et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandtrap Palm",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7566,21 +7563,21 @@
 						"Vous pouvez passer 1 minute à enrouler ou dérouler vos mains et vos pieds dans cette herbe. Tant que vos mains et vos pieds sont enveloppés dans cette herbe, vous ne subissez aucune pénalité à votre vitesse de déplacement lorsque vous traversez un terrain sablonneux, et vous avez l'avantage pour escalader des surfaces couvertes de sable."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Scholar's Brush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7603,21 +7600,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Seeds",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -7634,21 +7631,21 @@
 						"Cette herbe a {@dice 1d6} de charges. En tant qu'action, vous pouvez dépenser une charge pour disperser un certain nombre de graines. Si elles sont dispersées dans une masse d'eau, ces graines poussent tous les animaux marins de la même masse d'eau, dont le score d'intelligence est inférieur à 4 et qui se trouvent à moins de 30 mètres d'elles, à nager vers elles en suivant le chemin le plus direct possible. Les poissons ne cherchent pas à manger ces graines, mais sont simplement attirés par leur emplacement. Une fois qu'elles sont restées dans l'eau pendant 1 minute, elles se dissolvent et deviennent inutiles."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Soap",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7671,21 +7668,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sentry Bush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7701,21 +7698,21 @@
 						"Après avoir préparé cette herbe, vous bénéficiez de tous les avantages de 8 heures de sommeil (ou de la forme équivalente de dormance pour votre race). Vous devez toujours vous reposer pendant au moins 8 heures pour bénéficier d'un long repos."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sharpeye Twig",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7731,21 +7728,21 @@
 						"Vous pouvez utiliser votre action bonus pour commencer à mâcher cette herbe. Lorsque vous mâchez cette herbe, vous ignorez tout désavantage imposé lorsque vous tentez d'effectuer une attaque d'arme à distance au-delà de la portée normale de votre arme. Vous pouvez mâcher cette herbe pendant une minute maximum, en une seule fois ou en plusieurs fois, en utilisant au minimum un round à chaque fois avant de vous arrêter (aucune action requise)."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shepherd's Soap",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7761,21 +7758,21 @@
 						"Après avoir utilisé cette herbe, vous produisez une odeur agréable pendant les 4 heures suivantes qui fait que tout animal autour de vous vous fait confiance instinctivement. Pendant cette période, vous avez un avantage sur les tests de Sagesse ({@skill Animal Handling}) effectués pour communiquer avec tout animal situé à moins de 30 pieds de vous et qui peut vous entendre et vous sentir."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shifter's Jasmine",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7791,21 +7788,21 @@
 						"Pendant la préparation de cette herbe, vous devez vous représenter mentalement une forme humanoïde. Cette forme n'a pas besoin d'avoir la même race, le même sexe, les mêmes dimensions ou le même âge que votre forme actuelle, mais elle doit être dans les limites réalistes pour un humanoïde de cette race (par exemple, vous ne pouvez pas imaginer un nain de 12 pieds de haut ou un elfe à quatre bras). Après avoir utilisé l'herbe, votre corps se transforme définitivement pour correspondre à la forme que vous avez imaginée. Vos statistiques ne changent pas, et vous conservez toutes les capacités raciales que vous aviez à l'origine."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shunflower",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7821,21 +7818,21 @@
 						"Une créature qui a cette herbe sur elle a un désavantage sur les tests de capacité de Charisme."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sigil's Mark",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7851,21 +7848,21 @@
 						"Cette herbe contient {@dice 1d6} de graines. En tant qu'action, vous pouvez écraser une graine et frotter l'huile résultante sur vous-même, ou vous pouvez utiliser une graine pour effectuer une attaque d'arme à distance contre une créature que vous pouvez voir dans un rayon de 20 pieds de vous, la détruisant et libérant l'huile à l'impact. Dans tous les cas, une créature couverte par cette huile est isolée des vents du destin pendant l'heure qui suit. Pendant ce temps, chaque fois que la créature couverte fait un jet en utilisant un {@dice d20}, elle saute le jet et agit comme si elle avait obtenu un 10 à la place."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sillypad",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7920,21 +7917,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Silver Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7950,21 +7947,21 @@
 						"Lors de la préparation de cette herbe, vous devez l'appliquer sur une arme de mêlée ou sur un maximum de 10 munitions. Si vous le faites, pendant l'heure qui suit, cette arme ou cette munition est considérée comme étant à la fois magique et en argent pour surmonter la résistance et l'immunité aux attaques d'armes non-magiques et non-argentées."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Snakeskin Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7980,21 +7977,21 @@
 						"Comme action, vous pouvez manger cette herbe. Pendant l'heure qui suit, votre peau s'écaille constamment, laissant derrière vous une trace de sable, mais vous ne souffrez d'aucun effet indésirable. À la fin de cette heure, votre peau devient extrêmement lisse, comme si vous aviez exfolié tout votre corps."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soap Grass",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8010,21 +8007,21 @@
 						"Vous pouvez passer 10 minutes à vous frictionner avec cette herbe. Si vous le faites, vous serez débarrassé de toutes les saletés et de la boue."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soldier's Duty",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8040,21 +8037,21 @@
 						"En tant qu'action, vous pouvez écraser cette herbe devant le nez d'une créature à 1,5 mètre de vous qui est à 0 point de vie, lui faisant regagner 1 point de vie."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soopa Mushroom",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8070,21 +8067,21 @@
 						"En tant qu'action, vous pouvez manger cette herbe, ce qui vous fait grandir d'une taille par rapport à votre taille normale ; si vous n'avez pas assez de place pour accueillir votre nouvelle taille, vous revenez à votre taille normale et cette herbe est gaspillée. Les effets de cette herbe durent 4 heures, ou jusqu'à ce que vous subissiez des dégâts, selon ce qui se produit en premier."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sork Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8100,21 +8097,21 @@
 						"Comme action, vous pouvez placer cette racine dans votre bouche et commencer à la mâcher. Lorsque vous mâchez cette racine, vous exsudez un mucus glissant qui vous rend difficile à saisir. Tout test de Force effectué sur {@action grapple} de vous est fait avec un désavantage, et vous ne subissez pas de pénalités lorsque vous vous serrez dans des espaces étroits. Cette racine peut être mâchée pendant 5 minutes maximum, ce que vous pouvez faire en une seule fois, ou sur plusieurs séances."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Spectrum Rose",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8137,21 +8134,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Speed Apple",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8167,21 +8164,21 @@
 						"Pendant 4 heures après l'application de cette herbe, votre vitesse de marche augmente de 10 pieds et vous ignorez les effets de {@quickref difficult terrain||3}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sporecaster",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8197,21 +8194,21 @@
 						"Dans le cadre de l'utilisation de cette herbe, vous placez des segments de cette herbe dans des segments spécifiques de vos vêtements et de votre armure. Chaque fois que vous êtes touché avec succès par une attaque d'arme de mêlée, vous libérez une rafale de spores dans un rayon de 1,5 m autour de vous. Toute créature autre que vous dans cette rafale doit effectuer un jet de sauvegarde de Constitution {@dc 15}, devenant {@condition poisoned} pendant 1 minute en cas d'échec. Une fois que vous avez libéré 4 salves de spores, les segments de champignons de vos vêtements et armures se vident et cet effet prend fin."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Squirtwort",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8227,21 +8224,21 @@
 						"Cette herbe contient {@dice 1d8} de bourgeons. En tant qu'action, vous pouvez lancer un de ces bourgeons sur un point du sol situé à moins de 30 pieds de vous, faisant éclater le bourgeon au contact. Après avoir éclaté, un bourgeon libère une fontaine de fluide glissant qui couvre une zone carrée de 1,5 m autour de lui. Toute créature qui pénètre dans la zone couverte doit réussir un jet de sauvegarde de Dextérité {@dc 12} ou tomber {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Steelwood Sap",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8266,21 +8263,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stenchblossom",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8296,21 +8293,21 @@
 						"En tant qu'action, vous pouvez consommer cette herbe, ce qui vous fait émettre une odeur débilitante pendant les 10 prochaines minutes. Pendant ce temps, toute créature qui termine son tour à moins de 1,5 m de vous et qui peut sentir l'odeur doit effectuer un jet de sauvegarde de Constitution {@dc 12}. En cas d'échec, cette créature subit toutes ses attaques avec un désavantage, et les attaques contre elle ont l'avantage lorsqu'elle se plaint. Cet effet prend fin si la créature s'éloigne de vous de plus de 1,5 m ou perd son odorat."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sticky Fig",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8326,21 +8323,21 @@
 						"En tant qu'action, vous pouvez manger cette herbe. Pendant l'heure qui suit, vous produisez un mucus collant qui vous fait adhérer à la surface sur laquelle vous vous trouvez, vous donnant un avantage sur tout jet de sauvegarde ou test d'aptitude pour éviter d'être déplacé contre votre volonté, ainsi qu'une vitesse de montée égale à votre vitesse de marche."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stonecap Mushrooms",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8356,21 +8353,21 @@
 						"Pendant les 8 heures qui suivent l'utilisation de cette herbe, tous les coups critiques portés contre vous sont transformés en coups normaux et tous les effets supplémentaires qui seraient déclenchés par ce coup critique sont annulés."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sungi",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8386,21 +8383,21 @@
 						"Cette herbe peut être appliquée à une arme de mêlée ou à un maximum de 10 munitions. Une arme à laquelle on a appliqué cette herbe est considérée comme magique et inflige des dégâts radiants supplémentaires de {@damage 1d8} lors de son premier coup réussi dans un tour. Cet effet dure une heure."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sylvan Bandage",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8416,21 +8413,21 @@
 						"Lorsque vous utilisez cette herbe pendant un court repos, vous regagnez le nombre de points de vie que vous avez dépensé pour récupérer des points de vie pendant ce repos."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tailor's Gamble",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8493,21 +8490,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Thaw Bud",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -8524,21 +8521,21 @@
 						"Cette herbe contient {@dice 1d6} de charges, correspondant au nombre de bourgeons cueillis. En tant qu'action, vous pouvez utiliser une charge pour écraser un de ces bourgeons et frotter la sécrétion qui en résulte sur une plaque de glace ou de neige, la faisant fondre. Une charge peut faire fondre une plaque d'une superficie allant jusqu'à 1,5 mètre carré et 1 pouce d'épaisseur."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Titan's Field",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8564,21 +8561,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tlincalli Thorn",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8594,21 +8591,21 @@
 						"Pendant 4 heures après avoir préparé cette herbe, vous gagnez un bonus de +1 à votre CA car votre peau devient exceptionnellement dure et écailleuse."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Toad Skin Shrub",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8624,21 +8621,21 @@
 						"Comme action, vous pouvez manger cette herbe, ce qui vous oblige à réussir un jet de sauvegarde de Constitution {@dc 15} ou à devenir {@condition poisoned} pendant une heure. Quel que soit le résultat, vous sécrétez également une bave toxique de votre peau pendant l'heure suivante qui oblige toute créature qui vous touche ou qui vous touche avec une attaque d'arme de mêlée à réussir un jet de sauvegarde de {@dc 15} de Constitution ou à devenir {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Touch Grass",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8654,21 +8651,21 @@
 						"Lorsque vous {@action cast a spell} qui a une portée de toucher, vous pouvez cibler cette herbe au lieu des cibles habituelles du sort. Si vous le faites, cette herbe absorbe le sort pour le libérer sur la prochaine cible valide qu'elle touche. En tant qu'action, vous pouvez lancer cette herbe sur une cible située dans un rayon de 6 mètres autour de vous, en la traitant comme une attaque d'arme à distance. En cas de succès, cette herbe ne fait aucun dégât, mais libère le sort qu'elle contenait sur la cible. Cette herbe ne peut absorber qu'un seul sort à la fois et ne peut retenir un sort que pendant 10 minutes, après quoi la magie se dissipe et le sort est gaspillé. Quoi qu'il en soit, une fois que cette herbe a libéré un sort stocké, elle se désagrège et devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tracker's Leaf",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8691,21 +8688,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Treant Seed",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8721,21 +8718,21 @@
 						"Lorsque vous utilisez cette herbe, vous vous transformez en un {@creature treant|MM} {@homebrew |(as outlined in the Monster Manual)}. Tout votre équipement se fond dans votre nouvelle forme et n'est plus disponible jusqu'à la fin de cet effet. Si vous n'avez pas la place de vous développer dans votre nouvelle forme, la transformation s'annule immédiatement et l'herbe est gaspillée. Pendant que vous êtes un {@creature treant|MM}, vous conservez votre alignement, vos compétences, vos connaissances, vos sorts et vos capacités de classe, mais vous remplacez toutes les autres caractéristiques par celles du {@creature treant|MM}, y compris les points de vie. Vous retrouvez votre forme normale au bout de 4 heures, ou si vous tombez à 0 point de vie, auquel cas vous vous retrouvez immédiatement, les dégâts excédentaires étant reportés sur votre forme normale."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Troll's Snot",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8751,21 +8748,21 @@
 						"Pendant 8 heures après avoir utilisé cette herbe, vos mains exsudent une substance collante qui vous donne un avantage sur les tests de Force ({@skill Athletics}) effectués pour grimper ou {@action grapple} quelque chose, et vous ne pouvez pas être désarmé d'un objet dans votre main involontairement."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Twice-Blessed Clover",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8781,21 +8778,21 @@
 						"Comme action bonus, vous pouvez écraser ce trèfle dans votre main. Si vous le faites, tous les jets d'attaque, contrôles de capacité et jets de sauvegarde que vous effectuez jusqu'au début de votre prochain tour sont effectués avec un avantage. Une fois utilisée, cette herbe devient inutile."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Umbra Tongue",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8811,21 +8808,21 @@
 						"Pendant 8 heures après avoir utilisé cette herbe, vous gagnez 6 points de vie temporaires chaque fois que vous commencez votre tour dans l'obscurité."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Vampire's Fang",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8842,21 +8839,21 @@
 						"Cette herbe a {@dice 1d8} de charges. En tant qu'action, vous pouvez enrouler les racines de cette herbe autour de votre bras tout en laissant sa fleur hérissée tenue dans une main libre. Tant que cette herbe est enroulée autour de votre bras, chaque fois qu'une créature dont le corps contient du sang meurt à moins de 1,5 mètre de vous, vous pouvez dépenser une charge afin d'utiliser votre réaction pour drainer le sang de cette créature, ce qui vous confère des points de vie temporaires égaux à son indice de difficulté (minimum de 1)."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Volo Tree",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8879,21 +8876,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Whisper Puff",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8910,21 +8907,21 @@
 						"Cette herbe possède {@dice 1d8} de charges. Comme action bonus, vous pouvez utiliser une charge pour fourrer un des bulbes de cette herbe dans votre bouche. Si vous faites cela, vous ne faites aucun bruit audible la prochaine fois que vous {@action cast a spell} qui a une composante verbale."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Winterlight Bloom",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8940,21 +8937,21 @@
 						"Vous gagnez une résistance aux dégâts de froid pendant 4 heures après avoir utilisé cette herbe."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Wizard's Friend",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8970,21 +8967,21 @@
 						"En une heure, cette herbe peut être écrasée et mélangée afin de créer une encre d'un violet profond qui peut être utilisée pour inscrire des sorts dans le livre de sorts d'un sorcier. Lorsqu'elle est utilisée de cette manière, l'encre remplace la pièce d'or requise pour l'inscription. Une herbe est capable de créer suffisamment d'encre pour remplacer jusqu'à 100 pièces d'or de composants d'inscription de sorts."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yell Pepper",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9019,21 +9016,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yeti Brush",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9049,7 +9046,10 @@
 						"Vous pouvez passer 1 minute à envelopper vos mains et vos pieds dans cette herbe. Si vous le faites, vous ne subissez aucune pénalité à votre vitesse de déplacement lorsque vous vous déplacez en terrain enneigé ou glacé, et vous avez l'avantage pour escalader les surfaces couvertes de glace ou de neige."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		}
 	]
 }
