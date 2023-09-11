@@ -20,18 +20,18 @@
 		],
 		"status": "ready",
 		"dateAdded": 1665431770,
-		"dateLastModified": 1668700856,
-		"_dateLastModifiedHash": "06fba59cbb"
+		"dateLastModified": 1694386526,
+		"_dateLastModifiedHash": "2553fb95e8"
 	},
 	"book": [
 		{
 			"name": "Hamund's Herbalism Handbook",
-			"source": "HHbH",
-			"author": "Jasmine Yang",
-			"group": "homebrew",
 			"id": "HHbH",
-			"published": "2022-09-03",
+			"source": "HHbH",
+			"group": "homebrew",
 			"coverUrl": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/HHH/HHbH/Cover.webp",
+			"published": "2022-09-03",
+			"author": "Jasmine Yang",
 			"contents": [
 				{
 					"name": "Cover Page, Credits & Changelog"
@@ -939,23 +939,33 @@
 	],
 	"feat": [
 		{
-			"name": "Tincture Master",
-			"source": "HHbH",
-			"page": 39,
-			"entries": [
-				"Вы достигли мастерства дистилляции трав в {@variantrule tinctures|HHbH}, что вдвое сокращает время и затраты, необходимые для его создания."
-			]
-		},
-		{
 			"name": "Nature's Bounty",
 			"source": "HHbH",
 			"page": 39,
 			"entries": [
 				"Ваша связь с природой заставляет вас находить больше трав, куда бы вы ни пошли, как будто сама природа пытается помочь вам. Каждый раз, когда вы собираете траву, бросьте {@dice d20}. Если выпадет 20, вы получите дополнительную копию травы, которую только что собрали."
 			]
+		},
+		{
+			"name": "Tincture Master",
+			"source": "HHbH",
+			"page": 39,
+			"entries": [
+				"Вы достигли мастерства дистилляции трав в {@variantrule tinctures|HHbH}, что вдвое сокращает время и затраты, необходимые для его создания."
+			]
 		}
 	],
 	"variantrule": [
+		{
+			"name": "Optional Rule: Herb Toxicity",
+			"source": "HHbH",
+			"page": 4,
+			"ruleType": "O",
+			"entries": [
+				"Из соображений баланса рекомендуется сохранить правило, позволяющее персонажу одновременно пользоваться эффектами только одной травы. Однако, если ДМ пожелает, он может разрешить использование нескольких трав с высокой выгодой, включив недостаток с высоким риском, известный как {@b herb toxicity}.",
+				"Согласно этому дополнительному правилу, каждый раз, когда существо находится под действием одной травы и пытается использовать другую на себе, оно должно сделать бросок спасброска Конституции с DC, равным 10 + 5 x количество трав, которые оно пыталось использовать с момента последнего длительного отдыха. В случае успеха они используют траву как обычно. В случае неудачи их организм отвергает перегрузку магических воздействий на себя, в результате чего трава будет потрачена впустую, благотворные эффекты любой травы, воздействующей на них в данный момент, немедленно прекратятся, а само существо станет {@condition poisoned} на один час."
+			]
+		},
 		{
 			"name": "Optional Rule: Identifying Herbs",
 			"source": "HHbH",
@@ -965,16 +975,6 @@
 				"Для простоты в стандартных правилах предполагается, что персонажи всегда знают, что за траву они собрали, включая ее название, ценность и эффект. Однако, если DM хочет добавить немного больше сложности и вызова, он может заставить игроков определять травы.",
 				"Согласно этому дополнительному правилу, каждый раз, когда персонаж собирает траву, он должен успешно пройти проверку на {@dc 15} Мудрость ({@skill Nature}), чтобы определить только что собранную траву. В случае неудачи персонаж знает только, что трава смутно полезна, но не знает ее названия, эффектов или как ее использовать.",
 				"Предполагается, что персонаж, выбравший траву, знает, какую траву он выбрал."
-			]
-		},
-		{
-			"name": "Optional Rule: Herb Toxicity",
-			"source": "HHbH",
-			"page": 4,
-			"ruleType": "O",
-			"entries": [
-				"Из соображений баланса рекомендуется сохранить правило, позволяющее персонажу одновременно пользоваться эффектами только одной травы. Однако, если ДМ пожелает, он может разрешить использование нескольких трав с высокой выгодой, включив недостаток с высоким риском, известный как {@b herb toxicity}.",
-				"Согласно этому дополнительному правилу, каждый раз, когда существо находится под действием одной травы и пытается использовать другую на себе, оно должно сделать бросок спасброска Конституции с DC, равным 10 + 5 x количество трав, которые оно пыталось использовать с момента последнего длительного отдыха. В случае успеха они используют траву как обычно. В случае неудачи их организм отвергает перегрузку магических воздействий на себя, в результате чего трава будет потрачена впустую, благотворные эффекты любой травы, воздействующей на них в данный момент, немедленно прекратятся, а само существо станет {@condition poisoned} на один час."
 			]
 		},
 		{
@@ -1007,6 +1007,8 @@
 	"spell": [
 		{
 			"name": "Cornucopia",
+			"source": "HHbH",
+			"page": 39,
 			"level": 5,
 			"school": "T",
 			"time": [
@@ -1021,6 +1023,11 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small pouch of loamy soil"
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1029,6 +1036,12 @@
 						"amount": 1
 					}
 				}
+			],
+			"meta": {
+				"ritual": true
+			},
+			"entries": [
+				"Когда вы произносите это заклинание, вы объявляете до 4 желающих существ, которых вы можете видеть в радиусе 30 футов, разделить с вами магическую связь. На время действия заклинания, когда вы используете траву на себе, эффект этой травы дублируется на всех существ, которые разделяют с вами магическую связь, если они находятся на одном плане существования."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1045,23 +1058,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Когда вы произносите это заклинание, вы объявляете до 4 желающих существ, которых вы можете видеть в радиусе 30 футов, разделить с вами магическую связь. На время действия заклинания, когда вы используете траву на себе, эффект этой травы дублируется на всех существ, которые разделяют с вами магическую связь, если они находятся на одном плане существования."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"meta": {
-				"ritual": true
-			},
-			"components": {
-				"v": true,
-				"s": true,
-				"m": "a small pouch of loamy soil"
 			}
 		},
 		{
 			"name": "Hamund's Herbal Hypodermic",
+			"source": "HHbH",
+			"page": 39,
 			"level": 2,
 			"school": "T",
 			"time": [
@@ -1076,6 +1078,10 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1084,6 +1090,16 @@
 						"amount": 10
 					}
 				}
+			],
+			"entries": [
+				"Когда вы произносите это заклинание, из вашей руки на время вырастает полая игла, которую можно использовать как естественное оружие для нанесения ударов без оружия, наносящих {@damage 1d4} + модификатор ловкости в уроне.",
+				"Удары этой иглой можно также использовать для быстрой доставки яда или травы, на нанесение которых на оружие обычно уходит гораздо больше времени. В качестве бонусного действия вы можете использовать иглу для поглощения яда или травы, которыми обычно покрывают оружие. Если вы это сделаете, игла будет действовать так, как будто она покрыта этим ядом или травой, со всеми вытекающими отсюда преимуществами."
+			],
+			"damageInflict": [
+				"piercing"
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1112,26 +1128,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Когда вы произносите это заклинание, из вашей руки на время вырастает полая игла, которую можно использовать как естественное оружие для нанесения ударов без оружия, наносящих {@damage 1d4} + модификатор ловкости в уроне.",
-				"Удары этой иглой можно также использовать для быстрой доставки яда или травы, на нанесение которых на оружие обычно уходит гораздо больше времени. В качестве бонусного действия вы можете использовать иглу для поглощения яда или травы, которыми обычно покрывают оружие. Если вы это сделаете, игла будет действовать так, как будто она покрыта этим ядом или травой, со всеми вытекающими отсюда преимуществами."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"components": {
-				"v": true,
-				"s": true
-			},
-			"damageInflict": [
-				"piercing"
-			],
-			"miscTags": [
-				"UBA"
-			]
+			}
 		},
 		{
 			"name": "Herbal Infusion",
+			"source": "HHbH",
+			"page": 40,
 			"level": 3,
 			"school": "T",
 			"time": [
@@ -1146,10 +1148,17 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"s": true,
+				"m": "one herb that the spell consumes"
+			},
 			"duration": [
 				{
 					"type": "instant"
 				}
+			],
+			"entries": [
+				"Вы магически извлекаете и поглощаете сущность травы в своей руке, что позволяет вам мгновенно использовать траву, независимо от того, сколько времени обычно требуется для ее применения. Это заклинание можно использовать только для трав, воздействующих на ваше тело."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1170,15 +1179,6 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Вы магически извлекаете и поглощаете сущность травы в своей руке, что позволяет вам мгновенно использовать траву, независимо от того, сколько времени обычно требуется для ее применения. Это заклинание можно использовать только для трав, воздействующих на ваше тело."
-			],
-			"source": "HHbH",
-			"page": 40,
-			"components": {
-				"s": true,
-				"m": "one herb that the spell consumes"
 			}
 		}
 	],
@@ -1420,102 +1420,6 @@
 		}
 	],
 	"table": [
-		{
-			"name": "Herb's Relative Rarity Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"d100",
-				"Herb's Table Position",
-				"{@dice d100} roll"
-			],
-			"colStyles": [
-				"col-4 text-center",
-				"col-4 text-center",
-				"col-4 text-center"
-			],
-			"rows": [
-				[
-					"99\u2013100",
-					"2 or 16",
-					"99"
-				],
-				[
-					"96\u201398",
-					"3 or 15",
-					"96"
-				],
-				[
-					"91\u201395",
-					"4 or 14",
-					"91"
-				],
-				[
-					"85\u201390",
-					"5 or 13",
-					"85"
-				],
-				[
-					"77\u201384",
-					"6 or 12",
-					"77"
-				],
-				[
-					"68\u201376",
-					"7 or 11",
-					"68"
-				],
-				[
-					"57\u201367",
-					"8 or 10",
-					"57"
-				],
-				[
-					"44\u201356",
-					"9",
-					"44"
-				],
-				[
-					"1\u201343",
-					"Трава не найдена",
-					"1"
-				]
-			],
-			"footnotes": [
-				"{@note First column added to enable 5eTools style rollable table.}"
-			]
-		},
-		{
-			"name": "Foraging Herb Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
-				"Result"
-			],
-			"colStyles": [
-				"col-2 text-center",
-				"col-10 text-center"
-			],
-			"rows": [
-				[
-					"1\u20139",
-					"{@homebrew Character finds nothing.}"
-				],
-				[
-					"10\u201315",
-					"Персонаж находит достаточно пищи, чтобы прокормить существо среднего размера в течение одного дня."
-				],
-				[
-					"16\u201320",
-					"Персонаж находит обычную траву. Для определения результата сделайте бросок по таблице обычных трав соответствующей среды."
-				],
-				[
-					"21+",
-					"Персонаж находит редкую траву. Чтобы определить результат, сделайте бросок по таблице редких трав соответствующей среды."
-				]
-			]
-		},
 		{
 			"name": "All Herbs A-Z Table",
 			"source": "HHbH",
@@ -2862,6 +2766,102 @@
 			]
 		},
 		{
+			"name": "Foraging Herb Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
+				"Result"
+			],
+			"colStyles": [
+				"col-2 text-center",
+				"col-10 text-center"
+			],
+			"rows": [
+				[
+					"1\u20139",
+					"{@homebrew Character finds nothing.}"
+				],
+				[
+					"10\u201315",
+					"Персонаж находит достаточно пищи, чтобы прокормить существо среднего размера в течение одного дня."
+				],
+				[
+					"16\u201320",
+					"Персонаж находит обычную траву. Для определения результата сделайте бросок по таблице обычных трав соответствующей среды."
+				],
+				[
+					"21+",
+					"Персонаж находит редкую траву. Чтобы определить результат, сделайте бросок по таблице редких трав соответствующей среды."
+				]
+			]
+		},
+		{
+			"name": "Herb's Relative Rarity Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"d100",
+				"Herb's Table Position",
+				"{@dice d100} roll"
+			],
+			"colStyles": [
+				"col-4 text-center",
+				"col-4 text-center",
+				"col-4 text-center"
+			],
+			"rows": [
+				[
+					"99\u2013100",
+					"2 or 16",
+					"99"
+				],
+				[
+					"96\u201398",
+					"3 or 15",
+					"96"
+				],
+				[
+					"91\u201395",
+					"4 or 14",
+					"91"
+				],
+				[
+					"85\u201390",
+					"5 or 13",
+					"85"
+				],
+				[
+					"77\u201384",
+					"6 or 12",
+					"77"
+				],
+				[
+					"68\u201376",
+					"7 or 11",
+					"68"
+				],
+				[
+					"57\u201367",
+					"8 or 10",
+					"57"
+				],
+				[
+					"44\u201356",
+					"9",
+					"44"
+				],
+				[
+					"1\u201343",
+					"Трава не найдена",
+					"1"
+				]
+			],
+			"footnotes": [
+				"{@note First column added to enable 5eTools style rollable table.}"
+			]
+		},
+		{
 			"name": "Rare Arctic Herbs",
 			"source": "HHbH",
 			"page": 42,
@@ -3487,14 +3487,11 @@
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3529,21 +3526,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Aloyleaf",
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3559,21 +3556,21 @@
 						"Эта трава дает достаточно листьев, чтобы покрыть {@dice 1d6} квадратных футов. Эти листья твердые, как сталь, но легкие, как обычные листья, и никогда не разлагаются, если их не закопать под почву."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ashfree Birch",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3589,21 +3586,21 @@
 						"Вы можете потратить 10 минут на то, чтобы положить листы этой коры под доспехи и одежду, изолируя вас от жара и огня. Если вы это сделаете, то всякий раз, когда вы получаете урон от огня, эта трава поглощает этот урон вместо вас. Эта трава может поглотить до 30 пунктов повреждений от огня, прежде чем полностью сгорит и станет бесполезной; при этом все избыточные повреждения будут переданы вам. Вы можете удалить эту траву, потратив 1 минуту на то, чтобы очистить ее от одежды."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Auril's Hair",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3619,21 +3616,21 @@
 						"В качестве действия вы можете вонзить этот стебель в землю. Если вы это сделаете, вся земля в радиусе 20 футов от вас покроется тонким слоем льда, в результате чего она станет {@quickref difficult terrain||3} на следующие 10 минут (или вдвое меньше, если это происходит в жаркой среде). Этот посох можно использовать до 3 раз, после чего он теряет всю накопленную энергию холода и становится бесполезным."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Banshee Vine",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3661,21 +3658,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Barrier Coral",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3698,21 +3695,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk Tongues",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3728,21 +3725,21 @@
 						"Эта трава может быть применена к одному оружию ближнего боя или до 10 единиц боеприпасов, покрывая их окаменевшим маслом на 10 минут. Существо, пораженное этим оружием или боеприпасами, должно успешно пройти бросок на спасбросок по конституции {@dc 12} или получить один уровень следующих эффектов, когда оно начинает превращаться в камень. Скорость передвижения пораженного существа уменьшается вдвое. Пораженное существо становится {@condition restrained}. Когда пораженное существо превращается в камень, его рост составляет {@condition petrified}. Существо может повторить бросок спасброска на конституцию в конце каждого своего хода, при успехе снижая уровень эффекта на единицу. Заклинание {@spell greater restoration} или аналогичная магия, наложенная на пораженное существо, мгновенно снимает с него все уровни."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk's Appetiser",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3766,21 +3763,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bird Seed",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3797,21 +3794,21 @@
 						"Эта трава имеет {@dice 1d4} зарядов. В качестве действия вы можете использовать один заряд, чтобы разбросать несколько семян по земле, в результате чего они превратятся в небольшую стаю птиц, которые тут же улетят. Эти птицы имеют магическую природу и исчезают через 1 минуту."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blighted Pollen",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3866,21 +3863,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blubber Bulb",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3896,21 +3893,21 @@
 						"После использования этой травы вы покрываетесь толстым слоем масла, напоминающего ворвань, который сохраняется в течение 4 часов. В течение этого времени вы невосприимчивы к любым повреждениям от холода, огня, яда или кислоты, которые вы могли бы получить в результате прикосновения к цели или от атаки оружием ближнего боя."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Boom Maize",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -3927,21 +3924,21 @@
 						"Полный мешочек этой травы содержит 6 зарядов. В качестве действия вы можете потратить один или несколько зарядов, чтобы бросить горсть зерен в цель, которую вы видите в радиусе 20 футов от себя. Эта цель должна сделать бросок на спасбросок силы {@dc 10}, причем DC увеличивается на 2 за каждый потраченный заряд. При неудаче цель отбрасывается на 5 футов назад."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bramble Rice",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3958,21 +3955,21 @@
 						"Эта трава имеет {@dice 1d4} зарядов. В качестве действия вы можете использовать заряд, чтобы разбросать мешочек с этой травой в области площадью 5 футов перед вами. Любое существо, вошедшее в эту область, должно успешно выполнить {@dc 15} бросок на ловкость или прекратить движение и получить {@damage 1} колющего урона. Пока существо не восстановит хотя бы 1 хит-пойнт, его скорость передвижения снижается на 10 футов. Существо, движущееся через область с половинной скоростью, не обязано делать бросок на спасбросок."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Breeze Nuts",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4000,21 +3997,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Brighteye Carrots",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4030,21 +4027,21 @@
 						"В течение 8 часов после применения этой травы вы получаете {@sense darkvision} в радиусе 60 футов, а ваши глаза проливают тусклый свет в радиусе 5 футов."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bubblemelon",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4060,21 +4057,21 @@
 						"В качестве действия вы можете начать жевать эту траву. Пока вы продолжаете жевать этот корень, вам не нужно дышать. Эту траву можно жевать до 10 минут, причем вы можете делать это сразу или в течение нескольких сеансов."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Buried Moonlight",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4097,21 +4094,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Candle Rose",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4127,21 +4124,21 @@
 						"Эту траву длиной в фут можно использовать так же, как и обычную {@item candle|PHB}: в течение 1 часа при поджигании она излучает яркий свет в радиусе 5 футов и тусклый свет еще на 5 футов. Аромат и цвет этой розы определяются вашим ДМ, но обычно оба они довольно приятны."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Chef's Trick",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4157,21 +4154,21 @@
 						"В качестве действия вы можете раскрошить и посыпать его на съедобный предмет, например, на еду или напиток, думая при этом о вкусе. Этот вкус может варьироваться от чего-то неопределенного, например \"кислый\", до чего-то конкретного, например \"жареная курица, приправленная орегано\". Если вы это сделаете, вкус этого предмета станет таким же, как тот, о котором вы подумали. Существо, съевшее этот предмет, может сделать {@dc 20} проверку мудрости ({@skill Perception}), чтобы заметить искусственный вкус."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cleric's Cane",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4187,21 +4184,21 @@
 						"Во время использования этой травы вы можете бросить любое количество доступных вам кубиков, чтобы восстановить хит-пойнты, как обычно во время короткого отдыха. Если на любом из этих кубиков выпадет 1 или 2, вы можете перебросить результат и должны взять новое число, даже если это 1 или 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cold Brush",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4217,21 +4214,21 @@
 						"При использовании этой травы необходимо натереть ею открытые участки кожи во время приготовления. В течение следующих 4 часов ваша кожа приобретает бледно-голубой цвет и становится ледяной на ощупь. Это не влияет на фактическую температуру тела."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Compass Rose",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -4248,21 +4245,21 @@
 						"Эта листовая трава содержит {@dice 1d6} зарядов. В качестве действия вы можете подержать эту траву на ладони. Если вы это сделаете, трава потеряет один заряд и выпустит пучок видимых спор, которые распространятся по пути ветра. Эта способность действует даже в замкнутом пространстве, например, в здании или глубокой пещере, если к месту, в котором вы находитесь, ведет один открытый проход, ведущий наружу."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Corpse Hands",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4278,21 +4275,21 @@
 						"Эта трава может быть применена к одному оружию ближнего боя или к 10 единицам боеприпасов. Оружие, на которое была наложена эта трава, считается магическим и наносит дополнительный {@damage 1d8} некротический урон при первом удачном попадании в ход. Этот эффект длится в течение 1 часа."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Courter's Perfume",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4308,21 +4305,21 @@
 						"В течение 4 часов после использования этой травы любое существо, почуявшее ваш запах, воспринимает вас как свой любимый аромат."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cracker Nut",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -4339,21 +4336,21 @@
 						"Эта трава содержит {@dice 1d8} зарядов, соответствующих количеству собранных орехов. В качестве действия вы можете потратить заряд, чтобы бросить орех в точку, которую вы видите в радиусе 30 футов от себя, в результате чего он разорвется от удара и издаст громкий треск, который будет слышен на расстоянии до 100 футов."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crackle Bark",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4369,21 +4366,21 @@
 						"Эта трава может быть применена к одному оружию ближнего боя или к 10 единицам боеприпасов. Оружие, на которое была наложена эта трава, считается магическим и наносит дополнительный {@damage 1d8} урон молнией при первом удачном попадании в ход. Этот эффект длится в течение 1 часа."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Creeper's Folly",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4399,21 +4396,21 @@
 						"В течение 4 часов после использования этой травы вы не можете быть {@quickref Surprise|PHB|3|0|surprised} и делаете все броски инициативы с преимуществом."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crystal Fruit",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4429,21 +4426,21 @@
 						"Вы можете использовать свое действие, чтобы съесть этот фрукт. Если вы это сделаете, то на следующие 10 минут ваше тело покроется тонким слоем льда, который повысит ваш AC до 15, если раньше он был ниже, но ваша скорость передвижения уменьшится вдвое."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Deadwood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4459,21 +4456,21 @@
 						"В течение 8 часов после употребления этой травы ваши эмоции остаются совершенно спокойными и меняются только в том случае, если вы подвергнетесь воздействию, которое волшебным образом изменит их."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Drowner's Reach",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4489,21 +4486,21 @@
 						"Пока эта трава обернута вокруг свободной руки, вы имеете преимущество при любых {@action grapple} проверках, сделанных этой рукой. Обертывание и разворачивание этой травы вокруг свободной руки занимает одно действие. Если эта трава была использована в 5 успешных {@action grapple} проверках, она портится и становится бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dryad's Secret",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4519,21 +4516,21 @@
 						"После использования этой травы в течение следующих 4 часов от вас исходит приятный запах, который заставляет окружающих вас людей быть открытыми для внушения. В течение этого времени вы имеете преимущество в харизме ({@skill Persuasion}), чтобы убедить гуманоидов довериться или подружиться с вами."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dwarf's Bane",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4549,21 +4546,21 @@
 						"Если поместить эту траву в любую ядовитую жидкость, все токсины поглощаются травой, и жидкость становится безвредной и пригодной для питья водой. Этот эффект распространяется и на алкоголь, который становится безалкогольным, если подвергнуть его воздействию этой травы. Эта трава способна удалить токсины из 5 галлонов жидкости, после чего она становится бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Echo Wood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4579,21 +4576,21 @@
 						"Эта трава может быть применена к одному оружию ближнего боя или к 10 единицам боеприпасов. Оружие, на которое была наложена эта трава, считается магическим и наносит дополнительный {@damage 1d8} урон громом при первом удачном попадании в ход. Этот эффект длится в течение 1 часа."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Elven Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4609,21 +4606,21 @@
 						"В течение 4 часов после использования этой травы вы обретаете чувство спокойствия, которое подавляет вашу способность испытывать сильные всплески эмоций. В течение этого времени у вас есть преимущество при любой проверке способностей или броске спасброска, чтобы противостоять влиянию {@condition frightened|PHB|fear} состояния."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Embergrass",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4639,7 +4636,10 @@
 						"В течение 1 часа после применения этой травы у вас есть устойчивость к повреждениям от огня, и вы автоматически успешно справляетесь с любой проверкой умений или броском спасения, сделанным для сопротивления эффектам жаркой погоды."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everfrost Root",
@@ -4647,14 +4647,11 @@
 			"page": 12,
 			"type": "Herb",
 			"typeAlt": "SCF",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"focus": true,
 			"entries": [
 				{
@@ -4671,21 +4668,21 @@
 						"Вы можете использовать эту траву в качестве {@item arcane focus|PHB} при произнесении заклинаний. Пока эта трава является вашим {@item arcane focus|PHB}, всякий раз, когда вы бросаете 1 или 2 для получения урона холодом, полученного от произнесенного заклинания, вы можете перебросить этот кубик и должны использовать новый бросок, даже если новый бросок равен 1 или 2."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everwort Root",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4701,21 +4698,21 @@
 						"В качестве действия вы можете перелить жидкость из этого корня в зелье. Любая продолжительность действия, связанная с эффектом этого зелья, навсегда удваивается."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fabric Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4750,21 +4747,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fairybed Reed",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4780,22 +4777,22 @@
 						"Вы можете потратить 10 минут на то, чтобы применить эту траву на себе, засунув ее семена в доспехи и смазав суставы ее маслом. Если вы это сделаете, вы игнорируете все недостатки проверок ловкости ({@skill Stealth}), которые вы можете иметь, пока носите свой тип доспехов."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fanana",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
 			"charges": "{@dice 1d6}",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4811,21 +4808,21 @@
 						"Эта трава имеет {@dice 1d6} зарядов, каждый заряд соответствует одному из плодов травы. В качестве действия вы можете потратить один или несколько зарядов, чтобы разорвать плоды, выпустив скопившийся внутри газ и создав порыв ветра шириной 5 футов и длиной, равной пятикратному количеству потраченных зарядов. Этот ветер достаточно силен, чтобы погасить открытое пламя и опрокинуть небольшие предметы, но не настолько, чтобы сбить с ног существо {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fey's Fear",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4848,21 +4845,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiend's chilli",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4878,21 +4875,21 @@
 						"В течение 8 часов после использования этой травы ваша кожа становится ярко-красной, и вы постоянно выдыхаете пар."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiendsgate Wisteria",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4908,21 +4905,21 @@
 						"Во время движения вы можете разбрасывать лепестки глицинии у своих ног. Мешок таких лепестков может образовать линию длиной до 30 футов. Если существо с типом существа fiend попытается пересечь линию лепестков, оно должно сделать бросок на спасение {@dc 15} мудрости. В случае неудачи их скорость снижается до 0 до конца хода."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fin Moss",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4938,21 +4935,21 @@
 						"Вы можете потратить 10 минут на прикрепление этих трав к 1 оружию ближнего боя или до 10 единиц боеприпасов. Любое оружие или боеприпасы, к которым прикреплен этот мох, получают урон {@quickref Underwater Combat|PHB|3|0|no penalty when used underwater}. Эти травы могут быть прикреплены только к одному оружию или боеприпасу - любая попытка снять их повреждает оружие и делает его непригодным для использования."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fire Flower",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4968,7 +4965,10 @@
 						"Эта трава может быть применена к одному оружию ближнего боя или к 10 единицам боеприпасов. Оружие, на которое была наложена эта трава, считается магическим и наносит дополнительный {@damage 1d8} урон огнем при первом удачном попадании в ход. Этот эффект длится в течение 1 часа."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Firemelon",
@@ -4976,15 +4976,12 @@
 			"page": 14,
 			"type": "Herb",
 			"typeAlt": "SCF",
-			"focus": true,
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
+			"focus": true,
 			"entries": [
 				{
 					"type": "entries",
@@ -5000,21 +4997,21 @@
 						"Вы можете использовать эту траву в качестве {@item arcane focus|PHB} при произнесении заклинаний. Пока эта трава является вашим {@item arcane focus|PHB}, при выпадении 1 или 2 для получения урона от огня в результате произнесенного заклинания, вы можете перебросить этот кубик и должны использовать новый бросок, даже если он равен 1 или 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fireplume Fennel",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5030,21 +5027,21 @@
 						"В качестве действия вы можете бросить эту траву в пространство в радиусе 20 футов от вас, которое вы можете видеть. При приземлении эта трава взрывается, заставляя все цели в радиусе 5 футов от этого места успешно выполнить бросок на ловкость или получить {@dc 12} урон от огня, или половину этого урона при успешном спасении."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Flumph Fungi",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5060,21 +5057,21 @@
 						"После использования этой травы вы обретаете большую осведомленность и сочувствие к окружающим вас людям на следующие 4 часа. В течение этого времени у вас есть преимущество при проверке мудрости ({@skill Insight}) для определения эмоционального состояния гуманоидов, с которыми вы общаетесь."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fool's Charm",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8+4}",
 			"entries": [
 				{
@@ -5091,21 +5088,21 @@
 						"Эта трава содержит {@dice 1d8+4} зарядов, каждый заряд представляет собой один из оставшихся листьев на стебле этой травы. Каждый раз, когда вы бросаете 1 при проверке способностей, атаке или броске спасброска, держа эту траву в руках, вы можете потратить заряд, чтобы перебросить кости и использовать новый результат. Когда все заряды будут использованы, трава завянет и станет бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Frozen Fuel",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5121,21 +5118,21 @@
 						"Вы можете бросить эту траву в качестве атаки дальнобойным оружием в точку в радиусе 20 футов от вас, которую вы можете видеть, в результате чего луковица этой травы лопнет и заставит всех существ в радиусе 5 футов от нее сделать бросок на ловкость {@dc 15}. При неудаче существо покрывается липкой, легковоспламеняющейся смолой, которая делает его уязвимым к урону от огня. Существо, покрытое этой смолой, или существо рядом с ним может использовать свое действие, чтобы стереть эту смолу, что немедленно прекращает действие эффекта."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fumbleweed",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5151,21 +5148,21 @@
 						"В следующий раз, когда вы будете непроизвольно сбиты с ног {@condition prone} после использования этой травы, вы можете использовать свою реакцию, чтобы не быть сбитым с ног {@condition prone}. После этого трава ломается и становится бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gargoyle's Lichen",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5181,21 +5178,21 @@
 						"В течение 8 часов после применения этой травы ваша кожа приобретает твердый, серый вид, напоминающий камень."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ghost Leaf",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5211,21 +5208,21 @@
 						"В течение следующего часа, когда бы вы ни двигались, вы становитесь бесплотным, что позволяет вам перемещаться сквозь других существ и твердые объекты, как если бы они были {@quickref difficult terrain||3}, получая {@damage 1d10} урона силы, если вы заканчиваете свое движение внутри твердого объекта. Кроме того, существа с чертой {@i Incorporeal Movement} не могут пройти сквозь вас."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Giant's Silk",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5241,21 +5238,21 @@
 						"Эта трава может быть использована вместо 60 футов веревки. При использовании этой веревки для толкания, тяги, подъема или лазания любые проверки способностей к силе выполняются с преимуществом."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glacier Branch",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5283,21 +5280,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glide Weed",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5320,21 +5317,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gloom's Cloak",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5350,21 +5347,21 @@
 						"В течение следующих 4 часов после использования этой травы вы получаете сопротивление к лучевому урону."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glowmoss",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5380,21 +5377,21 @@
 						"Эта трава излучает тусклый свет в радиусе 5 футов вокруг себя."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gluebell",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5417,21 +5414,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Pine",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5447,21 +5444,21 @@
 						"В качестве действия вы можете покрыть смолой этого растения одно оружие ближнего боя или до 10 единиц боеприпасов. В течение следующего часа каждый раз, когда вы используете это оружие, чтобы успешно поразить существо с типом дракона, это существо должно сделать {@dc 15} бросок на спасение конституции. В случае неудачи все атаки, сделанные против этого существа, будут сделаны с преимуществом до начала вашего следующего хода."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Truffle",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -5478,51 +5475,21 @@
 						"Эта трава содержит {@dice 1d6} зарядов. Вы можете потратить один заряд, чтобы использовать эту траву, после чего ваше максимальное количество хит-пойнтов увеличивается на сумму, равную двойному уровню персонажа, и вы получаете такое же количество хит-пойнтов. Это увеличение длится 4 часа, после чего максимальное количество хит-пойнтов возвращается к норме."
 					]
 				}
-			]
-		},
-		{
-			"name": "Grounder Seed",
-			"source": "HHbH",
-			"page": 17,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
+			"lcn": "Forest",
 			"prep": "Yes",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Находясь в стручках выносливого кустарника, эти семена содержат масло, которое вскоре после контакта с воздухом высыхает и превращается в каучуковый материал. Его сходство с резиной фактически распространяется на его изоляционные способности, и семена востребованы как естественная защита от существ, обладающих смертоносной силой молнии."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"После использования этой травы вы получаете устойчивость к урону молнией на 4 часа."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Grave Root",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5557,21 +5524,51 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Grounder Seed",
+			"source": "HHbH",
+			"page": 17,
+			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Находясь в стручках выносливого кустарника, эти семена содержат масло, которое вскоре после контакта с воздухом высыхает и превращается в каучуковый материал. Его сходство с резиной фактически распространяется на его изоляционные способности, и семена востребованы как естественная защита от существ, обладающих смертоносной силой молнии."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"После использования этой травы вы получаете устойчивость к урону молнией на 4 часа."
+					]
+				}
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hag's Hair",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5587,21 +5584,21 @@
 						"Когда вы используете эту траву, вы становитесь невосприимчивым к болезням на следующие 24 часа, и любые эффекты болезни, которым вы подвержены в данный момент, приостанавливают свое развитие и симптомы."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hamund's Hair",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5617,21 +5614,21 @@
 						"Вы можете потратить 3 часа на нанесение этой травы на доспехи, в ходе которого вы скручиваете и вплетаете прочные, но гибкие нити в самые слабые места доспехов. По истечении этого часа броня постоянно дает бонус +1 к AC при ношении. Эту траву нельзя применять к доспехам, уже имеющим бонус к AC, или к щитам."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heartstopper Weed",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5654,21 +5651,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heaven's Chance",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5684,21 +5681,21 @@
 						"Каждый раз, когда вы бросаете максимальное значение на кубике урона, вы можете перебросить этот кубик и добавить новый результат к общему нанесенному урону, повторив этот процесс, если вы снова бросили максимальное значение. Количество раз, которые вы можете сделать это для одного вида урона, не ограничено."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hopping Bean",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5714,21 +5711,21 @@
 						"В качестве действия вы можете вскрыть эту траву и вдохнуть содержащиеся в ней газы. Если вы это сделаете, дальность вашего прыжка увеличится втрое на следующий час."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hunter's Mud",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5744,21 +5741,21 @@
 						"В течение 8 часов после применения этой травы вы не издаете запаха, а любые запахи, которые пытаются к вам прицепиться, мгновенно нейтрализуются."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Mint",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5774,21 +5771,21 @@
 						"В течение 8 часов после использования этой травы ваше дыхание всегда заметно, пахнет освежающей мятой и достаточно холодно, чтобы вызвать образование инея на предметах, на которые вы выдыхаете."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Vine",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5804,21 +5801,21 @@
 						"Эта лоза длиной 10 футов остается ледяной независимо от температуры окружающей среды."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icestone Trunk",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -5835,21 +5832,21 @@
 						"При использовании этой травы вы должны использовать ее для заточки одного колющего или колюще-режущего оружия ближнего боя или до 10 единиц колющих или колюще-режущих боеприпасов. В течение следующих 4 часов это оружие или боеприпасы считаются магическими, и всякий раз, когда оно успешно попадает в существо, оно должно сделать бросок на спасение {@dc 17} конституции, так как мороз пытается покрыть его тело. Существа с сопротивлением или иммунитетом к повреждениям от холода автоматически получают этот бросок спасброска. Если спасбросок провален, скорость передвижения пораженного существа снижается вдвое, а все броски на ловкость становятся невыгодными в течение 1 минуты. Если бросок спасброска провален на 5 или более, существо также {@condition restrained} и не может реагировать, так как мороз охватывает его тело. В конце каждого хода существа оно может повторить бросок на спасбросок, завершив эффект при успехе. Эту траву можно использовать до 6 раз, после чего ее магия ослабевает и становится бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icicle Moss",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5865,21 +5862,21 @@
 						"Эта трава может быть применена к одному оружию ближнего боя или к 10 единицам боеприпасов. Оружие, на которое была наложена эта трава, считается магическим и наносит дополнительный {@damage 1d8} урон холодом при первом удачном попадании в ход. Этот эффект длится в течение 1 часа."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Interrogator's Baton",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -5896,21 +5893,21 @@
 						"Эта трава имеет {@dice 1d4} зарядов. В качестве действия вы можете потратить заряд, чтобы натереть этой травой либо одно оружие ближнего боя, либо до 10 единиц боеприпасов, покрыв их паразитической слизью. В течение следующих десяти минут любой урон, нанесенный покрытым оружием или боеприпасами, не считается \"вредным\" для прекращения {@condition charmed} состояния пораженного существа. Когда эта трава теряет все заряды, она высыхает и считается бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ironleaf Thicket",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5926,21 +5923,21 @@
 						"В течение 4 часов после использования этой травы у вас есть бонус +2 к AC, а также блестящая металлически-серая окраска кожи."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jellyfish Vine",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5968,21 +5965,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jingle Berries",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -6006,21 +6003,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Keepsake Daisy",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6036,51 +6033,21 @@
 						"В качестве действия вы можете разделить эту маргаритку вертикально пополам. Существо, держащее одну половину маргаритки, может использовать свое действие, чтобы сосредоточиться на ней, мгновенно телепортируя себя и все, что оно держит и носит, в ближайшее незанятое пространство другой половины маргаритки. В этот момент обе половинки распадаются в бесполезную пыль. Эту способность можно использовать только тогда, когда обе половинки находятся на одной плоскости существования; любая попытка использовать ее иначе не дает никакого эффекта."
 					]
 				}
-			]
-		},
-		{
-			"name": "Killer Tomato",
-			"source": "HHbH",
-			"page": 20,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
+			"lcn": "Forest",
 			"prep": "No",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Трава с гиперболическим названием, томат-убийца на самом деле не опасен - по крайней мере, не физически. Считается, что это растение было создано богом-трикстером в порыве веселого нахальства, оно способно чувствовать, когда вокруг него произносят плохую шутку, историю или песню, а затем автономно лететь на виновника, чтобы сделать его лицо красным от томатного сока. Хотя в конечном итоге это безвредно, эмоциональный ущерб, который это может нанести, привел к тому, что помидор запретили в большинстве мюзик-холлов и таверн."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Если в радиусе 30 футов от этой травы существо провалит проверку на харизму ({@skill Performance}), она автоматически летит прямо на него и автоматически разлетается на него, уничтожая эту траву. Этот эффект также срабатывает, если трава находится на вашем лице и вы успешно выполняете бросок на сопротивление эффектам {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} или {@spell danse macabre|XGE} заклинания или подобной магии, основанной на шутках, музыке или представлениях, при этом трава летит на существо, произнесшее заклинание."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ki-Rin's Bounty",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6103,21 +6070,51 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Killer Tomato",
+			"source": "HHbH",
+			"page": 20,
+			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Трава с гиперболическим названием, томат-убийца на самом деле не опасен - по крайней мере, не физически. Считается, что это растение было создано богом-трикстером в порыве веселого нахальства, оно способно чувствовать, когда вокруг него произносят плохую шутку, историю или песню, а затем автономно лететь на виновника, чтобы сделать его лицо красным от томатного сока. Хотя в конечном итоге это безвредно, эмоциональный ущерб, который это может нанести, привел к тому, что помидор запретили в большинстве мюзик-холлов и таверн."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Если в радиусе 30 футов от этой травы существо провалит проверку на харизму ({@skill Performance}), она автоматически летит прямо на него и автоматически разлетается на него, уничтожая эту траву. Этот эффект также срабатывает, если трава находится на вашем лице и вы успешно выполняете бросок на сопротивление эффектам {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} или {@spell danse macabre|XGE} заклинания или подобной магии, основанной на шутках, музыке или представлениях, при этом трава летит на существо, произнесшее заклинание."
+					]
+				}
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Knock Wood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6133,21 +6130,21 @@
 						"Когда вы держите эту траву в руке, если вам приходится делать бросок в невыгодном положении, вы можете использовать свою реакцию, чтобы ударить траву о что-нибудь твердое. Если вы это сделаете, то бросок будет обычным, а не невыгодным. После того как эта трава была использована один раз, она теряет всю силу и становится бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Kraken Kelp",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -6164,21 +6161,21 @@
 						"Эта трава имеет {@dice 1d8} зарядов, соответствующих количеству неповрежденных луковиц по всей ее длине. Чтобы использовать эту траву, вы должны потратить 1 заряд, вскрыв луковицу и применив ее черные миазмы к себе. В течение часа после использования вы испускаете облако тьмы радиусом 10 футов, сквозь которое можете видеть только вы. Все, что находится внутри облака, считается {@book heavily obscured|PHB|8|Vision and Light} для любого существа, кроме вас."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lich Lichen",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6194,21 +6191,21 @@
 						"После использования этой травы любые существа с типом существа \"нежить\" имеют недостаток при проверках на мудрость ({@skill Perception}), чтобы обнаружить вас."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Liftwood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"recharge": "dawn",
 			"entries": [
 				{
@@ -6237,21 +6234,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lolth's Thorn",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6267,21 +6264,21 @@
 						"Этой травой можно пользоваться как {@item dagger|PHB}. Если этот шип успешно попадает в существо, страдающее от состояния {@condition poisoned}, это состояние немедленно заканчивается, и шип наполняется тем ядом, которым было поражено это существо. При следующем удачном попадании этим шипом, пораженное существо испытывает любой из эффектов, наложенных исходным ядом; если этот яд требовал спасброска, то DC устанавливается равным 15. Одновременно этот шип может нести только один яд, и любой яд внутри него становится бесполезным через 24 часа после первого поглощения."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lotus of the Raven Queen",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6297,21 +6294,21 @@
 						"В течение следующих 24 часов после использования этой травы, если вы потерпите неудачу при спасброске от смерти, вы можете потратить 1 кубик хита, чтобы отменить эту неудачу. Вы должны тратить по 1 кубику на каждую неудачу, которую хотите отменить, если эффект заставит вас потерять более 1 кубика за раз."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lucidity Lavender",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6334,21 +6331,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Magic Mistletoe",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6364,21 +6361,21 @@
 						"В процессе приготовления этой травы вы должны покрыть соком этого растения одно оружие ближнего боя или до 10 единиц боеприпасов. В течение следующих 4 часов любое существо, успешно пораженное этим оружием или боеприпасами, должно успешно выполнить бросок спасброска на {@dc 18} конституцию или стать {@condition poisoned} на следующую минуту. Находясь {@condition poisoned} таким образом, существо теряет все имеющиеся у него сопротивления урону."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Maiden Moss",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6394,21 +6391,21 @@
 						"В процессе приготовления этой травы вы должны потратить 1 пузырек крови выбранного вами существа и использовать ее для создания пасты из порошка, измельченного из травы. Полученную пасту можно нанести либо на одно существо среднего или меньшего размера, либо на периметр области размером не более 60 футов. В течение следующих 24 часов любое существо, относящееся к тому же типу существ, что и кровь, которую вы добавили в пасту, и имеющее показатель интеллекта 5 или меньше, должно делать бросок спасброска мудрости {@dc 15} всякий раз, когда оно пытается двигаться в пределах 5 футов от существа или области, окруженной пастой. В случае неудачи это существо должно потратить остаток своего движения на то, чтобы отойти как можно дальше от существа или области, окруженной пастой, выбирая самый прямой и безопасный путь. Если им это удается, они могут двигаться как угодно и на следующие 24 часа становятся невосприимчивыми к эффектам этой травы."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Marid's Tail",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6424,21 +6421,21 @@
 						"Этой травой можно атаковать оружием, обращаясь с ней как с {@item dagger|PHB}. При успешном попадании трава застревает в цели, а затем лопается, заставляя цель успешно выполнить {@dc 15} бросок на спасение силы или быть отброшенной на 20 футов назад, так как из разорванной травы вырывается мощная струя воды. Если трава была использована таким образом один раз, она уничтожается и становится бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mariner's Friend",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6454,21 +6451,21 @@
 						"В течение 4 часов после использования этой травы любая жидкость, соприкасающаяся с вами, мгновенно стекает с вашего тела, одежды и имущества, оставляя вас абсолютно сухим."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mender's Mold",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6484,21 +6481,21 @@
 						"Эта трава содержит достаточное количество плесени, чтобы покрыть {@dice 1d6} квадратных футов. Если вы используете эту траву, чтобы закрыть дыру или шов в предмете, трава магически прилипнет к краям сломанного участка, а затем в течение следующего часа окончательно превратится в тот же материал, что и на краях, к которым она прикасается. Например, если поместить траву над дырой в разбитом деревянном полу, она превратится в дерево. После трансформации форма сохраняет свой черный цвет и действует как однородный материал."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Merrow Trap",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d20}",
 			"entries": [
 				{
@@ -6515,21 +6512,21 @@
 						"Эта трава содержит {@dice 1d20} зарядов, каждый заряд соответствует травинке морской травы. Вы можете потратить 1 заряд и потратить 1 минуту на то, чтобы прикрепить лопасть морской травы к {@item crossbow bolt|PHB|bolt} или {@item arrow|PHB}. Если вы это сделаете, то болт или стрела получит урон {@quickref Underwater Combat|PHB|3|0|no penalties associated with being used underwater}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mirage Melon",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6545,21 +6542,21 @@
 						"Вы можете съесть эту траву в качестве действия. В течение следующих 10 минут ваш желудок вырабатывает магический газ, который заставляет вас отрыгивать в начале каждого вашего хода, причем при каждой отрыжке выделяется люминесцентный газ, который принимает форму небольшой иллюзии по вашему выбору, когда покидает ваш рот. В качестве примера иллюзорных эффектов можно привести бабочек или музыкальные ноты. Эти иллюзии не имеют ни вещества, ни звука, явно ненастоящие по своей природе и исчезают в начале вашего следующего хода."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mordenkainen's Mint",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6575,21 +6572,21 @@
 						"В качестве бонусного действия вы можете начать жевать эту траву. Пока вы жуете эту траву, у вас есть преимущество при любых бросках на спасение конституции, сделанных для поддержания {@condition concentration} заклинания. Эту траву можно жевать не более 10 минут, причем делать это нужно последовательно."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mortician's Cactus",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6605,21 +6602,21 @@
 						"В течение 4 часов после использования этой травы вы чувствуете ужасный вкус и запах. Любое существо, совершающее против вас атаку, связанную с укусом или использованием языка, делает это в невыгодном положении. Кроме того, вы имеете преимущество при любой проверке способностей или броске спасения, чтобы избежать проглатывания или выплевывания из желудка существа."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mountain Heart Ginseng",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6635,21 +6632,21 @@
 						"В течение 8 часов после использования этой травы у вас есть преимущество при бросках на спасение конституции."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mud Bane",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6666,21 +6663,21 @@
 						"Эта трава содержит {@dice 1d3} зарядов. Чтобы использовать эту траву, вы должны потратить один заряд, чтобы покрыть токсичным соком одно оружие ближнего боя или до 10 единиц боеприпасов. В течение следующих 10 минут любое существо, успешно пораженное этим оружием или боеприпасами, должно успешно выполнить бросок спасброска на {@dc 18} конституцию или стать {@condition poisoned} на 1 минуту. Если бросок спасброска провален на 5 или более, существо также получает {@condition incapacitated}, поскольку его поглощают жестокие судороги. В начале каждого своего хода и при получении урона существо может повторить бросок на спасение. В случае успеха они перестают быть {@condition incapacitated}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Musical Fruit",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6696,21 +6693,21 @@
 						"Вы можете съесть эту траву как действие. В течение следующего часа вы имеете преимущество при проверках на харизму ({@skill Performance}) способностей к пению или игре на музыкальных инструментах."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nature's Curse",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6727,21 +6724,21 @@
 						"Эта трава содержит {@dice 1d3} зарядов. Чтобы использовать эту траву, вы должны потратить один заряд, чтобы окунуть одно оружие ближнего боя или до 10 единиц боеприпасов в ее токсичный сок. В течение следующих 10 минут любое существо, успешно пораженное этим оружием или боеприпасами, должно успешно пройти {@dc 18} бросок спасброска на конституцию или стать {@condition poisoned} на 1 минуту. Пока {@condition poisoned} существо находится в таком состоянии, его пронизывает ужасная боль, из-за чего оно получает недостаток при всех бросках спасбросков, его скорость передвижения уменьшается вдвое, а все заклинания, которые оно {@condition concentration|PHB|concentrating} применяет, автоматически заканчиваются в начале его хода."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Needlecloud Cactus",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6757,21 +6754,21 @@
 						"В процессе приготовления этой травы вы размещаете ее сегменты в стратегических местах вокруг своей одежды и доспехов. В любой момент, когда вы будете поражены атакой оружия ближнего боя, вы можете использовать свою реакцию, чтобы выпустить струю острых игл из трав на вашем теле, заставляя всех существ в радиусе 5 футов от вас сделать бросок на ловкость {@dc 14}, получая {@damage 1d6} колющего урона при неудаче или половину урона при успехе. Если вы использовали эту способность 4 раза, иголки этой травы заканчиваются и становятся бесполезными."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nightflame Seed",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6794,21 +6791,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nofall Leaves",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6824,21 +6821,21 @@
 						"При использовании этой травы необходимо натереть ею подошвы обуви или ступни, если вы ходите босиком. В течение 8 часов после использования этой травы нельзя проваливаться в глубокий снег."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nomad's Treasure",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6866,21 +6863,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Numbing Bush",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6896,21 +6893,21 @@
 						"В качестве действия вы можете использовать эту траву, натирая ею свое тело и раны. В течение следующего часа в начале каждого вашего хода вы получаете 8 временных хит-пойнтов, но имеете недостаток при бросках спасения на ловкость и проверках способностей на ловкость."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Odour Begonia",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6926,21 +6923,21 @@
 						"В течение 4 часов после употребления этой травы у вас отсутствует обоняние."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Oracle's Leaf",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6956,21 +6953,21 @@
 						"В течение 4 часов после употребления этой травы у вас появляется небольшое ясновидение, которое помогает вам избегать опасности. Когда вы становитесь целью атаки, вы можете использовать свою реакцию, чтобы заставить эту атаку быть сделанной с недостатком."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Parrot Poppy",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7025,21 +7022,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peacekeeper's Lily",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7055,21 +7052,21 @@
 						"Эта трава может быть применена к любому колющему или режущему оружию ближнего боя или до 10 единиц колющих или режущих боеприпасов. В течение следующего часа, когда вы наносите урон существу этим оружием или боеприпасами, это существо должно успешно выполнить бросок на спасение {@dc 15}конституции или быть {@condition poisoned} до начала вашего следующего хода. Пока {@condition poisoned} существо находится в таком состоянии, {@condition poisoned} оно должно делать {@dc 15} бросок спасброска мудрости всякий раз, когда пытается выполнить действие, которое непосредственно приведет к получению урона другим существом. В случае неудачи оно должно выбрать другое действие, которое не приведет к повреждению другого существа, или потратить свое действие впустую."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pearvoyance",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7085,21 +7082,21 @@
 						"После использования этой травы вы получаете краткое видение будущего. Детали этого видения, включая его продолжительность, расстояние от настоящего и даже то, правда это или нет, остаются на усмотрение вашего ДМ. Независимо от этого, вы полностью верите, что это видение является истинным и точным предвестием грядущих событий."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peony of Power",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7115,21 +7112,21 @@
 						"В качестве действия вы можете раздавить эту траву в руке. В течение следующих 10 минут, когда вы {@action cast a spell} расходуете слот заклинания, считается, что заклинание произнесено с использованием слота заклинания, который на 1 уровень выше, чем тот, который вы использовали на самом деле."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pinecone of Cold",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7145,21 +7142,21 @@
 						"В качестве действия вы можете бросить эту сосенку на расстояние до 20 футов, в результате чего она взорвется при падении. Все существа в радиусе 5 футов от места попадания должны сделать бросок на спасбросок по конституции {@dc 15} и получить {@damage 4d6} урона холодом при неудаче или половину урона при успехе."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Platinum Star",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7175,21 +7172,21 @@
 						"После приготовления эту траву могут использовать до 6 существ одновременно. Все существа, использовавшие эту траву, получают усиление {@variantrule inspiration|PHB}, которое длится следующие 8 часов."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Polypad",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "unknown (magic)",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "unknown (magic)",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7205,21 +7202,21 @@
 						"После использования этой травы вы призываете {@creature water elemental|MM} и {@creature earth elemental|MM} в незанятые пространства в радиусе 10 футов от вас. Элементали исчезают, когда их хит-пойнты падают до 0, или через 4 часа, в зависимости от того, что наступит раньше. Элементали дружелюбны к вам и вашим спутникам и действуют по собственным инициативным приказам. Они подчиняются любым устным командам, которые вы им отдаете (от вас не требуется никаких действий). Если вы не отдаете элементалю никаких команд, он защищается от враждебных существ, но в остальном не предпринимает никаких действий."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Prepyrus",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7235,21 +7232,21 @@
 						"Во время короткого отдыха вы можете записать на этой траве ряд магических заклинаний, чтобы изменить список подготовленных заклинаний. Однако на подготовку каждого заклинания вам все равно придется потратить столько же времени, сколько указано в вашей классовой особенности. Эту траву можно использовать только один раз."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Purple Worm Bulb",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7275,21 +7272,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rageroot",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7305,21 +7302,21 @@
 						"В качестве действия вы можете съесть этот корень. Если вы это сделаете, то на следующие 10 минут станете невосприимчивы к условиям {@condition stunned}, {@condition frightened|PHB|fear} и {@condition charmed}, поскольку вас охватит маниакальная ярость."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Repellent Lemons",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7342,21 +7339,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rimemoss",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7372,21 +7369,21 @@
 						"Вы можете потратить 10 минут на то, чтобы обложить свою одежду римемоссом. Если вы это сделаете, то автоматически добьетесь успеха при любом броске спасброска на конституцию, чтобы противостоять негативному воздействию холода и погоды."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rumble Cotton",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7402,21 +7399,21 @@
 						"После использования этой травы вы получаете устойчивость к урону громом на 4 часа."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rush Chillis",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7432,21 +7429,21 @@
 						"В течение 1 часа после использования этой травы вы можете выполнять до 2 реакций за раунд, которые восстанавливаются в начале каждого вашего хода."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rustfern",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -7475,21 +7472,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sailor's Omen",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7505,21 +7502,21 @@
 						"В течение 8 часов после использования этой травы вы невосприимчивы к урону от яда и состоянию {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandrain Flower",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 4,
 			"entries": [
 				{
@@ -7536,21 +7533,21 @@
 						"Эта трава имеет 4 заряда. В качестве действия вы можете обернуть корни этой травы вокруг одной из ваших свободных рук. Пока у вас есть существо {@condition grappled} с этой свободной рукой, вы можете использовать свое бонусное действие и 1 заряд, чтобы заставить это существо сделать {@dc 17} бросок спасброска на конституцию или погибнуть {@condition stunned}, так как трава быстро обезвоживает его тело. Конструкты, нежить и любые существа, в теле которых от природы нет жидкости, автоматически получают успех в этом броске. В конце каждого своего хода {@condition stunned} существо может повторить бросок на спасбросок конституции, и в случае успеха эффект прекращается. Когда все заряды на этой траве будут израсходованы, она лопнет от переваривания жидкости и станет бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandtrap Palm",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7566,21 +7563,21 @@
 						"Вы можете потратить 1 минуту на то, чтобы обернуть или развернуть руки и ноги в эту траву. Пока ваши руки и ноги обмотаны этой травой, вы не получаете штраф к скорости передвижения при движении по песчаной местности, и у вас есть преимущество при подъеме по поверхности, покрытой песком."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Scholar's Brush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7603,21 +7600,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Seeds",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -7634,21 +7631,21 @@
 						"Эта трава имеет {@dice 1d6} зарядов. В качестве действия вы можете потратить один заряд, чтобы разбросать некоторое количество семян. Если эти семена попадают в водоем, они заставляют всех морских обитателей в том же водоеме с показателем интеллекта менее 4 и в радиусе 100 футов от них плыть к ним по самому прямому пути. Рыбы не пытаются съесть эти семена, их просто привлекает их местоположение. Пробыв в воде в течение 1 минуты, они растворяются и становятся бесполезными."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Soap",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7671,21 +7668,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sentry Bush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7701,21 +7698,21 @@
 						"После приготовления этой травы вы получаете все преимущества 8-часового сна (или эквивалентной формы спячки для вашей расы). Для того чтобы получить пользу от длительного отдыха, вам все равно нужно отдыхать не менее 8 часов."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sharpeye Twig",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7731,21 +7728,21 @@
 						"Вы можете использовать свое бонусное действие, чтобы начать жевать эту траву. Пока вы жуете эту траву, вы игнорируете все недостатки, возникающие при попытке сделать атаку дальнобойным оружием за пределами обычной дальности вашего оружия. Эту траву можно жевать до одной минуты, причем делать это можно как сразу, так и несколькими небольшими порциями, каждый раз делая минимум один раунд до остановки (действие не требуется)."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shepherd's Soap",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7761,21 +7758,21 @@
 						"После использования этой травы в течение следующих 4 часов от вас исходит приятный запах, который заставляет любое животное вокруг вас инстинктивно доверять вам. В течение этого времени у вас есть преимущество при проверках на мудрость ({@skill Animal Handling}) для общения с любым животным в радиусе 30 футов от вас, которое может слышать и чувствовать ваш запах."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shifter's Jasmine",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7791,21 +7788,21 @@
 						"Во время приготовления этой травы вы должны мысленно представить себе гуманоидную форму. Эта форма не обязательно должна быть той же расы, пола, размеров или возраста, что и ваша нынешняя, но должна быть в пределах реалистичных границ для гуманоида данной расы (например, вы не можете представить гнома ростом 12 футов или эльфа с четырьмя руками). После использования травы ваше тело навсегда изменится в соответствии с изображенной формой. Ваши показатели не меняются, и вы сохраняете все расовые способности, которыми обладали изначально."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shunflower",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7821,21 +7818,21 @@
 						"Существо, имеющее на себе эту траву, имеет недостаток при проверке способностей на харизму."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sigil's Mark",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7851,21 +7848,21 @@
 						"Эта трава содержит {@dice 1d6} семян. В качестве действия вы можете раздавить семя и натереть себя полученным маслом, или использовать семя для атаки дальнобойным оружием по существу, которое вы видите в радиусе 20 футов от себя, уничтожив его и выпустив масло при ударе. В любом случае существо, покрытое этим маслом, становится изолированным от ветров судьбы на следующий час. В течение этого времени, когда бы покрытое существо ни сделало бросок с использованием {@dice d20}, оно пропускает его и действует так, как если бы вместо этого бросило 10."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sillypad",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7920,21 +7917,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Silver Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7950,21 +7947,21 @@
 						"В процессе приготовления этой травы вы должны нанести ее на оружие ближнего боя или до 10 единиц боеприпасов. Если вы это сделаете, то в течение следующего часа это оружие или боеприпасы будут считаться магическими и сделанными из серебра для преодоления сопротивления и иммунитета к атакам немагическим и несеребряным оружием."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Snakeskin Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7980,21 +7977,21 @@
 						"В качестве действия вы можете съесть эту траву. В течение следующего часа ваша кожа постоянно отслаивается, оставляя за собой след, похожий на песок, но вы не испытываете никаких болезненных последствий. По истечении этого часа ваша кожа становится очень гладкой, как будто вы отшелушили все тело."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soap Grass",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8010,21 +8007,21 @@
 						"Вы можете потратить 10 минут на натирание себя этой травой. Если вы это сделаете, вы станете чистым от грязи и нечистот."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soldier's Duty",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8040,21 +8037,21 @@
 						"В качестве действия вы можете раздавить эту траву перед носом существа в радиусе 5 футов от вас, у которого 0 хит-пойнтов, что заставит его восстановить 1 хит-пойнт."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soopa Mushroom",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8070,21 +8067,21 @@
 						"В качестве действия вы можете съесть эту траву, в результате чего вы вырастете на один размер больше, чем обычно; если места для вашего нового размера недостаточно, вы вернетесь к своему обычному размеру, а трава будет потрачена впустую. Действие этой травы длится 4 часа или пока вы не получите урон, в зависимости от того, что наступит раньше."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sork Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8100,21 +8097,21 @@
 						"В качестве действия вы можете положить этот корень в рот и начать его жевать. Когда вы жуете этот корень, вы выделяете скользкую слизь, из-за которой вас трудно схватить. Любая проверка силы, сделанная на {@action grapple} вас, делается с недостатком, и вы не получаете никаких штрафов при протискивании в узкие пространства. Этот корень можно жевать до 5 минут, причем вы можете сделать это за один раз или в течение нескольких сеансов."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Spectrum Rose",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8137,21 +8134,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Speed Apple",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8167,21 +8164,21 @@
 						"В течение 4 часов после применения этой травы ваша скорость передвижения увеличивается на 10 футов, и вы игнорируете эффекты {@quickref difficult terrain||3}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sporecaster",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8197,21 +8194,21 @@
 						"При использовании этой травы вы заправляете сегменты этой травы в определенные части вашей одежды и доспехов. Каждый раз, когда вы успешно поражаетесь атакой оружия ближнего боя, вы выпускаете споры в радиусе 5 футов вокруг себя. Любое существо, кроме вас, попавшее в эту вспышку, должно сделать бросок на спасбросок по конституции {@dc 15}, в случае неудачи оно становится {@condition poisoned} на 1 минуту. Когда вы выпустите 4 порции спор, сегменты грибков в вашей одежде и доспехах станут пустыми, и эффект закончится."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Squirtwort",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8227,21 +8224,21 @@
 						"Эта трава содержит {@dice 1d8} бутонов. В качестве действия вы можете бросить один из этих бутонов в точку на земле в радиусе 30 футов от вас, при этом бутон лопнет при соприкосновении. После разрыва бутон выпускает фонтан скользкой жидкости, которая покрывает площадь в 5 футов вокруг него. Любое существо, попавшее в эту область, должно успешно выполнить бросок на ловкость {@dc 12} или упасть {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Steelwood Sap",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8266,21 +8263,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stenchblossom",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8296,21 +8293,21 @@
 						"В качестве действия вы можете съесть эту траву, в результате чего в течение следующих 10 минут от вас будет исходить изнуряющий запах. В течение этого времени любое существо, которое заканчивает свой ход в радиусе 5 футов от вас и чувствует запах, должно сделать бросок на спасбросок конституции {@dc 12}. В случае неудачи это существо совершает все атаки с недостатком, а атаки против него имеют преимущество, так как оно источает запах. Этот эффект заканчивается, если существо удаляется от вас на расстояние более 5 футов или теряет обоняние."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sticky Fig",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8326,21 +8323,21 @@
 						"В качестве действия вы можете съесть эту траву. В течение следующего часа вы вырабатываете липкую слизь, которая прилипает к поверхности, на которой вы стоите, давая вам преимущество при любом броске спасброска или проверке способностей, чтобы избежать перемещения против вашей воли, а также давая вам скорость подъема, равную вашей скорости ходьбы."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stonecap Mushrooms",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8356,21 +8353,21 @@
 						"В течение 8 часов после использования этой травы все критические удары, нанесенные по вам, превращаются в обычные удары, а все дополнительные эффекты, которые были бы вызваны этим критическим ударом, отменяются."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sungi",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8386,21 +8383,21 @@
 						"Эта трава может быть применена к одному оружию ближнего боя или до 10 единиц боеприпасов. Оружие, на которое была наложена эта трава, считается магическим и наносит дополнительный {@damage 1d8} лучевой урон при первом удачном попадании в ход. Этот эффект длится в течение часа."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sylvan Bandage",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8416,21 +8413,21 @@
 						"Когда вы используете эту траву во время короткого отдыха, вы восстанавливаете любое количество кубиков, потраченных на восстановление хит-пойнтов во время этого отдыха."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tailor's Gamble",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8493,21 +8490,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Thaw Bud",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -8524,21 +8521,21 @@
 						"Эта трава содержит {@dice 1d6} зарядов, соответствующих количеству собранных бутонов. В качестве действия вы можете использовать заряд, чтобы раздавить один из этих бутонов и растереть полученную секрецию на участке льда или снега, заставляя его растаять. Один заряд может растопить участок площадью до 5 футов квадратных и толщиной до 1 дюйма."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Titan's Field",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8564,21 +8561,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tlincalli Thorn",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8594,21 +8591,21 @@
 						"В течение 4 часов после приготовления этой травы вы получаете бонус +1 к AC, так как ваша кожа становится исключительно твердой и похожей на чешую."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Toad Skin Shrub",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8624,21 +8621,21 @@
 						"В качестве действия вы можете съесть эту траву, что заставит вас преуспеть в броске спасброска на {@dc 15} конституции или стать {@condition poisoned} на один час. Независимо от результата, в течение следующего часа вы также выделяете из своей кожи токсичную слизь, которая заставляет любое существо, прикоснувшееся к вам или поразившее вас атакой оружием ближнего боя, успешно пройти {@dc 15} бросок на спасбросок конституции или стать {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Touch Grass",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8654,21 +8651,21 @@
 						"Когда вы {@action cast a spell} произносите заклинание, имеющее радиус действия прикосновения, вы можете выбрать эту траву вместо обычных целей заклинания. Если вы это сделаете, эта трава поглотит заклинание и будет высвобождена для следующей цели, которой она коснется. В качестве действия вы можете бросить эту траву в цель в радиусе 20 футов от вас, рассматривая это как атаку дальнобойным оружием. При успешном попадании эта трава не наносит урона, но вместо этого высвобождает заклинание, которое хранилось внутри нее, на цель. Эта трава может поглощать только одно заклинание за раз и может удерживать заклинание только в течение 10 минут, после чего магия рассеивается и заклинание пропадает. В любом случае, как только трава выпустит хранившееся в ней заклинание, оно распадется на части и станет бесполезным."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tracker's Leaf",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8691,21 +8688,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Treant Seed",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8721,21 +8718,21 @@
 						"Когда вы используете эту траву, вы превращаетесь в {@creature treant|MM} {@homebrew |(as outlined in the Monster Manual)}, при этом все ваше снаряжение вливается в вашу новую форму и недоступно для использования до окончания действия этого эффекта. Если у вас нет места, чтобы вырасти в новую форму, трансформация немедленно возвращается, и трава тратится впустую. Во время превращения в {@creature treant|MM} вы сохраняете свое соответствие, умения, знания, заклинания и классовые способности, но заменяете все остальные характеристики на {@creature treant|MM}, включая хит-пойнты. Вы возвращаетесь в свою обычную форму через 4 часа или если ваше количество хит-поинтов упадет до 0, тогда вы немедленно возвращаетесь в свою обычную форму, при этом любой избыточный урон переносится на вашу обычную форму."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Troll's Snot",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8751,21 +8748,21 @@
 						"В течение 8 часов после использования этой травы ваши руки источают липкую субстанцию, которая дает вам преимущество при проверке силы ({@skill Athletics}), чтобы забраться или {@action grapple} на что-то, и вы не можете быть обезоружены предметом в вашей руке непроизвольно."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Twice-Blessed Clover",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8781,21 +8778,21 @@
 						"В качестве бонусного действия вы можете раздавить этот клевер в своей руке. Если вы это сделаете, все броски атаки, проверки способностей и спасброски, которые вы делаете до начала вашего следующего хода, будут сделаны с преимуществом. После однократного использования эта трава становится бесполезной."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Umbra Tongue",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8811,21 +8808,21 @@
 						"В течение 8 часов после использования этой травы вы получаете 6 временных хит-пойнтов каждый раз, когда начинаете свой ход в темноте."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Vampire's Fang",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8842,21 +8839,21 @@
 						"Эта трава имеет {@dice 1d8} зарядов. В качестве действия вы можете обернуть корни этой травы вокруг своей руки, оставив ее шипастый цветок в свободной руке. Пока эта трава обернута вокруг вашей руки, всякий раз, когда существо, в теле которого есть кровь, умирает в радиусе 5 футов от вас, вы можете потратить заряд, чтобы использовать свою реакцию для высасывания крови этого существа, давая вам временные хит-пойнты, равные его рейтингу вызова (минимум 1)."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Volo Tree",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8879,21 +8876,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Whisper Puff",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8910,21 +8907,21 @@
 						"Эта трава имеет {@dice 1d8} зарядов. В качестве бонусного действия вы можете использовать заряд, чтобы положить одну из луковиц этой травы в рот. Если вы это сделаете, то в следующий раз, когда вы произнесете {@action cast a spell} словесный компонент, вы не издадите ни звука."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Winterlight Bloom",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8940,21 +8937,21 @@
 						"После использования этой травы вы получаете устойчивость к повреждениям холодом на 4 часа."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Wizard's Friend",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8970,21 +8967,21 @@
 						"В течение часа эту траву можно измельчить и смешать, чтобы получить темно-фиолетовые чернила, которые можно использовать для записи заклинаний в книге заклинаний волшебника. При таком использовании чернила заменяют золотой кусок, необходимый для надписи. Одна трава способна создать достаточное количество чернил, чтобы заменить до 100 золотых компонентов для надписи заклинаний."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yell Pepper",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9019,21 +9016,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yeti Brush",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9049,7 +9046,10 @@
 						"Вы можете потратить 1 минуту на обматывание рук и ног этой травой. Если вы это сделаете, то не получите штраф к скорости передвижения при перемещении по заснеженной или обледенелой местности, и у вас будет преимущество при подъеме по поверхностям, покрытым льдом или снегом."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		}
 	]
 }
