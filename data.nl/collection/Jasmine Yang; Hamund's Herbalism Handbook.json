@@ -20,18 +20,18 @@
 		],
 		"status": "ready",
 		"dateAdded": 1665431770,
-		"dateLastModified": 1668700856,
-		"_dateLastModifiedHash": "06fba59cbb"
+		"dateLastModified": 1694386526,
+		"_dateLastModifiedHash": "2553fb95e8"
 	},
 	"book": [
 		{
 			"name": "Hamund's Herbalism Handbook",
-			"source": "HHbH",
-			"author": "Jasmine Yang",
-			"group": "homebrew",
 			"id": "HHbH",
-			"published": "2022-09-03",
+			"source": "HHbH",
+			"group": "homebrew",
 			"coverUrl": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/HHH/HHbH/Cover.webp",
+			"published": "2022-09-03",
+			"author": "Jasmine Yang",
 			"contents": [
 				{
 					"name": "Cover Page, Credits & Changelog"
@@ -939,23 +939,33 @@
 	],
 	"feat": [
 		{
-			"name": "Tincture Master",
-			"source": "HHbH",
-			"page": 39,
-			"entries": [
-				"Je hebt een meesterschap bereikt in het distilleren van kruiden tot {@variantrule tinctures|HHbH}, waardoor de tijd en kosten die je nodig hebt om er een te maken gehalveerd zijn."
-			]
-		},
-		{
 			"name": "Nature's Bounty",
 			"source": "HHbH",
 			"page": 39,
 			"entries": [
 				"Door je afstemming op de natuur vind je overal waar je komt meer kruiden, bijna alsof de natuur zelf je probeert te helpen. Telkens als je een kruid verzamelt, rol je een {@dice d20}. Bij een 20 krijg je een extra exemplaar van het kruid dat je net hebt verzameld."
 			]
+		},
+		{
+			"name": "Tincture Master",
+			"source": "HHbH",
+			"page": 39,
+			"entries": [
+				"Je hebt een meesterschap bereikt in het distilleren van kruiden tot {@variantrule tinctures|HHbH}, waardoor de tijd en kosten die je nodig hebt om er een te maken gehalveerd zijn."
+			]
 		}
 	],
 	"variantrule": [
+		{
+			"name": "Optional Rule: Herb Toxicity",
+			"source": "HHbH",
+			"page": 4,
+			"ruleType": "O",
+			"entries": [
+				"Om redenen van evenwicht is het raadzaam de regel te handhaven dat een personage slechts van de effecten van één kruid tegelijk kan profiteren. Als de DM echter wil, kan hij het gebruik van meerdere kruiden met een hoge beloning toestaan, door een nadeel met hoog risico op te nemen, bekend als {@b herb toxicity}.",
+				"Volgens deze optionele regel moet een wezen dat onder invloed is van een kruid en een ander kruid op zichzelf probeert te gebruiken, een reddingsworp in grondwet doen met een DC gelijk aan 10 + 5 x het aantal kruiden dat hij sinds zijn laatste lange rust heeft geprobeerd te gebruiken. Als hij slaagt, gebruikt hij het kruid zoals gewoonlijk. Als ze falen, verwerpt hun lichaam de overvloed aan magische invloeden op zichzelf, waardoor het kruid verloren gaat, de heilzame werking van elk kruid dat op dat moment op hen inwerkt onmiddellijk eindigt en het wezen een uur lang {@condition poisoned} wordt."
+			]
+		},
 		{
 			"name": "Optional Rule: Identifying Herbs",
 			"source": "HHbH",
@@ -965,16 +975,6 @@
 				"Omwille van de eenvoud wordt in de standaardregels aangenomen dat de personages altijd weten welk kruid ze hebben verzameld, inclusief de naam, de waarde en het effect ervan. Als de DM echter wat meer complexiteit en uitdaging wil toevoegen, kan hij de spelers dwingen om ook de kruiden te identificeren.",
 				"Volgens deze optionele regel moet een personage dat een kruid verzamelt, slagen voor een {@dc 15} Wisdom ({@skill Nature}) controle om het kruid dat het zojuist heeft verzameld te identificeren. Bij falen weet het personage alleen dat het kruid vaag nuttig is, maar niet hoe het heet, wat het doet of hoe het te gebruiken.",
 				"Een karakter dat ervoor gekozen heeft een kruid te plukken, wordt verondersteld te weten welk kruid hij geplukt heeft."
-			]
-		},
-		{
-			"name": "Optional Rule: Herb Toxicity",
-			"source": "HHbH",
-			"page": 4,
-			"ruleType": "O",
-			"entries": [
-				"Om redenen van evenwicht is het raadzaam de regel te handhaven dat een personage slechts van de effecten van één kruid tegelijk kan profiteren. Als de DM echter wil, kan hij het gebruik van meerdere kruiden met een hoge beloning toestaan, door een nadeel met hoog risico op te nemen, bekend als {@b herb toxicity}.",
-				"Volgens deze optionele regel moet een wezen dat onder invloed is van een kruid en een ander kruid op zichzelf probeert te gebruiken, een reddingsworp in grondwet doen met een DC gelijk aan 10 + 5 x het aantal kruiden dat hij sinds zijn laatste lange rust heeft geprobeerd te gebruiken. Als hij slaagt, gebruikt hij het kruid zoals gewoonlijk. Als ze falen, verwerpt hun lichaam de overvloed aan magische invloeden op zichzelf, waardoor het kruid verloren gaat, de heilzame werking van elk kruid dat op dat moment op hen inwerkt onmiddellijk eindigt en het wezen een uur lang {@condition poisoned} wordt."
 			]
 		},
 		{
@@ -1007,6 +1007,8 @@
 	"spell": [
 		{
 			"name": "Cornucopia",
+			"source": "HHbH",
+			"page": 39,
 			"level": 5,
 			"school": "T",
 			"time": [
@@ -1021,6 +1023,11 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small pouch of loamy soil"
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1029,6 +1036,12 @@
 						"amount": 1
 					}
 				}
+			],
+			"meta": {
+				"ritual": true
+			},
+			"entries": [
+				"Wanneer je deze spreuk uitspreekt, roep je maximaal 4 gewillige wezens die je kunt zien binnen 30 voet op om een magische band met je te delen. Voor de duur van de spreuk, wanneer je een kruid op jezelf gebruikt, worden de effecten van dat kruid verdubbeld bij alle wezens die een magische band met je delen, zolang ze zich op hetzelfde bestaansvlak bevinden."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1045,23 +1058,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Wanneer je deze spreuk uitspreekt, roep je maximaal 4 gewillige wezens die je kunt zien binnen 30 voet op om een magische band met je te delen. Voor de duur van de spreuk, wanneer je een kruid op jezelf gebruikt, worden de effecten van dat kruid verdubbeld bij alle wezens die een magische band met je delen, zolang ze zich op hetzelfde bestaansvlak bevinden."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"meta": {
-				"ritual": true
-			},
-			"components": {
-				"v": true,
-				"s": true,
-				"m": "a small pouch of loamy soil"
 			}
 		},
 		{
 			"name": "Hamund's Herbal Hypodermic",
+			"source": "HHbH",
+			"page": 39,
 			"level": 2,
 			"school": "T",
 			"time": [
@@ -1076,6 +1078,10 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1084,6 +1090,16 @@
 						"amount": 10
 					}
 				}
+			],
+			"entries": [
+				"Wanneer je deze spreuk uitspreekt, kweek je voor de duur van de spreuk een holle naald uit je arm die je kunt gebruiken als een natuurlijk finessewapen om ongewapende slagen uit te voeren die {@damage 1d4} + modificatiefactor Dexterity aan schade toebrengen.",
+				"Slagen met deze naald kunnen ook worden gebruikt om snel een gif of kruid toe te dienen dat er normaal gesproken veel langer over zou doen om op een wapen aan te brengen. Als bonusactie kun je de naald gebruiken om een gif of kruid te absorberen dat normaal gesproken zou worden gebruikt om een wapen te bedekken. Als je dat doet, doet deze naald alsof hij is bedekt met dat gif of kruid, met alle voordelen van dien."
+			],
+			"damageInflict": [
+				"piercing"
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1112,26 +1128,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Wanneer je deze spreuk uitspreekt, kweek je voor de duur van de spreuk een holle naald uit je arm die je kunt gebruiken als een natuurlijk finessewapen om ongewapende slagen uit te voeren die {@damage 1d4} + modificatiefactor Dexterity aan schade toebrengen.",
-				"Slagen met deze naald kunnen ook worden gebruikt om snel een gif of kruid toe te dienen dat er normaal gesproken veel langer over zou doen om op een wapen aan te brengen. Als bonusactie kun je de naald gebruiken om een gif of kruid te absorberen dat normaal gesproken zou worden gebruikt om een wapen te bedekken. Als je dat doet, doet deze naald alsof hij is bedekt met dat gif of kruid, met alle voordelen van dien."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"components": {
-				"v": true,
-				"s": true
-			},
-			"damageInflict": [
-				"piercing"
-			],
-			"miscTags": [
-				"UBA"
-			]
+			}
 		},
 		{
 			"name": "Herbal Infusion",
+			"source": "HHbH",
+			"page": 40,
 			"level": 3,
 			"school": "T",
 			"time": [
@@ -1146,10 +1148,17 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"s": true,
+				"m": "one herb that the spell consumes"
+			},
 			"duration": [
 				{
 					"type": "instant"
 				}
+			],
+			"entries": [
+				"Je onttrekt en absorbeert op magische wijze de essentie van een kruid in je hand, waardoor je het kruid onmiddellijk kunt gebruiken, ongeacht hoe lang het normaal gesproken zou duren om het te gebruiken. Deze spreuk kan alleen gebruikt worden op kruiden die je eigen lichaam beïnvloeden."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1170,15 +1179,6 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Je onttrekt en absorbeert op magische wijze de essentie van een kruid in je hand, waardoor je het kruid onmiddellijk kunt gebruiken, ongeacht hoe lang het normaal gesproken zou duren om het te gebruiken. Deze spreuk kan alleen gebruikt worden op kruiden die je eigen lichaam beïnvloeden."
-			],
-			"source": "HHbH",
-			"page": 40,
-			"components": {
-				"s": true,
-				"m": "one herb that the spell consumes"
 			}
 		}
 	],
@@ -1420,102 +1420,6 @@
 		}
 	],
 	"table": [
-		{
-			"name": "Herb's Relative Rarity Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"d100",
-				"Herb's Table Position",
-				"{@dice d100} roll"
-			],
-			"colStyles": [
-				"col-4 text-center",
-				"col-4 text-center",
-				"col-4 text-center"
-			],
-			"rows": [
-				[
-					"99\u2013100",
-					"2 or 16",
-					"99"
-				],
-				[
-					"96\u201398",
-					"3 or 15",
-					"96"
-				],
-				[
-					"91\u201395",
-					"4 or 14",
-					"91"
-				],
-				[
-					"85\u201390",
-					"5 or 13",
-					"85"
-				],
-				[
-					"77\u201384",
-					"6 or 12",
-					"77"
-				],
-				[
-					"68\u201376",
-					"7 or 11",
-					"68"
-				],
-				[
-					"57\u201367",
-					"8 or 10",
-					"57"
-				],
-				[
-					"44\u201356",
-					"9",
-					"44"
-				],
-				[
-					"1\u201343",
-					"Kruid niet gevonden",
-					"1"
-				]
-			],
-			"footnotes": [
-				"{@note First column added to enable 5eTools style rollable table.}"
-			]
-		},
-		{
-			"name": "Foraging Herb Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
-				"Result"
-			],
-			"colStyles": [
-				"col-2 text-center",
-				"col-10 text-center"
-			],
-			"rows": [
-				[
-					"1\u20139",
-					"{@homebrew Character finds nothing.}"
-				],
-				[
-					"10\u201315",
-					"Het personage vindt genoeg voedsel om een wezen van gemiddelde grootte een dag lang te voeden."
-				],
-				[
-					"16\u201320",
-					"Het personage vindt een gewoon kruid. Rol op de kruidentabel van de betreffende omgeving om het resultaat te bepalen."
-				],
-				[
-					"21+",
-					"Het personage vindt een zeldzaam kruid. Rol op de zeldzame kruidentabel van de betreffende omgeving om het resultaat te bepalen."
-				]
-			]
-		},
 		{
 			"name": "All Herbs A-Z Table",
 			"source": "HHbH",
@@ -2862,6 +2766,102 @@
 			]
 		},
 		{
+			"name": "Foraging Herb Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
+				"Result"
+			],
+			"colStyles": [
+				"col-2 text-center",
+				"col-10 text-center"
+			],
+			"rows": [
+				[
+					"1\u20139",
+					"{@homebrew Character finds nothing.}"
+				],
+				[
+					"10\u201315",
+					"Het personage vindt genoeg voedsel om een wezen van gemiddelde grootte een dag lang te voeden."
+				],
+				[
+					"16\u201320",
+					"Het personage vindt een gewoon kruid. Rol op de kruidentabel van de betreffende omgeving om het resultaat te bepalen."
+				],
+				[
+					"21+",
+					"Het personage vindt een zeldzaam kruid. Rol op de zeldzame kruidentabel van de betreffende omgeving om het resultaat te bepalen."
+				]
+			]
+		},
+		{
+			"name": "Herb's Relative Rarity Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"d100",
+				"Herb's Table Position",
+				"{@dice d100} roll"
+			],
+			"colStyles": [
+				"col-4 text-center",
+				"col-4 text-center",
+				"col-4 text-center"
+			],
+			"rows": [
+				[
+					"99\u2013100",
+					"2 or 16",
+					"99"
+				],
+				[
+					"96\u201398",
+					"3 or 15",
+					"96"
+				],
+				[
+					"91\u201395",
+					"4 or 14",
+					"91"
+				],
+				[
+					"85\u201390",
+					"5 or 13",
+					"85"
+				],
+				[
+					"77\u201384",
+					"6 or 12",
+					"77"
+				],
+				[
+					"68\u201376",
+					"7 or 11",
+					"68"
+				],
+				[
+					"57\u201367",
+					"8 or 10",
+					"57"
+				],
+				[
+					"44\u201356",
+					"9",
+					"44"
+				],
+				[
+					"1\u201343",
+					"Kruid niet gevonden",
+					"1"
+				]
+			],
+			"footnotes": [
+				"{@note First column added to enable 5eTools style rollable table.}"
+			]
+		},
+		{
 			"name": "Rare Arctic Herbs",
 			"source": "HHbH",
 			"page": 42,
@@ -3487,14 +3487,11 @@
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3529,21 +3526,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Aloyleaf",
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3559,21 +3556,21 @@
 						"Dit kruid levert genoeg bladeren om {@dice 1d6} vierkante meter te bedekken. Deze bladeren zijn zo hard als staal, maar zijn zo licht als normale bladeren en vergaan nooit, tenzij ze onder de grond worden begraven."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ashfree Birch",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3589,21 +3586,21 @@
 						"Je kunt 10 minuten besteden aan het leggen van vellen van deze schors om onder je harnas en kleding te dragen, zodat je geïsoleerd bent tegen hitte en vuur. Als je dat doet, absorbeert dit kruid die schade wanneer je brandschade oploopt in plaats van jijzelf. Dit kruid kan tot 30 punten brandschade absorberen voordat het volledig wegbrandt en nutteloos wordt; de overtollige schade wordt op jou overgedragen. Je kunt dit kruid verwijderen door het 1 minuut uit je kleren te trekken."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Auril's Hair",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3619,21 +3616,21 @@
 						"Als actie mag je deze steel in de grond steken. Als je dat doet, wordt alle grond binnen 20 voet van je bedekt met een dunne laag ijs, waardoor het de komende 10 minuten (of de helft daarvan als je het in een warme omgeving doet) {@quickref difficult terrain||3} wordt. Deze steel kan maximaal 3 keer op deze manier worden gebruikt, daarna verliest hij alle opgeslagen koude-energie en wordt hij nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Banshee Vine",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3661,21 +3658,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Barrier Coral",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3698,21 +3695,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk Tongues",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3728,21 +3725,21 @@
 						"Dit kruid kan worden toegepast op één melee wapen of maximaal 10 stuks munitie, waardoor het 10 minuten lang wordt bedekt met een verstenende olie. Een wezen dat door dit wapen of deze munitie wordt geraakt, moet slagen voor een {@dc 12} grondwetsreddende worp, of krijgt een niveau van de volgende effecten als het in steen begint te veranderen. De bewegingssnelheid van het getroffen wezen wordt gehalveerd. Het getroffen wezen is {@condition restrained}. Het getroffen wezen is {@condition petrified} als het in steen verandert. Het wezen kan aan het eind van elke beurt opnieuw de reddingsworp Grondwet doen, waarbij het effectniveau met één wordt verminderd als het slaagt. Een {@spell greater restoration} spreuk of soortgelijke magie over een getroffen wezen verwijdert onmiddellijk alle niveaus."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk's Appetiser",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3766,21 +3763,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bird Seed",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3797,21 +3794,21 @@
 						"Dit kruid heeft {@dice 1d4} ladingen. Als actie kun je één lading gebruiken om een aantal zaden op de grond te strooien, waardoor ze veranderen in een kleine zwerm vogels die onmiddellijk wegvliegen. Deze vogels zijn magisch van aard en verdwijnen na 1 minuut."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blighted Pollen",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3866,21 +3863,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blubber Bulb",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3896,21 +3893,21 @@
 						"Na gebruik van dit kruid ben je bedekt met een dikke laag blubberachtige olie die 4 uur blijft zitten. Gedurende deze tijd ben je immuun voor alle schade door kou, vuur, gif of zuur die je zou lijden door een doelwit aan te raken of te raken met een melee wapen."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Boom Maize",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -3927,21 +3924,21 @@
 						"Een volle buidel van dit kruid bevat 6 ladingen. Als actie kun je een of meer ladingen gebruiken om een handvol pitten te gooien naar een doelwit dat je kunt zien binnen 20 meter van je. Dat doelwit moet een {@dc 10} Sterkte reddingsworp doen, waarbij de DC met 2 toeneemt voor elke lading die je hebt uitgegeven. Als je faalt, wordt het doelwit 5 meter naar achteren geduwd."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bramble Rice",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3958,21 +3955,21 @@
 						"Dit kruid heeft {@dice 1d4} ladingen. Als een actie kun je een lading gebruiken om een zakje van dit kruid in een gebied van een halve meter voor je te verspreiden. Elk wezen dat het gebied betreedt moet slagen voor een {@dc 15} reddingsworp of stoppen met bewegen en {@damage 1} doordringende schade oplopen. Totdat het wezen ten minste 1 hitpoint herwint, wordt zijn loopsnelheid verminderd met 10 voet. Een wezen dat met halve snelheid door het gebied loopt, hoeft de reddingsslag niet uit te voeren."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Breeze Nuts",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4000,21 +3997,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Brighteye Carrots",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4030,21 +4027,21 @@
 						"Gedurende 8 uur nadat je dit kruid hebt aangebracht, win je {@sense darkvision} tot een bereik van 60 voet, en werpen je ogen een zwak licht in een straal van 5 voet."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bubblemelon",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4060,21 +4057,21 @@
 						"Als actie kun je beginnen met het kauwen van dit kruid. Zolang je op deze wortel blijft kauwen, hoef je niet te ademen. Dit kruid mag maximaal 10 minuten gekauwd worden, wat je in één keer of over meerdere sessies mag doen."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Buried Moonlight",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4097,21 +4094,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Candle Rose",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4127,21 +4124,21 @@
 						"Dit voetlange kruid kan op dezelfde manier worden gebruikt als een gewone {@item candle|PHB}: 1 uur lang werpt het helder licht in een straal van 5 voet en nog eens 5 voet lang dimlicht. De geur en kleur van deze roos wordt bepaald door je DM, maar ze zijn meestal allebei vrij aangenaam."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Chef's Trick",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4157,21 +4154,21 @@
 						"Als actie mag je het verkruimelen en over een eetbaar voorwerp zoals een maaltijd of drank strooien terwijl je aan een smaak denkt. Die smaak kan variëren van iets vaags als \"zuur\" tot iets specifieks als \"een gebraden kip gekruid met oregano. Als je dat doet, smaakt dat voorwerp naar de smaak waaraan je dacht. Een wezen dat dit voorwerp consumeert kan een {@dc 20} Wisdom ({@skill Perception}) check doen om de kunstmatige smaakstof in het voorwerp op te merken."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cleric's Cane",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4187,21 +4184,21 @@
 						"Als onderdeel van het gebruik van dit kruid, mag je elk aantal dobbelstenen gooien dat je beschikbaar hebt om weer hit points te krijgen, zoals je normaal zou doen tijdens een korte rust. Als je een 1 of 2 gooit op een van die dobbelstenen, mag je het resultaat opnieuw gooien en moet je het nieuwe getal nemen, zelfs als het een 1 of een 2 is."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cold Brush",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4217,21 +4214,21 @@
 						"Als onderdeel van het gebruik van dit kruid, moet je het op je blootgestelde huid wrijven terwijl je het bereidt. Gedurende de volgende 4 uur wordt je huid lichtblauw en voelt ijskoud aan. Dit heeft geen invloed op je werkelijke lichaamstemperatuur."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Compass Rose",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -4248,21 +4245,21 @@
 						"Dit bladkruid heeft {@dice 1d6} ladingen. Als actie mag je dit kruid plat op je handpalm houden. Als je dat doet, verliest het kruid één lading en laat het een bundel zichtbare sporen los die langs het pad van de wind reizen. Dit vermogen werkt zelfs in een ommuurde ruimte zoals een gebouw of een diepe grot, zolang er een enkele open doorgang is die naar buiten leidt."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Corpse Hands",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4278,21 +4275,21 @@
 						"Dit kruid kan worden toegepast op één melee wapen of maximaal 10 stuks munitie. Een wapen waarop dit kruid is aangebracht, wordt beschouwd als magisch en brengt extra {@damage 1d8} necrotische schade toe bij de eerste succesvolle treffer in een beurt. Dit effect duurt 1 uur."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Courter's Perfume",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4308,21 +4305,21 @@
 						"Gedurende 4 uur na gebruik van dit kruid, ruikt elk wezen dat je ruikt, je als hun favoriete geur."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cracker Nut",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -4339,21 +4336,21 @@
 						"Dit kruid bevat {@dice 1d8} ladingen, overeenkomstig de hoeveelheid geoogste noten. Als een actie kun je een lading gebruiken om een noot te gooien naar een punt dat je kunt zien binnen 30 meter van je, waardoor de noot barst bij de impact en een luid krakend geluid maakt dat hoorbaar is tot 100 meter afstand."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crackle Bark",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4369,21 +4366,21 @@
 						"Dit kruid kan worden toegepast op één melee wapen of maximaal 10 stuks munitie. Een wapen waarop dit kruid is aangebracht, wordt beschouwd als magisch en brengt {@damage 1d8} extra bliksemschade toe bij de eerste succesvolle treffer in een beurt. Dit effect duurt 1 uur."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Creeper's Folly",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4399,21 +4396,21 @@
 						"Gedurende 4 uur na gebruik van dit kruid kun je niet {@quickref Surprise|PHB|3|0|surprised} en maak je alle initiatiefrollen met voordeel."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crystal Fruit",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4429,21 +4426,21 @@
 						"Je mag je actie gebruiken om deze vrucht te eten. Als je dat doet, wordt je lichaam voor de volgende 10 minuten bedekt met een dun laagje ijs dat je AC verhoogt tot 15 als het daarvoor lager was, maar je bewegingssnelheid wordt gehalveerd."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Deadwood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4459,21 +4456,21 @@
 						"Gedurende 8 uur na gebruik van dit kruid blijven je emoties volledig kalm, en veranderen ze alleen als je een effect ondergaat dat ze op magische wijze zou veranderen."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Drowner's Reach",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4489,21 +4486,21 @@
 						"Terwijl je dit kruid om een vrije hand hebt gewikkeld, heb je voordeel op alle {@action grapple} controles die met die hand worden gedaan. Dit kruid om een vrije hand wikkelen en afwikkelen kost een actie. Zodra dit kruid is gebruikt in 5 succesvolle {@action grapple} controles, verslechtert het en wordt het onbruikbaar."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dryad's Secret",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4519,21 +4516,21 @@
 						"Na gebruik van dit kruid produceer je voor de komende 4 uur een aangename geur die ervoor zorgt dat de mensen om je heen openstaan voor suggesties. Gedurende deze tijd heb je een voordeel op Charisma ({@skill Persuasion}) gemaakt om humanoïden te overtuigen je te vertrouwen of bevriend te raken."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dwarf's Bane",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4549,21 +4546,21 @@
 						"Wanneer dit kruid in een giftige vloeistof wordt geplaatst, worden alle giftige stoffen door het kruid geabsorbeerd en wordt die vloeistof onschadelijk en drinkbaar water. Dit effect strekt zich uit tot alcohol, die niet-alcoholisch wordt als hij aan dit kruid wordt blootgesteld. Dit kruid is in staat de giftige stoffen te verwijderen uit maximaal 5 liter vloeistof, waarna het nutteloos wordt."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Echo Wood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4579,21 +4576,21 @@
 						"Dit kruid kan worden toegepast op één melee wapen of maximaal 10 stuks munitie. Een wapen waarop dit kruid is aangebracht, wordt beschouwd als magisch en geeft een extra {@damage 1d8} donderschade bij de eerste succesvolle treffer in een beurt. Dit effect duurt 1 uur."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Elven Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4609,21 +4606,21 @@
 						"Gedurende 4 uur na gebruik van dit kruid krijg je een gevoel van kalmte dat je vermogen om grote pieken in emoties te ervaren remt. Gedurende deze tijd heb je voordeel bij elke vaardigheidscontrole of reddingsworp om je te verzetten tegen de {@condition frightened|PHB|fear} aandoening."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Embergrass",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4639,7 +4636,10 @@
 						"Gedurende 1 uur nadat je dit kruid hebt aangebracht, heb je weerstand tegen vuurschade en slaag je automatisch voor elke vaardigheidstest of reddingsworp die je doet om de effecten van heet weer te weerstaan."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everfrost Root",
@@ -4647,14 +4647,11 @@
 			"page": 12,
 			"type": "Herb",
 			"typeAlt": "SCF",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"focus": true,
 			"entries": [
 				{
@@ -4671,21 +4668,21 @@
 						"Je mag dit kruid gebruiken als een {@item arcane focus|PHB} bij het uitspreken van je spreuken. Terwijl dit kruid je {@item arcane focus|PHB} is, mag je telkens wanneer je een 1 of een 2 gooit voor koudeschade die het gevolg is van een spreuk die je uitspreekt, de dobbelsteen opnieuw gooien en moet je de nieuwe worp gebruiken, zelfs als de nieuwe worp een 1 of een 2 is."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everwort Root",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4701,21 +4698,21 @@
 						"Als actie kun je de vloeistof in deze wortel in een drankje gieten. De duur van het effect van dat drankje wordt permanent verdubbeld."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fabric Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4750,21 +4747,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fairybed Reed",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4780,22 +4777,22 @@
 						"Je mag dit kruid 10 minuten lang op jezelf aanbrengen door de zaden ervan in je harnas te stoppen en de gewrichten te smeren met de olie ervan. Als je dat doet, negeer je elk nadeel bij vaardigheidscontroles ({@skill Stealth}) die je hebt terwijl je je harnas draagt."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fanana",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
 			"charges": "{@dice 1d6}",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4811,21 +4808,21 @@
 						"Dit kruid heeft {@dice 1d6} ladingen, waarbij elke lading overeenkomt met een van de vruchten van het kruid. Als actie kun je een of meer ladingen gebruiken om de vruchten te laten barsten, waardoor opgehoopt gas vrijkomt en een windstoot ontstaat die 5 meter breed en 5 keer zo lang is als het aantal gebruikte ladingen. Deze wind is krachtig genoeg om open vuur te doven en kleine voorwerpen omver te werpen, maar niet genoeg om een wezen omver te werpen {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fey's Fear",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4848,21 +4845,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiend's chilli",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4878,21 +4875,21 @@
 						"Gedurende 8 uur na gebruik van dit kruid wordt je huid felrood en adem je voortdurend stoom uit."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiendsgate Wisteria",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4908,21 +4905,21 @@
 						"Als onderdeel van je beweging kun je blauwe regen bloemblaadjes aan je voeten strooien terwijl je loopt. Een zak van deze bloemblaadjes kan een lijn vormen van maximaal 30 voet lang. Als een wezen met het wezenstype duivel een lijn van bloemblaadjes probeert over te steken, moet het een {@dc 15} Wisdom saving throw doen. Als ze falen, wordt hun snelheid voor de rest van hun beurt verminderd tot 0."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fin Moss",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4938,21 +4935,21 @@
 						"Je mag deze kruiden 10 minuten lang aan 1 melee wapen of maximaal 10 stuks munitie bevestigen. Elk wapen of munitie waaraan dit mos is bevestigd lijdt {@quickref Underwater Combat|PHB|3|0|no penalty when used underwater}. Deze kruiden mogen slechts aan één wapen of één set munitie worden bevestigd - elke poging om ze te verwijderen beschadigt ze buiten gebruik."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fire Flower",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4968,7 +4965,10 @@
 						"Dit kruid kan worden toegepast op één melee wapen of maximaal 10 stuks munitie. Een wapen waarop dit kruid is aangebracht, wordt beschouwd als magisch en brengt {@damage 1d8} extra vuurschade toe bij de eerste succesvolle treffer in een beurt. Dit effect duurt 1 uur."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Firemelon",
@@ -4976,15 +4976,12 @@
 			"page": 14,
 			"type": "Herb",
 			"typeAlt": "SCF",
-			"focus": true,
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
+			"focus": true,
 			"entries": [
 				{
 					"type": "entries",
@@ -5000,21 +4997,21 @@
 						"Je mag dit kruid gebruiken als een {@item arcane focus|PHB} bij het uitspreken van je spreuken. Terwijl dit kruid je {@item arcane focus|PHB} is, mag je telkens wanneer je een 1 of een 2 gooit voor vuurschade die het gevolg is van een spreuk die je uitspreekt, de dobbelsteen opnieuw gooien en moet je de nieuwe worp gebruiken, zelfs als de nieuwe worp een 1 of een 2 is."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fireplume Fennel",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5030,21 +5027,21 @@
 						"Als een actie mag je dit kruid gooien naar een ruimte binnen 20 meter van je die je kunt zien. Bij de landing explodeert dit kruid, waardoor alle doelwitten binnen een straal van 5 meter van die ruimte moeten slagen voor een {@dc 12} reddingsworp of {@damage 2d6} brandschade oplopen, of de helft daarvan bij een geslaagde reddingsworp."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Flumph Fungi",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5060,21 +5057,21 @@
 						"Na gebruik van dit kruid krijg je voor de komende 4 uur een groter bewustzijn en empathie voor de mensen om je heen. Gedurende deze tijd heb je voordeel bij Wijsheid ({@skill Insight}) controles om de emotionele toestand van humanoïden waarmee je omgaat vast te stellen."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fool's Charm",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8+4}",
 			"entries": [
 				{
@@ -5091,21 +5088,21 @@
 						"Dit kruid bevat {@dice 1d8+4} ladingen, waarbij elke lading staat voor een van de resterende bladeren aan de stengel van dit kruid. Telkens wanneer je een 1 gooit bij een vaardigheidscontrole, aanvalsrol of reddingsworp terwijl je dit kruid vasthoudt, mag je een lading gebruiken om de dobbelsteen opnieuw te gooien en het nieuwe resultaat te gebruiken. Als alle ladingen op dit kruid zijn gebruikt, verdort het en wordt het nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Frozen Fuel",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5121,21 +5118,21 @@
 						"Je mag dit kruid gooien als een aanval met een afstandswapen op een punt binnen 20 voet van jou dat je kunt zien, waardoor de bol van dit kruid barst en alle wezens binnen 5 voet ervan gedwongen worden een {@dc 15} reddingsworp te doen. Bij een mislukking wordt het wezen bedekt met een kleverige, brandbare hars die het kwetsbaar maakt voor brandschade. Een wezen dat onder deze hars zit of een wezen naast hem kan zijn actie gebruiken om de hars af te vegen, waardoor dit effect onmiddellijk eindigt."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fumbleweed",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5151,21 +5148,21 @@
 						"De volgende keer dat je onvrijwillig wordt gestoten {@condition prone} na gebruik van dit kruid, mag je in plaats daarvan je reactie gebruiken om niet gestoten te worden {@condition prone}. Als dit gebeurt, breekt dit kruid en wordt het nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gargoyle's Lichen",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5181,21 +5178,21 @@
 						"Gedurende 8 uur na gebruik van dit kruid krijgt je huid een harde, grijze uitstraling die op steen lijkt."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ghost Leaf",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5211,21 +5208,21 @@
 						"Het komende uur, wanneer je beweegt, word je onstoffelijk, waardoor je je door andere wezens en vaste voorwerpen kunt bewegen alsof ze {@quickref difficult terrain||3} zijn, waarbij je {@damage 1d10} krachtschade oploopt als je je beweging beëindigt in een vast voorwerp. Bovendien kunnen wezens met de {@i Incorporeal Movement} eigenschap niet door je heen."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Giant's Silk",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5241,21 +5238,21 @@
 						"Dit kruid kan worden gebruikt in plaats van 60 voet touw. Als je dit touw gebruikt om te duwen, trekken, tillen of klimmen, heb je voordeel bij alle vaardigheidscontroles op kracht."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glacier Branch",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5283,21 +5280,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glide Weed",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5320,21 +5317,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gloom's Cloak",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5350,21 +5347,21 @@
 						"Je krijgt weerstand tegen stralingsschade voor de komende 4 uur na gebruik van dit kruid."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glowmoss",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5380,21 +5377,21 @@
 						"Dit kruid werpt zwak licht in een straal van 5 voet rondom."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gluebell",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5417,21 +5414,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Pine",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5447,21 +5444,21 @@
 						"Als actie mag je één melee wapen of maximaal 10 stuks munitie bedekken met de hars van deze plant. Het komende uur, telkens als je dat wapen gebruikt om een wezen met het drakentype te raken, moet dat wezen een {@dc 15} reddingsworp van Constitution maken. Als je faalt, worden alle aanvallen tegen dat wezen uitgevoerd met voordeel tot het begin van je volgende beurt."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Truffle",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -5478,51 +5475,21 @@
 						"Dit kruid bevat {@dice 1d6} ladingen. Je mag één lading gebruiken om dit kruid te gebruiken, waarna je maximale aantal hitpoints stijgt met een hoeveelheid die gelijk is aan het dubbele van je karakterniveau, en je hetzelfde aantal hitpoints krijgt. Deze verhoging duurt 4 uur, waarna je maximum aantal hitpoints weer normaal wordt."
 					]
 				}
-			]
-		},
-		{
-			"name": "Grounder Seed",
-			"source": "HHbH",
-			"page": 17,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
+			"lcn": "Forest",
 			"prep": "Yes",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Deze zaden zitten in de peulen van een winterharde struik en bevatten een olie die kort na blootstelling aan de lucht opdroogt tot een rubberachtig materiaal. De gelijkenis met rubber strekt zich uit tot de isolerende eigenschappen, en het zaad is gewild als natuurlijke bescherming tegen wezens die de dodelijke kracht van de bliksem bezitten."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Je krijgt weerstand tegen bliksemschade gedurende 4 uur na gebruik van dit kruid."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Grave Root",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5557,21 +5524,51 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Grounder Seed",
+			"source": "HHbH",
+			"page": 17,
+			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Deze zaden zitten in de peulen van een winterharde struik en bevatten een olie die kort na blootstelling aan de lucht opdroogt tot een rubberachtig materiaal. De gelijkenis met rubber strekt zich uit tot de isolerende eigenschappen, en het zaad is gewild als natuurlijke bescherming tegen wezens die de dodelijke kracht van de bliksem bezitten."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Je krijgt weerstand tegen bliksemschade gedurende 4 uur na gebruik van dit kruid."
+					]
+				}
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hag's Hair",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5587,21 +5584,21 @@
 						"Wanneer je dit kruid gebruikt, word je voor de komende 24 uur immuun voor ziekten en worden de progressie en symptomen van ziekten waaraan je op dat moment onderhevig bent gestopt."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hamund's Hair",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5617,21 +5614,21 @@
 						"Je kunt dit kruid 3 uur lang op een harnas aanbrengen, waarbij de duurzame maar flexibele strengen in de zwakste plekken van het harnas worden gedraaid en geweven. Na dit uur geeft het harnas permanent een +1 bonus op AC wanneer het gedragen wordt. Dit kruid kan niet worden toegepast op een harnas dat al een bonus voor AC heeft of op schilden."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heartstopper Weed",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5654,21 +5651,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heaven's Chance",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5684,21 +5681,21 @@
 						"Wanneer je de maximumwaarde van een dobbelsteen gooit, mag je die dobbelsteen opnieuw gooien en het nieuwe resultaat toevoegen aan je totale schade. Er is geen limiet aan het aantal keren dat je dit mag doen bij één schadegeval."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hopping Bean",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5714,21 +5711,21 @@
 						"Als actie mag je dit kruid openbreken en de gassen inademen. Als je dat doet, wordt je sprongafstand het komende uur verdrievoudigd."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hunter's Mud",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5744,21 +5741,21 @@
 						"Gedurende 8 uur na gebruik van dit kruid produceer je geen geur, en alle geuren die je proberen vast te houden worden onmiddellijk geneutraliseerd."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Mint",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5774,21 +5771,21 @@
 						"Gedurende 8 uur na gebruik van dit kruid is je adem altijd zichtbaar, ruikt hij als een verfrissende munt, en is hij koud genoeg om vorst te veroorzaken op voorwerpen waarop je uitademt."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Vine",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5804,21 +5801,21 @@
 						"Deze drie meter lange liaan blijft ijskoud, ongeacht de omgevingstemperatuur."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icestone Trunk",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -5835,21 +5832,21 @@
 						"Als onderdeel van het gebruik van dit kruid, moet je het gebruiken om één snijdend of doordringend wapen te slijpen, of maximaal 10 stuks snijdende of doordringende munitie. Gedurende de volgende 4 uur wordt dit wapen of deze munitie beschouwd als magisch, en telkens als het een wezen raakt, moet het een {@dc 17} reddingsworp maken om de vorst te redden en zijn lichaam te bedekken. Wezens met weerstand of immuniteit tegen koudeschade slagen automatisch voor deze reddingsslag. Als de reddingsslag mislukt, wordt de bewegingssnelheid van het getroffen wezen gehalveerd en zijn alle reddingsslagen op basis van handigheid 1 minuut in het nadeel. Als de reddingsslag met 5 of meer mislukt, wordt het wezen ook {@condition restrained} en kan het niet reageren als de vorst zijn lichaam inhaalt. Aan het einde van elke beurt van het wezen kan het de reddingsworp opnieuw doen, waarbij het effect eindigt bij succes. Dit kruid kan maximaal 6 keer worden gebruikt, waarna de magie vervaagt en nutteloos wordt."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icicle Moss",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5865,21 +5862,21 @@
 						"Dit kruid kan worden toegepast op één melee wapen of maximaal 10 stuks munitie. Een wapen waarop dit kruid is aangebracht, wordt beschouwd als magisch en brengt {@damage 1d8} extra koude schade toe bij de eerste succesvolle treffer in een beurt. Dit effect duurt 1 uur."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Interrogator's Baton",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -5896,21 +5893,21 @@
 						"Dit kruid heeft {@dice 1d4} ladingen. Als een actie mag je een lading besteden om dit kruid op één melee wapen of maximaal 10 stuks munitie te wrijven, waardoor het bedekt wordt met een parasitair slijm. Gedurende de volgende tien minuten wordt elke schade die wordt toegebracht door een gecoat wapen of munitiestuk niet beschouwd als \"schadelijk\" om een {@condition charmed} aandoening van een getroffen wezen te beëindigen. Zodra dit kruid alle ladingen verliest, raakt het uitgedroogd en wordt het als waardeloos beschouwd."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ironleaf Thicket",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5926,21 +5923,21 @@
 						"Gedurende 4 uur na gebruik van dit kruid heb je een +2 bonus op AC, en een glanzende metaalgrijze kleur op je huid."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jellyfish Vine",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5968,21 +5965,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jingle Berries",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -6006,21 +6003,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Keepsake Daisy",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6036,51 +6033,21 @@
 						"Als actie mag je deze margriet verticaal in tweeën delen. Een wezen dat de ene helft van het madeliefje vasthoudt, kan zijn actie gebruiken om zich erop te richten, waardoor hij en alles wat hij vasthoudt en draagt, onmiddellijk worden geteleporteerd naar de dichtstbijzijnde onbezette ruimte van de andere helft van het madeliefje. Op dat moment vallen beide helften uiteen in nutteloos stof. Dit vermogen kan alleen worden gebruikt als beide helften zich op hetzelfde bestaansniveau bevinden; anders heeft het geen effect."
 					]
 				}
-			]
-		},
-		{
-			"name": "Killer Tomato",
-			"source": "HHbH",
-			"page": 20,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
+			"lcn": "Forest",
 			"prep": "No",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Een kruid met een hyperbolische naam, de dodelijke tomaat is niet echt gevaarlijk - niet fysiek tenminste. Dit kruid, waarvan wordt gezegd dat het is geschapen door een bedrieglijke god in een vlaag van vrolijkheid, is in staat om aan te voelen wanneer er een slechte grap, verhaal of lied wordt opgevoerd, en vliegt dan zelfstandig op de dader af om diens gezicht rood te kleuren met tomatensap. Hoewel dit uiteindelijk onschadelijk is, heeft de emotionele schade die dit kan veroorzaken ertoe geleid dat de tomaat uit de meeste muziekzalen en tavernes is verbannen."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Als een wezen faalt in een Charisma ({@skill Performance}) controle binnen 30 voet van dit kruid, vliegt het automatisch direct op hen af en spettert het automatisch op hen, waardoor dit kruid wordt vernietigd. Dit effect treedt ook op als het kruid zich op je persoon bevindt en je slaagt in een reddingsworp om de effecten van een {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} of {@spell danse macabre|XGE} spreuk te weerstaan, of soortgelijke magie gebaseerd op grappen, muziek of voorstellingen, waarbij het kruid naar het wezen vliegt dat de spreuk uitsprak."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ki-Rin's Bounty",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6103,21 +6070,51 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Killer Tomato",
+			"source": "HHbH",
+			"page": 20,
+			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Een kruid met een hyperbolische naam, de dodelijke tomaat is niet echt gevaarlijk - niet fysiek tenminste. Dit kruid, waarvan wordt gezegd dat het is geschapen door een bedrieglijke god in een vlaag van vrolijkheid, is in staat om aan te voelen wanneer er een slechte grap, verhaal of lied wordt opgevoerd, en vliegt dan zelfstandig op de dader af om diens gezicht rood te kleuren met tomatensap. Hoewel dit uiteindelijk onschadelijk is, heeft de emotionele schade die dit kan veroorzaken ertoe geleid dat de tomaat uit de meeste muziekzalen en tavernes is verbannen."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Als een wezen faalt in een Charisma ({@skill Performance}) controle binnen 30 voet van dit kruid, vliegt het automatisch direct op hen af en spettert het automatisch op hen, waardoor dit kruid wordt vernietigd. Dit effect treedt ook op als het kruid zich op je persoon bevindt en je slaagt in een reddingsworp om de effecten van een {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} of {@spell danse macabre|XGE} spreuk te weerstaan, of soortgelijke magie gebaseerd op grappen, muziek of voorstellingen, waarbij het kruid naar het wezen vliegt dat de spreuk uitsprak."
+					]
+				}
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Knock Wood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6133,21 +6130,21 @@
 						"Terwijl je dit kruid in je hand houdt, mag je, als je gedwongen wordt een rol met nadeel te maken, je reactie gebruiken om dit kruid tegen iets hards te stoten. Als je dat doet, maak je je worp als normaal in plaats van met nadeel. Als dit kruid eenmaal is gebruikt, verliest het alle kracht en wordt het nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Kraken Kelp",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -6164,21 +6161,21 @@
 						"Dit kruid heeft {@dice 1d8} ladingen, die overeenkomen met het aantal intacte bollen langs zijn lengte. Als onderdeel van het gebruik van dit kruid, moet je 1 lading verbruiken door de bol te laten knappen en het inktachtige miasma op jezelf aan te brengen. Gedurende een uur na gebruik straal je een wolk van duisternis uit met een straal van 3 meter waar alleen jij doorheen kunt kijken. Alles binnen de wolk wordt beschouwd als {@book heavily obscured|PHB|8|Vision and Light} voor elk ander wezen dan jij."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lich Lichen",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6194,21 +6191,21 @@
 						"Na gebruik van dit kruid hebben alle wezens met het ondode wezentype nadeel bij Wisdom ({@skill Perception}) controles om je te detecteren."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Liftwood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"recharge": "dawn",
 			"entries": [
 				{
@@ -6237,21 +6234,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lolth's Thorn",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6267,21 +6264,21 @@
 						"Dit kruid kan worden gehanteerd als een {@item dagger|PHB}. Als deze doorn met succes een wezen raakt dat lijdt aan de {@condition poisoned} conditie, eindigt die conditie onmiddellijk, en wordt deze doorn gevuld met het gif waarmee dat wezen was besmet. Bij de volgende succesvolle treffer met deze doorn ondervindt het getroffen wezen de gevolgen van het oorspronkelijke gif; als dat gif een reddingsworp vereist, wordt de DC op 15 gezet. Deze doorn kan maar één gif tegelijk dragen, en het gif dat erin zit is 24 uur nadat het voor het eerst is opgenomen onbruikbaar."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lotus of the Raven Queen",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6297,21 +6294,21 @@
 						"Gedurende de volgende 24 uur na gebruik van dit kruid, mag je, als je een dood reddende worp mislukt, 1 dobbelsteen uitgeven om die mislukking te negeren. Je moet 1 dobbelsteen uitgeven per mislukking die je ongedaan wilt maken in het geval dat een effect je er meer dan 1 tegelijk zou doen verliezen."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lucidity Lavender",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6334,21 +6331,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Magic Mistletoe",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6364,21 +6361,21 @@
 						"Als onderdeel van de bereiding van dit kruid moet je één melee wapen of maximaal 10 stuks munitie bedekken met het sap van deze plant. Gedurende de volgende 4 uur moet elk wezen dat met succes door dit wapen of munitie wordt geraakt, slagen voor een {@dc 18} grondwetsreddende worp of {@condition poisoned} worden voor de volgende minuut. Terwijl {@condition poisoned} op deze manier, verliest een wezen alle schadeweerstanden die het heeft."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Maiden Moss",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6394,21 +6391,21 @@
 						"Bij het bereiden van dit kruid moet je 1 flesje bloed van een wezen naar keuze gebruiken om een pasta te maken van het poeder van het kruid. De pasta kan worden aangebracht op een wezen van gemiddelde of kleinere grootte, of op de omtrek van een gebied van maximaal 60 voet. Gedurende de volgende 24 uur moet elk wezen dat hetzelfde type wezen is als het bloed dat je aan de pasta hebt toegevoegd en dat een intelligentiescore van 5 of minder heeft, een {@dc 15} Wisdom saving throw doen telkens wanneer het zich probeert te verplaatsen binnen een afstand van 5 voet van het wezen of het gebied dat door de pasta is omgeven. Als dat niet lukt, moet dat wezen de rest van zijn beweging zo ver mogelijk van het wezen of het door de pasta omgeven gebied verwijderen, en daarbij de meest directe, veilige route nemen. Als ze slagen, mogen ze bewegen zoals ze willen en zijn ze de komende 24 uur immuun voor de effecten van dit kruid."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Marid's Tail",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6424,21 +6421,21 @@
 						"Je kunt met dit kruid wapenaanvallen uitvoeren en het behandelen alsof het een {@item dagger|PHB} is. Bij een geslaagde treffer nestelt het kruid zich in het doelwit en barst dan, waardoor het doelwit moet slagen voor een {@dc 15} Sterkte reddingsworp of 20 voet achteruit wordt geduwd terwijl een sterke waterstraal uit het gescheurde kruid stroomt. Als dit kruid eenmaal op deze manier is gebruikt, wordt het vernietigd en is het onbruikbaar."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mariner's Friend",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6454,21 +6451,21 @@
 						"Gedurende 4 uur na het gebruik van dit kruid wordt elke vloeistof die je aanraakt onmiddellijk van je lichaam, kleren en bezittingen afgevoerd, zodat je helemaal droog blijft."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mender's Mold",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6484,21 +6481,21 @@
 						"Dit kruid bevat genoeg schimmel om {@dice 1d6} vierkante meter te bedekken. Als je dit kruid gebruikt om een gebroken gat of naad in een voorwerp te bedekken, zal het kruid zich op magische wijze hechten aan de randen van het gebroken gebied en vervolgens zichzelf in de loop van het volgende uur permanent transformeren in hetzelfde materiaal als dat aan de randen die het aanraakt. Bijvoorbeeld, indien geplaatst over een gat in een gebroken houten vloer, zal de mal zichzelf transformeren in hout. De mal behoudt na de transformatie zijn zwarte kleur en fungeert als een homogeen stuk materiaal."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Merrow Trap",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d20}",
 			"entries": [
 				{
@@ -6515,21 +6512,21 @@
 						"Dit kruid bevat {@dice 1d20} ladingen, waarbij elke lading overeenkomt met een zeegrasblad. Je mag 1 lading uitgeven en 1 minuut spenderen om een sprietje zeegras aan een {@item crossbow bolt|PHB|bolt} of {@item arrow|PHB} te bevestigen. Als je dat doet, lijdt die bout of pijl aan {@quickref Underwater Combat|PHB|3|0|no penalties associated with being used underwater}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mirage Melon",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6545,21 +6542,21 @@
 						"Je mag dit kruid eten als een actie. Voor de volgende 10 minuten produceert je maag een magisch gas dat ervoor zorgt dat je aan het begin van elke beurt boert, waarbij elke boer een lichtgevend gas afgeeft dat de vorm aanneemt van een kleine illusie naar keuze zodra het je mond verlaat. Voorbeelden van illusoire effecten zijn vlinders of muzieknoten. Deze illusies hebben geen substantie of geluid, zijn duidelijk nep en verdwijnen aan het begin van je volgende beurt."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mordenkainen's Mint",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6575,21 +6572,21 @@
 						"Als bonusactie mag je dit kruid beginnen te kauwen. Terwijl je op dit kruid kauwt, heb je voordeel op elke reddingsslag die je maakt om een spreuk {@condition concentration} vol te houden. Je kunt maximaal 10 minuten op dit kruid kauwen, maar dat moet wel achter elkaar gebeuren."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mortician's Cactus",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6605,21 +6602,21 @@
 						"Gedurende 4 uur na gebruik van dit kruid proef en ruik je verschrikkelijk. Elk wezen dat een aanval op je doet waarbij ze je bijten of hun tong gebruiken, doet dat in het nadeel. Bovendien heb je voordeel bij elke vaardigheidstest of reddingsworp die wordt gedaan om te voorkomen dat je wordt ingeslikt of uit de maag van een wezen wordt gespuugd."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mountain Heart Ginseng",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6635,21 +6632,21 @@
 						"Je hebt 8 uur lang voordeel op de reddingsworpen van Constitution na gebruik van dit kruid."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mud Bane",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6666,21 +6663,21 @@
 						"Dit kruid bevat {@dice 1d3} ladingen. Om dit kruid te gebruiken, moet je één lading gebruiken om een melee wapen of maximaal 10 stuks munitie te bedekken met een giftig sap. Gedurende de volgende 10 minuten moet elk wezen dat door dit wapen of deze munitie wordt geraakt, slagen in een {@dc 18} reddingsworp of {@condition poisoned} worden gedurende 1 minuut. Als de reddingsworp met 5 of meer mislukt, wordt het wezen ook {@condition incapacitated} als het wordt verteerd door gewelddadige aanvallen. Aan het begin van elke beurt en telkens wanneer hij schade oploopt, mag het wezen opnieuw de reddingsworp doen. Bij slagen zijn ze niet langer {@condition incapacitated}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Musical Fruit",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6696,21 +6693,21 @@
 						"Je mag dit kruid eten als een actie. Het komende uur heb je voordeel bij Charisma ({@skill Performance}) vaardigheidscontroles om te zingen of muziekinstrumenten te bespelen."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nature's Curse",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6727,21 +6724,21 @@
 						"Dit kruid bevat {@dice 1d3} ladingen. Om dit kruid te gebruiken, moet je één lading gebruiken om één melee wapen of maximaal 10 stuks munitie te bedekken met het giftige sap. Gedurende de volgende 10 minuten moet elk wezen dat met succes door dit wapen of deze munitie wordt geraakt, slagen in een {@dc 18} Constitution saving throw of wordt {@condition poisoned} gedurende 1 minuut. Terwijl {@condition poisoned} het wezen op deze manier wordt geteisterd door vreselijke pijn, heeft het nadeel bij alle reddingsslagen, wordt zijn bewegingssnelheid gehalveerd en eindigt elke spreuk die het {@condition concentration|PHB|concentrating} gebruikt automatisch aan het begin van zijn beurt."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Needlecloud Cactus",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6757,21 +6754,21 @@
 						"Als onderdeel van het bereiden van dit kruid, plaats je segmenten van dit kruid op strategische plaatsen rond je kleding en harnas. Telkens wanneer je geraakt wordt door een aanval met een melee wapen, kun je je reactie gebruiken om een sproeikrans van scherpe naalden van de kruiden op je lichaam los te laten, waardoor alle wezens binnen een straal van 5 meter gedwongen worden een {@dc 14} reddingsworp te doen, waarbij ze {@damage 1d6} doordringende schade oplopen als ze falen, of de helft als ze slagen. Als je dit vermogen 4 keer hebt gebruikt, raakt dit kruid door zijn naalden heen en wordt het nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nightflame Seed",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6794,21 +6791,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nofall Leaves",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6824,21 +6821,21 @@
 						"Als onderdeel van het gebruik van dit kruid moet je het op de zolen van je schoenen wrijven, of op je voeten als je op blote voeten loopt. Gedurende 8 uur na gebruik van dit kruid, zak je niet weg in diepe sneeuw."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nomad's Treasure",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6866,21 +6863,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Numbing Bush",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6896,21 +6893,21 @@
 						"Als actie kun je dit kruid gebruiken door het op je lichaam en wonden te wrijven. Voor het volgende uur krijg je 8 tijdelijke hitpoints aan het begin van elke beurt, maar je hebt nadeel op de reddingsworpen van Dexterity en de vaardigheidscontroles van Dexterity."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Odour Begonia",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6926,21 +6923,21 @@
 						"Gedurende 4 uur na gebruik van dit kruid, heb je geen reukvermogen."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Oracle's Leaf",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6956,21 +6953,21 @@
 						"Gedurende 4 uur na gebruik van dit kruid krijg je een kleine helderziendheid die je helpt gevaar te vermijden. Wanneer een aanval op je gericht is, mag je je reactie gebruiken om die aanval in het nadeel te laten verlopen."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Parrot Poppy",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7025,21 +7022,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peacekeeper's Lily",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7055,21 +7052,21 @@
 						"Dit kruid kan worden toegepast op elk doordringend of snijdend melee wapen of maximaal 10 stuks doordringende of snijdende munitie. Een uur lang, telkens wanneer je een wezen met dat wapen of munitie beschadigt, moet dat wezen slagen voor een {@dc 15} Constitution saving throw of {@condition poisoned} tot het begin van je volgende beurt. Terwijl {@condition poisoned} op deze manier, moet het {@condition poisoned} wezen een {@dc 15} Wisdom saving throw doen telkens wanneer hij probeert een actie uit te voeren die er rechtstreeks toe zou leiden dat een ander wezen schade oploopt. Als ze falen, moeten ze een andere actie kiezen die er niet direct toe leidt dat een ander wezen schade oploopt of hun actie verspillen."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pearvoyance",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7085,21 +7082,21 @@
 						"Na gebruik van dit kruid krijg je een kort visioen van de toekomst. De details van dit visioen, inclusief de lengte, de afstand tot het heden, en zelfs of het waar is of niet, bepaal je zelf. Hoe dan ook, je gelooft volledig dat dit visioen een waar en nauwkeurig voorteken is van de dingen die komen gaan."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peony of Power",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7115,21 +7112,21 @@
 						"Als actie mag je dit kruid in je hand pletten. De komende 10 minuten wordt elke keer dat je {@action cast a spell} een spreukslot gebruikt, beschouwd als een spreukslot dat 1 niveau hoger is dan degene die je daadwerkelijk hebt gebruikt."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pinecone of Cold",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7145,21 +7142,21 @@
 						"Als een actie mag je deze dennenappel gooien tot 20 meter, waardoor hij explodeert bij de inslag. Alle wezens binnen 5 meter van de inslag moeten een {@dc 15} Constitution saving throw doen, waarbij ze {@damage 4d6} koude schade lijden als ze falen of de helft als ze slagen."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Platinum Star",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7175,21 +7172,21 @@
 						"Eenmaal bereid kan dit kruid door maximaal 6 wezens tegelijk worden gebruikt. Alle wezens die dit kruid hebben gebruikt, krijgen {@variantrule inspiration|PHB} dat de volgende 8 uur duurt."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Polypad",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "unknown (magic)",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "unknown (magic)",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7205,21 +7202,21 @@
 						"Na gebruik van dit kruid tover je een {@creature water elemental|MM} en een {@creature earth elemental|MM} in onbezette ruimtes binnen 10 voet van je. De elementalen verdwijnen wanneer ze dalen tot 0 hitpoints of na 4 uur, wat het eerst komt. De elementalen zijn vriendelijk voor jou en je metgezellen en handelen op eigen initiatief bevelen. Ze gehoorzamen alle verbale bevelen die je hen geeft (geen actie vereist door jou). Als je een elementaal geen bevelen geeft, verdedigen ze zich tegen vijandige wezens, maar ondernemen verder geen acties."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Prepyrus",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7235,21 +7232,21 @@
 						"Tijdens een korte rust kun je op dit kruid een reeks magische bezweringen opschrijven om je lijst van voorbereide spreuken te wijzigen. Je moet echter nog steeds evenveel tijd besteden aan het voorbereiden van elke spreuk als vermeld in je klasse-eigenschap. Dit kruid mag maar één keer gebruikt worden."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Purple Worm Bulb",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7275,21 +7272,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rageroot",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7305,21 +7302,21 @@
 						"Als een actie mag je deze wortel eten. Als je dat doet, word je immuun voor de {@condition stunned}, {@condition frightened|PHB|fear} en {@condition charmed} condities voor de komende 10 minuten terwijl je vervuld raakt van een manische woede."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Repellent Lemons",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7342,21 +7339,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rimemoss",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7372,21 +7369,21 @@
 						"Je mag 10 minuten lang je kleren bekleden met rimemoss. Als je dat doet, slaag je automatisch bij elke reddingsslag van Constitution om de negatieve effecten van een koude omgeving en koud weer te weerstaan."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rumble Cotton",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7402,21 +7399,21 @@
 						"Je krijgt 4 uur lang weerstand tegen donderschade na gebruik van dit kruid."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rush Chillis",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7432,21 +7429,21 @@
 						"Gedurende 1 uur na gebruik van dit kruid kun je tot 2 reacties per ronde uitvoeren die je aan het begin van elk van je beurten herwint."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rustfern",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -7475,21 +7472,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sailor's Omen",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7505,21 +7502,21 @@
 						"Gedurende 8 uur na gebruik van dit kruid ben je immuun voor gifschade en de {@condition poisoned} conditie."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandrain Flower",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 4,
 			"entries": [
 				{
@@ -7536,21 +7533,21 @@
 						"Dit kruid heeft 4 ladingen. Als actie mag je de wortels van dit kruid om een van je vrije handen wikkelen. Terwijl je een wezen {@condition grappled} met deze vrije hand hebt, mag je je bonusactie en 1 lading gebruiken om dat wezen te dwingen een {@dc 17} grondwetsreddende worp te doen of {@condition stunned} als het kruid zijn lichaam snel uitdroogt. Constructen, ondoden en elk wezen dat van nature geen vloeistof in zijn lichaam heeft, slagen automatisch voor deze worp. Een {@condition stunned} wezen mag aan het eind van elke beurt opnieuw de reddingsworp Grondwet doen, waarbij het effect op hemzelf eindigt als hij slaagt. Als alle ladingen op dit kruid zijn gebruikt, barst het van het slurpen van vloeistof en wordt het nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandtrap Palm",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7566,21 +7563,21 @@
 						"Je kunt 1 minuut besteden aan het in- en uitpakken van je handen en voeten in dit kruid. Terwijl je handen en voeten in dit kruid gewikkeld zijn, krijg je geen vermindering van je bewegingssnelheid als je je door zanderig terrein beweegt, en heb je voordeel bij het beklimmen van oppervlakken die bedekt zijn met zand."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Scholar's Brush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7603,21 +7600,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Seeds",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -7634,21 +7631,21 @@
 						"Dit kruid heeft {@dice 1d6} ladingen. Als actie kun je één lading gebruiken om een aantal zaden te verspreiden. Als ze in een waterlichaam worden uitgestrooid, zorgen deze zaden ervoor dat alle zeedieren in hetzelfde waterlichaam met een intelligentiescore van minder dan 4 en binnen een straal van 100 meter naar hen toe zwemmen in de meest directe route. De vissen proberen deze zaden niet te eten, maar worden gewoon aangetrokken door hun locatie. Zodra ze 1 minuut in het water liggen, lossen ze op en zijn ze onbruikbaar."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Soap",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7671,21 +7668,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sentry Bush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7701,21 +7698,21 @@
 						"Na bereiding van dit kruid krijg je alle voordelen van 8 uur slaap (of de equivalente vorm van slaap voor jouw ras). Je moet nog steeds minstens 8 uur rusten om van een lange rust te kunnen profiteren."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sharpeye Twig",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7731,21 +7728,21 @@
 						"Je mag je bonusactie gebruiken om op dit kruid te kauwen. Terwijl je op dit kruid kauwt, negeer je elk nadeel bij een poging om een aanval uit te voeren buiten het normale bereik van je wapen. Je kunt maximaal een minuut lang op dit kruid kauwen, wat in één keer kan, of in verschillende kleinere segmenten, waarbij je telkens minimaal één ronde gebruikt voordat je stopt (geen actie vereist)."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shepherd's Soap",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7761,21 +7758,21 @@
 						"Na gebruik van dit kruid produceer je voor de komende 4 uur een aangename geur waardoor elk dier in je omgeving je instinctief vertrouwt. Gedurende deze tijd heb je voordeel bij Wisdom ({@skill Animal Handling}) controles om te communiceren met elk dier binnen een straal van 30 meter dat je kan horen en ruiken."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shifter's Jasmine",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7791,21 +7788,21 @@
 						"Terwijl je dit kruid bereidt, moet je je mentaal een mensachtige vorm voorstellen. Deze vorm hoeft niet hetzelfde ras, geslacht, afmetingen of leeftijd te hebben als je huidige vorm, maar moet binnen de realistische grenzen liggen voor een mensachtige van dat ras (je kunt je bijvoorbeeld geen 12 voet lange dwerg of een elf met vier armen voorstellen). Na gebruik van het kruid verandert je lichaam permanent in de vorm die je je voorstelde. Je stats veranderen niet, en je behoudt alle raciale vaardigheden die je oorspronkelijk had."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shunflower",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7821,21 +7818,21 @@
 						"Een wezen dat dit kruid op zijn persoon heeft, heeft nadeel op Charisma vaardigheidscontroles."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sigil's Mark",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7851,21 +7848,21 @@
 						"Dit kruid bevat {@dice 1d6} zaden. Als actie kun je een zaadje pletten en de resulterende olie op jezelf wrijven, of je kunt een zaadje gebruiken om een wapenaanval uit te voeren op een wezen dat je binnen 20 meter van je kunt zien, waarbij het wordt vernietigd en de olie vrijkomt. Hoe dan ook, een wezen dat met deze olie is bedekt, wordt het komende uur geïsoleerd van de winden van het lot. Gedurende deze tijd, wanneer het bedekte wezen een worp maakt met een {@dice d20}, slaat het de worp over en doet het alsof het een 10 heeft gegooid."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sillypad",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7920,21 +7917,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Silver Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7950,21 +7947,21 @@
 						"Als onderdeel van het bereiden van dit kruid moet je het toepassen op een melee wapen of maximaal 10 stuks munitie. Als je dat doet, wordt dat wapen of die munitie het komende uur beschouwd als zowel magisch als van zilver voor het overwinnen van weerstand en immuniteit tegen niet-magische en niet-zilveren wapenaanvallen."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Snakeskin Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7980,21 +7977,21 @@
 						"Als actie mag je dit kruid eten. Gedurende het volgende uur schilfert je huid voortdurend af, een zandachtig spoor achterlatend, maar je ondervindt geen nadelige gevolgen. Aan het einde van dit uur is je huid extreem glad, alsof je je hele lichaam hebt gescrubd."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soap Grass",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8010,21 +8007,21 @@
 						"Je mag dit kruid 10 minuten over jezelf wrijven. Als je dat doet, word je schoon van alle vuil en viezigheid."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soldier's Duty",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8040,21 +8037,21 @@
 						"Als actie mag je dit kruid voor de neus van een wezen binnen 5 voet van je dat op 0 hitpoints staat, pletten, waardoor het 1 hitpoint herwint."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soopa Mushroom",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8070,21 +8067,21 @@
 						"Als een actie mag je dit kruid eten, waardoor je een maat groter wordt dan je normaal bent; als er niet genoeg ruimte is voor je nieuwe maat, keer je terug naar je normale maat en is dit kruid verspild. Het effect van dit kruid duurt 4 uur, of totdat je schade oploopt, wat het eerst komt."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sork Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8100,21 +8097,21 @@
 						"Als actie kun je deze wortel in je mond stoppen en erop beginnen te kauwen. Terwijl je op deze wortel kauwt, straal je een glibberig slijm uit waardoor je moeilijk vast te pakken bent. Elke krachttoets op {@action grapple} je wordt in het nadeel uitgevoerd, en je ondervindt geen nadeel als je je in nauwe ruimtes wringt. Je kunt maximaal 5 minuten op deze wortel kauwen, wat je in één keer kunt doen, of over meerdere sessies."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Spectrum Rose",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8137,21 +8134,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Speed Apple",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8167,21 +8164,21 @@
 						"Gedurende 4 uur nadat je dit kruid hebt aangebracht, verhoogt je loopsnelheid met 10 voet en negeer je de effecten van {@quickref difficult terrain||3}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sporecaster",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8197,21 +8194,21 @@
 						"Als onderdeel van het gebruik van dit kruid stop je segmenten van dit kruid in specifieke segmenten van je kleding en wapenrusting. Telkens wanneer je succesvol wordt geraakt door een aanval met een melee wapen, laat je een uitbarsting van sporen los in een straal van 5 meter rondom je. Elk ander wezen dan jij in deze uitbarsting moet een {@dc 15} Constitution saving throw doen en wordt {@condition poisoned} voor 1 minuut bij falen. Zodra je 4 uitbarstingen van sporen hebt losgelaten, raken de schimmelsegmenten in je kleding en pantser leeg en eindigt dit effect."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Squirtwort",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8227,21 +8224,21 @@
 						"Dit kruid bevat {@dice 1d8} knoppen. Als een actie mag je een van deze knoppen gooien naar een punt op de grond binnen een straal van 15 meter, waarbij de knop barst bij contact. Na het openbarsten laat een knop een fontein van glibberige vloeistof los die een gebied van een halve meter rondom bedekt. Elk wezen dat dit gebied betreedt moet slagen voor een {@dc 12} reddingsworp of vallen {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Steelwood Sap",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8266,21 +8263,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stenchblossom",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8296,21 +8293,21 @@
 						"Als een actie mag je dit kruid consumeren, waardoor je de komende 10 minuten een slopende geur verspreidt. Gedurende deze tijd moet elk wezen dat zijn beurt eindigt binnen 5 meter van je en dat kan ruiken, een {@dc 12} grondwetsreddende worp doen. Als je faalt, doet dat wezen alle aanvallen in het nadeel, en aanvallen tegen hem hebben voordeel als hij klaagt. Dit effect eindigt als het wezen zich meer dan 5 meter van je verwijdert, of zijn reukzin verliest."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sticky Fig",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8326,21 +8323,21 @@
 						"Als actie mag je dit kruid eten. Het komende uur produceer je een kleverig slijm dat je vastplakt aan het oppervlak waarop je staat, wat je voordeel geeft bij elke reddingsworp of vaardigheidscontrole om te voorkomen dat je tegen je wil wordt verplaatst, en je een klimsnelheid geeft die gelijk is aan je loopsnelheid."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stonecap Mushrooms",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8356,21 +8353,21 @@
 						"Gedurende 8 uur nadat je dit kruid hebt gebruikt, worden alle kritieke treffers tegen je veranderd in normale treffers en alle extra effecten die door die kritieke treffer zouden worden veroorzaakt, worden tenietgedaan."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sungi",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8386,21 +8383,21 @@
 						"Dit kruid kan worden toegepast op één melee wapen of maximaal 10 stuks munitie. Een wapen waarop dit kruid is aangebracht, wordt beschouwd als magisch en brengt {@damage 1d8} extra stralingsschade toe bij de eerste succesvolle treffer in een beurt. Dit effect duurt een uur."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sylvan Bandage",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8416,21 +8413,21 @@
 						"Als je dit kruid gebruikt tijdens een korte rustperiode, krijg je het aantal treffers terug dat je tijdens die rustperiode hebt gebruikt om hitpoints te herstellen."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tailor's Gamble",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8493,21 +8490,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Thaw Bud",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -8524,21 +8521,21 @@
 						"Dit kruid bevat {@dice 1d6} ladingen, overeenkomend met het aantal geplukte knoppen. Als actie kun je een lading gebruiken om een van deze knoppen te pletten en de resulterende afscheiding op een stuk ijs of sneeuw te wrijven, waardoor het smelt. Eén lading kan een stuk ijs of sneeuw laten smelten met een oppervlakte tot 5 voet in het vierkant en 1 duim dik."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Titan's Field",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8564,21 +8561,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tlincalli Thorn",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8594,21 +8591,21 @@
 						"Gedurende 4 uur na het bereiden van dit kruid, krijg je een +1 bonus voor je AC terwijl je huid uitzonderlijk hard en schaalachtig wordt."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Toad Skin Shrub",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8624,21 +8621,21 @@
 						"Als een actie mag je dit kruid eten, waardoor je gedwongen wordt een {@dc 15} levensreddende worp te doen of {@condition poisoned} te worden gedurende een uur. Ongeacht de uitkomst, scheid je ook een uur lang een giftig slijm van je huid af dat elk wezen dat je aanraakt of dat je raakt met een melee wapenaanval dwingt te slagen voor een {@dc 15} grondwetsreddende worp of {@condition poisoned} te worden."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Touch Grass",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8654,21 +8651,21 @@
 						"Wanneer je {@action cast a spell} die een aanraakbereik heeft, mag je dit kruid richten in plaats van de gebruikelijke doelen van de spreuk. Als je dat doet, absorbeert dit kruid die spreuk om te worden losgelaten op het volgende geldige doelwit dat het aanraakt. Als een actie mag je dit kruid gooien naar een doelwit binnen 20 voet van je, waarbij je het behandelt als een afstandswapenaanval. Bij een succesvolle treffer doet dit kruid geen schade, maar laat het de spreuk die het in zich had opgeslagen los op het doelwit. Dit kruid kan maar één spreuk tegelijk absorberen en kan een spreuk maar 10 minuten vasthouden, waarna de magie verdwijnt en de spreuk verloren gaat. Hoe dan ook, zodra dit kruid een opgeslagen spreuk heeft losgelaten, valt het uit elkaar en wordt het nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tracker's Leaf",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8691,21 +8688,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Treant Seed",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8721,21 +8718,21 @@
 						"Wanneer je dit kruid gebruikt, verander je in een {@creature treant|MM} {@homebrew |(as outlined in the Monster Manual)}, waarbij al je uitrusting in je nieuwe vorm versmelt en niet beschikbaar is om te gebruiken tot dit effect eindigt. Als je geen ruimte hebt om in je nieuwe vorm te groeien, keert de transformatie onmiddellijk terug en wordt het kruid verspild. Terwijl je een {@creature treant|MM} bent, behoud je je uitlijning, vaardigheden, kennis, spreuken en klassevaardigheden, maar vervang je alle andere eigenschappen door die van de {@creature treant|MM}, inclusief hitpoints. Je keert terug naar je normale vorm na 4 uur, of als je tot 0 hitpoints daalt, op welk punt je onmiddellijk terugkeert, waarbij alle overtollige schade wordt overgedragen naar je normale vorm."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Troll's Snot",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8751,21 +8748,21 @@
 						"Gedurende 8 uur na het gebruik van dit kruid, ademen je handen een kleverige substantie uit die je voordeel geeft op Sterkte ({@skill Athletics}) controles gemaakt om te klimmen of {@action grapple} iets, en je kunt niet ongewild ontwapend worden van een voorwerp in je hand."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Twice-Blessed Clover",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8781,21 +8778,21 @@
 						"Als bonusactie mag je dit klavertje in je hand pletten. Als je dat doet, zijn alle aanvalsrollen, vaardigheidscontroles en reddingsworpen die je maakt tot het begin van je volgende beurt in het voordeel. Als dit kruid eenmaal is gebruikt, wordt het nutteloos."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Umbra Tongue",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8811,21 +8808,21 @@
 						"Gedurende 8 uur na gebruik van dit kruid, krijg je 6 tijdelijke hit points wanneer je je beurt begint in de duisternis."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Vampire's Fang",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8842,21 +8839,21 @@
 						"Dit kruid heeft {@dice 1d8} ladingen. Als actie mag je de wortels van dit kruid om je arm wikkelen terwijl je de stekelige bloem in je vrije hand houdt. Zolang dit kruid om je arm is gewikkeld, mag je, telkens wanneer een wezen met bloed in zijn lichaam sterft binnen een afstand van 5 meter, een lading uitgeven om je reactie te gebruiken om het bloed van dat wezen af te tappen, waardoor je tijdelijk punten krijgt die gelijk zijn aan hun uitdaging (minimaal 1)."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Volo Tree",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8879,21 +8876,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Whisper Puff",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8910,21 +8907,21 @@
 						"Dit kruid heeft {@dice 1d8} ladingen. Als bonusactie mag je een lading gebruiken om een van de bollen van dit kruid in je mond te stoppen. Als je dat doet, maak je geen hoorbaar geluid de volgende keer dat je {@action cast a spell} dat een verbale component heeft."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Winterlight Bloom",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8940,21 +8937,21 @@
 						"Je krijgt 4 uur lang weerstand tegen koude schade na gebruik van dit kruid."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Wizard's Friend",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8970,21 +8967,21 @@
 						"In de loop van een uur kan dit kruid worden vermalen en gemengd tot een dieppaarse inkt waarmee spreuken in het toverboek van een tovenaar kunnen worden geschreven. Bij gebruik op deze manier vervangt de inkt de goudstukken die nodig zijn voor de inscriptie. Eén kruid kan genoeg inkt maken om tot 100 goudstukken aan inscriptiecomponenten te vervangen."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yell Pepper",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9019,21 +9016,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yeti Brush",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9049,7 +9046,10 @@
 						"Je kunt je handen en voeten 1 minuut in dit gras wikkelen. Als je dat doet, krijg je geen vermindering van je bewegingssnelheid als je door besneeuwd of beijzeld terrein loopt, en heb je voordeel bij het beklimmen van oppervlakken die bedekt zijn met ijs of sneeuw."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		}
 	]
 }
