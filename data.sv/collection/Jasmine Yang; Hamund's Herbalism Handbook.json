@@ -20,18 +20,18 @@
 		],
 		"status": "ready",
 		"dateAdded": 1665431770,
-		"dateLastModified": 1668700856,
-		"_dateLastModifiedHash": "06fba59cbb"
+		"dateLastModified": 1694386526,
+		"_dateLastModifiedHash": "2553fb95e8"
 	},
 	"book": [
 		{
 			"name": "Hamund's Herbalism Handbook",
-			"source": "HHbH",
-			"author": "Jasmine Yang",
-			"group": "homebrew",
 			"id": "HHbH",
-			"published": "2022-09-03",
+			"source": "HHbH",
+			"group": "homebrew",
 			"coverUrl": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/HHH/HHbH/Cover.webp",
+			"published": "2022-09-03",
+			"author": "Jasmine Yang",
 			"contents": [
 				{
 					"name": "Cover Page, Credits & Changelog"
@@ -939,23 +939,33 @@
 	],
 	"feat": [
 		{
-			"name": "Tincture Master",
-			"source": "HHbH",
-			"page": 39,
-			"entries": [
-				"Du har lärt dig att destillera örter till {@variantrule tinctures|HHbH}, vilket halverar tiden och kostnaden för att skapa en sådan."
-			]
-		},
-		{
 			"name": "Nature's Bounty",
 			"source": "HHbH",
 			"page": 39,
 			"entries": [
 				"Din samhörighet med naturen gör att du hittar fler örter var du än går, nästan som om naturen själv försöker hjälpa dig. Varje gång du samlar en ört, rulla en {@dice d20}. På en 20:a får du en extra kopia av örten du just samlat in."
 			]
+		},
+		{
+			"name": "Tincture Master",
+			"source": "HHbH",
+			"page": 39,
+			"entries": [
+				"Du har lärt dig att destillera örter till {@variantrule tinctures|HHbH}, vilket halverar tiden och kostnaden för att skapa en sådan."
+			]
 		}
 	],
 	"variantrule": [
+		{
+			"name": "Optional Rule: Herb Toxicity",
+			"source": "HHbH",
+			"page": 4,
+			"ruleType": "O",
+			"entries": [
+				"Av balansskäl är det lämpligt att behålla regeln som gör att en karaktär endast kan dra nytta av effekterna av en ört åt gången. Om DM vill kan de dock tillåta användning av flera örter med hög belöning genom att inkludera en riskfylld nackdel som kallas {@b herb toxicity}.",
+				"Enligt denna valfria regel måste en varelse, närhelst den är påverkad av en ört och försöker använda en annan ört på sig själv, göra ett räddningskast i konstitutionen med ett DC som är lika med 10 + 5 x antalet örter som den har försökt att använda sedan den senaste långa vilan. Vid ett lyckat resultat använder de örten som vanligt. Vid ett misslyckande avvisar deras kropp överbelastningen av magiska influenser på dem själva, vilket gör att örten slösas bort, de positiva effekterna av alla örter som för närvarande påverkar dem upphör omedelbart och att varelsen blir {@condition poisoned} i en timme."
+			]
+		},
 		{
 			"name": "Optional Rule: Identifying Herbs",
 			"source": "HHbH",
@@ -965,16 +975,6 @@
 				"För enkelhetens skull antas det enligt standardreglerna att karaktärerna alltid är medvetna om identiteten på den ört de har samlat in, inklusive dess namn, värde och effekt. Om DM dock vill lägga till lite mer komplexitet och utmaning kan han/hon vilja tvinga spelarna att också identifiera örter.",
 				"Enligt denna valfria regel måste en karaktär, när han eller hon samlar en ört, lyckas med en {@dc 15} Visdomskontroll ({@skill Nature}) för att identifiera den ört som han eller hon just har samlat in. Vid ett misslyckande är karaktären bara medveten om att örten är vagt användbar, men vet inte dess namn, effekter eller hur den ska användas.",
 				"En karaktär som har valt att plocka en ört antas veta vilken ört den har plockat."
-			]
-		},
-		{
-			"name": "Optional Rule: Herb Toxicity",
-			"source": "HHbH",
-			"page": 4,
-			"ruleType": "O",
-			"entries": [
-				"Av balansskäl är det lämpligt att behålla regeln som gör att en karaktär endast kan dra nytta av effekterna av en ört åt gången. Om DM vill kan de dock tillåta användning av flera örter med hög belöning genom att inkludera en riskfylld nackdel som kallas {@b herb toxicity}.",
-				"Enligt denna valfria regel måste en varelse, närhelst den är påverkad av en ört och försöker använda en annan ört på sig själv, göra ett räddningskast i konstitutionen med ett DC som är lika med 10 + 5 x antalet örter som den har försökt att använda sedan den senaste långa vilan. Vid ett lyckat resultat använder de örten som vanligt. Vid ett misslyckande avvisar deras kropp överbelastningen av magiska influenser på dem själva, vilket gör att örten slösas bort, de positiva effekterna av alla örter som för närvarande påverkar dem upphör omedelbart och att varelsen blir {@condition poisoned} i en timme."
 			]
 		},
 		{
@@ -1007,6 +1007,8 @@
 	"spell": [
 		{
 			"name": "Cornucopia",
+			"source": "HHbH",
+			"page": 39,
 			"level": 5,
 			"school": "T",
 			"time": [
@@ -1021,6 +1023,11 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small pouch of loamy soil"
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1029,6 +1036,12 @@
 						"amount": 1
 					}
 				}
+			],
+			"meta": {
+				"ritual": true
+			},
+			"entries": [
+				"När du uttalar den här besvärjelsen förklarar du att upp till 4 villiga varelser som du kan se inom 30 fot ska dela ett magiskt band med dig. Under trollformelns varaktighet, när du använder en ört på dig själv, dupliceras den örtens effekter bland alla varelser som delar ett magiskt band med dig, så länge de befinner sig på samma existensplan."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1045,23 +1058,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"När du uttalar den här besvärjelsen förklarar du att upp till 4 villiga varelser som du kan se inom 30 fot ska dela ett magiskt band med dig. Under trollformelns varaktighet, när du använder en ört på dig själv, dupliceras den örtens effekter bland alla varelser som delar ett magiskt band med dig, så länge de befinner sig på samma existensplan."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"meta": {
-				"ritual": true
-			},
-			"components": {
-				"v": true,
-				"s": true,
-				"m": "a small pouch of loamy soil"
 			}
 		},
 		{
 			"name": "Hamund's Herbal Hypodermic",
+			"source": "HHbH",
+			"page": 39,
 			"level": 2,
 			"school": "T",
 			"time": [
@@ -1076,6 +1078,10 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1084,6 +1090,16 @@
 						"amount": 10
 					}
 				}
+			],
+			"entries": [
+				"När du uttalar den här besvärjelsen odlar du en ihålig nål från din arm under hela tiden som kan användas som ett naturligt finessvapen för att göra obeväpnade slag som ger {@damage 1d4} + Dexterity modifiering i skada.",
+				"Slag med den här nålen kan också användas för att snabbt sprida ett gift eller en ört som normalt skulle ta mycket längre tid att applicera på ett vapen. Som en bonushandling kan du använda nålen för att absorbera ett gift eller en ört som normalt skulle användas för att belägga ett vapen. Om du gör det fungerar den här nålen som om den är belagd med det giftet eller örten, med alla de fördelar som det skulle innebära."
+			],
+			"damageInflict": [
+				"piercing"
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1112,26 +1128,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"När du uttalar den här besvärjelsen odlar du en ihålig nål från din arm under hela tiden som kan användas som ett naturligt finessvapen för att göra obeväpnade slag som ger {@damage 1d4} + Dexterity modifiering i skada.",
-				"Slag med den här nålen kan också användas för att snabbt sprida ett gift eller en ört som normalt skulle ta mycket längre tid att applicera på ett vapen. Som en bonushandling kan du använda nålen för att absorbera ett gift eller en ört som normalt skulle användas för att belägga ett vapen. Om du gör det fungerar den här nålen som om den är belagd med det giftet eller örten, med alla de fördelar som det skulle innebära."
-			],
-			"source": "HHbH",
-			"page": 39,
-			"components": {
-				"v": true,
-				"s": true
-			},
-			"damageInflict": [
-				"piercing"
-			],
-			"miscTags": [
-				"UBA"
-			]
+			}
 		},
 		{
 			"name": "Herbal Infusion",
+			"source": "HHbH",
+			"page": 40,
 			"level": 3,
 			"school": "T",
 			"time": [
@@ -1146,10 +1148,17 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"s": true,
+				"m": "one herb that the spell consumes"
+			},
 			"duration": [
 				{
 					"type": "instant"
 				}
+			],
+			"entries": [
+				"Du extraherar och absorberar på magisk väg essensen av en ört i din hand, vilket gör att du omedelbart kan använda örten oavsett hur lång tid det normalt skulle ta att använda den. Den här besvärjelsen kan endast användas på örter som påverkar din egen kropp."
 			],
 			"classes": {
 				"fromClassList": [
@@ -1170,15 +1179,6 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"Du extraherar och absorberar på magisk väg essensen av en ört i din hand, vilket gör att du omedelbart kan använda örten oavsett hur lång tid det normalt skulle ta att använda den. Den här besvärjelsen kan endast användas på örter som påverkar din egen kropp."
-			],
-			"source": "HHbH",
-			"page": 40,
-			"components": {
-				"s": true,
-				"m": "one herb that the spell consumes"
 			}
 		}
 	],
@@ -1420,102 +1420,6 @@
 		}
 	],
 	"table": [
-		{
-			"name": "Herb's Relative Rarity Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"d100",
-				"Herb's Table Position",
-				"{@dice d100} roll"
-			],
-			"colStyles": [
-				"col-4 text-center",
-				"col-4 text-center",
-				"col-4 text-center"
-			],
-			"rows": [
-				[
-					"99\u2013100",
-					"2 or 16",
-					"99"
-				],
-				[
-					"96\u201398",
-					"3 or 15",
-					"96"
-				],
-				[
-					"91\u201395",
-					"4 or 14",
-					"91"
-				],
-				[
-					"85\u201390",
-					"5 or 13",
-					"85"
-				],
-				[
-					"77\u201384",
-					"6 or 12",
-					"77"
-				],
-				[
-					"68\u201376",
-					"7 or 11",
-					"68"
-				],
-				[
-					"57\u201367",
-					"8 or 10",
-					"57"
-				],
-				[
-					"44\u201356",
-					"9",
-					"44"
-				],
-				[
-					"1\u201343",
-					"Örten inte hittad",
-					"1"
-				]
-			],
-			"footnotes": [
-				"{@note First column added to enable 5eTools style rollable table.}"
-			]
-		},
-		{
-			"name": "Foraging Herb Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
-				"Result"
-			],
-			"colStyles": [
-				"col-2 text-center",
-				"col-10 text-center"
-			],
-			"rows": [
-				[
-					"1\u20139",
-					"{@homebrew Character finds nothing.}"
-				],
-				[
-					"10\u201315",
-					"Karaktären hittar tillräckligt med mat för att föda en medelstor varelse i en dag."
-				],
-				[
-					"16\u201320",
-					"Karaktären hittar en gemensam ört. Slå en rulle på den lämpliga miljöns tabell för vanliga örter för att fastställa resultatet."
-				],
-				[
-					"21+",
-					"Karaktären hittar en sällsynt ört. Rulla på den lämpliga miljöns tabell för sällsynta örter för att fastställa resultatet."
-				]
-			]
-		},
 		{
 			"name": "All Herbs A-Z Table",
 			"source": "HHbH",
@@ -2862,6 +2766,102 @@
 			]
 		},
 		{
+			"name": "Foraging Herb Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
+				"Result"
+			],
+			"colStyles": [
+				"col-2 text-center",
+				"col-10 text-center"
+			],
+			"rows": [
+				[
+					"1\u20139",
+					"{@homebrew Character finds nothing.}"
+				],
+				[
+					"10\u201315",
+					"Karaktären hittar tillräckligt med mat för att föda en medelstor varelse i en dag."
+				],
+				[
+					"16\u201320",
+					"Karaktären hittar en gemensam ört. Slå en rulle på den lämpliga miljöns tabell för vanliga örter för att fastställa resultatet."
+				],
+				[
+					"21+",
+					"Karaktären hittar en sällsynt ört. Rulla på den lämpliga miljöns tabell för sällsynta örter för att fastställa resultatet."
+				]
+			]
+		},
+		{
+			"name": "Herb's Relative Rarity Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"d100",
+				"Herb's Table Position",
+				"{@dice d100} roll"
+			],
+			"colStyles": [
+				"col-4 text-center",
+				"col-4 text-center",
+				"col-4 text-center"
+			],
+			"rows": [
+				[
+					"99\u2013100",
+					"2 or 16",
+					"99"
+				],
+				[
+					"96\u201398",
+					"3 or 15",
+					"96"
+				],
+				[
+					"91\u201395",
+					"4 or 14",
+					"91"
+				],
+				[
+					"85\u201390",
+					"5 or 13",
+					"85"
+				],
+				[
+					"77\u201384",
+					"6 or 12",
+					"77"
+				],
+				[
+					"68\u201376",
+					"7 or 11",
+					"68"
+				],
+				[
+					"57\u201367",
+					"8 or 10",
+					"57"
+				],
+				[
+					"44\u201356",
+					"9",
+					"44"
+				],
+				[
+					"1\u201343",
+					"Örten inte hittad",
+					"1"
+				]
+			],
+			"footnotes": [
+				"{@note First column added to enable 5eTools style rollable table.}"
+			]
+		},
+		{
 			"name": "Rare Arctic Herbs",
 			"source": "HHbH",
 			"page": 42,
@@ -3487,14 +3487,11 @@
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3529,21 +3526,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Aloyleaf",
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3559,21 +3556,21 @@
 						"Denna ört ger tillräckligt med blad för att täcka {@dice 1d6} kvadratmeter. Bladen är hårda som stål, men lika lätta som vanliga blad och bryts aldrig ner om de inte begravs under jord."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ashfree Birch",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3589,21 +3586,21 @@
 						"Du kan tillbringa 10 minuter med att placera ark av denna bark som du bär under din rustning och dina kläder och som isolerar dig mot värme och eld. Om du gör det absorberar denna ört skadan i stället för dig när du tar eldskador. Den här örten kan absorbera upp till 30 poäng brandskada innan den helt brinner upp och blir värdelös; överskottsskadan överförs till dig istället. Du kan ta bort den här örten genom att spendera 1 minut på att skala den ur dina kläder."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Auril's Hair",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3619,21 +3616,21 @@
 						"Som en åtgärd kan du hugga ner den här stjälken i marken. Om du gör det blir all mark inom sex meter från dig täckt av ett tunt lager is, vilket gör att den blir {@quickref difficult terrain||3} under de kommande 10 minuterna (eller hälften så länge om du gör det i en varm miljö). Den här stjälken kan användas på det här sättet upp till 3 gånger, varefter den förlorar all sin lagrade köldenergi och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Banshee Vine",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3661,21 +3658,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Barrier Coral",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3698,21 +3695,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk Tongues",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3728,21 +3725,21 @@
 						"Denna ört kan appliceras på ett närstridsvapen eller upp till 10 ammunitionsdelar och täcker dem i en förstenande olja i 10 minuter. En varelse som träffas av det här vapnet eller ammunitionen måste lyckas med ett {@dc 12} Konstitutionsräddningskast, eller få en nivå av följande effekter när de börjar förstenas. Den drabbade varelsens rörelsehastighet halveras. Den drabbade varelsen är {@condition restrained}. Den drabbade varelsen är {@condition petrified} när den förvandlas till sten. Varelsen kan göra konstitutionssparkastet igen i slutet av var och en av sina vändningar, vilket minskar effektnivån med en vid en framgång. En {@spell greater restoration} besvärjelse eller liknande magi som kastas på en drabbad varelse tar omedelbart bort alla nivåer."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk's Appetiser",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3766,21 +3763,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bird Seed",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3797,21 +3794,21 @@
 						"Denna ört har {@dice 1d4} laddningar. Som en handling kan du använda en laddning för att sprida ut ett antal frön på marken, vilket får dem att förvandlas till en liten flock fåglar som flyger iväg omedelbart. Dessa fåglar är av magisk natur och försvinner efter 1 minut."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blighted Pollen",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3866,21 +3863,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blubber Bulb",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3896,21 +3893,21 @@
 						"Efter att ha använt denna ört är du täckt av ett tjockt lager av späckliknande olja som sitter kvar i fyra timmar. Under den här tiden är du immun mot alla skador av kyla, eld, gift eller syra som du skulle drabbas av genom att röra vid ett mål eller genom att träffa dem med en närstridsattack."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Boom Maize",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -3927,21 +3924,21 @@
 						"En hel påse med denna ört innehåller 6 laddningar. Som en handling kan du använda en eller flera laddningar för att kasta en handfull kärnor mot ett mål som du kan se inom sex meter från dig. Det målet måste göra ett {@dc 10} styrka räddningskast, där DC ökar med 2 för varje laddning du använt. Vid ett misslyckande skjuts målet 5 fot bakåt."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bramble Rice",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3958,21 +3955,21 @@
 						"Denna ört har {@dice 1d4} laddningar. Som en handling kan du använda en laddning för att sprida ut en påse av den här örten i ett 5 fot stort område framför dig. Varje varelse som kommer in i området måste lyckas med ett {@dc 15} Dexterity saving throw eller sluta röra sig och ta {@damage 1} piercing damage. Tills varelsen återfår minst 1 träffpunkt reduceras dess gånghastighet med 10 fot tills dess att den återfår minst 1 träffpunkt. En varelse som rör sig genom området med halva hastigheten behöver inte göra räddningskastet."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Breeze Nuts",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4000,21 +3997,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Brighteye Carrots",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4030,21 +4027,21 @@
 						"I 8 timmar efter att du använt den här örten får du {@sense darkvision} en räckvidd på 60 fot, och dina ögon avger ett svagt ljus i en radie av 5 fot."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bubblemelon",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4060,21 +4057,21 @@
 						"Som en åtgärd kan du börja tugga denna ört. Så länge du fortsätter att tugga denna rot behöver du inte andas. Denna ört kan tuggas i upp till 10 minuter, vilket du kan göra på en gång eller under flera sessioner."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Buried Moonlight",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4097,21 +4094,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Candle Rose",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4127,21 +4124,21 @@
 						"Den här fotlånga örten kan användas på samma sätt som en vanlig {@item candle|PHB}: i 1 timme när den tänds ger den ett starkt ljus i en radie av 5 fot och ett svagt ljus i ytterligare 5 fot. Doften och färgen på denna ros bestäms av ditt DM, men de är vanligtvis båda ganska behagliga."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Chef's Trick",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4157,21 +4154,21 @@
 						"Som en handling kan du smula och strö det över en ätbar sak, t.ex. en måltid eller en dryck, medan du tänker på en smak. Denna smak kan variera från något vagt som \"surt\" till något specifikt som \"en rostad kyckling kryddad med oregano\". Om du gör det smakar varan som den smak du tänkte på. En varelse som konsumerar den här varan kan göra en {@dc 20} Visdomskontroll ({@skill Perception}) för att lägga märke till den konstgjorda smaken i den."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cleric's Cane",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4187,21 +4184,21 @@
 						"När du använder den här örten kan du kasta det antal träffdöttrar du har för att återfå träffpoäng som du normalt skulle göra under en kort vila. Om du kastar en 1 eller 2 på någon av dessa tärningar får du rulla om resultatet och måste ta det nya talet, även om det är en 1 eller en 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cold Brush",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4217,21 +4214,21 @@
 						"När du använder denna ört måste du gnugga den på din utsatta hud när du förbereder den. Under de följande fyra timmarna blir din hud ljusblå och isig vid beröring. Detta har ingen inverkan på din faktiska kroppstemperatur."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Compass Rose",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -4248,21 +4245,21 @@
 						"Denna bladväxt har {@dice 1d6} laddningar. Som en handling kan du hålla den här örten platt på din handflata. Om du gör det förlorar örten en laddning och släpper ut en puff av synliga sporer som färdas längs vindens väg. Den här förmågan fungerar även i ett muromgärdat utrymme som en byggnad eller en djup grotta så länge det finns en enda öppen passage som är ansluten till det område du befinner dig i och som leder ut till utsidan."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Corpse Hands",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4278,21 +4275,21 @@
 						"Denna ört kan användas på ett närstridsvapen eller upp till 10 ammunitionsdelar. Ett vapen som har fått den här örten applicerad på sig betraktas som magiskt och ger ytterligare {@damage 1d8} nekrotisk skada vid den första lyckade träffen i en omgång. Denna effekt varar i 1 timme."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Courter's Perfume",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4308,21 +4305,21 @@
 						"Under 4 timmar efter användning av denna ört uppfattar alla varelser som känner lukten av dig att du luktar som deras favoritdoft."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cracker Nut",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -4339,21 +4336,21 @@
 						"Denna ört innehåller {@dice 1d8} avgifter, vilket motsvarar den mängd nötter som skördats. Som en handling kan du använda en laddning för att kasta en nöt på en punkt som du kan se inom 30 fot från dig, vilket gör att den spricker vid nedslaget och skapar ett högt knäckande ljud som kan höras upp till 100 fot bort."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crackle Bark",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4369,21 +4366,21 @@
 						"Denna ört kan användas på ett närstridsvapen eller upp till 10 ammunitionsdelar. Ett vapen som har fått den här örten applicerad på sig betraktas som magiskt och ger ytterligare {@damage 1d8} blixtskada vid den första lyckade träffen i en omgång. Denna effekt varar i 1 timme."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Creeper's Folly",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4399,21 +4396,21 @@
 						"I 4 timmar efter att du använt denna ört kan du inte vara {@quickref Surprise|PHB|3|0|surprised} och du gör alla initiativkast med fördel."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crystal Fruit",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4429,21 +4426,21 @@
 						"Du kan använda din åtgärd för att äta denna frukt. Om du gör det blir din kropp under de kommande 10 minuterna täckt av ett tunt lager is som höjer din AC till 15 om den var lägre än så tidigare, men din rörelsehastighet halveras."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Deadwood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4459,21 +4456,21 @@
 						"Under 8 timmar efter att du har använt denna ört förblir dina känslor helt lugna och förändras endast om du utsätts för en effekt som på ett magiskt sätt förändrar dem."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Drowner's Reach",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4489,21 +4486,21 @@
 						"När du har den här örten lindad runt en fri hand har du fördel på alla {@action grapple} kontroller som görs med den handen. Att linda och avveckla den här örten runt en fri hand tar en handling. När den här örten har använts i 5 lyckade {@action grapple} kontroller försämras den och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dryad's Secret",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4519,21 +4516,21 @@
 						"När du använder denna ört producerar du en behaglig lukt under de kommande fyra timmarna som gör att din omgivning blir öppen för förslag. Under denna tid har du fördel på Charisma ({@skill Persuasion}) som görs för att övertyga humanoider att lita på dig eller bli vän med dig."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dwarf's Bane",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4549,21 +4546,21 @@
 						"När denna ört placeras i en giftig vätska absorberas alla gifter av örten och vätskan blir ofarligt och drickbart vatten. Denna effekt utsträcker sig till alkohol som blir alkoholfri om den utsätts för denna ört. Denna ört kan ta bort gifterna från upp till 5 gallon vätska, varefter den blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Echo Wood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4579,21 +4576,21 @@
 						"Denna ört kan användas på ett närstridsvapen eller upp till 10 ammunitionsdelar. Ett vapen som har fått den här örten applicerad på sig betraktas som magiskt och ger ytterligare {@damage 1d8} åskskskada vid den första lyckade träffen i en omgång. Denna effekt varar i 1 timme."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Elven Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4609,21 +4606,21 @@
 						"Under fyra timmar efter att du har använt denna ört får du en känsla av lugn som förhindrar din förmåga att uppleva stora känslor. Under den här tiden har du fördel på alla förmågaskontroller eller räddningskast för att motstå att påverkas av {@condition frightened|PHB|fear} tillståndet."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Embergrass",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4639,7 +4636,10 @@
 						"I 1 timme efter att du använt den här örten har du motståndskraft mot brandskador och du lyckas automatiskt med alla färdighetskontroller eller räddningskast som du gör för att motstå effekterna av varmt väder."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everfrost Root",
@@ -4647,14 +4647,11 @@
 			"page": 12,
 			"type": "Herb",
 			"typeAlt": "SCF",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"focus": true,
 			"entries": [
 				{
@@ -4671,21 +4668,21 @@
 						"Du kan använda den här örten som en {@item arcane focus|PHB} när du kastar dina trollformler. Medan den här örten är din {@item arcane focus|PHB}, närhelst du kastar en 1 eller en 2 för kallskada som resulterar från en besvärjelse du kastat, kan du rulla om den tärningen och måste använda den nya rullen, även om den nya rullen är en 1 eller en 2."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everwort Root",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4701,21 +4698,21 @@
 						"Som en åtgärd kan du hälla vätskan i den här roten till en dryck. Alla varaktigheter som är associerade med den dryckens effekt fördubblas permanent."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fabric Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4750,21 +4747,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fairybed Reed",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4780,22 +4777,22 @@
 						"Du kan tillbringa 10 minuter med att applicera denna ört på dig själv, stoppa in fröna i din rustning och smörja lederna med dess olja. Om du gör det ignorerar du alla nackdelar med Dexterity ({@skill Stealth}) kontroller som du kan ha när du bär din rustningstyp."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fanana",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
 			"charges": "{@dice 1d6}",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4811,21 +4808,21 @@
 						"Denna ört har {@dice 1d6} laddningar, där varje laddning motsvarar en av örtens frukter. Som en handling kan du använda en eller flera laddningar för att spränga frukterna, vilket frigör uppdämd gas inuti och skapar en vindstöt som är 5 fot bred och har en längd som är lika med 5 gånger det antal laddningar som använts. Denna vind är tillräckligt kraftfull för att kväva öppna lågor och slå omkull små föremål, men inte tillräckligt för att slå omkull en varelse {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fey's Fear",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4848,21 +4845,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiend's chilli",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4878,21 +4875,21 @@
 						"Under 8 timmar efter att du använt denna ört blir din hud klarröd och du andas ständigt ut ånga."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiendsgate Wisteria",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4908,21 +4905,21 @@
 						"Som en del av din rörelse kan du sprida ut blomblad från wisteria vid dina fötter när du går. En påse med dessa kronblad kan bilda en linje på upp till 30 fot i längd. Om en varelse med djävulskapstyp försöker korsa en linje av kronblad måste de göra ett {@dc 15} visdomssparande kast. Vid ett misslyckande reduceras deras hastighet till 0 för resten av deras tur."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fin Moss",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4938,21 +4935,21 @@
 						"Du kan tillbringa 10 minuter med att fästa dessa örter på 1 närstridsvapen eller upp till 10 ammunitionsbitar. Alla vapen eller ammunition som har den här mossan fäst vid sig lider {@quickref Underwater Combat|PHB|3|0|no penalty when used underwater}. De här örterna kan bara fästas på ett vapen eller en ammunitionsuppsättning - varje försök att ta bort dem skadar dem så att de inte kan användas."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fire Flower",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4968,7 +4965,10 @@
 						"Denna ört kan användas på ett närstridsvapen eller upp till 10 ammunitionsdelar. Ett vapen som har fått den här örten applicerad på sig betraktas som magiskt och ger ytterligare {@damage 1d8} brandskada vid den första lyckade träffen i en omgång. Denna effekt varar i 1 timme."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Firemelon",
@@ -4976,15 +4976,12 @@
 			"page": 14,
 			"type": "Herb",
 			"typeAlt": "SCF",
-			"focus": true,
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
+			"focus": true,
 			"entries": [
 				{
 					"type": "entries",
@@ -5000,21 +4997,21 @@
 						"Du kan använda den här örten som en {@item arcane focus|PHB} när du kastar dina trollformler. Medan den här örten är din {@item arcane focus|PHB}, närhelst du kastar en 1 eller en 2 för brandskada som resulterar från en besvärjelse du kastar, kan du rulla om den tärningen och måste använda den nya kasten, även om den nya kasten är en 1 eller en 2."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fireplume Fennel",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5030,21 +5027,21 @@
 						"Som en handling kan du kasta den här örten mot en plats inom sex meter från dig som du kan se. När den landar exploderar den här örten och tvingar alla mål inom en radie av 5 fot från det utrymmet att lyckas med ett {@dc 12} räddningskast för Dexterity eller att drabbas av {@damage 2d6} brandskada, eller hälften av den vid ett lyckat räddningskast."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Flumph Fungi",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5060,21 +5057,21 @@
 						"Efter att ha använt denna ört får du en större medvetenhet och empati för människorna runt omkring dig under de kommande fyra timmarna. Under denna tid har du fördel på Wisdom ({@skill Insight}) kontroller för att fastställa det känslomässiga tillståndet hos humanoider du interagerar med."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fool's Charm",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8+4}",
 			"entries": [
 				{
@@ -5091,21 +5088,21 @@
 						"Den här örten innehåller {@dice 1d8+4} laddningar, där varje laddning representerar ett av de återstående bladen på örtens stjälk. Varje gång du kastar en 1 på en förmågekontroll, ett anfallskast eller ett räddningskast när du håller den här örten, kan du använda en laddning för att kasta om tärningen och använda det nya resultatet. När alla laddningar har använts på den här örten vissnar den bort och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Frozen Fuel",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5121,21 +5118,21 @@
 						"Du kan kasta den här örten som en distansvapenattack mot en punkt inom sex meter från dig som du kan se, vilket får den här örtens lök att brista och tvingar alla varelser inom fem meter från den att göra ett {@dc 15} räddningskast för Dexterity. Vid ett misslyckande täcks varelsen av en klibbig, brännbar harts som gör dem sårbara för brandskador. En varelse som är täckt av detta harts eller en varelse i närheten av dem kan använda sin handling för att torka bort detta harts, vilket avslutar denna effekt omedelbart."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fumbleweed",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5151,21 +5148,21 @@
 						"Nästa gång du slås {@condition prone} ofrivilligt efter att ha använt den här örten kan du använda din reaktion för att inte slås {@condition prone} istället. Efter att detta inträffar går den här örten sönder och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gargoyle's Lichen",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5181,21 +5178,21 @@
 						"Under 8 timmar efter användning av denna ört får din hud ett hårt, grått utseende som liknar sten."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ghost Leaf",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5211,21 +5208,21 @@
 						"Under nästa timme, när du rör dig, blir du kroppslös, vilket gör att du kan röra dig genom andra varelser och fasta föremål som om de vore {@quickref difficult terrain||3}, och ta {@damage 1d10} kraftskada om du slutar din rörelse i ett fast föremål. Dessutom kan varelser med egenskapen {@i Incorporeal Movement} inte passera genom dig."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Giant's Silk",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5241,21 +5238,21 @@
 						"Denna ört kan användas i stället för 60 fot rep. Du gör alla styrkekontroller med fördel när du använder detta rep för att utföra någon form av knuffning, dragning, lyftning eller klättring."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glacier Branch",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5283,21 +5280,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glide Weed",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5320,21 +5317,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gloom's Cloak",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5350,21 +5347,21 @@
 						"Du får motstånd mot strålningsskador under de kommande 4 timmarna efter att du använt den här örten."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glowmoss",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5380,21 +5377,21 @@
 						"Den här örten ger ett svagt ljus i en radie av 5 fot runt omkring den."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gluebell",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5417,21 +5414,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Pine",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5447,21 +5444,21 @@
 						"Som en åtgärd kan du täcka ett närstridsvapen eller upp till 10 ammunitionsbitar med kåda från den här växten. Under nästa timme, varje gång du använder det vapnet för att framgångsrikt träffa en varelse med draktyp, måste den varelsen göra ett {@dc 15} Konstitutionssparande kast. Vid ett misslyckande görs alla attacker mot den varelsen med fördel fram till början av din nästa tur."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Truffle",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -5478,51 +5475,21 @@
 						"Denna ört innehåller {@dice 1d6} laddningar. Du kan använda en laddning för att använda den här örten, varefter ditt maximum av träffpunkter ökar med ett belopp som är lika med dubbla din karaktärsnivå, och du får samma antal träffpunkter. Denna ökning varar i 4 timmar, varefter dina maximala träffpunkter återgår till det normala."
 					]
 				}
-			]
-		},
-		{
-			"name": "Grounder Seed",
-			"source": "HHbH",
-			"page": 17,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
+			"lcn": "Forest",
 			"prep": "Yes",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"Fröna finns i baljorna på en tålig buske och innehåller en olja som torkar till ett gummiaktigt material kort efter att ha utsatts för luft. Dess likhet med gummi sträcker sig faktiskt till dess isoleringsförmåga, och fröet är eftertraktat som ett naturligt skydd mot varelser som använder blixtens dödliga kraft."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Du får motstånd mot blixtskador i 4 timmar efter att du använt den här örten."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Grave Root",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5557,21 +5524,51 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Grounder Seed",
+			"source": "HHbH",
+			"page": 17,
+			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"Fröna finns i baljorna på en tålig buske och innehåller en olja som torkar till ett gummiaktigt material kort efter att ha utsatts för luft. Dess likhet med gummi sträcker sig faktiskt till dess isoleringsförmåga, och fröet är eftertraktat som ett naturligt skydd mot varelser som använder blixtens dödliga kraft."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Du får motstånd mot blixtskador i 4 timmar efter att du använt den här örten."
+					]
+				}
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hag's Hair",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5587,21 +5584,21 @@
 						"När du använder den här örten blir du immun mot sjukdomar under de kommande 24 timmarna och alla sjukdomseffekter som du för närvarande utsätts för får sin utveckling och sina symtom stoppade."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hamund's Hair",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5617,21 +5614,21 @@
 						"Du kan tillbringa 3 timmar med att applicera denna ört på rustningar, vilket innebär att du vrider och väver in de hållbara men flexibla trådarna i rustningens svagaste områden. Efter denna timme ger rustningen permanent en +1 bonus till AC när den bärs. Denna ört kan inte appliceras på rustningar som redan har en bonus till AC eller på sköldar."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heartstopper Weed",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5654,21 +5651,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heaven's Chance",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5684,21 +5681,21 @@
 						"När du kastar det högsta värdet på en skadetärning kan du kasta om tärningen och lägga till det nya resultatet till den totala skadan och upprepa processen om du kastar det högsta värdet igen. Det finns ingen begränsning för hur många gånger du kan göra detta på en enda skadetillfälle."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hopping Bean",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5714,21 +5711,21 @@
 						"Som en åtgärd kan du bryta upp denna ört och andas in gaserna i den. Om du gör det tredubblas ditt hoppavstånd under nästa timme."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hunter's Mud",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5744,21 +5741,21 @@
 						"Under 8 timmar efter användning av denna ört luktar du inte, och alla lukter som försöker fastna på dig neutraliseras omedelbart."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Mint",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5774,21 +5771,21 @@
 						"I 8 timmar efter att du använt denna ört är din andedräkt alltid synlig, luktar som en uppfriskande mynta och är tillräckligt kall för att få frost att byggas upp på föremål som du andas ut på."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Vine",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5804,21 +5801,21 @@
 						"Denna tre meter långa vinstock förblir iskall oavsett omgivningstemperaturen."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icestone Trunk",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -5835,21 +5832,21 @@
 						"Som en del av användningen av denna ört måste du använda den för att vässa ett skärande eller genomträngande närstridsvapen, eller upp till 10 stycken skärande eller genomträngande ammunition. Under de kommande 4 timmarna betraktas detta vapen eller denna ammunition som magisk, och varje gång det framgångsrikt träffar en varelse måste de göra ett {@dc 17} Konstitutionssparandekast då frost försöker täcka deras kropp. Varelser med resistens eller immunitet mot köldskador lyckas automatiskt med detta räddningskast. Vid ett misslyckat räddningsförsök halveras den drabbade varelsens rörelsehastighet och gör alla Dexterity räddningsförsök till nackdel i 1 minut. Om räddningskastet misslyckas med 5 eller mer är varelsen också {@condition restrained} och kan inte ta reaktioner när frosten tar över deras kropp. I slutet av varelsens varv kan de göra räddningskastet igen och effekten upphör om de lyckas. Den här örten kan användas upp till 6 gånger, varefter dess magi bleknar och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icicle Moss",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5865,21 +5862,21 @@
 						"Denna ört kan användas på ett närstridsvapen eller upp till 10 ammunitionsdelar. Ett vapen som har fått den här örten applicerad på sig betraktas som magiskt och ger ytterligare {@damage 1d8} kallskada vid den första lyckade träffen i en omgång. Denna effekt varar i 1 timme."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Interrogator's Baton",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -5896,21 +5893,21 @@
 						"Denna ört har {@dice 1d4} laddningar. Som en handling kan du spendera en laddning för att gnugga den här örten på antingen ett närstridsvapen eller upp till 10 ammunitionsbitar, vilket ger dem en parasitär slem. Under de kommande tio minuterna anses inte skada som tillfogats av ett belagt vapen eller ammunitionsstycke som \"skadlig\" för att avsluta ett {@condition charmed} tillstånd på en drabbad varelse. När den här örten förlorar alla laddningar blir den uttorkad och anses värdelös."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ironleaf Thicket",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5926,21 +5923,21 @@
 						"I 4 timmar efter att du har använt den här örten har du en +2 bonus på AC, samt en glänsande metallisk grå färg på din hud."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jellyfish Vine",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5968,21 +5965,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jingle Berries",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -6006,21 +6003,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Keepsake Daisy",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6036,51 +6033,21 @@
 						"Som en åtgärd kan du dela den här tusenskönan vertikalt på mitten. En varelse som håller den ena halvan av tusenskönan kan använda sin handling för att fokusera på den, vilket omedelbart teleporterar dem och allt de håller i och bär till det närmaste obebodda utrymmet på den andra halvan av tusenskönan. Vid denna tidpunkt sönderfaller båda halvorna till värdelöst damm. Denna förmåga kan endast användas när båda halvorna befinner sig på samma existensplan; varje försök att använda den på annat sätt resulterar i ingen effekt."
 					]
 				}
-			]
-		},
-		{
-			"name": "Killer Tomato",
-			"source": "HHbH",
-			"page": 20,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
+			"lcn": "Forest",
 			"prep": "No",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"En ört med ett överdrivet namn, mördartomaten, är egentligen inte farlig - åtminstone inte fysiskt. Denna ört sägs ha skapats av en bedragargud i ett anfall av munter fräckhet och kan känna av när ett dåligt skämt, en berättelse eller en sång framförs i dess närhet, och flyger sedan självständigt mot förövaren för att göra dennes ansikte rött av tomatjuice. Även om detta i slutändan är ofarligt, har den känslomässiga skada som detta kan orsaka lett till att tomaten har förbjudits från de flesta musiksalar och krogar."
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"Om en varelse misslyckas med en Charisma ({@skill Performance})-kontroll inom 30 fot från den här örten, flyger den automatiskt direkt mot dem och sprutar automatiskt på dem, vilket förstör örten. Den här effekten utlöses också om örten finns på din person och du lyckas med ett räddningskast för att motstå effekterna av en {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} eller {@spell danse macabre|XGE} besvärjelse, eller liknande magi baserad på skämt, musik eller uppträdanden, med örten som flyger mot den varelse som kastade besvärjelsen."
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ki-Rin's Bounty",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6103,21 +6070,51 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Killer Tomato",
+			"source": "HHbH",
+			"page": 20,
+			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"En ört med ett överdrivet namn, mördartomaten, är egentligen inte farlig - åtminstone inte fysiskt. Denna ört sägs ha skapats av en bedragargud i ett anfall av munter fräckhet och kan känna av när ett dåligt skämt, en berättelse eller en sång framförs i dess närhet, och flyger sedan självständigt mot förövaren för att göra dennes ansikte rött av tomatjuice. Även om detta i slutändan är ofarligt, har den känslomässiga skada som detta kan orsaka lett till att tomaten har förbjudits från de flesta musiksalar och krogar."
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"Om en varelse misslyckas med en Charisma ({@skill Performance})-kontroll inom 30 fot från den här örten, flyger den automatiskt direkt mot dem och sprutar automatiskt på dem, vilket förstör örten. Den här effekten utlöses också om örten finns på din person och du lyckas med ett räddningskast för att motstå effekterna av en {@spell vicious mockery}, {@spell Otto's irresistible dance}, {@spell Tasha's hideous laughter} eller {@spell danse macabre|XGE} besvärjelse, eller liknande magi baserad på skämt, musik eller uppträdanden, med örten som flyger mot den varelse som kastade besvärjelsen."
+					]
+				}
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Knock Wood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6133,21 +6130,21 @@
 						"När du håller den här örten i din hand kan du använda din reaktion för att slå den här örten mot något hårt om du tvingas göra en rulle till nackdel. Om du gör det gör du din rulle som vanligt istället för med nackdel. När den här örten har använts en gång förlorar den all kraft och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Kraken Kelp",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -6164,21 +6161,21 @@
 						"Denna ört har {@dice 1d8} laddningar som motsvarar antalet intakta lökar längs dess längd. Som en del av användningen av den här örten måste du använda 1 laddning genom att knäcka lökarna och applicera dess bläckiga miasma på dig själv. I en timme efter användningen avger du ett moln av mörker med en radie på 10 fot som bara du kan se igenom. Allt inom molnet anses vara {@book heavily obscured|PHB|8|Vision and Light} för alla varelser utom dig."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lich Lichen",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6194,21 +6191,21 @@
 						"Efter att ha använt den här örten har alla varelser av typen odöda varelser nackdel på visdomskontroller ({@skill Perception}) som görs för att upptäcka dig."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Liftwood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"recharge": "dawn",
 			"entries": [
 				{
@@ -6237,21 +6234,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lolth's Thorn",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6267,21 +6264,21 @@
 						"Den här örten kan användas som en {@item dagger|PHB}. Om den här törnen framgångsrikt träffar en varelse som lider av {@condition poisoned} upphör det tillståndet omedelbart, och den här törnen fylls med det gift som den varelsen drabbades av. Vid nästa lyckade träff med denna tagg drabbas den träffade varelsen av någon av de effekter som det ursprungliga giftet medförde; om det giftet krävde ett räddningskast sätts DC:n till 15. Den här törnen kan bara bära ett gift åt gången, och alla gifter inuti blir oanvändbara 24 timmar efter att de först absorberats."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lotus of the Raven Queen",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6297,21 +6294,21 @@
 						"Under de närmaste 24 timmarna efter att du använt denna ört kan du, om du misslyckas med ett räddningskast för att rädda döden, spendera 1 träffad tärning för att upphäva detta misslyckande istället. Du måste spendera 1 träffdocka per misslyckande som du vill förneka i händelse av att en effekt skulle få dig att förlora mer än 1 åt gången."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lucidity Lavender",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6334,21 +6331,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Magic Mistletoe",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6364,21 +6361,21 @@
 						"Som en del av beredningen av denna ört måste du täcka ett närstridsvapen eller upp till 10 ammunitionsbitar med saften från denna växt. Under de kommande 4 timmarna måste varje varelse som träffas av detta vapen eller denna ammunition lyckas med ett {@dc 18} Konstitutionssparande kast eller bli {@condition poisoned} för nästa minut. Medan {@condition poisoned} på det här sättet förlorar en varelse alla skaderesistanser de kan ha."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Maiden Moss",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6394,21 +6391,21 @@
 						"Som en del av beredningen av den här örten måste du använda 1 flaska blod från en valfri varelse och använda det för att skapa en pasta av pulvret från örten. Den resulterande pastan kan sedan appliceras på antingen en varelse som är medelstor eller mindre, eller på omkretsen av ett område som inte mäter mer än 60 fot. Under de kommande 24 timmarna måste alla varelser som är av samma varelsetyp som det blod du lagt till pastan och som har en intelligenspoäng på 5 eller mindre göra ett {@dc 15} Visdomssparandekast närhelst de försöker röra sig inom 5 fot från varelsen eller området som omges av pastan. Vid ett misslyckande måste den varelsen ägna resten av sin rörelse åt att röra sig så långt bort från varelsen eller området som omges av pastan som möjligt, genom att ta den mest direkta, säkra vägen som möjligt. Om de lyckas kan de röra sig som de vill och de är immuna mot effekterna av denna ört de kommande 24 timmarna."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Marid's Tail",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6424,21 +6421,21 @@
 						"Du kan göra vapenattacker med den här örten och behandla den som om den vore en {@item dagger|PHB}. Vid en lyckad träff sätter sig örten i målet och spricker sedan, vilket tvingar målet att lyckas med ett {@dc 15} räddningskast i styrka eller att bli knuffad 20 fot bakåt när en stark vattenstöt sprutar ut från den trasiga örten. När denna ört har använts en gång på detta sätt förstörs den och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mariner's Friend",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6454,21 +6451,21 @@
 						"Under fyra timmar efter användning av denna ört dräneras all vätska som kommer i kontakt med dig omedelbart från din kropp, dina kläder och ägodelar och du blir helt torr."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mender's Mold",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6484,21 +6481,21 @@
 						"Denna ört innehåller tillräckligt med mögel för att täcka {@dice 1d6} kvadratmeter. Om du använder den här örten för att täcka ett trasigt hål eller en söm i ett föremål kommer örten att magiskt fästa vid kanterna av det trasiga området och sedan permanent förvandla sig själv under loppet av den kommande timmen till samma material som på de kanter den rör vid. Om den till exempel placeras över ett hål i ett trasigt trägolv kommer formen att förvandla sig själv till trä. Formen behåller sin svarta färg efter omvandlingen och fungerar som ett homogent material."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Merrow Trap",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d20}",
 			"entries": [
 				{
@@ -6515,21 +6512,21 @@
 						"Denna ört innehåller {@dice 1d20} laddningar, där varje laddning motsvarar ett sjögrässtrå. Du kan använda 1 laddning och spendera 1 minut på att fästa ett blad av sjögräs på en {@item crossbow bolt|PHB|bolt} eller {@item arrow|PHB}. Om du gör det lider den bult eller pilen av {@quickref Underwater Combat|PHB|3|0|no penalties associated with being used underwater}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mirage Melon",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6545,21 +6542,21 @@
 						"Du kan äta denna ört som en åtgärd. Under de kommande 10 minuterna producerar din mage en magisk gas som får dig att rapa i början av varje tur, och varje rapa avger en självlysande gas som tar formen av en liten illusion som du väljer när den lämnar din mun. Exempel på illusoriska effekter är fjärilar eller musikaliska toner. Dessa illusioner har varken substans eller ljud, är uppenbart falska till sin natur och försvinner i början av din nästa tur."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mordenkainen's Mint",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6575,21 +6572,21 @@
 						"Som en bonusåtgärd kan du börja tugga den här örten. Medan du tuggar den här örten har du fördel på alla sparkast som görs för att behålla {@condition concentration} på en besvärjelse. Den här örten kan tuggas i upp till 10 minuter, vilket måste göras i följd."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mortician's Cactus",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6605,21 +6602,21 @@
 						"I 4 timmar efter att du använt denna ört smakar och luktar du fruktansvärt illa. Alla varelser som gör en attack mot dig där de biter dig eller använder sin tunga mot dig, gör det med nackdel. Dessutom har du fördel på alla förmågaskontroller eller räddningskast som görs för att undvika att bli svalt eller spottad ut ur en varelses mage."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mountain Heart Ginseng",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6635,21 +6632,21 @@
 						"Du har en fördel på sparandekast i konstitutionen i 8 timmar efter att du har använt denna ört."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mud Bane",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6666,21 +6663,21 @@
 						"Denna ört innehåller {@dice 1d3} laddningar. För att använda den här örten måste du använda en laddning för att täcka ett närstridsvapen eller upp till 10 ammunitionsdelar i en giftig saft. Under de kommande 10 minuterna måste varje varelse som träffas av det här vapnet eller ammunitionen lyckas med ett {@dc 18} räddningskast för konstitutionen eller bli {@condition poisoned} i 1 minut. Om räddningskastet misslyckades med 5 eller mer blir varelsen också {@condition incapacitated} då de blir uppslukade av våldsamma anfall. I början av varje tur och närhelst de tar skada kan varelsen göra räddningskastet igen. Vid en framgång är de inte längre{@condition incapacitated}."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Musical Fruit",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6696,21 +6693,21 @@
 						"Du kan äta denna ört som en åtgärd. Under nästa timme har du fördel på Charisma ({@skill Performance})-förmågekontroller för att sjunga eller spela musikinstrument."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nature's Curse",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6727,21 +6724,21 @@
 						"Denna ört innehåller {@dice 1d3} laddningar. För att använda den här örten måste du använda en laddning för att täcka ett närstridsvapen eller upp till 10 ammunitionsbitar i dess giftiga saft. Under de kommande 10 minuterna måste varje varelse som träffas av detta vapen eller denna ammunition lyckas med ett {@dc 18} Konstitutionssparande kast eller bli {@condition poisoned} i 1 minut. Medan {@condition poisoned} på detta sätt är varelsen plågad av fruktansvärd smärta, vilket gör att de har nackdel på alla räddningskast, har sin rörelsehastighet halverad, och alla trollformler som de är {@condition concentration|PHB|concentrating} på avslutas automatiskt i början av deras tur."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Needlecloud Cactus",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6757,21 +6754,21 @@
 						"När du förbereder den här örten placerar du segment av den här örten på strategiska platser runt dina kläder och din rustning. Varje gång du träffas av en närstridsattack kan du använda din reaktion för att släppa ut en spray av vassa nålar från örterna på din kropp, vilket tvingar alla varelser inom 1,5 meter från dig att göra ett {@dc 14} räddningskast för Dexterity, och ta {@damage 1d6} piercing damage vid ett misslyckande, eller hälften av det vid ett lyckat resultat. När du har använt den här förmågan 4 gånger tar den här örten slut på nålarna och blir värdelös."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nightflame Seed",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6794,21 +6791,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nofall Leaves",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6824,21 +6821,21 @@
 						"När du använder denna ört måste du gnugga in den på skosulorna eller på fötterna om du går barfota. Under 8 timmar efter att du använt denna ört får du inte sjunka ner i djup snö."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nomad's Treasure",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6866,21 +6863,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Numbing Bush",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6896,21 +6893,21 @@
 						"Som en åtgärd kan du använda den här örten genom att gnugga in den på din kropp och dina sår. Under den kommande timmen får du 8 tillfälliga träffpunkter i början av varje tur, men har nackdel på Dexterity räddningskast och Dexterity förmågekontroller."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Odour Begonia",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6926,21 +6923,21 @@
 						"Under 4 timmar efter användning av denna ört har du inget luktsinne."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Oracle's Leaf",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6956,21 +6953,21 @@
 						"Under 4 timmar efter att du använt denna ört får du en mindre klarsyn som hjälper dig att undvika faror. När du blir måltavla för en attack kan du använda din reaktion för att tvinga attacken att utföras med nackdel."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Parrot Poppy",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7025,21 +7022,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peacekeeper's Lily",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7055,21 +7052,21 @@
 						"Den här örten kan användas på alla stickande eller skärande närstridsvapen eller upp till 10 stycken stickande eller skärande ammunition. Under nästa timme, varje gång du skadar en varelse med det vapnet eller den ammunitionen, måste den varelsen lyckas med ett {@dc 15}Konstitutionssparandekast eller bli {@condition poisoned} tills början av din nästa tur. Medan {@condition poisoned} på detta sätt måste {@condition poisoned} varelsen göra ett {@dc 15} Visdomssparkast närhelst den försöker utföra en handling som direkt skulle leda till att en annan varelse tar skada. Om de misslyckas måste de välja en annan handling som inte direkt skulle leda till att en annan varelse tar skada eller slösa bort sin handling."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pearvoyance",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7085,21 +7082,21 @@
 						"Efter att ha använt denna ört får du en kort vision av framtiden. Detaljerna i denna vision, inklusive dess längd, dess avstånd från nuet och till och med om den är sann eller inte, är upp till din DM att avgöra. Oavsett detta tror du helt och hållet att visionen är en sann och exakt förebådelse av saker som kommer att komma."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peony of Power",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7115,21 +7112,21 @@
 						"Som en åtgärd kan du krossa den här örten på din hand. Under de kommande 10 minuterna, närhelst du {@action cast a spell} som använder en trollformelplats, anses den vara kastad med en trollformelplats som är 1 nivå högre än den du faktiskt använde."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pinecone of Cold",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7145,21 +7142,21 @@
 						"Som en handling kan du kasta den här tallkotten upp till sex meter och få den att explodera vid nedslaget. Alla varelser inom en radie på 1,5 meter från nedslaget måste göra ett {@dc 15} räddningskast med konstitutionen och drabbas av {@damage 4d6} kallskada om de misslyckas eller hälften av den skadan om de lyckas."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Platinum Star",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7175,21 +7172,21 @@
 						"När örten är beredd kan den användas av upp till 6 varelser samtidigt. Alla varelser som använt denna ört får {@variantrule inspiration|PHB} som varar i de kommande 8 timmarna."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Polypad",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "unknown (magic)",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "unknown (magic)",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7205,21 +7202,21 @@
 						"Efter att ha använt den här örten kan du trolla fram en {@creature water elemental|MM} och en {@creature earth elemental|MM} i obebodda utrymmen inom tre meter från dig. Elementarerna försvinner när de sjunker till 0 träffpunkter eller efter 4 timmar, beroende på vilket som inträffar först. Elementalerna är vänliga mot dig och dina följeslagare och agerar på sina egna initiativorder. De lyder alla verbala kommandon som du ger dem (ingen åtgärd krävs av dig). Om du inte ger några kommandon till en elemental försvarar de sig mot fientliga varelser men utför i övrigt inga åtgärder."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Prepyrus",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7235,21 +7232,21 @@
 						"Under en kort vila kan du skriva ner en serie magiska besvärjelser på den här örten för att ändra din lista över förberedda besvärjelser. Du måste dock fortfarande spendera samma tid på att förbereda varje trollformel som anges i din klassegenskap. Den här örten kan bara användas en gång."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Purple Worm Bulb",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7275,21 +7272,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rageroot",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7305,21 +7302,21 @@
 						"Som en åtgärd kan du äta denna rot. Om du gör det blir du immun mot {@condition stunned}, {@condition frightened|PHB|fear} och {@condition charmed} under de kommande 10 minuterna när du fylls av ett maniskt raseri."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Repellent Lemons",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7342,21 +7339,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rimemoss",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7372,21 +7369,21 @@
 						"Du kan tillbringa 10 minuter med att fodra dina kläder med rimemoss. Om du gör det lyckas du automatiskt med alla sparkast i konstitutionen för att motstå de negativa effekterna av kalla miljöer och väder."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rumble Cotton",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7402,21 +7399,21 @@
 						"Du får motstånd mot åskskskador i 4 timmar efter att du använt den här örten."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rush Chillis",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7432,21 +7429,21 @@
 						"I 1 timme efter att du har använt den här örten kan du utföra upp till 2 reaktioner per runda som du återfår i början av varje tur."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rustfern",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -7475,21 +7472,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sailor's Omen",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7505,21 +7502,21 @@
 						"I 8 timmar efter att du använt den här örten är du immun mot giftskador och tillståndet {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandrain Flower",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 4,
 			"entries": [
 				{
@@ -7536,21 +7533,21 @@
 						"Denna ört har 4 laddningar. Som en handling kan du linda den här örtens rötter runt en av dina fria händer. Medan du har en varelse {@condition grappled} med den här fria handen kan du använda din bonushandling och 1 laddning för att tvinga den varelsen att göra ett {@dc 17} räddningskast för konstitutionen eller bli {@condition stunned} när örten snabbt uttorkar deras kropp. Konstruktioner, odöda och alla varelser som inte naturligt har vätska i kroppen lyckas automatiskt med detta kast. En {@condition stunned} varelse kan göra ett räddningskast för Konstitutionen igen i slutet av var och en av sina vändor, vilket avslutar effekten på henne själv om hon lyckas. När alla laddningar har använts på den här örten spricker den av att sluka vätska och blir värdelös."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandtrap Palm",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7566,21 +7563,21 @@
 						"Du kan tillbringa 1 minut med att svepa in eller avlägsna händer och fötter i denna ört. Medan dina händer och fötter är insvepta i den här örten får du inget avdrag för din rörelsehastighet när du rör dig i sandig terräng, och du har en fördel när du klättrar på ytor som är täckta av sand."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Scholar's Brush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7603,21 +7600,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Seeds",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -7634,21 +7631,21 @@
 						"Denna ört har {@dice 1d6} laddningar. Som en handling kan du använda en laddning för att sprida ut ett antal frön. Om det görs i en vattenkropp får dessa frön alla marina organismer i samma vattenkropp med en intelligenspoäng på mindre än 4 och inom 30 meter från dem att simma till dem på den mest direkta vägen som är möjlig. Fisken försöker inte äta dessa frön, utan lockas helt enkelt till deras plats. När de har legat i vattnet i 1 minut löses de upp och blir värdelösa."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Soap",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7671,21 +7668,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sentry Bush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7701,21 +7698,21 @@
 						"När du förbereder denna ört får du alla fördelar av 8 timmars sömn (eller motsvarande form av vila för din ras). Du måste fortfarande vila i minst 8 timmar för att kunna dra nytta av en lång vila."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sharpeye Twig",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7731,21 +7728,21 @@
 						"Du kan använda din bonusåtgärd för att börja tugga den här örten. När du tuggar den här örten ignorerar du alla nackdelar som du får när du försöker göra en attack med ett distansvapen utanför ditt vapens normala räckvidd. Den här örten kan tuggas i upp till en minut, vilket kan göras på en gång eller i flera mindre segment, med minst en runda per gång innan du slutar (ingen handling krävs)."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shepherd's Soap",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7761,21 +7758,21 @@
 						"När du använder denna ört producerar du en behaglig lukt under de kommande fyra timmarna som gör att alla djur i din närhet instinktivt litar på dig. Under den här tiden har du fördel på Visdom ({@skill Animal Handling})-kontroller som görs för att kommunicera med alla djur inom 30 fot från dig som kan höra och lukta dig."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shifter's Jasmine",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7791,21 +7788,21 @@
 						"När du förbereder den här örten måste du mentalt föreställa dig en humanoid form. Denna form behöver inte ha samma ras, kön, storlek eller ålder som din nuvarande, men måste ligga inom de realistiska gränserna för en humanoid av den rasen (du kan t.ex. inte föreställa dig en 12 fot lång dvärg eller en alv med fyra armar). Efter att ha använt örten förändras din kropp permanent för att matcha den form du föreställde dig. Din statistik ändras inte, och du behåller alla rasegenskaper som du hade ursprungligen."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shunflower",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7821,21 +7818,21 @@
 						"En varelse som har den här örten på sig har nackdel vid kontroll av Charismaförmåga."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sigil's Mark",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7851,21 +7848,21 @@
 						"Denna ört innehåller {@dice 1d6} frön. Som en handling kan du krossa ett frö och gnugga in den resulterande oljan på dig själv, eller så kan du använda ett frö för att göra en distansvapenattack mot en varelse som du kan se inom sex meter från dig, vilket förstör det och frigör oljan vid nedslaget. I båda fallen blir en varelse som täcks av denna olja isolerad från ödets vindar under den kommande timmen. Under denna tid, närhelst den täckta varelsen skulle göra en roll med hjälp av en {@dice d20}, hoppar de istället över rollen och agerar som om de kastade en 10 istället."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sillypad",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7920,21 +7917,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Silver Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7950,21 +7947,21 @@
 						"När du förbereder den här örten måste du använda den på ett närstridsvapen eller upp till 10 stycken ammunition. Om du gör det anses det vapnet eller den ammunitionen under nästa timme vara både magiskt och tillverkat av silver för att övervinna motstånd och immunitet mot icke-magiska och icke-silverbaserade vapenattacker."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Snakeskin Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7980,21 +7977,21 @@
 						"Som en åtgärd kan du äta denna ört. Under den kommande timmen flagnar din hud ständigt och lämnar ett sandliknande spår efter dig, men du lider inte av några negativa effekter. I slutet av denna timme blir din hud extremt slät som om du hade exfolierat hela din kropp."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soap Grass",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8010,21 +8007,21 @@
 						"Du får ägna 10 minuter åt att gnugga denna ört på dig själv. Om du gör det blir du ren från all smuts och smuts."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soldier's Duty",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8040,21 +8037,21 @@
 						"Som en handling kan du krossa den här örten framför näsan på en varelse inom 1,5 meter från dig som har 0 träffpoäng, vilket får dem att återfå 1 träffpunkt."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soopa Mushroom",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8070,21 +8067,21 @@
 						"Som en handling kan du äta den här örten, vilket får dig att växa en storlek större än du normalt är; om det inte finns tillräckligt med utrymme för din nya storlek, återgår du till din normala storlek och örten går till spillo. Effekterna av denna ört varar i 4 timmar, eller tills du tar skada, beroende på vilket som inträffar först."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sork Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8100,21 +8097,21 @@
 						"Som en åtgärd kan du lägga roten i munnen och börja tugga på den. Medan du tuggar på den här roten utsöndrar du ett glidande slem som gör dig svår att ta tag i. Alla styrkeprov som görs mot {@action grapple} dig görs med nackdel, och du lider inte av några straff när du klämmer dig in i trånga utrymmen. Denna rot kan tuggas i upp till 5 minuter, vilket du kan göra på en gång eller under flera sessioner."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Spectrum Rose",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8137,21 +8134,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Speed Apple",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8167,21 +8164,21 @@
 						"I 4 timmar efter att du använt den här örten ökar din gånghastighet med 10 fot och du ignorerar effekterna av {@quickref difficult terrain||3}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sporecaster",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8197,21 +8194,21 @@
 						"När du använder den här örten stoppar du in segment av den här örten i specifika segment av dina kläder och din rustning. Varje gång du träffas av en närstridsattack släpper du ut en skur av sporer i en radie av 5 fot runt dig. Alla varelser utom du som befinner sig i den här buren måste göra ett {@dc 15} Konstitutionssparande kast, och blir {@condition poisoned} i 1 minut vid ett misslyckande. När du har släppt ut 4 bursts av sporer blir svampsegmenten i dina kläder och rustningar tomma och den här effekten upphör."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Squirtwort",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8227,21 +8224,21 @@
 						"Denna ört innehåller {@dice 1d8} knoppar. Som en handling kan du kasta en av dessa knoppar mot en punkt på marken inom 30 fot från dig och knoppen spricker vid kontakt. Efter att ha spruckit släpper knoppen ut en fontän av glidande vätska som täcker ett 5 fot stort område runt omkring den. Alla varelser som kommer in i det täckta området måste lyckas med ett {@dc 12} räddningskast för Dexterity eller falla {@condition prone}."
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Steelwood Sap",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8266,21 +8263,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stenchblossom",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8296,21 +8293,21 @@
 						"Som en åtgärd kan du äta denna ört, vilket gör att du avger en svärande lukt under de kommande 10 minuterna. Under denna tid måste alla varelser som avslutar sin tur inom en radie av 5 fot från dig och som kan lukta sig till dig göra ett {@dc 12} Konstitutionsräddningskast. Vid ett misslyckande gör den varelsen alla attacker med nackdel, och attacker mot dem har fördel när de lider. Den här effekten upphör om varelsen rör sig mer än 5 fot från dig, eller förlorar sitt luktsinne."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sticky Fig",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8326,21 +8323,21 @@
 						"Som en åtgärd kan du äta denna ört. Under den kommande timmen producerar du ett klibbigt slem som fäster dig vid ytan du står på, vilket ger dig en fördel på alla räddningskast eller förmågekontroller för att undvika att förflyttas mot din vilja, samt ger dig en stigningshastighet som är lika stor som din gånghastighet."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stonecap Mushrooms",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8356,21 +8353,21 @@
 						"I 8 timmar efter att du använt den här örten förvandlas alla kritiska träffar mot dig till normala träffar och alla extra effekter som skulle utlösas av den kritiska träffen förnekas."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sungi",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8386,21 +8383,21 @@
 						"Denna ört kan användas på ett närstridsvapen eller upp till 10 ammunitionsdelar. Ett vapen som har fått den här örten applicerad på sig betraktas som magiskt och ger ytterligare {@damage 1d8} strålningsskada vid den första lyckade träffen i en omgång. Denna effekt varar i en timme."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sylvan Bandage",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8416,21 +8413,21 @@
 						"När du använder den här örten under en kort vila återfår du det antal träffdöttrar som du använde för att återfå träffpoäng under vilan."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tailor's Gamble",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8493,21 +8490,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Thaw Bud",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -8524,21 +8521,21 @@
 						"Denna ört innehåller {@dice 1d6} laddningar som motsvarar antalet plockade knoppar. Som en handling kan du använda en laddning för att krossa en av dessa knoppar och gnugga det resulterande sekretet på en bit is eller snö, vilket får den att smälta. En laddning kan smälta ett område med en yta som är upp till 5 fot i kvadrat och 1 tum tjockt."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Titan's Field",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8564,21 +8561,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tlincalli Thorn",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8594,21 +8591,21 @@
 						"I 4 timmar efter att du har förberett den här örten får du en +1 bonus på din AC eftersom din hud blir exceptionellt hård och skalliknande."
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Toad Skin Shrub",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8624,21 +8621,21 @@
 						"Som en handling kan du äta den här örten, vilket tvingar dig att lyckas med ett {@dc 15} räddningskast för konstitutionen eller bli {@condition poisoned} i en timme. Oavsett resultatet utsöndrar du också ett giftigt slem från din hud under nästa timme som tvingar alla varelser som rör vid dig eller som träffar dig med en närstridsattack att lyckas med ett {@dc 15} räddningskast för Konstitution eller bli {@condition poisoned}."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Touch Grass",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8654,21 +8651,21 @@
 						"När du {@action cast a spell} som har en räckvidd av beröring, kan du rikta den här örten istället för trollformelns vanliga mål. Om du gör det, absorberar denna ört denna besvärjelse för att släppas lös på nästa giltiga mål som den rör vid. Som en handling kan du kasta den här örten mot ett mål inom sex meter från dig och behandla det som en distansvapenattack. Vid en lyckad träff gör den här örten ingen skada, men släpper istället ut trollformeln som den hade lagrat inuti den på målet istället. Den här örten kan bara absorbera en trollformel åt gången och kan bara hålla en trollformel i 10 minuter, varefter magin försvinner och trollformeln är bortkastad. Hur som helst, när den här örten väl har släppt ut en lagrad trollformel bryts den sönder och blir oanvändbar."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tracker's Leaf",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8691,21 +8688,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Treant Seed",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8721,21 +8718,21 @@
 						"När du använder den här örten förvandlas du till en {@creature treant|MM} {@homebrew |(as outlined in the Monster Manual)}, och all din utrustning smälter in i din nya form och kan inte användas förrän den här effekten upphör. Om du inte har utrymme att växa in i din nya form återgår förvandlingen omedelbart och örten är bortkastad. Medan du är en {@creature treant|MM} behåller du din inriktning, dina färdigheter, din kunskap, dina trollkonster och dina klassförmågor, men ersätter alla andra egenskaper med {@creature treant|MM}, inklusive träffpunkter. Du återgår till din normala form efter 4 timmar, eller om du sjunker till 0 träffpunkter, då du omedelbart återgår till din normala form, och eventuella överskjutande skador överförs till din normala form."
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Troll's Snot",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8751,21 +8748,21 @@
 						"I 8 timmar efter att du använt den här örten utsöndrar dina händer en klibbig substans som ger dig en fördel på styrkeprov ({@skill Athletics}) för att klättra eller {@action grapple} klättra på något, och du kan inte bli oavsiktligt avväpnad från ett föremål i din hand."
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Twice-Blessed Clover",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8781,21 +8778,21 @@
 						"Som en bonusåtgärd kan du krossa den här klövern i din hand. Om du gör det, görs alla attackkast, förmågekontroller och räddningskast du gör fram till början av din nästa vändning med fördel. När den här örten har använts en gång blir den här örten värdelös."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Umbra Tongue",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8811,21 +8808,21 @@
 						"I 8 timmar efter att du använt den här örten får du 6 tillfälliga träffpoäng när du börjar din tur i mörker."
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Vampire's Fang",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8842,21 +8839,21 @@
 						"Denna ört har {@dice 1d8} laddningar. Som en handling kan du linda rötterna av den här örten runt din arm medan du låter den spetsiga blomman hållas i en fri hand. Så länge denna ört är lindad runt din arm, närhelst en varelse som har blod i kroppen dör inom en radie av 5 fot från dig, kan du använda en laddning för att använda din reaktion för att dränera den varelsens blod, vilket ger dig tillfälliga träffpoäng som är lika med deras utmaningsvärde (minst 1)."
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Volo Tree",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8879,21 +8876,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Whisper Puff",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8910,21 +8907,21 @@
 						"Denna ört har {@dice 1d8} laddningar. Som en bonusåtgärd kan du använda en laddning för att stoppa en av den här örtens lökar i din mun. Om du gör det gör du inget hörbart ljud nästa gång du {@action cast a spell} som har en verbal komponent."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Winterlight Bloom",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8940,21 +8937,21 @@
 						"Du får motstånd mot köldskador i 4 timmar efter att du använt den här örten."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Wizard's Friend",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8970,21 +8967,21 @@
 						"Under en timme kan denna ört krossas och blandas för att skapa ett djupt lila bläck som kan användas för att skriva in trollformler i en trollkarls trollbok. När det används på detta sätt ersätter bläcket kraven på guldbitar för inskriptionen. En ört kan skapa tillräckligt med bläck för att ersätta upp till 100 guldbitar av komponenter för inskrivning av besvärjelser."
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yell Pepper",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9019,21 +9016,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yeti Brush",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9049,7 +9046,10 @@
 						"Du kan ägna 1 minut åt att svepa in händer och fötter i detta gräs. Om du gör det får du inget avdrag för din rörelsehastighet när du rör dig i snöig eller isig terräng, och du har fördel när du klättrar på ytor täckta av is eller snö."
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		}
 	]
 }
