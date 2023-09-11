@@ -20,18 +20,18 @@
 		],
 		"status": "ready",
 		"dateAdded": 1665431770,
-		"dateLastModified": 1668700856,
-		"_dateLastModifiedHash": "06fba59cbb"
+		"dateLastModified": 1694386526,
+		"_dateLastModifiedHash": "2553fb95e8"
 	},
 	"book": [
 		{
 			"name": "Hamund's Herbalism Handbook",
-			"source": "HHbH",
-			"author": "Jasmine Yang",
-			"group": "homebrew",
 			"id": "HHbH",
-			"published": "2022-09-03",
+			"source": "HHbH",
+			"group": "homebrew",
 			"coverUrl": "https://raw.githubusercontent.com/TheGiddyLimit/homebrew/master/_img/HHH/HHbH/Cover.webp",
+			"published": "2022-09-03",
+			"author": "Jasmine Yang",
 			"contents": [
 				{
 					"name": "Cover Page, Credits & Changelog"
@@ -939,23 +939,33 @@
 	],
 	"feat": [
 		{
-			"name": "Tincture Master",
-			"source": "HHbH",
-			"page": 39,
-			"entries": [
-				"你已经掌握了将草药蒸馏成{@variantrule tinctures|HHbH}的技术，使你创造一个草药的时间和成本减半。"
-			]
-		},
-		{
 			"name": "Nature's Bounty",
 			"source": "HHbH",
 			"page": 39,
 			"entries": [
 				"你对自然的调和使你无论走到哪里都能找到更多的草药，几乎就像自然本身在试图帮助你一样。每当你采集一种草药时，掷一个（%0%）。20分时，你会获得一份你刚刚采集的草药的额外副本。"
 			]
+		},
+		{
+			"name": "Tincture Master",
+			"source": "HHbH",
+			"page": 39,
+			"entries": [
+				"你已经掌握了将草药蒸馏成{@variantrule tinctures|HHbH}的技术，使你创造一个草药的时间和成本减半。"
+			]
 		}
 	],
 	"variantrule": [
+		{
+			"name": "Optional Rule: Herb Toxicity",
+			"source": "HHbH",
+			"page": 4,
+			"ruleType": "O",
+			"entries": [
+				"为了平衡起见，我们建议保留允许一个角色一次只能从一种草药的效果中受益的规则。然而，如果管理员愿意，他们可以允许高回报地使用多种草药，办法是包括一个称为（%0%）的高风险缺点。",
+				"在这个可选的规则下，每当一个生物在一种草药的作用下，试图在自己身上使用另一种草药时，他们必须做一个宪法救赎，其DC等于10+5x他们在最后一次长休后试图使用的草药数量。如果成功，他们就能正常使用该草药。如果失败，他们的身体就会拒绝自己身上过量的魔法影响，导致草药被浪费，当前影响他们的任何草药的有益效果立即结束，并且该生物会在一小时内变得（%0%）。"
+			]
+		},
 		{
 			"name": "Optional Rule: Identifying Herbs",
 			"source": "HHbH",
@@ -965,16 +975,6 @@
 				"为了简单起见，在标准规则下，假定角色总是知道他们所采集的草药的身份，包括其名称、价值和效果。但是，如果管理员希望增加一些复杂性和挑战性，他们可能希望迫使玩家也能识别草药。",
 				"在这个可选的规则下，每当一个角色采集草药时，他们必须成功进行{@dc 15}智慧({@skill Nature})检查，以便识别他们刚刚采集的草药。如果失败，角色只知道该草药有模糊的作用，但不知道它的名字、效果或如何使用它。",
 				"一个选择采摘草药的角色被认为知道他们采摘的是哪种草药。"
-			]
-		},
-		{
-			"name": "Optional Rule: Herb Toxicity",
-			"source": "HHbH",
-			"page": 4,
-			"ruleType": "O",
-			"entries": [
-				"为了平衡起见，我们建议保留允许一个角色一次只能从一种草药的效果中受益的规则。然而，如果管理员愿意，他们可以允许高回报地使用多种草药，办法是包括一个称为（%0%）的高风险缺点。",
-				"在这个可选的规则下，每当一个生物在一种草药的作用下，试图在自己身上使用另一种草药时，他们必须做一个宪法救赎，其DC等于10+5x他们在最后一次长休后试图使用的草药数量。如果成功，他们就能正常使用该草药。如果失败，他们的身体就会拒绝自己身上过量的魔法影响，导致草药被浪费，当前影响他们的任何草药的有益效果立即结束，并且该生物会在一小时内变得（%0%）。"
 			]
 		},
 		{
@@ -1007,6 +1007,8 @@
 	"spell": [
 		{
 			"name": "Cornucopia",
+			"source": "HHbH",
+			"page": 39,
 			"level": 5,
 			"school": "T",
 			"time": [
@@ -1021,6 +1023,11 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true,
+				"m": "a small pouch of loamy soil"
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1029,6 +1036,12 @@
 						"amount": 1
 					}
 				}
+			],
+			"meta": {
+				"ritual": true
+			},
+			"entries": [
+				"当你施展这个法术时，你宣布30英尺范围内你能看到的最多4个自愿的生物与你共享一个神奇的纽带。在法术持续期间，每当你对自己使用一种草药时，该草药的效果会在所有与你共享魔法纽带的生物中复制，只要他们在同一个存在平面。"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1045,23 +1058,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"当你施展这个法术时，你宣布30英尺范围内你能看到的最多4个自愿的生物与你共享一个神奇的纽带。在法术持续期间，每当你对自己使用一种草药时，该草药的效果会在所有与你共享魔法纽带的生物中复制，只要他们在同一个存在平面。"
-			],
-			"source": "HHbH",
-			"page": 39,
-			"meta": {
-				"ritual": true
-			},
-			"components": {
-				"v": true,
-				"s": true,
-				"m": "a small pouch of loamy soil"
 			}
 		},
 		{
 			"name": "Hamund's Herbal Hypodermic",
+			"source": "HHbH",
+			"page": 39,
 			"level": 2,
 			"school": "T",
 			"time": [
@@ -1076,6 +1078,10 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"v": true,
+				"s": true
+			},
 			"duration": [
 				{
 					"type": "timed",
@@ -1084,6 +1090,16 @@
 						"amount": 10
 					}
 				}
+			],
+			"entries": [
+				"当你施展此法术时，你在持续时间内从手臂上长出一根空心针，可以作为天然的精巧武器，进行徒手打击，造成{@damage 1d4}+灵巧修饰的伤害。",
+				"使用这种针的打击也可以用来快速传递毒药或草药，而这些毒药或草药通常要花很长时间才能涂抹在武器上。作为一个额外动作，你可以用这根针来吸收通常用于涂抹武器的毒药或草药。如果你这样做了，这根针就像涂上了毒药或草药一样，具有所有的好处。"
+			],
+			"damageInflict": [
+				"piercing"
+			],
+			"miscTags": [
+				"UBA"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1112,26 +1128,12 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"当你施展此法术时，你在持续时间内从手臂上长出一根空心针，可以作为天然的精巧武器，进行徒手打击，造成{@damage 1d4}+灵巧修饰的伤害。",
-				"使用这种针的打击也可以用来快速传递毒药或草药，而这些毒药或草药通常要花很长时间才能涂抹在武器上。作为一个额外动作，你可以用这根针来吸收通常用于涂抹武器的毒药或草药。如果你这样做了，这根针就像涂上了毒药或草药一样，具有所有的好处。"
-			],
-			"source": "HHbH",
-			"page": 39,
-			"components": {
-				"v": true,
-				"s": true
-			},
-			"damageInflict": [
-				"piercing"
-			],
-			"miscTags": [
-				"UBA"
-			]
+			}
 		},
 		{
 			"name": "Herbal Infusion",
+			"source": "HHbH",
+			"page": 40,
 			"level": 3,
 			"school": "T",
 			"time": [
@@ -1146,10 +1148,17 @@
 					"type": "self"
 				}
 			},
+			"components": {
+				"s": true,
+				"m": "one herb that the spell consumes"
+			},
 			"duration": [
 				{
 					"type": "instant"
 				}
+			],
+			"entries": [
+				"你神奇地提取并吸收你手中草药的精华，使你能够立即使用该草药，而不管通常需要多长时间来使用它。这个咒语只能用于影响你自己身体的草药。"
 			],
 			"classes": {
 				"fromClassList": [
@@ -1170,15 +1179,6 @@
 						"source": "PHB"
 					}
 				]
-			},
-			"entries": [
-				"你神奇地提取并吸收你手中草药的精华，使你能够立即使用该草药，而不管通常需要多长时间来使用它。这个咒语只能用于影响你自己身体的草药。"
-			],
-			"source": "HHbH",
-			"page": 40,
-			"components": {
-				"s": true,
-				"m": "one herb that the spell consumes"
 			}
 		}
 	],
@@ -1420,102 +1420,6 @@
 		}
 	],
 	"table": [
-		{
-			"name": "Herb's Relative Rarity Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"d100",
-				"Herb's Table Position",
-				"{@dice d100} roll"
-			],
-			"colStyles": [
-				"col-4 text-center",
-				"col-4 text-center",
-				"col-4 text-center"
-			],
-			"rows": [
-				[
-					"99\u2013100",
-					"2 or 16",
-					"99"
-				],
-				[
-					"96\u201398",
-					"3 or 15",
-					"96"
-				],
-				[
-					"91\u201395",
-					"4 or 14",
-					"91"
-				],
-				[
-					"85\u201390",
-					"5 or 13",
-					"85"
-				],
-				[
-					"77\u201384",
-					"6 or 12",
-					"77"
-				],
-				[
-					"68\u201376",
-					"7 or 11",
-					"68"
-				],
-				[
-					"57\u201367",
-					"8 or 10",
-					"57"
-				],
-				[
-					"44\u201356",
-					"9",
-					"44"
-				],
-				[
-					"1\u201343",
-					"没有找到草药",
-					"1"
-				]
-			],
-			"footnotes": [
-				"{@note First column added to enable 5eTools style rollable table.}"
-			]
-		},
-		{
-			"name": "Foraging Herb Table",
-			"source": "HHbH",
-			"page": 3,
-			"colLabels": [
-				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
-				"Result"
-			],
-			"colStyles": [
-				"col-2 text-center",
-				"col-10 text-center"
-			],
-			"rows": [
-				[
-					"1\u20139",
-					"{@homebrew Character finds nothing.}"
-				],
-				[
-					"10\u201315",
-					"角色找到足够的食物来喂养一个中等大小的生物一天。"
-				],
-				[
-					"16\u201320",
-					"角色找到一种常见的草药。在相应环境的常见草药表上滚动，以确定结果。"
-				],
-				[
-					"21+",
-					"角色找到一种稀有草药。在相应环境的稀有草药表上滚动，以确定结果。"
-				]
-			]
-		},
 		{
 			"name": "All Herbs A-Z Table",
 			"source": "HHbH",
@@ -2862,6 +2766,102 @@
 			]
 		},
 		{
+			"name": "Foraging Herb Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"{@skillCheck survival #$prompt_number:min=1,title=Enter your bonus to Survival checks!,default=1$#|d20}",
+				"Result"
+			],
+			"colStyles": [
+				"col-2 text-center",
+				"col-10 text-center"
+			],
+			"rows": [
+				[
+					"1\u20139",
+					"{@homebrew Character finds nothing.}"
+				],
+				[
+					"10\u201315",
+					"角色找到足够的食物来喂养一个中等大小的生物一天。"
+				],
+				[
+					"16\u201320",
+					"角色找到一种常见的草药。在相应环境的常见草药表上滚动，以确定结果。"
+				],
+				[
+					"21+",
+					"角色找到一种稀有草药。在相应环境的稀有草药表上滚动，以确定结果。"
+				]
+			]
+		},
+		{
+			"name": "Herb's Relative Rarity Table",
+			"source": "HHbH",
+			"page": 3,
+			"colLabels": [
+				"d100",
+				"Herb's Table Position",
+				"{@dice d100} roll"
+			],
+			"colStyles": [
+				"col-4 text-center",
+				"col-4 text-center",
+				"col-4 text-center"
+			],
+			"rows": [
+				[
+					"99\u2013100",
+					"2 or 16",
+					"99"
+				],
+				[
+					"96\u201398",
+					"3 or 15",
+					"96"
+				],
+				[
+					"91\u201395",
+					"4 or 14",
+					"91"
+				],
+				[
+					"85\u201390",
+					"5 or 13",
+					"85"
+				],
+				[
+					"77\u201384",
+					"6 or 12",
+					"77"
+				],
+				[
+					"68\u201376",
+					"7 or 11",
+					"68"
+				],
+				[
+					"57\u201367",
+					"8 or 10",
+					"57"
+				],
+				[
+					"44\u201356",
+					"9",
+					"44"
+				],
+				[
+					"1\u201343",
+					"没有找到草药",
+					"1"
+				]
+			],
+			"footnotes": [
+				"{@note First column added to enable 5eTools style rollable table.}"
+			]
+		},
+		{
 			"name": "Rare Arctic Herbs",
 			"source": "HHbH",
 			"page": 42,
@@ -3487,14 +3487,11 @@
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3529,21 +3526,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Aloyleaf",
 			"source": "HHbH",
 			"page": 5,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3559,21 +3556,21 @@
 						"这种草药提供足够的叶子来覆盖（%0%）平方英尺。这些叶子像钢铁一样坚硬，但和普通叶子一样轻，除非埋在土壤下，否则永远不会分解。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ashfree Birch",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3589,21 +3586,21 @@
 						"你可以花10分钟将这种树皮的薄片穿在你的盔甲和衣服下面，使你隔绝热量和火。如果你这样做，每当你受到火灾伤害时，这种草药就会代替你吸收这些伤害。这种草药可以吸收多达30点的火灾伤害，然后完全燃烧，变得毫无用处；任何多余的伤害都会转移到你身上。你可以通过花1分钟时间将这种草药从你的衣服上剥下来。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Auril's Hair",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3619,21 +3616,21 @@
 						"作为一个动作，你可以将这根茎刺入地面。如果你这样做，你周围20英尺内的所有地面都会被一层薄薄的冰覆盖，使其在接下来的10分钟内变得{@quickref difficult terrain||3}(如果在热环境下做，则为一半)。这根茎可以以这种方式最多使用3次，之后它就会失去所有储存的冷能，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Banshee Vine",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3661,21 +3658,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Barrier Coral",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3698,21 +3695,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk Tongues",
 			"source": "HHbH",
 			"page": 6,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3728,21 +3725,21 @@
 						"这种草药可以应用于一件近战武器或最多10件弹药，使其覆盖在石化油中，持续10分钟。被这种武器或弹药击中的生物必须在宪法规定的投掷中获得成功，否则在他们开始变成石头时，将获得以下效果的一个等级。受影响生物的移动速度减半。受影响的生物是（%1%）。受影响的生物在变成石头的过程中会有（%2%）。受影响的生物可以在每个回合结束时再次进行宪法救赎，如果成功，他们的效果等级会降低一个。对受影响的生物施展{@spell greater restoration}的法术或类似的魔法，会立即移除所有等级。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Basilisk's Appetiser",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3766,21 +3763,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bird Seed",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3797,21 +3794,21 @@
 						"这种草药有{@dice 1d4}的收费。作为一个动作，你可以用一个电荷在地上撒下一些种子，使它们变成一小群鸟，并立即飞走。这些鸟具有神奇的性质，1分钟后消失。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blighted Pollen",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3866,21 +3863,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Blubber Bulb",
 			"source": "HHbH",
 			"page": 7,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -3896,21 +3893,21 @@
 						"使用这种草药后，你会被一层厚厚的鲸脂状油覆盖，并保持4小时。在这段时间内，你对任何因接触目标或用近战武器攻击目标而遭受的冷、火、毒或酸的伤害都是免疫的。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Boom Maize",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -3927,21 +3924,21 @@
 						"一个装满这种草药的袋子里有6个炸药。作为一个动作，你可以消耗一个或多个炸药，向你20英尺范围内可以看到的目标投掷一把果核。该目标必须做一个{@dc 10}力量救赎动作，你每消耗一个能量，DC就增加2。如果失败，目标会被推后5英尺。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bramble Rice",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -3958,21 +3955,21 @@
 						"这种草药有{@dice 1d4}的收费。作为一个行动，你可以使用一个冲锋，将一袋这种草药散布在你面前5尺见方的区域。任何进入该区域的生物必须在一个{@dc 15}的灵巧反射中成功，或者停止移动并受到{@damage 1}穿刺伤害。在该生物恢复至少1点生命值之前，它的行走速度会降低10英尺。一个以半速通过该区域的生物不需要做蓄力动作。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Breeze Nuts",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4000,21 +3997,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Brighteye Carrots",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4030,21 +4027,21 @@
 						"在你使用这种草药后的8小时内，你在60英尺的范围内获得{@sense darkvision}，你的眼睛在5英尺的范围内发出昏暗的光。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Bubblemelon",
 			"source": "HHbH",
 			"page": 8,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4060,21 +4057,21 @@
 						"作为一种行动，你可以开始咀嚼这种草药。只要你继续咀嚼这种根，你就不需要呼吸。咀嚼这种草药的时间可长达10分钟，你可以一次完成或分几次进行。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Buried Moonlight",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4097,21 +4094,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Candle Rose",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4127,21 +4124,21 @@
 						"这种一英尺长的草药的使用方式与普通的（%0%）相同：点燃后的1小时内，它在5英尺范围内发出亮光，在另外5英尺范围内发出暗光。这种玫瑰的香味和颜色由你的DM决定，但它们通常都是相当令人愉快的。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Chef's Trick",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4157,21 +4154,21 @@
 						"作为一个动作，你可以把它揉碎并撒在一个可食用的物品上，比如饭菜或饮料，同时想到一种味道。这种味道可以是模糊的，如'酸味'，也可以是具体的，如'用牛至调味的烤鸡'。如果你这样做了，该物品就会尝到你所想到的味道。食用这种物品的生物可以进行{@dc 20}智慧({@skill Perception})检查，以注意到其中的人工调味剂。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cleric's Cane",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4187,21 +4184,21 @@
 						"作为使用这种草药的一部分，你可以像在短时休息时一样，滚动你所拥有的任何数量的命中模子来恢复命中点。如果你在其中任何一个骰子上掷出1或2，你可以重新掷出结果，并且必须接受新的数字，即使它是1或2。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cold Brush",
 			"source": "HHbH",
 			"page": 9,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4217,21 +4214,21 @@
 						"作为使用这种草药的一部分，你必须在准备时把它擦在你暴露的皮肤上。在接下来的4个小时里，你的皮肤会变成淡蓝色，触摸起来变得冰凉。这对你的实际体温没有影响。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Compass Rose",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -4248,21 +4245,21 @@
 						"这片叶子的草药有{@dice 1d6}收费。作为一个动作，你可以把这种草药平放在你的手掌上。如果你这样做，该草药将失去一个电荷，并释放出一蓬可见的孢子，沿着风的路径传播。这种能力即使在有墙的空间如建筑物或深洞中也能发挥作用，只要有一条与你所在的区域相连的开放通道通向外面即可。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Corpse Hands",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4278,21 +4275,21 @@
 						"这种草药可以应用于一件近战武器或最多10件弹药。被施加了这种草药的武器被认为是有魔力的，并在一回合内第一次成功击中时造成额外的（%0%）坏死伤害。这个效果持续1小时。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Courter's Perfume",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4308,21 +4305,21 @@
 						"使用这种草药后的4小时内，任何闻到你的生物都会觉得你闻起来像他们最喜欢的气味。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Cracker Nut",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -4339,21 +4336,21 @@
 						"这种草药含有{@dice 1d8}电荷，与收获的坚果数量相对应。作为一个动作，你可以消耗一个炸药向你周围30英尺内你能看到的地方投掷一个坚果，使它在撞击时爆裂，并产生一个巨大的破裂声，可以在100英尺外听到。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crackle Bark",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4369,21 +4366,21 @@
 						"这种草药可以应用于一件近战武器或最多10件弹药。被施加了这种草药的武器被认为是有魔力的，在一回合内第一次成功击中时，会造成额外的（%0%）雷电伤害。这个效果持续1小时。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Creeper's Folly",
 			"source": "HHbH",
 			"page": 10,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4399,21 +4396,21 @@
 						"在使用此草药后的4小时内，你不能被{@quickref Surprise|PHB|3|0|surprised}，并且你的所有主动性卷轴都有优势。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Crystal Fruit",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4429,21 +4426,21 @@
 						"你可以用你的行动来吃这个水果。如果你这样做，在接下来的10分钟内，你的身体会被一层薄薄的冰所覆盖，如果你的AC值低于这个值，你的AC值会提高到15，但你的移动速度会减半。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Deadwood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4459,21 +4456,21 @@
 						"使用这种草药后的8小时内，你的情绪完全保持平静，只有在受到会神奇地改变情绪的影响时才会改变。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Drowner's Reach",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4489,21 +4486,21 @@
 						"当你把这种草药缠在一只自由的手上时，你在用那只手进行的任何{@action grapple}检查中都有优势。将此草药缠绕在一只自由的手上或将其解开需要一个动作。一旦这种草药被用于5次成功的{@action grapple}检查，它就会变质，变得无用。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dryad's Secret",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4519,21 +4516,21 @@
 						"使用这种草药后，你会在接下来的4个小时内产生一种令人愉快的气味，使你周围的人对你的建议持开放态度。在这段时间内，你在说服人类信任你或与你交好的魅力方面具有优势（（%0%））。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Dwarf's Bane",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4549,21 +4546,21 @@
 						"当这种草药被放在任何有毒的液体中时，所有的毒素都被草药吸收，液体变成无害的可饮用的水。这种效果延伸到酒精，如果受到这种草药的影响，就会变成无酒精的。这种草药能够从多达5加仑的液体中清除毒素，之后就会变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Echo Wood",
 			"source": "HHbH",
 			"page": 11,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4579,21 +4576,21 @@
 						"这种草药可以应用于一件近战武器或最多10件弹药。被涂抹过这种草药的武器被认为是有魔力的，在一回合内第一次成功击中时，会造成额外的（%0%）雷霆伤害。这个效果持续1小时。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Elven Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4609,21 +4606,21 @@
 						"在使用此草药后的4小时内，你会获得一种平静的感觉，抑制你体验情绪的大幅飙升的能力。在这段时间内，你在任何能力检查或蓄力投掷上都有优势，以抵抗被{@condition frightened|PHB|fear}状况所影响。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Embergrass",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4639,7 +4636,10 @@
 						"在你使用这种草药后的1小时内，你对火灾伤害有抵抗力，并且你自动成功地进行任何技能检查或蓄力，以抵抗炎热天气的影响。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everfrost Root",
@@ -4647,14 +4647,11 @@
 			"page": 12,
 			"type": "Herb",
 			"typeAlt": "SCF",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"focus": true,
 			"entries": [
 				{
@@ -4671,21 +4668,21 @@
 						"你可以在施法时使用此草药作为（%0%）。当此草药是你的（%1%）时，每当你为你施展的法术所造成的寒冷伤害掷出1或2时，你可以重掷该骰子，并且必须使用新的骰子，即使新骰子是1或2。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Everwort Root",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4701,21 +4698,21 @@
 						"作为一个动作，你可以把这个根里面的液体倒入一个药水。任何与该药水效果相关的持续时间都会永久性地增加一倍。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fabric Leaf",
 			"source": "HHbH",
 			"page": 12,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4750,21 +4747,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fairybed Reed",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4780,22 +4777,22 @@
 						"你可以花10分钟把这种草药涂在自己身上，把它的种子塞进你的盔甲，用它的油来润滑关节。如果你这样做，你可以忽略你在穿着你的盔甲类型时可能有的任何灵巧（（%0%））检查的劣势。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fanana",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
 			"charges": "{@dice 1d6}",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4811,21 +4808,21 @@
 						"这种草药有{@dice 1d6}的能量，每个能量对应一种草药的果实。作为一个动作，你可以消耗一个或多个炸药来炸开果实，释放里面压抑的气体，并产生一阵风，宽度为5英尺，长度等于消耗的炸药数量的5倍。这种风的威力足以扑灭明火和击倒小型物体，但不足以击倒一个生物（1%）。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fey's Fear",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4848,21 +4845,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiend's chilli",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4878,21 +4875,21 @@
 						"使用这种草药后的8小时内，你的皮肤会变成鲜红色，并不断呼出蒸汽。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fiendsgate Wisteria",
 			"source": "HHbH",
 			"page": 13,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4908,21 +4905,21 @@
 						"作为运动的一部分，你可以在行走时将紫藤花瓣撒在你的脚下。一袋这些花瓣可以组成一条长达30英尺的队伍。如果一个恶魔生物类型的生物试图越过一条花瓣线，他们必须做一个{@dc 15}的智慧拯救动作。如果失败，他们的速度会在剩下的时间里降低到0。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fin Moss",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4938,21 +4935,21 @@
 						"你可以花10分钟将这些草药附着在1件近战武器或最多10件弹药上。任何附着了这种苔藓的武器或弹药都会受到（%0%）的伤害。这些草药只能附着在一件武器或一套弹药上--任何试图移除它们的行为都会使它们无法使用。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fire Flower",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -4968,7 +4965,10 @@
 						"这种草药可以应用于一件近战武器或最多10件弹药。被施加了这种草药的武器被认为是有魔力的，并在一回合内第一次成功击中时造成额外的（%0%）火焰伤害。这个效果持续1小时。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Firemelon",
@@ -4976,15 +4976,12 @@
 			"page": 14,
 			"type": "Herb",
 			"typeAlt": "SCF",
-			"focus": true,
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
+			"focus": true,
 			"entries": [
 				{
 					"type": "entries",
@@ -5000,21 +4997,21 @@
 						"你可以在施法时使用此草药作为（%0%）。当此草药是你的（%1%）时，每当你为你施展的法术所造成的火焰伤害掷出1或2时，你可以重掷该骰子，并且必须使用新的骰子，即使新骰子是1或2。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fireplume Fennel",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5030,21 +5027,21 @@
 						"作为一个动作，你可以向你20英尺范围内你能看到的空间投掷这种草药。落地后，这个草药会爆炸，迫使该空间5英尺内的所有目标在一个{@dc 12}灵巧的救赎中成功，否则会受到{@damage 2d6}的火焰伤害，或在救赎成功后受到一半的伤害。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Flumph Fungi",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5060,21 +5057,21 @@
 						"使用这种草药后，在接下来的4小时内，你会对周围的人获得更多的意识和同情。在这段时间里，你在智慧（（%0%））检查中具有优势，可以确定与你互动的人类的情绪状态。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fool's Charm",
 			"source": "HHbH",
 			"page": 14,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8+4}",
 			"entries": [
 				{
@@ -5091,21 +5088,21 @@
 						"这种草药含有{@dice 1d8+4}的电荷，每个电荷代表这种草药茎上剩余的一片叶子。当你拿着这种草药时，任何时候你在能力检查、攻击卷或蓄力投掷上掷出1，你可以消耗一个电荷以重新掷出骰子并使用新结果。一旦这个草药的所有费用都用完了，它就会枯萎，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Frozen Fuel",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5121,21 +5118,21 @@
 						"你可以将这种草药作为远程武器攻击扔向你20英尺内你能看到的地方，使这种草药的球茎爆裂，并迫使5英尺内的所有生物做一个{@dc 15}灵巧的蓄力动作。如果失败，生物会被一种粘稠的、易燃的树脂所覆盖，使其容易受到火灾伤害。被这种树脂覆盖的生物或与其相邻的生物可以用他们的行动来擦掉这种树脂，并立即结束这个效果。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Fumbleweed",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5151,21 +5148,21 @@
 						"下次你在使用此草药后不由自主地被撞倒（%0%），你可以使用你的反应来代替不被撞倒（%1%）。在这种情况发生后，这种草药会断裂，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gargoyle's Lichen",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5181,21 +5178,21 @@
 						"使用这种草药后的8小时内，你的皮肤会呈现出坚硬的灰色外观，类似于石头。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ghost Leaf",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5211,21 +5208,21 @@
 						"在接下来的一个小时里，只要你在移动，你就会变成无体，允许你在其他生物和固体物体中移动，就像它们是{@quickref difficult terrain||3}一样，如果你在固体物体内结束移动，会受到{@damage 1d10}的力量伤害。此外，具有{@i Incorporeal Movement}特质的生物无法穿过你。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Giant's Silk",
 			"source": "HHbH",
 			"page": 15,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5241,21 +5238,21 @@
 						"这种草药可以用来代替60英尺的绳子。在使用这根绳子进行任何推、拉、举或攀登时，你都能以优势进行力量能力检查。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glacier Branch",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5283,21 +5280,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glide Weed",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5320,21 +5317,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gloom's Cloak",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5350,21 +5347,21 @@
 						"使用此草药后，你在接下来的4小时内获得对辐射伤害的抵抗。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Glowmoss",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5380,21 +5377,21 @@
 						"这种草药在它周围5英尺的范围内发出昏暗的光。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Gluebell",
 			"source": "HHbH",
 			"page": 16,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5417,21 +5414,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Pine",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5447,21 +5444,21 @@
 						"作为一个行动，你可以用这种植物的树脂覆盖一件近战武器或最多10件弹药。在接下来的一小时内，当你使用该武器成功地击中一个龙型生物时，该生物必须做一个{@dc 15}体质救赎动作。如果失败，所有针对该生物的攻击都将以优势进行，直到你下一回合开始。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Golden Truffle",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -5478,51 +5475,21 @@
 						"这种草药含有{@dice 1d6}电荷。你可以消耗一次电荷来使用这种草药，之后，你的最大命中率会增加相当于你的角色等级的两倍，并且你会获得相同数量的命中率。这种增加持续4小时，之后，你的最大命中率会恢复到正常。"
 					]
 				}
-			]
-		},
-		{
-			"name": "Grounder Seed",
-			"source": "HHbH",
-			"page": 17,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Grassland",
+			"lcn": "Forest",
 			"prep": "Yes",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"这些种子被发现在一种坚韧的灌木的豆荚里，含有一种油，在暴露在空气中后不久就会干燥成一种橡胶状物质。它与橡胶的相似性实际上延伸到了它的绝缘能力，而且这种种子作为一种天然的保护措施被人们所追捧，以抵御挥舞着致命的雷电力量的生物。"
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"使用此草药后，你在4小时内获得对雷电伤害的抵抗。"
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Grave Root",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5557,21 +5524,51 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Grounder Seed",
+			"source": "HHbH",
+			"page": 17,
+			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"这些种子被发现在一种坚韧的灌木的豆荚里，含有一种油，在暴露在空气中后不久就会干燥成一种橡胶状物质。它与橡胶的相似性实际上延伸到了它的绝缘能力，而且这种种子作为一种天然的保护措施被人们所追捧，以抵御挥舞着致命的雷电力量的生物。"
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"使用此草药后，你在4小时内获得对雷电伤害的抵抗。"
+					]
+				}
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hag's Hair",
 			"source": "HHbH",
 			"page": 17,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5587,21 +5584,21 @@
 						"当你使用这种草药时，你会在接下来的24小时内对疾病产生免疫力，而且你目前受到的任何疾病影响都会停止其发展和症状。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hamund's Hair",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5617,21 +5614,21 @@
 						"你可以花3个小时将这种草药涂抹在盔甲上，包括将耐用而有弹性的纤维线缠绕在盔甲最薄弱的地方。在这一小时之后，该盔甲在穿戴时将永久地赋予+1的交流奖励。这种草药不能应用于已经有AC加成的盔甲或盾牌上。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heartstopper Weed",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5654,21 +5651,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Heaven's Chance",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5684,21 +5681,21 @@
 						"每当你掷出伤害骰子的最大值时，你可以重新掷出该骰子，并将新的结果加入你的总伤害中，如果你再次掷出最大值，则重复这个过程。在一个伤害实例中，你可以这样做的次数没有限制。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hopping Bean",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5714,21 +5711,21 @@
 						"作为一项行动，你可以敲开这种草药，吸入其中的气体。如果你这样做，你的跳跃距离在接下来的一小时内会增加三倍。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Hunter's Mud",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5744,21 +5741,21 @@
 						"使用这种草药后的8小时内，你不会产生气味，任何试图附着在你身上的气味都会立即被中和。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Mint",
 			"source": "HHbH",
 			"page": 18,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5774,21 +5771,21 @@
 						"使用这种草药后的8个小时内，你的呼吸总是可见的，闻起来像清爽的薄荷，而且冷到足以使你呼出的物体上结霜。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ice Vine",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5804,21 +5801,21 @@
 						"无论环境温度如何，这段10英尺长的藤蔓都保持着冰冷的状态。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icestone Trunk",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": 6,
 			"entries": [
 				{
@@ -5835,21 +5832,21 @@
 						"作为使用这种草药的一部分，你必须用它来磨砺一件近战武器，或最多10件近战武器或穿刺弹药。在接下来的4小时内，这把武器或弹药被认为是有魔力的，每当它成功击中一个生物时，他们必须做一个{@dc 17}宪法救赎动作，因为冰霜试图覆盖他们的身体。对寒冷伤害有抵抗力或免疫力的生物会自动成功地做出这个蓄力动作。如果救赎失败，受影响生物的移动速度会减半，并在1分钟内使所有灵巧的救赎处于劣势。如果救赎失败5次或更多，该生物也会被{@condition restrained}，并且在冰霜笼罩其身体时无法做出反应。在生物的每个回合结束时，他们可以再次进行蓄力投掷，如果成功则结束效果。这种草药最多可以使用6次，之后它的魔力就会消失，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Icicle Moss",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5865,21 +5862,21 @@
 						"这种草药可以应用于一件近战武器或最多10件弹药。被施加了这种草药的武器被认为是有魔力的，并在一回合内第一次成功击中时造成额外的（%0%）寒冷伤害。这个效果持续1小时。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Interrogator's Baton",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -5896,21 +5893,21 @@
 						"这种草药有{@dice 1d4}的收费。作为一个行动，你可以花费一个电荷在一件近战武器或最多10件弹药上涂抹这种草药，给它涂上寄生黏液。在接下来的10分钟内，被涂抹的武器或弹药所造成的任何伤害都不会被视为 \"有害\"，以结束受影响的生物的{@condition charmed}状况。一旦这种草药失去了所有的电荷，它就会变得干枯，被认为毫无价值。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ironleaf Thicket",
 			"source": "HHbH",
 			"page": 19,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5926,21 +5923,21 @@
 						"在使用这种草药后的4小时内，你有一个+2的AC奖励，以及你的皮肤有一个闪亮的金属灰色。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jellyfish Vine",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -5968,21 +5965,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Jingle Berries",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -6006,21 +6003,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Keepsake Daisy",
 			"source": "HHbH",
 			"page": 20,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6036,51 +6033,21 @@
 						"作为一个行动，你可以将这朵菊花垂直地分成两半。持有一半菊花的生物可以使用他们的行动来关注它，瞬间将他们和他们所持有和穿戴的一切，传送到菊花另一半的最近的无人空间。此时，两半的菊花都会瓦解成无用的尘埃。这个能力只有在两半菊花都在同一个平面上时才能使用，否则任何试图使用它的尝试都不会产生任何效果。"
 					]
 				}
-			]
-		},
-		{
-			"name": "Killer Tomato",
-			"source": "HHbH",
-			"page": 20,
-			"type": "Herb",
-			"property": [
-				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
+			"lcn": "Forest",
 			"prep": "No",
-			"foundryType": "consumable",
-			"entries": [
-				{
-					"type": "entries",
-					"name": "Description:",
-					"entries": [
-						"杀手番茄是一种有着夸张名字的草药，实际上并不危险，至少在身体上不危险。据说，这种草药是由一个捣蛋的神在欢笑中创造出来的，每当有人在它身边讲坏话、讲故事或唱歌时，它都能感觉到，然后自主地飞向肇事者，让他们的脸被番茄汁染红。虽然这最终是无害的，但这可能造成的情感伤害已导致番茄被禁止在大多数音乐厅和酒馆使用。"
-					]
-				},
-				{
-					"type": "entries",
-					"name": "Effect:",
-					"entries": [
-						"如果一个生物在此草药的30英尺范围内没有通过魅力（（%0%））检查，它会自动直接飞向他们，并自动飞溅到他们身上，摧毁此草药。如果该草药在你身上，而你在抵抗(1%)、(2%)、(3%)或(4%)的法术效果，或基于笑话、音乐或表演的类似魔法时，该效果也会触发，该草药会飞向施法的生物。"
-					]
-				}
-			]
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Ki-Rin's Bounty",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6103,21 +6070,51 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
+		},
+		{
+			"name": "Killer Tomato",
+			"source": "HHbH",
+			"page": 20,
+			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
+			"property": [
+				"Hrb"
+			],
+			"entries": [
+				{
+					"type": "entries",
+					"name": "Description:",
+					"entries": [
+						"杀手番茄是一种有着夸张名字的草药，实际上并不危险，至少在身体上不危险。据说，这种草药是由一个捣蛋的神在欢笑中创造出来的，每当有人在它身边讲坏话、讲故事或唱歌时，它都能感觉到，然后自主地飞向肇事者，让他们的脸被番茄汁染红。虽然这最终是无害的，但这可能造成的情感伤害已导致番茄被禁止在大多数音乐厅和酒馆使用。"
+					]
+				},
+				{
+					"type": "entries",
+					"name": "Effect:",
+					"entries": [
+						"如果一个生物在此草药的30英尺范围内没有通过魅力（（%0%））检查，它会自动直接飞向他们，并自动飞溅到他们身上，摧毁此草药。如果该草药在你身上，而你在抵抗(1%)、(2%)、(3%)或(4%)的法术效果，或基于笑话、音乐或表演的类似魔法时，该效果也会触发，该草药会飞向施法的生物。"
+					]
+				}
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Knock Wood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6133,21 +6130,21 @@
 						"当你手里拿着这种草药的时候，如果你被迫在不利的情况下进行掷骰子，你可以用你的反应将这种草药敲击在硬物上。如果你这样做了，你就会以正常的方式而不是在劣势的情况下进行投掷。一旦这种药草被使用过一次，它就会失去所有的力量，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Kraken Kelp",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -6164,21 +6161,21 @@
 						"这种草药有{@dice 1d8}电荷，与它沿途完整的球茎数量相对应。作为使用这种草药的一部分，你必须通过弹出灯泡并在自己身上施加墨色的瘴气来消耗1个电荷。在使用后的一个小时内，你会发出一个半径为10英尺的黑暗云，只有你自己能看透。云层内的任何东西对除你之外的任何生物来说都被认为是（%1%）。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lich Lichen",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6194,21 +6191,21 @@
 						"使用此草药后，任何具有不死生物类型的生物在探测你的智慧（（%0%））检查中都处于劣势。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Liftwood",
 			"source": "HHbH",
 			"page": 21,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"recharge": "dawn",
 			"entries": [
 				{
@@ -6237,21 +6234,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lolth's Thorn",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6267,21 +6264,21 @@
 						"这种草药可以像（%0%）一样挥舞。如果这根刺成功地击中了患有{@condition poisoned}状况的生物，该状况立即结束，并且这根刺充满了该生物所中的任何一种毒。在下一次被这根刺成功击中时，被击中的生物会受到原来的毒药所带来的任何影响；如果该毒药需要蓄力，则DC被设置为15。这根刺一次只能携带一种毒药，而且里面的任何毒药在第一次被吸收的24小时后就会失去作用。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lotus of the Raven Queen",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6297,21 +6294,21 @@
 						"在使用此草药后的24小时内，如果你遭受死亡拯救的失败，你可以花费1个命中率来否定这个失败。如果一个效果会导致你一次损失超过1个，你必须为你想否定的每一次失败花费1个命中率。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Lucidity Lavender",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6334,21 +6331,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Magic Mistletoe",
 			"source": "HHbH",
 			"page": 22,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6364,21 +6361,21 @@
 						"作为准备这种草药的一部分，你必须用这种植物的汁液覆盖一件近战武器或最多10件弹药。在接下来的4个小时内，任何被此武器或弹药成功击中的生物必须成功进行一次{@dc 18}体质测试，否则在接下来的一分钟内会变得{@condition poisoned}。当{@condition poisoned}以这种方式出现时，生物会失去他们可能拥有的任何伤害抵抗力。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Maiden Moss",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6394,21 +6391,21 @@
 						"作为准备这种草药的一部分，你必须从你选择的一个生物身上消耗1瓶血，用它来从草药磨成的粉末中制造一种浆糊。产生的浆糊可以涂抹在一个中型或小型的生物身上，或者涂抹在一个不超过60英尺的区域的周围。在接下来的24小时内，任何与你添加到糊状物中的血液类型相同的生物，如果智力值在5分以下，那么当它们试图在糊状物或被糊状物包围的区域的5英尺范围内移动时，必须做一个{@dc 15}智慧拯救动作。如果失败，该生物必须用他们剩余的移动时间尽可能地远离被浆糊包围的生物或区域，并采取最直接、安全的路线。如果成功，他们可以随意移动，并且在接下来的24小时内对这种药草的影响免疫。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Marid's Tail",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6424,21 +6421,21 @@
 						"你可以用这种草药进行武器攻击，就像对待一个（%0%）一样。一旦成功命中，该草药就会扎入目标体内，然后爆裂，迫使目标成功地完成一个{@dc 15}力量救赎，或者被推回20英尺，因为一股强烈的水柱从破裂的草药中涌出。一旦这种草药以这种方式被使用过一次，它就会被摧毁，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mariner's Friend",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6454,21 +6451,21 @@
 						"使用这种草药后的4个小时内，任何接触到你的液体都会立即从你的身体、衣服和财产上流走，让你完全干燥。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mender's Mold",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6484,21 +6481,21 @@
 						"这种草药含有足够的霉菌，可以覆盖（%0%）平方英尺。如果你用这种草药覆盖物体上的破洞或接缝，草药会神奇地粘附在破损区域的边缘，然后在接下来的一小时内永久性地转化为与它所接触的边缘相同的材料。例如，如果放在破损的木地板上的一个洞上，模具会将自己转化为木材。转化后的模具保留其黑色的颜色，并作为一块均匀的材料。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Merrow Trap",
 			"source": "HHbH",
 			"page": 23,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d20}",
 			"entries": [
 				{
@@ -6515,21 +6512,21 @@
 						"这种草药含有{@dice 1d20}电荷，每个电荷对应一片海草。你可以消耗1个炸药，并花1分钟将海草叶片附在{@item crossbow bolt|PHB|bolt}或{@item arrow|PHB}上。如果你这样做了，该螺栓或箭就会受到（%3%）的影响。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mirage Melon",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6545,21 +6542,21 @@
 						"你可以把这种草药作为一个动作吃掉。在接下来的10分钟里，你的胃会产生一种神奇的气体，使你在每个回合开始时打嗝，每次打嗝都会发出一种发光的气体，一旦离开你的嘴，就会变成你选择的小幻象的形式。幻觉的例子包括蝴蝶或音符。这些幻觉既没有物质也没有声音，显然是假的，并在你下一个回合开始时消失。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mordenkainen's Mint",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6575,21 +6572,21 @@
 						"作为一个额外动作，你可以开始咀嚼这种草药。在咀嚼这种草药的时候，你在任何宪法规定的救赎上都有优势，以保持对一个法术的{@condition concentration}。这种草药可以咀嚼10分钟，必须连续进行。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mortician's Cactus",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6605,21 +6602,21 @@
 						"使用此草药后的4小时内，你的味道和气味都很糟糕。任何生物如果对你的攻击涉及到咬或用舌头舔你，都会处于劣势。此外，你在为避免被吞食或从生物的胃中吐出而进行的任何能力检查或蓄力投掷上具有优势。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mountain Heart Ginseng",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6635,21 +6632,21 @@
 						"在使用这种草药后的8小时内，你在体质测试中具有优势。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Mud Bane",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6666,21 +6663,21 @@
 						"这种草药含有{@dice 1d3}电荷。要使用这种草药，你必须消耗一个电荷来覆盖一件近战武器或最多10件弹药的毒液。在接下来的10分钟内，任何被此武器或弹药成功击中的生物都必须在宪法规定的投掷中获得成功，否则将在1分钟内变成{@condition poisoned}。如果救赎失败5次或更多，该生物也会被（%3%），因为他们会被剧烈的痉挛所吞噬。在他们每个回合的开始，以及在他们受到伤害的任何时候，该生物可以再次进行拯救术。一旦成功，他们就不再是{@condition incapacitated}。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Musical Fruit",
 			"source": "HHbH",
 			"page": 24,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6696,21 +6693,21 @@
 						"你可以把这种草药当作一个动作来吃。在接下来的一个小时里，你在唱歌或演奏乐器的能力检查中具有优势（（%0%））。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nature's Curse",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d3}",
 			"entries": [
 				{
@@ -6727,21 +6724,21 @@
 						"这种草药含有{@dice 1d3}电荷。要使用这种草药，你必须花费一个电荷来覆盖一件近战武器或最多10件弹药的毒液。在接下来的10分钟内，任何被此武器或弹药成功击中的生物必须成功地进行一次{@dc 18}体质测试，否则会变成{@condition poisoned}，持续1分钟。当{@condition poisoned}这种方式时，生物会被可怕的疼痛所缠绕，导致他们在所有的蓄力动作中处于劣势，移动速度减半，并且他们{@condition concentration|PHB|concentrating}的任何法术在他们的回合开始时自动结束。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Needlecloud Cactus",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6757,21 +6754,21 @@
 						"作为准备这种草药的一部分，你将这种草药的片段放在你衣服和盔甲周围的战略位置。当你被近战武器攻击时，你可以用你的反应从你身上的草药中释放出尖锐的针状物，迫使你周围5英尺内的所有生物做一个{@dc 14}灵巧的蓄力动作，失败时受到{@damage 1d6}穿刺伤害，成功时受到一半的伤害。一旦你使用这个能力4次，这种草药的针就会用完，变得无用。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nightflame Seed",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6794,21 +6791,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nofall Leaves",
 			"source": "HHbH",
 			"page": 25,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6824,21 +6821,21 @@
 						"作为使用这种草药的一部分，你必须把它擦在鞋底，如果你赤脚走路，则擦在脚上。使用这种草药后的8小时内，不要沉入深雪中。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Nomad's Treasure",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6866,21 +6863,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Numbing Bush",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6896,21 +6893,21 @@
 						"作为一个动作，你可以将这种草药涂抹在你的身体和伤口上，从而使用它。在接下来的一个小时里，你在每个回合开始时都会获得8个临时命中率，但在灵巧救赎和灵巧能力检查方面有劣势。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Odour Begonia",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6926,21 +6923,21 @@
 						"使用这种草药后的4小时内，你没有嗅觉。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Oracle's Leaf",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -6956,21 +6953,21 @@
 						"在使用这种草药后的4小时内，你会获得一种轻微的千里眼，帮助你躲避危险。每当你被攻击的时候，你可以用你的反应来迫使该攻击在劣势下进行。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Parrot Poppy",
 			"source": "HHbH",
 			"page": 26,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7025,21 +7022,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peacekeeper's Lily",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7055,21 +7052,21 @@
 						"这种药草可以应用于任何穿刺或切割的近战武器，或最多10件穿刺或切割的弹药。在接下来的一小时内，只要你用该武器或弹药伤害一个生物，该生物就必须成功地进行一次{@dc 15}宪法救赎，否则就会被{@condition poisoned}，直到你下一回合开始。当{@condition poisoned}这样做的时候，{@condition poisoned}的生物必须做一个{@dc 15}智慧救赎，只要他们试图执行一个会直接导致其他生物受到伤害的动作。如果他们失败了，他们必须选择另一个不会直接导致另一个生物受到伤害的行动，或者浪费他们的行动。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pearvoyance",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7085,21 +7082,21 @@
 						"使用这种草药后，你会得到一个简短的未来幻象。这个幻象的细节，包括它的长度，它与现在的距离，甚至它是否是真的，都由你的DM决定。无论如何，你完全相信这个幻象是对未来事物的真实而准确的预示。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Peony of Power",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7115,21 +7112,21 @@
 						"作为一个动作，你可以将手中的这种草药捏碎。在接下来的10分钟内，只要你（%0%）消耗了一个法术槽，就会被认为是使用比你实际使用的法术槽高1级的法术来施展。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Pinecone of Cold",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7145,21 +7142,21 @@
 						"作为一个动作，你可以将这个松果扔到20英尺外，使其在撞击时爆炸。所有在5英尺范围内的生物都必须做一个{@dc 15}体质测试，如果失败则受到{@damage 4d6}寒冷伤害，成功则受到一半的伤害。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Platinum Star",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7175,21 +7172,21 @@
 						"一旦准备好，这种草药最多可以被6个生物同时使用。所有使用此草药的生物都会获得持续8小时的{@variantrule inspiration|PHB}。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Polypad",
 			"source": "HHbH",
 			"page": 27,
 			"type": "Herb",
+			"rarity": "unknown (magic)",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "unknown (magic)",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7205,21 +7202,21 @@
 						"使用此草药后，你会在你周围10英尺内无人的地方召唤出一个（%0%）和一个（%1%）。这些元素在它们的生命值下降到0时或4小时后消失，以先到者为准。元素对你和你的同伴都很友好，并按照自己的主动命令行事。它们服从你对它们发出的任何口头命令（不需要你采取行动）。如果你没有向元素体发出任何命令，它们会保护自己免受敌对生物的攻击，但除此之外不采取任何行动。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Prepyrus",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7235,21 +7232,21 @@
 						"在短暂的休息中，你可以在这种草药上写下一系列的魔法咒语来改变你准备的法术清单。然而，你仍然需要花同样的时间来准备每个法术，就像你的等级特征中列出的那样。这种草药只能使用一次。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Purple Worm Bulb",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7275,21 +7272,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rageroot",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7305,21 +7302,21 @@
 						"作为一个行动，你可以吃这个根。如果你这样做，在接下来的10分钟内，你会对{@condition stunned}、{@condition frightened|PHB|fear}和{@condition charmed}的状况免疫，因为你会充满狂躁的愤怒。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Repellent Lemons",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7342,21 +7339,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rimemoss",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7372,21 +7369,21 @@
 						"你可以花10分钟的时间在你的衣服上铺上rimemoss。如果你这样做了，你就会自动成功地进行任何宪法储蓄，以抵御寒冷环境和天气的负面影响。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rumble Cotton",
 			"source": "HHbH",
 			"page": 28,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7402,21 +7399,21 @@
 						"使用此草药后，你在4小时内获得对雷霆伤害的抵抗。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rush Chillis",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7432,21 +7429,21 @@
 						"在使用此草药后的1小时内，你每回合最多可以进行2次反应，并在你每个回合开始时恢复。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Rustfern",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d4}",
 			"entries": [
 				{
@@ -7475,21 +7472,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sailor's Omen",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7505,21 +7502,21 @@
 						"使用此草药后的8小时内，你对毒药伤害和{@condition poisoned}状况免疫。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandrain Flower",
 			"source": "HHbH",
 			"page": 29,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": 4,
 			"entries": [
 				{
@@ -7536,21 +7533,21 @@
 						"这种草药有4种药效。作为一个行动，你可以将此草药的根部缠绕在你的一只自由手上。当你有一个生物（%0%）有这只自由的手时，你可以使用你的额外行动和1个电荷，迫使该生物做一个{@dc 17}的宪法救赎，或在草药迅速使他们的身体脱水时被{@condition stunned}。构造物、不死生物和任何体内没有天然液体的生物都会自动成功地做出这个动作。3%）的生物可以在它的每个回合结束时再次进行体质测试，如果成功则结束对自己的影响。一旦这种草药的所有费用都用完了，它就会因为吞食液体而爆裂，变得无用。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sandtrap Palm",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7566,21 +7563,21 @@
 						"你可以花1分钟时间用这种草药包裹或解开你的手和脚。当你的手脚被这种草药包裹时，你在通过沙地时不会受到移动速度的惩罚，而且你在攀爬被沙子覆盖的地面时有优势。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Scholar's Brush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7603,21 +7600,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Seeds",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -7634,21 +7631,21 @@
 						"这种草药有{@dice 1d6}的收费。作为一个行动，你可以消耗一个电荷来散播一些种子。如果撒到水体中，这些种子会使同一水体中智力值小于4且在100英尺范围内的所有海洋生物以最直接的路线游向它们。鱼类并不试图吃这些种子，而只是被它们的位置所吸引。一旦它们在水中停留了1分钟，它们就会溶解，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sea Soap",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7671,21 +7668,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sentry Bush",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7701,21 +7698,21 @@
 						"准备好这种草药后，你会获得8小时睡眠（或你的种族的同等形式的休眠）的所有好处。你仍然需要休息至少8小时，才能从长时间的休息中获益。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sharpeye Twig",
 			"source": "HHbH",
 			"page": 30,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7731,21 +7728,21 @@
 						"你可以使用你的额外行动来开始咀嚼这种草药。在咀嚼这种草药时，你可以忽略在试图在你的武器正常范围之外进行远程武器攻击时所施加的任何不利因素。这种草药可以咀嚼一分钟，可以一次完成，也可以分几个小段进行，每次至少使用一回合才停止（不需要动作）。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shepherd's Soap",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7761,21 +7758,21 @@
 						"使用这种草药后，你会在接下来的4个小时内产生一种令人愉快的气味，使你周围的任何动物本能地信任你。在这段时间内，你在与周围30英尺内能听到和闻到你的任何动物交流时，在智慧（（%0%））的检查中具有优势。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shifter's Jasmine",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7791,21 +7788,21 @@
 						"在准备这种草药时，你必须在头脑中想象一个人形。这个形体不需要和你现在的形体有相同的种族、性别、尺寸或年龄，但必须在该种族的人形的现实范围内（例如，你不能想象一个12英尺高的矮人或一个有四只手臂的精灵）。使用该草药后，你的身体会永久地改变，以符合你所描绘的形态。你的状态不会改变，而且你保留了你原来拥有的所有种族能力。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Shunflower",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7821,21 +7818,21 @@
 						"身上有这种草药的生物，在魅力能力检查中处于劣势。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sigil's Mark",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7851,21 +7848,21 @@
 						"这种草药含有（%0%）种子。作为一个行动，你可以压碎一颗种子并将产生的油抹在自己身上，或者你可以用一颗种子对你周围20英尺内你能看到的生物进行一次远程武器攻击，破坏它并在撞击后释放出油。无论是哪种方式，被这种油覆盖的生物都会在接下来的一小时内与命运之风隔绝。在这段时间内，每当被覆盖的生物使用（1%）进行掷骰子时，他们会跳过掷骰子，而是像他们掷出的10一样。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sillypad",
 			"source": "HHbH",
 			"page": 31,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7920,21 +7917,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Silver Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7950,21 +7947,21 @@
 						"作为准备这种草药的一部分，你必须将它应用于一件近战武器或最多10件弹药。如果你这样做了，在接下来的一小时内，该武器或弹药会被视为既具有魔力又由银制成，以克服对非魔力和非银武器攻击的抵抗和免疫。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Snakeskin Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -7980,21 +7977,21 @@
 						"作为一项行动，你可以吃这种草药。在接下来的一个小时里，你的皮肤会不断剥落，在你身后留下沙子般的痕迹，但你不会受到任何影响。在这一小时结束时，你的皮肤会变得非常光滑，就像你把你的整个身体都去掉了角质一样。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soap Grass",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8010,21 +8007,21 @@
 						"你可以花10分钟在自己身上擦拭这种草药。如果你这样做，你会变得干净，没有任何污垢和泥土。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soldier's Duty",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8040,21 +8037,21 @@
 						"作为一个行动，你可以在你5英尺范围内的一个生命体的鼻子前捏碎这种草药，使其恢复1点生命值。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Soopa Mushroom",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Cave",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8070,21 +8067,21 @@
 						"作为一个动作，你可以吃下这种草药，使你比平时大一圈；如果没有足够的空间容纳你的新体型，你就会恢复到正常体型，这种草药也就浪费了。这种草药的效果持续4小时，或者直到你受到伤害，以先到者为准。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sork Root",
 			"source": "HHbH",
 			"page": 32,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Swamp",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8100,21 +8097,21 @@
 						"作为一个行动，你可以把这个根放在你的嘴里并开始咀嚼它。在咀嚼这个根的时候，你会流出一种滑溜溜的粘液，使你难以被抓住。任何对你进行的力量检查都是在劣势下进行的，而你在挤进狭小空间时不会受到任何惩罚。咀嚼此根的时间最长为5分钟，你可以一次完成，也可以分几次完成。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Spectrum Rose",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8137,21 +8134,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Speed Apple",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8167,21 +8164,21 @@
 						"在你应用此草药后的4小时内，你的行走速度增加10英尺，并且无视（%0%）的影响。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sporecaster",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8197,21 +8194,21 @@
 						"作为使用这种草药的一部分，你将这种草药的片段塞进你衣服和盔甲的特定部分。每当你被一个近战武器攻击成功击中时，你会在你周围5英尺的范围内释放一阵孢子。除你之外的任何生物都必须做一个{@dc 15}的体质判定，如果失败，将变成{@condition poisoned}，持续1分钟。一旦你释放了4阵孢子，你衣服和盔甲中的真菌段就会变空，这个效果就会结束。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Squirtwort",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Coast",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8227,21 +8224,21 @@
 						"这种草药含有（%0%）花蕾。作为一个动作，你可以将这些花蕾中的一个扔到你30英尺范围内的地面上，一接触到花蕾就会爆裂。爆裂后，花蕾会释放出一股滑溜溜的液体，覆盖它周围5英尺见方的区域。任何进入覆盖区域的生物都必须在一个{@dc 12}的灵巧救赎中成功，否则就会摔倒{@condition prone}。"
 					]
 				}
-			]
+			],
+			"lcn": "Coast",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Steelwood Sap",
 			"source": "HHbH",
 			"page": 33,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8266,21 +8263,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stenchblossom",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8296,21 +8293,21 @@
 						"作为一项行动，你可以食用这种草药，使你在接下来的10分钟内散发出一种衰弱的气味。在这段时间内，任何在你5英尺范围内结束其回合并能闻到气味的生物，都必须做一个{@dc 12}体质测试。如果失败，该生物在所有的攻击中都处于劣势，而对它们的攻击则在它们哀嚎时具有优势。如果该生物从你身边移动超过5英尺，或者失去嗅觉，这个效果就会结束。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sticky Fig",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8326,21 +8323,21 @@
 						"作为一个行动，你可以吃这种草药。在接下来的一个小时里，你会产生一种粘稠的粘液，将你粘在你所站立的表面上，使你在任何蓄力或能力检查中获得优势，以避免违背你的意愿被移动，并使你的攀爬速度与你的步行速度相等。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Stonecap Mushrooms",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8356,21 +8353,21 @@
 						"在你使用此草药后的8小时内，任何对你造成的关键打击都会变成普通打击，任何由该关键打击引发的额外效果都会被否定。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sungi",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8386,21 +8383,21 @@
 						"这种草药可以应用于一件近战武器或最多10件弹药。被施加了这种草药的武器被认为是有魔力的，并在一回合内第一次成功击中时造成额外的（%0%）辐射伤害。这个效果持续一个小时。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Sylvan Bandage",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8416,21 +8413,21 @@
 						"当你在短暂的休息期间使用这种草药时，你会恢复你在该休息期间为恢复命中率所花费的任何数量的命中模。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tailor's Gamble",
 			"source": "HHbH",
 			"page": 34,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8493,21 +8490,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Thaw Bud",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d6}",
 			"entries": [
 				{
@@ -8524,21 +8521,21 @@
 						"这种草药含有{@dice 1d6}电荷，与采摘的花蕾数量相对应。作为一个动作，你可以用一个电荷压碎这些花蕾，并将产生的分泌物抹在一块冰或雪上，使其融化。一个电荷可以融化一块面积达5英尺见方、1英寸厚的冰块。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Titan's Field",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8564,21 +8561,21 @@
 						}
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tlincalli Thorn",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8594,21 +8591,21 @@
 						"在准备好这种草药后的4个小时内，你的皮肤会变得异常坚硬，像鳞片一样，你会获得一个+1的交流奖励。"
 					]
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Toad Skin Shrub",
 			"source": "HHbH",
 			"page": 35,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8624,21 +8621,21 @@
 						"作为一个行动，你可以吃下这种草药，迫使你在一小时内成功进行一次{@dc 15}的体质测试，否则会变成{@condition poisoned}。无论结果如何，在接下来的一小时内，你的皮肤也会分泌出一种有毒的粘液，迫使任何接触你的生物或用近战武器攻击你的生物，都要在宪法规定的投掷中获得成功，否则会变成（%2%）。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Touch Grass",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8654,21 +8651,21 @@
 						"当你{@action cast a spell}有接触范围时，你可以将此草药作为目标，而不是该法术的常规目标。如果你这样做，这种草药会吸收该法术，并在它所接触的下一个有效目标身上释放。作为一个动作，你可以向你20英尺范围内的目标投掷这种草药，将其视为一次远程武器攻击。如果成功命中，这种草药不会造成任何伤害，而是将它储存在里面的咒语释放到目标身上。这种草药一次只能吸收一个咒语，而且只能保持咒语10分钟，之后魔力就会消散，咒语也会浪费。无论如何，一旦这种草药释放了储存的咒语，它就会碎裂，变得毫无用处。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Tracker's Leaf",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8691,21 +8688,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Treant Seed",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 100000,
 			"property": [
 				"Hrb"
 			],
-			"value": 100000,
-			"rarity": "rare",
-			"lcn": "Forest",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8721,21 +8718,21 @@
 						"当你使用这种草药时，你会变成一个{@creature treant|MM}{@homebrew |(as outlined in the Monster Manual)}，你所有的装备都会融入你的新形态，并且无法使用，直到这个效果结束。如果你没有空间长成你的新形态，那么转变会立即恢复，药草也会被浪费。当你成为（%2%）时，你会保留你的阵型、专长、知识、法术和等级能力，但将所有其他特征替换为（%3%）的特征，包括命中率。4小时后你会恢复到你的正常形态，或者如果你的命中率下降到0，这时你会立即恢复，任何多余的伤害都会延续到你的正常形态。"
 					]
 				}
-			]
+			],
+			"lcn": "Forest",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Troll's Snot",
 			"source": "HHbH",
 			"page": 36,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Swamp",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8751,21 +8748,21 @@
 						"使用此草药后的8小时内，你的双手会散发出一种粘性物质，使你在攀爬或{@skill Athletics}东西的力量检查中获得优势，而且你不能不由自主地被解除手中的物体的武装。"
 					]
 				}
-			]
+			],
+			"lcn": "Swamp",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Twice-Blessed Clover",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 50000,
 			"property": [
 				"Hrb"
 			],
-			"value": 50000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8781,21 +8778,21 @@
 						"作为奖励动作，你可以捏碎你手中的三叶草。如果你这样做了，在你下一回合开始之前，你所做的任何攻击卷、能力检查和蓄力投掷都会有优势。使用一次后，这种草药就会变得无用。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Umbra Tongue",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Cave",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8811,21 +8808,21 @@
 						"在使用此草药后的8小时内，每当你在黑暗中开始你的回合时，你会获得6个临时命中率。"
 					]
 				}
-			]
+			],
+			"lcn": "Cave",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Vampire's Fang",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 2000,
 			"property": [
 				"Hrb"
 			],
-			"value": 2000,
-			"rarity": "rare",
-			"lcn": "Mountain",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8842,21 +8839,21 @@
 						"这种草药有{@dice 1d8}的收费。作为一个动作，你可以将这种草药的根部缠绕在你的手臂上，同时将它的尖头花留在一只自由的手中。只要这种草药缠绕在你的手臂上，每当一个体内有血的生物在你5英尺范围内死亡，你可以消耗一个电荷，以便用你的反应来吸干那个生物的血，给予你相当于其挑战等级的临时命中率（最低为1）。"
 					]
 				}
-			]
+			],
+			"lcn": "Mountain",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Volo Tree",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 1000,
 			"property": [
 				"Hrb"
 			],
-			"value": 1000,
-			"rarity": "rare",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8879,21 +8876,21 @@
 					],
 					"by": "Hamund"
 				}
-			]
+			],
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Whisper Puff",
 			"source": "HHbH",
 			"page": 37,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 5000,
 			"property": [
 				"Hrb"
 			],
-			"value": 5000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"charges": "{@dice 1d8}",
 			"entries": [
 				{
@@ -8910,21 +8907,21 @@
 						"这种草药有{@dice 1d8}电荷。作为一个额外的动作，你可以使用一个电荷将这种草药的一个球茎塞进你的嘴里。如果你这样做了，你在下一次有语言成分的{@action cast a spell}时，就不会发出可闻的声音。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Winterlight Bloom",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 20000,
 			"property": [
 				"Hrb"
 			],
-			"value": 20000,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "Yes",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8940,21 +8937,21 @@
 						"使用此草药后，你获得对寒冷伤害的抵抗力，持续4小时。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "Yes",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Wizard's Friend",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 10000,
 			"property": [
 				"Hrb"
 			],
-			"value": 10000,
-			"rarity": "rare",
-			"lcn": "Grassland",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -8970,21 +8967,21 @@
 						"在一个小时的时间里，这种草药可以被粉碎和混合，以创造出一种深紫色的墨水，可以用来在巫师的法术书上刻下咒语。以这种方式使用时，墨水会取代铭文所需的金块。一种草药能够制造出足够的墨水来替代价值100个金币的法术铭文组件。"
 					]
 				}
-			]
+			],
+			"lcn": "Grassland",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yell Pepper",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "common",
+			"value": 100,
 			"property": [
 				"Hrb"
 			],
-			"value": 100,
-			"rarity": "common",
-			"lcn": "Desert",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9019,21 +9016,21 @@
 						}
 					}
 				]
-			}
+			},
+			"lcn": "Desert",
+			"prep": "No",
+			"foundryType": "consumable"
 		},
 		{
 			"name": "Yeti Brush",
 			"source": "HHbH",
 			"page": 38,
 			"type": "Herb",
+			"rarity": "rare",
+			"value": 500,
 			"property": [
 				"Hrb"
 			],
-			"value": 500,
-			"rarity": "rare",
-			"lcn": "Arctic",
-			"prep": "No",
-			"foundryType": "consumable",
 			"entries": [
 				{
 					"type": "entries",
@@ -9049,7 +9046,10 @@
 						"你可以花1分钟时间将你的手和脚包裹在这种草中。如果你这样做，当你在雪地或冰雪地形中移动时，你的移动速度不会受到惩罚，而且你在攀登冰雪覆盖的表面时有优势。"
 					]
 				}
-			]
+			],
+			"lcn": "Arctic",
+			"prep": "No",
+			"foundryType": "consumable"
 		}
 	]
 }
