@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema.json",
 	"_meta": {
 		"sources": [
 			{
@@ -17,8 +18,8 @@
 			}
 		],
 		"dateAdded": 1594524520,
-		"dateLastModified": 1685143702,
-		"_dateLastModifiedHash": "6d9f7c8551"
+		"dateLastModified": 1695223060,
+		"_dateLastModifiedHash": "88194a30a2"
 	},
 	"class": [
 		{
@@ -31,6 +32,17 @@
 			"proficiency": [
 				"dex",
 				"int"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:F"
+					],
+					"progression": {
+						"2": 1
+					}
+				}
 			],
 			"classTableGroups": [
 				{
@@ -381,7 +393,7 @@
 					"(a) {@item leather armor|phb} or (b) a {@item chain shirt|phb}",
 					"(a) {@item component pouch|phb} or (b) an {@item arcane focus|phb}",
 					"(a) a {@item dungeoneer's pack|phb} or (b) an {@item explorer's pack|phb}",
-					"a {@item dagger|phb}"
+					"a {@item dagger|phb|dagger}"
 				],
 				"goldAlternative": "{@dice 4d4×10|5d4 × 10|Starting Gold}"
 			},
@@ -408,8 +420,8 @@
 				}
 			},
 			"classFeatures": [
-				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				"Arcane Blade|Spellblade|FoxfireSpellblade|1",
+				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				{
 					"classFeature": "Archetype|Spellblade|FoxfireSpellblade|2",
 					"gainSubclassFeature": true
@@ -452,36 +464,29 @@
 					"source": "FoxfireSpellblade",
 					"type": "section",
 					"entries": [
-						"Spellblade'y są mistrzami w manifestowaniu magii i potęgi walki, wojownikami, którzy napełniają swoją broń mocą żywiołów. Dwie najbardziej znane odmiany Zaklętych to Blademasterzy, czyli ci, którzy skupiają się bardziej na aspektach walki w swoim zawodzie, oraz Magistrowie, czyli uczeni w magii, którzy zagłębiają się w studiach nad magiczną wiedzą.",
+						"Jeśli chcesz zmienić klasę na spellblade, wymagania wstępne i umiejętności są wymienione poniżej.",
 						{
 							"type": "entries",
-							"name": "Spellblade Multiclassing",
+							"name": "Spellblade Multiclassing Prerequisites",
 							"entries": [
-								"Jeśli chcesz zmienić klasę na spellblade, wymagania wstępne i umiejętności są wymienione poniżej.",
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Prerequisites",
+									"name": "Ability Score Minimum",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Ability Score Minimum",
-											"entries": [
-												"Siła 13 lub Zręczność 13, oraz Inteligencja 13"
-											]
-										}
+										"Siła 13 lub Zręczność 13, oraz Inteligencja 13"
 									]
-								},
+								}
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Spellblade Multiclassing Proficiencies",
+							"entries": [
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Proficiencies",
+									"name": "Proficiencies Gained",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Proficiencies Gained",
-											"entries": [
-												"Lekki pancerz, średni pancerz, prosta broń."
-											]
-										}
+										"Lekki pancerz, średni pancerz, prosta broń."
 									]
 								}
 							]
@@ -536,6 +541,20 @@
 		}
 	],
 	"classFeature": [
+		{
+			"name": "Arcane Blade",
+			"source": "FoxfireSpellblade",
+			"className": "Spellblade",
+			"classSource": "FoxfireSpellblade",
+			"level": 1,
+			"entries": [
+				"You've trained to enhance your weapon with magical energy. Starting at 1st level you can spend an hour during a long rest to perform a ritual upon one weapon in your possession, imbuing it with an element of your choosing from the following: acid, cold, fire, lightning or poison.",
+				"Once per turn when you hit with an attack using that weapon it deals an extra 1d4 damage of the chosen element. This amount of damage increases as you level up, as shown in the Arcane Blade column on Spellblade class table.",
+				"Starting at 11th level you may deal the extra damage from this feature more than once a turn.",
+				"This weapon is bound to you and when you will it, it goes into a pocket dimension. You can pull an arcane blade weapon from this pocket dimension as a bonus action.",
+				"Możesz nasycić tylko jedną broń energią żywiołów. Możesz nasycić jedną dodatkową broń na 10 poziomie, a kolejną na 15 poziomie. Jeśli w ten sposób nasycisz żywiołem inną broń ponad swój limit, wybierasz, która broń traci korzyści z cechy Arcane Blade."
+			]
+		},
 		{
 			"name": "Spellcasting",
 			"source": "FoxfireSpellblade",
@@ -596,18 +615,6 @@
 						"Możesz użyć skupienia arkanów jako skupienia zaklęć dla swoich czarów."
 					]
 				}
-			]
-		},
-		{
-			"name": "Arcane Blade",
-			"source": "FoxfireSpellblade",
-			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade",
-			"level": 1,
-			"entries": [
-				"Wyszkoliłeś się, by wzmocnić swoją broń magiczną energią. Począwszy od 1. poziomu możesz poświęcić godzinę podczas długiego odpoczynku, aby przeprowadzić rytuał na jednej posiadanej broni, nasycając ją wybranym przez siebie elementem spośród następujących: kwas, zimno, ogień, błyskawica lub grzmot.",
-				"Raz na turę, gdy trafisz atakiem z użyciem tej broni, zadaje ona dodatkowe 1d4 obrażeń od wybranego żywiołu. Ta ilość obrażeń wzrasta wraz z poziomem, jak pokazano w kolumnie Arcane Blade na tabeli klasy Spellblade. Broń ta jest z tobą związana i gdy ją wolisz, trafia do kieszonkowego wymiaru. Możesz wyciągnąć broń Arcane Blade z tego kieszonkowego wymiaru jako akcję bonusową.",
-				"Możesz nasycić tylko jedną broń energią żywiołów. Możesz nasycić jedną dodatkową broń na 10 poziomie, a kolejną na 15 poziomie. Jeśli w ten sposób nasycisz żywiołem inną broń ponad swój limit, wybierasz, która broń traci korzyści z cechy Arcane Blade."
 			]
 		},
 		{
@@ -1071,7 +1078,20 @@
 			"source": "FoxfireSpellblade",
 			"shortName": "Blademaster",
 			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade"
+			"classSource": "FoxfireSpellblade",
+			"optionalfeatureProgression": [
+				{
+					"name": "Maneuvers",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"6": 2,
+						"11": 4,
+						"18": 6
+					}
+				}
+			]
 		},
 		{
 			"name": "Magister",
