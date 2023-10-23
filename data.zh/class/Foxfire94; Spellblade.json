@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema.json",
 	"_meta": {
 		"sources": [
 			{
@@ -17,8 +18,8 @@
 			}
 		],
 		"dateAdded": 1594524520,
-		"dateLastModified": 1685143702,
-		"_dateLastModifiedHash": "6d9f7c8551"
+		"dateLastModified": 1695223060,
+		"_dateLastModifiedHash": "88194a30a2"
 	},
 	"class": [
 		{
@@ -31,6 +32,17 @@
 			"proficiency": [
 				"dex",
 				"int"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:F"
+					],
+					"progression": {
+						"2": 1
+					}
+				}
 			],
 			"classTableGroups": [
 				{
@@ -381,7 +393,7 @@
 					"(a) {@item leather armor|phb} or (b) a {@item chain shirt|phb}",
 					"(a) {@item component pouch|phb} or (b) an {@item arcane focus|phb}",
 					"(a) a {@item dungeoneer's pack|phb} or (b) an {@item explorer's pack|phb}",
-					"a {@item dagger|phb}"
+					"a {@item dagger|phb|dagger}"
 				],
 				"goldAlternative": "{@dice 4d4×10|5d4 × 10|Starting Gold}"
 			},
@@ -408,8 +420,8 @@
 				}
 			},
 			"classFeatures": [
-				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				"Arcane Blade|Spellblade|FoxfireSpellblade|1",
+				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				{
 					"classFeature": "Archetype|Spellblade|FoxfireSpellblade|2",
 					"gainSubclassFeature": true
@@ -452,36 +464,29 @@
 					"source": "FoxfireSpellblade",
 					"type": "section",
 					"entries": [
-						"咒术师是彰显魔法和武术力量的大师，是为他们的武器注入元素力量的战士。两种最著名的法术师是Blademasters，那些更专注于他们职业的武术方面的法术师，以及Magisters，那些深入研究魔法传说的奥秘学者。",
+						"如果你想多类为法术刀，获得的先决条件和熟练程度列在下面。",
 						{
 							"type": "entries",
-							"name": "Spellblade Multiclassing",
+							"name": "Spellblade Multiclassing Prerequisites",
 							"entries": [
-								"如果你想多类为法术刀，获得的先决条件和熟练程度列在下面。",
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Prerequisites",
+									"name": "Ability Score Minimum",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Ability Score Minimum",
-											"entries": [
-												"力量13或灵巧13，以及智力13"
-											]
-										}
+										"力量13或灵巧13，以及智力13"
 									]
-								},
+								}
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Spellblade Multiclassing Proficiencies",
+							"entries": [
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Proficiencies",
+									"name": "Proficiencies Gained",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Proficiencies Gained",
-											"entries": [
-												"轻型盔甲，中型盔甲，简单武器。"
-											]
-										}
+										"轻型盔甲，中型盔甲，简单武器。"
 									]
 								}
 							]
@@ -536,6 +541,20 @@
 		}
 	],
 	"classFeature": [
+		{
+			"name": "Arcane Blade",
+			"source": "FoxfireSpellblade",
+			"className": "Spellblade",
+			"classSource": "FoxfireSpellblade",
+			"level": 1,
+			"entries": [
+				"You've trained to enhance your weapon with magical energy. Starting at 1st level you can spend an hour during a long rest to perform a ritual upon one weapon in your possession, imbuing it with an element of your choosing from the following: acid, cold, fire, lightning or poison.",
+				"Once per turn when you hit with an attack using that weapon it deals an extra 1d4 damage of the chosen element. This amount of damage increases as you level up, as shown in the Arcane Blade column on Spellblade class table.",
+				"Starting at 11th level you may deal the extra damage from this feature more than once a turn.",
+				"This weapon is bound to you and when you will it, it goes into a pocket dimension. You can pull an arcane blade weapon from this pocket dimension as a bonus action.",
+				"你只能给一件武器注入元素能量。你可以在10级时给一个额外的武器注入元素，15级时再给一个。如果你以这种方式给另一件超过你上限的武器注入元素，你选择哪件武器会失去你的奥术之刃特性的好处。"
+			]
+		},
 		{
 			"name": "Spellcasting",
 			"source": "FoxfireSpellblade",
@@ -596,18 +615,6 @@
 						"你可以使用一个奥术焦点作为你的法术焦点。"
 					]
 				}
-			]
-		},
-		{
-			"name": "Arcane Blade",
-			"source": "FoxfireSpellblade",
-			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade",
-			"level": 1,
-			"entries": [
-				"你已经训练好了用魔法能量增强你的武器。从1级开始，你可以在长时间的休息中花一个小时对你拥有的一件武器进行仪式，从以下元素中选择一种来灌输给它：酸、冷、火、闪电或雷霆。",
-				"每回合一次，当你使用该武器攻击时，会造成所选元素的额外1d4伤害。这个伤害量会随着你的等级提升而增加，如咒语之刃等级表中的奥术之刃一栏所示。这把武器与你绑定在一起，当你愿意时，它会进入一个口袋空间。你可以从这个口袋维度拉出一把奥术刀武器，作为一个奖励动作。",
-				"你只能给一件武器注入元素能量。你可以在10级时给一个额外的武器注入元素，15级时再给一个。如果你以这种方式给另一件超过你上限的武器注入元素，你选择哪件武器会失去你的奥术之刃特性的好处。"
 			]
 		},
 		{
@@ -1071,7 +1078,20 @@
 			"source": "FoxfireSpellblade",
 			"shortName": "Blademaster",
 			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade"
+			"classSource": "FoxfireSpellblade",
+			"optionalfeatureProgression": [
+				{
+					"name": "Maneuvers",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"6": 2,
+						"11": 4,
+						"18": 6
+					}
+				}
+			]
 		},
 		{
 			"name": "Magister",
