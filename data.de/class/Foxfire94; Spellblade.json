@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema.json",
 	"_meta": {
 		"sources": [
 			{
@@ -17,8 +18,8 @@
 			}
 		],
 		"dateAdded": 1594524520,
-		"dateLastModified": 1685143702,
-		"_dateLastModifiedHash": "6d9f7c8551"
+		"dateLastModified": 1695223060,
+		"_dateLastModifiedHash": "88194a30a2"
 	},
 	"class": [
 		{
@@ -31,6 +32,17 @@
 			"proficiency": [
 				"dex",
 				"int"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:F"
+					],
+					"progression": {
+						"2": 1
+					}
+				}
 			],
 			"classTableGroups": [
 				{
@@ -381,7 +393,7 @@
 					"(a) {@item leather armor|phb} or (b) a {@item chain shirt|phb}",
 					"(a) {@item component pouch|phb} or (b) an {@item arcane focus|phb}",
 					"(a) a {@item dungeoneer's pack|phb} or (b) an {@item explorer's pack|phb}",
-					"a {@item dagger|phb}"
+					"a {@item dagger|phb|dagger}"
 				],
 				"goldAlternative": "{@dice 4d4×10|5d4 × 10|Starting Gold}"
 			},
@@ -408,8 +420,8 @@
 				}
 			},
 			"classFeatures": [
-				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				"Arcane Blade|Spellblade|FoxfireSpellblade|1",
+				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				{
 					"classFeature": "Archetype|Spellblade|FoxfireSpellblade|2",
 					"gainSubclassFeature": true
@@ -452,36 +464,29 @@
 					"source": "FoxfireSpellblade",
 					"type": "section",
 					"entries": [
-						"Zauberklingen sind Meister der Manifestation von Magie und kriegerischer Macht, ein Krieger, der seine Waffen mit der Kraft der Elemente durchdringt. Die zwei bekanntesten Arten von Zauberklingen sind die Blademaster, jene Zauberklingen, die sich mehr auf die kriegerischen Aspekte ihrer Berufung konzentrieren, und die Magister, arkane Gelehrte, die sich tief in ihr Studium der magischen Überlieferung vertiefen.",
+						"Solltet ihr euch in eine Zauberklinge verwandeln wollen, so sind die Voraussetzungen und Fähigkeiten, die ihr dafür benötigt, unten aufgeführt.",
 						{
 							"type": "entries",
-							"name": "Spellblade Multiclassing",
+							"name": "Spellblade Multiclassing Prerequisites",
 							"entries": [
-								"Solltet ihr euch in eine Zauberklinge verwandeln wollen, so sind die Voraussetzungen und Fähigkeiten, die ihr dafür benötigt, unten aufgeführt.",
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Prerequisites",
+									"name": "Ability Score Minimum",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Ability Score Minimum",
-											"entries": [
-												"Stärke 13 oder Geschicklichkeit 13, und Intelligenz 13"
-											]
-										}
+										"Stärke 13 oder Geschicklichkeit 13, und Intelligenz 13"
 									]
-								},
+								}
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Spellblade Multiclassing Proficiencies",
+							"entries": [
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Proficiencies",
+									"name": "Proficiencies Gained",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Proficiencies Gained",
-											"entries": [
-												"Leichte Rüstung, mittlere Rüstung, einfache Waffen."
-											]
-										}
+										"Leichte Rüstung, mittlere Rüstung, einfache Waffen."
 									]
 								}
 							]
@@ -536,6 +541,20 @@
 		}
 	],
 	"classFeature": [
+		{
+			"name": "Arcane Blade",
+			"source": "FoxfireSpellblade",
+			"className": "Spellblade",
+			"classSource": "FoxfireSpellblade",
+			"level": 1,
+			"entries": [
+				"You've trained to enhance your weapon with magical energy. Starting at 1st level you can spend an hour during a long rest to perform a ritual upon one weapon in your possession, imbuing it with an element of your choosing from the following: acid, cold, fire, lightning or poison.",
+				"Once per turn when you hit with an attack using that weapon it deals an extra 1d4 damage of the chosen element. This amount of damage increases as you level up, as shown in the Arcane Blade column on Spellblade class table.",
+				"Starting at 11th level you may deal the extra damage from this feature more than once a turn.",
+				"This weapon is bound to you and when you will it, it goes into a pocket dimension. You can pull an arcane blade weapon from this pocket dimension as a bonus action.",
+				"Du kannst nur eine Waffe mit Elementarenergie durchtränken. Du kannst eine weitere Waffe auf Stufe 10 und eine weitere auf Stufe 15 mit Elementarenergie durchtränken. Stufe eine weitere Waffe mit einem Element durchtränken. Wenn du eine andere Waffe über dein Limit hinaus auf diese Weise mit einem Element durchtränkst, kannst du wählen, welche Waffe die Vorteile deiner Eigenschaft Arkane Klinge verliert."
+			]
+		},
 		{
 			"name": "Spellcasting",
 			"source": "FoxfireSpellblade",
@@ -596,18 +615,6 @@
 						"Du kannst einen arkanen Fokus als Zauberfokus für deine Zauber verwenden."
 					]
 				}
-			]
-		},
-		{
-			"name": "Arcane Blade",
-			"source": "FoxfireSpellblade",
-			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade",
-			"level": 1,
-			"entries": [
-				"Du hast trainiert, deine Waffe mit magischer Energie zu verstärken. Ab Stufe 1 kannst du während einer langen Ruhepause eine Stunde damit verbringen, ein Ritual an einer Waffe in deinem Besitz durchzuführen, um sie mit einem Element deiner Wahl aus den folgenden zu durchdringen: Säure, Kälte, Feuer, Blitz oder Donner.",
-				"Einmal pro Runde, wenn du mit einem Angriff mit dieser Waffe triffst, verursacht sie zusätzlich 1d4 Schaden des gewählten Elements. Dieser Schaden erhöht sich mit steigender Stufe, wie in der Spalte \"Arkane Klinge\" der Klassentabelle \"Zauberklinge\" angegeben. Diese Waffe ist an dich gebunden und wenn du es willst, geht sie in eine Taschendimension. Du kannst eine arkane Klingenwaffe als Bonusaktion aus dieser Taschendimension ziehen.",
-				"Du kannst nur eine Waffe mit Elementarenergie durchtränken. Du kannst eine weitere Waffe auf Stufe 10 und eine weitere auf Stufe 15 mit Elementarenergie durchtränken. Stufe eine weitere Waffe mit einem Element durchtränken. Wenn du eine andere Waffe über dein Limit hinaus auf diese Weise mit einem Element durchtränkst, kannst du wählen, welche Waffe die Vorteile deiner Eigenschaft Arkane Klinge verliert."
 			]
 		},
 		{
@@ -1071,7 +1078,20 @@
 			"source": "FoxfireSpellblade",
 			"shortName": "Blademaster",
 			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade"
+			"classSource": "FoxfireSpellblade",
+			"optionalfeatureProgression": [
+				{
+					"name": "Maneuvers",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"6": 2,
+						"11": 4,
+						"18": 6
+					}
+				}
+			]
 		},
 		{
 			"name": "Magister",
