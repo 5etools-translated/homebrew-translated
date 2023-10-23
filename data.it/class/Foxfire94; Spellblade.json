@@ -1,4 +1,5 @@
 {
+	"$schema": "../schema.json",
 	"_meta": {
 		"sources": [
 			{
@@ -17,8 +18,8 @@
 			}
 		],
 		"dateAdded": 1594524520,
-		"dateLastModified": 1685143702,
-		"_dateLastModifiedHash": "6d9f7c8551"
+		"dateLastModified": 1695223060,
+		"_dateLastModifiedHash": "88194a30a2"
 	},
 	"class": [
 		{
@@ -31,6 +32,17 @@
 			"proficiency": [
 				"dex",
 				"int"
+			],
+			"optionalfeatureProgression": [
+				{
+					"name": "Fighting Style",
+					"featureType": [
+						"FS:F"
+					],
+					"progression": {
+						"2": 1
+					}
+				}
 			],
 			"classTableGroups": [
 				{
@@ -381,7 +393,7 @@
 					"(a) {@item leather armor|phb} or (b) a {@item chain shirt|phb}",
 					"(a) {@item component pouch|phb} or (b) an {@item arcane focus|phb}",
 					"(a) a {@item dungeoneer's pack|phb} or (b) an {@item explorer's pack|phb}",
-					"a {@item dagger|phb}"
+					"a {@item dagger|phb|dagger}"
 				],
 				"goldAlternative": "{@dice 4d4×10|5d4 × 10|Starting Gold}"
 			},
@@ -408,8 +420,8 @@
 				}
 			},
 			"classFeatures": [
-				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				"Arcane Blade|Spellblade|FoxfireSpellblade|1",
+				"Spellcasting|Spellblade|FoxfireSpellblade|1",
 				{
 					"classFeature": "Archetype|Spellblade|FoxfireSpellblade|2",
 					"gainSubclassFeature": true
@@ -452,36 +464,29 @@
 					"source": "FoxfireSpellblade",
 					"type": "section",
 					"entries": [
-						"Gli Spellblade sono maestri nel manifestare la magia e la forza marziale, guerrieri che infondono alle loro armi il potere degli elementi. Le due varietà più note di Spellblade sono i Blademaster, gli spellblade che si concentrano maggiormente sugli aspetti marziali della loro vocazione, e i Magister, studiosi arcani che approfondiscono lo studio della tradizione magica.",
+						"Se si desidera multiclassare in un incantatore, i prerequisiti e le capacità acquisite sono elencati di seguito.",
 						{
 							"type": "entries",
-							"name": "Spellblade Multiclassing",
+							"name": "Spellblade Multiclassing Prerequisites",
 							"entries": [
-								"Se si desidera multiclassare in un incantatore, i prerequisiti e le capacità acquisite sono elencati di seguito.",
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Prerequisites",
+									"name": "Ability Score Minimum",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Ability Score Minimum",
-											"entries": [
-												"Forza 13 o Destrezza 13 e Intelligenza 13"
-											]
-										}
+										"Forza 13 o Destrezza 13 e Intelligenza 13"
 									]
-								},
+								}
+							]
+						},
+						{
+							"type": "entries",
+							"name": "Spellblade Multiclassing Proficiencies",
+							"entries": [
 								{
 									"type": "entries",
-									"name": "Spellblade Multiclassing Proficiencies",
+									"name": "Proficiencies Gained",
 									"entries": [
-										{
-											"type": "entries",
-											"name": "Proficiencies Gained",
-											"entries": [
-												"Armatura leggera, armatura media, armi semplici."
-											]
-										}
+										"Armatura leggera, armatura media, armi semplici."
 									]
 								}
 							]
@@ -536,6 +541,20 @@
 		}
 	],
 	"classFeature": [
+		{
+			"name": "Arcane Blade",
+			"source": "FoxfireSpellblade",
+			"className": "Spellblade",
+			"classSource": "FoxfireSpellblade",
+			"level": 1,
+			"entries": [
+				"You've trained to enhance your weapon with magical energy. Starting at 1st level you can spend an hour during a long rest to perform a ritual upon one weapon in your possession, imbuing it with an element of your choosing from the following: acid, cold, fire, lightning or poison.",
+				"Once per turn when you hit with an attack using that weapon it deals an extra 1d4 damage of the chosen element. This amount of damage increases as you level up, as shown in the Arcane Blade column on Spellblade class table.",
+				"Starting at 11th level you may deal the extra damage from this feature more than once a turn.",
+				"This weapon is bound to you and when you will it, it goes into a pocket dimension. You can pull an arcane blade weapon from this pocket dimension as a bonus action.",
+				"Si può infondere energia elementale a una sola arma. Si può impregnare un'altra arma al 10° livello e un'altra al 15° livello. Se si infonde un elemento a un'altra arma oltre il proprio limite, si sceglie quale arma perde i benefici della caratteristica Lama arcana."
+			]
+		},
 		{
 			"name": "Spellcasting",
 			"source": "FoxfireSpellblade",
@@ -596,18 +615,6 @@
 						"Si può usare un focus arcano come focus incantatorio per i propri incantesimi."
 					]
 				}
-			]
-		},
-		{
-			"name": "Arcane Blade",
-			"source": "FoxfireSpellblade",
-			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade",
-			"level": 1,
-			"entries": [
-				"Ti sei allenato a potenziare la tua arma con l'energia magica. A partire dal 1° livello si può spendere un'ora durante un riposo lungo per eseguire un rituale su un'arma in proprio possesso, impregnandola con un elemento a scelta tra i seguenti: acido, freddo, fuoco, fulmine o tuono.",
-				"Una volta per turno, quando si colpisce con un attacco usando quell'arma, questa infligge 1d4 danni extra dell'elemento scelto. Questa quantità di danni aumenta con l'aumentare del livello, come indicato nella colonna Lama arcana della tabella delle classi degli incantatori. Quest'arma è legata a voi e quando la volete, entra in una dimensione tascabile. Si può estrarre un'arma a lama arcana da questa dimensione tascabile come azione bonus.",
-				"Si può infondere energia elementale a una sola arma. Si può impregnare un'altra arma al 10° livello e un'altra al 15° livello. Se si infonde un elemento a un'altra arma oltre il proprio limite, si sceglie quale arma perde i benefici della caratteristica Lama arcana."
 			]
 		},
 		{
@@ -1071,7 +1078,20 @@
 			"source": "FoxfireSpellblade",
 			"shortName": "Blademaster",
 			"className": "Spellblade",
-			"classSource": "FoxfireSpellblade"
+			"classSource": "FoxfireSpellblade",
+			"optionalfeatureProgression": [
+				{
+					"name": "Maneuvers",
+					"featureType": [
+						"MV:B"
+					],
+					"progression": {
+						"6": 2,
+						"11": 4,
+						"18": 6
+					}
+				}
+			]
 		},
 		{
 			"name": "Magister",
