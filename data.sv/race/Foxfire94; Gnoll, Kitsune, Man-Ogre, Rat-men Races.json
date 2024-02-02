@@ -2,54 +2,58 @@
 	"_meta": {
 		"sources": [
 			{
-				"json": "ManOgre",
-				"abbreviation": "FFManOgre",
+				"json": "ManOgreFF",
+				"abbreviation": "ManOgre",
 				"full": "Man-Ogres; Brawn over Brains",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/293789/The-ManOgre"
+				"url": "https://www.dmsguild.com/product/293789/The-ManOgre",
+				"color": "d4b6ac"
 			},
 			{
 				"json": "GnollFF",
-				"abbreviation": "FFGnoll",
+				"abbreviation": "Gnoll",
 				"full": "Gnoll",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "8e816e"
 			},
 			{
 				"json": "KitsuneFF",
-				"abbreviation": "FFKitsune",
+				"abbreviation": "Kitsune",
 				"full": "Kitsune",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "d7703a"
 			},
 			{
 				"json": "RatmenFF",
-				"abbreviation": "FFRatmen",
+				"abbreviation": "Ratmen",
 				"full": "Rat-men",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "a16644"
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1690651615,
-		"_dateLastModifiedHash": "da20981096"
+		"dateLastModified": 1706587640,
+		"_dateLastModifiedHash": "c98de4fe95"
 	},
 	"race": [
 		{
 			"name": "Man-Ogre",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"ability": [
 				{
 					"str": 2,
@@ -142,8 +146,8 @@
 				}
 			],
 			"age": {
-				"mature": 20,
-				"max": 100
+				"mature": 18,
+				"max": 90
 			}
 		},
 		{
@@ -217,7 +221,7 @@
 				{
 					"name": "Howl of the Pack",
 					"entries": [
-						"Som en bonusåtgärd kan du välja en vänskaplig varelse som kan se eller höra dig inom 30 fot. Den kan använda sin reaktion för att göra en vapenattack. När du har använt den här egenskapen kan du inte använda den igen förrän du genomför en kort eller lång vila."
+						"As a bonus action, choose a friendly creature who can see or hear you within 30 feet. It can use its reaction to make one weapon attack. After you use this feature, you can't use it again until you complete a short or long rest."
 					],
 					"type": "entries"
 				},
@@ -300,7 +304,11 @@
 					"common": true,
 					"gnoll": true
 				}
-			]
+			],
+			"age": {
+				"mature": 8,
+				"max": 60
+			}
 		},
 		{
 			"name": "Kitsune",
@@ -398,6 +406,32 @@
 				"baseWeight": 100,
 				"weightMod": "1d6"
 			},
+			"additionalSpells": [
+				{
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"charm person"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"alter self"
+								]
+							}
+						}
+					},
+					"ability": "cha",
+					"known": {
+						"1": [
+							"dancing lights#c"
+						]
+					}
+				}
+			],
 			"fluff": {
 				"entries": [
 					"Kitsune, eller rävfolket, är en formskiftare som är känd för sin kärlek till både list och konst. Kitsune har två skepnader: en attraktiv människa med smal kroppsbyggnad och framträdande ögon, och sin sanna form som en antropomorfisk räv. Trots en okuvlig förkärlek för bedrägeri värdesätter kitsune lojalitet och är sanna följeslagare.",
@@ -444,7 +478,11 @@
 					"common": true,
 					"sylvan": true
 				}
-			]
+			],
+			"age": {
+				"mature": 16,
+				"max": 1000
+			}
 		},
 		{
 			"name": "Rat-men",
@@ -647,7 +685,7 @@
 	"feat": [
 		{
 			"name": "Bone'ead",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -664,14 +702,14 @@
 					"items": [
 						"Öka din intelligens- eller visdomspoäng med 1, till maximalt 20.",
 						"Du lär dig två manövrar från arketypen Battle Master i fighterklassen: {@optfeature Commander's Strike} och {@optfeature Pushing Attack}. Om en manöver du använder kräver att ditt mål gör ett räddningskast för att motstå manöverns effekter är räddningskastets DC lika med 8 + din kompetensbonus + din styrka- eller smidighetsmodifierare (ditt val).",
-						"Du får två överlägsenhetstärningar, som är d6:or (dessa tärningar läggs till alla överlägsenhetstärningar du har från en annan källa). Dessa tärningar används för att ge bränsle till dina manövrar. En överlägsenhetstjänst förbrukas när du använder den. Du återfår dina förbrukade överlägsenhetstärningar när du avslutar en kort eller lång vila."
+						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Brutal Strength",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -686,16 +724,16 @@
 				{
 					"type": "list",
 					"items": [
-						"Ditt obeväpnade slag använder en d6 för skada.",
+						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
 						"Du räknas som en storlek större när du griper och din hastighet halveras inte när du förflyttar en gripen varelse om den är mindre än du.",
-						"När du träffar med en attack som använder styrka kan du kasta en av attackens skadetärningar ytterligare en gång och lägga till den som extra skada av attackens skadetyp. När du använder den här förmågan kan du inte använda den igen förrän du avslutar en kort eller lång vila."
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Loyal Bodyguard",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -719,7 +757,7 @@
 		},
 		{
 			"name": "Unflinching Bulwark",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
