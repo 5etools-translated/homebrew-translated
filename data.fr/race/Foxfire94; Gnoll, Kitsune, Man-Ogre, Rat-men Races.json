@@ -2,54 +2,58 @@
 	"_meta": {
 		"sources": [
 			{
-				"json": "ManOgre",
-				"abbreviation": "FFManOgre",
+				"json": "ManOgreFF",
+				"abbreviation": "ManOgre",
 				"full": "Man-Ogres; Brawn over Brains",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/293789/The-ManOgre"
+				"url": "https://www.dmsguild.com/product/293789/The-ManOgre",
+				"color": "d4b6ac"
 			},
 			{
 				"json": "GnollFF",
-				"abbreviation": "FFGnoll",
+				"abbreviation": "Gnoll",
 				"full": "Gnoll",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "8e816e"
 			},
 			{
 				"json": "KitsuneFF",
-				"abbreviation": "FFKitsune",
+				"abbreviation": "Kitsune",
 				"full": "Kitsune",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "d7703a"
 			},
 			{
 				"json": "RatmenFF",
-				"abbreviation": "FFRatmen",
+				"abbreviation": "Ratmen",
 				"full": "Rat-men",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "a16644"
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1690651615,
-		"_dateLastModifiedHash": "da20981096"
+		"dateLastModified": 1706587640,
+		"_dateLastModifiedHash": "c98de4fe95"
 	},
 	"race": [
 		{
 			"name": "Man-Ogre",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"ability": [
 				{
 					"str": 2,
@@ -142,8 +146,8 @@
 				}
 			],
 			"age": {
-				"mature": 20,
-				"max": 100
+				"mature": 18,
+				"max": 90
 			}
 		},
 		{
@@ -217,7 +221,7 @@
 				{
 					"name": "Howl of the Pack",
 					"entries": [
-						"Comme action bonus, choisissez une créature amie qui peut vous voir ou vous entendre dans un rayon de 30 pieds. Elle peut utiliser sa réaction pour effectuer une attaque d'arme. Après avoir utilisé cette caractéristique, vous ne pouvez plus l'utiliser avant d'avoir effectué un repos court ou long."
+						"As a bonus action, choose a friendly creature who can see or hear you within 30 feet. It can use its reaction to make one weapon attack. After you use this feature, you can't use it again until you complete a short or long rest."
 					],
 					"type": "entries"
 				},
@@ -300,7 +304,11 @@
 					"common": true,
 					"gnoll": true
 				}
-			]
+			],
+			"age": {
+				"mature": 8,
+				"max": 60
+			}
 		},
 		{
 			"name": "Kitsune",
@@ -398,6 +406,32 @@
 				"baseWeight": 100,
 				"weightMod": "1d6"
 			},
+			"additionalSpells": [
+				{
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"charm person"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"alter self"
+								]
+							}
+						}
+					},
+					"ability": "cha",
+					"known": {
+						"1": [
+							"dancing lights#c"
+						]
+					}
+				}
+			],
 			"fluff": {
 				"entries": [
 					"Les Kitsune, ou fox-folk, sont des métamorphes vulpins connus pour leur amour de la ruse et de l'art. Les Kitsune ont deux formes : celle d'un humain séduisant, à la silhouette élancée et aux yeux saillants, et leur véritable forme de renard anthropomorphe. Malgré un penchant irrépressible pour la tromperie, les kitsune apprécient la loyauté et font de véritables compagnons.",
@@ -444,7 +478,11 @@
 					"common": true,
 					"sylvan": true
 				}
-			]
+			],
+			"age": {
+				"mature": 16,
+				"max": 1000
+			}
 		},
 		{
 			"name": "Rat-men",
@@ -647,7 +685,7 @@
 	"feat": [
 		{
 			"name": "Bone'ead",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -664,14 +702,14 @@
 					"items": [
 						"Augmente votre score d'Intelligence ou de Sagesse de 1, jusqu'à un maximum de 20.",
 						"Vous apprenez deux manœuvres de l'archétype Maître de bataille de la classe des combattants : {@optfeature Commander's Strike} et {@optfeature Pushing Attack}. Si une manœuvre que vous utilisez nécessite que votre cible fasse un jet de sauvegarde pour résister aux effets de la manœuvre, le DC du jet de sauvegarde est égal à 8 + votre bonus de compétence + votre modificateur de Force ou de Dextérité (au choix).",
-						"Vous gagnez deux dés de supériorité, qui sont des d6 (ces dés sont ajoutés à tout dé de supériorité que vous avez d'une autre source). Ces dés sont utilisés pour alimenter vos manœuvres. Un dé de supériorité est dépensé lorsque vous l'utilisez. Vous regagnez vos dés de supériorité dépensés lorsque vous terminez un repos court ou long."
+						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Brutal Strength",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -686,16 +724,16 @@
 				{
 					"type": "list",
 					"items": [
-						"Votre attaque sans arme utilise un d6 pour les dégâts.",
+						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
 						"Vous comptez comme étant d'une taille supérieure lors de l'agrippement et votre vitesse n'est pas réduite de moitié lors du déplacement d'une créature agrippée si elle est d'une taille inférieure à la vôtre.",
-						"Lorsque vous touchez avec une attaque utilisant la Force, vous pouvez lancer un des dés de dégâts de l'attaque une fois supplémentaire et l'ajouter comme dégâts supplémentaires du type de dégâts de l'attaque. Une fois que vous utilisez cette capacité, vous ne pouvez plus l'utiliser jusqu'à ce que vous terminiez un repos court ou long."
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Loyal Bodyguard",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -719,7 +757,7 @@
 		},
 		{
 			"name": "Unflinching Bulwark",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
