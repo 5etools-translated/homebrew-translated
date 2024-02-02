@@ -2,54 +2,58 @@
 	"_meta": {
 		"sources": [
 			{
-				"json": "ManOgre",
-				"abbreviation": "FFManOgre",
+				"json": "ManOgreFF",
+				"abbreviation": "ManOgre",
 				"full": "Man-Ogres; Brawn over Brains",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/293789/The-ManOgre"
+				"url": "https://www.dmsguild.com/product/293789/The-ManOgre",
+				"color": "d4b6ac"
 			},
 			{
 				"json": "GnollFF",
-				"abbreviation": "FFGnoll",
+				"abbreviation": "Gnoll",
 				"full": "Gnoll",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "8e816e"
 			},
 			{
 				"json": "KitsuneFF",
-				"abbreviation": "FFKitsune",
+				"abbreviation": "Kitsune",
 				"full": "Kitsune",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "d7703a"
 			},
 			{
 				"json": "RatmenFF",
-				"abbreviation": "FFRatmen",
+				"abbreviation": "Ratmen",
 				"full": "Rat-men",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "a16644"
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1690651615,
-		"_dateLastModifiedHash": "da20981096"
+		"dateLastModified": 1706587640,
+		"_dateLastModifiedHash": "c98de4fe95"
 	},
 	"race": [
 		{
 			"name": "Man-Ogre",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"ability": [
 				{
 					"str": 2,
@@ -142,8 +146,8 @@
 				}
 			],
 			"age": {
-				"mature": 20,
-				"max": 100
+				"mature": 18,
+				"max": 90
 			}
 		},
 		{
@@ -217,7 +221,7 @@
 				{
 					"name": "Howl of the Pack",
 					"entries": [
-						"Como acción de bonificación, elige una criatura amiga que pueda verte u oírte en un radio de 30 pies. Puede utilizar su reacción para realizar un ataque con arma. Después de usar este rasgo, no puedes volver a usarlo hasta que completes un descanso corto o largo."
+						"As a bonus action, choose a friendly creature who can see or hear you within 30 feet. It can use its reaction to make one weapon attack. After you use this feature, you can't use it again until you complete a short or long rest."
 					],
 					"type": "entries"
 				},
@@ -300,7 +304,11 @@
 					"common": true,
 					"gnoll": true
 				}
-			]
+			],
+			"age": {
+				"mature": 8,
+				"max": 60
+			}
 		},
 		{
 			"name": "Kitsune",
@@ -398,6 +406,32 @@
 				"baseWeight": 100,
 				"weightMod": "1d6"
 			},
+			"additionalSpells": [
+				{
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"charm person"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"alter self"
+								]
+							}
+						}
+					},
+					"ability": "cha",
+					"known": {
+						"1": [
+							"dancing lights#c"
+						]
+					}
+				}
+			],
 			"fluff": {
 				"entries": [
 					"Los Kitsune, o zorros, son unos cambiaformas vulpinos conocidos por su afición a la astucia y al arte. Los kitsune tienen dos formas: la de un atractivo humano de complexión delgada y ojos saltones, y su verdadera forma de zorro antropomórfico. A pesar de su irrefrenable afición al engaño, los kitsune valoran la lealtad y son verdaderos compañeros.",
@@ -444,7 +478,11 @@
 					"common": true,
 					"sylvan": true
 				}
-			]
+			],
+			"age": {
+				"mature": 16,
+				"max": 1000
+			}
 		},
 		{
 			"name": "Rat-men",
@@ -647,7 +685,7 @@
 	"feat": [
 		{
 			"name": "Bone'ead",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -664,14 +702,14 @@
 					"items": [
 						"Aumenta tu puntuación de Inteligencia o Sabiduría en 1, hasta un máximo de 20.",
 						"Aprendes dos maniobras del arquetipo Maestro de batalla de la clase de luchador: {@optfeature Commander's Strike} y {@optfeature Pushing Attack}. Si una maniobra que utilizas requiere que tu objetivo haga una tirada de salvación para resistir los efectos de la maniobra, la DC de la tirada de salvación es igual a 8 + tu bonificador de competencia + tu modificador de Fuerza o Destreza (a tu elección).",
-						"Ganas dos dados de superioridad, que son d6 (estos dados se suman a cualquier dado de superioridad que tengas de otra fuente). Estos dados se utilizan para alimentar tus maniobras. Un dado de superioridad se gasta cuando lo utilizas. Recuperas los dados de superioridad gastados cuando terminas un descanso corto o largo."
+						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Brutal Strength",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -686,16 +724,16 @@
 				{
 					"type": "list",
 					"items": [
-						"Tu golpe desarmado utiliza un d6 para el daño.",
+						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
 						"Cuentas como un tamaño mayor cuando te agarras y tu velocidad no se reduce a la mitad cuando mueves a una criatura agarrada si es de un tamaño menor que el tuyo.",
-						"Cuando golpeas con un ataque usando Fuerza, puedes tirar uno de los dados de daño del ataque una vez adicional y añadirlo como daño extra del tipo de daño del ataque. Una vez que usas esta habilidad, no puedes volver a usarla hasta que termines un descanso corto o largo."
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Loyal Bodyguard",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -719,7 +757,7 @@
 		},
 		{
 			"name": "Unflinching Bulwark",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
