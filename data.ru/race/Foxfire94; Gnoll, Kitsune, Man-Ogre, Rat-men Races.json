@@ -2,54 +2,58 @@
 	"_meta": {
 		"sources": [
 			{
-				"json": "ManOgre",
-				"abbreviation": "FFManOgre",
+				"json": "ManOgreFF",
+				"abbreviation": "ManOgre",
 				"full": "Man-Ogres; Brawn over Brains",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/293789/The-ManOgre"
+				"url": "https://www.dmsguild.com/product/293789/The-ManOgre",
+				"color": "d4b6ac"
 			},
 			{
 				"json": "GnollFF",
-				"abbreviation": "FFGnoll",
+				"abbreviation": "Gnoll",
 				"full": "Gnoll",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "8e816e"
 			},
 			{
 				"json": "KitsuneFF",
-				"abbreviation": "FFKitsune",
+				"abbreviation": "Kitsune",
 				"full": "Kitsune",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "d7703a"
 			},
 			{
 				"json": "RatmenFF",
-				"abbreviation": "FFRatmen",
+				"abbreviation": "Ratmen",
 				"full": "Rat-men",
 				"authors": [
 					"Foxfire94"
 				],
 				"version": "1.0",
-				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e"
+				"url": "https://www.dmsguild.com/product/307006/Gnoll-Kitsune--Ratmen-A-Trio-of-Races-for-DD-5e",
+				"color": "a16644"
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1690651615,
-		"_dateLastModifiedHash": "da20981096"
+		"dateLastModified": 1706587640,
+		"_dateLastModifiedHash": "c98de4fe95"
 	},
 	"race": [
 		{
 			"name": "Man-Ogre",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"ability": [
 				{
 					"str": 2,
@@ -142,8 +146,8 @@
 				}
 			],
 			"age": {
-				"mature": 20,
-				"max": 100
+				"mature": 18,
+				"max": 90
 			}
 		},
 		{
@@ -217,7 +221,7 @@
 				{
 					"name": "Howl of the Pack",
 					"entries": [
-						"В качестве бонусного действия выберите дружественное существо, которое может видеть или слышать вас в радиусе 30 футов. Оно может использовать свою реакцию, чтобы сделать одну атаку оружием. После использования этой способности вы не сможете использовать ее снова, пока не завершите короткий или длинный отдых."
+						"As a bonus action, choose a friendly creature who can see or hear you within 30 feet. It can use its reaction to make one weapon attack. After you use this feature, you can't use it again until you complete a short or long rest."
 					],
 					"type": "entries"
 				},
@@ -300,7 +304,11 @@
 					"common": true,
 					"gnoll": true
 				}
-			]
+			],
+			"age": {
+				"mature": 8,
+				"max": 60
+			}
 		},
 		{
 			"name": "Kitsune",
@@ -398,6 +406,32 @@
 				"baseWeight": 100,
 				"weightMod": "1d6"
 			},
+			"additionalSpells": [
+				{
+					"innate": {
+						"3": {
+							"daily": {
+								"1": [
+									"charm person"
+								]
+							}
+						},
+						"5": {
+							"daily": {
+								"1": [
+									"alter self"
+								]
+							}
+						}
+					},
+					"ability": "cha",
+					"known": {
+						"1": [
+							"dancing lights#c"
+						]
+					}
+				}
+			],
 			"fluff": {
 				"entries": [
 					"Кицунэ, или лисы, - это вульпийские оборотни, известные своей любовью к хитрости и искусству. Кицунэ имеют две формы: привлекательный человеческий облик стройного телосложения с выразительными глазами и их истинная форма - антропоморфная лиса. Несмотря на неуемную склонность к обману, кицунэ ценят преданность и становятся верными спутниками.",
@@ -444,7 +478,11 @@
 					"common": true,
 					"sylvan": true
 				}
-			]
+			],
+			"age": {
+				"mature": 16,
+				"max": 1000
+			}
 		},
 		{
 			"name": "Rat-men",
@@ -647,7 +685,7 @@
 	"feat": [
 		{
 			"name": "Bone'ead",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -664,14 +702,14 @@
 					"items": [
 						"Увеличивает ваш показатель интеллекта или мудрости на 1, максимум до 20.",
 						"Вы изучаете два маневра из архетипа \"Мастер боя\" класса \"Боец\": {@optfeature Commander's Strike} и {@optfeature Pushing Attack}. Если используемый вами маневр требует от цели броска на спасбросок для сопротивления эффектам маневра, DC броска на спасбросок равен 8 + ваш бонус мастерства + ваш модификатор силы или ловкости (на выбор).",
-						"Вы получаете два кубика превосходства, которые являются d6 (эти кубики добавляются к любым кубикам превосходства, полученным из другого источника). Эти кубики используются для подпитки ваших маневров. Кубик превосходства расходуется, когда вы его используете. Вы восстанавливаете потраченные кубики превосходства, когда завершаете короткий или длинный отдых."
+						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Brutal Strength",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -686,16 +724,16 @@
 				{
 					"type": "list",
 					"items": [
-						"Ваш удар безоружным использует d6 для нанесения урона.",
+						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
 						"При захвате вы считаетесь на один размер больше, и ваша скорость не уменьшается вдвое при перемещении захваченного существа, если оно меньше вас по размеру.",
-						"Когда вы бьете атакой с использованием Силы, вы можете бросить один из кубиков урона атаки дополнительный раз и добавить его в качестве дополнительного урона типа урона атаки. После использования этой способности вы не сможете использовать ее снова, пока не закончите короткий или длинный отдых."
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
 		},
 		{
 			"name": "Loyal Bodyguard",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
@@ -719,7 +757,7 @@
 		},
 		{
 			"name": "Unflinching Bulwark",
-			"source": "ManOgre",
+			"source": "ManOgreFF",
 			"prerequisite": [
 				{
 					"race": [
