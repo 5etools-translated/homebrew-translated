@@ -47,9 +47,9 @@
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1729630006,
-		"_dateLastModifiedHash": "de38f1cd21",
-		"edition": "classic"
+		"dateLastModified": 1734655188,
+		"edition": "classic",
+		"_dateLastModifiedHash": "5aa71548bc"
 	},
 	"race": [
 		{
@@ -379,7 +379,7 @@
 				{
 					"name": "Fey Ancestry",
 					"entries": [
-						"Du har fördel på räddningskast mot att bli förtrollad, och magi kan inte få dig att somna."
+						"You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
 					],
 					"type": "entries"
 				},
@@ -393,8 +393,7 @@
 				{
 					"name": "Change Form",
 					"entries": [
-						"Som en åtgärd kan du byta till din mänskliga form eller återgå till din naturliga form. Du kan anta utseendet av en specifik enskild mänsklig form av samma kön, du antar alltid denna specifika form när du använder denna förmåga och du återgår till din naturliga form om du blir medvetslös. Dina kläder och annan utrustning ändras inte i utseende, storlek eller form för att passa din nya form.",
-						"Om du tar skada medan du är i din mänskliga form gör du en koncentrationskontroll, på en misslyckad kontroll återgår du till din naturliga form; detta räknas inte som att du koncentrerar dig när det gäller att avgöra hur man kastar trollformler."
+						"As an action, you can change to your human form or revert to your natural form. You can assume the appearance of a specific single human form of the same sex, you always take this specific form when you use this trait, and you revert to your natural form if you fall {@condition unconscious} or die. Your clothing and other equipment don't change in appearance, size, or shape to match your new form."
 					],
 					"type": "entries"
 				},
@@ -545,7 +544,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
+						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -559,7 +558,7 @@
 				{
 					"name": "Plague Carrier",
 					"entries": [
-						"Du har fördel på räddningskast mot förgiftning och du har motståndskraft mot giftskador. Du är immun mot effekterna av sjukdomar men är fortfarande smittsam under de kommande 24 timmarna, varelser som du kommer i nära kontakt med måste rädda mot sjukdomen som om de hade drabbats av sjukdomskällan."
+						"You have advantage on saving throws against being {@condition poisoned}, and you have resistance to poison damage. You are immune to the effects of diseases but are still contagious for the next 24 hours, creatures you come into close contact with must save against the disease as if they'd been targeted by the source of the disease."
 					],
 					"type": "entries"
 				},
@@ -571,9 +570,9 @@
 					"type": "entries"
 				},
 				{
-					"name": "Suprise Attack",
+					"name": "Surprise Attack",
 					"entries": [
-						"Om du överraskar en varelse och träffar den med en attack under din första tur i strid, ger attacken den extra 2d6 skada."
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it."
 					],
 					"type": "entries"
 				},
@@ -711,10 +710,20 @@
 				{
 					"type": "list",
 					"items": [
-						"Öka din intelligens- eller visdomspoäng med 1, till maximalt 20.",
 						"Du lär dig två manövrar från arketypen Battle Master i fighterklassen: {@optfeature Commander's Strike} och {@optfeature Pushing Attack}. Om en manöver du använder kräver att ditt mål gör ett räddningskast för att motstå manöverns effekter är räddningskastets DC lika med 8 + din kompetensbonus + din styrka- eller smidighetsmodifierare (ditt val).",
 						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis"
+						],
+						"amount": 1
+					}
 				}
 			]
 		},
@@ -736,8 +745,8 @@
 					"type": "list",
 					"items": [
 						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
-						"Du räknas som en storlek större när du griper och din hastighet halveras inte när du förflyttar en gripen varelse om den är mindre än du.",
-						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
+						"You count as one size larger when grappling and your speed is not halved when moving a {@condition grappled} creature if it is a smaller size than you.",
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this feature, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
@@ -785,7 +794,7 @@
 					"items": [
 						"När du har minskat till 0 träffpunkter men inte dödats direkt kan du istället minska till 1 träffpunkt. Du kan inte använda den här funktionen igen förrän du avslutar en lång vila.",
 						"Du reducerar all icke-magisk skada som du tar genom att slå, genomborra och skära med ett belopp som är lika stort som din kompetensbonus. Den här minskningen görs innan eventuella tillämpliga motståndskrafter tas i beaktande.",
-						"Du har fördel på räddningskast mot att bli nedslagen eller bedövad."
+						"You have advantage on saving throws against being knocked {@condition prone} or being {@condition stunned}."
 					]
 				}
 			]
@@ -808,7 +817,6 @@
 					"type": "list",
 					"items": [
 						"Du får färdighet i {@item disguise kit|phb} om du inte redan hade det.",
-						"Du har nytta av koncentrationskontroller för att upprätthålla din funktion för ändringsformulär.",
 						"Du kan använda din funktion för att ändra formuläret för att i stället förvandlas till en {@creature fox|KitsuneFF}. Din spelstatistik ersätts med rävens statistik, men du behåller din inriktning, personlighet och dina poäng för intelligens, visdom och karisma. Du behåller också alla dina färdighets- och räddningskastprofessioner, förutom att du får rävens profiler. Om räven har samma färdigheter som du och bonusen i dess statblock är högre än din, använd rävens bonus istället för din. Eventuell utrustning som du bär eller har med dig förvandlas inte och du kan inte bära någon rustning om den inte är gjord för att passa din rävform. Du har nackdel när du använder utrustning som är avsedd för humanoider och kan inte kasta trollformler som kräver materiella komponenter när du är i den här formen."
 					]
 				}
@@ -867,7 +875,7 @@
 					"items": [
 						"Du får färdighet i {@item alchemist's supplies|phb} och {@item poisoner's kit|phb}.",
 						"Du lär dig {@spell poison spray} cantrip om du inte redan kan det, Konstitution är din trollkonstförmåga för den här besvärjelsen.",
-						"Under en kort vila kan du använda material till ett värde av 5 gp för att tillverka ett antal giftbomber upp till din intelligensmodifierare. Du kan kasta en enda bomb upp till 30 fot på din tur. Vid en träff ger den 1d4 giftskador och varelsen måste lyckas med ett konstitutionellt räddningsförsök med ett DC lika med 10 plus din intelligensmodifierare eller bli förgiftad i 1d4 varv."
+						"During a short rest you can use 5gp worth of materials to craft a number of poison bombs up to your Intelligence modifier. You can throw this bomb up to 20 feet, or up to 60 feet with disadvantage. On a hit it deals {@damage 1d6} poison damage and the creature must succeed a Constitution save with a DC of 10 plus your Intelligence modifier or be {@condition poisoned} until the end of your next turn."
 					]
 				}
 			]
@@ -891,7 +899,7 @@
 					"items": [
 						"När du inte håller något i händerna ökar din grundläggande gånghastighet med 10 fot.",
 						"Du har fördel på Visdom ({@skill Perception}) och Visdom ({@skill Survival}) kontroller för att spåra en annan varelse.",
-						"Du kan använda din handling för att äta kött och blod från en död organisk varelse inom en halv meter från dig och få träffpoäng som motsvarar din konstitutionsmodifierare (minst 1)."
+						"You can use your action to consume the flesh and blood of a dead organic creature within 5 feet of you, regaining hit points equal to your Constitution modifier (minimum of 1)."
 					]
 				}
 			]
@@ -979,6 +987,7 @@
 				"Keen Senses",
 				"Pounce"
 			],
+			"familiar": true,
 			"shortName": true,
 			"conditionInflict": [
 				"prone"
@@ -1017,7 +1026,6 @@
 		{
 			"name": "Rat-men",
 			"source": "RatmenFF",
-			"type": "exotic",
 			"typicalSpeakers": [
 				"Rat-men"
 			],
