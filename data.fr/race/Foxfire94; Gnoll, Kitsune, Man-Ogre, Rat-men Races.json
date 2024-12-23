@@ -47,9 +47,9 @@
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1729630006,
-		"_dateLastModifiedHash": "de38f1cd21",
-		"edition": "classic"
+		"dateLastModified": 1734655188,
+		"edition": "classic",
+		"_dateLastModifiedHash": "5aa71548bc"
 	},
 	"race": [
 		{
@@ -379,7 +379,7 @@
 				{
 					"name": "Fey Ancestry",
 					"entries": [
-						"Vous avez l'avantage sur les jets de sauvegarde contre le charme, et la magie ne peut pas vous endormir."
+						"You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
 					],
 					"type": "entries"
 				},
@@ -393,8 +393,7 @@
 				{
 					"name": "Change Form",
 					"entries": [
-						"Comme une action, vous pouvez changer à votre forme humaine ou revenir à votre forme naturelle. Vous pouvez prendre l'apparence d'une forme humaine unique spécifique du même sexe, vous prenez toujours cette forme spécifique lorsque vous utilisez cette capacité, et vous revenez à votre forme naturelle si vous tombez inconscient. Vos vêtements et autres équipements ne changent pas d'apparence, de taille ou de forme pour correspondre à votre nouvelle forme.",
-						"Si vous subissez des dégâts alors que vous êtes sous votre forme humaine, effectuez un test de concentration. En cas d'échec, vous reprenez votre forme naturelle ; cela ne compte pas comme de la concentration pour déterminer l'émission de sorts."
+						"As an action, you can change to your human form or revert to your natural form. You can assume the appearance of a specific single human form of the same sex, you always take this specific form when you use this trait, and you revert to your natural form if you fall {@condition unconscious} or die. Your clothing and other equipment don't change in appearance, size, or shape to match your new form."
 					],
 					"type": "entries"
 				},
@@ -545,7 +544,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
+						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -559,7 +558,7 @@
 				{
 					"name": "Plague Carrier",
 					"entries": [
-						"Vous avez un avantage sur les jets de sauvegarde contre l'empoisonnement, et vous avez une résistance aux dégâts du poison. Vous êtes immunisé contre les effets des maladies, mais vous êtes toujours contagieux pendant les 24 heures suivantes. Les créatures avec lesquelles vous entrez en contact étroit doivent effectuer des jets de sauvegarde contre la maladie comme si elles avaient été ciblées par la source de la maladie."
+						"You have advantage on saving throws against being {@condition poisoned}, and you have resistance to poison damage. You are immune to the effects of diseases but are still contagious for the next 24 hours, creatures you come into close contact with must save against the disease as if they'd been targeted by the source of the disease."
 					],
 					"type": "entries"
 				},
@@ -571,9 +570,9 @@
 					"type": "entries"
 				},
 				{
-					"name": "Suprise Attack",
+					"name": "Surprise Attack",
 					"entries": [
-						"Si vous surprenez une créature et la touchez avec une attaque lors de votre premier tour de combat, l'attaque lui inflige 2d6 dégâts supplémentaires."
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it."
 					],
 					"type": "entries"
 				},
@@ -711,10 +710,20 @@
 				{
 					"type": "list",
 					"items": [
-						"Augmente votre score d'Intelligence ou de Sagesse de 1, jusqu'à un maximum de 20.",
 						"Vous apprenez deux manœuvres de l'archétype Maître de bataille de la classe des combattants : {@optfeature Commander's Strike} et {@optfeature Pushing Attack}. Si une manœuvre que vous utilisez nécessite que votre cible fasse un jet de sauvegarde pour résister aux effets de la manœuvre, le DC du jet de sauvegarde est égal à 8 + votre bonus de compétence + votre modificateur de Force ou de Dextérité (au choix).",
 						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis"
+						],
+						"amount": 1
+					}
 				}
 			]
 		},
@@ -736,8 +745,8 @@
 					"type": "list",
 					"items": [
 						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
-						"Vous comptez comme étant d'une taille supérieure lors de l'agrippement et votre vitesse n'est pas réduite de moitié lors du déplacement d'une créature agrippée si elle est d'une taille inférieure à la vôtre.",
-						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
+						"You count as one size larger when grappling and your speed is not halved when moving a {@condition grappled} creature if it is a smaller size than you.",
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this feature, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
@@ -785,7 +794,7 @@
 					"items": [
 						"Lorsque vous êtes réduit à 0 point de vie mais que vous n'êtes pas carrément tué, vous pouvez tomber à 1 point de vie à la place. Vous ne pouvez pas utiliser cette caractéristique à nouveau avant d'avoir terminé un long repos.",
 						"Vous réduisez tous les dégâts non magiques de matraquage, de perçage et d'entaille que vous subissez d'un montant égal à votre bonus de compétence. Cette réduction est effectuée avant que les résistances applicables ne soient prises en compte.",
-						"Vous avez un avantage sur les jets de sauvegarde contre le fait d'être mis à terre ou d'être étourdi."
+						"You have advantage on saving throws against being knocked {@condition prone} or being {@condition stunned}."
 					]
 				}
 			]
@@ -808,7 +817,6 @@
 					"type": "list",
 					"items": [
 						"Vous gagnez la compétence avec le {@item disguise kit|phb} si vous ne l'aviez pas déjà.",
-						"Vous avez l'avantage sur les contrôles de concentration pour gérer votre fonctionnalité de formulaire de modification.",
 						"Vous pouvez utiliser votre caractéristique de changement de forme pour vous transformer à la place en un {@creature fox|KitsuneFF}. Vos statistiques de jeu sont remplacées par celles du renard, mais vous conservez votre alignement, votre personnalité et vos scores d'intelligence, de sagesse et de charisme. Vous conservez également toutes vos compétences et jet de sauvegarde, en plus de gagner celles du renard. Si le renard a la même compétence que vous et que le bonus de son bloc de stat est supérieur au vôtre, utilisez le bonus du renard au lieu du vôtre. L'équipement que tu portes n'est pas transformé et tu ne peux pas porter d'armure à moins qu'elle ne soit faite pour s'adapter à ta forme de renard. Vous avez un désavantage lorsque vous utilisez des équipements destinés aux humanoïdes et vous ne pouvez pas lancer de sorts nécessitant des composants matériels lorsque vous êtes sous cette forme."
 					]
 				}
@@ -867,7 +875,7 @@
 					"items": [
 						"Vous gagnez la maîtrise de {@item alchemist's supplies|phb} et du {@item poisoner's kit|phb}.",
 						"Vous apprenez le cantrip {@spell poison spray} si vous ne le connaissez pas déjà, Constitution est votre capacité de lanceur de sorts pour ce sort.",
-						"Pendant un court repos, vous pouvez utiliser 5gp de matériaux pour fabriquer un nombre de bombes empoisonnées égal à votre modificateur d'Intelligence. Vous pouvez lancer une seule bombe jusqu'à 30 pieds à votre tour. En cas de succès, elle inflige 1d4 points de dégâts de poison et la créature doit réussir une sauvegarde de Constitution avec un DC égal à 10 plus votre modificateur d'Intelligence ou être empoisonnée pendant 1d4 tours."
+						"During a short rest you can use 5gp worth of materials to craft a number of poison bombs up to your Intelligence modifier. You can throw this bomb up to 20 feet, or up to 60 feet with disadvantage. On a hit it deals {@damage 1d6} poison damage and the creature must succeed a Constitution save with a DC of 10 plus your Intelligence modifier or be {@condition poisoned} until the end of your next turn."
 					]
 				}
 			]
@@ -891,7 +899,7 @@
 					"items": [
 						"Tant que vous ne tenez rien dans vos mains, votre vitesse de marche de base augmente de 10 pieds.",
 						"Vous avez l'avantage sur les contrôles de Sagesse ({@skill Perception}) et de Sagesse ({@skill Survival}) effectués pour suivre une autre créature.",
-						"Vous pouvez utiliser votre action pour consommer la chair et le sang d'une créature organique morte située à moins de 1,5 mètre de vous, et gagner un nombre de points de vie égal à votre modificateur de Constitution (minimum de 1)."
+						"You can use your action to consume the flesh and blood of a dead organic creature within 5 feet of you, regaining hit points equal to your Constitution modifier (minimum of 1)."
 					]
 				}
 			]
@@ -979,6 +987,7 @@
 				"Keen Senses",
 				"Pounce"
 			],
+			"familiar": true,
 			"shortName": true,
 			"conditionInflict": [
 				"prone"
@@ -1017,7 +1026,6 @@
 		{
 			"name": "Rat-men",
 			"source": "RatmenFF",
-			"type": "exotic",
 			"typicalSpeakers": [
 				"Rat-men"
 			],
