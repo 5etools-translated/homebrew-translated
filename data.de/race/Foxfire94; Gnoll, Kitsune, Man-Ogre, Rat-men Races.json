@@ -47,9 +47,9 @@
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1729630006,
-		"_dateLastModifiedHash": "de38f1cd21",
-		"edition": "classic"
+		"dateLastModified": 1734655188,
+		"edition": "classic",
+		"_dateLastModifiedHash": "5aa71548bc"
 	},
 	"race": [
 		{
@@ -379,7 +379,7 @@
 				{
 					"name": "Fey Ancestry",
 					"entries": [
-						"Du hast einen Vorteil bei Rettungswürfen gegen Verzauberung, und Magie kann dich nicht in Schlaf versetzen."
+						"You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
 					],
 					"type": "entries"
 				},
@@ -393,8 +393,7 @@
 				{
 					"name": "Change Form",
 					"entries": [
-						"Als Aktion kannst du deine menschliche Gestalt annehmen oder in deine natürliche Gestalt zurückkehren. Du kannst das Aussehen einer bestimmten menschlichen Form desselben Geschlechts annehmen, du nimmst immer diese bestimmte Form an, wenn du diese Fähigkeit einsetzt, und du kehrst in deine natürliche Form zurück, wenn du bewusstlos wirst. Deine Kleidung und andere Ausrüstungsgegenstände ändern sich nicht in Aussehen, Größe oder Form, um deiner neuen Form zu entsprechen.",
-						"Solltest du Schaden erleiden, während du in deiner menschlichen Gestalt bist, führe eine Konzentrationsprüfung durch. Bei einem Fehlschlag kehrst du in deine natürliche Gestalt zurück; dies zählt nicht als Konzentration, um das Wirken von Zaubern zu bestimmen."
+						"As an action, you can change to your human form or revert to your natural form. You can assume the appearance of a specific single human form of the same sex, you always take this specific form when you use this trait, and you revert to your natural form if you fall {@condition unconscious} or die. Your clothing and other equipment don't change in appearance, size, or shape to match your new form."
 					],
 					"type": "entries"
 				},
@@ -545,7 +544,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
+						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -559,7 +558,7 @@
 				{
 					"name": "Plague Carrier",
 					"entries": [
-						"Du hast einen Vorteil bei Rettungswürfen gegen Vergiftungen und bist resistent gegen Giftschaden. Du bist immun gegen die Auswirkungen von Krankheiten, bist aber für die nächsten 24 Stunden ansteckend. Kreaturen, mit denen du in engen Kontakt kommst, müssen gegen die Krankheit einen Schutzwurf machen, als ob sie von der Quelle der Krankheit betroffen wären."
+						"You have advantage on saving throws against being {@condition poisoned}, and you have resistance to poison damage. You are immune to the effects of diseases but are still contagious for the next 24 hours, creatures you come into close contact with must save against the disease as if they'd been targeted by the source of the disease."
 					],
 					"type": "entries"
 				},
@@ -571,9 +570,9 @@
 					"type": "entries"
 				},
 				{
-					"name": "Suprise Attack",
+					"name": "Surprise Attack",
 					"entries": [
-						"Wenn du eine Kreatur überraschst und sie in deinem ersten Zug im Kampf mit einem Angriff triffst, fügt der Angriff ihr zusätzlich 2d6 Schaden zu."
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it."
 					],
 					"type": "entries"
 				},
@@ -711,10 +710,20 @@
 				{
 					"type": "list",
 					"items": [
-						"Erhöhe deine Intelligenz- oder Weisheitspunkte um 1, bis zu einem Maximum von 20.",
 						"Du lernst zwei Manöver aus dem Kampfmeister-Archetyp der Kämpferklasse: {@optfeature Commander's Strike} und {@optfeature Pushing Attack}. Wenn ein Manöver, das du benutzt, von deinem Ziel einen Rettungswurf verlangt, um den Effekten des Manövers zu widerstehen, ist der Rettungswurf-DC gleich 8 + dein Fertigkeitsbonus + dein Stärke- oder Geschicklichkeitsmodifikator (deiner Wahl).",
 						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis"
+						],
+						"amount": 1
+					}
 				}
 			]
 		},
@@ -736,8 +745,8 @@
 					"type": "list",
 					"items": [
 						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
-						"Du zählst als eine Größe größer, wenn du dich festhältst, und deine Geschwindigkeit wird nicht halbiert, wenn du eine festgehaltene Kreatur bewegst, wenn sie kleiner ist als du.",
-						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
+						"You count as one size larger when grappling and your speed is not halved when moving a {@condition grappled} creature if it is a smaller size than you.",
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this feature, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
@@ -785,7 +794,7 @@
 					"items": [
 						"Wenn du auf 0 Trefferpunkte reduziert, aber nicht getötet wurdest, kannst du stattdessen auf 1 Trefferpunkt fallen. Du kannst diese Fähigkeit erst wieder nutzen, wenn du eine lange Pause gemacht hast.",
 						"Du reduzierst allen nicht-magischen Wucht-, Stich- und Hiebschaden, den du erleidest, um einen Betrag, der deinem Fertigkeitsbonus entspricht. Diese Reduzierung erfolgt, bevor alle anwendbaren Resistenzen berücksichtigt werden.",
-						"Du hast einen Vorteil bei Rettungswürfen, wenn du am Boden liegst oder betäubt wirst."
+						"You have advantage on saving throws against being knocked {@condition prone} or being {@condition stunned}."
 					]
 				}
 			]
@@ -808,7 +817,6 @@
 					"type": "list",
 					"items": [
 						"Du erlangst die Beherrschung des {@item disguise kit|phb}, wenn du sie nicht schon hattest.",
-						"Sie haben den Vorteil von Konzentrationsprüfungen, um Ihre Änderungsformularfunktion zu pflegen.",
 						"Du kannst deine Verwandlungsfähigkeit nutzen, um dich stattdessen in einen {@creature fox|KitsuneFF} zu verwandeln. Deine Spielstatistiken werden durch die Statistiken des Fuchses ersetzt, aber du behältst deine Ausrichtung, deine Persönlichkeit und deine Intelligenz-, Weisheits- und Charisma-Werte. Außerdem behältst du alle deine Fertigkeits- und Rettungswurf-Fähigkeiten und erhältst zusätzlich die des Fuchses. Wenn der Fuchs dieselbe Fertigkeit wie du hat und der Bonus in seinem Werteblock höher ist als deiner, wird der Bonus des Fuchses anstelle deines Bonus verwendet. Alle Ausrüstungsgegenstände, die du trägst oder mit dir führst, werden nicht transformiert und du kannst keine Rüstung tragen, es sei denn, sie ist an deine Fuchsform angepasst. Du hast einen Nachteil, wenn du Ausrüstung benutzt, die für Humanoide gedacht ist, und kannst in dieser Form keine Zauber wirken, die materielle Komponenten benötigen."
 					]
 				}
@@ -867,7 +875,7 @@
 					"items": [
 						"Du erlangst Fertigkeit in {@item alchemist's supplies|phb} und {@item poisoner's kit|phb}.",
 						"Du erlernst den {@spell poison spray} Zaubertrick, wenn du ihn noch nicht kennst, Konstitution ist deine Zauberfähigkeit für diesen Zauber.",
-						"Während einer kurzen Pause kannst du Materialien im Wert von 5gp verwenden, um eine Anzahl von Giftbomben in Höhe deines Intelligenzmodifikators herzustellen. Du kannst eine einzelne Bombe in deinem Zug bis zu 30ft. werfen. Bei einem Treffer verursacht sie 1d4 Giftschaden und die Kreatur muss einen Konstitutionsschutz mit einem DC von 10 plus deinem Intelligenzmodifikator bestehen oder für 1d4 Runden vergiftet sein."
+						"During a short rest you can use 5gp worth of materials to craft a number of poison bombs up to your Intelligence modifier. You can throw this bomb up to 20 feet, or up to 60 feet with disadvantage. On a hit it deals {@damage 1d6} poison damage and the creature must succeed a Constitution save with a DC of 10 plus your Intelligence modifier or be {@condition poisoned} until the end of your next turn."
 					]
 				}
 			]
@@ -891,7 +899,7 @@
 					"items": [
 						"Solange du nichts in den Händen hältst, erhöht sich deine Grundgehgeschwindigkeit um 10 Fuß.",
 						"Du hast einen Vorteil bei Weisheit ({@skill Perception}) und Weisheit ({@skill Survival}), um eine andere Kreatur zu verfolgen.",
-						"Du kannst deine Aktion nutzen, um das Fleisch und Blut einer toten organischen Kreatur im Umkreis von 5 Fuß von dir zu verzehren, wobei du Trefferpunkte in Höhe deines Konstitutionsmodifikators (mindestens 1) erhältst."
+						"You can use your action to consume the flesh and blood of a dead organic creature within 5 feet of you, regaining hit points equal to your Constitution modifier (minimum of 1)."
 					]
 				}
 			]
@@ -979,6 +987,7 @@
 				"Keen Senses",
 				"Pounce"
 			],
+			"familiar": true,
 			"shortName": true,
 			"conditionInflict": [
 				"prone"
@@ -1017,7 +1026,6 @@
 		{
 			"name": "Rat-men",
 			"source": "RatmenFF",
-			"type": "exotic",
 			"typicalSpeakers": [
 				"Rat-men"
 			],
