@@ -47,9 +47,9 @@
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1729630006,
-		"_dateLastModifiedHash": "de38f1cd21",
-		"edition": "classic"
+		"dateLastModified": 1734655188,
+		"edition": "classic",
+		"_dateLastModifiedHash": "5aa71548bc"
 	},
 	"race": [
 		{
@@ -379,7 +379,7 @@
 				{
 					"name": "Fey Ancestry",
 					"entries": [
-						"У вас есть преимущество при бросках спасения против очарования, и магия не может усыпить вас."
+						"You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
 					],
 					"type": "entries"
 				},
@@ -393,8 +393,7 @@
 				{
 					"name": "Change Form",
 					"entries": [
-						"В качестве действия вы можете изменить свою человеческую форму или вернуться к своей естественной форме. Вы можете принять облик конкретной человеческой формы одного пола, вы всегда принимаете эту форму, когда используете эту способность, и возвращаетесь к своей естественной форме, если падаете без сознания. Ваша одежда и другое снаряжение не меняют свой вид, размер или форму, чтобы соответствовать вашей новой форме.",
-						"Если вы получаете урон, находясь в человеческой форме, проведите проверку концентрации, при неудачной проверке вы возвращаетесь в свою естественную форму; это не считается концентрацией для целей определения произнесения заклинаний."
+						"As an action, you can change to your human form or revert to your natural form. You can assume the appearance of a specific single human form of the same sex, you always take this specific form when you use this trait, and you revert to your natural form if you fall {@condition unconscious} or die. Your clothing and other equipment don't change in appearance, size, or shape to match your new form."
 					],
 					"type": "entries"
 				},
@@ -545,7 +544,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
+						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -559,7 +558,7 @@
 				{
 					"name": "Plague Carrier",
 					"entries": [
-						"У вас есть преимущество при бросках спасбросков против отравления, и у вас есть сопротивление урону от яда. Вы невосприимчивы к эффектам болезней, но все еще заразны в течение следующих 24 часов; существа, с которыми вы вступаете в тесный контакт, должны спасаться от болезни, как если бы они были поражены источником болезни."
+						"You have advantage on saving throws against being {@condition poisoned}, and you have resistance to poison damage. You are immune to the effects of diseases but are still contagious for the next 24 hours, creatures you come into close contact with must save against the disease as if they'd been targeted by the source of the disease."
 					],
 					"type": "entries"
 				},
@@ -571,9 +570,9 @@
 					"type": "entries"
 				},
 				{
-					"name": "Suprise Attack",
+					"name": "Surprise Attack",
 					"entries": [
-						"Если вы застаете существо врасплох и поражаете его атакой в первый ход боя, атака наносит ему дополнительные 2d6 повреждений."
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it."
 					],
 					"type": "entries"
 				},
@@ -711,10 +710,20 @@
 				{
 					"type": "list",
 					"items": [
-						"Увеличивает ваш показатель интеллекта или мудрости на 1, максимум до 20.",
 						"Вы изучаете два маневра из архетипа \"Мастер боя\" класса \"Боец\": {@optfeature Commander's Strike} и {@optfeature Pushing Attack}. Если используемый вами маневр требует от цели броска на спасбросок для сопротивления эффектам маневра, DC броска на спасбросок равен 8 + ваш бонус мастерства + ваш модификатор силы или ловкости (на выбор).",
 						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis"
+						],
+						"amount": 1
+					}
 				}
 			]
 		},
@@ -736,8 +745,8 @@
 					"type": "list",
 					"items": [
 						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
-						"При захвате вы считаетесь на один размер больше, и ваша скорость не уменьшается вдвое при перемещении захваченного существа, если оно меньше вас по размеру.",
-						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
+						"You count as one size larger when grappling and your speed is not halved when moving a {@condition grappled} creature if it is a smaller size than you.",
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this feature, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
@@ -785,7 +794,7 @@
 					"items": [
 						"Когда вам снижают количество хит-поинтов до 0, но не убивают вас окончательно, вы можете упасть до 1 хит-поинта. Вы не можете использовать эту способность снова, пока не закончите длительный отдых.",
 						"Вы уменьшаете все получаемые вами немагические колющие, пронзающие и режущие повреждения на величину, равную вашему бонусу к мастерству. Это уменьшение происходит до того, как будут учтены все применимые сопротивления.",
-						"Вы имеете преимущество при бросках спасения против того, чтобы быть сбитым с ног или оглушенным."
+						"You have advantage on saving throws against being knocked {@condition prone} or being {@condition stunned}."
 					]
 				}
 			]
@@ -808,7 +817,6 @@
 					"type": "list",
 					"items": [
 						"Вы получаете навык владения {@item disguise kit|phb}, если у вас его еще не было.",
-						"Вы имеете преимущество на проверках концентрации для поддержания функции формы изменения.",
 						"Вы можете использовать свою способность менять форму, чтобы вместо этого превратиться в {@creature fox|KitsuneFF}. Ваша игровая статистика заменяется статистикой лисы, но вы сохраняете свое соответствие, характер и показатели интеллекта, мудрости и харизмы. Вы также сохраняете все свои навыки и спасброски, а также получаете навыки лисы. Если лиса обладает теми же навыками, что и вы, а бонус в ее блоке характеристик выше вашего, используйте бонус лисы вместо своего. Любое снаряжение, которое вы носите или несете, не трансформируется, и вы не можете носить доспехи, если они не сделаны в соответствии с вашей лисьей формой. У вас есть недостаток при использовании снаряжения, предназначенного для гуманоидов, и вы не можете произносить заклинания, требующие материальных компонентов, находясь в этой форме."
 					]
 				}
@@ -867,7 +875,7 @@
 					"items": [
 						"Вы получаете навыки владения {@item alchemist's supplies|phb} и {@item poisoner's kit|phb}.",
 						"Вы изучаете {@spell poison spray} заклинание, если вы его еще не знаете, Конституция является вашей способностью для этого заклинания.",
-						"Во время короткого отдыха вы можете использовать материалы стоимостью 5 пенсов, чтобы изготовить несколько ядовитых бомб, равных вашему модификатору интеллекта. В свой ход вы можете бросить одну бомбу на расстояние до 30 футов. При попадании она наносит 1d4 урона ядом, и существо должно сделать спасбросок на Конституцию с DC, равным 10 плюс ваш модификатор интеллекта, или быть отравленным на 1d4 хода."
+						"During a short rest you can use 5gp worth of materials to craft a number of poison bombs up to your Intelligence modifier. You can throw this bomb up to 20 feet, or up to 60 feet with disadvantage. On a hit it deals {@damage 1d6} poison damage and the creature must succeed a Constitution save with a DC of 10 plus your Intelligence modifier or be {@condition poisoned} until the end of your next turn."
 					]
 				}
 			]
@@ -891,7 +899,7 @@
 					"items": [
 						"Пока вы ничего не держите в руках, ваша базовая скорость ходьбы увеличивается на 10 футов.",
 						"У вас есть преимущество при проверках на мудрость ({@skill Perception}) и мудрость ({@skill Survival}), сделанных для отслеживания другого существа.",
-						"Вы можете использовать свое действие, чтобы поглотить плоть и кровь мертвого органического существа в радиусе 5 футов от вас, получив при этом хит-пойнты, равные вашему модификатору Конституции (минимум 1)."
+						"You can use your action to consume the flesh and blood of a dead organic creature within 5 feet of you, regaining hit points equal to your Constitution modifier (minimum of 1)."
 					]
 				}
 			]
@@ -979,6 +987,7 @@
 				"Keen Senses",
 				"Pounce"
 			],
+			"familiar": true,
 			"shortName": true,
 			"conditionInflict": [
 				"prone"
@@ -1017,7 +1026,6 @@
 		{
 			"name": "Rat-men",
 			"source": "RatmenFF",
-			"type": "exotic",
 			"typicalSpeakers": [
 				"Rat-men"
 			],
