@@ -47,9 +47,9 @@
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1729630006,
-		"_dateLastModifiedHash": "de38f1cd21",
-		"edition": "classic"
+		"dateLastModified": 1734655188,
+		"edition": "classic",
+		"_dateLastModifiedHash": "5aa71548bc"
 	},
 	"race": [
 		{
@@ -379,7 +379,7 @@
 				{
 					"name": "Fey Ancestry",
 					"entries": [
-						"Si ha vantaggio nei tiri salvezza contro l'incantesimo e la magia non può addormentare."
+						"You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
 					],
 					"type": "entries"
 				},
@@ -393,8 +393,7 @@
 				{
 					"name": "Change Form",
 					"entries": [
-						"Come azione, si può passare alla propria forma umana o tornare alla propria forma naturale. Si può assumere l'aspetto di una specifica forma umana singola dello stesso sesso, si assume sempre questa forma specifica quando si usa questa capacità e si ritorna alla propria forma naturale se si cade in stato di incoscienza. I vestiti e gli altri equipaggiamenti non cambiano aspetto, dimensione o forma per adattarsi alla nuova forma.",
-						"Se si subisce un danno mentre si è in forma umana, si effettua una prova di concentrazione; se la prova viene fallita, si ritorna alla propria forma naturale; questo non conta come concentrazione ai fini della determinazione del lancio di incantesimi."
+						"As an action, you can change to your human form or revert to your natural form. You can assume the appearance of a specific single human form of the same sex, you always take this specific form when you use this trait, and you revert to your natural form if you fall {@condition unconscious} or die. Your clothing and other equipment don't change in appearance, size, or shape to match your new form."
 					],
 					"type": "entries"
 				},
@@ -545,7 +544,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
+						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -559,7 +558,7 @@
 				{
 					"name": "Plague Carrier",
 					"entries": [
-						"Si ha vantaggio nei tiri salvezza contro l'avvelenamento e si ha resistenza ai danni da veleno. Si è immuni agli effetti delle malattie, ma si è comunque contagiosi per le 24 ore successive; le creature con cui si entra in contatto devono effettuare tiri salvezza contro la malattia come se fossero state colpite dalla fonte della malattia."
+						"You have advantage on saving throws against being {@condition poisoned}, and you have resistance to poison damage. You are immune to the effects of diseases but are still contagious for the next 24 hours, creatures you come into close contact with must save against the disease as if they'd been targeted by the source of the disease."
 					],
 					"type": "entries"
 				},
@@ -571,9 +570,9 @@
 					"type": "entries"
 				},
 				{
-					"name": "Suprise Attack",
+					"name": "Surprise Attack",
 					"entries": [
-						"Se si sorprende una creatura e la si colpisce con un attacco al primo turno di combattimento, l'attacco le infligge 2d6 danni extra."
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it."
 					],
 					"type": "entries"
 				},
@@ -711,10 +710,20 @@
 				{
 					"type": "list",
 					"items": [
-						"Aumenta il proprio punteggio di Intelligenza o Saggezza di 1, fino a un massimo di 20.",
 						"Si apprendono due manovre dall'archetipo Maestro di battaglia della classe del combattente: {@optfeature Commander's Strike} e {@optfeature Pushing Attack}. Se una manovra utilizzata richiede che il bersaglio effettui un tiro salvezza per resistere agli effetti della manovra, la DC del tiro salvezza è pari a 8 + il bonus di competenza + il modificatore di Forza o Destrezza (a scelta).",
 						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis"
+						],
+						"amount": 1
+					}
 				}
 			]
 		},
@@ -736,8 +745,8 @@
 					"type": "list",
 					"items": [
 						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
-						"Quando si afferra si conta come una taglia in più e la velocità non viene dimezzata quando si muove una creatura afferrata se questa è di taglia inferiore alla propria.",
-						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
+						"You count as one size larger when grappling and your speed is not halved when moving a {@condition grappled} creature if it is a smaller size than you.",
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this feature, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
@@ -785,7 +794,7 @@
 					"items": [
 						"Quando si viene ridotti a 0 punti ferita, ma non uccisi del tutto, si può scendere a 1 punto ferita. Non è possibile utilizzare nuovamente questa caratteristica fino al termine di un riposo lungo.",
 						"Riduci tutti i danni non magici da percosse, perforazioni e fendenti subiti di un ammontare pari al tuo bonus di competenza. Questa riduzione avviene prima che vengano prese in considerazione le resistenze applicabili.",
-						"Si ha un vantaggio nei tiri salvezza contro l'essere tramortiti o storditi."
+						"You have advantage on saving throws against being knocked {@condition prone} or being {@condition stunned}."
 					]
 				}
 			]
@@ -808,7 +817,6 @@
 					"type": "list",
 					"items": [
 						"Si acquisisce la competenza con il {@item disguise kit|phb} se non la si possiede già.",
-						"Avete un vantaggio sui controlli di concentrazione per mantenere la vostra funzione di modulo di modifica.",
 						"Si può usare la caratteristica Cambiaforma per trasformarsi in una volpe {@creature fox|KitsuneFF}. Le statistiche di gioco vengono sostituite da quelle della volpe, ma si mantengono allineamento, personalità e punteggi di Intelligenza, Saggezza e Carisma. Si mantengono anche tutte le proprie abilità e i propri tiri salvezza, oltre a quelli della volpe. Se la volpe ha la stessa competenza e il bonus del suo blocco di statistiche è più alto del tuo, usa il bonus della volpe invece del tuo. L'equipaggiamento che si indossa o si porta con sé non viene trasformato e non si può indossare alcuna armatura, a meno che non sia fatta per adattarsi alla propria forma di volpe. Si ha svantaggio nell'uso di equipaggiamenti destinati agli umanoidi e non si possono lanciare incantesimi che richiedono componenti materiali quando si è in questa forma."
 					]
 				}
@@ -867,7 +875,7 @@
 					"items": [
 						"Si acquisisce competenza con il {@item alchemist's supplies|phb} e il {@item poisoner's kit|phb}.",
 						"Impari il cantrip {@spell poison spray} se non lo conosci già, la Costituzione è la tua capacità di incantesimo per questo incantesimo.",
-						"Durante un breve riposo si possono usare materiali per un valore di 5 gp per creare un numero di bombe avvelenate pari al proprio modificatore di Intelligenza. Si può lanciare una singola bomba fino a 30 piedi al proprio turno. Se viene colpita, infligge 1d4 danni da veleno e la creatura deve superare un tiro salvezza di Costituzione con una DC pari a 10 più il proprio modificatore di Intelligenza o essere avvelenata per 1d4 turni."
+						"During a short rest you can use 5gp worth of materials to craft a number of poison bombs up to your Intelligence modifier. You can throw this bomb up to 20 feet, or up to 60 feet with disadvantage. On a hit it deals {@damage 1d6} poison damage and the creature must succeed a Constitution save with a DC of 10 plus your Intelligence modifier or be {@condition poisoned} until the end of your next turn."
 					]
 				}
 			]
@@ -891,7 +899,7 @@
 					"items": [
 						"Mentre non si tiene nulla in mano, la velocità base di camminata aumenta di 3 metri.",
 						"Si ha vantaggio sulle prove di Saggezza ({@skill Perception}) e Saggezza ({@skill Survival}) effettuate per seguire un'altra creatura.",
-						"Potete usare la vostra azione per consumare la carne e il sangue di una creatura organica morta entro un raggio di 3 metri da voi, guadagnando punti ferita pari al vostro modificatore di Costituzione (minimo 1)."
+						"You can use your action to consume the flesh and blood of a dead organic creature within 5 feet of you, regaining hit points equal to your Constitution modifier (minimum of 1)."
 					]
 				}
 			]
@@ -979,6 +987,7 @@
 				"Keen Senses",
 				"Pounce"
 			],
+			"familiar": true,
 			"shortName": true,
 			"conditionInflict": [
 				"prone"
@@ -1017,7 +1026,6 @@
 		{
 			"name": "Rat-men",
 			"source": "RatmenFF",
-			"type": "exotic",
 			"typicalSpeakers": [
 				"Rat-men"
 			],
