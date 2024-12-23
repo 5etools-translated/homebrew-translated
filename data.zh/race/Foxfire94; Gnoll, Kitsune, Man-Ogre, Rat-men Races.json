@@ -47,9 +47,9 @@
 			}
 		],
 		"dateAdded": 1584641909,
-		"dateLastModified": 1729630006,
-		"_dateLastModifiedHash": "de38f1cd21",
-		"edition": "classic"
+		"dateLastModified": 1734655188,
+		"edition": "classic",
+		"_dateLastModifiedHash": "5aa71548bc"
 	},
 	"race": [
 		{
@@ -379,7 +379,7 @@
 				{
 					"name": "Fey Ancestry",
 					"entries": [
-						"你对被魅惑的救赎有优势，而且魔法无法使你入睡。"
+						"You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
 					],
 					"type": "entries"
 				},
@@ -393,8 +393,7 @@
 				{
 					"name": "Change Form",
 					"entries": [
-						"作为一个动作，你可以改变成你的人类形态或恢复到你的自然形态。你可以拥有一个特定的单一性别的人类形态的外观，当你使用这个能力时，你总是采取这个特定的形态，如果你昏迷了，你会恢复到你的自然形态。你的衣服和其他装备不会因为你的新形态而改变外观、大小或形状。",
-						"如果你在人形状态下受到伤害，请进行注意力检查，如果检查失败，你将恢复到你的自然形态；这不算是为了确定施法而进行的集中。"
+						"As an action, you can change to your human form or revert to your natural form. You can assume the appearance of a specific single human form of the same sex, you always take this specific form when you use this trait, and you revert to your natural form if you fall {@condition unconscious} or die. Your clothing and other equipment don't change in appearance, size, or shape to match your new form."
 					],
 					"type": "entries"
 				},
@@ -545,7 +544,7 @@
 				{
 					"name": "Bite",
 					"entries": [
-						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with it, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
+						"Your large teeth are a natural weapon, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to {@damage 1d6} + your Strength modifier."
 					],
 					"type": "entries"
 				},
@@ -559,7 +558,7 @@
 				{
 					"name": "Plague Carrier",
 					"entries": [
-						"你对中毒的救赎有优势，你对毒药伤害有抵抗力。你对疾病的影响免疫，但在接下来的24小时内仍会被传染，与你密切接触的生物必须对疾病进行救治，就像他们被疾病的源头盯上了一样。"
+						"You have advantage on saving throws against being {@condition poisoned}, and you have resistance to poison damage. You are immune to the effects of diseases but are still contagious for the next 24 hours, creatures you come into close contact with must save against the disease as if they'd been targeted by the source of the disease."
 					],
 					"type": "entries"
 				},
@@ -571,9 +570,9 @@
 					"type": "entries"
 				},
 				{
-					"name": "Suprise Attack",
+					"name": "Surprise Attack",
 					"entries": [
-						"如果你在战斗的第一个回合突袭一个生物并用攻击击中它，攻击会对它造成额外的2d6伤害。"
+						"If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra {@damage 2d6} damage to it."
 					],
 					"type": "entries"
 				},
@@ -711,10 +710,20 @@
 				{
 					"type": "list",
 					"items": [
-						"将你的智力或智慧得分提高1，最高可达20。",
 						"你从战士等级中的战斗大师原型中学习了两种演习：（%0%）和（%1%）。如果你使用的演习需要你的目标进行蓄力以抵抗演习的效果，蓄力DC等于8+你的熟练度加成+你的力量或灵巧修正值（你选择）。",
 						"You gain two superiority dice, which are {@dice d6}s (these dice are added to any superiority dice you have from another source). These dice are used to fuel your maneuvers. A superiority die is expended when you use it. You regain your expended superiority dice when you finish a short or long rest."
 					]
+				}
+			],
+			"ability": [
+				{
+					"choose": {
+						"from": [
+							"int",
+							"wis"
+						],
+						"amount": 1
+					}
 				}
 			]
 		},
@@ -736,8 +745,8 @@
 					"type": "list",
 					"items": [
 						"Your unarmed strikes can deal bludgeoning damage equal to {@damage 1d6} + your Strength modifier on a hit.",
-						"擒拿时，你的体型要大一圈，如果被擒拿的生物体型比你小，那么在移动它时，你的速度不会减半。",
-						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this ability, you can't do so again until you finish a short or long rest."
+						"You count as one size larger when grappling and your speed is not halved when moving a {@condition grappled} creature if it is a smaller size than you.",
+						"When you hit with an attack using Strength, you can roll one of the attack's damage dice an additional time and add it as extra damage of the attack's damage type. Once you use this feature, you can't do so again until you finish a short or long rest."
 					]
 				}
 			]
@@ -785,7 +794,7 @@
 					"items": [
 						"当你的命中率降至0但没有被彻底杀死时，你可以降至1的命中率。在你完成长时间的休息之前，你不能再次使用这个功能。",
 						"你可以减少你受到的所有非魔法打击、刺伤和砍伤的伤害，减少的量等于你的熟练度加成。这种减少是在任何适用的抵抗力被考虑在内之前进行的。",
-						"你对被打倒在地或被击晕的救赎有优势。"
+						"You have advantage on saving throws against being knocked {@condition prone} or being {@condition stunned}."
 					]
 				}
 			]
@@ -808,7 +817,6 @@
 					"type": "list",
 					"items": [
 						"如果你还没有熟练掌握，你将获得（%0%）的熟练度。",
-						"你在集中检查上有优势，以保持你的改变形式功能。",
 						"你可以使用你的变身功能，转而变成一只（%0%）。你的游戏数据被狐狸的数据所取代，但你保留了你的排列组合、个性、智力、智慧和魅力的分数。你也保留了你所有的技能和蓄力的熟练程度，同时也获得了狐狸的熟练程度。如果狐狸的熟练度与你相同，而它的属性块中的奖励比你的高，则使用狐狸的奖励而不是你的。你所穿戴或携带的任何装备都不会被转化，你不能穿戴任何盔甲，除非它是为了适应你的狐狸形态。你在使用为人类准备的装备时有劣势，并且在这种形态下不能施展需要材料成分的法术。"
 					]
 				}
@@ -867,7 +875,7 @@
 					"items": [
 						"你获得对（%0%）和（%1%）的熟练度。",
 						"如果你还不知道，你就学习{@spell poison spray}的咒语，宪法是你对这个法术的施法能力。",
-						"在短暂的休息期间，你可以用价值5gp的材料制作一定数量的毒药炸弹，数量相当于你的智力修正值。你可以在你的回合中把一个炸弹扔到30英尺以内。一旦命中，就会造成1d4的毒药伤害，生物必须成功地进行宪法救赎，其DC等于10加上你的智力修饰，否则就会中毒1d4个回合。"
+						"During a short rest you can use 5gp worth of materials to craft a number of poison bombs up to your Intelligence modifier. You can throw this bomb up to 20 feet, or up to 60 feet with disadvantage. On a hit it deals {@damage 1d6} poison damage and the creature must succeed a Constitution save with a DC of 10 plus your Intelligence modifier or be {@condition poisoned} until the end of your next turn."
 					]
 				}
 			]
@@ -891,7 +899,7 @@
 					"items": [
 						"当你手中没有拿着任何东西时，你的基本行走速度会增加10英尺。",
 						"你在追踪另一生物的智慧（（%0%））和智慧（（%1%））检查中具有优势。",
-						"你可以使用你的行动来吞噬你周围5英尺内的一个死去的有机生物的血肉，获得相当于你的宪法修改器的命中率（最低为1）。"
+						"You can use your action to consume the flesh and blood of a dead organic creature within 5 feet of you, regaining hit points equal to your Constitution modifier (minimum of 1)."
 					]
 				}
 			]
@@ -979,6 +987,7 @@
 				"Keen Senses",
 				"Pounce"
 			],
+			"familiar": true,
 			"shortName": true,
 			"conditionInflict": [
 				"prone"
@@ -1017,7 +1026,6 @@
 		{
 			"name": "Rat-men",
 			"source": "RatmenFF",
-			"type": "exotic",
 			"typicalSpeakers": [
 				"Rat-men"
 			],
