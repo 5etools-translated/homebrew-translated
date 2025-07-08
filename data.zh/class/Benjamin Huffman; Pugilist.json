@@ -12,9 +12,10 @@
 					"MrVauxs",
 					"dmsguild",
 					"foreveryone",
-					"hakr14"
+					"hakr14",
+					"riesun28"
 				],
-				"version": "3.5.2",
+				"version": "4.0.0",
 				"url": "http://www.dmsguild.com/product/184921/the-Pugilist-Class",
 				"color": "cc6600"
 			},
@@ -35,8 +36,8 @@
 			}
 		],
 		"dateAdded": 1516994880,
-		"dateLastModified": 1748102226,
-		"_dateLastModifiedHash": "72d5e603ce",
+		"dateLastModified": 1751892176,
+		"_dateLastModifiedHash": "07a71c6a69",
 		"edition": "classic"
 	},
 	"class": [
@@ -1113,6 +1114,105 @@
 			]
 		},
 		{
+			"name": "Hound",
+			"size": [
+				"M"
+			],
+			"type": "beast",
+			"source": "SterlingVermin",
+			"alignment": [
+				"U"
+			],
+			"ac": [
+				{
+					"special": "12 + PB"
+				}
+			],
+			"hp": {
+				"special": "3 + five times your pugilist level"
+			},
+			"speed": {
+				"walk": 40
+			},
+			"str": 14,
+			"dex": 14,
+			"con": 15,
+			"int": 3,
+			"wis": 12,
+			"cha": 13,
+			"passive": 13,
+			"page": 9,
+			"pbNote": "equals your Proficiency Bonus",
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"D"
+			],
+			"languages": [
+				"understands the languages you speak"
+			],
+			"save": {
+				"str": "+4",
+				"dex": "+4",
+				"con": "+4"
+			},
+			"skill": {
+				"athletics": "+4",
+				"perception": "+3",
+				"survival": "+3"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened"
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit PB x 2} to hit, reach 5 ft., one target. {@h} {@damage 2d4 +  PB} piercing damage. If the target is a creature, it must succeed on a Strength saving throw ({@dc 8 + PB} x 2) or be {@condition grappled} by the hound or knocked {@condition prone} (the hound's choice)."
+					]
+				}
+			],
+			"miscTags": [
+				"MW"
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"trait": [
+				{
+					"name": "Keen Hearing and Sight",
+					"entries": [
+						"The hound has advantage on Wisdom ({@skill Perception}) checks that rely on hearing or sight."
+					]
+				},
+				{
+					"name": "Pack Tactics",
+					"entries": [
+						"The hound has advantage on an attack roll against a creature if you are within 5 feet of the creature and you aren't {@condition incapacitated}."
+					]
+				},
+				{
+					"name": "Arcanine Bite",
+					"entries": [
+						"Once you reach 6th level in this class, the hound's attacks count as magical for the purpose of overcoming resistance or immunity to nonmagical attacks and damage."
+					]
+				}
+			],
+			"traitTags": [
+				"Keen Senses",
+				"Pack Tactics"
+			],
+			"token": {
+				"name": "Wolf",
+				"source": "MM"
+			},
+			"damageTags": [
+				"P"
+			]
+		},
+		{
 			"source": "SterlingVermin",
 			"name": "Wrestler",
 			"size": [
@@ -1223,7 +1323,7 @@
 					"type": "list",
 					"items": [
 						"你可以掷出一个{@dice d6}来代替你的徒手攻击或拳术武器的正常伤害。这个模子会随着你获得格斗家等级而改变，如格斗家表中的拳术栏所示。",
-						"当你在你的回合中使用徒手攻击或搏击武器的攻击动作时，你可以进行一次徒手攻击或（%0%）作为奖励动作。"
+						"When you use the {@action Attack} action with an unarmed strike or a pugilist weapon on your turn, you can make one unarmed strike or {@action grapple} as a bonus action."
 					]
 				}
 			]
@@ -1241,7 +1341,7 @@
 					"type": "entries",
 					"name": "Brace Up",
 					"entries": [
-						"你可以使用一个额外的行动并花费1点魔力来支撑攻击。掷出你的拳脚功夫模子+你的格斗家等级+你的体质修正值，并获得那么多的临时打击点数。"
+						"You can use a bonus action and spend 1 moxie point to brace for attacks. You gain a number of temporary hit points equal to a roll of your fisticuffs die + your pugilist level + your Constitution modifier. You lose any remaining temporary hit points gained in this way after 1 minute."
 					]
 				},
 				{
@@ -1255,7 +1355,7 @@
 					"type": "entries",
 					"name": "Stick and Move",
 					"entries": [
-						"你可以使用一个额外的行动，并消耗1个魔力点来进行{@action Shove}攻击或{@action Dash}行动。"
+						"You can use a bonus action and expend 1 moxie point to attempt to {@action Shove} a creature or take the {@action Dash} action."
 					]
 				}
 			]
@@ -1277,7 +1377,7 @@
 			"classSource": "SterlingVermin",
 			"level": 3,
 			"entries": [
-				"从第三级开始，当你受到的伤害使你的最大命中率降低到一半或更少时，你可以使用你的反应来获得相当于你的格斗家等级+你的宪法修改器的临时命中率，并且你重新获得所有消耗的魔力点。在你完成短时或长时休息之前，你不能再次使用这个功能。"
+				"Starting at 3rd level, when you take damage that reduces you to half your maximum hit points or less, you can use your reaction to gain temporary hit points equal to three times your pugilist level and regain all expended moxie points. Once you use this feature, you can't use it again until you finish a short or long rest."
 			]
 		},
 		{
@@ -1297,8 +1397,7 @@
 			"classSource": "SterlingVermin",
 			"level": 4,
 			"entries": [
-				"当你达到四级时，你可以将你选择的一项能力得分提高2分，或者你可以将你选择的两项能力得分提高1分，和通常一样，你不能用这个功能将能力得分提高到20分以上。",
-				"如果你的DM允许使用特技，你可以改用特技。"
+				"When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
 			]
 		},
 		{
@@ -1328,7 +1427,7 @@
 			"classSource": "SterlingVermin",
 			"level": 5,
 			"entries": [
-				"从5级开始，在你用徒手攻击或格斗家近战武器攻击做攻击卷轴之前，如果还没有劣势，你可以宣布你正在挥舞狂野的干草。在本回合结束前，你以劣势进行所有的攻击卷轴，当你造成伤害时，你不进行伤害卷轴，而是使用最大的模具结果。"
+				"Starting at 5th level, when you make an attack, you can declare you are swinging a wild haymaker. When you do, you have disadvantage on the attack roll and, if you hit with a pugilist weapon or unarmed strike, you deal the maximum result of your weapon's damage die instead of rolling."
 			]
 		},
 		{
@@ -1378,8 +1477,7 @@
 			"classSource": "SterlingVermin",
 			"level": 8,
 			"entries": [
-				"当你达到8级时，你可以将你选择的一项能力得分提高2分，或者你可以将你选择的两项能力得分提高1分，和平常一样，你不能用这个功能将能力得分提高到20分以上。",
-				"如果你的DM允许使用特技，你可以改用特技。"
+				"When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
 			]
 		},
 		{
@@ -1389,7 +1487,7 @@
 			"classSource": "SterlingVermin",
 			"level": 9,
 			"entries": [
-				"在9级时，当你使用你的 \"流血但不屈服 \"特性时，你可以选择同时使用这个特性。如果你这样做了，你会在下一分钟内将你的熟练度加到你的徒手攻击和格斗家武器的伤害上。你可以在完成长时间的休息后再次使用这个特性。"
+				"At 9th level, when you use your Bloodied but Unbowed feature you can choose to also use this feature. If you do, you add your proficiency bonus to the damage of your unarmed strikes and pugilist weapons for the next minute. Once you use this feature, you can't use it again until you finish a Long Rest."
 			]
 		},
 		{
@@ -1419,8 +1517,7 @@
 			"classSource": "SterlingVermin",
 			"level": 12,
 			"entries": [
-				"当你达到12级时，你可以将你选择的一项能力得分提高2分，或者你可以将你选择的两项能力得分提高1分，和平常一样，你不能用这个功能将能力得分提高到20分以上。",
-				"如果你的DM允许使用特技，你可以改用特技。"
+				"当你达到12级时，你可以将你选择的一项能力得分提高2分，或者你可以将你选择的两项能力得分提高1分，和平常一样，你不能用这个功能将能力得分提高到20分以上。"
 			]
 		},
 		{
@@ -1450,7 +1547,7 @@
 			"classSource": "SterlingVermin",
 			"level": 15,
 			"entries": [
-				"15级时，你的运载能力增加一倍，当你用近战武器或徒手攻击对无生命物体造成伤害时，该伤害会增加一倍。你的站立跳跃距离与你的跑步起跳距离相同。"
+				"At 15th level, your carrying capacity is doubled, and when you deal damage with a melee weapon or unarmed strike to an inanimate object, that damage is doubled. Your standing jump distance is the same as your running start jump distance."
 			]
 		},
 		{
@@ -1481,7 +1578,8 @@
 			"classSource": "SterlingVermin",
 			"level": 18,
 			"entries": [
-				"从18级开始，当你有4个{@condition exhaustion}或更少的等级并被降低到0命中率时，你会恢复一半的最大命中率，一半的最大魔力值，并获得一个{@condition exhaustion}的等级。在你完成一次长时间的休息之前，你不能再次使用这个功能。"
+				"Starting at 18th level, when you are reduced to 0 hit points, you can channel your fighting spirit. When you do, you regain half of your maximum hit points, half of your maximum moxie points, and do not suffer the effects of any levels of {@condition exhaustion} you have for the next 10 minutes. At the end of those 10 minutes, you gain a level of {@condition exhaustion}.",
+				"Once you use this feature, you can't use it again until you finish a long rest."
 			]
 		},
 		{
@@ -1502,7 +1600,7 @@
 			"classSource": "SterlingVermin",
 			"level": 20,
 			"entries": [
-				"在20级时，你的力量和体质能力分数增加2，最高为22。此外，当你长时间休息时，你会恢复2级（%0%），而不是1级，并且你会恢复所有消耗的命中骰子，而不是一半消耗的命中骰子。"
+				"At 20th level, your Strength and Constitution ability scores increase by 2, to a maximum of 22. Additionally, when you take a long rest, you recover 2 levels of {@condition exhaustion} instead of 1 and you regain all your expended Hit Dice instead of only half."
 			]
 		}
 	],
@@ -1544,7 +1642,7 @@
 			"name": "Persona Libre",
 			"entries": [
 				"同样在第三级，你可以创造一个替代的角色，你可以在你的回合中采用或丢弃这个角色作为奖励动作。当你创造另一个角色时，你应该给这个角色起一个醒目的名字，以及一些物理标志（比如面具、彩色披风或其他突出的特异功能）。除非你告诉某个生物，或者该生物看到你采用了你的角色，否则他们不知道你和采用的角色是同一个人。",
-				"此外，你有一个等于3+你的魅力修正值（最小值为1）的人格点数池。当你使用一个需要消耗魔力点的能力时，你可以用人格点数来代替。此外，在你进行魅力能力检查之前，你可以花一个人格点数在结果上加上你的力量修正值。你只能在你采用你的角色时使用角色点数。当你完成一次长时间的休息时，你会重新获得所有消耗的角色点数。"
+				"Additionally, you have a pool of persona points equal to 3 + your Charisma modifier (minimum 3 points). When you use an ability that costs moxie points, you can spend persona points instead. In addition, before you make a Charisma ability check, you can spend a persona point to add your Strength modifier to the result. You can only use persona points while you have adopted your persona. You regain all expended persona points when you finish a long rest."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1564,7 +1662,8 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"在6级时，当你采用你的另一个角色时，你可以用你的行动来激发你所选择的恐惧或崇拜在附近的人身上。当你这样做时，30英尺范围内所有能看到你的生物都必须成功进行智慧救赎（DC8+你的熟练度加成+你的力量修饰），否则，如果你选择了崇拜，就会受到（%0%）的影响，如果你选择了恐惧，则会受到（%1%）的影响。这个效果持续一分钟。每次生物从你或你的盟友那里受到伤害时，它可以重复投掷救命符，如果成功则结束该效果。你可以在完成长时间的休息后再次使用此功能。"
+				"Starting at 6th level, while you have adopted your alternate persona, you can use your action to inspire your choice of fear or adoration in those nearby. When you do, creatures of your choice within 30 feet who can see you must succeed on a Wisdom saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be {@condition charmed} if you chose adoration, or {@condition frightened} if you chose fear. This effect lasts for one minute. Each time a creature takes damage from you or one of your allies it can repeat the saving throw, ending the effect on a success.",
+				"Once you use this feature, you can't use it again until you finish a short or long rest."
 			]
 		},
 		{
@@ -1577,7 +1676,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"从11级开始，你的基本移动距离增加10英尺，你的跳跃距离增加一倍，并且你可以在你的回合中使用一个额外的行动来进行（%0%）的行动。"
+				"Starting at 11th level, your base walking speed increases by 10 feet, your jump distance is doubled, and you can use a bonus action on each of your turns to take the {@action Dash} action."
 			]
 		},
 		{
@@ -1590,8 +1689,8 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"从17级开始，你可以创造一个招牌动作，在你采用你的另一个角色时可以使用。给你的招牌动作起个名字和描述。你可以在你的回合中用这个招牌动作取代你的一次徒手攻击或用搏击武器的攻击。",
-				"当你使用你的招牌动作时，你可以在你的移动速度以内的任何方向跳跃，以优势对你范围内的生物进行攻击卷轴，如果你命中，则攻击为关键，该生物会被（%0%），直到你下一回合结束。",
+				"Starting at 17th level, you create a signature move that you can use while you have adopted your alternate persona. Give your signature move a name and a description. You can replace one of your attacks on your turn with this signature move.",
+				"When you use your signature move, you can jump in any direction up to your movement speed, make an attack roll with advantage against a creature in your reach. On a hit, the attack scores a critical hit and the creature is {@condition stunned} until the end of your next turn.",
 				"如果你用你的招牌动作打中了，你必须完成一个长时间的休息才能再次使用它。如果你的招牌动作没有击中，你会在1分钟后重新获得使用权。"
 			]
 		},
@@ -1618,7 +1717,7 @@
 		{
 			"name": "Ever Vigilant",
 			"entries": [
-				"当你在3级时选择这个战斗俱乐部时，你在主动性卷轴上有优势。在第一轮战斗中，你对尚未行动的生物的攻击卷轴具有优势。"
+				"Also starting at 3rd level, you have advantage on initiative rolls. During the first round of combat, you have advantage on attack rolls against creatures who haven't acted yet."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1631,7 +1730,7 @@
 		{
 			"name": "Detective Work",
 			"entries": [
-				"同样在3级时，你获得以下两个技能的熟练度：（%0%）、（%1%）或（%2%）。此外，当你进行（3%）（智慧）、（4%）（智慧）或（5%）（智力）能力检查时，你可以花费1点魔力来获得该能力检查的优势。"
+				"When you choose this fight club at 3rd level, you gain proficiency with two of the following skills of your choice: {@skill Insight}, {@skill Investigation}, or {@skill Perception}. In addition, when you make an Intelligence ({@skill Investigation}), Wisdom ({@skill Insight}), or Wisdom ({@skill Perception}) check, you can spend 1 moxie point to gain advantage on the check."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1670,7 +1769,9 @@
 					"items": [
 						"你不能被吓到，而且你的主动权上会加上你的熟练度加成。",
 						"你拥有120英尺范围内的黑暗视觉。",
-						"当你使用洞察力、调查或感知技能进行能力检查时，会增加你的熟练度加分，但会增加两倍的熟练度加分。"
+						"当你使用洞察力、调查或感知技能进行能力检查时，会增加你的熟练度加分，但会增加两倍的熟练度加分。",
+						"You cannot be lost by any means.",
+						"When you are not in combat, you can travel between any two points in the settlement twice as fast as your speed would normally allow."
 					]
 				}
 			]
@@ -1700,10 +1801,6 @@
 				"你从来没有一个可以依靠的朋友，用两条腿走路。幸运的是，你已经有了一个身体可以要求的最好的四条腿的朋友。狗与猎犬格斗俱乐部的格斗家们对他们的犬类伙伴就像他们的犬类伙伴对他们一样忠诚。",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Bonus Proficiency|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|3"
-				},
-				{
-					"type": "refSubclassFeature",
 					"subclassFeature": "Brawler's Best Friend|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|3"
 				},
 				{
@@ -1713,26 +1810,11 @@
 			]
 		},
 		{
-			"name": "Bonus Proficiency",
-			"entries": [
-				"当你在3级选择这个格斗俱乐部时，如果你还没有{@skill Animal Handling}的技能，你会获得对该技能的熟练度。如果你有，你将获得你所选择的（1%）或（2%）技能的熟练度。"
-			],
-			"source": "SterlingVermin",
-			"className": "Pugilist",
-			"classSource": "SterlingVermin",
-			"subclassShortName": "Dog & Hound",
-			"subclassSource": "SterlingVermin",
-			"level": 3,
-			"header": 1
-		},
-		{
 			"name": "Brawler's Best Friend",
 			"entries": [
-				"同样在3级的时候，你会获得一只猎犬，在你的冒险中陪伴你，与你一起战斗。你的猎犬可以是任何品种的狗或类似的犬类生物，但使用的是（%0%）的统计数据。你将你的熟练度加到你的猎犬的攻击力、蓄力、攻击卷和伤害卷上。",
-				"3级之后，你的猎犬每获得一个等级，就会获得一个额外的D8命中率，并相应增加其命中率。",
-				"你可以在你的每个回合使用一个额外行动，口头命令你的猎犬在该回合采取攻击、冲刺、脱离、躲避或帮助行动。除非你丧失能力或缺席，否则它没有自己的回合。",
-				"如果你没有能力或不在，猎犬会自行行动（如果你没有能力，则在你的回合继续行动），专注于保护你和自己。猎犬从来不需要你的命令来使用它的反应，例如在进行机会攻击的时候。",
-				"如果你的猎犬死了，你可以通过花8个小时与一个对你没有敌意的犬类动物结合来获得一个新的猎犬。"
+				"Starting when you choose this fight club at 3rd level, you gain a hound that accompanies you on your adventures and fights alongside you. It is friendly to you and your companions, and it obeys your commands. See its game statistics in the Hound stat block, which uses your proficiency bonus (PB) in several places. You determine what breed of dog, or similar canine creature, your hound is; your choice has no effect on its game statistics.",
+				"In combat, the hound shares your initiative count, but it takes its turn immediately after yours. It can move and use its reaction on its own, but the only action it takes on it sturn is the {@action Dodge} action, unless you take a bonus action on your turn to command it to take another action. That action can be one in its stat block or some other action. If you are incapacitated, the houn can take any action of its choice, not just {@action Dodge}.",
+				"If you spend a minute giving your hound attention and treats, it regains 2d6 hit points. If your hound has died within the last hour, you can revive it by coaxing it back from the threshold of the beyond with praise and pets. You can use an action to touch the hound and expend a number of Hit Dice equal to half your pugilist level to revive it, provided you are within 5 feet of it. The hound returns to life after 1 minute with all its hit points restored. If your hound dies or is otherwise unavailable to you, you can forge a bond with a dog over 8 hours to become your new hound, ending your connection to your previous one."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1764,7 +1846,7 @@
 					"type": "entries",
 					"name": "Stick and Move",
 					"entries": [
-						"当你使用你的棒子和移动能力时，你的猎犬可以采取冲刺行动。"
+						"When you use your Stick and Move moxie ability, your hound can take the {@action Dash} action."
 					]
 				}
 			],
@@ -1777,19 +1859,6 @@
 			"header": 1
 		},
 		{
-			"name": "Arcanine Bite",
-			"source": "SterlingVermin",
-			"className": "Pugilist",
-			"classSource": "SterlingVermin",
-			"subclassShortName": "Dog & Hound",
-			"subclassSource": "SterlingVermin",
-			"level": 6,
-			"header": 2,
-			"entries": [
-				"在6级时，你的猎犬的攻击被算作魔法攻击，以克服对非魔法攻击和伤害的抵抗和免疫。"
-			]
-		},
-		{
 			"name": "Coordinated Attack",
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1799,7 +1868,7 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"同样在6级的时候，你和你的犬类伙伴形成了一个更有力的战斗团队。当你在你的回合中使用攻击动作时，如果你的猎犬能看到你，它可以使用它的反应来进行近战攻击。"
+				"Starting at 6th level, you and your canine companion form a more potent fighting team. When you use the Attack action on your turn, if your hound can see you, it can use its reaction to make a bite attack."
 			]
 		},
 		{
@@ -1816,7 +1885,7 @@
 			]
 		},
 		{
-			"name": "Dire Hound",
+			"name": "Off the Chain",
 			"source": "SterlingVermin",
 			"className": "Pugilist",
 			"classSource": "SterlingVermin",
@@ -1825,7 +1894,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"从17级开始，你对你的猎犬使用{@creature dire wolf}的统计数据，而不是狼的，除了它的体型仍然是中等。这些统计数据会按照你的 \"斗士最好的朋友 \"特征中的描述进行修改。"
+				"Beginning at 17th level, your hound's spirit is as unbreakable as yours. When you hound takes damage that reduces its current hit points to half its maximum hit points or less, you can use your reaction ot let your hound off the chain. When you do, it immediately gains temporary hit points equal to four times your pugilist level and, for the next minute, its speed increases by 15 feet and it can take the bite or {@action Dodge} action (your choice) each turn you don't command it. Once you use this feature, you can't use it again until you finish a long rest."
 			]
 		},
 		{
@@ -1851,7 +1920,7 @@
 		{
 			"name": "Black Magic",
 			"entries": [
-				"当你在3级选择这个战斗俱乐部时，你学会了（%0%）、（%1%）和（%2%）的咒语。体质是你对这些法术的法术修改因素，因为你在施放这些法术时，通过你的身体引导可怕力量的魔力。",
+				"When you choose this fight club at 3rd level, you learn the {@spell eldritch blast} and {@spell prestidigitation} cantrips. Constitution is your spellcasting modifier for these spells, since you channel the magic of dread powers through your body when you cast them.",
 				"此外，你学会说、读、写以下一种你选择的语言：（%0%）、（%1%）或（%2%）。根据DM的决定，你可以选择另一种更适合你的恐惧力量的语言。"
 			],
 			"source": "SterlingVermin",
@@ -1865,12 +1934,12 @@
 		{
 			"name": "Dread Hand",
 			"entries": [
-				"同样在3级时，你可以在你的回合中使用一个额外的行动来表现出你肮脏的誓言的证据。当你这样做时，你的一个肢体（通常是一个手臂）会在1分钟内转化成一个让人联想到你的恐惧力量的怪异外观。",
+				"Also at 3rd level, you can use a bonus action on your turn to manifest the evidence of your foul pledge. When you do, one of your limbs (often an arm) transmogrifies into a monstrous appearance reminiscent of your dread power for 1 minute, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"当你为你所做的非武装攻击的伤害骰子掷出1时，你可以重新掷骰子，并且必须使用新的骰子，即使新骰子是1。",
-						"每一回合你第一次徒手攻击失手时，你可以在同一行动中再进行一次徒手攻击。",
+						"The first time you miss with an unarmed strike attack each turn, you can make an additional unarmed strike attack as part of the same action.",
 						"当你在你的回合中采取攻击行动后，你可以花费2点魔力作为奖励行动进行三次徒手攻击。"
 					]
 				},
@@ -1901,7 +1970,8 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"从6级开始，你从术士等级可用的魔法中获得两个（%0%）的选择。当你在这个等级中获得一个等级时，你可以从你所知道的召唤中选择一个，并用另一个你符合先决条件的召唤来代替它。"
+				"Starting at 6th level, you gain two {@filter eldritch invocations|optionalfeatures|feature type=ei} of your choice from among those available to the warlock class. For every two levels you have in this class, you count as having on warlock level for the purpose of meeting an eldritch invocation's prerequisites. Constitution is your spellcasting ability for any spells you gain as a result of one of these eldritch invocations, and any eldritch invocation gained this way that references your Charisma modifier uses your Strength modifier instead.",
+				"When you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation in which you meet the prerequisites."
 			]
 		},
 		{
@@ -1914,7 +1984,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"在11级时，当你使用你的恐惧之手功能时，你可以选择长成一个高耸的畸形体，持续一分钟。当你这样做时，你的体型会增加一个类别--比如说，从中型到大型。如果没有足够的空间让你长到那个尺寸，你就会长到空间所能允许的最大尺寸。当你以这种方式变大时，你在力量检查和力量投掷方面有优势，你的触角变成10英尺，你的近战武器攻击会造成{@dice 1d4}的额外伤害。当一分钟结束时，你会受到一级（1%）的伤害（如《玩家手册》附录A中所述）。"
+				"At 11th Level, when you use your Dread Hand feature you can choose to grow into a towering misshapen form for one minute. When you do, your size increases by one category\u2014from Medium to Large, for example. If there isn't enough room for you to grow to that size, you grow to the maximum possible size the space will allow. While enlarged in this way, you have advantage on Strength checks and Strength saving throws, your reach becomes 10 feet, and your melee weapon attacks deal {@dice 1d4} extra damage. When the minute is over, you suffer one level of {@condition exhaustion}."
 			]
 		},
 		{
@@ -1927,7 +1997,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"在17级时，你可以使用一个动作并消耗6点魔力，试图将你的手钻入一个你所选择的生物的身体并取出其内脏。该生物必须做一个灵巧的蓄力动作（DC等于8+你的熟练度加成+你的力量修改器）。失败时，该生物会受到100的穿刺伤害。成功时，该生物将受到50的穿刺伤害。",
+				"Starting at 17th level, you can use an action and expend 6 moxie points to attempt to execute a creature of your choice within reach by magically burrowing your hand into its body and extracting its innards. The creature must make a Dexterity saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failure, the creature takes 100 piercing damage. On a success, the creature takes 50 piercing damage instead.",
 				"如果这种伤害使目标的命中率降至0或更低，当你在它身上撕开一个洞时，它就会立即死亡，产生令人作呕的内脏喷泉。当这种情况发生时，在你30英尺范围内能看到你的每个生物都必须成功进行智慧救赎（DC等于8+你的熟练度加成+你的力量修饰），或者在1分钟内被你的（%0%）。蓄力失败的生物可以在其每个回合结束时再次进行智慧蓄力，如果成功则提前结束{@condition frightened}条件。",
 				"一旦你使用这个功能，你必须完成一个长时间的休息才能再次使用。"
 			]
@@ -1955,7 +2025,7 @@
 		{
 			"name": "Bonus Proficiency",
 			"entries": [
-				"从你在3级时选择这个战斗俱乐部开始，如果你还没有这个技能，你会获得对（%0%）技能的熟练度。"
+				"When you choose this fight club at 3rd level, you gain proficiency with the {@skill Intimidation} skill if you don't have it already. If you do, you gain proficiency in your choice of the {@skill Deception} or {@skill Sleight of Hand} skill."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1963,12 +2033,17 @@
 			"subclassShortName": "Piss & Vinegar",
 			"subclassSource": "SterlingVermin",
 			"level": 3,
-			"header": 1
+			"header": 1,
+			"skillProficiencies": [
+				{
+					"intimidation": true
+				}
+			]
 		},
 		{
 			"name": "Salty Salute",
 			"entries": [
-				"同样在3级时，你已经掌握了激怒侮辱的艺术。你可以在你的回合中使用一个额外的行动来激怒60英尺内能看到或听到你的生物。该生物必须做一个智慧拯救动作。如果失败，该生物将受到你的拳术的伤害模子+你的魅力修改器的精神伤害，并且在你下一回合开始之前，它所做的任何不包括你在内的攻击卷轴都处于不利地位。对于你的尿液和醋的任何特征，如果需要你的对手做一个蓄力动作，蓄力DC的计算方法如下。",
+				"Also at 3rd level, you have mastered the art of the enraging insult. You can use a bonus action on your turn to provoke a creature within 60 feet who can see or hear you. That creature must make a Wisdom saving throw. On a failure, the creature takes psychic damage equal to a roll of your fisticuff's damage die + your Charisma modifier and has disadvantage on any attack rolls it makes that do not include you as a target before the start of your next turn. For any of your Piss & Vinegar features that require your opponent to make a saving throw, the saving DC is calculated as follows:",
 				{
 					"type": "abilityDc",
 					"name": "Piss & Vinegar",
@@ -2000,21 +2075,21 @@
 					"type": "entries",
 					"name": "Heelstomper",
 					"entries": [
-						"当你用徒手攻击造成伤害时，你会尝试减缓被你击中的生物。该生物必须做一个灵巧的蓄力动作。如果失败，你会获得1点魔力值（最多不超过你的最大值），其移动速度减半，持续一分钟。"
+						"When you deal damage with an unarmed strike, you attempt to slow the creature you hit. The creature must make a Dexterity saving throw. On a failure, you regain 1 expended moxie point and the creature's movement speed is halved for one minute."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Low Blow",
 					"entries": [
-						"当你用徒手攻击造成伤害时，你可以选择击中他们的腰部以下。该生物必须做一个力量救赎的动作。如果失败，你会获得1点魔力（最多到你的最大值），并且被击倒（%0%）。"
+						"When you deal damage with an unarmed strike, you can choose to hit them below the belt. The creature must make a Strength saving throw. On a failure, you regain 1 expended moxie point and the creature is knocked {@condition prone}."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Pocket Sand",
 					"entries": [
-						"你可以使用一个额外的动作来试图使5英尺内的生物失明。该生物必须做一个 \"宪法救赎\"。如果失败，你将获得1点魔力（最多不超过你的最大值），并且在下一回合结束前，它的魔力为（%0%）。"
+						"You can use a bonus action to attempt to blind a creature within 5 feet. The creature must make a Constitution saving throw. On a failure, you regain 1 expended moxie point and the creature is {@condition blinded} until the end of its next turn."
 					]
 				}
 			]
@@ -2029,7 +2104,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"在11级时，你的威胁和卑鄙的伎俩会带来额外的冲击。当你进行魅力({@skill Intimidation})检查时，你可以使用你的反应并花费1个魔力来使自己在检查中获得优势。当一个生物对你的 \"小便与醋 \"的特征之一进行救赎时，你可以使用你的反应并花费1个莫克西使其处于不利地位。"
+				"Starting at 11th level, your threats and mean spirited tricks pack an extra punch. When you make a Charisma ({@skill Intimidation}) check, you can use your reaction and spend 1 moxie to give yourself advantage on the roll. When a creature makes a saving throw against one of your Piss & Vinegar features, you can use your reaction and spend 1 moxie to give that roll disadvantage."
 			]
 		},
 		{
@@ -2042,7 +2117,8 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"从17级开始，你获得了以最小的代价冒犯房间里每一个生物的能力。当你使用你的 \"咸猪手 \"功能时，你可以选择以60英尺内能看到或听到你的若干生物为目标，而不是以单个生物为目标。在你下一回合开始前，每一个以这种方式锁定的生物第一次攻击你时，你会获得1点魔力值（最多不超过你的最大值）。你可以在完成一个长时间的休息后再次使用这个功能。"
+				"Starting at 17th level, you gain the ability to offend every creature in the room with minimal effort. When you use your Salty Salute feature, you can choose to target a number of creatures within 60 feet who can see or hear you up to your level in this class, instead of a single creature. You regain 1 expended moxie point the first time each creature targeted in this way hits you with an attack before the start of your next turn.",
+				"Once you use this feature, you can't use it again until you finish a long rest."
 			]
 		},
 		{
@@ -2057,14 +2133,31 @@
 				"练习 \"甜蜜科学 \"的拳手打得很用力、很快速、很频繁。这种风格有时被那些为娱乐上层阶级而战的拳手所使用，但也经常在后巷和酒吧里被那些下一步要靠击倒的人练习。",
 				{
 					"type": "refSubclassFeature",
+					"subclassFeature": "Bare Knuckle Boxer|Pugilist|SterlingVermin|Sweet Science|SterlingVermin|3"
+				},
+				{
+					"type": "refSubclassFeature",
 					"subclassFeature": "Cross Counter|Pugilist|SterlingVermin|Sweet Science|SterlingVermin|3"
 				}
 			]
 		},
 		{
+			"name": "Bare Knuckle Boxer",
+			"entries": [
+				"Starting when you choose this fight club at 3rd level, your unarmed strikes score a critical hit on a roll of 19 or 20 on the d20."
+			],
+			"source": "SterlingVermin",
+			"className": "Pugilist",
+			"classSource": "SterlingVermin",
+			"subclassShortName": "Sweet Science",
+			"subclassSource": "SterlingVermin",
+			"level": 3,
+			"header": 1
+		},
+		{
 			"name": "Cross Counter",
 			"entries": [
-				"从你在3级时选择这个格斗俱乐部开始，你可以在同一个流畅的动作中挡住对方的攻击并发动自己的攻击。你可以使用你的反应并花费2点魔力来减少对你进行的近战武器攻击的伤害（%0%）+你的力量修正值+你的格斗家等级。",
+				"Also starting at 3rd level, you can block the brunt of an attack and launch one of your own in the same fluid motion. You can use your reaction and spend 2 moxie points to reduce the damage of a melee weapon attack made against you by {@dice 1d10} + your Strength modifier + your pugilist level.",
 				"如果你将伤害降低到0，你可以对范围内的生物进行一次徒手攻击或搏击武器攻击，作为同一反应的一部分。"
 			],
 			"source": "SterlingVermin",
@@ -2098,7 +2191,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"在11级时，当你将攻击的伤害降低到0，并使用你的十字反击功能成功击中一个敌方生物时，你会重新获得1点魔力值（最多到你的最大值）。"
+				"At 11th level, when you reduce damage from an attack to 0 and successfully hit an enemy creature using your Cross Counter feature you regain 1 expended moxie point."
 			]
 		},
 		{
@@ -2111,7 +2204,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"17级时，当你用徒手攻击或搏击武器击中对手时，你可以花费1个或更多的魔力点来尝试击倒对手而不是造成伤害。在第一个点数之后，每花一个魔力点就掷一次（%0%），并在结果上加上你的搏击术等级；如果总数等于或大于该生物的剩余命中率，就会在10分钟内（%1%）。"
+				"At 17th level, when you hit with an unarmed strike or pugilist weapon you can spend 1 or more moxie points to try to knock out the opponent instead of dealing damage. Roll {@dice 3d12}, plus an additional {@dice 2d12} for every moxie point spent after the first, and add your pugilist level to the result. If the total is equal to or greater than the creature's remaining hit points, it is reduced to 0 hit points."
 			]
 		},
 		{
@@ -2127,6 +2220,10 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Groundwork|Pugilist|SterlingVermin|Squared Circle|SterlingVermin|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Muscle Mass|Pugilist|SterlingVermin|Squared Circle|SterlingVermin|3"
 				}
 			]
 		},
@@ -2141,7 +2238,7 @@
 							"type": "entries",
 							"name": "Compression Lock",
 							"entries": [
-								"当一个生物试图对你进行（%0%）并成功时，你可以使用你的反应并花费1个魔力点来迫使该生物再次滚动。该生物必须使用第二个结果。"
+								"When a creature attempts to {@action escape a grapple|phb|break your grapple} and succeeds, you can use your reaction and spend 1 moxie point to force the creature to roll again. The creature must use the second result."
 							]
 						}
 					]
@@ -2153,7 +2250,7 @@
 							"type": "entries",
 							"name": "Quick Pin",
 							"entries": [
-								"当一个敌对生物的行动激起你的机会攻击时，你可以使用你的反应并花费1点魔力来进行一次（%0%）攻击，而不是机会攻击。"
+								"When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction and spend 1 moxie point to attempt to {@action grapple} the creature instead of making an opportunity attack."
 							]
 						}
 					]
@@ -2165,7 +2262,7 @@
 							"type": "entries",
 							"name": "To the Mat",
 							"entries": [
-								"你可以使用一个额外的动作并花费1点魔力对范围内的生物进行抓取攻击。如果成功，该生物也会被击倒（%0%）。"
+								"You can use a bonus action and spend 1 moxie point to make a Strength ({@skill Athletics}) check with a DC equal to the AC of one creature within 5 feet of you. On a success, you grapple the creature and knock it {@condition prone}."
 							]
 						}
 					]
@@ -2180,6 +2277,24 @@
 			"header": 1
 		},
 		{
+			"name": "Muscle Mass",
+			"source": "SterlingVermin",
+			"className": "Pugilist",
+			"classSource": "SterlingVermin",
+			"subclassShortName": "Squared Circle",
+			"subclassSource": "SterlingVermin",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Also at 3rd level, you gain proficiency in {@skill Athletics} if you don't already have it. If you do already have proficieny in {@skill Athletics}, your proficiency bonus is doubled for any ability check that uses that proficiency."
+			],
+			"skillProficiencies": [
+				{
+					"athletics": true
+				}
+			]
+		},
+		{
 			"name": "Meat Shield",
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -2189,7 +2304,7 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"在6级时，当你有一个敌方生物（%0%）时，你获得一半的掩护，对抗一个你没有抓捕的生物对你进行的所有攻击。当一个你没有抓捕的生物对你进行的武器攻击没有击中你时，你可以使用你的反应并花费1点魔力，让该生物对你抓捕的敌方生物进行同样的攻击，并重新掷骰。"
+				"Starting at 6th level, when you have an enemy creature {@condition grappled} you gain half cover against all attacks made against you by a creature you are not grappling. When a weapon attack made by a creature you are not grappling misses you, you may use your reaction and spend 1 moxie point to have that creature make the same attack with a new roll against an enemy creature you are grappling."
 			]
 		},
 		{
@@ -2215,7 +2330,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"17级时，你对擒拿术的掌握达到顶峰。当你拥有一个生物时（%0%），你在对它的所有攻击中获得优势。此外，当你对你拥有的生物进行徒手攻击或搏击武器攻击时（%1%），你在掷出19或20的情况下可以获得关键一击。"
+				"At 17th level, your mastery of grappling reaches its peak. While you have a creature {@condition grappled} you gain advantage on all attacks against it. Additionally, when you make an unarmed strike or pugilist weapon attack against a creature you have {@condition grappled}, you score a critical hit on a roll of 19 or 20."
 			]
 		},
 		{
@@ -2963,7 +3078,7 @@
 				"actionType": "heal",
 				"damage.parts": [
 					[
-						"@classes.pugilist.levels + @mod",
+						"3 * @classes.pugilist.levels",
 						"temphp"
 					]
 				],
@@ -3460,10 +3575,9 @@
 			"name": "Dog & Hound",
 			"subclassFeatures": [
 				"Dog & Hound|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|3",
-				"Arcanine Bite|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|6",
 				"Coordinated Attack|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|6",
 				"Hound's Best Friend|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|11",
-				"Dire Hound|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|17"
+				"Off the Chain|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|17"
 			],
 			"source": "SterlingVermin",
 			"shortName": "Dog & Hound",
@@ -3477,8 +3591,7 @@
 					"prepared": {
 						"3": [
 							"eldritch blast#c",
-							"prestidigitation#c",
-							"blade ward#c"
+							"prestidigitation#c"
 						]
 					}
 				}
