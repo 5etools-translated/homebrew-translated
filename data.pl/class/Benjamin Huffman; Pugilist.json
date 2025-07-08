@@ -12,9 +12,10 @@
 					"MrVauxs",
 					"dmsguild",
 					"foreveryone",
-					"hakr14"
+					"hakr14",
+					"riesun28"
 				],
-				"version": "3.5.2",
+				"version": "4.0.0",
 				"url": "http://www.dmsguild.com/product/184921/the-Pugilist-Class",
 				"color": "cc6600"
 			},
@@ -35,8 +36,8 @@
 			}
 		],
 		"dateAdded": 1516994880,
-		"dateLastModified": 1748102226,
-		"_dateLastModifiedHash": "72d5e603ce",
+		"dateLastModified": 1751892176,
+		"_dateLastModifiedHash": "07a71c6a69",
 		"edition": "classic"
 	},
 	"class": [
@@ -1113,6 +1114,105 @@
 			]
 		},
 		{
+			"name": "Hound",
+			"size": [
+				"M"
+			],
+			"type": "beast",
+			"source": "SterlingVermin",
+			"alignment": [
+				"U"
+			],
+			"ac": [
+				{
+					"special": "12 + PB"
+				}
+			],
+			"hp": {
+				"special": "3 + five times your pugilist level"
+			},
+			"speed": {
+				"walk": 40
+			},
+			"str": 14,
+			"dex": 14,
+			"con": 15,
+			"int": 3,
+			"wis": 12,
+			"cha": 13,
+			"passive": 13,
+			"page": 9,
+			"pbNote": "equals your Proficiency Bonus",
+			"senses": [
+				"darkvision 60 ft."
+			],
+			"senseTags": [
+				"D"
+			],
+			"languages": [
+				"understands the languages you speak"
+			],
+			"save": {
+				"str": "+4",
+				"dex": "+4",
+				"con": "+4"
+			},
+			"skill": {
+				"athletics": "+4",
+				"perception": "+3",
+				"survival": "+3"
+			},
+			"conditionImmune": [
+				"charmed",
+				"frightened"
+			],
+			"action": [
+				{
+					"name": "Bite",
+					"entries": [
+						"{@atk mw} {@hit PB x 2} to hit, reach 5 ft., one target. {@h} {@damage 2d4 +  PB} piercing damage. If the target is a creature, it must succeed on a Strength saving throw ({@dc 8 + PB} x 2) or be {@condition grappled} by the hound or knocked {@condition prone} (the hound's choice)."
+					]
+				}
+			],
+			"miscTags": [
+				"MW"
+			],
+			"conditionInflict": [
+				"grappled"
+			],
+			"trait": [
+				{
+					"name": "Keen Hearing and Sight",
+					"entries": [
+						"The hound has advantage on Wisdom ({@skill Perception}) checks that rely on hearing or sight."
+					]
+				},
+				{
+					"name": "Pack Tactics",
+					"entries": [
+						"The hound has advantage on an attack roll against a creature if you are within 5 feet of the creature and you aren't {@condition incapacitated}."
+					]
+				},
+				{
+					"name": "Arcanine Bite",
+					"entries": [
+						"Once you reach 6th level in this class, the hound's attacks count as magical for the purpose of overcoming resistance or immunity to nonmagical attacks and damage."
+					]
+				}
+			],
+			"traitTags": [
+				"Keen Senses",
+				"Pack Tactics"
+			],
+			"token": {
+				"name": "Wolf",
+				"source": "MM"
+			},
+			"damageTags": [
+				"P"
+			]
+		},
+		{
 			"source": "SterlingVermin",
 			"name": "Wrestler",
 			"size": [
@@ -1223,7 +1323,7 @@
 					"type": "list",
 					"items": [
 						"Możesz rzucić {@dice d6} w miejsce normalnych obrażeń zadawanych przez twoje uderzenie bez broni lub broń pugilisty. Ta kość zmienia się wraz ze zdobywaniem poziomów pugilisty, jak pokazano w kolumnie Fisticuffs w tabeli Pugilista.",
-						"Kiedy używasz akcji Atak z uderzeniem bez broni lub bronią pugilareską w swojej turze, możesz wykonać jedno uderzenie bez broni lub {@action grapple} jako akcję bonusową."
+						"When you use the {@action Attack} action with an unarmed strike or a pugilist weapon on your turn, you can make one unarmed strike or {@action grapple} as a bonus action."
 					]
 				}
 			]
@@ -1241,7 +1341,7 @@
 					"type": "entries",
 					"name": "Brace Up",
 					"entries": [
-						"Możesz użyć akcji bonusowej i wydać 1 punkt moxie, aby przygotować się na ataki. Rzuć swoją kość Fisticuffs + swój poziom pugilisty + swój modyfikator Konstytucji i zyskaj tyle tymczasowych punktów trafień."
+						"You can use a bonus action and spend 1 moxie point to brace for attacks. You gain a number of temporary hit points equal to a roll of your fisticuffs die + your pugilist level + your Constitution modifier. You lose any remaining temporary hit points gained in this way after 1 minute."
 					]
 				},
 				{
@@ -1255,7 +1355,7 @@
 					"type": "entries",
 					"name": "Stick and Move",
 					"entries": [
-						"Możesz użyć akcji bonusowej i wydać 1 punkt moxie, aby wykonać {@action Shove} ataku lub {@action Dash} akcji."
+						"You can use a bonus action and expend 1 moxie point to attempt to {@action Shove} a creature or take the {@action Dash} action."
 					]
 				}
 			]
@@ -1277,7 +1377,7 @@
 			"classSource": "SterlingVermin",
 			"level": 3,
 			"entries": [
-				"Począwszy od 3 poziomu, kiedy otrzymujesz obrażenia, które zmniejszają cię do połowy twoich maksymalnych punktów życia lub mniej, możesz użyć swojej reakcji, aby zyskać tymczasowe punkty życia równe twojemu poziomowi pugilisty + twój modyfikator Konstytucji i odzyskujesz wszystkie zużyte punkty moxie. Nie możesz użyć tej cechy ponownie, dopóki nie zakończysz krótkiego lub długiego odpoczynku."
+				"Starting at 3rd level, when you take damage that reduces you to half your maximum hit points or less, you can use your reaction to gain temporary hit points equal to three times your pugilist level and regain all expended moxie points. Once you use this feature, you can't use it again until you finish a short or long rest."
 			]
 		},
 		{
@@ -1297,8 +1397,7 @@
 			"classSource": "SterlingVermin",
 			"level": 4,
 			"entries": [
-				"Po osiągnięciu 4 poziomu możesz zwiększyć jeden wybrany wynik umiejętności o 2, lub dwa wybrane wyniki umiejętności o 1. Jak zwykle, nie możesz zwiększyć wyniku umiejętności powyżej 20 używając tej cechy.",
-				"Jeśli twój DM pozwala na użycie featów, możesz zamiast tego wziąć feat."
+				"When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
 			]
 		},
 		{
@@ -1328,7 +1427,7 @@
 			"classSource": "SterlingVermin",
 			"level": 5,
 			"entries": [
-				"Począwszy od 5 poziomu, przed wykonaniem ataku z użyciem broni palnej lub pugilareskiej, który nie jest jeszcze obarczony wadą, możesz zadeklarować, że zadajesz dzikie ciosy. Wykonujesz wszystkie rolki ataku do końca tej tury z minusem, a kiedy zadajesz obrażenia, nie rolujesz ich, lecz używasz maksymalnego wyniku matrycy."
+				"Starting at 5th level, when you make an attack, you can declare you are swinging a wild haymaker. When you do, you have disadvantage on the attack roll and, if you hit with a pugilist weapon or unarmed strike, you deal the maximum result of your weapon's damage die instead of rolling."
 			]
 		},
 		{
@@ -1378,8 +1477,7 @@
 			"classSource": "SterlingVermin",
 			"level": 8,
 			"entries": [
-				"Po osiągnięciu 8 poziomu możesz zwiększyć jeden wybrany wynik umiejętności o 2, lub dwa wybrane wyniki umiejętności o 1. Jak zwykle, nie możesz zwiększyć wyniku umiejętności powyżej 20 używając tej cechy.",
-				"Jeśli twój DM pozwala na użycie featów, możesz zamiast tego wziąć feat."
+				"When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature."
 			]
 		},
 		{
@@ -1389,7 +1487,7 @@
 			"classSource": "SterlingVermin",
 			"level": 9,
 			"entries": [
-				"Na 9. poziomie, kiedy używasz cechy Bloodied but Unbowed, możesz zdecydować się na użycie również tej cechy. Jeśli to zrobisz, przez następną minutę dodajesz swój bonus do biegłości do obrażeń zadawanych atakami bez broni i bronią pugilareską. Możesz użyć tej cechy ponownie po zakończeniu długiego odpoczynku."
+				"At 9th level, when you use your Bloodied but Unbowed feature you can choose to also use this feature. If you do, you add your proficiency bonus to the damage of your unarmed strikes and pugilist weapons for the next minute. Once you use this feature, you can't use it again until you finish a Long Rest."
 			]
 		},
 		{
@@ -1419,8 +1517,7 @@
 			"classSource": "SterlingVermin",
 			"level": 12,
 			"entries": [
-				"Po osiągnięciu 12 poziomu możesz zwiększyć jeden wybrany wynik umiejętności o 2 lub dwa wybrane wyniki umiejętności o 1. Jak zwykle, nie możesz zwiększyć wyniku umiejętności powyżej 20 za pomocą tej cechy.",
-				"Jeśli twój DM pozwala na użycie featów, możesz zamiast tego wziąć feat."
+				"Po osiągnięciu 12 poziomu możesz zwiększyć jeden wybrany wynik umiejętności o 2 lub dwa wybrane wyniki umiejętności o 1. Jak zwykle, nie możesz zwiększyć wyniku umiejętności powyżej 20 za pomocą tej cechy."
 			]
 		},
 		{
@@ -1450,7 +1547,7 @@
 			"classSource": "SterlingVermin",
 			"level": 15,
 			"entries": [
-				"Na 15 poziomie twój udźwig zostaje podwojony, a kiedy zadajesz obrażenia bronią do walki wręcz lub uderzeniem bez broni obiektowi nieożywionemu, obrażenia te zostają podwojone. Twoja odległość skoku na stojąco jest taka sama jak odległość skoku na starcie w biegu."
+				"At 15th level, your carrying capacity is doubled, and when you deal damage with a melee weapon or unarmed strike to an inanimate object, that damage is doubled. Your standing jump distance is the same as your running start jump distance."
 			]
 		},
 		{
@@ -1481,7 +1578,8 @@
 			"classSource": "SterlingVermin",
 			"level": 18,
 			"entries": [
-				"Począwszy od 18 poziomu, gdy masz 4 poziomy {@condition exhaustion} lub mniej i zostaniesz zredukowany do 0 punktów trafień, odzyskujesz połowę swoich maksymalnych punktów trafień, połowę maksymalnych punktów moxie i zyskujesz poziom {@condition exhaustion}. Nie możesz użyć tej cechy ponownie, dopóki nie zakończysz długiego odpoczynku."
+				"Starting at 18th level, when you are reduced to 0 hit points, you can channel your fighting spirit. When you do, you regain half of your maximum hit points, half of your maximum moxie points, and do not suffer the effects of any levels of {@condition exhaustion} you have for the next 10 minutes. At the end of those 10 minutes, you gain a level of {@condition exhaustion}.",
+				"Once you use this feature, you can't use it again until you finish a long rest."
 			]
 		},
 		{
@@ -1502,7 +1600,7 @@
 			"classSource": "SterlingVermin",
 			"level": 20,
 			"entries": [
-				"Na 20. poziomie twoje wyniki umiejętności Siły i Konstytucji wzrastają o 2 do maksymalnie 22. Dodatkowo podczas długiego odpoczynku odzyskujesz 2 poziomy {@condition exhaustion} zamiast 1 i odzyskujesz wszystkie zużyte kostki trafień zamiast połowy zużytych kostek trafień."
+				"At 20th level, your Strength and Constitution ability scores increase by 2, to a maximum of 22. Additionally, when you take a long rest, you recover 2 levels of {@condition exhaustion} instead of 1 and you regain all your expended Hit Dice instead of only half."
 			]
 		}
 	],
@@ -1544,7 +1642,7 @@
 			"name": "Persona Libre",
 			"entries": [
 				"Również na 3. poziomie tworzysz alternatywną postać, którą możesz przyjąć lub odrzucić jako dodatkową akcję w swojej turze. Kiedy tworzysz alternatywną postać, powinieneś nadać jej efektowne imię oraz jakiś fizyczny znak (np. maskę, kolorową pelerynę lub inną wyróżniającą się cechę). Jeśli nie powiesz o tym stworzeniu lub stworzenie nie zobaczy, że przyjąłeś swoją postać, nie wie, że ty i przyjęta postać to ta sama osoba.",
-				"Dodatkowo posiadasz pulę punktów persony równą 3 + twój modyfikator Charyzmy (minimum 1). Kiedy używasz zdolności, która kosztuje punkty moxie, możesz wydać zamiast nich punkty persony. Dodatkowo, przed wykonaniem testu zdolności Charyzmy możesz wydać punkt persony, aby dodać swój modyfikator Siły do wyniku. Możesz użyć punktów persony tylko wtedy, gdy przyjąłeś swoją postać. Odzyskujesz wszystkie wydane punkty persony, gdy zakończysz długi odpoczynek."
+				"Additionally, you have a pool of persona points equal to 3 + your Charisma modifier (minimum 3 points). When you use an ability that costs moxie points, you can spend persona points instead. In addition, before you make a Charisma ability check, you can spend a persona point to add your Strength modifier to the result. You can only use persona points while you have adopted your persona. You regain all expended persona points when you finish a long rest."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1564,7 +1662,8 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"Na 6. poziomie, gdy przyjąłeś swoją alternatywną postać, możesz użyć swojej akcji, by wzbudzić w pobliskich osobach wybrany przez siebie strach lub uwielbienie. Kiedy to zrobisz, wszystkie stworzenia w promieniu 30 stóp, które cię widzą, muszą odnieść sukces w rzucie ratującym mądrość (DC 8 + twój bonus do biegłości + twój modyfikator siły) lub zostać {@condition charmed}, jeśli wybrałeś uwielbienie, lub {@condition frightened}, jeśli wybrałeś strach. Efekt ten trwa przez jedną minutę. Za każdym razem, gdy stworzenie otrzyma obrażenia od ciebie lub jednego z twoich sojuszników, może powtórzyć rzut ratunkowy, kończąc efekt w przypadku sukcesu. Możesz użyć tej cechy ponownie po zakończeniu długiego odpoczynku."
+				"Starting at 6th level, while you have adopted your alternate persona, you can use your action to inspire your choice of fear or adoration in those nearby. When you do, creatures of your choice within 30 feet who can see you must succeed on a Wisdom saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be {@condition charmed} if you chose adoration, or {@condition frightened} if you chose fear. This effect lasts for one minute. Each time a creature takes damage from you or one of your allies it can repeat the saving throw, ending the effect on a success.",
+				"Once you use this feature, you can't use it again until you finish a short or long rest."
 			]
 		},
 		{
@@ -1577,7 +1676,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"Począwszy od 11 poziomu, twój podstawowy ruch zwiększa się o 10 stóp, odległość skoku zostaje podwojona, a w swojej turze możesz użyć akcji bonusowej {@action Dash}."
+				"Starting at 11th level, your base walking speed increases by 10 feet, your jump distance is doubled, and you can use a bonus action on each of your turns to take the {@action Dash} action."
 			]
 		},
 		{
@@ -1590,8 +1689,8 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Począwszy od 17 poziomu, tworzysz signature move, którego możesz używać podczas przyjmowania swojej alternatywnej persony. Nadaj swojemu signature move nazwę i opis. Możesz zastąpić jeden ze swoich ataków bez broni lub ataków bronią pugilareską w swojej turze tym signature move.",
-				"Kiedy używasz swojego signature move, możesz skoczyć w dowolnym kierunku do swojej prędkości ruchu, wykonać rolkę ataku z przewagą przeciwko stworzeniu w twoim zasięgu i jeśli trafisz, atak jest krytyczny, a stworzenie jest {@condition stunned} do końca twojej następnej tury.",
+				"Starting at 17th level, you create a signature move that you can use while you have adopted your alternate persona. Give your signature move a name and a description. You can replace one of your attacks on your turn with this signature move.",
+				"When you use your signature move, you can jump in any direction up to your movement speed, make an attack roll with advantage against a creature in your reach. On a hit, the attack scores a critical hit and the creature is {@condition stunned} until the end of your next turn.",
 				"Jeśli trafisz swoim signature move, musisz zakończyć długi odpoczynek, zanim będziesz mógł go ponownie użyć. Jeśli spudłujesz swoim popisowym ruchem, odzyskujesz możliwość jego użycia po 1 minucie."
 			]
 		},
@@ -1618,7 +1717,7 @@
 		{
 			"name": "Ever Vigilant",
 			"entries": [
-				"Kiedy wybierasz ten klub walki na 3 poziomie, masz przewagę na rolkach inicjatywy. Podczas pierwszej rundy walki masz przewagę w rolkach ataku przeciwko istotom, które jeszcze nie podjęły akcji."
+				"Also starting at 3rd level, you have advantage on initiative rolls. During the first round of combat, you have advantage on attack rolls against creatures who haven't acted yet."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1631,7 +1730,7 @@
 		{
 			"name": "Detective Work",
 			"entries": [
-				"Również na 3. poziomie zyskujesz biegłość w dwóch wybranych przez siebie umiejętnościach: {@skill Insight}, {@skill Investigation} lub {@skill Perception}. Dodatkowo, gdy wykonujesz test umiejętności {@skill Insight} (Mądrość), {@skill Perception} (Mądrość) lub {@skill Investigation} (Inteligencja), możesz wydać 1 punkt moxie, aby uzyskać przewagę w tym teście umiejętności."
+				"When you choose this fight club at 3rd level, you gain proficiency with two of the following skills of your choice: {@skill Insight}, {@skill Investigation}, or {@skill Perception}. In addition, when you make an Intelligence ({@skill Investigation}), Wisdom ({@skill Insight}), or Wisdom ({@skill Perception}) check, you can spend 1 moxie point to gain advantage on the check."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1670,7 +1769,9 @@
 					"items": [
 						"Nie możesz być zaskoczony, a do inicjatywy dodajesz swój bonus do biegłości.",
 						"Masz ciemność do zasięgu 120 stóp.",
-						"Kiedy wykonujesz test umiejętności z użyciem Wglądu, Śledztwa lub Percepcji, który dodaje twoją premię do biegłości, dodaj zamiast tego podwójną premię do biegłości."
+						"Kiedy wykonujesz test umiejętności z użyciem Wglądu, Śledztwa lub Percepcji, który dodaje twoją premię do biegłości, dodaj zamiast tego podwójną premię do biegłości.",
+						"You cannot be lost by any means.",
+						"When you are not in combat, you can travel between any two points in the settlement twice as fast as your speed would normally allow."
 					]
 				}
 			]
@@ -1700,10 +1801,6 @@
 				"Nigdy nie miałeś przyjaciela, na którym mógłbyś polegać, który chodził na dwóch nogach. Na szczęście masz najlepszego czworonożnego przyjaciela, o jakiego może prosić ciało. Pugilares w klubie walki Dog & Hound są tak wierni swoim psim towarzyszom, jak ich psi towarzysze są im.",
 				{
 					"type": "refSubclassFeature",
-					"subclassFeature": "Bonus Proficiency|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|3"
-				},
-				{
-					"type": "refSubclassFeature",
 					"subclassFeature": "Brawler's Best Friend|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|3"
 				},
 				{
@@ -1713,26 +1810,11 @@
 			]
 		},
 		{
-			"name": "Bonus Proficiency",
-			"entries": [
-				"Kiedy wybierasz ten klub walki na 3 poziomie, zyskujesz biegłość w umiejętności {@skill Animal Handling}, jeśli jeszcze jej nie posiadasz. Jeśli tak, to zyskujesz biegłość w wybranej przez siebie umiejętności {@skill Perception} lub {@skill Survival}."
-			],
-			"source": "SterlingVermin",
-			"className": "Pugilist",
-			"classSource": "SterlingVermin",
-			"subclassShortName": "Dog & Hound",
-			"subclassSource": "SterlingVermin",
-			"level": 3,
-			"header": 1
-		},
-		{
 			"name": "Brawler's Best Friend",
 			"entries": [
-				"Również na 3 poziomie zyskujesz ogara, który towarzyszy ci w przygodach i walczy u twego boku. Twój pies może być dowolnej rasy lub podobnego psowatego stworzenia, ale korzysta ze statystyk {@creature wolf}. Dodajesz premię do biegłości do AC, rzutów obronnych, ataków i obrażeń psa.",
-				"Za każdy poziom, który zdobędziesz po 3. poziomie, twój ogar zyskuje dodatkowe d8 punktów trafień i zwiększa odpowiednio swoje punkty trafień.",
-				"Możesz użyć dodatkowej akcji w każdej swojej turze, aby werbalnie nakazać swojemu ogarowi podjęcie w tej turze akcji Atak, Ucieczka, Oddalenie się, Unik lub Pomoc. Nie ma on swojej tury, chyba że jesteś niezdolny do walki lub nieobecny.",
-				"Jeśli jesteś niezdolny do działania lub nieobecny, ogar działa samodzielnie (kontynuując działanie w twojej turze, jeśli jesteś niezdolny do działania), skupiając się na ochronie ciebie i siebie. Ogar nigdy nie potrzebuje twojej komendy, by użyć swojej reakcji, np. przy okazji ataku.",
-				"Jeśli twój ogar umrze, możesz uzyskać nowy, poświęcając 8 godzin na związanie się z psem, który nie jest wrogo nastawiony do ciebie."
+				"Starting when you choose this fight club at 3rd level, you gain a hound that accompanies you on your adventures and fights alongside you. It is friendly to you and your companions, and it obeys your commands. See its game statistics in the Hound stat block, which uses your proficiency bonus (PB) in several places. You determine what breed of dog, or similar canine creature, your hound is; your choice has no effect on its game statistics.",
+				"In combat, the hound shares your initiative count, but it takes its turn immediately after yours. It can move and use its reaction on its own, but the only action it takes on it sturn is the {@action Dodge} action, unless you take a bonus action on your turn to command it to take another action. That action can be one in its stat block or some other action. If you are incapacitated, the houn can take any action of its choice, not just {@action Dodge}.",
+				"If you spend a minute giving your hound attention and treats, it regains 2d6 hit points. If your hound has died within the last hour, you can revive it by coaxing it back from the threshold of the beyond with praise and pets. You can use an action to touch the hound and expend a number of Hit Dice equal to half your pugilist level to revive it, provided you are within 5 feet of it. The hound returns to life after 1 minute with all its hit points restored. If your hound dies or is otherwise unavailable to you, you can forge a bond with a dog over 8 hours to become your new hound, ending your connection to your previous one."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1764,7 +1846,7 @@
 					"type": "entries",
 					"name": "Stick and Move",
 					"entries": [
-						"Kiedy używasz zdolności Stick and Move moxie, twój ogar może wykonać akcję Dash."
+						"When you use your Stick and Move moxie ability, your hound can take the {@action Dash} action."
 					]
 				}
 			],
@@ -1777,19 +1859,6 @@
 			"header": 1
 		},
 		{
-			"name": "Arcanine Bite",
-			"source": "SterlingVermin",
-			"className": "Pugilist",
-			"classSource": "SterlingVermin",
-			"subclassShortName": "Dog & Hound",
-			"subclassSource": "SterlingVermin",
-			"level": 6,
-			"header": 2,
-			"entries": [
-				"Na 6 poziomie ataki twojego ogara liczą się jako magiczne dla celów pokonania odporności i immunitetu na niemagiczne ataki i obrażenia."
-			]
-		},
-		{
 			"name": "Coordinated Attack",
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1799,7 +1868,7 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"Również na 6. poziomie ty i twój psi towarzysz tworzycie silniejszą drużynę bojową. Kiedy używasz akcji Atak w swojej turze, jeśli twój pies go widzi, może użyć swojej reakcji, aby wykonać atak wręcz."
+				"Starting at 6th level, you and your canine companion form a more potent fighting team. When you use the Attack action on your turn, if your hound can see you, it can use its reaction to make a bite attack."
 			]
 		},
 		{
@@ -1816,7 +1885,7 @@
 			]
 		},
 		{
-			"name": "Dire Hound",
+			"name": "Off the Chain",
 			"source": "SterlingVermin",
 			"className": "Pugilist",
 			"classSource": "SterlingVermin",
@@ -1825,7 +1894,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Począwszy od 17 poziomu, używasz dla swojego ogara statystyk dla {@creature dire wolf}, zamiast wilka, z tym, że jego rozmiar pozostaje Średni. Statystyki te są modyfikowane zgodnie z opisem w twojej cechy Najlepszy Przyjaciel Brawlera."
+				"Beginning at 17th level, your hound's spirit is as unbreakable as yours. When you hound takes damage that reduces its current hit points to half its maximum hit points or less, you can use your reaction ot let your hound off the chain. When you do, it immediately gains temporary hit points equal to four times your pugilist level and, for the next minute, its speed increases by 15 feet and it can take the bite or {@action Dodge} action (your choice) each turn you don't command it. Once you use this feature, you can't use it again until you finish a long rest."
 			]
 		},
 		{
@@ -1851,7 +1920,7 @@
 		{
 			"name": "Black Magic",
 			"entries": [
-				"Kiedy wybierasz ten klub walki na 3. poziomie, uczysz się {@spell blade ward}, {@spell eldritch blast} i {@spell prestidigitation} cantripów. Konstytucja jest twoim modyfikatorem zaklęć, ponieważ podczas rzucania tych czarów przepuszczasz magię strasznych mocy przez swoje ciało.",
+				"When you choose this fight club at 3rd level, you learn the {@spell eldritch blast} and {@spell prestidigitation} cantrips. Constitution is your spellcasting modifier for these spells, since you channel the magic of dread powers through your body when you cast them.",
 				"Ponadto uczysz się mówić, czytać i pisać w jednym z następujących języków do wyboru: {@language Abyssal}, {@language Infernal} lub {@language Sylvan}. Według uznania DM możesz wybrać inny język, bardziej odpowiedni dla twojej mocy strachu."
 			],
 			"source": "SterlingVermin",
@@ -1865,12 +1934,12 @@
 		{
 			"name": "Dread Hand",
 			"entries": [
-				"Również na 3. poziomie możesz użyć dodatkowej akcji w swojej turze, aby zamanifestować dowody swojej fałszywej przysięgi. Kiedy to zrobisz, jedna z twoich kończyn (często ramię) zmienia się na 1 minutę w potworny wygląd przypominający twoją straszliwą moc.",
+				"Also at 3rd level, you can use a bonus action on your turn to manifest the evidence of your foul pledge. When you do, one of your limbs (often an arm) transmogrifies into a monstrous appearance reminiscent of your dread power for 1 minute, granting you the following benefits:",
 				{
 					"type": "list",
 					"items": [
 						"Kiedy rzucasz 1 na kość obrażeń za atak bez broni, możesz ponownie rzucić kością i musisz użyć nowego rzutu, nawet jeśli nowy rzut to 1.",
-						"Za pierwszym razem, gdy spudłujesz z atakiem uderzenia bez broni w każdej turze, możesz wykonać dodatkowy atak uderzenia bez broni w ramach tej samej akcji.",
+						"The first time you miss with an unarmed strike attack each turn, you can make an additional unarmed strike attack as part of the same action.",
 						"Natychmiast po podjęciu akcji Ataku w swojej turze, możesz wydać 2 punkty moxie, aby wykonać trzy uderzenia bez broni jako akcję dodatkową."
 					]
 				},
@@ -1901,7 +1970,8 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"Począwszy od 6 poziomu, zyskujesz dwie {@filter eldritch invocations|optionalfeatures|feature type=ei} inwokacje do wyboru spośród tych dostępnych dla klasy czarnoksiężnika. Kiedy zdobywasz poziom w tej klasie, możesz wybrać jedną ze znanych ci inwokacji i zastąpić ją inną inwokacją, w której spełniasz warunki wstępne."
+				"Starting at 6th level, you gain two {@filter eldritch invocations|optionalfeatures|feature type=ei} of your choice from among those available to the warlock class. For every two levels you have in this class, you count as having on warlock level for the purpose of meeting an eldritch invocation's prerequisites. Constitution is your spellcasting ability for any spells you gain as a result of one of these eldritch invocations, and any eldritch invocation gained this way that references your Charisma modifier uses your Strength modifier instead.",
+				"When you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation in which you meet the prerequisites."
 			]
 		},
 		{
@@ -1914,7 +1984,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"Na 11. poziomie, kiedy używasz cechy \"Straszna ręka\", możesz wybrać, że na minutę staniesz się niesamowicie zniekształconą postacią. Kiedy to zrobisz, twój rozmiar wzrośnie o jedną kategorię - na przykład ze średniego do dużego. Jeśli nie ma wystarczająco dużo miejsca, abyś mógł urosnąć do tego rozmiaru, rośniesz do maksymalnego możliwego rozmiaru, na jaki pozwala przestrzeń. Podczas takiego powiększenia masz przewagę w testach wytrzymałości i rzutach ratunkowych na wytrzymałość, twój zasięg wynosi 10 stóp, a ataki bronią do walki wręcz zadają {@dice 1d4} dodatkowych obrażeń. Kiedy minie minuta, cierpisz na jeden poziom {@condition exhaustion} (jak opisano w dodatku A do Podręcznika Gracza)."
+				"At 11th Level, when you use your Dread Hand feature you can choose to grow into a towering misshapen form for one minute. When you do, your size increases by one category\u2014from Medium to Large, for example. If there isn't enough room for you to grow to that size, you grow to the maximum possible size the space will allow. While enlarged in this way, you have advantage on Strength checks and Strength saving throws, your reach becomes 10 feet, and your melee weapon attacks deal {@dice 1d4} extra damage. When the minute is over, you suffer one level of {@condition exhaustion}."
 			]
 		},
 		{
@@ -1927,7 +1997,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Na 17 poziomie możesz użyć akcji i wydać 6 punktów moksy, aby spróbować zabić wybrane przez siebie stworzenie w zasięgu ręki, zagłębiając rękę w jego ciele i wydobywając jego wnętrzności. Stworzenie musi wykonać rzut ratujący zręczność (DC równe 8 + twój bonus do biegłości + twój modyfikator siły). W przypadku porażki, stwór otrzymuje 100 obrażeń kłutych. Jeśli się powiedzie, otrzymuje 50 obrażeń kłutych.",
+				"Starting at 17th level, you can use an action and expend 6 moxie points to attempt to execute a creature of your choice within reach by magically burrowing your hand into its body and extracting its innards. The creature must make a Dexterity saving throw (DC equal to 8 + your proficiency bonus + your Strength modifier). On a failure, the creature takes 100 piercing damage. On a success, the creature takes 50 piercing damage instead.",
 				"Jeśli te obrażenia zredukują cel do 0 punktów trafień lub mniej, natychmiast umiera, gdy wyrywasz przez niego dziurę, tworząc obracającą żołądek fontannę wnętrzności. Gdy to się stanie, każda istota w promieniu 30 stóp od ciebie, która cię widzi, musi odnieść sukces w rzucie ratującym mądrość (DC równe 8 + twój bonus do biegłości + twój modyfikator siły) lub być {@condition frightened} od ciebie przez 1 minutę. Stworzenie, któremu nie uda się rzut ratujący, może wykonać rzut ratujący mądrość ponownie na koniec każdej swojej tury, kończąc warunek {@condition frightened} wcześniej w przypadku sukcesu.",
 				"Po użyciu tej cechy musisz zakończyć długi odpoczynek, zanim będziesz mógł użyć jej ponownie."
 			]
@@ -1955,7 +2025,7 @@
 		{
 			"name": "Bonus Proficiency",
 			"entries": [
-				"Począwszy od momentu wybrania tego klubu walki na 3 poziomie, zyskujesz biegłość w umiejętności {@skill Intimidation}, jeśli jeszcze jej nie posiadasz."
+				"When you choose this fight club at 3rd level, you gain proficiency with the {@skill Intimidation} skill if you don't have it already. If you do, you gain proficiency in your choice of the {@skill Deception} or {@skill Sleight of Hand} skill."
 			],
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -1963,12 +2033,17 @@
 			"subclassShortName": "Piss & Vinegar",
 			"subclassSource": "SterlingVermin",
 			"level": 3,
-			"header": 1
+			"header": 1,
+			"skillProficiencies": [
+				{
+					"intimidation": true
+				}
+			]
 		},
 		{
 			"name": "Salty Salute",
 			"entries": [
-				"Również na 3 poziomie opanowałeś sztukę rozwścieczonej zniewagi. Możesz użyć akcji bonusowej w swojej turze, aby sprowokować istotę w promieniu 60 stóp, która cię widzi lub słyszy. Stworzenie to musi wykonać rzut ratujący mądrość. W przypadku porażki, stwór otrzymuje obrażenia psychiczne w wysokości kośći obrażeń od twojego pojedynku + twój modyfikator Charyzmy, a przed rozpoczęciem swojej następnej tury ma minusa we wszystkich atakach, które nie obejmują cię jako celu. Dla każdej z twoich cech Piss & Vinegar, która wymaga od przeciwnika wykonania rzutu ratującego, DC ratujący jest obliczany w następujący sposób:",
+				"Also at 3rd level, you have mastered the art of the enraging insult. You can use a bonus action on your turn to provoke a creature within 60 feet who can see or hear you. That creature must make a Wisdom saving throw. On a failure, the creature takes psychic damage equal to a roll of your fisticuff's damage die + your Charisma modifier and has disadvantage on any attack rolls it makes that do not include you as a target before the start of your next turn. For any of your Piss & Vinegar features that require your opponent to make a saving throw, the saving DC is calculated as follows:",
 				{
 					"type": "abilityDc",
 					"name": "Piss & Vinegar",
@@ -2000,21 +2075,21 @@
 					"type": "entries",
 					"name": "Heelstomper",
 					"entries": [
-						"Kiedy zadajesz obrażenia atakiem bez broni, próbujesz spowolnić trafioną istotę. Stworzenie musi wykonać rzut ratujący zręczność. W przypadku porażki zyskujesz 1 punkt moxie (do maksimum), a jego prędkość ruchu jest zmniejszona o połowę na jedną minutę."
+						"When you deal damage with an unarmed strike, you attempt to slow the creature you hit. The creature must make a Dexterity saving throw. On a failure, you regain 1 expended moxie point and the creature's movement speed is halved for one minute."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Low Blow",
 					"entries": [
-						"Kiedy zadajesz obrażenia atakiem bez broni, możesz zdecydować się na trafienie poniżej pasa. Istota musi wykonać rzut ratujący Wytrzymałość. Przy porażce zyskujesz 1 punkt moxie (do swojego maksimum) i jest ona powalona {@condition prone}."
+						"When you deal damage with an unarmed strike, you can choose to hit them below the belt. The creature must make a Strength saving throw. On a failure, you regain 1 expended moxie point and the creature is knocked {@condition prone}."
 					]
 				},
 				{
 					"type": "entries",
 					"name": "Pocket Sand",
 					"entries": [
-						"Możesz użyć akcji bonusowej, aby spróbować oślepić istotę w promieniu 5 stóp. Istota ta musi wykonać rzut ratujący Konstytucję. Przy porażce zyskujesz 1 punkt moxie (do swojego maksimum) i jest ona {@condition blinded} do końca swojej następnej tury."
+						"You can use a bonus action to attempt to blind a creature within 5 feet. The creature must make a Constitution saving throw. On a failure, you regain 1 expended moxie point and the creature is {@condition blinded} until the end of its next turn."
 					]
 				}
 			]
@@ -2029,7 +2104,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"Na 11 poziomie twoje groźby i podłe sztuczki nabierają dodatkowej mocy. Kiedy sprawdzasz umiejętność Charyzma ({@skill Intimidation}), możesz użyć swojej reakcji i wydać 1 moxie, aby dać sobie przewagę w tym rzucie. Kiedy stworzenie wykonuje rzut ratunkowy przeciwko jednej z twoich cech Piss & Vinegar, możesz użyć swojej reakcji i wydać 1 moxie, aby dać temu rzutowi minus."
+				"Starting at 11th level, your threats and mean spirited tricks pack an extra punch. When you make a Charisma ({@skill Intimidation}) check, you can use your reaction and spend 1 moxie to give yourself advantage on the roll. When a creature makes a saving throw against one of your Piss & Vinegar features, you can use your reaction and spend 1 moxie to give that roll disadvantage."
 			]
 		},
 		{
@@ -2042,7 +2117,8 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Począwszy od 17 poziomu, zyskujesz umiejętność obrażania każdej istoty w pomieszczeniu przy minimalnym wysiłku. Kiedy używasz swojej cechy Salty Salute, możesz wybrać, że zamiast pojedynczego stworzenia, będziesz celował w pewną liczbę istot w promieniu 60 stóp, które mogą cię widzieć lub słyszeć do twojego poziomu w tej klasie. Zyskujesz 1 punkt moxie (do swojego maksimum) za pierwszym razem, gdy każda istota namierzona w ten sposób trafi cię atakiem przed rozpoczęciem twojej następnej tury. Możesz użyć tej cechy ponownie po zakończeniu długiego odpoczynku."
+				"Starting at 17th level, you gain the ability to offend every creature in the room with minimal effort. When you use your Salty Salute feature, you can choose to target a number of creatures within 60 feet who can see or hear you up to your level in this class, instead of a single creature. You regain 1 expended moxie point the first time each creature targeted in this way hits you with an attack before the start of your next turn.",
+				"Once you use this feature, you can't use it again until you finish a long rest."
 			]
 		},
 		{
@@ -2057,14 +2133,31 @@
 				"Pugilares, którzy praktykują Słodką Naukę, uderzają mocno, szybko i często. Ten styl jest czasem używany przez zawodników walczących dla rozrywki wyższych sfer, ale równie często jest praktykowany w zaułkach i barach przez tych, których następny oddech zależy od nokautu.",
 				{
 					"type": "refSubclassFeature",
+					"subclassFeature": "Bare Knuckle Boxer|Pugilist|SterlingVermin|Sweet Science|SterlingVermin|3"
+				},
+				{
+					"type": "refSubclassFeature",
 					"subclassFeature": "Cross Counter|Pugilist|SterlingVermin|Sweet Science|SterlingVermin|3"
 				}
 			]
 		},
 		{
+			"name": "Bare Knuckle Boxer",
+			"entries": [
+				"Starting when you choose this fight club at 3rd level, your unarmed strikes score a critical hit on a roll of 19 or 20 on the d20."
+			],
+			"source": "SterlingVermin",
+			"className": "Pugilist",
+			"classSource": "SterlingVermin",
+			"subclassShortName": "Sweet Science",
+			"subclassSource": "SterlingVermin",
+			"level": 3,
+			"header": 1
+		},
+		{
 			"name": "Cross Counter",
 			"entries": [
-				"Począwszy od wyboru tego klubu walki na 3. poziomie, możesz zablokować atak i wykonać własny w tym samym płynnym ruchu. Możesz użyć swojej reakcji i wydać 2 punkty moxie, aby zmniejszyć obrażenia ataku bronią do walki wręcz zadane tobie o {@dice 1d10} + twój modyfikator Siły + twój poziom pugilisty.",
+				"Also starting at 3rd level, you can block the brunt of an attack and launch one of your own in the same fluid motion. You can use your reaction and spend 2 moxie points to reduce the damage of a melee weapon attack made against you by {@dice 1d10} + your Strength modifier + your pugilist level.",
 				"Jeśli zmniejszysz obrażenia do 0, możesz w ramach tej samej reakcji wykonać uderzenie bez broni lub atak bronią pugilareską przeciwko stworzeniu w zasięgu."
 			],
 			"source": "SterlingVermin",
@@ -2098,7 +2191,7 @@
 			"level": 11,
 			"header": 2,
 			"entries": [
-				"Na 11 poziomie, gdy zmniejszysz obrażenia od ataku do 0 i skutecznie trafisz wrogiego stwora używając cechy Cross Counter, odzyskujesz 1 punkt moxie (do swojego maksimum)."
+				"At 11th level, when you reduce damage from an attack to 0 and successfully hit an enemy creature using your Cross Counter feature you regain 1 expended moxie point."
 			]
 		},
 		{
@@ -2111,7 +2204,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Na 17 poziomie, kiedy trafiasz uderzeniem bez broni lub bronią pugilareską, możesz wydać 1 lub więcej punktów moxie, aby spróbować znokautować przeciwnika zamiast zadawać mu obrażenia. Rzuć {@dice 3d12 + 1d12} za każdy wydany punkt moxie po pierwszym i dodaj do wyniku swój poziom pugilisty; jeśli suma jest równa lub większa od pozostałych punktów trafień istoty, to jest ona {@condition unconscious} przez 10 minut."
+				"At 17th level, when you hit with an unarmed strike or pugilist weapon you can spend 1 or more moxie points to try to knock out the opponent instead of dealing damage. Roll {@dice 3d12}, plus an additional {@dice 2d12} for every moxie point spent after the first, and add your pugilist level to the result. If the total is equal to or greater than the creature's remaining hit points, it is reduced to 0 hit points."
 			]
 		},
 		{
@@ -2127,6 +2220,10 @@
 				{
 					"type": "refSubclassFeature",
 					"subclassFeature": "Groundwork|Pugilist|SterlingVermin|Squared Circle|SterlingVermin|3"
+				},
+				{
+					"type": "refSubclassFeature",
+					"subclassFeature": "Muscle Mass|Pugilist|SterlingVermin|Squared Circle|SterlingVermin|3"
 				}
 			]
 		},
@@ -2141,7 +2238,7 @@
 							"type": "entries",
 							"name": "Compression Lock",
 							"entries": [
-								"Kiedy stworzenie próbuje {@action escape a grapple|phb|break a grapple} z tobą i udaje mu się, możesz użyć swojej reakcji i wydać 1 punkt moxie, aby zmusić stworzenie do ponownego przetoczenia. Stworzenie musi wykorzystać drugi wynik."
+								"When a creature attempts to {@action escape a grapple|phb|break your grapple} and succeeds, you can use your reaction and spend 1 moxie point to force the creature to roll again. The creature must use the second result."
 							]
 						}
 					]
@@ -2153,7 +2250,7 @@
 							"type": "entries",
 							"name": "Quick Pin",
 							"entries": [
-								"Kiedy ruch wrogiej istoty prowokuje od ciebie atak okazjonalny, możesz użyć swojej reakcji i wydać 1 punkt moxie, aby wykonać {@action grapple} ataku zamiast ataku okazjonalnego."
+								"When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction and spend 1 moxie point to attempt to {@action grapple} the creature instead of making an opportunity attack."
 							]
 						}
 					]
@@ -2165,7 +2262,7 @@
 							"type": "entries",
 							"name": "To the Mat",
 							"entries": [
-								"Możesz użyć akcji bonusowej i wydać 1 punkt moxie, aby wykonać atak chwytny przeciwko stworzeniu w zasięgu. Jeśli się powiedzie, stworzenie zostaje również powalone {@condition prone}."
+								"You can use a bonus action and spend 1 moxie point to make a Strength ({@skill Athletics}) check with a DC equal to the AC of one creature within 5 feet of you. On a success, you grapple the creature and knock it {@condition prone}."
 							]
 						}
 					]
@@ -2180,6 +2277,24 @@
 			"header": 1
 		},
 		{
+			"name": "Muscle Mass",
+			"source": "SterlingVermin",
+			"className": "Pugilist",
+			"classSource": "SterlingVermin",
+			"subclassShortName": "Squared Circle",
+			"subclassSource": "SterlingVermin",
+			"level": 3,
+			"header": 1,
+			"entries": [
+				"Also at 3rd level, you gain proficiency in {@skill Athletics} if you don't already have it. If you do already have proficieny in {@skill Athletics}, your proficiency bonus is doubled for any ability check that uses that proficiency."
+			],
+			"skillProficiencies": [
+				{
+					"athletics": true
+				}
+			]
+		},
+		{
 			"name": "Meat Shield",
 			"source": "SterlingVermin",
 			"className": "Pugilist",
@@ -2189,7 +2304,7 @@
 			"level": 6,
 			"header": 2,
 			"entries": [
-				"Na 6 poziomie, gdy masz wrogą istotę {@condition grappled} zyskujesz pół osłony przeciwko wszystkim atakom wykonanym przeciwko tobie przez istotę, której nie chwytasz. Kiedy atak bronią wykonany przez istotę, której nie chwytasz chybia, możesz użyć swojej reakcji i wydać 1 punkt moxie, aby ta istota wykonała ten sam atak z nową rolką przeciwko wrogiej istocie, którą chwytasz."
+				"Starting at 6th level, when you have an enemy creature {@condition grappled} you gain half cover against all attacks made against you by a creature you are not grappling. When a weapon attack made by a creature you are not grappling misses you, you may use your reaction and spend 1 moxie point to have that creature make the same attack with a new roll against an enemy creature you are grappling."
 			]
 		},
 		{
@@ -2215,7 +2330,7 @@
 			"level": 17,
 			"header": 2,
 			"entries": [
-				"Na 17 poziomie twoje mistrzostwo w chwytaniu się za ręce osiąga swój szczyt. Podczas gdy posiadasz stworzenie {@condition grappled} zyskujesz przewagę na wszystkich atakach przeciwko niemu. Dodatkowo, gdy wykonujesz uderzenie bez broni lub atak bronią pugilareską przeciwko stworzeniu, które posiadasz {@condition grappled}, uzyskujesz trafienie krytyczne przy rolce 19 lub 20."
+				"At 17th level, your mastery of grappling reaches its peak. While you have a creature {@condition grappled} you gain advantage on all attacks against it. Additionally, when you make an unarmed strike or pugilist weapon attack against a creature you have {@condition grappled}, you score a critical hit on a roll of 19 or 20."
 			]
 		},
 		{
@@ -2963,7 +3078,7 @@
 				"actionType": "heal",
 				"damage.parts": [
 					[
-						"@classes.pugilist.levels + @mod",
+						"3 * @classes.pugilist.levels",
 						"temphp"
 					]
 				],
@@ -3460,10 +3575,9 @@
 			"name": "Dog & Hound",
 			"subclassFeatures": [
 				"Dog & Hound|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|3",
-				"Arcanine Bite|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|6",
 				"Coordinated Attack|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|6",
 				"Hound's Best Friend|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|11",
-				"Dire Hound|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|17"
+				"Off the Chain|Pugilist|SterlingVermin|Dog & Hound|SterlingVermin|17"
 			],
 			"source": "SterlingVermin",
 			"shortName": "Dog & Hound",
@@ -3477,8 +3591,7 @@
 					"prepared": {
 						"3": [
 							"eldritch blast#c",
-							"prestidigitation#c",
-							"blade ward#c"
+							"prestidigitation#c"
 						]
 					}
 				}
