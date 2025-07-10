@@ -10,7 +10,8 @@
 				],
 				"convertedBy": [
 					"Ragu",
-					"Spappz"
+					"Spappz",
+					"hakr14"
 				],
 				"version": "1.0.7",
 				"partnered": true,
@@ -29,8 +30,8 @@
 		},
 		"edition": "classic",
 		"dateAdded": 1738499271,
-		"dateLastModified": 1747862213,
-		"_dateLastModifiedHash": "d9d6ce8b8c"
+		"dateLastModified": 1752002718,
+		"_dateLastModifiedHash": "0741d3d1d0"
 	},
 	"subclass": [
 		{
@@ -48,9 +49,8 @@
 						"TT"
 					],
 					"progression": {
-						"3": 2,
 						"6": 1,
-						"14": 1
+						"14": 2
 					}
 				}
 			],
@@ -105,6 +105,26 @@
 				"Channel Divinity: Community Watch|Cleric||Community|HumblewoodCampaignSetting|6",
 				"Divine Strike|Cleric||Community|HumblewoodCampaignSetting|8",
 				"Paragon of the People|Cleric||Community|HumblewoodCampaignSetting|17"
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Divine Strike Damage",
+					"configuration": {
+						"identifier": "divine-strike",
+						"type": "dice",
+						"scale": {
+							"8": {
+								"n": 1,
+								"die": 8
+							},
+							"14": {
+								"n": 2,
+								"die": 8
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -147,6 +167,27 @@
 				"Improved Ward|Cleric||Night|HumblewoodCampaignSetting|6",
 				"Veil of Dreams|Cleric||Night|HumblewoodCampaignSetting|8",
 				"Creature of the Night|Cleric||Night|HumblewoodCampaignSetting|17"
+			],
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Darkvision Distance",
+					"configuration": {
+						"identifier": "darkvision",
+						"type": "distance",
+						"distance": {
+							"units": "ft"
+						},
+						"scale": {
+							"1": {
+								"value": 60
+							},
+							"6": {
+								"value": 120
+							}
+						}
+					}
+				}
 			]
 		},
 		{
@@ -164,7 +205,31 @@
 				"Infamy|Fighter||Scofflaw|HumblewoodCampaignSetting|15",
 				"Two For Flinching|Fighter||Scofflaw|HumblewoodCampaignSetting|18"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryAdvancement": [
+				{
+					"type": "ScaleValue",
+					"title": "Blindside Damage",
+					"configuration": {
+						"identifier": "blindside",
+						"type": "dice",
+						"scale": {
+							"10": {
+								"n": 5,
+								"die": 6
+							},
+							"15": {
+								"n": 7,
+								"die": 6
+							},
+							"18": {
+								"n": 9,
+								"die": 6
+							}
+						}
+					}
+				}
+			]
 		}
 	],
 	"subclassFluff": [
@@ -218,89 +283,145 @@
 			"entries": [
 				"Aunque no es una escuela reconocida oficialmente, la Escuela del Camino representa el conjunto personal y ecléctico de habilidades, conocimientos y técnicas que un bardo errante adquiere a lo largo de su viaje. Los bardos, que son unos empedernidos multitalentos, poseen una gran variedad de aptitudes en el combate, la magia y los conocimientos generales, lo que les hace especialmente aptos para aprender una gran variedad de habilidades. A menudo ocurre que, mientras viaja, un bardo acaba compartiendo su hoguera con un variopinto conjunto de aventureros errantes que pueden impartir valiosas lecciones a cambio de una animada canción o un cuento bien contado. En comparación con los estudiantes de otros Colegios de Bardo, un tipo especial de sensibilidad es importante para el Colegio del Camino. La eficacia con la que un bardo de este Colegio puede aplicar lo que ha aprendido depende de su comprensión y perspicacia. El Colegio de la Vía es a veces un maestro duro, pero los bardos que siguen este camino suelen verse recompensados con una variada gama de trucos y tácticas útiles. Aquellos que subestiman a un bardo del Colegio del Camino pronto descubren que estos \"graduados\" están llenos de sorpresas.",
 				{
-					"type": "entries",
-					"name": "Bonus Proficiencies",
-					"entries": [
-						"Cuando te unes al Colegio de la Carretera a 3er nivel, obtienes unas cuantas competencias útiles recogidas de tu tiempo en la carretera. Elige tres de las siguientes opciones (cada opción sólo puede ser seleccionada una vez):",
-						{
-							"type": "list",
-							"items": [
-								"Ganas competencia con un {@filter Gaming Set|items|source=phb|miscellaneous=mundane|type=gaming set} de tu elección.",
-								"Ganas competencia con un {@filter martial weapon|items|source=phb|category=basic|type=martial weapon;melee weapon=sand} de tu elección",
-								"Ganas habilidad con {@item Herbalism Kit|phb|Herbalism Kits}",
-								"You gain proficiency with {@item Thieves' Tools|PHB}",
-								"Ganas competencia en una habilidad de tu elección",
-								"Aprendes dos idiomas de tu elección"
-							]
-						}
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Bonus Proficiencies|Bard||Road|HumblewoodCampaignSetting|3|HumblewoodCampaignSetting"
 				},
 				{
-					"type": "entries",
-					"name": "Wanderer's Lore",
-					"entries": [
-						"A 3er nivel, puedes compartir cualquier información útil que hayas encontrado en tus viajes para ayudar a otros a ver los problemas desde un nuevo ángulo. Cuando una criatura tiene un dado de inspiración bárdica concedido por ti, puede hacer un único chequeo de {@skill Arcana}, {@skill History}, {@skill Nature} o {@skill Religion} con ventaja. La criatura puede elegir si añade o no el dado de inspiración bárdica a esta tirada."
-					]
+					"type": "refSubclassFeature",
+					"subclassFeature": "Wanderer's Lore|Bard||Road|HumblewoodCampaignSetting|3|HumblewoodCampaignSetting"
 				},
 				{
-					"type": "entries",
-					"name": "Traveler's Tricks",
-					"entries": [
-						"A 3er nivel ya tienes varias experiencias memorables de tu vida en la carretera. Aprendes dos trucos de viajero a tu elección (ver opciones de trucos de viajero).",
-						"Estos Trucos del Viajero representan habilidades, técnicas y conocimientos útiles recogidos a lo largo del camino. Cada uno de ellos requiere un uso de tu inspiración bárdica y requiere una acción de bonificación para usarlo, a menos que se especifique lo contrario.",
-						"A 6º nivel y a 14º nivel aprendes un truco de viajero adicional."
+					"type": "refSubclassFeature",
+					"subclassFeature": "Traveler's Tricks|Bard||Road|HumblewoodCampaignSetting|3|HumblewoodCampaignSetting"
+				}
+			]
+		},
+		{
+			"name": "Bonus Proficiencies",
+			"source": "HumblewoodCampaignSetting",
+			"page": 36,
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Road",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 3,
+			"toolProficiencies": [
+				{
+					"anyGamingSet": 1,
+					"herbalism kit": true,
+					"thieves' tools": true
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"choose": {
+						"count": 1,
+						"fromFilter": "type=martial weapon=sand|category=|miscellaneous=mundane;!reprinted"
+					}
+				}
+			],
+			"skillProficiencies": [
+				{
+					"any": 1
+				}
+			],
+			"languageProficiencies": [
+				{
+					"anyStandard": 2
+				}
+			],
+			"entries": [
+				"Cuando te unes al Colegio de la Carretera a 3er nivel, obtienes unas cuantas competencias útiles recogidas de tu tiempo en la carretera. Elige tres de las siguientes opciones (cada opción sólo puede ser seleccionada una vez):",
+				{
+					"type": "list",
+					"items": [
+						"You gain proficiency with a {@item Gaming Set|PHB} of your choice.",
+						"You gain proficiency with a {@filter martial weapon|items|type=martial weapon=sand|category=|miscellaneous=mundane;!reprinted} of your choice",
+						"Ganas habilidad con {@item Herbalism Kit|phb|Herbalism Kits}",
+						"You gain proficiency with {@item Thieves' Tools|PHB}",
+						"Ganas competencia en una habilidad de tu elección",
+						"Aprendes dos idiomas de tu elección"
 					]
-				},
+				}
+			]
+		},
+		{
+			"name": "Wanderer's Lore",
+			"source": "HumblewoodCampaignSetting",
+			"page": 36,
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Road",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 3,
+			"entries": [
+				"A 3er nivel, puedes compartir cualquier información útil que hayas encontrado en tus viajes para ayudar a otros a ver los problemas desde un nuevo ángulo. Cuando una criatura tiene un dado de inspiración bárdica concedido por ti, puede hacer un único chequeo de {@skill Arcana}, {@skill History}, {@skill Nature} o {@skill Religion} con ventaja. La criatura puede elegir si añade o no el dado de inspiración bárdica a esta tirada."
+			]
+		},
+		{
+			"name": "Traveler's Tricks",
+			"source": "HumblewoodCampaignSetting",
+			"page": 36,
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Road",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 3,
+			"entries": [
+				"A 3er nivel ya tienes varias experiencias memorables de tu vida en la carretera. Aprendes dos trucos de viajero a tu elección (ver opciones de trucos de viajero).",
+				"Estos Trucos del Viajero representan habilidades, técnicas y conocimientos útiles recogidos a lo largo del camino. Cada uno de ellos requiere un uso de tu inspiración bárdica y requiere una acción de bonificación para usarlo, a menos que se especifique lo contrario.",
+				"A 6º nivel y a 14º nivel aprendes un truco de viajero adicional.",
 				{
 					"type": "entries",
 					"name": "Traveler's Trick Options",
 					"entries": [
 						"The Traveler's Trick feature lets you choose options for it at certain levels. The options are presented here in alphabetical order. Each one is associated with a different class.",
-						"A diferencia de las habilidades de bardo tradicionales, que dependen de la destreza o el garbo para ser ejecutadas correctamente, la mayor baza para conseguir trucos en el camino es el sentido común y la apertura a aprender nuevas ideas. La sabiduría afecta a la potencia de los trucos de tu viajero, así como a la dificultad para contrarrestarlos. Si una opción requiere una tirada de salvación, la DC de salvación de tus trucos de viajero es igual a 8 + tu bono de competencia + tu modificador de Sabiduría.",
+						"A diferencia de las habilidades de bardo tradicionales, que dependen de la destreza o el garbo para ser ejecutadas correctamente, la mayor baza para conseguir trucos en el camino es el sentido común y la apertura a aprender nuevas ideas. La sabiduría afecta a la potencia de los trucos de tu viajero, así como a la dificultad para contrarrestarlos. Si una opción requiere una tirada de salvación, la DC de salvación de tus trucos de viajero es igual a 8 + tu bono de competencia + tu modificador de Sabiduría."
+					]
+				},
+				{
+					"type": "options",
+					"count": 2,
+					"entries": [
 						{
-							"type": "options",
-							"entries": [
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Acrobatics Lessons|HumblewoodCampaignSetting"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Armed Combat Lessons|HumblewoodCampaignSetting"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Bind the Wound|HumblewoodCampaignSetting"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Boxing Lessons|HumblewoodCampaignSetting"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Conjure Woodland Spirit|HumblewoodCampaignSetting|Conjure Woodland Spirit*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Dark Bargain|HumblewoodCampaignSetting|Dark Bargain*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Evocation Lessons|HumblewoodCampaignSetting|Evocation Lessons*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Hunting Lessons|HumblewoodCampaignSetting|Hunting Lessons*"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Reckless Tactics|HumblewoodCampaignSetting"
-								},
-								{
-									"type": "refOptionalfeature",
-									"optionalfeature": "Warding Trick|HumblewoodCampaignSetting|Warding Trick*"
-								}
-							]
+							"type": "refOptionalfeature",
+							"optionalfeature": "Acrobatics Lessons|HumblewoodCampaignSetting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Armed Combat Lessons|HumblewoodCampaignSetting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Bind the Wound|HumblewoodCampaignSetting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Boxing Lessons|HumblewoodCampaignSetting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Conjure Woodland Spirit|HumblewoodCampaignSetting|Conjure Woodland Spirit*"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Dark Bargain|HumblewoodCampaignSetting|Dark Bargain*"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Evocation Lessons|HumblewoodCampaignSetting|Evocation Lessons*"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Hunting Lessons|HumblewoodCampaignSetting|Hunting Lessons*"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Reckless Tactics|HumblewoodCampaignSetting"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Warding Trick|HumblewoodCampaignSetting|Warding Trick*"
 						}
 					]
 				}
@@ -455,6 +576,11 @@
 			"entries": [
 				"A partir del 1er nivel, obtienes la habilidad de conjurar un pequeño hogar de losa con una sencilla olla de hierro siempre que descanses. Este hogar ayuda a calentarte a ti y a tus compañeros, y puede utilizarse para preparar comidas abundantes y nutritivas en el camino. Si tú o cualquier criatura amistosa con la que acampes recuperáis puntos de golpe al final de un descanso corto gastando uno o más dados de golpe, cada una de esas criaturas puede elegir volver a tirar uno de sus dados de descanso, tomando la tirada más alta entre las dos.",
 				"Additionally, you gain proficiency with {@item Cook's Utensils|PHB}."
+			],
+			"toolProficiencies": [
+				{
+					"cook's utensils": true
+				}
 			]
 		},
 		{
@@ -467,6 +593,9 @@
 			"subclassSource": "HumblewoodCampaignSetting",
 			"level": 2,
 			"header": 2,
+			"consumes": {
+				"name": "Channel Divinity"
+			},
 			"entries": [
 				"A partir del 2º nivel, puedes utilizar tu Canal de Divinidad para conjurar un festín mágico para el duro camino que te espera. Si inviertes 10 minutos, puedes crear un número de alimentos deliciosos y bien preparados, aunque sencillos, igual a tu modificador de Sabiduría (mínimo 1). Estos alimentos durarán hasta 8 horas o hasta el final de un descanso, y nunca se estropearán. Comer alimentos creados de esta manera requiere una acción, proporcionando a quien los coma una curación igual a {@dice 2d4} + tu nivel de clérigo, y puede eliminar la condición {@condition frightened} o {@condition poisoned} de esa criatura (elegida por la criatura al consumirla)."
 			]
@@ -481,6 +610,9 @@
 			"subclassSource": "HumblewoodCampaignSetting",
 			"level": 6,
 			"header": 2,
+			"consumes": {
+				"name": "Channel Divinity"
+			},
 			"entries": [
 				"A partir del 6º nivel, puedes utilizar tu Canal de Divinidad para infundir un sentimiento de protección vigilante en ti y en tus aliados. Te concedes a ti mismo y a un número de aliados, hasta tu modificador de Sabiduría (mínimo 1), una bendición de tu deidad. Los aliados deben poder verte y estar a menos de 30 pies para recibir la bendición. Una vez por asalto, una criatura que se beneficie de esta bendición puede tirar un {@dice d6}, añadiendo el resultado a un chequeo de habilidad, tirada de salvación o tirada de ataque. Este efecto dura un número de asaltos igual a tu modificador de Sabiduría (mínimo 1 asalto). Una criatura sólo puede beneficiarse de este efecto si puede ver al menos a uno de sus aliados."
 			]
@@ -598,7 +730,10 @@
 			"entries": [
 				"A 1er nivel, puedes crear una protección de sombras divinas para ocultarte de un enemigo que te ataque. Cuando te ataca una criatura que puedes ver a menos de 30 pies de ti, puedes usar tu reacción para imponer desventaja en la tirada de ataque, ya que las sombras envuelven tu forma. Un atacante que no pueda ser {@condition blinded} es inmune a este rasgo.",
 				"Puedes utilizar este rasgo un número de veces igual a tu modificador de Sabiduría (un mínimo de una vez), y recuperas todos los usos gastados cuando terminas un descanso largo."
-			]
+			],
+			"foundrySystem": {
+				"uses.max": "max(1, @abilities.wis.mod)"
+			}
 		},
 		{
 			"name": "Channel Divinity: Invocation of Night",
@@ -610,6 +745,9 @@
 			"subclassSource": "HumblewoodCampaignSetting",
 			"level": 2,
 			"header": 2,
+			"consumes": {
+				"name": "Channel Divinity"
+			},
 			"entries": [
 				"A partir del 2º nivel, puedes utilizar tu Canal de Divinidad para aprovechar los poderes de la noche, nublando la visión de tus enemigos con un manto de oscuridad.",
 				"As an action, you present your holy symbol causing any source of mundane or magical light within 30 feet of you to be extinguished. Additionally, each hostile creature within 30 feet of you must make a Constitution saving throw. A creature who fails the saving throw is {@condition blinded} for a number of rounds equal to your cleric level. A creature blinded in this way gets a new saving throw at the end of each of its turns to remove the effect. A creature that has {@quickref Cover||3||total cover} from you is not affected."
@@ -698,6 +836,26 @@
 			"header": 2,
 			"entries": [
 				"Cuando eliges este Arquetipo Marcial a 3er nivel, ganas competencia en una de las siguientes habilidades a tu elección: {@skill Deception}, {@skill Insight}, {@skill Intimidation}, {@skill Sleight of Hand} o {@skill Stealth}. Alternativamente, puedes aprender {@class rogue|phb|Thieves' Cant||phb|Thieves' Cant 1}."
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"deception",
+							"insight",
+							"intimidation",
+							"sleight of hand",
+							"stealth"
+						]
+					}
+				},
+				{}
+			],
+			"languageProficiencies": [
+				{},
+				{
+					"thieves' cant": true
+				}
 			]
 		},
 		{
@@ -715,6 +873,11 @@
 				"Además, siempre que golpees con un arma improvisada, puedes gastar una acción de bonificación para romperla sobre tu oponente. Al hacer esto se destruye el arma, pero se inflige el número máximo que cada uno de los dados de daño del arma podría infligir al objetivo. Cualquier dado adicional añadido a la tirada de daño del ataque no se ve afectado por esta habilidad.",
 				"A 10º nivel, las armas improvisadas que manejas se vuelven aún más letales en tus manos. Cuando gastes tu acción de bonificación para romper un arma improvisada sobre tu oponente, añade un {@damage 2d6} adicional a los dados de daño base del arma.",
 				"A nivel 18, tienes ventaja en los ataques que hagas con armas improvisadas."
+			],
+			"weaponProficiencies": [
+				{
+					"improvised": true
+				}
 			]
 		},
 		{
@@ -760,7 +923,18 @@
 				"A 10º nivel, eres realmente hábil para explotar las aperturas que creas en el combate, golpeando a los oponentes desprevenidos con golpes precisos que son rápidos y mortales. Puedes utilizar esta técnica contra cualquier criatura que aún no haya tomado un turno de combate, o a la que hayas desviado con éxito este turno. También puedes aplicar esta técnica a cualquier tirada de ataque que hagas con ventaja. Si aciertas, aprovechas una abertura en las defensas del objetivo, infligiendo un {@damage 5d6} de puntos de daño extra. Una vez que usas esta habilidad, no puedes volver a usarla hasta que hayas tomado un descanso corto o largo.",
 				"A 15º nivel, el daño infligido por tu ceguera aumenta a {@damage 7d6}.",
 				"A 18º nivel, el daño infligido por tu ceguera aumenta a {@damage 9d6}. Si no tienes ningún uso de esta habilidad al inicio del combate en tu turno, recuperas un uso de la misma."
-			]
+			],
+			"foundrySystem": {
+				"uses": {
+					"max": 1,
+					"recovery": [
+						{
+							"period": "sr",
+							"type": "recoverAll"
+						}
+					]
+				}
+			}
 		},
 		{
 			"name": "Infamy",
@@ -789,6 +963,519 @@
 			"header": 2,
 			"entries": [
 				"A nivel 18, has perfeccionado el arte de explotar la debilidad de tu oponente. Siempre que realices la acción de ataque contra un oponente al que hayas desviado con éxito este turno, o contra un oponente que esté afectado por un {@book condition|PHB|11}, puedes realizar un ataque adicional contra ese oponente. Sólo puedes utilizar este rasgo una vez por asalto."
+			],
+			"foundrySystem": {
+				"uses": {
+					"max": 1,
+					"recovery": [
+						{
+							"period": "turnStart",
+							"type": "recoverAll"
+						}
+					]
+				}
+			}
+		}
+	],
+	"foundrySubclassFeature": [
+		{
+			"name": "Traveler's Tricks",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Road",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 3,
+			"activities": []
+		},
+		{
+			"name": "Favorite Trick",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Road",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 6,
+			"activities": [
+				{
+					"activation": {
+						"type": "encounter",
+						"condition": "If you roll initiative and have no uses of Bardic Inspiration remaining"
+					},
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"target.consumes.name": "Bardic Inspiration",
+							"value": -1
+						}
+					],
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Favorite Trick",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Bard",
+			"classSource": "PHB",
+			"subclassShortName": "Road",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 14,
+			"activities": [
+				{
+					"activation": {
+						"type": "encounter",
+						"condition": "If you roll initiative and have no uses of Bardic Inspiration remaining"
+					},
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"target.consumes.name": "Bardic Inspiration",
+							"value": -1
+						}
+					],
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Blessing of the Hearth",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Community",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 1,
+			"activities": [
+				{
+					"activation.type": "shortRest",
+					"target.affects.type": "ally",
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Channel Divinity: Magnificent Feast",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Community",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 2,
+			"activities": [
+				{
+					"activation": {
+						"value": 10,
+						"type": "minute"
+					},
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"target.consumes.name": "Channel Divinity",
+							"value": 1
+						},
+						{
+							"type": "itemUses",
+							"value": "-@item.uses.max"
+						}
+					],
+					"duration": {
+						"value": 8,
+						"units": "hour"
+					},
+					"name": "Cook",
+					"type": "utility"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"healing": {
+						"number": 2,
+						"denomination": 4,
+						"bonus": "@classes.cleric.levels",
+						"types": [
+							"healing"
+						]
+					},
+					"type": "heal"
+				}
+			],
+			"system": {
+				"uses": {
+					"value": 0,
+					"max": "max(1, @abilities.wis.mod) * floor(@classes.cleric.levels / 17 + 1)",
+					"recovery": [
+						{
+							"period": "sr",
+							"type": "loseAll"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Channel Divinity: Community Watch",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Community",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 6,
+			"activities": [
+				{
+					"activation.type": "special",
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"target.consumes.name": "Channel Divinity",
+							"value": 1
+						}
+					],
+					"duration": {
+						"value": "max(1, @abilities.wis.mod)",
+						"units": "round"
+					},
+					"range": {
+						"value": 30,
+						"units": "ft",
+						"special": "Allies must be able to see you"
+					},
+					"roll": {
+						"name": "Add to skill check, saving throw, or attack roll",
+						"formula": "d6",
+						"visible": true
+					},
+					"target.affects": {
+						"count": "max(1, @abilities.wis.mod)",
+						"type": "ally"
+					},
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Divine Strike",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Community",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 8,
+			"activities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "Once on each of your turns, when you hit a creature with a weapon attack"
+					},
+					"damage.parts": [
+						{
+							"custom": {
+								"enabled": true,
+								"formula": "@scale.community-domain.divine-strike"
+							},
+							"types": [
+								"psychic"
+							]
+						}
+					],
+					"type": "damage"
+				}
+			]
+		},
+		{
+			"name": "Eye of Twilight",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Night",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 1,
+			"activities": [
+				{
+					"activation.type": "special",
+					"consumption.targets": [
+						{
+							"type": "activityUses",
+							"value": 1
+						}
+					],
+					"description.chatFlavor": "Level 17+",
+					"effects": [
+						{
+							"foundryId": "HWCSNightTrue"
+						}
+					],
+					"name": "Use (Level 17+)",
+					"type": "utility",
+					"uses": {
+						"max": 1,
+						"recovery": [
+							{
+								"period": "lr",
+								"type": "recoverAll"
+							}
+						]
+					}
+				}
+			],
+			"effects": [
+				{
+					"name": "Darkvision",
+					"changes": [
+						{
+							"key": "system.attributes.senses.darkvision",
+							"mode": "UPGRADE",
+							"value": "@scale.night-domain.darkvision"
+						}
+					]
+				},
+				{
+					"foundryId": "HWCSNightTrue",
+					"name": "Truevision",
+					"changes": [
+						{
+							"key": "system.attributes.senses.truevision",
+							"mode": "UPGRADE",
+							"value": 120
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Channel Divinity: Invocation of Night",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Night",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 2,
+			"activities": [
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"target.consumes.name": "Channel Divinity",
+							"value": 1
+						}
+					],
+					"duration": {
+						"value": "@classes.cleric.levels",
+						"units": "round"
+					},
+					"range": {
+						"value": 30,
+						"units": "ft"
+					},
+					"save": {
+						"ability": [
+							"con"
+						],
+						"dc.calculation": "spellcasting"
+					},
+					"target.affects.type": "enemy",
+					"type": "save"
+				}
+			]
+		},
+		{
+			"name": "Veil of Dreams",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Night",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 8,
+			"activities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When you cast the Sleep spell"
+					},
+					"roll": {
+						"name": "Cleric Level",
+						"formula": "@classes.cleric.levels"
+					},
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Creature of the Night",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Cleric",
+			"classSource": "PHB",
+			"subclassShortName": "Night",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 17,
+			"activities": [
+				{
+					"duration": {
+						"value": 1,
+						"units": "minute"
+					},
+					"target": {
+						"affects.type": "enemy",
+						"template": {
+							"size": 80,
+							"type": "radius"
+						}
+					},
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Brutal Brawler",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"subclassShortName": "Scofflaw",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 3,
+			"activities": [
+				{
+					"activation.type": "bonus",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When you spend your bonus action to break an improvised weapon over your opponent"
+					},
+					"damage.parts": [
+						{
+							"number": 2,
+							"denomination": 6
+						}
+					],
+					"description.chatFlavor": "Level 10+",
+					"name": "Extra Damage (Level 10+)",
+					"type": "damage"
+				}
+			]
+		},
+		{
+			"name": "Misdirection",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"subclassShortName": "Scofflaw",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 7,
+			"activities": [
+				{
+					"activation.type": "bonus",
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"save": {
+						"ability": [
+							"int"
+						],
+						"dc": {
+							"calculation": "",
+							"formula": "8 + @prof + max(@abilities.str.mod, @abilities.dex.mod)"
+						}
+					},
+					"type": "save"
+				}
+			]
+		},
+		{
+			"name": "Blindside",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"subclassShortName": "Scofflaw",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 10,
+			"activities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "On a hit against any creature that hasn't yet taken a turn in combat, or who you have successfully misdirected this turn, or if you had advantage on the attack roll"
+					},
+					"damage": {
+						"critical.allow": true,
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "@scale.scofflaw.blindside"
+								}
+							}
+						]
+					},
+					"type": "damage"
+				}
+			]
+		},
+		{
+			"name": "Infamy",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"subclassShortName": "Scofflaw",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 15,
+			"activities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "As part of your Attack action"
+					},
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"range": {
+						"value": 30,
+						"units": "ft",
+						"special": "Target must be able to see, hear, or otherwise be able to understand you"
+					},
+					"save": {
+						"ability": [
+							"wis"
+						],
+						"dc": {
+							"calculation": "",
+							"formula": "8 + @prof + max(@abilities.str.mod, @abilities.dex.mod)"
+						}
+					},
+					"type": "save"
+				}
+			]
+		},
+		{
+			"name": "Two For Flinching",
+			"source": "HumblewoodCampaignSetting",
+			"className": "Fighter",
+			"classSource": "PHB",
+			"subclassShortName": "Scofflaw",
+			"subclassSource": "HumblewoodCampaignSetting",
+			"level": 18,
+			"activities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "Whenever you take the Attack action against an opponent you have successfully misdirected this turn, or an opponent that is afflicted by a condition"
+					},
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"type": "utility"
+				}
 			]
 		}
 	],
@@ -804,6 +1491,36 @@
 				"Un pícaro astuto te dio una vez algunos consejos sobre cómo hacer zig-zag. Cuando tú o un aliado hagáis una tirada de salvación de Destreza, puedes gastar un uso de tu Inspiración Bárdica, tirando un dado de Inspiración Bárdica y añadiendo el resultado a la tirada de salvación. Un aliado debe estar a menos de 60 pies de ti y poder verte y oírte para beneficiarse de este truco.",
 				"A 6º nivel, si el objetivo tiene éxito en la tirada de salvación contra un efecto que infligiría la mitad de daño en una salvación exitosa, el objetivo no recibe daño en su lugar.",
 				"A nivel 14, aunque el objetivo falle su tirada de salvación, sólo recibe la mitad del daño del efecto."
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "",
+						"condition": "When you or an ally makes a Dexterity saving throw"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"roll": {
+						"formula": "1@scale.bard.inspiration",
+						"name": "Add to the Saving Throw"
+					},
+					"type": "utility"
+				}
 			]
 		},
 		{
@@ -816,17 +1533,119 @@
 			"entries": [
 				"Un luchador experimentado te ha enseñado a utilizar una postura de combate sencilla para manejar tus armas con mayor eficacia. Al seleccionar esta opción, elige entre las siguientes {@b Fighting Styles}:",
 				{
-					"type": "list",
-					"items": [
-						"{@optfeature Archery}: You gain a +2 bonus to attack rolls you make with ranged weapons.",
-						"{@optfeature Dueling}: When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.",
-						"{@optfeature Great Weapon Fighting}: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.",
-						"{@optfeature Two-Weapon Fighting}: When you engage in two-weapon fighting, you can add your ability modifier."
+					"type": "options",
+					"count": 1,
+					"entries": [
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Archery|PHB"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Dueling|PHB"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Great Weapon Fighting|PHB"
+						},
+						{
+							"type": "refOptionalfeature",
+							"optionalfeature": "Two-Weapon Fighting|PHB"
+						}
 					]
 				},
 				"Cuando realizas un ataque con arma, puedes gastar un uso de tu Inspiración Bardica, añadiendo tu dado de Inspiración Bardica a la tirada de ataque o de daño. Cuando haces esto, obtienes los beneficios de tu estilo de lucha elegido durante 10 minutos.",
 				"A 6º nivel, aprendes a utilizar tu postura para encadenar tus ataques en una combinación mortal. Una vez, mientras tu Estilo de Lucha esté activo, puedes atacar dos veces, en lugar de una, al realizar la acción de Ataque en tu turno.",
 				"A 14º nivel has aprendido a apuntalar cualquier debilidad en tu postura. Obtienes +1 a tu CA durante la duración del efecto."
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"activation": {
+						"condition": "When you make a weapon attack",
+						"type": ""
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": "1"
+							}
+						]
+					},
+					"duration": {
+						"value": 10,
+						"units": "minute"
+					},
+					"effects": [
+						{
+							"foundryId": "HWCSRoadACLFS"
+						}
+					],
+					"type": "utility"
+				},
+				{
+					"name": "Use (Level 14+)",
+					"activation": {
+						"condition": "When you make a weapon attack",
+						"type": ""
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"description.chatFlavor": "Level 14+",
+					"duration": {
+						"value": 10,
+						"units": "minute"
+					},
+					"effects": [
+						{
+							"foundryId": "HWCSRoadACLAC"
+						}
+					],
+					"type": "utility"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "HWCSRoadACLFS",
+					"name": "Armed Combat Lessons Fighting Style",
+					"duration": {
+						"seconds": 600
+					}
+				},
+				{
+					"foundryId": "HWCSRoadACLAC",
+					"name": "Armed Combat Lessons Fighting Style (+1 AC)",
+					"duration": {
+						"seconds": 600
+					},
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -838,8 +1657,51 @@
 			],
 			"entries": [
 				"Un paladín experimentado te instruyó en los fundamentos del triaje de combate. Cuando tú o un aliado en un radio de 1,5 metros recibís curación de cualquier tipo, puedes usar tu reacción para gastar un uso de tu Inspiración Bárdica y proporcionar una curación extra igual al número de la tirada de Inspiración Bárdica + tu modificador de Sabiduría (mínimo 1). Debes tener al menos una mano libre para poder restablecer rápidamente la herida del objetivo.",
-				"A 6º nivel, has aprendido a identificar una selección de hierbas útiles que puedes llevar contigo. Al proporcionar curación adicional con este truco, también puedes eliminar la condición de envenenado o paralizado del objetivo.",
+				"At 6th level, you have learned to identify a selection of useful herbs that you can carry with you. When providing additional healing with this trick you may also remove the {@condition poisoned} or {@condition paralyzed} condition from the target.",
 				"A 14º nivel, has desarrollado una verdadera habilidad para el triaje de emergencias. Además, puedes eliminar una sola enfermedad que afecte al objetivo de esta habilidad."
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "reaction",
+						"condition": "When you or an ally within 5 feet of you receives healing of any kind"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"healing": {
+						"custom": {
+							"enabled": true,
+							"formula": "1@scale.bard.inspiration + max(1, @abilities.wis.mod)"
+						},
+						"types": [
+							"healing"
+						]
+					},
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"target.affects": {
+						"count": 1,
+						"type": "ally"
+					},
+					"type": "heal"
+				}
 			]
 		},
 		{
@@ -853,6 +1715,70 @@
 				"Un monje sabio se complace en compartir la forma básica del golpe y la trama. Cuando realizas la acción {@action Attack}, puedes gastar un uso de tu inspiración bárdica para ejecutar rápidamente dos golpes desarmados contra una o más criaturas a las que podrías apuntar. Puedes utilizar la Destreza en lugar de la Fuerza para las tiradas de ataque y daño de estos golpes desarmados. El dado de daño utilizado para estos golpes desarmados es el mismo que tu dado de inspiración bárdica.",
 				"A 6º nivel, por fin dominas la parte de \"tejido\" de tu técnica. No provocas {@action opportunity attack|phb|attacks of opportunity} este turno.",
 				"A 14º nivel, tu práctica ha dado sus frutos, concediéndote el uso de un ataque ligeramente infundido de ki. Cuando golpeas con uno de estos ataques, puedes intentar un golpe de aturdimiento. El objetivo debe tener éxito en una tirada de salvación de Constitución o quedar aturdido hasta el final de tu siguiente turno."
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "action",
+						"condition": "When you take the Attack action"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"type": "utility"
+				},
+				{
+					"attack": {
+						"ability": "dex",
+						"type.classification": "unarmed"
+					},
+					"damage.parts": [
+						{
+							"custom": {
+								"enabled": true,
+								"formula": "1@scale.bard.inspiration + @mod"
+							},
+							"types": [
+								"bludgeoning"
+							]
+						}
+					],
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"type": "attack"
+				},
+				{
+					"activation.type": "special",
+					"description.chatFlavor": "Level 14+",
+					"name": "Stunning Strike (Level 14+)",
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"save": {
+						"ability": [
+							"con"
+						],
+						"dc.calculation": "wis"
+					},
+					"type": "save"
+				}
 			]
 		},
 		{
@@ -865,8 +1791,140 @@
 			"entries": [
 				"{@note This is a magical effect.} A patient druid shared the secrets of forest magic with you. You can expend one use of your Bardic Inspiration as an action to conjure a forest guardian spirit in an unoccupied space you can see within 60 feet of you. The guardian spirit is Large, and takes the appearance of a spectral predatory cat. Any enemy that moves into or leaves a space adjacent to the guardian spirit must make a Wisdom saving throw, taking magical slashing damage equal to your Bardic Inspiration die on a failure. The guardian spirit will remain for as long as you concentrate on it, up to 10 minutes.",
 				"A 6º nivel, tu vínculo con el espíritu guardián es aún más profundo. Cualquier criatura que reciba daño de tu espíritu guardián ve reducida su velocidad a 0 durante el resto del turno.",
-				"A 14º nivel, cualquier criatura grande o más pequeña que tenga su velocidad reducida a 0 por el espíritu guardián queda retenida mientras mantengas tu concentración, ya que tu espíritu guardián la inmoviliza. El objetivo puede liberarse gastando una acción para hacer un chequeo de Fuerza ({@skill Athletics}) contra tu DC de salvación del Truco del Viajero."
-			]
+				"At 14th level, any Large or smaller creature who has their speed reduced to 0 by the guardian spirit is {@condition restrained} for as long as you maintain your concentration, as your guardian spirit pins them in place. The target can break free by spending an action to make a Strength ({@skill Athletics}) check against your Traveler's Trick save DC."
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"duration": {
+						"value": 10,
+						"units": "minute",
+						"concentration": true
+					},
+					"range": {
+						"value": 60,
+						"units": "ft"
+					},
+					"target": {
+						"affects": {
+							"count": 1,
+							"type": "space"
+						},
+						"prompt": false,
+						"template": {
+							"size": 10,
+							"units": "ft",
+							"type": "square"
+						}
+					},
+					"type": "utility"
+				},
+				{
+					"activation.type": "special",
+					"damage": {
+						"onSave": "none",
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "1@scale.bard.inspiration"
+								},
+								"types": "slashing"
+							}
+						]
+					},
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"save": {
+						"ability": [
+							"wis"
+						],
+						"dc.calculation": "wis"
+					},
+					"target.affects.type": "enemy",
+					"type": "save"
+				},
+				{
+					"name": "Save (Level 6+)",
+					"activation.type": "special",
+					"damage": {
+						"onSave": "none",
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "1@scale.bard.inspiration"
+								},
+								"types": "slashing"
+							}
+						]
+					},
+					"description.chatFlavor": "Level 6+",
+					"effects": [
+						{
+							"foundryId": "HWCSRoadCWS0"
+						}
+					],
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"save": {
+						"ability": [
+							"wis"
+						],
+						"dc.calculation": "wis"
+					},
+					"target.affects.type": "enemy",
+					"type": "save"
+				},
+				{
+					"check": {
+						"associated": [
+							"ath"
+						],
+						"dc.calculation": "wis"
+					},
+					"name": "Break Restrain Check",
+					"type": "check"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "HWCSRoadCWS0",
+					"name": "0 Speed",
+					"changes": [
+						{
+							"key": "system.attributes.movement.walk",
+							"mode": "OVERRIDE",
+							"value": 0
+						}
+					]
+				}
+			],
+			"foundrySystem": {
+				"properties": [
+					"mgc"
+				]
+			}
 		},
 		{
 			"name": "Dark Bargain",
@@ -879,7 +1937,149 @@
 				"{@note This is a magical effect.} You made a shady bargain with a haggard warlock. When you select this option, choose a {@filter Eldritch Invocation|optionalfeatures|type=EI} from the Warlock's list of class features for which you meet the prerequisites. You can expend one use of your Bardic Inspiration to gain the benefits of this Dark Invocation for 10 minutes. Doing this requires you to roll your Bardic Inspiration die and take an amount of necrotic damage equal to the roll.",
 				"A 6º nivel, has aprendido a profundizar tu pacto con el brujo que conociste. Puedes elegir recibir el doble de daño necrótico que hayas sacado en tu dado de inspiración bárdica para que, en su lugar, el efecto dure 1 hora.",
 				"A 14º nivel, tu pacto con el brujo desbloquea un nuevo y aterrador poder. Cuando alcances el 14º nivel, elige un único hechizo de 7º nivel o inferior de entre los {@filter warlock's spell list|spells|level=0;1;2;3;4;5;6;7|class=warlock}. Puedes lanzar el conjuro una vez durante este efecto sin gastar ninguna ranura de conjuro, aunque debes lanzarlo al nivel de tu ranura de conjuro más alta. A cambio, el hechizo te inflige un daño necrótico adicional igual al doble del nivel al que fue lanzado."
-			]
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"optionalfeatureProgression": [
+				{
+					"name": "Dark Bargian",
+					"featureType": [
+						"EI"
+					],
+					"progression": {
+						"*": 1
+					}
+				}
+			],
+			"additionalSpells": [
+				{
+					"innate": {
+						"14": {
+							"limited": {
+								"1": [
+									{
+										"choose": "level=0;1;2;3;4;5;6;7|class=warlock",
+										"count": 1
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"foundryActivities": [
+				{
+					"activation.type": "special",
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"damage.parts": [
+						{
+							"custom": {
+								"enabled": true,
+								"formula": "1@scale.bard.inspiration"
+							},
+							"types": [
+								"necrotic"
+							]
+						}
+					],
+					"duration": {
+						"value": 10,
+						"units": "minute"
+					},
+					"name": "Use",
+					"type": "damage"
+				},
+				{
+					"activation.type": "special",
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"damage.parts": [
+						{
+							"custom": {
+								"enabled": true,
+								"formula": "2*(1@scale.bard.inspiration)"
+							},
+							"types": [
+								"necrotic"
+							]
+						}
+					],
+					"description.chatFlavor": "Level 6+",
+					"duration": {
+						"value": 1,
+						"units": "hour"
+					},
+					"name": "Use: 1 Hour (Level 6+)",
+					"type": "damage"
+				},
+				{
+					"activation.type": "special",
+					"consumption": {
+						"scaling": {
+							"allowed": true,
+							"max": 9
+						},
+						"targets": [
+							{
+								"scaling.mode": "level",
+								"target": "1",
+								"type": "spellSlots",
+								"value": 0
+							}
+						]
+					},
+					"damage.parts": [
+						{
+							"custom": {
+								"enabled": true,
+								"formula": "2*@scaling"
+							},
+							"types": [
+								"necrotic"
+							]
+						}
+					],
+					"description.chatFlavor": "Level 14+",
+					"name": "Cast (Level 14+)",
+					"type": "damage"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "HWCSRoadDBEvo",
+					"name": "Dark Evocation"
+				}
+			],
+			"foundrySystem": {
+				"properties": [
+					"mgc"
+				]
+			}
 		},
 		{
 			"name": "Evocation Lessons",
@@ -892,7 +2092,54 @@
 				"{@note This is a magical effect.} A venerable wizard shared secrets of evocation magic with you. When you select this option, choose a damage-dealing spell you can cast. You can expend one use of your Bardic Inspiration when you cast this spell to change the type of damage it deals to your choice of either acid, cold, fire, lightning, or thunder (chosen when you cast the spell). Add the number you roll on your Bardic Inspiration die + your Wisdom modifier (minimum of 1) to the damage dealt by the spell.",
 				"A 6º nivel puedes elegir cambiar el hechizo que habías seleccionado previamente con esta característica por otro que conozcas.",
 				"A 14º nivel puedes elegir cambiar el hechizo que habías seleccionado previamente con esta característica por otro que conozcas."
-			]
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When you cast the selected spell"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"damage.parts": [
+						{
+							"custom": {
+								"enabled": true,
+								"formula": "1@scale.bard.inspiration + max(1, @abilities.wis.mod)"
+							},
+							"types": [
+								"acid",
+								"cold",
+								"fire",
+								"lightning",
+								"thunder"
+							]
+						}
+					],
+					"name": "Use",
+					"type": "damage"
+				}
+			],
+			"foundrySystem": {
+				"properties": [
+					"mgc"
+				]
+			}
 		},
 		{
 			"name": "Hunting Lessons",
@@ -905,7 +2152,59 @@
 				"{@note This is a magical effect.} A skilled ranger taught you how to use your magic to pinpoint your quarry's weak spots. You can expend one use of your Bardic Inspiration to target one creature you can see within 90 feet of you as your quarry. For as long as you concentrate on this ability, up to 1 hour, all weapon attacks you make against the target deal additional damage equal to your Bardic Inspiration die.",
 				"A 6º nivel, has perfeccionado tus habilidades hasta el punto de poder rastrear fácilmente a tu presa. Mientras dure el efecto, conoces la distancia y la dirección aproximadas de tu objetivo, siempre que estéis en el mismo plano.",
 				"A nivel 14, puedes mantener este efecto hasta 24 horas."
-			]
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"activation.type": "special",
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"duration": {
+						"value": "23 * floor(@classes.bard.levels/14) + 1",
+						"units": "hour",
+						"concentration": true
+					},
+					"effects": [
+						{
+							"foundryId": "NWCSRoadHLQ"
+						}
+					],
+					"range": {
+						"value": 90,
+						"units": "ft"
+					},
+					"target.affects": {
+						"count": 1,
+						"type": "creature"
+					},
+					"type": "utility"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "NWCSRoadHLQ",
+					"name": "Hunting Lessons: Quarry"
+				}
+			],
+			"foundrySystem": {
+				"properties": [
+					"mgc"
+				]
+			}
 		},
 		{
 			"name": "Reckless Tactics",
@@ -918,6 +2217,62 @@
 				"Aprendiste de un bárbaro curtido que a veces hay que lanzarse al combate sin tener en cuenta tu propia seguridad. Cuando realizas un ataque con un arma cuerpo a cuerpo que tenga la cualidad de pesada, a dos manos o versátil, puedes gastar un uso de tu Inspiración Bardica para ganar ventaja en el ataque. Añade el número que saques en tu dado de Inspiración Bardica + tu modificador de Sabiduría (mínimo 1) a la tirada de daño del ataque. Los ataques realizados contra ti en este asalto tienen ventaja.",
 				"A 6º nivel has aprendido, a través de la práctica, a llevar tu ofensiva aún más lejos. Puedes imponer una penalización de -5 a esta tirada de ataque. Si el ataque impacta, añades +10 al daño del ataque.",
 				"A 14º nivel, tu experiencia te ha enseñado a ir realmente a por todas. Si no te has movido este turno, puedes reducir voluntariamente tu velocidad a 0 hasta tu próximo turno para resolver este ataque contra cualquier número de criaturas que se encuentren a 1,5 metros de ti, realizando una tirada de ataque distinta para cada objetivo."
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When you make an attack with a melee weapon that has either the heavy, two handed, or versatile quality"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"effects": [
+						{
+							"foundryId": "HWCSRoadRTR"
+						}
+					],
+					"type": "utility"
+				},
+				{
+					"activation.type": "",
+					"damage.parts": [
+						{
+							"custom": {
+								"enabled": true,
+								"formula": "1@scale.bard.inspiration + max(1, @abilities.wis.mod)"
+							}
+						}
+					],
+					"type": "damage"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "HWCSRoadRTR",
+					"name": "Reckless",
+					"changes": [
+						{
+							"key": "flags.midi-qol.grants.advantage.attack.all",
+							"mode": "CUSTOM",
+							"value": 1
+						}
+					]
+				}
 			]
 		},
 		{
@@ -931,7 +2286,84 @@
 				"{@note This is a magical effect.} A gentle cleric taught you how to channel your magic into a protective veil. You can expend one use of your Bardic Inspiration as an action to grant an ally you can see within 60 feet of you a number of temporary hit points equal to your roll on the Bardic Inspiration die + your Wisdom modifier (minimum of 1). This ward lasts for as long as you maintain concentration on it, up to 10 minutes.",
 				"A 6º nivel, tu práctica te permite tejer vallas que toman represalias contra aquellos que puedan dañar a tus aliados. Cualquier criatura que inflija daño a un aliado con puntos de golpe temporales otorgados por este efecto debe realizar una tirada de salvación de Sabiduría. Si falla, la criatura que inflige el daño recibe una cantidad de daño radiante igual a tu dado de inspiración bárdica.",
 				"A 14º nivel, has aprendido a hacer que tu pupilo sea aún más resistente. Mientras dure el efecto, al principio de cada ronda de tu turno el objetivo gana un número de puntos de golpe temporales igual a tu dado de Inspiración Bardica + tu modificador de Sabiduría (mínimo 1). Estos reemplazan cualquier punto de golpe temporal anterior."
-			]
+			],
+			"consumes": {
+				"name": "Bardic Inspiration",
+				"amount": 1
+			},
+			"foundryActivities": [
+				{
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"target": {
+									"consumes": {
+										"name": "Bardic Inspiration"
+									}
+								},
+								"value": 1
+							}
+						]
+					},
+					"duration": {
+						"value": 10,
+						"units": "minute",
+						"concentration": true
+					},
+					"healing": {
+						"custom": {
+							"enabled": true,
+							"formula": "1@scale.bard.inspiration + max(1, @abilities.wis.mod)"
+						},
+						"types": [
+							"temphp"
+						]
+					},
+					"range": {
+						"value": 60,
+						"units": "ft"
+					},
+					"target.affects": {
+						"count": 1,
+						"type": "ally"
+					},
+					"type": "heal"
+				},
+				{
+					"activation": {
+						"type": "special",
+						"condition": "Against any creature who deals damage to an ally with temporary hit points granted by this effect"
+					},
+					"damage": {
+						"onSave": "none",
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "1@scale.bard.inspiration"
+								},
+								"types": [
+									"radiant"
+								]
+							}
+						]
+					},
+					"name": "Save (Level 6+)",
+					"save": {
+						"ability": [
+							"wis"
+						],
+						"dc.calculation": "wis"
+					},
+					"type": "save"
+				}
+			],
+			"foundrySystem": {
+				"properties": [
+					"mgc"
+				]
+			}
 		}
 	],
 	"background": [
@@ -1244,7 +2676,7 @@
 			],
 			"toolProficiencies": [
 				{
-					"artisan's tools": true
+					"anyArtisansTool": 1
 				}
 			],
 			"startingEquipment": [
@@ -1851,6 +3283,22 @@
 					"other": true
 				}
 			],
+			"age": {
+				"mature": 12,
+				"max": 150
+			},
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"athletics",
+							"medicine",
+							"nature",
+							"survival"
+						]
+					}
+				}
+			],
 			"entries": [
 				{
 					"name": "Age",
@@ -1922,6 +3370,25 @@
 				{
 					"other": true,
 					"auran": true
+				}
+			],
+			"age": {
+				"mature": 18,
+				"max": 70
+			},
+			"traitTags": [
+				"Natural Weapon"
+			],
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						]
+					}
 				}
 			],
 			"entries": [
@@ -2020,6 +3487,15 @@
 							"smith's tools"
 						]
 					}
+				}
+			],
+			"age": {
+				"mature": 18,
+				"max": 100
+			},
+			"weaponProficiencies": [
+				{
+					"simple": true
 				}
 			],
 			"entries": [
@@ -2122,6 +3598,31 @@
 					"other": true
 				}
 			],
+			"age": {
+				"mature": 20,
+				"max": 120
+			},
+			"additionalSpells": [
+				{
+					"ability": "cha",
+					"known": {
+						"_": {
+							"_": [
+								"druidcraft"
+							]
+						}
+					},
+					"innate": {
+						"_": {
+							"rest": {
+								"1": [
+									"animal messenger"
+								]
+							}
+						}
+					}
+				}
+			],
 			"entries": [
 				{
 					"name": "Age",
@@ -2217,6 +3718,10 @@
 					"other": true
 				}
 			],
+			"age": {
+				"mature": 5,
+				"max": 40
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -2302,6 +3807,24 @@
 				{
 					"other": true,
 					"auran": true
+				}
+			],
+			"age": {
+				"mature": 20,
+				"max": 70
+			},
+			"additionalSpells": [
+				{
+					"ability": "cha",
+					"known": {
+						"_": {
+							"_": [
+								{
+									"choose": "level=0|class=sorcerer"
+								}
+							]
+						}
+					}
 				}
 			],
 			"entries": [
@@ -2403,6 +3926,10 @@
 			"resist": [
 				"poison"
 			],
+			"age": {
+				"mature": 8,
+				"max": 60
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -2457,7 +3984,7 @@
 					"name": "Scroungecraft",
 					"type": "entries",
 					"entries": [
-						"You are proficient with {@item tinker's tools|PHB}. Additionally, you have the ability to construct crude but functional versions of common items using materials present in your surroundings. You may spend 10 minutes to craft these materials into any tool or piece of adventuring gear worth 30 gold pieces or less. The item will be completely functional, even capable of passing for a disguise (if you crafted an article of clothing). Tools, along with any other item that would logically break on its first use (caltrops, arrows), will become useless afterward. Scroungecrafted items will otherwise last 1 hour before falling apart.",
+						"You are proficient with {@item tinker's tools|PHB}. Additionally, you have the ability to construct crude but functional versions of common items using materials present in your surroundings. You may spend 10 minutes to craft these materials into any {@filter tool or piece of adventuring gear worth 30 gold pieces or less|items|type=adventuring gear;tool|Cost=[&1;&3000]}. The item will be completely functional, even capable of passing for a disguise (if you crafted an article of clothing). Tools, along with any other item that would logically break on its first use (caltrops, arrows), will become useless afterward. Scroungecrafted items will otherwise last 1 hour before falling apart.",
 						"Dependiendo de los materiales disponibles, un Game Master (GM) puede dictaminar que no se puede fabricar un objeto de esta manera. Por ejemplo, un frasco de ácido puede ser fácil de hacer si estás cerca de un nido de larvas de escarabajos ácidos, o la corteza puede ser atada en un frasco improvisado, pero sería difícil crear un facsímil pasable de túnicas de seda de un montón de hojas.",
 						"Si tienes acceso a los materiales adecuados, puedes pasar 8 horas convirtiendo un objeto que hayas fabricado de esta manera en una versión permanente, siempre que empieces el proceso antes de que el objeto se deshaga. Los objetos fabricados de este modo funcionarán exactamente igual que una versión normal del objeto, y si dominas las herramientas utilizadas para fabricarlos, incluso pueden parecer fabricados de forma profesional. De lo contrario, conservan un aspecto más bien tosco y adoquinado. También puedes utilizar el scroungecraft para reparar equipos rotos, siempre que tengas los materiales a mano. Sin embargo, la duración de las reparaciones depende del GM."
 					]
@@ -2497,6 +4024,25 @@
 				{
 					"other": true,
 					"auran": true
+				}
+			],
+			"age": {
+				"mature": 20,
+				"max": 100
+			},
+			"traitTags": [
+				"Natural Weapon"
+			],
+			"skillProficiencies": [
+				{
+					"perception": true
+				}
+			],
+			"weaponProficiencies": [
+				{
+					"shortsword|phb": true,
+					"shortbow|phb": true,
+					"spear|phb": true
 				}
 			],
 			"entries": [
@@ -2593,6 +4139,13 @@
 					"other": true,
 					"auran": true
 				}
+			],
+			"age": {
+				"mature": 15,
+				"max": 80
+			},
+			"traitTags": [
+				"Natural Weapon"
 			],
 			"entries": [
 				{
@@ -2713,6 +4266,10 @@
 					}
 				}
 			],
+			"age": {
+				"mature": 15,
+				"max": 90
+			},
 			"entries": [
 				{
 					"name": "Age",
@@ -2746,7 +4303,7 @@
 					"name": "Darkvision",
 					"type": "entries",
 					"entries": [
-						"Puedes ver en la luz tenue a menos de 60 pies de ti como si fuera luz brillante, y en la oscuridad como si fuera luz tenue. No puede discernir el color en la oscuridad, sólo tonos de gris. Los mapachs se sienten más cómodos bajo el manto de la noche."
+						"You are adept at hunting at night. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
 					]
 				},
 				{
@@ -2870,6 +4427,11 @@
 			"traitTags": [
 				"Natural Weapon"
 			],
+			"skillProficiencies": [
+				{
+					"insight": true
+				}
+			],
 			"entries": [
 				{
 					"name": "Skulker",
@@ -2908,6 +4470,41 @@
 					"any": 1
 				}
 			],
+			"overwrite": {
+				"skillProficiencies": true,
+				"languageProficiencies": true
+			},
+			"skillProficiencies": [
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						]
+					},
+					"deception": true
+				},
+				{
+					"choose": {
+						"from": [
+							"arcana",
+							"history",
+							"nature",
+							"religion"
+						]
+					},
+					"persuasion": true
+				}
+			],
+			"languageProficiencies": [
+				{
+					"anyStandard": 1,
+					"auran": true,
+					"other": true
+				}
+			],
 			"entries": [
 				{
 					"name": "Convincing",
@@ -2938,6 +4535,11 @@
 					"cha": 1
 				}
 			],
+			"skillProficiencies": [
+				{
+					"insight": true
+				}
+			],
 			"entries": [
 				{
 					"name": "Inspiring",
@@ -2966,6 +4568,11 @@
 			"ability": [
 				{
 					"dex": 1
+				}
+			],
+			"skillProficiencies": [
+				{
+					"nature": true
 				}
 			],
 			"entries": [
@@ -3029,6 +4636,25 @@
 			"ability": [
 				{
 					"wis": 1
+				}
+			],
+			"skillProficiencies": [
+				{
+					"performance": true
+				}
+			],
+			"additionalSpells": [
+				{
+					"ability": "cha",
+					"innate": {
+						"_": {
+							"daily": {
+								"1": [
+									"charm person"
+								]
+							}
+						}
+					}
 				}
 			],
 			"entries": [
@@ -3101,6 +4727,11 @@
 			"traitTags": [
 				"Natural Weapon"
 			],
+			"skillProficiencies": [
+				{
+					"acrobatics": true
+				}
+			],
 			"entries": [
 				{
 					"name": "Agile",
@@ -3134,6 +4765,11 @@
 			"traitTags": [
 				"Natural Weapon"
 			],
+			"skillProficiencies": [
+				{
+					"intimidation": true
+				}
+			],
 			"entries": [
 				{
 					"name": "Imposing",
@@ -3146,7 +4782,7 @@
 					"name": "Brawler",
 					"type": "entries",
 					"entries": [
-						"Cuando atacas con éxito a un objetivo con tus garras, puedes elegir agarrar a ese objetivo como acción adicional."
+						"When you successfully attack a target with your talons, you can choose to {@action grapple} that target as a bonus action."
 					]
 				}
 			],
@@ -3167,6 +4803,11 @@
 			],
 			"traitTags": [
 				"Natural Weapon"
+			],
+			"skillProficiencies": [
+				{
+					"survival": true
+				}
 			],
 			"entries": [
 				{
@@ -3817,6 +5458,417 @@
 			]
 		}
 	],
+	"foundryRaceFeature": [
+		{
+			"name": "Surge of Vigor",
+			"raceName": "Cervan",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "If an attack deals over half of your current remaining hit points in damage"
+					},
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"healing": {
+						"number": 1,
+						"denomination": 12,
+						"bonus": "@abilities.con.mod",
+						"types": [
+							"healing"
+						]
+					},
+					"type": "heal"
+				}
+			],
+			"system": {
+				"uses": {
+					"max": 1,
+					"recovery": [
+						{
+							"period": "lr",
+							"type": "recoverAll"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Antlers",
+			"raceName": "Cervan (Pronghorn)",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"attack": {
+						"ability": "str",
+						"type": {
+							"value": "melee",
+							"classification": "unarmed"
+						}
+					},
+					"damage.parts": [
+						{
+							"number": 1,
+							"denomination": 6,
+							"bonus": "@mod",
+							"types": [
+								"piercing"
+							]
+						}
+					],
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"type": "attack"
+				},
+				{
+					"activation": {
+						"type": "bonus",
+						"condition": "If you move at least 20 feet in a straight line towards an opponent"
+					},
+					"damage": {
+						"onSave": "full",
+						"parts": [
+							{
+								"number": 1,
+								"denomination": 6,
+								"types": [
+									"piercing"
+								]
+							}
+						]
+					},
+					"name": "Charge",
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"save": {
+						"ability": [
+							"str"
+						],
+						"dc.calculation": "str"
+					},
+					"type": "save"
+				}
+			]
+		},
+		{
+			"name": "Talons",
+			"raceName": "Corvum",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"attack": {
+						"ability": "str",
+						"type": {
+							"value": "melee",
+							"classification": "unarmed"
+						}
+					},
+					"damage.parts": [
+						{
+							"number": 1,
+							"denomination": 4,
+							"bonus": "@mod",
+							"types": [
+								"piercing"
+							]
+						}
+					],
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"type": "attack"
+				}
+			]
+		},
+		{
+			"name": "Appraising Eye",
+			"raceName": "Corvum",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"type": "utility"
+				}
+			],
+			"system": {
+				"uses": {
+					"max": 1,
+					"recovery": [
+						{
+							"period": "sr",
+							"type": "recoverAll"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Inspiring",
+			"raceName": "Gallus (Bright)",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"roll": {
+						"formula": "d4",
+						"visible": true
+					},
+					"target.affects": {
+						"count": 1,
+						"type": "ally"
+					},
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Spiny Quills",
+			"raceName": "Hedge",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"effects": [
+				{
+					"name": "Natural Armor",
+					"transfer": true,
+					"changes": [
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "custom"
+						},
+						{
+							"key": "system.attributes.ac.formula",
+							"mode": "OVERRIDE",
+							"value": "14 + @abilities.dex.mod"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Curl Up",
+			"raceName": "Hedge",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"duration.units": "dstr",
+					"effects": [
+						{
+							"foundryId": "HWCSHedgeCU"
+						}
+					],
+					"name": "Curl Up",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": null,
+						"condition": "Any creature that misses you with a melee attack while you are curled up"
+					},
+					"damage.parts": [
+						{
+							"number": 2,
+							"denomination": 4,
+							"types": [
+								"piercing"
+							]
+						}
+					],
+					"type": "damage"
+				}
+			],
+			"effects": [
+				{
+					"foundryId": "HWCSHedgeCU",
+					"name": "Curled Up",
+					"changes": [
+						{
+							"key": "system.attributes.ac.calc",
+							"mode": "OVERRIDE",
+							"value": "flat"
+						},
+						{
+							"key": "system.attributes.ac.flat",
+							"mode": "OVERRIDE",
+							"value": 19
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Fated",
+			"raceName": "Luma",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"activation.type": "special",
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"type": "utility"
+				}
+			],
+			"system": {
+				"uses": {
+					"max": 1,
+					"recovery": [
+						{
+							"period": "lr",
+							"type": "recoverAll"
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "Scroungecraft",
+			"raceName": "Mapach",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"activation": {
+						"value": 10,
+						"type": "minute"
+					},
+					"duration": {
+						"value": 1,
+						"units": "hour"
+					},
+					"name": "Scroungecraft",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"value": 8,
+						"type": "hour"
+					},
+					"duration.units": "perm",
+					"name": "Convert",
+					"type": "utility"
+				}
+			]
+		},
+		{
+			"name": "Talons",
+			"raceName": "Raptor",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"attack": {
+						"ability": "str",
+						"type": {
+							"value": "melee",
+							"classification": "unarmed"
+						}
+					},
+					"damage.parts": [
+						{
+							"number": 1,
+							"denomination": 4,
+							"bonus": "@mod",
+							"types": [
+								"piercing"
+							]
+						}
+					],
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"type": "attack"
+				}
+			]
+		},
+		{
+			"name": "Talons",
+			"raceName": "Strig",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"attack.type": {
+						"value": "melee",
+						"classification": "unarmed"
+					},
+					"damage.parts": [
+						{
+							"number": 1,
+							"denomination": 4,
+							"bonus": "@mod",
+							"types": [
+								"piercing"
+							]
+						}
+					],
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"type": "attack"
+				}
+			]
+		},
+		{
+			"name": "Bite",
+			"raceName": "Vulpin",
+			"source": "HumblewoodCampaignSetting",
+			"raceSource": "HumblewoodCampaignSetting",
+			"activities": [
+				{
+					"attack": {
+						"ability": "none",
+						"bonus": "max(@abilities.str.mod, @abilities.dex.mod)",
+						"type": {
+							"value": "melee",
+							"classification": "unarmed"
+						}
+					},
+					"damage.parts": [
+						{
+							"number": 1,
+							"denomination": 6,
+							"bonus": "max(@abilities.str.mod, @abilities.dex.mod)",
+							"types": [
+								"piercing"
+							]
+						}
+					],
+					"range": {
+						"value": 5,
+						"units": "ft"
+					},
+					"type": "attack"
+				}
+			]
+		}
+	],
 	"feat": [
 		{
 			"name": "Aerial Expert",
@@ -3862,6 +5914,44 @@
 						}
 					]
 				}
+			],
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "reaction",
+						"condition": "When you are asked to make a saving throw"
+					},
+					"consumption": {
+						"targets": [
+							{
+								"type": "activityUses",
+								"value": 1
+							}
+						]
+					},
+					"name": "Bonus to Saving Throw",
+					"roll": {
+						"name": "Add to Saving Throw",
+						"formula": "@abilities.int.mod"
+					},
+					"type": "utility",
+					"uses": {
+						"max": 1,
+						"recovery": [
+							{
+								"period": "lr",
+								"type": "recoverAll"
+							}
+						]
+					}
+				},
+				{
+					"check.associated": [
+						"inv"
+					],
+					"name": "Investigate Opponent",
+					"type": "check"
+				}
 			]
 		},
 		{
@@ -3902,6 +5992,20 @@
 						"Siempre que utilices con éxito tu habilidad {@skill Sleight of Hand} fuera de combate para robar un objeto, puedes ocultarlo inmediatamente sin problemas en tu persona, o poner otro objeto que poseas en su lugar."
 					]
 				}
+			],
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When a creature fails a melee attack roll against you in combat"
+					},
+					"check.associated": [
+						"slt"
+					],
+					"name": "Steal",
+					"target.affects.type": "creature",
+					"type": "check"
+				}
 			]
 		},
 		{
@@ -3918,7 +6022,7 @@
 				{
 					"type": "list",
 					"items": [
-						"Reduce el dado de daño por caída de un d6 a un d4.",
+						"Reduce the damage die for fall damage from a d6 to a {@dice d4}.",
 						"No caes en picado después de recibir daño por caída.",
 						"No recibes daño durante los primeros 30 pies de tu caída."
 					]
@@ -3941,8 +6045,13 @@
 					"items": [
 						"Las bestias de tamaño grande o mayor tienen una disposición amistosa hacia ti a menos que las hayas atacado.",
 						"Tienes ventaja en los chequeos de Carisma realizados contra bestias de tamaño grande o superior.",
-						"Puedes hablar y entender al Águila Gigante, al Alce Gigante y al Búho Gigante. Por lo demás, puedes ser entendido por cualquier bestia de tamaño Grande o mayor, hablen o no un idioma. Las bestias con puntuaciones de Inteligencia de 4 o menos sólo pueden entender conceptos sencillos."
+						"You can speak and understand {@language Giant Eagle|MM}, {@language Giant Elk|MM}, and {@language Giant Owl|MM}. You can otherwise be understood by any beast of Large size or larger, whether or not they speak a language. Beasts with Intelligence scores of 4 or lower may only be able to understand simple concepts."
 					]
+				}
+			],
+			"languageProficiencies": [
+				{
+					"other": true
 				}
 			]
 		},
@@ -3952,8 +6061,12 @@
 			"page": 47,
 			"skillProficiencies": [
 				{
-					"survival": true,
-					"nature": true
+					"choose": {
+						"from": [
+							"survival",
+							"nature"
+						]
+					}
 				}
 			],
 			"entries": [
@@ -4033,7 +6146,81 @@
 			"conditionInflict": [
 				"invisible"
 			],
-			"hasFluffImages": true
+			"miscTags": [
+				"SCL"
+			],
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"consumption": {
+						"targets": [
+							{
+								"type": "itemUses",
+								"value": -2,
+								"scaling.formula": -1
+							}
+						]
+					},
+					"name": "Cast",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": null,
+						"override": true
+					},
+					"consumption": {
+						"spellSlot": false,
+						"targets": [
+							{
+								"type": "itemUses",
+								"value": "@item.uses.value"
+							}
+						]
+					},
+					"damage": {
+						"critical.allow": true,
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "(@item.uses.value - 1)d6"
+								}
+							}
+						]
+					},
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"name": "Attack Extra Damage",
+					"range": {
+						"units": "any",
+						"override": true
+					},
+					"target": {
+						"affects": {
+							"count": 1,
+							"type": "any",
+							"special": "Any target who is unaware of your presence"
+						},
+						"override": true
+					},
+					"type": "damage"
+				}
+			],
+			"foundrySystem": {
+				"uses": {
+					"spent": 9,
+					"max": 9,
+					"recovery": [
+						{
+							"period": "sr",
+							"type": "loseAll"
+						}
+					]
+				}
+			}
 		},
 		{
 			"name": "Elevated Sight",
@@ -4106,8 +6293,7 @@
 				"blinded"
 			],
 			"miscTags": [
-				"SGT",
-				"UBA"
+				"SGT"
 			],
 			"hasFluffImages": true
 		},
@@ -4173,7 +6359,54 @@
 				"ADV",
 				"UBA"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"name": "Cast",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": "bonus",
+						"override": true
+					},
+					"consumption.spellSlot": false,
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"name": "Fly",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": null,
+						"condition": "Once per turn",
+						"override": true
+					},
+					"consumption.spellSlot": false,
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"name": "Propel",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": "reaction",
+						"condition": "When falling",
+						"override": true
+					},
+					"consumption.spellSlot": false,
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"name": "Glide",
+					"type": "utility"
+				}
+			]
 		},
 		{
 			"name": "Globe of Twilight",
@@ -4241,12 +6474,81 @@
 			],
 			"miscTags": [
 				"ADV",
-				"SGT"
+				"OBS"
 			],
 			"areaTags": [
 				"S"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"effects": [
+						{
+							"foundryId": "HWCSGoTSel"
+						},
+						{
+							"foundryId": "HWCSGoTNon"
+						}
+					],
+					"name": "Cast",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When an unobscured creature enters the spell's area for the first time, or starts its turn there",
+						"override": true
+					},
+					"consumption.spellSlot": false,
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"range": {
+						"value": 15,
+						"units": "ft",
+						"override": true
+					},
+					"save.ability": [
+						"wis"
+					],
+					"target": {
+						"affects": {
+							"count": 1,
+							"type": "creature"
+						},
+						"override": true
+					},
+					"type": "save"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "HWCSGoTSel",
+					"name": "Obscured",
+					"changes": [
+						{
+							"key": "flags.midi-qol.advantage.skill.ste",
+							"mode": "CUSTOM",
+							"value": 1
+						}
+					]
+				},
+				{
+					"foundryId": "HWCSGoTNon",
+					"name": "Dazzled",
+					"changes": [
+						{
+							"key": "flags.midi-qol.disadvantage.skill.prc",
+							"mode": "CUSTOM",
+							"value": 1
+						}
+					]
+				}
+			],
+			"foundrySystem": {
+				"target.affects.choice": true
+			}
 		},
 		{
 			"name": "Gust Barrier",
@@ -4314,7 +6616,54 @@
 			"savingThrow": [
 				"constitution"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"effects": [
+						{
+							"foundryId": "HWCSGBBar"
+						}
+					],
+					"name": "Cast",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When you are hit with a melee attack while the spell is active",
+						"override": true
+					},
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"save.ability": [
+						"con"
+					],
+					"type": "save"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "HWCSGBBar",
+					"name": "Gust Barrier",
+					"duration": {
+						"rounds": 1
+					},
+					"changes": [
+						{
+							"key": "flags.midi-qol.grants.disadvantage.attack.rsak",
+							"mode": "CUSTOM",
+							"value": 1
+						},
+						{
+							"key": "flags.midi-qol.grants.disadvantage.attack.rwak",
+							"mode": "CUSTOM",
+							"value": 1
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "Invoke the Amaranthine",
@@ -4369,7 +6718,14 @@
 			"miscTags": [
 				"SGT"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"name": "Cast",
+					"roll.formula": "{d20,d20}",
+					"type": "utility"
+				}
+			]
 		},
 		{
 			"name": "Shape Plants",
@@ -4410,7 +6766,7 @@
 			],
 			"entries": [
 				"You call upon gentle natural magics to alter the growth of plants. Any plant life you can see within range that fits within a 5-foot cube can take on whatever shape you desire. Additionally, if the plant is a bramble or capable of growing thorns, you may turn the affected area into difficult terrain, causing {@damage 2d4} points of piercing damage for every 5 feet moved through the area you shaped. You may also increase or decrease the number of flowers, vines, leaves, thorns, branches, or fruits produced by any plant you shape.",
-				"Después de una hora, la magia de tu hechizo se desvanece y la planta recupera su forma normal. Si puedes usar hablar con las plantas (o una habilidad similar) para comunicarte con la planta, puedes persuadirla para que mantenga su nueva forma. Las plantas tienen sentimientos y actitudes diferentes, y si la forma es demasiado diferente de su forma natural, es probable que decline. Si la planta acepta, a discreción del GM, conservará la forma que le has esculpido, en cuyo caso el efecto se vuelve permanente."
+				"After one hour, the magic of your spell fades, and the plant resumes its normal shape. If you can use {@spell speak with plants} (or a similar ability) to communicate with the plant, you may persuade it to retain its new form. Different plants have different feelings and attitudes, and if the form is too different from its natural shape it is likely to decline. If the plant accepts, at the GM's discretion, it will retain the form you have sculpted it into, in which case the effect becomes permanent."
 			],
 			"entriesHigherLevel": [
 				{
@@ -4441,13 +6797,49 @@
 				"piercing"
 			],
 			"miscTags": [
+				"DFT",
 				"PRM",
+				"SCL",
 				"SGT"
 			],
 			"areaTags": [
 				"C"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"name": "Cast",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": null,
+						"override": true
+					},
+					"consumption.spellSlot": false,
+					"damage.parts": [
+						{
+							"number": 2,
+							"denomination": 4,
+							"types": [
+								"piercing"
+							]
+						}
+					],
+					"range": {
+						"type": "any",
+						"override": true
+					},
+					"target": {
+						"affects.type": "creature",
+						"override": true
+					},
+					"type": "damage"
+				}
+			],
+			"foundrySystem": {
+				"target.template.size": "(@item.level - 3) * 5"
+			}
 		},
 		{
 			"name": "Spiny Shield",
@@ -4525,9 +6917,38 @@
 				"piercing"
 			],
 			"miscTags": [
-				"MAC"
+				"MAC",
+				"SCL"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"name": "Cast",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": "special",
+						"condition": "When you are hit by a melee attack",
+						"override": true
+					},
+					"damage.parts": [
+						{
+							"number": 2,
+							"denomination": 4,
+							"types": [
+								"piercing"
+							],
+							"scaling.mode": "whole"
+						}
+					],
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"type": "damage"
+				}
+			]
 		},
 		{
 			"name": "Stellar Bodies",
@@ -4597,6 +7018,10 @@
 			"conditionInflict": [
 				"blinded"
 			],
+			"miscTags": [
+				"LGT",
+				"SCL"
+			],
 			"spellAttack": [
 				"R"
 			],
@@ -4604,7 +7029,169 @@
 				"constitution",
 				"wisdom"
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": "-floor((@item.level) / 2)"
+						}
+					],
+					"name": "Cast",
+					"type": "utility"
+				},
+				{
+					"activation": {
+						"type": "special",
+						"condition": "If a creature within 5 feet of you hits you with a melee attack",
+						"override": true
+					},
+					"consumption.spellSlot": false,
+					"damage": {
+						"onSave": "none",
+						"parts": [
+							{
+								"custom": {
+									"enabled": true,
+									"formula": "(@item.uses.value)d8"
+								},
+								"types": [
+									"radiant"
+								]
+							}
+						]
+					},
+					"duration": {
+						"units": "inst",
+						"override": true
+					},
+					"name": "Against Melee Attacker",
+					"range": {
+						"value": 5,
+						"units": "ft",
+						"override": true
+					},
+					"save.ability": [
+						"wis"
+					],
+					"target": {
+						"affects": {
+							"count": 1,
+							"type": "creature"
+						},
+						"override": true
+					},
+					"type": "save"
+				},
+				{
+					"attack.type": {
+						"value": "ranged",
+						"classification": "spell"
+					},
+					"consumption": {
+						"spellSlot": false,
+						"targets": [
+							{
+								"value": 1,
+								"type": "itemUses"
+							}
+						]
+					},
+					"damage.parts": [
+						{
+							"number": 4,
+							"denomination": 8,
+							"types": [
+								"radiant"
+							]
+						}
+					],
+					"range": {
+						"value": 120,
+						"units": "ft",
+						"override": true
+					},
+					"target": {
+						"affects": {
+							"count": 1,
+							"type": "enemy"
+						},
+						"override": true
+					},
+					"type": "attack"
+				},
+				{
+					"activation": {
+						"type": "special",
+						"condition": "Upon successful attack",
+						"override": true
+					},
+					"consumption.spellSlot": false,
+					"duration": {
+						"value": 1,
+						"type": "round",
+						"override": true
+					},
+					"range": {
+						"value": 120,
+						"units": "ft",
+						"override": true
+					},
+					"save.ability": [
+						"con"
+					],
+					"target": {
+						"affects": {
+							"count": 1,
+							"type": "enemy"
+						},
+						"override": true
+					},
+					"type": "save"
+				},
+				{
+					"activation": {
+						"type": null,
+						"override": true
+					},
+					"consumption": {
+						"spellSlot": false,
+						"targets": [
+							{
+								"type": "itemUses",
+								"value": "@item.uses.value"
+							}
+						]
+					},
+					"duration": {
+						"type": "inst",
+						"override": true
+					},
+					"name": "End Spell",
+					"range": {
+						"units": "self",
+						"override": true
+					},
+					"target": {
+						"affects.type": null,
+						"override": true
+					},
+					"type": "utility"
+				}
+			],
+			"foundrySystem": {
+				"uses": {
+					"spent": 4,
+					"max": 4,
+					"recovery": [
+						{
+							"period": "sr",
+							"type": "loseAll"
+						}
+					]
+				}
+			}
 		},
 		{
 			"name": "Veil of Dusk",
@@ -4663,7 +7250,38 @@
 					}
 				]
 			},
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"effects": [
+						{
+							"foundryId": "HWCSVoDVeil"
+						}
+					],
+					"name": "Cast",
+					"type": "utility"
+				}
+			],
+			"foundryEffects": [
+				{
+					"foundryId": "HWCSVoDVeil",
+					"duration": {
+						"seconds": 600
+					},
+					"changes": [
+						{
+							"key": "system.attributes.ac.bonus",
+							"mode": "ADD",
+							"value": 1
+						},
+						{
+							"key": "flags.midi-qol.advantage.skill.ste",
+							"mode": "CUSTOM",
+							"value": 1
+						}
+					]
+				}
+			]
 		}
 	],
 	"spellFluff": [
@@ -4874,7 +7492,99 @@
 					"wall of ice#6"
 				]
 			},
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"damage.includeBase": true,
+					"type": "attack"
+				},
+				{
+					"name": "Ray of Frost",
+					"spell": {
+						"properties": [],
+						"uuid": "@spell[ray of frost]"
+					},
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "activityUses",
+							"value": 1
+						}
+					],
+					"damage": {
+						"onSave": "half",
+						"parts": [
+							{
+								"number": 9,
+								"denomination": 8,
+								"types": [
+									"cold"
+								]
+							}
+						]
+					},
+					"name": "Breath of Winter",
+					"save": {
+						"ability": [
+							"con"
+						],
+						"dc": {
+							"calculation": "",
+							"formula": 18
+						}
+					},
+					"target.template": {
+						"size": 100,
+						"units": "ft",
+						"type": "cone"
+					},
+					"type": "save",
+					"uses": {
+						"max": 1,
+						"recovery": [
+							{
+								"period": "dawn",
+								"type": "recoverAll"
+							}
+						]
+					}
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "activityUses",
+							"value": 3
+						}
+					],
+					"name": "Glacial Prison",
+					"range": {
+						"override": true,
+						"value": 200,
+						"units": "ft"
+					},
+					"spell": {
+						"challenge": {
+							"override": true,
+							"save": 18
+						},
+						"level": 6,
+						"uuid": "@spell[wall of ice]"
+					},
+					"type": "cast",
+					"uses": {
+						"max": 3,
+						"recovery": [
+							{
+								"period": "day",
+								"type": "formula",
+								"formula": 1
+							}
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Feathered Helm",
@@ -4950,17 +7660,139 @@
 					]
 				}
 			},
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"name": "Tasha's Hideous Laughter",
+					"spell": {
+						"challenge": {
+							"override": true,
+							"save": 16
+						},
+						"uuid": "@spell[tasha's hideous laughter]"
+					},
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 2
+						}
+					],
+					"name": "Detect Thoughts",
+					"spell": {
+						"challenge": {
+							"override": true,
+							"save": 16
+						},
+						"uuid": "@spell[detect thoughts]"
+					},
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"name": "Bless",
+					"spell.uuid": "@spell[bless]",
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 2
+						}
+					],
+					"name": "Aid",
+					"spell.uuid": "@spell[aid]",
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"name": "Luma",
+					"roll.formula": "d20",
+					"type": "utility"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"name": "Hunter's Mark",
+					"spell.uuid": "@spell[hunter's mark]",
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 2
+						}
+					],
+					"name": "Magic Weapon",
+					"spell.uuid": "@spell[magic weapon]",
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"name": "Divine Favor",
+					"spell.uuid": "@spell[divine favor]",
+					"type": "cast"
+				},
+				{
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 2
+						}
+					],
+					"name": "Pass without Trace",
+					"spell.uuid": "@spell[pass without trace]",
+					"type": "cast"
+				}
+			]
 		},
 		{
 			"name": "Necronomicon Ex Corvis",
 			"source": "HumblewoodCampaignSetting",
 			"page": 213,
 			"rarity": "artifact",
-			"reqAttune": true,
+			"reqAttune": "by a wizard",
+			"reqAttuneTags": [
+				{
+					"class": "wizard"
+				}
+			],
+			"focus": [
+				"Wizard"
+			],
 			"wondrous": true,
 			"ability": {
-				"int": 2
+				"int": 2,
+				"wis": -1
 			},
 			"entries": [
 				"Este legendario tomo de nigromancia oscura fue escrito por el loco nigromante corvum Lathrus, de la Llamada de la Noche. El libro es único y contiene terribles secretos nigrománticos.",
@@ -5043,7 +7875,60 @@
 					"vampiric touch"
 				]
 			},
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"activation": {
+						"value": 1,
+						"type": "minute"
+					},
+					"consumption.targets": [
+						{
+							"type": "activityUses",
+							"value": "@activity.uses.max"
+						}
+					],
+					"name": "Grasp of Shadows",
+					"profiles": [
+						{
+							"count": "1d4+2",
+							"uuid": "@creature[shadow]"
+						}
+					],
+					"type": "summon",
+					"uses": {
+						"max": 7,
+						"recovery": [
+							{
+								"period": "day",
+								"type": "formula",
+								"formula": 1
+							}
+						]
+					}
+				},
+				{
+					"activation": {
+						"type": "",
+						"condition": "After copying at least one spell from this tome into your spellbook"
+					},
+					"duration": {
+						"units": "spec",
+						"special": "2d4 days"
+					},
+					"name": "The Corvum's Curse",
+					"save": {
+						"ability": [
+							"wis"
+						],
+						"dc": {
+							"calculation": "",
+							"formula": 16
+						}
+					},
+					"type": "save"
+				}
+			]
 		},
 		{
 			"name": "Nest Charm",
@@ -5057,7 +7942,34 @@
 				"Al colocar el amuleto en el suelo y pronunciar su palabra de mando, puedes hacer que se despliegue, creando una plataforma circular de 30 pies de diámetro de ramas entrelazadas. Una vez que la plataforma haya alcanzado su tamaño completo, un árbol mágico crece debajo de ella, elevando la plataforma 15 metros en el aire, llevando a los pasajeros y objetos junto con ella.",
 				"Esta percha dura hasta 8 horas, momento en el que el árbol se retirará al suelo y la plataforma se encogerá, volviendo a enroscarse en el pequeño encanto. En cualquier momento se puede volver a pronunciar la palabra de mando para desalojar la percha de forma similar. Una vez que se ha utilizado el poder del amuleto del nido, no se puede volver a utilizar hasta el siguiente amanecer."
 			],
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"charges": 1,
+			"recharge": "dawn",
+			"foundryActivities": [
+				{
+					"activation": {
+						"type": "special",
+						"condition": "By placing the charm on the ground and speaking its command word"
+					},
+					"consumption.targets": [
+						{
+							"type": "itemUses",
+							"value": 1
+						}
+					],
+					"duration": {
+						"value": 8,
+						"units": "hour"
+					},
+					"target.template": {
+						"size": 15,
+						"height": 50,
+						"units": "ft",
+						"type": "cylinder"
+					},
+					"type": "utility"
+				}
+			]
 		},
 		{
 			"name": "Wing Crest Shield",
@@ -5081,7 +7993,29 @@
 					]
 				}
 			},
-			"hasFluffImages": true
+			"hasFluffImages": true,
+			"foundryActivities": [
+				{
+					"consumption.targets": [
+						{
+							"type": "activityUses",
+							"value": 1
+						}
+					],
+					"name": "Gust of Wind",
+					"spell.uuid": "@spell[gust of wind]",
+					"type": "cast",
+					"uses": {
+						"max": 1,
+						"recovery": [
+							{
+								"period": "dawn",
+								"type": "recoverAll"
+							}
+						]
+					}
+				}
+			]
 		}
 	],
 	"magicvariant": [
@@ -5113,7 +8047,9 @@
 							"spike growth"
 						]
 					}
-				}
+				},
+				"recharge": "dawn",
+				"rechargeAmount": 1
 			},
 			"hasFluffImages": true
 		},
@@ -5142,8 +8078,11 @@
 				"entries": [
 					"Este arco, un arma de caza muy apreciada entre las rapaces de Mistral, está imbuido de magia para ayudar a su portador a ver a su presa desde lejos.",
 					"Ganas un {=bonusWeapon} de bonificación a las tiradas de ataque y daño realizadas con esta arma mágica.",
-					"El arco tiene 3 cargas. Cuando disparas una flecha con este arco, puedes pronunciar la palabra de mando y utilizar una carga para ver a través de la flecha como acción adicional. Puedes ver desde el punto en el que cae tu flecha como si estuvieras allí durante 1 minuto. Si la flecha golpea a una criatura, ves lo que ella ve durante el mismo tiempo."
-				]
+					"El arco tiene 3 cargas. Cuando disparas una flecha con este arco, puedes pronunciar la palabra de mando y utilizar una carga para ver a través de la flecha como acción adicional. Puedes ver desde el punto en el que cae tu flecha como si estuvieras allí durante 1 minuto. Si la flecha golpea a una criatura, ves lo que ella ve durante el mismo tiempo.",
+					"The bow regains {@dice 1d3} charges each day at dawn."
+				],
+				"recharge": "dawn",
+				"rechargeAmount": "{@dice 1d3}"
 			},
 			"hasFluffImages": true
 		}
